@@ -1,0 +1,338 @@
+{
+  "1": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\1dac06b2e17c8562.json",
+    "name": "Donchian-55 breakout",
+    "run_id": "1dac06b2e17c8562",
+    "symbol": "BTCUSDT",
+    "tf": "4h"
+  },
+  "10": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\9f160f2255405dac.json",
+    "name": "Turtle 20-day breakout",
+    "run_id": "9f160f2255405dac",
+    "symbol": "BTCUSDT",
+    "tf": "1d"
+  },
+  "11": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\56da728f7171116c.json",
+    "name": "Bollinger 2.2 sigma reversion",
+    "run_id": "56da728f7171116c",
+    "symbol": "ETHUSDT",
+    "tf": "15m"
+  },
+  "12": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\3d977bd5fdb24204.json",
+    "name": "VWAP deviation reversion",
+    "run_id": "3d977bd5fdb24204",
+    "symbol": "SOLUSDT",
+    "tf": "15m"
+  },
+  "13": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\e7b1a54fc073cc35.json",
+    "name": "z-score reversion",
+    "run_id": "e7b1a54fc073cc35",
+    "symbol": "BTCUSDT",
+    "tf": "1h"
+  },
+  "14": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\88382b0afae57724.json",
+    "name": "RSI-2 snap-back",
+    "run_id": "88382b0afae57724",
+    "symbol": "SUIUSDT",
+    "tf": "1h"
+  },
+  "15": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\52173caff5e3c7dd.json",
+    "name": "Stochastic RSI reversion",
+    "run_id": "52173caff5e3c7dd",
+    "symbol": "HYPEUSDT",
+    "tf": "30m"
+  },
+  "16": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\69e2713600ec9602.json",
+    "name": "Keltner fade",
+    "run_id": "69e2713600ec9602",
+    "symbol": "JUPUSDT",
+    "tf": "1h"
+  },
+  "17": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\c786105cca43aba6.json",
+    "name": "Williams %R extreme",
+    "run_id": "c786105cca43aba6",
+    "symbol": "BTCUSDT",
+    "tf": "30m"
+  },
+  "18": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\1018e6dcb339dbbb.json",
+    "name": "Hurst-gated reversion",
+    "run_id": "1018e6dcb339dbbb",
+    "symbol": "ETHUSDT",
+    "tf": "1h"
+  },
+  "19": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\cc5c142700cbabdf.json",
+    "name": "Bollinger-Keltner squeeze",
+    "run_id": "cc5c142700cbabdf",
+    "symbol": "BTCUSDT",
+    "tf": "1h"
+  },
+  "2": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\d20abeaaad5c58aa.json",
+    "name": "dual EMA 21/55 trend",
+    "run_id": "d20abeaaad5c58aa",
+    "symbol": "ETHUSDT",
+    "tf": "4h"
+  },
+  "20": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\7af150b557ad20c2.json",
+    "name": "opening-range breakout",
+    "run_id": "7af150b557ad20c2",
+    "symbol": "ETHUSDT",
+    "tf": "15m"
+  },
+  "21": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\056f65013c9bc22f.json",
+    "name": "ATR-expansion breakout",
+    "run_id": "056f65013c9bc22f",
+    "symbol": "SOLUSDT",
+    "tf": "4h"
+  },
+  "22": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\da0424b7861989a1.json",
+    "name": "inside-bar breakout",
+    "run_id": "da0424b7861989a1",
+    "symbol": "SUIUSDT",
+    "tf": "1h"
+  },
+  "23": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\890345934a953513.json",
+    "name": "volatility-regime breakout",
+    "run_id": "890345934a953513",
+    "symbol": "HYPEUSDT",
+    "tf": "4h"
+  },
+  "24": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\51a594e473e77acd.json",
+    "name": "range-break failure fade",
+    "run_id": "51a594e473e77acd",
+    "symbol": "BTCUSDT",
+    "tf": "1h"
+  },
+  "25": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\ae860b93c4ad7e60.json",
+    "name": "Chandelier breakout",
+    "run_id": "ae860b93c4ad7e60",
+    "symbol": "ETHUSDT",
+    "tf": "4h"
+  },
+  "26": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\f8fa2c7d82d7d5bb.json",
+    "name": "daily pivot R1/S1",
+    "run_id": "f8fa2c7d82d7d5bb",
+    "symbol": "JUPUSDT",
+    "tf": "1h"
+  },
+  "27": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\47f3502da45d49ba.json",
+    "name": "SOL/ETH ratio reversion",
+    "run_id": "47f3502da45d49ba",
+    "symbol": "SOLUSDT+ETHUSDT",
+    "tf": "1h"
+  },
+  "28": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\074e9fb993e0a583.json",
+    "name": "BTC/ETH cointegration",
+    "run_id": "074e9fb993e0a583",
+    "symbol": "BTCUSDT+ETHUSDT",
+    "tf": "4h"
+  },
+  "29": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\a4c58aead9f190c0.json",
+    "name": "SUI/SOL momentum spread",
+    "run_id": "a4c58aead9f190c0",
+    "symbol": "SUIUSDT+SOLUSDT",
+    "tf": "4h"
+  },
+  "3": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\d9bd110141f559b4.json",
+    "name": "MACD histogram momentum",
+    "run_id": "d9bd110141f559b4",
+    "symbol": "SOLUSDT",
+    "tf": "4h"
+  },
+  "30": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\b9033295be4cc9c2.json",
+    "name": "JUP/SOL rotation",
+    "run_id": "b9033295be4cc9c2",
+    "symbol": "JUPUSDT+SOLUSDT",
+    "tf": "1d"
+  },
+  "31": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\bec9428f936e2b4f.json",
+    "name": "HYPE/BTC beta-neutral",
+    "run_id": "bec9428f936e2b4f",
+    "symbol": "HYPEUSDT+BTCUSDT",
+    "tf": "4h"
+  },
+  "32": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\8d5242a3a743b39d.json",
+    "name": "ETH/BTC dominance proxy",
+    "run_id": "8d5242a3a743b39d",
+    "symbol": "ETHUSDT+BTCUSDT",
+    "tf": "1d"
+  },
+  "33": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\d1b18abf699949df.json",
+    "name": "funding-spread pair",
+    "run_id": "d1b18abf699949df",
+    "symbol": "ETHUSDT+SOLUSDT",
+    "tf": "1h"
+  },
+  "35": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\508fbe03071ddb4b.json",
+    "name": "VWAP pullback scalp",
+    "run_id": "508fbe03071ddb4b",
+    "symbol": "BTCUSDT",
+    "tf": "1m"
+  },
+  "36": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\3fdda9ccfe3eeeb3.json",
+    "name": "order-imbalance scalp",
+    "run_id": "3fdda9ccfe3eeeb3",
+    "symbol": "ETHUSDT",
+    "tf": "1m"
+  },
+  "37": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\3a487848b68b17c2.json",
+    "name": "EMA 5/13 volume-hour scalp",
+    "run_id": "3a487848b68b17c2",
+    "symbol": "SOLUSDT",
+    "tf": "5m"
+  },
+  "38": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\744fd24001c5ee45.json",
+    "name": "liquidity-sweep reversal",
+    "run_id": "744fd24001c5ee45",
+    "symbol": "SUIUSDT",
+    "tf": "1m"
+  },
+  "39": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\dbb04ee79de80020.json",
+    "name": "Bollinger squeeze scalp",
+    "run_id": "dbb04ee79de80020",
+    "symbol": "HYPEUSDT",
+    "tf": "3m"
+  },
+  "4": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\674834c1010324d2.json",
+    "name": "ADX-gated DI cross",
+    "run_id": "674834c1010324d2",
+    "symbol": "HYPEUSDT",
+    "tf": "4h"
+  },
+  "40": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\6c0abd480bab5b7d.json",
+    "name": "tick-rule momentum scalp",
+    "run_id": "6c0abd480bab5b7d",
+    "symbol": "JUPUSDT",
+    "tf": "1m"
+  },
+  "41": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\300741d18994eca6.json",
+    "name": "Supertrend scalp",
+    "run_id": "300741d18994eca6",
+    "symbol": "BTCUSDT",
+    "tf": "5m"
+  },
+  "42": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\07bf0698d8b278b7.json",
+    "name": "1m range-expansion fade",
+    "run_id": "07bf0698d8b278b7",
+    "symbol": "ETHUSDT",
+    "tf": "1m"
+  },
+  "43": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\b71e37d56ccc3f55.json",
+    "name": "London-open breakout",
+    "run_id": "b71e37d56ccc3f55",
+    "symbol": "BTCUSDT",
+    "tf": "15m"
+  },
+  "44": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\24ab010f67e09e62.json",
+    "name": "New York-open fade",
+    "run_id": "24ab010f67e09e62",
+    "symbol": "ETHUSDT",
+    "tf": "15m"
+  },
+  "45": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\fdd964c4e8c669e5.json",
+    "name": "daily-level bounce",
+    "run_id": "fdd964c4e8c669e5",
+    "symbol": "SOLUSDT",
+    "tf": "1h"
+  },
+  "46": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\be0a85f7ab2b522c.json",
+    "name": "weekend-gap fade",
+    "run_id": "be0a85f7ab2b522c",
+    "symbol": "BTCUSDT",
+    "tf": "1h"
+  },
+  "47": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\fa0d446d3fe5916c.json",
+    "name": "intraday trend-day pullback",
+    "run_id": "fa0d446d3fe5916c",
+    "symbol": "SUIUSDT",
+    "tf": "15m"
+  },
+  "48": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\f1367cbaf19f7369.json",
+    "name": "funding-reset scalp",
+    "run_id": "f1367cbaf19f7369",
+    "symbol": "HYPEUSDT",
+    "tf": "30m"
+  },
+  "5": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\8321c904af22c0ad.json",
+    "name": "Heikin-Ashi trend",
+    "run_id": "8321c904af22c0ad",
+    "symbol": "SUIUSDT",
+    "tf": "4h"
+  },
+  "50": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\64a2b41447e941a1.json",
+    "name": "liquidity grab of the 24h low",
+    "run_id": "64a2b41447e941a1",
+    "symbol": "JUPUSDT",
+    "tf": "1h"
+  },
+  "6": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\28c183720f6041e1.json",
+    "name": "Keltner breakout + 4h slope",
+    "run_id": "28c183720f6041e1",
+    "symbol": "BTCUSDT",
+    "tf": "1h"
+  },
+  "7": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\f80d7c92490b74a4.json",
+    "name": "time-series momentum 90d",
+    "run_id": "f80d7c92490b74a4",
+    "symbol": "ETHUSDT",
+    "tf": "4h"
+  },
+  "8": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\7bc961ced23df363.json",
+    "name": "Hull MA trend",
+    "run_id": "7bc961ced23df363",
+    "symbol": "JUPUSDT",
+    "tf": "4h"
+  },
+  "9": {
+    "artifact": "C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\runs\\e4a95d4ef56399ae.json",
+    "name": "Parabolic SAR trend",
+    "run_id": "e4a95d4ef56399ae",
+    "symbol": "SOLUSDT",
+    "tf": "1h"
+  }
+}

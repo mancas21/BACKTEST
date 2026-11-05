@@ -1,0 +1,92 @@
+
+=== BTCUSDT 1H  61801 bars  2019..2026  pattern-bars 20326  entries 24356  rec!=0 42148  score [-11.4,13.4]
+BTCUSDT                  buy&hold net   +951.0%  DD  77.2%
+
+=== ETHUSDT 1H  59891 bars  2019..2026  pattern-bars 15397  entries 19920  rec!=0 39994  score [-11.8,12.0]
+ETHUSDT                  buy&hold net  +2068.9%  DD  81.4%
+
+=== SOLUSDT 1H  52883 bars  2020..2026  pattern-bars 11621  entries 16380  rec!=0 35885  score [-12.5,12.5]
+SOLUSDT                  buy&hold net  +4700.0%  DD  96.8%
+
+=== SUIUSDT 1H  29810 bars  2023..2026  pattern-bars 6959  entries 9826  rec!=0 19764  score [-11.0,11.5]
+SUIUSDT                  buy&hold net    +19.6%  DD  87.9%
+
+=== XRPUSDT 1H  58930 bars  2020..2026  pattern-bars 15815  entries 19946  rec!=0 39233  score [-11.9,13.0]
+XRPUSDT                  buy&hold net   +572.1%  DD  84.9%
+
+=== HYPEUSDT 1H  11624 bars  2025..2026  pattern-bars 2246  entries 3298  rec!=0 7368  score [-10.0,10.9]
+HYPEUSDT                 buy&hold net   +152.5%  DD  65.1%
+
+=== SPXUSDT 1H  15726 bars  2024..2026  pattern-bars 2588  entries 4571  rec!=0 10075  score [-10.0,11.5]
+SPXUSDT                  buy&hold net    -47.2%  DD  89.0%
+
+########## A. SPOT (Pine default: useLeverage=false) — long only, exit at T1 ##########
+BTCUSDT                  net   -52.61%  PF  0.87  n 684  WR 36.4%  DD  57.1%  bars  70.0 | 2019:-41.2%/54 2020:+16.6%/23 2021:-10.1%/106 2022:-15.0%/185 2023:+2.6%/6 2024:-0.2%/120 2025:+0.4%/97 2026:-12.0%/93
+ETHUSDT                  net   -49.18%  PF  0.92  n 938  WR 36.7%  DD  60.4%  bars  45.4 | 2019:-2.5%/8 2020:+10.0%/68 2021:-15.2%/141 2022:-30.3%/239 2023:+8.8%/88 2024:-1.7%/99 2025:-14.9%/185 2026:-11.8%/110
+SOLUSDT                  net   -51.55%  PF  0.88  n 763  WR 36.8%  DD  66.1%  bars  50.0 | 2020:-22.9%/38 2021:+10.5%/185 2022:-33.1%/118 2023:-23.7%/117 2024:-3.8%/17 2025:+31.1%/164 2026:-11.7%/124
+SUIUSDT                  net   -56.20%  PF  0.84  n 625  WR 34.7%  DD  68.0%  bars  28.9 | 2023:+10.3%/91 2024:-26.7%/166 2025:-23.4%/220 2026:-29.3%/148
+XRPUSDT                  net   -75.27%  PF  0.82  n 871  WR 33.2%  DD  83.5%  bars  45.2 | 2020:-0.5%/129 2021:+1.4%/56 2022:-19.3%/79 2023:-32.6%/135 2024:-9.4%/152 2025:-45.3%/182 2026:-9.0%/138
+HYPEUSDT                 net   +11.67%  PF  1.14  n 166  WR 36.1%  DD  22.3%  bars  48.9 | 2025:+4.0%/94 2026:+7.3%/72
+SPXUSDT                  net    -3.22%  PF  1.00  n 268  WR 37.7%  DD  30.5%  bars  41.7 | 2025:-13.6%/171 2026:+12.0%/97
+
+########## B. LEVERAGE MODE (useLeverage=true) — long+short, 1/3 at T1/T2/T3 ##########
+BTCUSDT                  net   +19.69%  PF  1.12  n 389  WR 47.0%  DD  26.9%  bars 119.7 | 2019:-11.3%/90 2020:-1.9%/133 2021:-7.8%/176 2022:+7.9%/309 2023:-0.1%/21 2024:+15.3%/120 2025:+3.2%/201 2026:+16.3%/117
+ETHUSDT                  net  +348.12%  PF  2.48  n 311  WR 45.3%  DD  54.7%  bars 151.5 | 2020:+383.8%/117 2021:-5.6%/93 2022:+2.8%/231 2023:-0.6%/21 2024:+2.8%/171 2025:-3.9%/132 2026:-2.9%/168
+SOLUSDT                  net    -7.35%  PF  0.94  n 273  WR 50.5%  DD  40.5%  bars 139.6 | 2020:-2.9%/24 2021:-1.6%/195 2022:-9.1%/84 2023:-12.0%/171 2024:+0.9%/1 2025:+3.9%/173 2026:+15.7%/171
+SUIUSDT                  net   -22.59%  PF  0.79  n 212  WR 41.0%  DD  42.4%  bars  85.4 | 2023:+13.1%/41 2024:+6.3%/127 2025:-12.3%/291 2026:-26.6%/177
+XRPUSDT                  net   -49.50%  PF  0.66  n 407  WR 44.5%  DD  56.0%  bars 102.9 | 2020:-7.0%/174 2021:-7.2%/126 2022:-10.3%/70 2023:-25.4%/366 2024:-7.4%/209 2025:-5.9%/252 2026:+0.3%/24
+HYPEUSDT                 net    -7.39%  PF  0.89  n  88  WR 30.7%  DD  30.9%  bars  82.7 | 2025:+0.2%/147 2026:-7.5%/117
+SPXUSDT                  net   -28.89%  PF  0.31  n  69  WR 34.8%  DD  30.1%  bars 153.4 | 2025:-24.4%/132 2026:-6.0%/75
+
+########## C. SCORE ONLY (recommendation >=+2 / <=-2) — long+short, exit at T1 ##########
+BTCUSDT                  net   -11.30%  PF  0.95  n 398  WR 56.3%  DD  24.5%  bars 115.8 | 2019:-2.6%/27 2020:+2.2%/23 2021:-9.0%/94 2022:-0.3%/38 2023:-11.0%/36 2024:+14.3%/66 2025:-5.1%/55 2026:+1.6%/59
+ETHUSDT                  net   -28.05%  PF  0.91  n 537  WR 51.2%  DD  45.7%  bars  70.8 | 2020:+12.4%/59 2021:+0.8%/97 2022:-14.8%/81 2023:-11.3%/70 2024:-11.0%/51 2025:-3.8%/100 2026:-2.0%/79
+SOLUSDT                  net   -17.66%  PF  0.94  n 420  WR 52.6%  DD  52.6%  bars  82.1 | 2020:-3.6%/10 2021:+9.7%/117 2022:-20.2%/47 2023:-21.9%/74 2024:+3.7%/10 2025:+14.0%/81 2026:+5.7%/81
+SUIUSDT                  net   -12.43%  PF  0.94  n 300  WR 51.3%  DD  25.1%  bars  55.9 | 2023:+6.5%/38 2024:-11.5%/83 2025:+4.0%/116 2026:-10.7%/63
+XRPUSDT                  net   -67.18%  PF  0.64  n 497  WR 47.9%  DD  76.6%  bars  79.8 | 2020:+12.6%/90 2021:-0.5%/37 2022:-1.9%/22 2023:-40.0%/129 2024:-28.4%/82 2025:-35.5%/102 2026:+7.7%/35
+HYPEUSDT                 net   -15.11%  PF  0.84  n  96  WR 36.5%  DD  29.3%  bars  78.2 | 2025:-4.3%/54 2026:-11.3%/42
+SPXUSDT                  net    +0.44%  PF  1.02  n 169  WR 47.9%  DD  20.1%  bars  45.5 | 2025:-10.4%/82 2026:+12.2%/87
+
+########## D. SPOT, exit at T2 (half the wave, 3x notional) ##########
+BTCUSDT                  net    -1.76%  PF  0.99  n 264  WR 26.9%  DD  19.0%  bars 157.2 | 2019:-14.8%/87 2020:+6.5%/61 2021:-2.1%/62 2022:-7.0%/243 2023:+4.0%/12 2024:+11.7%/111 2025:-1.5%/138 2026:+3.9%/78
+ETHUSDT                  net  +151.30%  PF  2.11  n 249  WR 28.1%  DD  47.9%  bars 157.5 | 2019:+0.8%/6 2020:+193.6%/96 2021:-1.1%/57 2022:-12.5%/240 2023:+2.0%/21 2024:+0.5%/111 2025:+3.8%/111 2026:-7.7%/105
+SOLUSDT                  net    -2.17%  PF  0.98  n 186  WR 24.2%  DD  23.2%  bars 153.8 | 2020:-6.2%/21 2021:+9.0%/105 2022:-15.3%/99 2023:+0.9%/150 2024:+0.9%/1 2025:+1.7%/107 2026:+9.2%/75
+SUIUSDT                  net   -16.97%  PF  0.81  n 205  WR 20.5%  DD  26.8%  bars  48.0 | 2023:+3.3%/42 2024:-5.4%/171 2025:-5.2%/186 2026:-10.4%/216
+XRPUSDT                  net   -10.21%  PF  0.92  n 300  WR 19.3%  DD  33.4%  bars 109.1 | 2020:-1.9%/126 2021:+11.5%/90 2022:+1.8%/204 2023:-17.0%/225 2024:-1.6%/187 2025:+1.0%/1 2026:-2.3%/67
+HYPEUSDT                 net    -0.11%  PF  1.01  n  69  WR 18.8%  DD  20.3%  bars  69.6 | 2025:+0.6%/114 2026:-0.7%/93
+SPXUSDT                  net   -19.83%  PF  0.45  n  62  WR 21.0%  DD  21.7%  bars 104.4 | 2025:-18.4%/135 2026:-1.7%/51
+
+--- equal-weight across symbols ---
+A spot/T1    net   -98.63%  median PF  0.88  green 1/7  trades 4315  worst DD  83.5%
+B lev/T123   net   +27.93%  median PF  0.89  green 2/7  trades 1749  worst DD  56.0%
+C score/T1   net   -87.12%  median PF  0.94  green 1/7  trades 2417  worst DD  76.6%
+D spot/T123  net   +44.18%  median PF  0.98  green 1/7  trades 1335  worst DD  47.9%
+
+--- per-pattern contribution (spot, long only, exit T1) ---
+  impulse    syms 7  trades 1211  median PF  0.80  BTCUSDT:-39%/237 ETHUSDT:-38%/212 SOLUSDT:-65%/189 SUIUSDT:-47%/156 XRPUSDT:-46%/311 HYPEUSDT:-12%/43 SPXUSDT:-18%/63
+  flat       syms 1  trades   0  median PF  0.00  ETHUSDT:+0%/0
+  triangle   syms 7  trades 1073  median PF  0.77  BTCUSDT:-45%/305 ETHUSDT:-20%/291 SOLUSDT:+3%/130 SUIUSDT:-26%/97 XRPUSDT:-46%/198 HYPEUSDT:-3%/34 SPXUSDT:-8%/18
+  diagonal   syms 7  trades 527  median PF  0.98  BTCUSDT:-6%/113 ETHUSDT:+229%/111 SOLUSDT:-5%/85 SUIUSDT:-34%/53 XRPUSDT:+16%/123 HYPEUSDT:-8%/19 SPXUSDT:-5%/23
+  wxy        syms 6  trades  23  median PF  0.26  BTCUSDT:+3%/8 ETHUSDT:-4%/7 SOLUSDT:-1%/1 SUIUSDT:+4%/3 XRPUSDT:-2%/2 SPXUSDT:-6%/2
+  wxyz       syms 7  trades 132  median PF  1.57  BTCUSDT:+9%/26 ETHUSDT:+15%/29 SOLUSDT:+18%/27 SUIUSDT:+3%/14 XRPUSDT:+1%/23 HYPEUSDT:+25%/7 SPXUSDT:-1%/6
+
+########## EDGE TEST — forward return by score bucket (no fills, no stops) ##########
+    bucket        n    fwd24b    fwd72b   fwd168b   fwd720b   t(168b)
+ score<=-5    17859    +0.10%    +0.27%    +1.22%    +5.78%    +13.02
+    -5..-2    64062    +0.15%    +0.45%    +1.24%    +6.08%    +23.92
+    -2..+2   102346    +0.21%    +0.58%    +1.28%    +6.03%    +30.22
+    +2..+5    64901    +0.25%    +0.86%    +1.67%    +8.89%    +30.29
+ score>=+5    36457    +0.35%    +0.91%    +2.62%   +11.50%    +31.87
+  ALL bars   290497    +0.22%    +0.64%    +1.52%    +7.37%
+
+--- same test on the pattern signal only ---
+wave LONG      n  68365  fwd24b  +0.21% (t +11.03)  fwd72b  +0.60% (t +18.02)
+wave LONG only n  68365  fwd24b  +0.21% (t +11.03)  fwd72b  +0.60% (t +18.02)
+wave both dir  n  98297  fwd24b  +0.24% (t +15.43)  fwd72b  +0.67% (t +24.78)
+
+--- long-vs-short split of the wave signal (fwd 168b) ---
+LONG entries   n  44499  fwd168b  +1.63% (t +25.61)
+SHORT entries  n  29901  fwd168b  +2.33% (t +29.81)
+ACCUM only     n  23687  fwd168b  +1.20% (t +13.27)
+
+artifacts -> C:\Users\Lenovo\Documents\backtest-system\results

@@ -1,0 +1,46 @@
+QS-001 two- ETH 5m n=  130 exp=-7.32 adv=-11.74 dd95=-32.76 verdict=REJECT F:456
+QS-001 two- HYP 1h n=   72 exp=22.97 adv=18.49 dd95=-25.02 verdict=INCONCLUSIVE F:56
+QS-001 long BTC 15m n=  191 exp=6.73 adv=4.63 dd95=-34.5 verdict=FAIL F:456
+QS-001 long HYP 5m n=   88 exp=-32.83 adv=-35.2 dd95=-35.54 verdict=REJECT F:456
+QS-001 long JUP 1h n=   64 exp=7.66 adv=5.42 dd95=-35.06 verdict=INCONCLUSIVE F:456
+QS-002 two- SOL 15m n=  109 exp=-14.83 adv=-18.26 dd95=-31.96 verdict=REJECT F:456
+QS-002 two- JUP 5m n=  287 exp=-9.54 adv=-14.0 dd95=-42.44 verdict=REJECT F:456
+QS-002 long ETH 1h n=  141 exp=-8.62 adv=-10.36 dd95=-30.83 verdict=REJECT F:456
+QS-002 long SUI 15m n=  319 exp=-6.04 adv=-6.85 dd95=-40.95 verdict=REJECT F:456
+QS-003 two- ETH 5m n=  237 exp=-12.45 adv=-17.85 dd95=-43.07 verdict=REJECT F:456
+QS-003 two- HYP 1h n=  225 exp=-7.5 adv=-8.51 dd95=-33.46 verdict=REJECT F:456
+QS-003 long BTC 15m n=  235 exp=-5.8 adv=-9.97 dd95=-35.78 verdict=REJECT F:456
+QS-003 long HYP 5m n=  472 exp=-4.44 adv=-10.6 dd95=-42.8 verdict=REJECT F:456
+QS-003 long JUP 1h n=  184 exp=6.43 adv=4.47 dd95=-32.68 verdict=FAIL F:456
+QS-004 two- SOL 15m n=  715 exp=-3.16 adv=-4.69 dd95=-52.95 verdict=REJECT F:456
+QS-004 two- JUP 5m n=  165 exp=-12.81 adv=-15.64 dd95=-41.85 verdict=REJECT F:456
+QS-004 long ETH 1h n=  107 exp=4.85 adv=-1.03 dd95=-33.84 verdict=INCONCLUSIVE ES F:456
+QS-004 long SUI 15m n=  457 exp=2.49 adv=-0.1 dd95=-35.63 verdict=FAIL ES F:456
+QS-005 two- ETH 5m n=  177 exp=-7.39 adv=-11.46 dd95=-32.9 verdict=REJECT F:456
+QS-005 two- HYP 1h n=  100 exp=2.11 adv=0.08 dd95=-27.41 verdict=INCONCLUSIVE F:456
+QS-005 long BTC 15m n=  147 exp=-4.74 adv=-6.34 dd95=-38.37 verdict=REJECT F:456
+QS-005 long HYP 5m n=  101 exp=-27.79 adv=-30.84 dd95=-36.45 verdict=REJECT F:456
+QS-005 long JUP 1h n=   76 exp=-9.85 adv=-10.78 dd95=-35.04 verdict=REJECT F:456
+QS-006 two- SOL 15m n=  903 exp=-3.03 adv=-5.19 dd95=-52.93 verdict=REJECT F:456
+QS-006 two- JUP 5m n=  168 exp=-9.55 adv=-12.13 dd95=-40.68 verdict=REJECT F:456
+QS-006 long ETH 1h n=  144 exp=11.72 adv=1.18 dd95=-33.94 verdict=FAIL F:456
+QS-006 long SUI 15m n=  586 exp=1.27 adv=-0.98 dd95=-39.05 verdict=FAIL ES F:456
+QS-007 two- ETH 5m n=   84 exp=-20.96 adv=-23.06 dd95=-32.27 verdict=REJECT F:456
+QS-007 two- HYP 1h n=   74 exp=15.86 adv=13.33 dd95=-31.01 verdict=INCONCLUSIVE F:456
+QS-007 long BTC 15m n=  102 exp=-19.12 adv=-21.17 dd95=-38.59 verdict=REJECT F:456
+QS-007 long HYP 5m n=   71 exp=-40.76 adv=-41.64 dd95=-37.96 verdict=REJECT F:456
+QS-007 long JUP 1h n=    6 exp=-39.16 adv=-39.3 dd95=-13.48 verdict=REJECT F:456
+QS-008 two- SOL 15m n=  207 exp=-10.19 adv=-14.08 dd95=-33.8 verdict=REJECT F:456
+QS-008 two- JUP 5m n=  170 exp=-9.25 adv=-16.7 dd95=-33.81 verdict=REJECT F:456
+QS-008 long ETH 1h n=  252 exp=-3.26 adv=-12.85 dd95=-32.22 verdict=REJECT F:456
+QS-008 long SUI 15m n=  136 exp=-2.76 adv=-4.33 dd95=-30.08 verdict=REJECT F:456
+QS-009 two- ETH 5m n=  141 exp=-18.92 adv=-18.82 dd95=-38.77 verdict=REJECT F:456
+QS-009 two- HYP 1h n=  227 exp=-12.01 adv=-12.96 dd95=-40.77 verdict=REJECT F:456
+QS-009 long BTC 15m n=  181 exp=-9.07 adv=-11.61 dd95=-39.89 verdict=REJECT F:456
+QS-009 long HYP 5m n=  160 exp=-15.81 adv=-23.96 dd95=-38.98 verdict=REJECT F:456
+QS-009 long JUP 1h n=  205 exp=3.46 adv=2.04 dd95=-31.05 verdict=FAIL F:456
+QS-010 two- SOL 15m n=   29 exp=-13.16 adv=-17.63 dd95=-6.24 verdict=REJECT F:456
+QS-010 two- JUP 5m n=   60 exp=-11.43 adv=-16.95 dd95=-11.94 verdict=REJECT F:456
+QS-010 long ETH 1h n=    6 exp=-14.1 adv=-16.97 dd95=-2.98 verdict=REJECT F:456
+QS-010 long SUI 15m n=   20 exp=-14.52 adv=-18.42 dd95=-5.16 verdict=REJECT F:456
+shard 3 done

@@ -1,0 +1,55 @@
+====================================================================================================
+LONG-ONLY CVRMD-v1.1  |  1H Binance USDT-M  |  6bps+5bps/side  |  1% risk 3x
+  engine is the VALIDATED one, unchanged. Only the shorts are removed.
+====================================================================================================
+
+====================================================================================================
+TEST 1 — GENERALISATION: does it work on the symbols it failed?
+====================================================================================================
+  symbol          net     PF     n     WR     DD  vs BH net  vs BH DD  gate
+    BTCUSDT          FAIL  NO PF 0.84 | ok cost 20% | NO green 2/8 | ok n 52 | ok DD 14%
+  BTCUSDT       -4.9%   0.84    52  36.5%  14.3%    +949.7%     77.2%  fail
+    ETHUSDT          FAIL  ok PF 1.41 | ok cost 16% | NO green 5/8 | ok n 51 | ok DD 5%
+  ETHUSDT       +9.9%   1.41    51  47.1%   4.9%   +2051.2%     81.4%  fail
+    SOLUSDT          PASS  ok PF 1.89 | ok cost 14% | ok green 6/7 | ok n 44 | ok DD 4%
+  SOLUSDT      +16.0%   1.89    44  52.3%   3.6%   +4633.3%     96.8%  PASS
+    SUIUSDT          PASS  ok PF 1.97 | ok cost 14% | ok green 4/4 | ok n 30 | ok DD 3%
+  SUIUSDT      +11.8%   1.97    30  50.0%   3.3%     +19.2%     87.9%  PASS
+    XRPUSDT          FAIL  NO PF 0.99 | ok cost 19% | NO green 4/7 | ok n 55 | ok DD 7%
+  XRPUSDT       -0.5%   0.99    55  40.0%   7.2%    +568.7%     84.9%  fail
+    HYPEUSDT         FAIL  ok PF 1.76 | ok cost 17% | ok green 2/2 | NO n 9 | ok DD 2%
+  HYPEUSDT      +2.4%   1.76     9  55.6%   2.4%    +155.1%     65.1%  fail
+    SPXUSDT          FAIL  NO PF 0.67 | ok cost 25% | NO green 0/2 | NO n 12 | ok DD 4%
+  SPXUSDT       -2.2%   0.67    12  33.3%   3.9%     -45.8%     89.0%  fail
+
+  -> 2/7 pass the house gate
+
+  The decisive pair — BTC and ETH, the deepest liquid perps:
+    BTCUSDT   PF 0.84  net -4.9%  n 52  FAILS (need PF > 1.2)
+    ETHUSDT   PF 1.41  net +9.9%  n 51  PASSES (need PF > 1.2)
+  -> long-only does NOT generalise
+
+====================================================================================================
+TEST 2 — WALK-FORWARD: 2019-2024 in sight, 2025-2026 traded untouched
+  (no parameter is chosen, so there is nothing to fit — this is pure OOS)
+====================================================================================================
+  symbol       IS net  IS PF   IS n |   OOS net  OOS PF   OOS n  OOS verdict
+  BTCUSDT       -4.6%   0.81     41 |     -0.3%    0.96      11  KILL (OOS PF<1)
+  ETHUSDT       +3.5%   1.19     37 |     +6.2%    2.24      14  OOS EDGE
+  SOLUSDT       +9.5%   1.67     33 |     +6.0%    2.79      11  OOS EDGE
+  SUIUSDT       +6.5%   2.75     12 |     +4.9%    1.61      18  OOS EDGE
+  XRPUSDT       +1.0%   1.05     44 |     -1.5%    0.79      11  KILL (OOS PF<1)
+  HYPEUSDT  (history starts after 2025 — no IS window)
+  SPXUSDT   (history starts after 2025 — no IS window)
+
+  -> 3/5 symbols keep a positive OOS edge
+
+====================================================================================================
+VERDICT
+====================================================================================================
+  Test 1  generalisation on BTC/ETH ....... FAIL
+  Test 2  walk-forward OOS ................ PASS
+
+  Long-only does NOT generalise. SUI and SOL were a 30-trade
+  coincidence, not an edge. Do not deploy. The honest summary is
+  that no strategy examined here beats passive on these assets.

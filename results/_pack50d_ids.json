@@ -1,0 +1,338 @@
+{
+  "1": {
+    "code": "P01",
+    "name": "Supertrend + EMA200",
+    "run_id": "954e15c8954197ee",
+    "sym": "BTCUSDT",
+    "tf": "4h"
+  },
+  "10": {
+    "code": "P10",
+    "name": "HH/HL structure break",
+    "run_id": "6ce7543aaa0c6971",
+    "sym": "HYPEUSDT",
+    "tf": "4h"
+  },
+  "11": {
+    "code": "P11",
+    "name": "BB bounce + RSI",
+    "run_id": "b9c8daa97446c182",
+    "sym": "BTCUSDT",
+    "tf": "15m"
+  },
+  "12": {
+    "code": "P12",
+    "name": "RSI 30/70, Asian only",
+    "run_id": "fa86ac6811db358d",
+    "sym": "ETHUSDT",
+    "tf": "5m"
+  },
+  "13": {
+    "code": "P13",
+    "name": "VWAP reversion",
+    "run_id": "f9a1959435579979",
+    "sym": "SOLUSDT",
+    "tf": "1h"
+  },
+  "14": {
+    "code": "P14",
+    "name": "Keltner fade",
+    "run_id": "1a4a96ba3f9c21d3",
+    "sym": "SUIUSDT",
+    "tf": "15m"
+  },
+  "15": {
+    "code": "P15",
+    "name": "z-score reversion",
+    "run_id": "4ccc79929bcbe1b8",
+    "sym": "JUPUSDT",
+    "tf": "5m"
+  },
+  "16": {
+    "code": "P16",
+    "name": "RSI(2) Connors",
+    "run_id": "dd7de2aba22315ac",
+    "sym": "BTCUSDT",
+    "tf": "1h"
+  },
+  "17": {
+    "code": "P17",
+    "name": "ETH/SOL z-score pair",
+    "run_id": "3b84965499084ec8",
+    "sym": "ETHUSDT+SOLUSDT",
+    "tf": "30m"
+  },
+  "18": {
+    "code": "P18",
+    "name": "Bollinger %B",
+    "run_id": "c16714c5003b704b",
+    "sym": "HYPEUSDT",
+    "tf": "15m"
+  },
+  "19": {
+    "code": "P19",
+    "name": "London open fade",
+    "run_id": "191bde885b79a0be",
+    "sym": "SOLUSDT",
+    "tf": "5m"
+  },
+  "2": {
+    "code": "P02",
+    "name": "EMA 20/50 cross",
+    "run_id": "56380e822c93acf6",
+    "sym": "ETHUSDT",
+    "tf": "1h"
+  },
+  "20": {
+    "code": "P20",
+    "name": "MFI divergence",
+    "run_id": "44c32189aef31031",
+    "sym": "SUIUSDT",
+    "tf": "30m"
+  },
+  "21": {
+    "code": "P21",
+    "name": "Asian range breakout",
+    "run_id": "05d888c6df13ffdf",
+    "sym": "BTCUSDT",
+    "tf": "1h"
+  },
+  "22": {
+    "code": "P22",
+    "name": "ORB 13:30",
+    "run_id": "076ad8bd474e946e",
+    "sym": "ETHUSDT",
+    "tf": "15m"
+  },
+  "23": {
+    "code": "P23",
+    "name": "volume breakout + BTC filter",
+    "run_id": "d1fc717704987ce7",
+    "sym": "SOLUSDT+BTCUSDT",
+    "tf": "5m"
+  },
+  "24": {
+    "code": "P24",
+    "name": "52-bar high, long-only",
+    "run_id": "2f8c28d0cdc329bf",
+    "sym": "HYPEUSDT",
+    "tf": "1h"
+  },
+  "25": {
+    "code": "P25",
+    "name": "NR7 contraction",
+    "run_id": "6c9b3643ea2469e2",
+    "sym": "SUIUSDT",
+    "tf": "15m"
+  },
+  "26": {
+    "code": "P26",
+    "name": "squeeze release",
+    "run_id": "ce5f19681812b35d",
+    "sym": "JUPUSDT",
+    "tf": "1h"
+  },
+  "27": {
+    "code": "P27",
+    "name": "20-day high, Chandelier",
+    "run_id": "a9003311251ef79b",
+    "sym": "BTCUSDT",
+    "tf": "1d"
+  },
+  "28": {
+    "code": "P28",
+    "name": "momentum ignition",
+    "run_id": "ff1403fda59140c8",
+    "sym": "ETHUSDT",
+    "tf": "5m"
+  },
+  "29": {
+    "code": "P29",
+    "name": "VWAP breakout",
+    "run_id": "9cbf5900f6574b65",
+    "sym": "SOLUSDT",
+    "tf": "30m"
+  },
+  "3": {
+    "code": "P03",
+    "name": "Donchian 20 breakout",
+    "run_id": "c5aee576266cf327",
+    "sym": "SOLUSDT",
+    "tf": "15m"
+  },
+  "31": {
+    "code": "P31",
+    "name": "EMA 9/21 + VWAP",
+    "run_id": "842ab7850a311d36",
+    "sym": "BTCUSDT",
+    "tf": "1m"
+  },
+  "32": {
+    "code": "P32",
+    "name": "BB squeeze scalper",
+    "run_id": "ae1c9db2bd5dc67d",
+    "sym": "ETHUSDT",
+    "tf": "1m"
+  },
+  "33": {
+    "code": "P33",
+    "name": "RSI 50 cross",
+    "run_id": "e5046c6b62aa6e54",
+    "sym": "SOLUSDT",
+    "tf": "3m"
+  },
+  "34": {
+    "code": "P34",
+    "name": "micro mean reversion",
+    "run_id": "2de8332d93bb2a6d",
+    "sym": "HYPEUSDT",
+    "tf": "1m"
+  },
+  "35": {
+    "code": "P35",
+    "name": "Supertrend 10/2 + 1H filter",
+    "run_id": "250e534246ea2940",
+    "sym": "SUIUSDT",
+    "tf": "5m"
+  },
+  "36": {
+    "code": "P36",
+    "name": "micro breakout",
+    "run_id": "0b8d1313d1451bff",
+    "sym": "JUPUSDT",
+    "tf": "1m"
+  },
+  "37": {
+    "code": "P37",
+    "name": "VWAP wick bounce",
+    "run_id": "8784e02a57225a85",
+    "sym": "BTCUSDT",
+    "tf": "3m"
+  },
+  "38": {
+    "code": "P38",
+    "name": "StochRSI cross",
+    "run_id": "7092c0241175396b",
+    "sym": "ETHUSDT",
+    "tf": "5m"
+  },
+  "39": {
+    "code": "P39",
+    "name": "CVD proxy",
+    "run_id": "bdcf8f239ac7e8cc",
+    "sym": "SOLUSDT",
+    "tf": "1m"
+  },
+  "4": {
+    "code": "P04",
+    "name": "MACD histogram + EMA50",
+    "run_id": "31ae6c55172a7646",
+    "sym": "HYPEUSDT",
+    "tf": "1h"
+  },
+  "40": {
+    "code": "P40",
+    "name": "ATR envelope fade",
+    "run_id": "3cb8abe293396e44",
+    "sym": "HYPEUSDT",
+    "tf": "3m"
+  },
+  "41": {
+    "code": "P41",
+    "name": "session open momentum",
+    "run_id": "d13571c1b348581e",
+    "sym": "BTCUSDT",
+    "tf": "15m"
+  },
+  "42": {
+    "code": "P42",
+    "name": "overnight range breakout",
+    "run_id": "d68eb2aeeadbe6e0",
+    "sym": "ETHUSDT",
+    "tf": "30m"
+  },
+  "43": {
+    "code": "P43",
+    "name": "session extreme fade",
+    "run_id": "74615a5fcaa988c5",
+    "sym": "SOLUSDT",
+    "tf": "15m"
+  },
+  "44": {
+    "code": "P44",
+    "name": "weekend gap fade",
+    "run_id": "73ec7766d0e92513",
+    "sym": "SUIUSDT",
+    "tf": "1h"
+  },
+  "45": {
+    "code": "P45",
+    "name": "VWAP band mode switch",
+    "run_id": "865a7b20d9592b0c",
+    "sym": "JUPUSDT",
+    "tf": "15m"
+  },
+  "47": {
+    "code": "P47",
+    "name": "trend pullback",
+    "run_id": "adfaeef2d1e745b1",
+    "sym": "SPCX",
+    "tf": "15m"
+  },
+  "48": {
+    "code": "P48",
+    "name": "momentum + OBV",
+    "run_id": "87bcb05c8b34d993",
+    "sym": "BTCUSDT",
+    "tf": "30m"
+  },
+  "49": {
+    "code": "P49",
+    "name": "Ichimoku + Kumo twist",
+    "run_id": "cae858612c52ce1e",
+    "sym": "ETHUSDT",
+    "tf": "1h"
+  },
+  "5": {
+    "code": "P05",
+    "name": "Ichimoku Kumo breakout",
+    "run_id": "24702522793f8fe0",
+    "sym": "SUIUSDT",
+    "tf": "30m"
+  },
+  "50": {
+    "code": "P50",
+    "name": "MTF confluence",
+    "run_id": "bd911d47bda83360",
+    "sym": "SOLUSDT",
+    "tf": "15m"
+  },
+  "6": {
+    "code": "P06",
+    "name": "Supertrend + RSI pullback",
+    "run_id": "3bb1691c2447fc38",
+    "sym": "JUPUSDT",
+    "tf": "4h"
+  },
+  "7": {
+    "code": "P07",
+    "name": "EMA 50/200 cross",
+    "run_id": "e99ba04a2d20f7e3",
+    "sym": "BTCUSDT",
+    "tf": "1d"
+  },
+  "8": {
+    "code": "P08",
+    "name": "Keltner breakout",
+    "run_id": "cdce9bf5c26d097f",
+    "sym": "ETHUSDT",
+    "tf": "1h"
+  },
+  "9": {
+    "code": "P09",
+    "name": "LinReg slope + R2",
+    "run_id": "2663e9040e7bec23",
+    "sym": "SOLUSDT",
+    "tf": "1h"
+  }
+}

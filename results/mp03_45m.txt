@@ -1,0 +1,9 @@
+MP-STRAT-03 Donchian breakout, 45 months, perps, funding charged
+sym             net      mdd     n     pf     wr       fund  net_nofund        bh    bhdd
+BTCUSDT      +11.58    27.01   898   1.08   30.0      14179      +25.08   +713.02   77.24
+ETHUSDT      +34.78    32.86   892   1.11   32.6      22293      +57.63  +1725.73   81.38
+SOLUSDT      +14.69    37.81   824   1.05   32.3       5610      +20.49  +4110.09   96.81
+XRPUSDT      +61.55    46.78   834   1.19   29.3      17580      +87.34   +612.28   84.88
+HYPEUSDT     +26.41    20.56   179   1.34   31.3       1397      +28.08   +164.20   65.12
+
+beat BH: 0/5

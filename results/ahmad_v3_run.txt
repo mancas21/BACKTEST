@@ -1,0 +1,23 @@
+
+=== BTCUSDT 1H  61801 bars  2019..2026  pattern-bars 20326  entries 24356  rec!=0 42148  score [-11.4,13.4]
+BTCUSDT                  buy&hold net   +951.0%  DD  77.2%
+
+=== ETHUSDT 1H  59891 bars  2019..2026  pattern-bars 15397  entries 19920  rec!=0 39994  score [-11.8,12.0]
+ETHUSDT                  buy&hold net  +2068.9%  DD  81.4%
+
+=== SOLUSDT 1H  52883 bars  2020..2026  pattern-bars 11621  entries 16380  rec!=0 35885  score [-12.5,12.5]
+SOLUSDT                  buy&hold net  +4700.0%  DD  96.8%
+
+=== SUIUSDT 1H  29810 bars  2023..2026  pattern-bars 6959  entries 9826  rec!=0 19764  score [-11.0,11.5]
+SUIUSDT                  buy&hold net    +19.6%  DD  87.9%
+
+=== XRPUSDT 1H  58930 bars  2020..2026  pattern-bars 15815  entries 19946  rec!=0 39233  score [-11.9,13.0]
+XRPUSDT                  buy&hold net   +572.1%  DD  84.9%
+
+=== HYPEUSDT 1H  11624 bars  2025..2026  pattern-bars 2246  entries 3298  rec!=0 7368  score [-10.0,10.9]
+HYPEUSDT                 buy&hold net   +152.5%  DD  65.1%
+
+=== SPXUSDT 1H  15726 bars  2024..2026  pattern-bars 2588  entries 4571  rec!=0 10075  score [-10.0,11.5]
+SPXUSDT                  buy&hold net    -47.2%  DD  89.0%
+
+artifacts -> C:\Users\Lenovo\Documents\backtest-system\results

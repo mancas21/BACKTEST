@@ -1,0 +1,7 @@
+ADX+HMA preset=custom tf=15m cost=real entry=default short=default
+sym        trades       net%     DD%     PF        BH%
+BTCUSDT     21036     -100.0   100.0   0.62       +731
+ETHUSDT     21252     -100.0   100.0   0.61      +1615
+SOLUSDT     18726     -100.0   100.0   0.95      +3178
+XRPUSDT     20212     -100.0   100.0   0.58       +609
+SUIUSDT     10086     -100.0   100.0   0.75        -17

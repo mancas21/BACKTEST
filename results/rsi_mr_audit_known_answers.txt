@@ -1,0 +1,14 @@
+PASS  R1 rsi_pine == rsi_loop dual, bounds and extremes   [5 random walks + all-up -> 100, all-down -> 0]
+PASS  R2 atr flat -> 0, rma SMA seed
+PASS  K1 entry next open, qty = eq*1%/dist, fee charged   [fill open[3]=100, qty 50 (INIT 10k), fees 5.0 entry + 5.0 end_of_data]
+PASS  K2 stop anchored to the FILL (99-2=97) fires intrabar   [entry open[2]=99, l=96 <= 97 -> exit at the stop level 97]
+PASS  K2b stop gapped through at the open fills AT THE OPEN   [sl=97; bar2 low 98 no trigger; bar3 opens 95 -> exit at open]
+PASS  K3 RSI>70 exit fills at the NEXT open   [sell@3 -> exit open[4]=104]
+PASS  K3b dist=0 blocks the entry (no stop -> no risk sizing)
+PASS  K4 re-entry after a stop while the state persists   [SL at bar 2, next entry at bar 5 open]
+PASS  K5 end_of_data force-close at the last close
+PASS  I1 cash identity on SOLUSDC 1h   [eq-init 1078.6686 == sum(pnl) 1078.6686]
+PASS  N1 no-lookahead truncation (4000 bars, last excluded)   [equity prefix equal on 3999 bars, 46 trades identical]
+PASS  D1 harness run deterministic
+
+ALL PASS

@@ -1,0 +1,1137 @@
+{
+ "schema": "recorder-replay-audit/1",
+ "built_by": "code/recorder_replay.py",
+ "asof_utc": "2026-11-01T14:32:48+00:00",
+ "days": [
+  "2026-10-10",
+  "2026-10-11",
+  "2026-10-12",
+  "2026-10-13",
+  "2026-10-14",
+  "2026-10-15",
+  "2026-10-16",
+  "2026-10-17",
+  "2026-10-18",
+  "2026-10-19",
+  "2026-10-20",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-24",
+  "2026-10-25",
+  "2026-10-26",
+  "2026-10-27",
+  "2026-10-28",
+  "2026-10-29",
+  "2026-10-30",
+  "2026-10-31",
+  "2026-11-01"
+ ],
+ "symbols": [
+  "BTCUSDT",
+  "SOLUSDT",
+  "SUIUSDT",
+  "XRPUSDT"
+ ],
+ "bookTicker": {
+  "BTCUSDT": {
+   "rows": 1260808,
+   "crossed": 0,
+   "bad_quote": 0,
+   "gap_ms": {
+    "p50": 70.0,
+    "p95": 1276.0,
+    "p99": 2003.0,
+    "n": 879950
+   },
+   "drift_ms": {
+    "p50": 205.0,
+    "p95": 2010.0,
+    "p99": 2689.0,
+    "n": 879964
+   },
+   "crossed_share_pct": 0.0
+  },
+  "SOLUSDT": {
+   "rows": 1124072,
+   "crossed": 0,
+   "bad_quote": 0,
+   "gap_ms": {
+    "p50": 53.0,
+    "p95": 1516.0,
+    "p99": 2240.0,
+    "n": 821356
+   },
+   "drift_ms": {
+    "p50": 219.0,
+    "p95": 2069.0,
+    "p99": 2708.3099999999395,
+    "n": 821370
+   },
+   "crossed_share_pct": 0.0
+  },
+  "SUIUSDT": {
+   "rows": 1156957,
+   "crossed": 0,
+   "bad_quote": 0,
+   "gap_ms": {
+    "p50": 47.0,
+    "p95": 1556.0,
+    "p99": 2249.0,
+    "n": 859418
+   },
+   "drift_ms": {
+    "p50": 342.0,
+    "p95": 2044.0,
+    "p99": 2704.689999999944,
+    "n": 859432
+   },
+   "crossed_share_pct": 0.0
+  },
+  "XRPUSDT": {
+   "rows": 1709429,
+   "crossed": 0,
+   "bad_quote": 0,
+   "gap_ms": {
+    "p50": 19.0,
+    "p95": 1354.8499999999767,
+    "p99": 2044.0,
+    "n": 950864
+   },
+   "drift_ms": {
+    "p50": 218.0,
+    "p95": 2078.0,
+    "p99": 2756.0,
+    "n": 950875
+   },
+   "crossed_share_pct": 0.0
+  }
+ },
+ "depth": {
+  "BTCUSDT": {
+   "rows": 1394983,
+   "pu_chain_breaks": 24,
+   "u_rule_breaks": 1393497,
+   "chain_dups": 0,
+   "snapshots": 4298,
+   "snap_bound_ok": 0,
+   "snap_bound_gap": 4295,
+   "snap_no_diff": 0,
+   "pending_unsettled": 3
+  },
+  "SOLUSDT": {
+   "rows": 786305,
+   "pu_chain_breaks": 24,
+   "u_rule_breaks": 786228,
+   "chain_dups": 0,
+   "snapshots": 4317,
+   "snap_bound_ok": 0,
+   "snap_bound_gap": 4314,
+   "snap_no_diff": 0,
+   "pending_unsettled": 3
+  },
+  "SUIUSDT": {
+   "rows": 636188,
+   "pu_chain_breaks": 25,
+   "u_rule_breaks": 636144,
+   "chain_dups": 0,
+   "snapshots": 4306,
+   "snap_bound_ok": 0,
+   "snap_bound_gap": 4302,
+   "snap_no_diff": 0,
+   "pending_unsettled": 4
+  },
+  "XRPUSDT": {
+   "rows": 730849,
+   "pu_chain_breaks": 24,
+   "u_rule_breaks": 730656,
+   "chain_dups": 0,
+   "snapshots": 4314,
+   "snap_bound_ok": 0,
+   "snap_bound_gap": 4310,
+   "snap_no_diff": 0,
+   "pending_unsettled": 4
+  }
+ },
+ "forceOrder": {
+  "BTCUSDT": {
+   "rows": 721,
+   "buy": 107,
+   "sell": 614
+  },
+  "SOLUSDT": {
+   "rows": 249,
+   "buy": 29,
+   "sell": 220
+  },
+  "SUIUSDT": {
+   "rows": 248,
+   "buy": 87,
+   "sell": 161
+  },
+  "XRPUSDT": {
+   "rows": 135,
+   "buy": 18,
+   "sell": 117
+  }
+ },
+ "unreadable_segments": [
+  {
+   "file": "recorder/data/2026-10-10/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-10/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-10/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-10/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-12/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-12/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-12/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-12/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-14/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-14/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-14/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-14/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-15/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-15/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-15/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-15/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-17/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-17/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-17/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-17/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-18/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-18/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-18/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-18/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-24/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-24/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-24/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-24/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-28/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-28/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-28/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-28/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/bookTicker.prev163155.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/bookTicker.prev175040.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/depth.prev163155.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/depth.prev175041.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/depth_snapshot.prev163155.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/depth_snapshot.prev175041.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/forceOrder.prev163205.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-29/forceOrder.prev175045.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-30/bookTicker.prev184953.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-30/depth.prev184953.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-30/depth_snapshot.prev184955.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-10-30/forceOrder.prev185003.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/bookTicker.prev125212.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/bookTicker.prev142449.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/bookTicker.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/depth.prev125212.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/depth.prev142449.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/depth.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/depth_snapshot.prev125214.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/depth_snapshot.prev142449.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/depth_snapshot.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/forceOrder.prev125412.parquet",
+   "error": "ArrowInvalid"
+  },
+  {
+   "file": "recorder/data/2026-11-01/forceOrder.parquet",
+   "error": "ArrowInvalid"
+  }
+ ],
+ "day_rows": {
+  "2026-10-10": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-11": {
+   "bookTicker": {
+    "BTCUSDT": 26148,
+    "SOLUSDT": 28953,
+    "SUIUSDT": 27919,
+    "XRPUSDT": 33605
+   },
+   "depth": {
+    "BTCUSDT": 40119,
+    "SOLUSDT": 16525,
+    "SUIUSDT": 13187,
+    "XRPUSDT": 14919
+   }
+  },
+  "2026-10-12": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-13": {
+   "bookTicker": {
+    "BTCUSDT": 151843,
+    "SOLUSDT": 141058,
+    "SUIUSDT": 139704,
+    "XRPUSDT": 171380
+   },
+   "depth": {
+    "BTCUSDT": 215444,
+    "SOLUSDT": 82470,
+    "SUIUSDT": 64906,
+    "XRPUSDT": 75246
+   }
+  },
+  "2026-10-14": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-15": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-16": {
+   "bookTicker": {
+    "BTCUSDT": 97967,
+    "SOLUSDT": 95879,
+    "SUIUSDT": 100642,
+    "XRPUSDT": 116563
+   },
+   "depth": {
+    "BTCUSDT": 83829,
+    "SOLUSDT": 58221,
+    "SUIUSDT": 48820,
+    "XRPUSDT": 53556
+   }
+  },
+  "2026-10-17": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-18": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-19": {
+   "bookTicker": {
+    "BTCUSDT": 22949,
+    "SOLUSDT": 4162,
+    "SUIUSDT": 51070,
+    "XRPUSDT": 5762
+   },
+   "depth": {
+    "BTCUSDT": 35683,
+    "SOLUSDT": 10085,
+    "SUIUSDT": 29008,
+    "XRPUSDT": 7379
+   }
+  },
+  "2026-10-20": {
+   "bookTicker": {
+    "BTCUSDT": 47812,
+    "SOLUSDT": 56267,
+    "SUIUSDT": 51125,
+    "XRPUSDT": 64898
+   },
+   "depth": {
+    "BTCUSDT": 42407,
+    "SOLUSDT": 32811,
+    "SUIUSDT": 26780,
+    "XRPUSDT": 28781
+   }
+  },
+  "2026-10-21": {
+   "bookTicker": {
+    "BTCUSDT": 50482,
+    "SOLUSDT": 53617,
+    "SUIUSDT": 56501,
+    "XRPUSDT": 66831
+   },
+   "depth": {
+    "BTCUSDT": 49661,
+    "SOLUSDT": 36309,
+    "SUIUSDT": 30073,
+    "XRPUSDT": 32264
+   }
+  },
+  "2026-10-22": {
+   "bookTicker": {
+    "BTCUSDT": 157679,
+    "SOLUSDT": 134663,
+    "SUIUSDT": 136795,
+    "XRPUSDT": 171493
+   },
+   "depth": {
+    "BTCUSDT": 124538,
+    "SOLUSDT": 88339,
+    "SUIUSDT": 70057,
+    "XRPUSDT": 75229
+   }
+  },
+  "2026-10-23": {
+   "bookTicker": {
+    "BTCUSDT": 47016,
+    "SOLUSDT": 45064,
+    "SUIUSDT": 45653,
+    "XRPUSDT": 57296
+   },
+   "depth": {
+    "BTCUSDT": 41547,
+    "SOLUSDT": 30964,
+    "SUIUSDT": 23871,
+    "XRPUSDT": 25627
+   }
+  },
+  "2026-10-24": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-25": {
+   "bookTicker": {
+    "BTCUSDT": 145523,
+    "SOLUSDT": 157043,
+    "SUIUSDT": 158637,
+    "XRPUSDT": 199916
+   },
+   "depth": {
+    "BTCUSDT": 148066,
+    "SOLUSDT": 101670,
+    "SUIUSDT": 78192,
+    "XRPUSDT": 82721
+   }
+  },
+  "2026-10-26": {
+   "bookTicker": {
+    "BTCUSDT": 89807,
+    "SOLUSDT": 89567,
+    "SUIUSDT": 89082,
+    "XRPUSDT": 116291
+   },
+   "depth": {
+    "BTCUSDT": 86394,
+    "SOLUSDT": 57104,
+    "SUIUSDT": 45593,
+    "XRPUSDT": 49257
+   }
+  },
+  "2026-10-27": {
+   "bookTicker": {
+    "BTCUSDT": 22971,
+    "SOLUSDT": 19381,
+    "SUIUSDT": 20971,
+    "XRPUSDT": 27520
+   },
+   "depth": {
+    "BTCUSDT": 25539,
+    "SOLUSDT": 18480,
+    "SUIUSDT": 14596,
+    "XRPUSDT": 19139
+   }
+  },
+  "2026-10-28": {
+   "bookTicker": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   },
+   "depth": {
+    "BTCUSDT": 0,
+    "SOLUSDT": 0,
+    "SUIUSDT": 0,
+    "XRPUSDT": 0
+   }
+  },
+  "2026-10-29": {
+   "bookTicker": {
+    "BTCUSDT": 93758,
+    "SOLUSDT": 66316,
+    "SUIUSDT": 62027,
+    "XRPUSDT": 85307
+   },
+   "depth": {
+    "BTCUSDT": 92198,
+    "SOLUSDT": 60354,
+    "SUIUSDT": 44510,
+    "XRPUSDT": 66201
+   }
+  },
+  "2026-10-30": {
+   "bookTicker": {
+    "BTCUSDT": 58683,
+    "SOLUSDT": 48497,
+    "SUIUSDT": 52311,
+    "XRPUSDT": 133122
+   },
+   "depth": {
+    "BTCUSDT": 100892,
+    "SOLUSDT": 41522,
+    "SUIUSDT": 36436,
+    "XRPUSDT": 48554
+   }
+  },
+  "2026-10-31": {
+   "bookTicker": {
+    "BTCUSDT": 229985,
+    "SOLUSDT": 172643,
+    "SUIUSDT": 159917,
+    "XRPUSDT": 451827
+   },
+   "depth": {
+    "BTCUSDT": 306926,
+    "SOLUSDT": 149799,
+    "SUIUSDT": 108849,
+    "XRPUSDT": 150281
+   }
+  },
+  "2026-11-01": {
+   "bookTicker": {
+    "BTCUSDT": 18185,
+    "SOLUSDT": 10962,
+    "SUIUSDT": 4603,
+    "XRPUSDT": 7618
+   },
+   "depth": {
+    "BTCUSDT": 1740,
+    "SOLUSDT": 1652,
+    "SUIUSDT": 1310,
+    "XRPUSDT": 1695
+   }
+  }
+ },
+ "recomputed_vs_counters": {
+  "BTCUSDT": {
+   "recomputed_pu_rule_breaks": 24,
+   "recomputed_u_rule_breaks": 1393497,
+   "live_counter_stream_breaks": 4671,
+   "note": "the live counter uses the U-based rule, which the data shows is inflated (ids are sparse); the pu rule is the true continuity test"
+  },
+  "SOLUSDT": {
+   "recomputed_pu_rule_breaks": 24,
+   "recomputed_u_rule_breaks": 786228,
+   "live_counter_stream_breaks": 4414,
+   "note": "the live counter uses the U-based rule, which the data shows is inflated (ids are sparse); the pu rule is the true continuity test"
+  },
+  "SUIUSDT": {
+   "recomputed_pu_rule_breaks": 25,
+   "recomputed_u_rule_breaks": 636144,
+   "live_counter_stream_breaks": 3438,
+   "note": "the live counter uses the U-based rule, which the data shows is inflated (ids are sparse); the pu rule is the true continuity test"
+  },
+  "XRPUSDT": {
+   "recomputed_pu_rule_breaks": 24,
+   "recomputed_u_rule_breaks": 730656,
+   "live_counter_stream_breaks": 4556,
+   "note": "the live counter uses the U-based rule, which the data shows is inflated (ids are sparse); the pu rule is the true continuity test"
+  }
+ },
+ "snapshot_vs_diff_id_space": {
+  "2026-10-11|BTCUSDT": {
+   "median_snapshot_L": 11791066546974.0,
+   "median_diff_u": 450402228839.0,
+   "ratio": 26.179,
+   "overlap": false
+  },
+  "2026-10-11|SOLUSDT": {
+   "median_snapshot_L": 11791065132738.5,
+   "median_diff_u": 450404015974.0,
+   "ratio": 26.1789,
+   "overlap": false
+  },
+  "2026-10-11|SUIUSDT": {
+   "median_snapshot_L": 11791065263721.0,
+   "median_diff_u": 450405176266.0,
+   "ratio": 26.1788,
+   "overlap": false
+  },
+  "2026-10-11|XRPUSDT": {
+   "median_snapshot_L": 11791066353250.0,
+   "median_diff_u": 450405109024.0,
+   "ratio": 26.1788,
+   "overlap": false
+  },
+  "2026-10-13|BTCUSDT": {
+   "median_snapshot_L": 11808942785284.0,
+   "median_diff_u": 452225299340.5,
+   "ratio": 26.113,
+   "overlap": false
+  },
+  "2026-10-13|SOLUSDT": {
+   "median_snapshot_L": 11808944029196.0,
+   "median_diff_u": 452223532688.0,
+   "ratio": 26.1131,
+   "overlap": false
+  },
+  "2026-10-13|SUIUSDT": {
+   "median_snapshot_L": 11808941551457.0,
+   "median_diff_u": 452227920524.5,
+   "ratio": 26.1128,
+   "overlap": false
+  },
+  "2026-10-13|XRPUSDT": {
+   "median_snapshot_L": 11808945878344.0,
+   "median_diff_u": 452216746838.5,
+   "ratio": 26.1135,
+   "overlap": false
+  },
+  "2026-10-16|BTCUSDT": {
+   "median_snapshot_L": 11840660263293.0,
+   "median_diff_u": 455240154160.0,
+   "ratio": 26.0097,
+   "overlap": false
+  },
+  "2026-10-16|SOLUSDT": {
+   "median_snapshot_L": 11840658615294.0,
+   "median_diff_u": 455252061083.0,
+   "ratio": 26.009,
+   "overlap": false
+  },
+  "2026-10-16|SUIUSDT": {
+   "median_snapshot_L": 11840661488232.5,
+   "median_diff_u": 455260677014.0,
+   "ratio": 26.0085,
+   "overlap": false
+  },
+  "2026-10-16|XRPUSDT": {
+   "median_snapshot_L": 11840659904158.0,
+   "median_diff_u": 455251006911.5,
+   "ratio": 26.0091,
+   "overlap": false
+  },
+  "2026-10-19|BTCUSDT": {
+   "median_snapshot_L": 11865507411411.0,
+   "median_diff_u": 457976961314.0,
+   "ratio": 25.9085,
+   "overlap": false
+  },
+  "2026-10-19|SOLUSDT": {
+   "median_snapshot_L": 11865495037582.0,
+   "median_diff_u": 457992491450.0,
+   "ratio": 25.9076,
+   "overlap": false
+  },
+  "2026-10-19|SUIUSDT": {
+   "median_snapshot_L": 11865505240069.0,
+   "median_diff_u": 457991097851.5,
+   "ratio": 25.9077,
+   "overlap": false
+  },
+  "2026-10-19|XRPUSDT": {
+   "median_snapshot_L": 11865496315986.0,
+   "median_diff_u": 457992823971.0,
+   "ratio": 25.9076,
+   "overlap": false
+  },
+  "2026-10-20|BTCUSDT": {
+   "median_snapshot_L": 11873780445492.0,
+   "median_diff_u": 458953042552.0,
+   "ratio": 25.8714,
+   "overlap": false
+  },
+  "2026-10-20|SOLUSDT": {
+   "median_snapshot_L": 11873778256894.0,
+   "median_diff_u": 458955822173.0,
+   "ratio": 25.8713,
+   "overlap": false
+  },
+  "2026-10-20|SUIUSDT": {
+   "median_snapshot_L": 11873782635847.0,
+   "median_diff_u": 458954736851.0,
+   "ratio": 25.8714,
+   "overlap": false
+  },
+  "2026-10-20|XRPUSDT": {
+   "median_snapshot_L": 11873780296228.0,
+   "median_diff_u": 458956390667.0,
+   "ratio": 25.8713,
+   "overlap": false
+  },
+  "2026-10-21|BTCUSDT": {
+   "median_snapshot_L": 11885539528624.0,
+   "median_diff_u": 459913515361.0,
+   "ratio": 25.843,
+   "overlap": false
+  },
+  "2026-10-21|SOLUSDT": {
+   "median_snapshot_L": 11885534921338.0,
+   "median_diff_u": 459918295811.0,
+   "ratio": 25.8427,
+   "overlap": false
+  },
+  "2026-10-21|SUIUSDT": {
+   "median_snapshot_L": 11885538032378.0,
+   "median_diff_u": 459917338283.0,
+   "ratio": 25.8428,
+   "overlap": false
+  },
+  "2026-10-21|XRPUSDT": {
+   "median_snapshot_L": 11885536222635.0,
+   "median_diff_u": 459919892703.5,
+   "ratio": 25.8426,
+   "overlap": false
+  },
+  "2026-10-22|BTCUSDT": {
+   "median_snapshot_L": 11892358973806.5,
+   "median_diff_u": 460636105133.0,
+   "ratio": 25.8173,
+   "overlap": false
+  },
+  "2026-10-22|SOLUSDT": {
+   "median_snapshot_L": 11892356408849.0,
+   "median_diff_u": 460652001075.0,
+   "ratio": 25.8164,
+   "overlap": false
+  },
+  "2026-10-22|SUIUSDT": {
+   "median_snapshot_L": 11892361243383.0,
+   "median_diff_u": 460654442811.0,
+   "ratio": 25.8162,
+   "overlap": false
+  },
+  "2026-10-22|XRPUSDT": {
+   "median_snapshot_L": 11892359010668.0,
+   "median_diff_u": 460650120579.0,
+   "ratio": 25.8165,
+   "overlap": false
+  },
+  "2026-10-23|BTCUSDT": {
+   "median_snapshot_L": 11905774327034.0,
+   "median_diff_u": 461788277151.0,
+   "ratio": 25.7819,
+   "overlap": false
+  },
+  "2026-10-23|SOLUSDT": {
+   "median_snapshot_L": 11905770421996.0,
+   "median_diff_u": 461786195307.5,
+   "ratio": 25.782,
+   "overlap": false
+  },
+  "2026-10-23|SUIUSDT": {
+   "median_snapshot_L": 11905773061077.5,
+   "median_diff_u": 461782221979.0,
+   "ratio": 25.7822,
+   "overlap": false
+  },
+  "2026-10-23|XRPUSDT": {
+   "median_snapshot_L": 11905769047824.0,
+   "median_diff_u": 461783503623.0,
+   "ratio": 25.7821,
+   "overlap": false
+  },
+  "2026-10-25|BTCUSDT": {
+   "median_snapshot_L": 11920219044487.0,
+   "median_diff_u": 463493630973.0,
+   "ratio": 25.7182,
+   "overlap": false
+  },
+  "2026-10-25|SOLUSDT": {
+   "median_snapshot_L": 11920217893218.5,
+   "median_diff_u": 463509326054.0,
+   "ratio": 25.7173,
+   "overlap": false
+  },
+  "2026-10-25|SUIUSDT": {
+   "median_snapshot_L": 11920217547366.0,
+   "median_diff_u": 463507947714.0,
+   "ratio": 25.7174,
+   "overlap": false
+  },
+  "2026-10-25|XRPUSDT": {
+   "median_snapshot_L": 11920216405965.0,
+   "median_diff_u": 463506676854.0,
+   "ratio": 25.7175,
+   "overlap": false
+  },
+  "2026-10-26|BTCUSDT": {
+   "median_snapshot_L": 11931155002995.0,
+   "median_diff_u": 464531986864.5,
+   "ratio": 25.6842,
+   "overlap": false
+  },
+  "2026-10-26|SOLUSDT": {
+   "median_snapshot_L": 11931153569247.5,
+   "median_diff_u": 464528190878.0,
+   "ratio": 25.6845,
+   "overlap": false
+  },
+  "2026-10-26|SUIUSDT": {
+   "median_snapshot_L": 11931156198794.5,
+   "median_diff_u": 464527802839.0,
+   "ratio": 25.6845,
+   "overlap": false
+  },
+  "2026-10-26|XRPUSDT": {
+   "median_snapshot_L": 11931154917372.0,
+   "median_diff_u": 464528787956.0,
+   "ratio": 25.6844,
+   "overlap": false
+  },
+  "2026-10-27|BTCUSDT": {
+   "median_snapshot_L": 11941557076627.0,
+   "median_diff_u": 465475456134.0,
+   "ratio": 25.6545,
+   "overlap": false
+  },
+  "2026-10-27|SOLUSDT": {
+   "median_snapshot_L": 11941555799130.5,
+   "median_diff_u": 465474874209.5,
+   "ratio": 25.6546,
+   "overlap": false
+  },
+  "2026-10-27|SUIUSDT": {
+   "median_snapshot_L": 11941556075982.0,
+   "median_diff_u": 465474128191.5,
+   "ratio": 25.6546,
+   "overlap": false
+  },
+  "2026-10-27|XRPUSDT": {
+   "median_snapshot_L": 11941557091543.5,
+   "median_diff_u": 465474766110.0,
+   "ratio": 25.6546,
+   "overlap": false
+  },
+  "2026-10-29|BTCUSDT": {
+   "median_snapshot_L": 11961500232139.5,
+   "median_diff_u": 466902950249.0,
+   "ratio": 25.6188,
+   "overlap": false
+  },
+  "2026-10-29|SOLUSDT": {
+   "median_snapshot_L": 11961488457403.0,
+   "median_diff_u": 466900424963.5,
+   "ratio": 25.6189,
+   "overlap": false
+  },
+  "2026-10-29|SUIUSDT": {
+   "median_snapshot_L": 11961488608760.0,
+   "median_diff_u": 466900920353.5,
+   "ratio": 25.6189,
+   "overlap": false
+  },
+  "2026-10-29|XRPUSDT": {
+   "median_snapshot_L": 11961483905804.0,
+   "median_diff_u": 466899661006.0,
+   "ratio": 25.619,
+   "overlap": false
+  },
+  "2026-10-30|BTCUSDT": {
+   "median_snapshot_L": 11973620178972.5,
+   "median_diff_u": 467694154307.0,
+   "ratio": 25.6014,
+   "overlap": false
+  },
+  "2026-10-30|SOLUSDT": {
+   "median_snapshot_L": 11973613541504.0,
+   "median_diff_u": 467694230365.5,
+   "ratio": 25.6014,
+   "overlap": false
+  },
+  "2026-10-30|SUIUSDT": {
+   "median_snapshot_L": 11973618658448.0,
+   "median_diff_u": 467696486177.0,
+   "ratio": 25.6013,
+   "overlap": false
+  },
+  "2026-10-30|XRPUSDT": {
+   "median_snapshot_L": 11973614823621.0,
+   "median_diff_u": 467690240013.0,
+   "ratio": 25.6016,
+   "overlap": false
+  },
+  "2026-10-31|BTCUSDT": {
+   "median_snapshot_L": 11978768141045.0,
+   "median_diff_u": 468268571242.0,
+   "ratio": 25.581,
+   "overlap": false
+  },
+  "2026-10-31|SOLUSDT": {
+   "median_snapshot_L": 11978760854421.5,
+   "median_diff_u": 468262015379.0,
+   "ratio": 25.5813,
+   "overlap": false
+  },
+  "2026-10-31|SUIUSDT": {
+   "median_snapshot_L": 11978766415439.0,
+   "median_diff_u": 468247963424.0,
+   "ratio": 25.5821,
+   "overlap": false
+  },
+  "2026-10-31|XRPUSDT": {
+   "median_snapshot_L": 11978765040563.0,
+   "median_diff_u": 468253495653.0,
+   "ratio": 25.5818,
+   "overlap": false
+  },
+  "2026-11-01|BTCUSDT": {
+   "median_snapshot_L": 11984412414144.0,
+   "median_diff_u": 11984415340205.0,
+   "ratio": 1.0,
+   "overlap": true
+  },
+  "2026-11-01|SOLUSDT": {
+   "median_snapshot_L": 11984413862194.0,
+   "median_diff_u": 11984415371343.5,
+   "ratio": 1.0,
+   "overlap": true
+  },
+  "2026-11-01|SUIUSDT": {
+   "median_snapshot_L": 11984413681694.0,
+   "median_diff_u": 11984415412814.0,
+   "ratio": 1.0,
+   "overlap": true
+  },
+  "2026-11-01|XRPUSDT": {
+   "median_snapshot_L": 11984412420705.5,
+   "median_diff_u": 11984415341896.0,
+   "ratio": 1.0,
+   "overlap": true
+  }
+ },
+ "readable_coverage": {
+  "days_total": 23,
+  "days_readable": 15,
+  "days_lost_wholly": [
+   "2026-10-10",
+   "2026-10-12",
+   "2026-10-14",
+   "2026-10-15",
+   "2026-10-17",
+   "2026-10-18",
+   "2026-10-24",
+   "2026-10-28"
+  ],
+  "note": "a wholly lost day means every segment of it lacks a footer (hard-killed writer before segment rotation existed). The current-day files are unreadable while the live recorder holds them open \u2014 that one is expected, not a loss."
+ },
+ "tape_verdict": {
+  "bookTicker_rows_total": 5251266,
+  "crossed_share_total_pct": 0.0,
+  "gate_crossed_share_pct": 0.001,
+  "min_readable_days": 10,
+  "days_readable": 15,
+  "snapshot_anchor_possible": true,
+  "tape_usable_for_fill_replay": true,
+  "note": "the fill-replay adapter resolves fills on the bookTicker top-of-book tape, which is independent of the snapshot id space; full-book reconstruction is gated separately by snapshot_anchor_possible"
+ }
+}

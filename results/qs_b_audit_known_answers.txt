@@ -1,0 +1,25 @@
+QS family-B audit — qs_b_strats.py
+run 2026-10-31T21:02:31+00:00
+qs_b_strats.py sha256: 42bdfb720e38d0c78dafecff81831a95e10f8cccb108ed023b6113af6881f2bc
+
+[PASS] B1a V1 = exact cross bars (1, 5, 8)
+[PASS] B1b V2 = first bar <30 while armed (1, 5, 8; re-armed at 45, 50)
+[PASS] B1c V2 does not re-fire while RSI stays below 30 (V1 too)
+[PASS] B2 QS-012 every long event is a band re-entry bar — events=1 at [np.int64(73)]
+[PASS] B3 QS-013 z-cross event fires during the -8 decline (z < -2) — events at [np.int64(1013), np.int64(1020)]
+[PASS] B4a QS-014 AVWAP = cumsum(tp*v)/cumsum(v) from the day anchor — avwap=102.3333 exp=102.3333
+[PASS] B4b QS-014 day anchor resets at 00:00 UTC — last=103.8333 day2-only=103.8333
+[PASS] B6a QS-016 long fade fires on the -3sigma bar with volume
+[PASS] B6b QS-016 target = half the displacement body — tp=0.497 body=0.993
+[PASS] B6c QS-016 displacement beyond -6 sigma is blocked (news)
+[PASS] B8 QS-018 long fires on the up-close after spike+drop — events at [np.int64(119)]
+[PASS] B9a QS-019 stationarity gate passes on a stationary spread (t < -2.86, HL in 5..100) — t=-3.82 HL=11.6
+[PASS] B9b QS-019 target flat before the estimation window
+[PASS] B9c QS-019 target opens a SHORT spread leg on a +z blowout
+[PASS] B10a QS-020 long fires on the 60%-wick dislocation bar
+[PASS] B10b QS-020 target = 50% of the lower wick from the close — tp=10.000
+[PASS] B10c QS-020 stop beyond the wick extreme + 0.25*ATR — stop=79.450
+[PASS] R1 truncation causality (QS-012 on real data)
+[PASS] R2 determinism
+
+TOTAL: 19 PASS, 0 FAIL

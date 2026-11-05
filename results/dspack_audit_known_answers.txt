@@ -1,0 +1,82 @@
+== dspack known-answer audit ==
+sha256 dspack_engine.py: 194d3028c6fd73d86a379112e81c7add6cc995f3f5a738bad5271127992ddcf5
+sha256 deepseek_pack.py: b6ca6f58f36e6c3bb140e39c389dff22319ad5d166818072844999cb5976f212
+PASS A1 tsmom up: pos == [0,0,0,1,1,1,1] (scale clipped, |pos| 1) :: got [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+PASS A1 tsmom down: [0,0,0,-1,-1,-1,-1] :: got [0.0, 0.0, 0.0, -1.0, -1.0, -1.0, -1.0]
+PASS A1 tsmom flat: 0 everywhere :: got [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+PASS A2 tsmom hand-computed pos :: got [0.0, 0.0, 0.0, 0.246744403, 0.169821145, 0.168758646, 0.24511571, 0.513259384]
+PASS A3 donchian breakout filtered out (range 0.25 <= 2*0.2) :: got [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+PASS A3 donchian breakout at mult 0.5 -> +1 on bar 4 ONLY (stateless: bar 5 back to 0) :: got [0.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+PASS A3 donchian breakdown -> -1 on bar 4 only :: got [0.0, 0.0, 0.0, 0.0, -1.0, 0.0]
+PASS A3 donchian warmup: shifted window max NaN -> no trigger
+PASS A4 htf_ema: closed-form EMA == pandas ewm (adjust=True)
+PASS A4 htf_ema: hold-memory == hand-built expected [-1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0] :: got [-1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0]
+PASS A5 xs top_k=1: weight 1.0 on S1 from bar 2 (grid [::2] + ffill) :: got
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [1. 0. 0.]
+ [1. 0. 0.]
+ [1. 0. 0.]
+ [1. 0. 0.]
+ [1. 0. 0.]
+ [1. 0. 0.]]
+PASS A5 xs ranks: S1/S3/S2 pct == 1.0/0.666.../0.333...
+PASS A6 bovol: trigger at bar 4 ONLY, output stays flat after -- the pack's ffill(limit=24) is a dead no-op (no NaN in pos), ds5 holds its weight exactly one bar (stateless, like ds2) :: got [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
+PASS A6 bovol mirrored breakdown -> -1 on bar 4 only (same dead ffill) :: got [0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0]
+PASS A6 bovol 30-bar probe: no hold, no re-trigger -- strictly one-bar weight on the trigger (limit=24 never activates) :: nonzero idx [4]
+PASS B1 fee ladder levels (entry 0.1%, drift 0.05%, exit 0.05%) :: lv [100000.0, 100000.0, 99900.0, 89910.0, 109835.05500000001, 107285.13434812504]
+PASS B1 trade segmentation (one trade: entry 1, exit event bar 4) :: trades [{'a': 1, 'u': 4, 'side': 1, 'ref_idx': 1, 'ref_level': 100000.0, 'usd': 7285.134348125037, 'pnl_pct': 0.07285134348125037, 'fees': 208.614401875}]
+PASS B1 trade usd == lv[5] - lv[1] :: usd 7285.134348125037
+PASS B1 trade fees (entry bar + drift bar + exit bar) :: fees 208.614401875 vs 208.614401875
+PASS B2 ladder with whole-order reversal fee (|dw| = 2 at bar 3) :: first diff none
+PASS B2 segmentation: trade1 [1..3] closes WITH the reversal bar; trade2 starts at bar 3 with post-fee ref (no entry fee) :: trades [{'a': 1, 'u': 3, 'side': 1, 'ref_idx': 1, 'ref_level': 100000.0, 'usd': 9670.220000000016, 'pnl_pct': 0.09670220000000015, 'fees': 319.78000000000003}, {'a': 3, 'u': 5, 'side': -1, 'ref_idx': 4, 'ref_level': 109670.22000000002, 'usd': 11045.585757600027, 'pnl_pct': 0.10071636363636387, 'fees': 120.83664240000003}]
+PASS B2 whole-order reversal fee charged ONCE, to the CLOSING trade (entry 0.1% + bar3 0.2% = trade 1 fees) :: t1 fees 319.78000000000003 vs 319.78000000000003
+PASS B2 trade 2 pays only its own exit fee at bar 5 (no entry fee on a reversal start) :: t2 fees 120.83664240000003 vs 120.83664240000002
+PASS B3 levels: engine == straight-line reference :: len 401 vs 401
+PASS B3 trades: engine == reference (a, u, usd, fees each) :: n trades 23 vs 23
+PASS B3 open tail run matches
+PASS B3 tiling invariant: sum of closed trade dollars == equity delta over the closed span :: sum 7283.729526709794 vs 7283.729526709794
+PASS B3 scored row matches plain-math pf/ret on the same segments :: pf 1.2571935404748877 vs 1.2571935404748877
+PASS B4 causality ds1 prefix 150 == full prefix
+PASS B4 causality ds1 prefix 250 == full prefix
+PASS B4 causality ds1 prefix 299 == full prefix
+PASS B4 causality ds2 prefix 150 == full prefix
+PASS B4 causality ds2 prefix 250 == full prefix
+PASS B4 causality ds2 prefix 299 == full prefix
+PASS B4 causality ds3 prefix 150 == full prefix
+PASS B4 causality ds3 prefix 250 == full prefix
+PASS B4 causality ds3 prefix 299 == full prefix
+PASS B4 causality ds5 prefix 150 == full prefix
+PASS B4 causality ds5 prefix 250 == full prefix
+PASS B4 causality ds5 prefix 299 == full prefix
+PASS B4 causality ds4 prefix 150 == full prefix
+PASS B4 causality ds4 prefix 250 == full prefix
+PASS B4 causality ds4 prefix 299 == full prefix
+PASS B5 ds4 weights == S1-only from bar 2 :: W [[0.0, 0.0], [0.0, 0.0], [1.0, 0.0], [1.0, 0.0], [1.0, 0.0], [1.0, 0.0]]
+PASS B5 portfolio ladder (entry switch at bar 2, 2%/bar earn) :: lv [100000.0, 100000.0, 100000.0, 99900.0, 101898.00000000003, 103935.96, 106014.67920000001]
+PASS B5 period 0 = [ref lv0, exit switch bar 2] (fee inside) :: periods [{'b': 0, 'u': 2, 'ref_idx': 0, 'ref_level': 100000.0, 'usd': -100.0, 'pnl_pct': -0.001, 'fees': 100.0}]
+PASS B5 open tail period = from bar 2's post-switch level lv[3] (the entry switch's fee belongs to the closing period, so the open period's own fees are 0) :: open usd {'b': 2, 'ref_idx': 3, 'ref_level': 99900.0, 'usd': 6114.679200000013, 'pnl_pct': 0.06120800000000013, 'fees': 0.0}
+PASS B5 equal-weight benchmark over bars 1..5 == 1.005^5 - 1 :: benched 2.5251253128124596 vs 2.5251253128124374
+PASS B6 zero-position edge (n 0, PF None, ret 0, fees 0) :: row subset {'n_trades': 0, 'pf_strict': None, 'ret_pct': 0.0}
+PASS C default strat_tsmom :: got {'lookback': 168, 'vol_target': 0.2, 'bars_per_year': 8760}
+PASS C default strat_donchian :: got {'n': 100, 'atr_period': 14, 'atr_mult': 1.5}
+PASS C default strat_htf_trend :: got {'fast': 50, 'slow': 200, 'hold': 24}
+PASS C default strat_xs_momentum :: got {'lookback': 720, 'top_k': 3, 'rebalance': 24}
+PASS C default strat_breakout_volume :: got {'n': 48, 'vol_mult': 2.0}
+
+54 PASS, 0 FAIL (none)
+python : Traceback (most recent call last):
+En l?nea: 1 Car?cter: 1
++ python code\_dspack_audit.py 2>&1 | Out-File results\dspack_audit_kno ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\Lenovo\Documents\backtest-system\code\_dspack_audit.py", line 653, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\Lenovo\Documents\backtest-system\code\_dspack_audit.py", line 642, in main
+    with open(OUT, "w", encoding="utf-8") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 
+'C:\\Users\\Lenovo\\Documents\\backtest-system\\results\\dspack_audit_known_answers.txt'

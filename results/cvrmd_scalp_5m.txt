@@ -1,0 +1,20 @@
+============================================================================================================
+CVRMD-Scalp-v1.1 port  |  5m  |  tier: slope=6 smooth=3 rsi=11 piv=2 maxdiv=25 cd=3 atrL=14
+============================================================================================================
+BTCUSDT                        net    -8.69%  PF  0.28  n   28  WR 35.7%  DD  10.1%  bars   7.5 | 2026-06:+0.4%/7 2026-07:-5.2%/18 2026-08:-1.1%/4 2026-09:-3.0%/8
+                               signals long 16 short 12 | buy&hold +35.7% DD 11.3% | 27084 bars
+ETHUSDT                        net    -7.35%  PF  0.47  n   33  WR 42.4%  DD   8.3%  bars   5.3 | 2026-06:+0.1%/5 2026-07:-3.9%/18 2026-08:-0.5%/6 2026-09:-3.2%/13
+                               signals long 16 short 19 | buy&hold +60.0% DD 14.4% | 27084 bars
+SOLUSDT                        net    +0.00%  PF  0.00  n    0  WR  0.0%  DD   0.0%  bars   0.0 | 
+                               signals long 0 short 0 | buy&hold +64.8% DD 15.9% | 27084 bars
+SUIUSDT                        net    +0.00%  PF  0.00  n    0  WR  0.0%  DD   0.0%  bars   0.0 | 
+                               signals long 0 short 0 | buy&hold +41.7% DD 29.1% | 27084 bars
+XRPUSDT                        net    +0.00%  PF  0.00  n    0  WR  0.0%  DD   0.0%  bars   0.0 | 
+                               signals long 0 short 0 | buy&hold +30.9% DD 25.5% | 27073 bars
+HYPEUSDT                       net    +0.00%  PF  0.00  n    0  WR  0.0%  DD   0.0%  bars   0.0 | 
+                               signals long 0 short 0 | buy&hold +31.0% DD 29.7% | 27073 bars
+SPXUSDT                        net    +0.00%  PF  0.00  n    0  WR  0.0%  DD   0.0%  bars   0.0 | 
+                               signals long 0 short 0 | buy&hold +33.1% DD 34.7% | 27073 bars
+
+  equal-weight net -15.40%  median PF 0.00  green 0/7  trades 61
+  NOTE: 3 months of 1m data cannot satisfy the >=2/3-of-years rule.

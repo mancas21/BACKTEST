@@ -1,0 +1,33 @@
+# Local data and records stay local (review before pushing public)
+data/
+recorder/
+backups/
+results/runs/
+
+# Sealed private research and audit kits
+edge/
+audit/
+audit_package/
+claude_audit_kit_2026-10-30/
+audit_claude_bot_strategies.md
+
+# Internal runtime/state files (paper bots)
+grid_forward_*
+grid_paper_*
+mp18_forward_*
+mp18_v2_paper_*
+paper_status_check.md
+*.bak
+
+# Third-party Pine libraries (not ours to redistribute)
+pine/
+
+# Raw run logs (machine-specific paths; reports are published instead)
+*.log
+
+# Local config / caches
+.zcode/
+.venv/
+venv/
+__pycache__/
+*.pyc

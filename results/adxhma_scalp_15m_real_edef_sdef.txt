@@ -1,0 +1,7 @@
+ADX+HMA preset=scalp tf=15m cost=real entry=default short=default
+sym        trades       net%     DD%     PF        BH%
+BTCUSDT     25597     -100.0   100.0   0.46       +731
+ETHUSDT     25615     -100.0   100.0   0.63      +1615
+SOLUSDT     22738     -100.0   100.0   0.89      +3178
+XRPUSDT     24746     -100.0   100.0   0.63       +609
+SUIUSDT     12413     -100.0   100.0   0.71        -17

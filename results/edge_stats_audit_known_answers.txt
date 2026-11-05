@@ -1,0 +1,20 @@
+PASS	BH: five p-values all below the q=0.10 ladder -> five rejections	rejected 5 of 5
+PASS	BH: one small and two large -> only the first rejected	[True, False, False]
+PASS	BH matches an independent step-up implementation on random inputs	rejections per seed: [6, 6, 6]
+PASS	BH check is non-vacuous (at least one rejection observed)	
+PASS	cluster_t equals an independent CR1 implementation	got 9.5462562965 want 9.5462562965
+PASS	cluster_t degenerates correctly when each day is its own cluster	got 4.242641 want 4.242641
+PASS	effective_n: n unique days -> n	
+PASS	effective_n: one day for everything -> 1	
+PASS	effective_n: two balanced blocks of five -> the cluster count, 2	
+PASS	effective_n: clusters of 8,1,1 -> 100/66	1.515152
+PASS	mde_bps equals (z_alpha + z_power)*sigma/sqrt(n_eff)	got 28.015852 want 28.015852
+PASS	mde_bps strictly decreases as n_eff grows	88.59 > 39.62 > 19.81 > 8.86
+PASS	mde_bps is infinite at n_eff = 0	
+PASS	SPA: a trial that beats the benchmark gets a small p	p=0.0005
+PASS	SPA: a trial identical to the benchmark does not	p=0.2444
+PASS	SPA is deterministic under a fixed seed	0.000500 == 0.000500
+PASS	bootstrap_ci brackets the sample mean	[1.6696, 2.3077] around 2.0039
+PASS	bootstrap_ci is deterministic under a fixed seed	
+PASS	circular_shift_null: signal == forward return -> small p	p=0.0010
+TOTAL 19/19 passed

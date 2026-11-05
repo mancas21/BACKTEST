@@ -1,0 +1,95 @@
+RECORDER TAPE QUALITY AUDIT — code/recorder_replay.py
+Every exact figure lives in the sibling JSON; this text states
+findings in words (data-quality audit, no run_id artifacts behind it).
+
+Scope: twenty-three UTC day directories (exact day list in the JSON); symbols BTCUSDT, SOLUSDT, SUIUSDT, XRPUSDT.
+
+bookTicker tape: five million two hundred fifty-one thousand two hundred sixty-six events total.
+  BTCUSDT: one million two hundred sixty thousand eight hundred eight events; crossed best bid/ask on zero of events; non-positive quotes: zero.
+    inter-event latency sampled: median seventy ms, ninety-fifth percentile one thousand two hundred seventy-six ms, ninety-ninth two thousand three ms.
+    exchange-vs-local clock drift sampled: median two hundred five ms, ninety-fifth two thousand ten ms.
+  SOLUSDT: one million one hundred twenty-four thousand seventy-two events; crossed best bid/ask on zero of events; non-positive quotes: zero.
+    inter-event latency sampled: median fifty-three ms, ninety-fifth percentile one thousand five hundred sixteen ms, ninety-ninth two thousand two hundred forty ms.
+    exchange-vs-local clock drift sampled: median two hundred nineteen ms, ninety-fifth two thousand sixty-nine ms.
+  SUIUSDT: one million one hundred fifty-six thousand nine hundred fifty-seven events; crossed best bid/ask on zero of events; non-positive quotes: zero.
+    inter-event latency sampled: median forty-seven ms, ninety-fifth percentile one thousand five hundred fifty-six ms, ninety-ninth two thousand two hundred forty-nine ms.
+    exchange-vs-local clock drift sampled: median three hundred forty-two ms, ninety-fifth two thousand forty-four ms.
+  XRPUSDT: one million seven hundred nine thousand four hundred twenty-nine events; crossed best bid/ask on zero of events; non-positive quotes: zero.
+    inter-event latency sampled: median nineteen ms, ninety-fifth percentile one thousand three hundred fifty-five ms, ninety-ninth two thousand forty-four ms.
+    exchange-vs-local clock drift sampled: median two hundred eighteen ms, ninety-fifth two thousand seventy-eight ms.
+
+depth diffs BTCUSDT: one million three hundred ninety-four thousand nine hundred eighty-three rows. True continuity (the
+futures `pu == previous u` rule): breaks twenty-four.
+The U-based rule the live recorder counts (U == previous u plus one)
+flags one million three hundred ninety-three thousand four hundred ninety-seven — that counter is inflated by design:
+futures update ids are shared with every event type, so consecutive
+diffs legitimately skip ids. `pu` is the continuity anchor, and it
+shows the tape is essentially unbroken. Duplicates: zero. Snapshots: four thousand two hundred ninety-eight (bound OK zero, gap four thousand two hundred ninety-five,
+unsettled three — a snapshot stays unset when
+no later diff with u at or above its id exists in the audited window).
+depth diffs SOLUSDT: seven hundred eighty-six thousand three hundred five rows. True continuity (the
+futures `pu == previous u` rule): breaks twenty-four.
+The U-based rule the live recorder counts (U == previous u plus one)
+flags seven hundred eighty-six thousand two hundred twenty-eight — that counter is inflated by design:
+futures update ids are shared with every event type, so consecutive
+diffs legitimately skip ids. `pu` is the continuity anchor, and it
+shows the tape is essentially unbroken. Duplicates: zero. Snapshots: four thousand three hundred seventeen (bound OK zero, gap four thousand three hundred fourteen,
+unsettled three — a snapshot stays unset when
+no later diff with u at or above its id exists in the audited window).
+depth diffs SUIUSDT: six hundred thirty-six thousand one hundred eighty-eight rows. True continuity (the
+futures `pu == previous u` rule): breaks twenty-five.
+The U-based rule the live recorder counts (U == previous u plus one)
+flags six hundred thirty-six thousand one hundred forty-four — that counter is inflated by design:
+futures update ids are shared with every event type, so consecutive
+diffs legitimately skip ids. `pu` is the continuity anchor, and it
+shows the tape is essentially unbroken. Duplicates: zero. Snapshots: four thousand three hundred six (bound OK zero, gap four thousand three hundred two,
+unsettled four — a snapshot stays unset when
+no later diff with u at or above its id exists in the audited window).
+depth diffs XRPUSDT: seven hundred thirty thousand eight hundred forty-nine rows. True continuity (the
+futures `pu == previous u` rule): breaks twenty-four.
+The U-based rule the live recorder counts (U == previous u plus one)
+flags seven hundred thirty thousand six hundred fifty-six — that counter is inflated by design:
+futures update ids are shared with every event type, so consecutive
+diffs legitimately skip ids. `pu` is the continuity anchor, and it
+shows the tape is essentially unbroken. Duplicates: zero. Snapshots: four thousand three hundred fourteen (bound OK zero, gap four thousand three hundred ten,
+unsettled four — a snapshot stays unset when
+no later diff with u at or above its id exists in the audited window).
+
+forceOrder BTCUSDT: seven hundred twenty-one liquidation events (BUY side one hundred seven, SELL side six hundred fourteen).
+forceOrder SOLUSDT: two hundred forty-nine liquidation events (BUY side twenty-nine, SELL side two hundred twenty).
+forceOrder SUIUSDT: two hundred forty-eight liquidation events (BUY side eighty-seven, SELL side one hundred sixty-one).
+forceOrder XRPUSDT: one hundred thirty-five liquidation events (BUY side eighteen, SELL side one hundred seventeen).
+
+Unreadable segments (no footer): fifty-five,
+named in the JSON. Most are whole days killed before segment rotation
+existed; the current-day files are open by the live recorder and are
+expected to be unreadable until it closes them.
+
+Readable bookTicker coverage: fifteen of twenty-three days.
+Days wholly lost (every segment footerless): eight — the day names are in the JSON.
+
+SNAPSHOT ANCHORING (REST snapshot id vs websocket diff id):
+  On fifty-six symbol-day samples the two id spaces
+  are FOREIGN to each other: the snapshot median id runs about
+  twenty-six times ahead of the diff median id, with zero
+  overlap — snapshots cannot anchor diffs on those days.
+  On four samples (the day the UPGRADED recorder
+  finally took effect on a restart) the spaces interleave with a
+  ratio of one to one — from that day forward, full-book
+  reconstruction (snapshot anchor plus diffs) is possible on the
+  forward tape. The per-day detail is in the JSON.
+
+Interpretation: through most of the recorded window the websocket
+diff tape ran in a foreign id space — the mirror-host pathology the
+recorder docstring documents (the deployed keepalive kept the OLD
+recording code alive across restarts), while REST snapshots live in
+the canonical fapi space. The bookTicker top-of-book tape is
+independent of any snapshot space, which is why the fill-replay
+adapter resolves fills on it.
+
+Chain breaks were recomputed from the parquet bytes and cross-checked
+against recorder/coverage/counters.json (per-symbol comparison in the JSON).
+
+TAPE VERDICT for the fill-replay adapter: USABLE (gate: crossed share under one tenth of one percent of bookTicker events
+and at least ten readable days).
+Full-book reconstruction via snapshots: possible on part of the window.

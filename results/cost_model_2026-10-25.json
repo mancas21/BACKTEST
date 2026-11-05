@@ -1,0 +1,124 @@
+{
+  "model": "directional_taker_roundtrip",
+  "version": "2026-10-25",
+  "supersedes": "6 bps fee + 5 bps slip per side = 22 bps roundtrip (never measured, only 'conservative vs TV')",
+  "formula": "RT_bps = 2 * taker_fee_bps + spread_bps + 2 * impact_10k_bps",
+  "notional_usd": 10000,
+  "book_depth_levels": 50,
+  "measured_date_utc": "2026-10-25",
+  "reference_time_utc": "2026-10-25T14:20:10Z",
+  "reference_time_source": "Kraken /derivatives/api/v3/feeschedules serverTime, same measurement session",
+  "per_symbol_snapshot_note": "per-symbol books were read sequentially earlier in the same session, not at the 14:20:10Z reference instant",
+  "sources": {
+    "binance": {
+      "book": "https://fapi.binance.com/fapi/v1/depth?symbol=<SYM>&limit=50",
+      "fee": "https://www.binance.com/en/fee/futureFee read live 2026-10-25 in a real browser: Regular User USDT-M maker 0.0200% / taker 0.0500%; paying fees in BNB 0.0180% / 0.0450%; USDC/USD1-margined 0.0000% / 0.0400% (0.0360% with BNB). Banner: '0 maker and up to 50% taker discount ... during the Promotion Period' refers to the USDC/USD1 columns, NOT to regular USDT-M (the USDT maker column is still 0.02%)."
+    },
+    "okx": {
+      "book": "https://www.okx.com/api/v5/market/books?instId=XRP-USDT-SWAP&sz=50",
+      "fee": "published SWAP tier 0; /priapi fee endpoints return 401/404 without auth"
+    },
+    "bybit": {
+      "book": "https://api.bybit.com/v5/market/orderbook?category=linear&symbol=XRPUSDT&limit=50",
+      "fee": "published linear tier 0; no anonymous fee endpoint"
+    },
+    "kraken": {
+      "book": "https://futures.kraken.com/derivatives/api/v3/orderbook?symbol=pf_xrpusd",
+      "fee": "https://futures.kraken.com/derivatives/api/v3/feeschedules - Incentive Rebate MTF Linear, tier 0, read live"
+    }
+  },
+  "fees_bps_per_side": {
+    "binance": {"maker": 2.0, "taker": 5.0, "verified": "page_read_live", "source": "binance.com/en/fee/futureFee, read live 2026-10-25"},
+    "okx": {"maker": 2.0, "taker": 5.0, "verified": "published_tier_only"},
+    "bybit": {"maker": 2.0, "taker": 5.5, "verified": "published_tier_only"},
+    "kraken": {"maker": 2.0, "taker": 5.0, "verified": "api_read_live"}
+  },
+  "binance_fee_tiers_read_live": {
+    "regular_usdt_m": {"maker_pct": 0.0200, "taker_pct": 0.0500},
+    "regular_usdt_m_pay_fees_in_bnb": {"maker_pct": 0.0180, "taker_pct": 0.0450},
+    "regular_usdc_usd1_m": {"maker_pct": 0.0000, "taker_pct": 0.0400},
+    "regular_usdc_usd1_m_pay_fees_in_bnb": {"maker_pct": 0.0000, "taker_pct": 0.0360},
+    "vip1_usdt_m": {"maker_pct": 0.0180, "taker_pct": 0.0500},
+    "vip9_usdt_m": {"maker_pct": 0.0000, "taker_pct": 0.0170}
+  },
+  "cheaper_real_alternatives": {
+    "bnb_fee_discount": {"taker_bps_per_side": 4.5, "xrp_rt_10k_bps": 10.55, "condition": "pay trading fees in BNB (10% off); costs holding BNB, no volume requirement"},
+    "usdc_margined_perp": {"maker_bps_per_side": 0.0, "taker_bps_per_side": 4.0, "xrp_rt_10k_bps": 12.33, "note": "fee side is 8 bps RT; the USDC book is thinner, so the total is WORSE than USDT for XRP (see usdc_vs_usdt_measured)"},
+    "decision": "the repo gate stays at 11 bps (plain USDT-M taker, no discounts). BNB 4.5 would make it 10.55; adopting it is a separate decision."
+  },
+  "usdc_vs_usdt_measured": {
+    "measured_utc": "2026-10-25T15:0xZ",
+    "formula": "RT = 2*taker + spread + 2*impact_10k (USDC taker 4.0, USDT taker 5.0)",
+    "XRPUSDC": {"spread_bp": 0.77, "impact_10k_bp": 1.78, "rt_10k_bp": 12.33, "bid_depth_50_usd": 1839098},
+    "XRPUSDT": {"spread_bp": 0.77, "impact_10k_bp": 0.38, "rt_10k_bp": 11.55, "bid_depth_50_usd": 6345686},
+    "BTCUSDC": {"spread_bp": 0.01, "impact_10k_bp": 0.01, "rt_10k_bp": 8.03, "bid_depth_50_usd": 1830879},
+    "BTCUSDT": {"rt_10k_bp": 10.02},
+    "ETHUSDC": {"spread_bp": 0.04, "impact_10k_bp": 0.02, "rt_10k_bp": 8.08, "bid_depth_50_usd": 1417975},
+    "ETHUSDT": {"rt_10k_bp": 10.09},
+    "verdict": "USDC is ~2 bps cheaper on BTC/ETH and 0.8 bps MORE expensive on XRP: the 1 bp lower taker does not pay for 1.4 bps of extra impact. 0% maker is only worth it where the USDC book has depth.",
+    "united_stables_promo": {
+      "announcement": "binance.com/en/support/announcement/detail/2d6508a405454beb8ebbb9e0f1a695fe (published 2026-07-01, promo from 2026-07-02 until further notice)",
+      "terms": "0 maker for regular..VIP9; taker 0.0400% regular/VIP1, 0.0320% VIP2, 0.0256% VIP3, 0.0150% VIP4..; 10% off paying with BNB (0.0360% regular)",
+      "symbols_today": ["BTCU", "ETHU"],
+      "BTCU": {"spread_bp": 2.16, "impact_10k_bp": 1.97, "rt_taker4_bp": 14.10, "bid_depth_50_usd": 483399},
+      "ETHU": {"spread_bp": 5.42, "impact_10k_bp": 5.81, "rt_taker4_bp": 25.04, "bid_depth_50_usd": 675777},
+      "verdict": "the promo is real but the U books are 6x (BTC) and 10x (ETH) thinner than USDT: paying 4 bps instead of 5 does not survive 2.2-5.4 bps of spread + 2.0-5.8 bps of impact. Taker RT is WORSE than plain USDT (14.1 vs 10.0 BTC, 25.0 vs 10.1 ETH). Only a maker strategy could use it, and only if fills exist."
+    }
+  },
+  "repo_gate": {
+    "fee_bps_per_side": 5.0,
+    "slippage_bps_per_side": 0.5,
+    "roundtrip_bps": 11.0,
+    "role": "gate for every analysis and backtest from 2026-10-25",
+    "old_preset": {"fee_bps_per_side": 6.0, "slippage_bps_per_side": 5.0, "roundtrip_bps": 22.0, "role": "sensitivity only"}
+  },
+  "per_symbol_binance_usdtm": {
+    "BTCUSDT": {"spread_bp": 0.01, "impact_10k_bp": 0.01, "rt_10k_bp": 10.02},
+    "ETHUSDT": {"spread_bp": 0.04, "impact_10k_bp": 0.02, "rt_10k_bp": 10.09},
+    "BNBUSDT": {"spread_bp": 0.14, "impact_10k_bp": 0.07, "rt_10k_bp": 10.27},
+    "XRPUSDT": {"spread_bp": 0.77, "impact_10k_bp": 0.39, "rt_10k_bp": 11.55},
+    "HYPEUSDT": {"spread_bp": 0.13, "impact_10k_bp": 0.71, "rt_10k_bp": 11.56},
+    "LINKUSDT": {"spread_bp": 0.88, "impact_10k_bp": 0.46, "rt_10k_bp": 11.79},
+    "SOLUSDT": {"spread_bp": 0.99, "impact_10k_bp": 0.50, "rt_10k_bp": 11.99},
+    "AVAXUSDT": {"spread_bp": 1.14, "impact_10k_bp": 0.57, "rt_10k_bp": 12.27},
+    "DOGEUSDT": {"spread_bp": 1.31, "impact_10k_bp": 0.65, "rt_10k_bp": 12.61},
+    "SUIUSDT": {"spread_bp": 1.10, "impact_10k_bp": 1.32, "rt_10k_bp": 13.75},
+    "NEARUSDT": {"spread_bp": 2.26, "impact_10k_bp": 1.13, "rt_10k_bp": 14.51},
+    "ADAUSDT": {"spread_bp": 4.92, "impact_10k_bp": 2.46, "rt_10k_bp": 19.84},
+    "JUPUSDT": {"spread_bp": 3.56, "impact_10k_bp": 4.50, "rt_10k_bp": 22.57, "note": "no funding file, no 1h data in the repo"},
+    "SPXUSDT": {"spread_bp": 2.78, "impact_10k_bp": 8.88, "rt_10k_bp": 30.54}
+  },
+  "per_symbol_verdict_vs_gate": {
+    "below_11bp": ["BTCUSDT", "ETHUSDT", "BNBUSDT"],
+    "above_11bp": ["XRPUSDT", "HYPEUSDT", "LINKUSDT", "SOLUSDT", "AVAXUSDT", "DOGEUSDT", "SUIUSDT", "NEARUSDT", "ADAUSDT", "JUPUSDT", "SPXUSDT"],
+    "note": "The flat 11 bps gate is optimistic for 11 of 14 names. Use the per-symbol RT above for thin books (SPX 30.5, JUP 22.6, ADA 19.8)."
+  },
+  "per_venue_xrpusdt": {
+    "binance": {"bid": 1.2924, "ask": 1.2925, "spread_bp": 0.77, "impact_10k_bp": 0.39, "rt_10k_bp": 11.55, "rt_50k_bp": 11.55},
+    "okx": {"bid": 1.2921, "ask": 1.2922, "spread_bp": 0.77, "impact_10k_bp": 0.39, "rt_10k_bp": 11.55, "rt_50k_bp": 11.55},
+    "bybit": {"bid": 1.2920, "ask": 1.2921, "spread_bp": 0.77, "impact_10k_bp": 0.39, "rt_10k_bp": 12.55, "rt_50k_bp": 12.55},
+    "kraken": {"bid": 1.2914, "ask": 1.2915, "spread_bp": 0.77, "impact_10k_bp": 1.97, "rt_10k_bp": 14.72, "rt_50k_bp": 20.01}
+  },
+  "funding_live_snapshot": {
+    "symbol": "XRPUSDT / XRP-USDT-SWAP",
+    "binance": {"rate_pct_per_8h": 0.0100, "next_funding_ms": 1792944000000, "mark": 1.29283524},
+    "okx": {"rate_pct_per_8h": 0.00784, "next_funding_ms": 1792972800000},
+    "bybit": {"rate_pct_per_8h": 0.00424, "next_funding_ms": 1792944000000, "mark": 1.2925},
+    "note": "Funding is a separate real cost the 22 bps model never carried; it is applied on top of RT in the re-runs."
+  },
+  "maker_grid": {
+    "maker_fee_bps_per_side": 2.0,
+    "validated_model_bps_per_rung": 2.0,
+    "note": "Grid capture assumes maker fills (no spread crossing); the 11 bps taker model does not apply to it."
+  },
+  "rerun_consequence": {
+    "artifact_gate": "backtest_link._repo_costs() now accepts only fee=5.0, slip=0.5, rt=11.0; the 14/22 bps artifacts move to other_cost_artifacts",
+    "effect": "SOLUSDT@1h and XRPUSDT@1h stop being listed as candidates until the grid is re-run at 11 bps"
+  },
+  "verdict_after_rerun": {
+    "flow_15m": "negative on all 7 symbols (-8 to -26 bps net)",
+    "pullback_1h": {"pooled_pf": 0.996, "train_pf": 1.079, "oos_pf": 0.799},
+    "daily_trend": {"oos_pf_range": [0.86, 1.19], "cells_above_1_2": 0},
+    "conclusion": "lowering 22 -> 11 bps changes no verdict: the gross edge is zero or negative in 2025-26"
+  }
+}

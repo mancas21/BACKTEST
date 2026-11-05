@@ -1,0 +1,96 @@
+============================================================================================================
+1. TURTLE FILTER (EMA55) — does a structural trend gate beat the same system ungated?
+============================================================================================================
+   long-only + ATR(2x) stop, donLen 30
+symbol               ungated    PF |       turtle-gated    PF |     delta
+BTCUSDT              +122.0%  1.72 |            +119.7%  1.74 |     -2.3%
+ETHUSDT               +47.7%  1.40 |             +47.1%  1.41 |     -0.6%
+SOLUSDT                -8.3%  0.94 |             -17.4%  0.84 |     -9.0%
+SUIUSDT               -13.7%  0.83 |             -11.6%  0.85 |     +2.0%
+XRPUSDT               -38.8%  0.67 |             -32.7%  0.71 |     +6.0%
+HYPEUSDT              +24.5%  1.71 |             +28.2%  1.87 |     +3.7%
+SPXUSDT                -1.4%  1.00 |              -7.5%  0.82 |     -6.1%
+
+============================================================================================================
+2. donLen x ATR-multiple grid, turtle-gated, long-only — PF surface
+============================================================================================================
+symbol              d20           d25           d30           d35           d40           d50
+BTCUSDT           +100%         +246%         +120%         +137%         +133%          +59%
+ETHUSDT            +11%          +67%          +47%          +63%         +141%          +91%
+SOLUSDT             -1%          -11%          -17%          -24%          -21%          -14%
+SUIUSDT             -7%          -18%          -12%          -12%          -19%          -25%
+XRPUSDT            +16%          -40%          -33%          +31%          +30%          -18%
+HYPEUSDT           +19%          +14%          +28%          +13%          +12%          +19%
+SPXUSDT             +3%           -8%           -8%           -2%           +5%           -9%
+
+BTCUSDT            1.36          1.82          1.74          1.96          2.02          1.73   (PF at 2x ATR)
+ETHUSDT            1.09          1.37          1.41          1.60          2.25          2.07   (PF at 2x ATR)
+SOLUSDT            1.02          0.95          0.84          0.64          0.66          0.75   (PF at 2x ATR)
+SUIUSDT            0.96          0.83          0.85          0.80          0.57          0.15   (PF at 2x ATR)
+XRPUSDT            1.16          0.74          0.71          1.42          1.51          0.69   (PF at 2x ATR)
+HYPEUSDT           1.42          1.34          1.87          1.74          1.84          2.56   (PF at 2x ATR)
+SPXUSDT            1.08          0.86          0.82          0.96          1.24          0.58   (PF at 2x ATR)
+
+============================================================================================================
+3. THE ONLY TEST THAT COUNTS — vs buy&hold, and DD-matched
+============================================================================================================
+symbol       BH net   BH DD |  best net    PF     DD     x |  DD-matched    vs BH
+BTCUSDT     +712.9%   77.2% |   +245.8%  1.82  20.4%  3.79 |     +930.8%    BEATS
+                            |   donLen=25 ATRx2.0
+ETHUSDT    +1713.2%   81.4% |   +178.0%  2.34  20.8%  3.91 |     +696.2%    loses
+                            |   donLen=40 ATRx1.5
+SOLUSDT    +3882.9%   96.8% |    +27.2%  1.27  14.3%  6.78 |     +184.4%    loses
+                            |   donLen=20 ATRx4.0
+SUIUSDT       -8.2%   87.9% |    +12.0%  1.21  13.0%  6.76 |      +81.0%    BEATS
+                            |   donLen=20 ATRx4.0
+XRPUSDT     +647.5%   84.9% |    +57.0%  1.30  41.0%  2.07 |     +118.2%    loses
+                            |   donLen=20 ATRx1.5
+HYPEUSDT    +143.3%   65.1% |    +36.0%  2.02  16.0%  4.06 |     +146.1%    BEATS
+                            |   donLen=30 ATRx1.5
+SPXUSDT      -33.7%   89.0% |    +14.6%  1.58  14.9%  5.97 |      +86.9%    BEATS
+                            |   donLen=40 ATRx1.5
+
+  beats passive at matched DD: 4/7 symbols
+
+============================================================================================================
+4. WALK-FORWARD — is it stable out of sample? (turtle-gated, long-only, ATR2x)
+============================================================================================================
+symbol    donLen    IS net  IS PF    n   OOS net  OOS PF    n  verdict
+BTCUSDT       30    +63.1%   1.64  137    +34.7%    1.98   48  OOS EDGE
+BTCUSDT       40    +82.4%   2.02   98    +27.9%    2.02   34  OOS EDGE
+BTCUSDT       50    +45.5%   1.81   75     +9.3%    1.57   29  OOS EDGE
+
+ETHUSDT       30    +71.3%   1.74  135    -14.1%    0.56   40  KILL (OOS PF<1)
+ETHUSDT       40   +160.0%   3.04   90     -7.4%    0.76   32  KILL (OOS PF<1)
+ETHUSDT       50   +120.4%   2.93   74    -13.5%    0.43   27  KILL (OOS PF<1)
+
+XRPUSDT       30    -22.9%   0.73  125    -12.8%    0.67   54  KILL (OOS PF<1)
+XRPUSDT       40    -12.6%   0.78   76    +48.8%    3.17   34  OOS EDGE
+XRPUSDT       50    -19.9%   0.54   56     +2.5%    1.21   20  OOS EDGE
+
+HYPEUSDT      30     +0.0%   0.00    0    +28.2%    1.87   46  OOS EDGE
+HYPEUSDT      40     +0.0%   0.00    0    +12.3%    1.84   21  OOS EDGE
+HYPEUSDT      50     +0.0%   0.00    0    +19.0%    2.56   16  OOS EDGE
+
+SPXUSDT       30     +2.6%    inf    2     -9.8%    0.75   53  KILL (OOS PF<1)
+SPXUSDT       40     -0.3%   0.00    1     +5.4%    1.25   36  OOS EDGE
+SPXUSDT       50     +0.0%   0.00    0     -8.8%    0.58   26  KILL (OOS PF<1)
+
+============================================================================================================
+5. NEIGHBOURHOOD STABILITY — vary the turtle filter, BTC donLen=40 ATR2x
+============================================================================================================
+  buy&hold +712.9% at DD 77.2%
+  EMA0/55      net  +133.2%  PF  2.02  n 132  DD  22.3%  DD-matched  +461.9%  loses
+  EMA10/55     net  +133.2%  PF  2.02  n 132  DD  22.3%  DD-matched  +461.9%  loses
+  EMA20/55     net  +133.2%  PF  2.02  n 132  DD  22.3%  DD-matched  +461.9%  loses
+  EMA20/100    net   +88.1%  PF  1.86  n 118  DD  31.1%  DD-matched  +219.1%  loses
+  EMA50/200    net   +49.6%  PF  1.65  n  99  DD  27.6%  DD-matched  +139.0%  loses
+  EMA10/30     net  +133.2%  PF  2.02  n 132  DD  22.3%  DD-matched  +461.9%  loses
+  no filter    net  +129.5%  PF  1.99  n 134  DD  22.3%  DD-matched  +449.1%  loses
+
+============================================================================================================
+6. SHARPE — the number that decides, vs passive's own Sharpe
+============================================================================================================
+  BTCUSDT   strategy Sharpe +0.60  vs  buy&hold Sharpe +0.49  (strategy wins)
+  ETHUSDT   strategy Sharpe +0.66  vs  buy&hold Sharpe +0.54  (strategy wins)
+  XRPUSDT   strategy Sharpe +0.26  vs  buy&hold Sharpe +0.30  (passive wins)

@@ -1,0 +1,341 @@
+//@version=6
+strategy("Fingrad HMA · AO · ADX Strategy", shorttitle="HMA·AO·ADX-STRAT", overlay=true, initial_capital=1000, commission_type=strategy.commission.percent, commission_value=0.05, slippage=2, pyramiding=0, margin_long=5, margin_short=5, calc_on_every_tick=false, process_orders_on_close=false)
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  FINGRAD HMA · AO · ADX — backtestable strategy (two infographics merged)
+//
+//  System A (HMA + Awesome Oscillator)
+//     LONG  entry : AO green AND above zero + price closes above HMA
+//     LONG  exit  : AO red AND below zero   + price closes below HMA
+//  System B (HMA + ADX)
+//     SHORT entry : price closes below HMA  + ADX rule (see ADX mode)
+//     SHORT exit  : price closes ABOVE HMA  (infographic text says "below", its
+//                   chart exits on a close above — typo, chart wins)
+//     Both systems are mirrored for the opposite side.
+//
+//  • Signals are evaluated on bar CLOSE; orders fill at the NEXT bar's open
+//  • The infographics define no stop, so an optional ATR hard stop (and optional
+//    R take-profit) is added; sizing is risk-based when the stop is on
+//  • Daily-loss circuit breaker, HTF HMA direction filter, cost gate, date range
+//
+//  PROPERTIES TAB: commission (0.05 %/side) and slippage (2 ticks) are set in the
+//  declaration above — change them in Settings > Properties to match your venue.
+//  Margin is 5 % (20x); the leverage cap below is the real limit.
+//  Use STANDARD candles (not Heikin-Ashi).
+// ═══════════════════════════════════════════════════════════════════════════
+
+// ── Inputs ─────────────────────────────────────────────────────────────────
+GM = "Mode & presets"
+sigMode   = input.string("A + B confluence", "Signal mode", options=["A + B confluence", "A only: HMA + AO", "B only: HMA + ADX", "A or B (either)"], group=GM, tooltip="A = HMA + Awesome Oscillator.  B = HMA + ADX.  Confluence needs both to agree.")
+preset    = input.string("Custom", "Preset", options=["Custom", "Scalp 5m-15m", "Day 30m-1h"], group=GM, tooltip="Overrides HMA length and HTF-filter timeframe. Scalp: HMA 21 / HTF 60m. Day: HMA 34 / HTF 240m.")
+exitRule  = input.string("Auto", "Exit rule", options=["Auto", "HMA close only", "AO flip only", "HMA or AO flip", "HMA and AO flip"], group=GM, tooltip="Auto = 'HMA close only' in mode B, otherwise 'HMA or AO flip'.")
+allowLong  = input.bool(true, "Allow longs", group=GM)
+allowShort = input.bool(true, "Allow shorts", group=GM)
+
+GH = "Hull MA"
+hmaLenIn  = input.int(21, "HMA length (Custom preset)", minval=2, group=GH)
+hmaSlope  = input.bool(false, "Colour HMA by slope (else solid blue)", group=GH)
+
+GA = "Awesome Oscillator"
+aoFast    = input.int(5, "AO fast SMA", minval=1, group=GA)
+aoSlow    = input.int(34, "AO slow SMA", minval=2, group=GA)
+
+GX = "ADX"
+diLen     = input.int(14, "DI length", minval=1, group=GX)
+adxSmooth = input.int(14, "ADX smoothing", minval=1, group=GX)
+adxThr    = input.float(25.0, "ADX threshold", minval=5, step=0.5, group=GX)
+adxMode   = input.string("Cross (mirrored, fixed)", "ADX mode", options=["Cross (mirrored, fixed)", "Level (ADX > threshold)", "Literal (infographic)"], group=GX, tooltip="Cross (fixed): ADX crosses ABOVE the threshold for both sides, direction from DI + HMA.\nLevel: ADX simply above the threshold.\nLiteral: long = ADX crosses above, short = ADX crosses BELOW (low ADX = no trend, so this is counter-intuitive).")
+adxWin    = input.int(3, "ADX cross window (bars)", minval=0, maxval=20, group=GX, tooltip="The ADX cross counts for this many bars after it happens, so it can coincide with the HMA / AO trigger.")
+reqDI     = input.bool(true, "Require +DI / -DI direction", group=GX)
+
+GF = "Filters"
+useHTF    = input.bool(true, "HTF HMA direction filter", group=GF)
+htfIn     = input.timeframe("60", "HTF timeframe (Custom preset)", group=GF)
+useCost   = input.bool(true, "Minimum-volatility cost gate", group=GF)
+atrLen    = input.int(14, "ATR length", minval=1, group=GF)
+costMult  = input.float(1.5, "Min ATR% as multiple of round-trip cost", minval=0.0, step=0.1, group=GF)
+feePct    = input.float(0.05, "Fee per side (%) — mirror Properties", minval=0.0, step=0.01, group=GF)
+slipPct   = input.float(0.01, "Slippage per side (%) — mirror Properties", minval=0.0, step=0.01, group=GF)
+
+GT = "Risk & execution"
+atrStopMult = input.float(2.0, "ATR hard stop (× ATR, 0 = no stop)", minval=0.0, step=0.1, group=GT)
+tpR         = input.float(0.0, "Take-profit (R multiple, 0 = off; needs stop)", minval=0.0, step=0.1, group=GT)
+riskPct     = input.float(1.0, "Risk per trade (% of equity, needs stop)", minval=0.05, step=0.05, group=GT)
+fixedNotional = input.float(100.0, "Notional % of equity when stop is off", minval=1.0, step=5.0, group=GT)
+maxLev      = input.float(10.0, "Max leverage (notional / equity)", minval=1.0, maxval=20.0, step=0.5, group=GT)
+closeOpp    = input.bool(true, "Reverse on opposite signal", group=GT)
+dailyLoss   = input.float(3.0, "Daily loss limit (% of day-start equity, 0 = off)", minval=0.0, step=0.5, group=GT)
+
+GR = "Backtest range"
+useDates  = input.bool(false, "Restrict to date range", group=GR)
+startT    = input.time(timestamp("01 Jan 2025 00:00 +0000"), "Start", group=GR)
+endT      = input.time(timestamp("01 Jan 2030 00:00 +0000"), "End", group=GR)
+
+GD = "Display"
+showBg    = input.bool(true, "Tint background while in a position", group=GD)
+showStop  = input.bool(true, "Plot stop / TP while in trade", group=GD)
+tblPosStr = input.string("Top right", "Dashboard position", options=["Top right", "Top left", "Bottom right", "Bottom left"], group=GD)
+tblSizeStr = input.string("Small", "Dashboard text size", options=["Tiny", "Small", "Normal"], group=GD)
+
+tblPos = switch tblPosStr
+    "Top left"     => position.top_left
+    "Bottom right" => position.bottom_right
+    "Bottom left"  => position.bottom_left
+    => position.top_right
+
+tsz = switch tblSizeStr
+    "Tiny"   => size.tiny
+    "Normal" => size.normal
+    => size.small
+
+// ── Effective settings ─────────────────────────────────────────────────────
+int    hmaLen = preset == "Scalp 5m-15m" ? 21 : preset == "Day 30m-1h" ? 34 : hmaLenIn
+string htfTF  = preset == "Scalp 5m-15m" ? "60" : preset == "Day 30m-1h" ? "240" : htfIn
+string exitEff = exitRule != "Auto" ? exitRule : (sigMode == "B only: HMA + ADX" ? "HMA close only" : "HMA or AO flip")
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+f_qty(float dist) =>
+    float eq = math.max(strategy.equity, 0.0)
+    float qCap = eq * maxLev / close
+    float qRaw = dist > 0 ? (eq * riskPct / 100.0) / dist : eq * fixedNotional / 100.0 / close
+    math.max(math.min(qRaw, qCap), 0.0)
+
+f_chk(bool ok, bool req) => not req ? "–" : ok ? "✓" : "✗"
+
+// ── Indicators ─────────────────────────────────────────────────────────────
+float hma   = ta.hma(close, hmaLen)
+float ao    = ta.sma(hl2, aoFast) - ta.sma(hl2, aoSlow)
+bool  aoGreen = ao > ao[1]
+float atrV  = ta.atr(atrLen)
+[diP, diM, adxV] = ta.dmi(diLen, adxSmooth)
+
+bool crossUp = ta.crossover(adxV, adxThr)
+bool crossDn = ta.crossunder(adxV, adxThr)
+sinceUp = ta.barssince(crossUp)
+sinceDn = ta.barssince(crossDn)
+bool recUp  = not na(sinceUp) and sinceUp <= adxWin and adxV > adxThr
+bool recDn  = not na(sinceDn) and sinceDn <= adxWin and adxV < adxThr
+bool diBull = diP > diM
+bool diBear = diM > diP
+
+// HTF HMA direction — last CLOSED HTF bar only (non-repainting)
+[hH1, hH2] = request.security(syminfo.tickerid, htfTF, [ta.hma(close, hmaLen)[1], ta.hma(close, hmaLen)[2]], lookahead=barmerge.lookahead_on)
+bool htfOkL = not useHTF or hH1 > hH2
+bool htfOkS = not useHTF or hH1 < hH2
+
+// Cost gate
+float atrPct = atrV / close * 100.0
+float rtCost = 2.0 * (feePct + slipPct)
+float minAtr = costMult * rtCost
+bool  costOk = not useCost or atrPct >= minAtr
+
+// ── Conditions ─────────────────────────────────────────────────────────────
+bool hmaL = close > hma
+bool hmaS = close < hma
+bool aoUpOK = ao > 0 and aoGreen          // green and above zero
+bool aoDnOK = ao < 0 and not aoGreen      // red and below zero
+
+bool adxOkL = switch adxMode
+    "Level (ADX > threshold)" => adxV > adxThr and (not reqDI or diBull)
+    "Literal (infographic)"   => recUp
+    => recUp and (not reqDI or diBull)
+
+bool adxOkS = switch adxMode
+    "Level (ADX > threshold)" => adxV > adxThr and (not reqDI or diBear)
+    "Literal (infographic)"   => recDn
+    => recUp and (not reqDI or diBear)
+
+bool aL = hmaL and aoUpOK
+bool aS = hmaS and aoDnOK
+bool bL = hmaL and adxOkL
+bool bS = hmaS and adxOkS
+
+bool modeL = switch sigMode
+    "A only: HMA + AO" => aL
+    "B only: HMA + ADX" => bL
+    "A or B (either)" => aL or bL
+    => aL and bL
+
+bool modeS = switch sigMode
+    "A only: HMA + AO" => aS
+    "B only: HMA + ADX" => bS
+    "A or B (either)" => aS or bS
+    => aS and bS
+
+bool stL = modeL and htfOkL and costOk and allowLong
+bool stS = modeS and htfOkS and costOk and allowShort
+bool entryL = stL and not stL[1]          // fresh signal only
+bool entryS = stS and not stS[1]
+
+bool exitL = switch exitEff
+    "HMA close only"  => close < hma
+    "AO flip only"    => aoDnOK
+    "HMA and AO flip" => close < hma and aoDnOK
+    => close < hma or aoDnOK
+
+bool exitS = switch exitEff
+    "HMA close only"  => close > hma
+    "AO flip only"    => aoUpOK
+    "HMA and AO flip" => close > hma and aoUpOK
+    => close > hma or aoUpOK
+
+// ── Gates ──────────────────────────────────────────────────────────────────
+bool inRange = not useDates or (time >= startT and time <= endT)
+
+var float dayStartEq = strategy.initial_capital
+if timeframe.change("D")
+    dayStartEq := strategy.equity
+bool halted = dailyLoss > 0 and strategy.equity <= dayStartEq * (1.0 - dailyLoss / 100.0)
+
+bool inLong  = strategy.position_size > 0
+bool inShort = strategy.position_size < 0
+bool flat    = strategy.position_size == 0
+bool canTrade = inRange and not halted
+bool okL = flat or (closeOpp and inShort)
+bool okS = flat or (closeOpp and inLong)
+bool takeL = entryL and canTrade and okL
+bool takeS = entryS and canTrade and okS and not takeL
+
+// ── Trade state ────────────────────────────────────────────────────────────
+var float pendStop  = 0.0
+var float tradeStop = 0.0
+var int   lastDir   = 0
+var int   lastTag   = 0
+var float lastPx    = na
+var int   lastBar   = na
+bool placedL = false
+bool placedS = false
+int  tagNow  = 0
+
+bool newTrade = strategy.position_size != 0 and (strategy.position_size[1] == 0 or math.sign(strategy.position_size) != math.sign(strategy.position_size[1]))
+if newTrade
+    tradeStop := pendStop
+
+// Manage open trade: stop / TP re-anchored to the real average fill price
+float lvlSL = na
+float lvlTP = na
+if strategy.position_size != 0 and tradeStop > 0
+    float dir = math.sign(strategy.position_size)
+    string id = dir > 0 ? "L" : "S"
+    float ep  = strategy.position_avg_price
+    lvlSL := ep - dir * tradeStop
+    lvlTP := tpR > 0 ? ep + dir * tradeStop * tpR : na
+    strategy.exit("XT " + id, id, limit=lvlTP, stop=lvlSL)
+
+if halted and strategy.position_size != 0
+    strategy.close_all(comment="Daily loss limit")
+
+// Signal exits (a fresh opposite entry reverses instead — handled below)
+if inLong and exitL and not takeS
+    strategy.close("L", comment="Exit " + exitEff)
+if inShort and exitS and not takeL
+    strategy.close("S", comment="Exit " + exitEff)
+
+// Entries (orders fill at the next bar's open; stop armed immediately)
+float stopDist = atrStopMult > 0 ? atrStopMult * atrV : 0.0
+
+if takeL
+    float q = f_qty(stopDist)
+    if q > 0
+        tagNow := (aL ? 1 : 0) + (bL ? 2 : 0)
+        placedL := true
+        pendStop := stopDist
+        lastDir := 1
+        lastTag := tagNow
+        lastPx := close
+        lastBar := bar_index
+        strategy.entry("L", strategy.long, qty=q, comment="L " + (tagNow == 3 ? "A+B" : tagNow == 2 ? "B" : "A"))
+        if stopDist > 0
+            strategy.exit("XT L", "L", limit=(tpR > 0 ? close + stopDist * tpR : na), stop=close - stopDist)
+else if takeS
+    float q = f_qty(stopDist)
+    if q > 0
+        tagNow := (aS ? 1 : 0) + (bS ? 2 : 0)
+        placedS := true
+        pendStop := stopDist
+        lastDir := -1
+        lastTag := tagNow
+        lastPx := close
+        lastBar := bar_index
+        strategy.entry("S", strategy.short, qty=q, comment="S " + (tagNow == 3 ? "A+B" : tagNow == 2 ? "B" : "A"))
+        if stopDist > 0
+            strategy.exit("XT S", "S", limit=(tpR > 0 ? close - stopDist * tpR : na), stop=close + stopDist)
+
+// ── Plots ──────────────────────────────────────────────────────────────────
+plot(hma, "HMA", hmaSlope ? (hma > hma[1] ? #26a69a : #ef5350) : #2962ff, 2)
+plot(showStop ? lvlSL : na, "Stop", color.new(#ef5350, 0), 1, plot.style_linebr)
+plot(showStop ? lvlTP : na, "Take profit", color.new(#26a69a, 0), 1, plot.style_linebr)
+
+plotshape(placedL and tagNow == 3, "LONG A+B", shape.triangleup, location.belowbar, color.new(#00c853, 0), size=size.normal, text="A+B")
+plotshape(placedL and tagNow == 1, "LONG A", shape.triangleup, location.belowbar, color.new(#26a69a, 0), size=size.small, text="A")
+plotshape(placedL and tagNow == 2, "LONG B", shape.triangleup, location.belowbar, color.new(#26a69a, 0), size=size.small, text="B")
+plotshape(placedS and tagNow == 3, "SHORT A+B", shape.triangledown, location.abovebar, color.new(#d50000, 0), size=size.normal, text="A+B")
+plotshape(placedS and tagNow == 1, "SHORT A", shape.triangledown, location.abovebar, color.new(#ef5350, 0), size=size.small, text="A")
+plotshape(placedS and tagNow == 2, "SHORT B", shape.triangledown, location.abovebar, color.new(#ef5350, 0), size=size.small, text="B")
+
+bgcolor(showBg ? (inLong ? color.new(#26a69a, 92) : inShort ? color.new(#ef5350, 92) : na) : na)
+
+plot(ao, "AO", display=display.data_window)
+plot(adxV, "ADX", display=display.data_window)
+
+// ── Dashboard ──────────────────────────────────────────────────────────────
+color cBg   = color.new(#131722, 8)
+color cGood = #26a69a
+color cBad  = #ef5350
+color cNeu  = #b2b5be
+color cWarn = #ffa726
+
+var table dash = table.new(tblPos, 2, 14, bgcolor=cBg, border_width=1, border_color=color.new(#363a45, 0))
+
+f_cell(int r, string lbl, string val, color vc) =>
+    table.cell(dash, 0, r, lbl, text_color=color.new(color.white, 30), text_halign=text.align_left, bgcolor=cBg, text_size=tsz)
+    table.cell(dash, 1, r, val, text_color=vc, text_halign=text.align_left, bgcolor=cBg, text_size=tsz)
+
+if barstate.islast
+    bool reqA = sigMode != "B only: HMA + ADX"
+    bool reqB = sigMode != "A only: HMA + AO"
+
+    table.cell(dash, 0, 0, "HMA · AO · ADX STRAT", text_color=color.white, bgcolor=color.new(#1e53e5, 20), text_halign=text.align_left, text_size=tsz)
+    table.cell(dash, 1, 0, syminfo.ticker + " · " + timeframe.period, text_color=color.white, bgcolor=color.new(#1e53e5, 20), text_halign=text.align_left, text_size=tsz)
+
+    f_cell(1, "Mode", sigMode + (preset != "Custom" ? " · " + preset : "") + " · exit: " + exitEff, cNeu)
+
+    string posTxt = "FLAT"
+    color  posCol = cNeu
+    if strategy.position_size != 0
+        posTxt := (inLong ? "LONG " : "SHORT ") + str.tostring(math.abs(strategy.position_size), "#.###") + " @ " + str.tostring(strategy.position_avg_price, format.mintick) + " · open " + (strategy.openprofit >= 0 ? "+" : "") + str.tostring(strategy.openprofit, "#.00")
+        posCol := inLong ? cGood : cBad
+    f_cell(2, "Position", posTxt, posCol)
+    f_cell(3, "Stop / TP", na(lvlSL) ? (atrStopMult > 0 ? "—" : "no hard stop") : str.tostring(lvlSL, format.mintick) + (na(lvlTP) ? "" : " / " + str.tostring(lvlTP, format.mintick)), cNeu)
+
+    f_cell(4, "HMA(" + str.tostring(hmaLen) + ")", str.tostring(hma, format.mintick) + (close > hma ? " · price above" : " · price below"), close > hma ? cGood : cBad)
+    f_cell(5, "AO(" + str.tostring(aoFast) + "," + str.tostring(aoSlow) + ")", str.tostring(ao, "#.###") + (aoGreen ? " · green" : " · red") + (ao > 0 ? " · >0" : " · <0"), aoUpOK ? cGood : aoDnOK ? cBad : cNeu)
+    f_cell(6, "ADX(" + str.tostring(diLen) + "," + str.tostring(adxSmooth) + ")", str.tostring(adxV, "#.0") + (adxV > adxThr ? " (>" : " (<") + str.tostring(adxThr, "#.#") + ") · " + (diBull ? "+DI > -DI" : "-DI > +DI"), adxV > adxThr ? (diBull ? cGood : cBad) : cNeu)
+    f_cell(7, "HTF HMA (" + htfTF + ") / cost", (not useHTF ? "off" : hH1 > hH2 ? "Up" : hH1 < hH2 ? "Down" : "Flat") + " · ATR " + str.tostring(atrPct, "#.00") + "% vs " + str.tostring(minAtr, "#.00") + "%" + (not useCost ? " (off)" : costOk ? " ✓" : " ✗"), not costOk ? cWarn : cNeu)
+
+    f_cell(8, "LONG checklist", "HMA " + f_chk(hmaL, true) + "  AO " + f_chk(aoUpOK, reqA) + "  ADX " + f_chk(adxOkL, reqB) + "  HTF " + f_chk(htfOkL, useHTF) + "  Cost " + f_chk(costOk, useCost), stL ? cGood : cNeu)
+    f_cell(9, "SHORT checklist", "HMA " + f_chk(hmaS, true) + "  AO " + f_chk(aoDnOK, reqA) + "  ADX " + f_chk(adxOkS, reqB) + "  HTF " + f_chk(htfOkS, useHTF) + "  Cost " + f_chk(costOk, useCost), stS ? cBad : cNeu)
+
+    int   nTr    = strategy.closedtrades
+    float netPct = strategy.netprofit / strategy.initial_capital * 100.0
+    float wr     = nTr > 0 ? 100.0 * strategy.wintrades / nTr : na
+    float gl     = math.abs(strategy.grossloss)
+    float pf     = gl > 0 ? strategy.grossprofit / gl : na
+    float ddPct  = strategy.max_drawdown / strategy.initial_capital * 100.0
+
+    f_cell(10, "Net P&L", (netPct >= 0 ? "+" : "") + str.tostring(netPct, "#.0") + "%  ($" + str.tostring(strategy.netprofit, "#") + ")", nTr == 0 ? cNeu : netPct > 0 ? cGood : cBad)
+    f_cell(11, "Trades · Win% · PF", nTr == 0 ? "no closed trades" : str.tostring(nTr) + " · " + str.tostring(wr, "#.0") + "% · " + (na(pf) ? "∞" : str.tostring(pf, "#.00")), nTr >= 30 ? (na(pf) or pf >= 1.0 ? cGood : cBad) : cWarn)
+    f_cell(12, "Max drawdown", str.tostring(ddPct, "#.0") + "% of initial", ddPct > 20 ? cBad : cNeu)
+
+    string warn = ""
+    if halted
+        warn += "DAILY LOSS HALT · "
+    if not inRange
+        warn += "outside date range · "
+    if useHTF and timeframe.in_seconds(htfTF) <= timeframe.in_seconds()
+        warn += "HTF ≤ chart TF · "
+    if adxMode == "Literal (infographic)"
+        warn += "literal ADX: short = ADX falling through threshold · "
+    if nTr > 0 and nTr < 30
+        warn += "n<30 = noise · "
+    f_cell(13, "Notes", warn == "" ? "—" : warn, warn == "" ? cNeu : cWarn)

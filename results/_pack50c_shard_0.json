@@ -1,0 +1,58 @@
+{
+  "1": {
+    "run_id": "ce4fffa6e2ead643",
+    "code": "Q01",
+    "name": "VWAP bounce",
+    "sym": "SPCX",
+    "tf": "5m"
+  },
+  "5": {
+    "run_id": "dd0c28cd6de2cf38",
+    "code": "Q05",
+    "name": "VWAP bounce",
+    "sym": "BTCUSDT",
+    "tf": "15m"
+  },
+  "12": {
+    "run_id": "ed466ca4e18dfe0c",
+    "code": "Q12",
+    "name": "EMA 9/21 cross",
+    "sym": "SPCX",
+    "tf": "15m"
+  },
+  "15": {
+    "run_id": "b32472a395d8e502",
+    "code": "Q15",
+    "name": "stochastic cross",
+    "sym": "JUPUSDT",
+    "tf": "15m"
+  },
+  "18": {
+    "run_id": "4b834bd84fb28cda",
+    "code": "Q18",
+    "name": "Ichimoku breakout",
+    "sym": "SOLUSDT",
+    "tf": "1m"
+  },
+  "29": {
+    "run_id": "0280329207f4d3d9",
+    "code": "Q29",
+    "name": "DI cross, ADX>25",
+    "sym": "JUPUSDT",
+    "tf": "30m"
+  },
+  "37": {
+    "run_id": "8cd533afcba35633",
+    "code": "Q37",
+    "name": "Keltner breakout",
+    "sym": "SOLUSDT",
+    "tf": "30m"
+  },
+  "40": {
+    "run_id": "afaf466dc0b1c584",
+    "code": "Q40",
+    "name": "DI cross, ADX>25",
+    "sym": "SUIUSDT",
+    "tf": "30m"
+  }
+}

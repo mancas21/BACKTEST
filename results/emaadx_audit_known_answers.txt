@@ -1,0 +1,39 @@
+emaadx_engine audit — known answers
+Pine: deepseek_pinescript_20261022_c2f363.txt (EMA Cross + ADX [Quant], Pine v6)
+engine: code/emaadx_engine.py
+
+[PASS] ema known answer x=[0,0,1,0,0] n=3 -> e2=0.5, head gated  e=[  nan   nan 0.5   0.25  0.125]
+[PASS] ema equals pandas ewm(span, adjust=False, min_periods)  
+[PASS] ema monotone rise -> ef above es, zero crossovers after warmup  
+[PASS] cross_over fires exactly where designed (index 2 only)  
+[PASS] cross_under mirrored (no cross in this path)  
+[PASS] na PREV bar cannot cross  prev na -> falsy, like Pine crossover on warmup
+[PASS] rma seed = SMA of first n  
+[PASS] rma recursion  
+[PASS] rma leading-na: seed = mean of first 10 valid values  rr22=18.5000000000
+[PASS] atr flat -> 0  
+[PASS] dmi uptrend: diPlus dominates late  
+[PASS] dmi uptrend: adx >= 40 late  
+[PASS] dmi dual-engine agreement, 500 random bars  
+[PASS] playthrough A trades  n=2
+[PASS] A: reference derives the long-signal bar(s)  ref=[np.int64(167)] engine=167
+[PASS] A: entry fills at the SIGNAL bar close (process_orders_on_close)  fill=91.645621 close=91.645621
+[PASS] A: ALL-IN sizing (qty = equity/fill at entry)  qty*entry=10000.0000
+[PASS] A: TP fills at the exact anchored limit (entry + 4*ATR(signal bar))  exit=102.528343 anchor=102.528343
+[PASS] A: every trade pnl recomputes from its own columns  
+[PASS] A: equity identity INIT + sum(pnl) == final (flat end)  eq=11867.0356 expected=11867.0356
+[PASS] B: spanning bar resolves STOP FIRST, at the stop price  exit=86.20426046181073 sl=86.204260
+[PASS] C: fees at repo6x5 — every row's entry/exit fee and pnl recompute  n=2
+[PASS] C: equity identity with fees (flat end)  
+[PASS] D: reversal exists (long held into the crossdown)  n_rev=2
+[PASS] D: reversal single fill at close*(1-slip) — old exit and new entry same price  exit=191.949598 close*(1-slip)=191.949598
+[PASS] D: next trade's entry == the reversal fill (one order, both legs)  rev_exit=191.94959840130818 next_entry=191.94959840130818
+[PASS] D: fee recomputation on every row (repo6x5)  
+[PASS] D: whole-order fee split (old leg's exit fee + new leg's entry fee share one fill)  
+[PASS] D: open trade at series end excluded from closed stats  
+[PASS] E: at least two cross_up signals (duplicate while long occurs)  long_cond bars=[np.int64(167), np.int64(279)]
+[PASS] E: re-set used (two distinct signal bars before the exit)  k1=167 k2=279
+[PASS] E: SL exit == RE-SET bar anchor (var-block reran on the dup signal)  exit=204.6049 reset_anchor=204.6049 entry_anchor=86.2043 (entry anchor would be the bug)
+[PASS] E: qty unchanged by the duplicate signal (pyramiding=0)  
+[PASS] E: equity identity (flat end)  
+[PASS] truncation parity (no-lookahead)  

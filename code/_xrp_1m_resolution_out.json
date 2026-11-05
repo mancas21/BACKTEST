@@ -1,0 +1,24 @@
+{
+ "baseline_15m_model_2023plus": {
+  "engine": "xrp_orig_1mwin",
+  "n_bars_15m": 131479,
+  "profit_factor": 1.3019,
+  "n_trades": 3317,
+  "win_rate": 86.95,
+  "return_pct": 17031.11,
+  "max_dd_pct": 20.54,
+  "same_minute_touched": -1,
+  "final_equity_usdt": 4282.78
+ },
+ "one_minute_resolved": {
+  "engine": "xrp_neutral_engine_1m",
+  "n_bars_15m": 131479,
+  "profit_factor": 0.9326,
+  "n_trades": 3018,
+  "win_rate": 77.53,
+  "return_pct": -74.2,
+  "max_dd_pct": 81.46,
+  "same_minute_touched": 290,
+  "final_equity_usdt": 6.45
+ }
+}

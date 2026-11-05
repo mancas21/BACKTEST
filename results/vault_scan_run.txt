@@ -1,0 +1,66 @@
+C:\Users\Lenovo\Documents\backtest-system\code\vault_transpile.py:314: RuntimeWarning: overflow encountered in divide
+  r = np.where(ad == 0, 100.0, 100.0 - 100.0 / (1.0 + au / np.where(ad == 0, 1, ad)))
+C:\Users\Lenovo\Documents\backtest-system\code\vault_scan.py:158: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  y = datetime.datetime.utcfromtimestamp(ts[i] / 1000).year
+eligible 4785 -> 1737 unique structural representatives
+  (randomised sample, seed 7)
+pre-registered 150 specs (sha256) -> results/vault_preregistration.json
+
+CONTROLS (full 1H history, house cost + real funding)
+  control          BTCUSDT     ETHUSDT     SOLUSDT     SUIUSDT     XRPUSDT    HYPEUSDT     SPXUSDT
+  do-nothing         +0.0%       +0.0%       +0.0%       +0.0%       +0.0%       +0.0%       +0.0%
+  always-long      +719.0%    +1842.3%    +3028.9%      -25.8%     +562.2%     +176.5%      -28.8%
+
+compiled 3 specs x 7 symbols in 7.2s
+
+UNRESOLVED / FAILED
+     44  no strategy.entry/alertcondition gate
+     21  compile:unexpected_
+     11  compile:want_got_
+      7  gate_fires_on_most_bars(constant)
+      4  compile:_time_
+      4  compile:trailing_tokens_op_
+      4  compile:unexpected_op_
+      3  compile:_strategy_position_size_
+      2  compile:_short_
+      2  compile:unexpected_end_
+      2  compile:only_0_dimensional_arrays_can_be_c
+      2  compile:unsupported_function_f_checkCondit
+      1  compile:bad_char_at_61_in_condition_1_1_an
+      1  compile:unsupported_function_cos
+
+wrote 14 result rows -> results/vault_rows.json
+
+====================================================================================================
+RANKED ON OUT-OF-SAMPLE (second half of 1H history) — 7 rows
+====================================================================================================
+
+file                                                       sym          PF   PFex       net      DD     n    grn   capture
+Clear-Trend-Tracking-Strategy.md                           SPXUSDT    0.59   0.98    -84.5%  -84.6%   788 0/2        +26%
+Clear-Trend-Tracking-Strategy.md                           SUIUSDT    0.53   0.99    -96.8%  -96.9%  1511 0/2        +14%
+Clear-Trend-Tracking-Strategy.md                           SOLUSDT    0.50   0.96    -99.8%  -99.8%  2654 0/4         +0%
+Clear-Trend-Tracking-Strategy.md                           XRPUSDT    0.45   1.00    -99.9%  -99.9%  2967 0/4         +0%
+Clear-Trend-Tracking-Strategy.md                           HYPEUSDT   0.44   0.81    -83.4%  -84.2%   594 0/1         +5%
+Clear-Trend-Tracking-Strategy.md                           ETHUSDT    0.36   0.97    -99.9%  -99.9%  2993 0/4         +0%
+Clear-Trend-Tracking-Strategy.md                           BTCUSDT    0.26   0.94    -99.9%  -99.9%  3090 0/4         +0%
+
+----------------------------------------------------------------------------------------------------
+HOUSE GATE (PF ex-cost>1.2 AND n>=30 AND green in >=2/3 years AND DD<60%): 0 of 7 pass
+
+TOP 30 BY TRADE COUNT (the statistically honest rows)
+  Clear-Trend-Tracking-Strategy.md                         BTCUSDT  n=3090 PF  0.26 net   -99.9% dd -99.9%
+  Clear-Trend-Tracking-Strategy.md                         ETHUSDT  n=2993 PF  0.36 net   -99.9% dd -99.9%
+  Clear-Trend-Tracking-Strategy.md                         XRPUSDT  n=2967 PF  0.45 net   -99.9% dd -99.9%
+  Clear-Trend-Tracking-Strategy.md                         SOLUSDT  n=2654 PF  0.50 net   -99.8% dd -99.8%
+  Clear-Trend-Tracking-Strategy.md                         SUIUSDT  n=1511 PF  0.53 net   -96.8% dd -96.9%
+  Clear-Trend-Tracking-Strategy.md                         SPXUSDT  n= 788 PF  0.59 net   -84.5% dd -84.6%
+  Clear-Trend-Tracking-Strategy.md                         HYPEUSDT n= 594 PF  0.44 net   -83.4% dd -84.2%
+
+WORST 10 (same prominence — the promotion list is usually empty)
+  Clear-Trend-Tracking-Strategy.md                         BTCUSDT  n=3090 PF  0.26 net   -99.9% dd -99.9%
+  Clear-Trend-Tracking-Strategy.md                         ETHUSDT  n=2993 PF  0.36 net   -99.9% dd -99.9%
+  Clear-Trend-Tracking-Strategy.md                         HYPEUSDT n= 594 PF  0.44 net   -83.4% dd -84.2%
+  Clear-Trend-Tracking-Strategy.md                         XRPUSDT  n=2967 PF  0.45 net   -99.9% dd -99.9%
+  Clear-Trend-Tracking-Strategy.md                         SOLUSDT  n=2654 PF  0.50 net   -99.8% dd -99.8%
+  Clear-Trend-Tracking-Strategy.md                         SUIUSDT  n=1511 PF  0.53 net   -96.8% dd -96.9%
+  Clear-Trend-Tracking-Strategy.md                         SPXUSDT  n= 788 PF  0.59 net   -84.5% dd -84.6%

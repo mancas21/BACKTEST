@@ -1,0 +1,58 @@
+[
+  {
+    "strategy": "S14_TakerRatio",
+    "total_ret": -100.0,
+    "max_dd": -100.0,
+    "sharpe": -52.89,
+    "is_ret": -100.0,
+    "oos_ret": -100.0,
+    "is_dd": -100.0,
+    "oos_dd": -100.0,
+    "pos_months": 0.0,
+    "turnover_cost": 9542.0,
+    "funding": 6.0,
+    "n_rebal": 17316
+  },
+  {
+    "strategy": "S15_TakerDiv",
+    "total_ret": -100.0,
+    "max_dd": -100.0,
+    "sharpe": -33.06,
+    "is_ret": -100.0,
+    "oos_ret": -99.9,
+    "is_dd": -100.0,
+    "oos_dd": -99.9,
+    "pos_months": 0.0,
+    "turnover_cost": 9139.0,
+    "funding": 9.0,
+    "n_rebal": 8745
+  },
+  {
+    "strategy": "S16_TakerSurprise",
+    "total_ret": -100.0,
+    "max_dd": -100.0,
+    "sharpe": -30.31,
+    "is_ret": -100.0,
+    "oos_ret": -99.7,
+    "is_dd": -100.0,
+    "oos_dd": -99.7,
+    "pos_months": 0.0,
+    "turnover_cost": 9274.0,
+    "funding": 9.0,
+    "n_rebal": 8662
+  },
+  {
+    "strategy": "S21_Ensemble",
+    "total_ret": -100.0,
+    "max_dd": -100.0,
+    "sharpe": -28.2,
+    "is_ret": -100.0,
+    "oos_ret": -99.8,
+    "is_dd": -100.0,
+    "oos_dd": -99.8,
+    "pos_months": 0.0,
+    "turnover_cost": 9058.0,
+    "funding": -32.0,
+    "n_rebal": 14528
+  }
+]

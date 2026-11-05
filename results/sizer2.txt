@@ -1,0 +1,180 @@
+======================================================================================================
+CVRMD long-only SIZE overlay  |  1H  |  every rebalance pays 6bps+5bps/side  |  explicit cash+shares
+======================================================================================================
+  BTCUSDT    61801 bars | full   552 reduced 61249 bear     0  (99% below full)
+  ETHUSDT    59891 bars | full   551 reduced 59340 bear     0  (99% below full)
+  SOLUSDT    52883 bars | full   544 reduced 52339 bear     0  (99% below full)
+  SUIUSDT    29810 bars | full   530 reduced 29280 bear     0  (98% below full)
+  XRPUSDT    58930 bars | full   556 reduced 58374 bear     0  (99% below full)
+  HYPEUSDT   11624 bars | full   509 reduced 11115 bear     0  (96% below full)
+  SPXUSDT    15726 bars | full   512 reduced 15214 bear     0  (97% below full)
+
+======================================================================================================
+1. BASELINE — buy & hold, identical window and accounting
+======================================================================================================
+  symbol           net      DD
+  BTCUSDT      +950.8%   77.2%
+  ETHUSDT     +2053.5%   81.4%
+  SOLUSDT     +4638.5%   96.8%
+  SUIUSDT       +19.2%   88.0%
+  XRPUSDT      +569.4%   84.9%
+  HYPEUSDT     +155.3%   65.1%
+  SPXUSDT       -45.8%   89.1%
+
+======================================================================================================
+2. SIZE CURVE — what the reduced level actually buys
+======================================================================================================
+
+  BTCUSDT   (buy&hold +951% at DD 77%)
+    always full (control)        net   +950.8%  DD  77.2%  rebal   1  cost      6
+    reduced 0.75                 net   +666.6%  DD  65.3%  rebal 106  cost    701
+    reduced 0.50                 net   +369.0%  DD  49.9%  rebal 106  cost    952
+    reduced 0.25                 net   +135.0%  DD  30.3%  rebal 106  cost    861
+    reduced 0.50, flat on bear   net   +369.0%  DD  49.9%  rebal 106  cost    952
+
+  ETHUSDT   (buy&hold +2054% at DD 81%)
+    always full (control)        net  +2053.5%  DD  81.4%  rebal   1  cost      6
+    reduced 0.75                 net  +1689.5%  DD  66.7%  rebal 104  cost   1734
+    reduced 0.50                 net   +969.9%  DD  48.2%  rebal 104  cost   2085
+    reduced 0.25                 net   +354.5%  DD  25.9%  rebal 104  cost   1483
+    reduced 0.50, flat on bear   net   +969.9%  DD  48.2%  rebal 104  cost   2085
+
+  SOLUSDT   (buy&hold +4638% at DD 97%)
+    always full (control)        net  +4638.5%  DD  96.8%  rebal   1  cost      6
+    reduced 0.75                 net  +5701.8%  DD  89.6%  rebal  90  cost   4864
+    reduced 0.50                 net  +4047.2%  DD  74.5%  rebal  90  cost   6737
+    reduced 0.25                 net  +1419.4%  DD  50.4%  rebal  90  cost   4073
+    reduced 0.50, flat on bear   net  +4047.2%  DD  74.5%  rebal  90  cost   6737
+
+  SUIUSDT   (buy&hold +19% at DD 88%)
+    always full (control)        net    +19.2%  DD  88.0%  rebal   1  cost      6
+    reduced 0.75                 net    +54.9%  DD  76.5%  rebal  62  cost    152
+    reduced 0.50                 net    +68.2%  DD  58.9%  rebal  62  cost    282
+    reduced 0.25                 net    +52.4%  DD  35.5%  rebal  62  cost    368
+    reduced 0.50, flat on bear   net    +68.2%  DD  58.9%  rebal  62  cost    282
+
+  XRPUSDT   (buy&hold +569% at DD 85%)
+    always full (control)        net   +569.4%  DD  84.9%  rebal   1  cost      6
+    reduced 0.75                 net   +713.7%  DD  75.5%  rebal 114  cost    706
+    reduced 0.50                 net   +570.2%  DD  63.6%  rebal 114  cost   1197
+    reduced 0.25                 net   +256.0%  DD  48.4%  rebal 114  cost   1145
+    reduced 0.50, flat on bear   net   +570.2%  DD  63.6%  rebal 114  cost   1197
+
+  HYPEUSDT   (buy&hold +155% at DD 65%)
+    always full (control)        net   +155.3%  DD  65.1%  rebal   1  cost      6
+    reduced 0.75                 net   +121.6%  DD  54.1%  rebal  20  cost     44
+    reduced 0.50                 net    +83.0%  DD  40.6%  rebal  20  cost     78
+    reduced 0.25                 net    +42.6%  DD  23.9%  rebal  20  cost    106
+    reduced 0.50, flat on bear   net    +83.0%  DD  40.6%  rebal  20  cost     78
+
+  SPXUSDT   (buy&hold -46% at DD 89%)
+    always full (control)        net    -45.8%  DD  89.1%  rebal   1  cost      6
+    reduced 0.75                 net    -21.7%  DD  79.5%  rebal  26  cost     42
+    reduced 0.50                 net     -3.6%  DD  64.9%  rebal  26  cost     84
+    reduced 0.25                 net     +4.5%  DD  42.3%  rebal  26  cost    126
+    reduced 0.50, flat on bear   net     -3.6%  DD  64.9%  rebal  26  cost     84
+
+
+======================================================================================================
+3. HOLD WINDOW — how long full size persists after a signal
+   the fix: a timing signal fires ~1% of bars, so raw states leave the
+   overlay at reduced size 99% of the time. Holding full for N bars
+   after a signal makes it an actual size signal.
+======================================================================================================
+
+  BTCUSDT   (buy&hold +951% at DD 77%)
+    hold    0b  full   0.9% of bars  net   +369.0%  DD  49.9%  rebal 106  cost    952
+    hold   24b  full   2.8% of bars  net   +385.9%  DD  50.5%  rebal 106  cost    979
+    hold   72b  full   6.8% of bars  net   +406.8%  DD  49.9%  rebal 102  cost    952
+    hold  168b  full  14.3% of bars  net   +543.1%  DD  54.5%  rebal  92  cost    994
+    hold  336b  full  25.9% of bars  net   +478.8%  DD  62.7%  rebal  77  cost    797
+    hold  720b  full  46.5% of bars  net   +471.3%  DD  74.2%  rebal  61  cost    678
+
+  ETHUSDT   (buy&hold +2054% at DD 81%)
+    hold    0b  full   0.9% of bars  net   +969.9%  DD  48.2%  rebal 104  cost   2085
+    hold   24b  full   2.9% of bars  net  +1078.2%  DD  51.3%  rebal 104  cost   2274
+    hold   72b  full   6.8% of bars  net  +1013.7%  DD  55.0%  rebal  96  cost   2130
+    hold  168b  full  13.7% of bars  net  +1219.9%  DD  58.4%  rebal  84  cost   1970
+    hold  336b  full  24.4% of bars  net  +1332.4%  DD  59.0%  rebal  72  cost   1689
+    hold  720b  full  42.5% of bars  net  +1036.2%  DD  63.3%  rebal  52  cost    872
+
+  SOLUSDT   (buy&hold +4638% at DD 97%)
+    hold    0b  full   1.0% of bars  net  +4047.2%  DD  74.5%  rebal  90  cost   6737
+    hold   24b  full   2.9% of bars  net  +4525.8%  DD  78.7%  rebal  86  cost   6912
+    hold   72b  full   6.6% of bars  net  +3842.4%  DD  82.8%  rebal  82  cost   5849
+    hold  168b  full  13.6% of bars  net  +4237.1%  DD  84.8%  rebal  76  cost   5951
+    hold  336b  full  24.6% of bars  net  +5790.9%  DD  83.5%  rebal  68  cost   7250
+    hold  720b  full  44.2% of bars  net  +2324.2%  DD  94.0%  rebal  50  cost   2902
+
+  SUIUSDT   (buy&hold +19% at DD 88%)
+    hold    0b  full   1.8% of bars  net    +68.2%  DD  58.9%  rebal  62  cost    282
+    hold   24b  full   4.1% of bars  net    +99.9%  DD  60.7%  rebal  62  cost    314
+    hold   72b  full   8.8% of bars  net   +228.2%  DD  59.8%  rebal  59  cost    412
+    hold  168b  full  17.6% of bars  net   +171.0%  DD  64.0%  rebal  55  cost    302
+    hold  336b  full  31.3% of bars  net   +141.4%  DD  63.9%  rebal  45  cost    237
+    hold  720b  full  55.1% of bars  net    +72.4%  DD  77.3%  rebal  33  cost    164
+
+  XRPUSDT   (buy&hold +569% at DD 85%)
+    hold    0b  full   0.9% of bars  net   +570.2%  DD  63.6%  rebal 114  cost   1197
+    hold   24b  full   3.1% of bars  net   +431.8%  DD  70.7%  rebal 106  cost    962
+    hold   72b  full   7.2% of bars  net   +490.7%  DD  72.1%  rebal 102  cost   1009
+    hold  168b  full  15.0% of bars  net   +410.6%  DD  67.5%  rebal  94  cost    910
+    hold  336b  full  27.7% of bars  net   +283.5%  DD  69.8%  rebal  88  cost    687
+    hold  720b  full  49.2% of bars  net   +398.9%  DD  68.2%  rebal  57  cost    644
+
+  HYPEUSDT   (buy&hold +155% at DD 65%)
+    hold    0b  full   4.4% of bars  net    +83.0%  DD  40.6%  rebal  20  cost     78
+    hold   24b  full   6.2% of bars  net    +83.2%  DD  41.3%  rebal  19  cost     72
+    hold   72b  full   9.5% of bars  net    +96.0%  DD  42.7%  rebal  19  cost     75
+    hold  168b  full  15.6% of bars  net   +132.1%  DD  42.9%  rebal  17  cost     76
+    hold  336b  full  24.5% of bars  net    +77.9%  DD  49.5%  rebal  15  cost     55
+    hold  720b  full  43.3% of bars  net    +97.5%  DD  53.9%  rebal  13  cost     49
+
+  SPXUSDT   (buy&hold -46% at DD 89%)
+    hold    0b  full   3.3% of bars  net     -3.6%  DD  64.9%  rebal  26  cost     84
+    hold   24b  full   5.0% of bars  net     -2.0%  DD  62.4%  rebal  26  cost     81
+    hold   72b  full   8.6% of bars  net    -16.2%  DD  66.5%  rebal  24  cost     68
+    hold  168b  full  15.3% of bars  net     -3.5%  DD  66.6%  rebal  24  cost     71
+    hold  336b  full  24.8% of bars  net     +9.0%  DD  75.7%  rebal  18  cost     59
+    hold  720b  full  43.3% of bars  net     -7.2%  DD  85.6%  rebal  14  cost     45
+
+======================================================================================================
+4. EQUAL-DRAWDOWN vs buy&hold, at the best hold window per symbol
+======================================================================================================
+  symbol     hold  ovl DD   BH DD      x    ovl net     BH net  verdict
+  BTCUSDT      72   49.9%   77.2%  1.55x    +711.1%    +950.8%  loses
+  ETHUSDT      24   51.3%   81.4%  1.59x   +2360.5%   +2053.5%  BEATS
+  SOLUSDT      24   78.7%   96.8%  1.23x   +6271.2%   +4638.5%  BEATS
+  SUIUSDT      72   59.8%   88.0%  1.47x    +318.1%     +19.2%  BEATS
+  XRPUSDT     168   67.5%   84.9%  1.26x    +430.8%    +569.4%  loses
+  HYPEUSDT     24   41.3%   65.1%  1.58x    +130.7%    +155.3%  loses
+  SPXUSDT      24   62.4%   89.1%  1.43x     -16.9%     -45.8%  BEATS
+  -> beats passive at equal DD: 4/7
+
+======================================================================================================
+5. WALK-FORWARD — the test that contradicts section 3 in the raw version
+======================================================================================================
+
+  hold_bars = 0
+  symbol       IS net   IS DD |   OOS net  OOS DD
+  BTCUSDT     +382.6%   49.9% |     -2.9%   29.9%
+  ETHUSDT     +857.4%   48.2% |    +19.9%   37.2%
+  SOLUSDT    +4270.0%   74.5% |     -6.8%   48.0%
+  SUIUSDT     +151.8%   45.0% |    -33.5%   58.9%
+  XRPUSDT     +617.7%   63.6% |     -5.4%   46.1%
+
+  hold_bars = 168
+  symbol       IS net   IS DD |   OOS net  OOS DD
+  BTCUSDT     +514.0%   54.5% |     +4.7%   32.2%
+  ETHUSDT    +1096.1%   58.4% |    +14.9%   47.5%
+  SOLUSDT    +4293.6%   84.8% |     -1.0%   53.8%
+  SUIUSDT     +178.6%   45.7% |     -3.4%   64.0%
+  XRPUSDT     +487.2%   67.5% |    -13.2%   48.7%
+
+  hold_bars = 336
+  symbol       IS net   IS DD |   OOS net  OOS DD
+  BTCUSDT     +503.9%   62.7% |     -4.2%   34.8%
+  ETHUSDT    +1197.0%   59.0% |    +15.5%   51.5%
+  SOLUSDT    +6297.9%   83.5% |     -8.0%   55.1%
+  SUIUSDT     +197.7%   53.3% |    -19.5%   63.9%
+  XRPUSDT     +450.1%   69.8% |    -30.0%   56.3%

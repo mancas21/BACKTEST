@@ -1,0 +1,94 @@
+python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT --params '{"delta_max_pct": 2.0, "equity_pct": 1.0, "init": 25, "leverage": 10.0}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT
+python code/vrun.py run --strategy mpv3 --tf 1h --symbol PORTFOLIO --params '{"costs": "repo", "strat": "MP-V3-S10", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy pack50d --tf 30m --symbol SUIUSDT --params '{"strat": 5}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol XRPUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol BTCUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{"fee_bps": 5.0, "slippage_bps": 0.5}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy emaadx --tf 1h --symbol LINKUSDT --params '{"costs": "author", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy pack50d --tf 1h --symbol ETHUSDT --params '{"strat": 8}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy emaadx --tf 1h --symbol ETHUSDT
+python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{"fee_bps": 5.0, "slippage_bps": 0.5}'
+python code/vrun.py run --strategy fingrad --tf 1h --symbol ETHUSDT --params '{"preset": "day"}'
+python code/vrun.py run --strategy pack50 --tf 4h --symbol SOLUSDT --params '{"strat": 21}'
+python code/vrun.py run --strategy q10 --tf 1h --symbol CARD2 --params '{"card": "CARD2"}'
+python code/vrun.py run --strategy pack100 --tf 15m --symbol HYPEUSDT --params '{"strat": "F74-15m"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{"costs": "author", "strat": "ds5", "window": "full"}'
+python code/vrun.py run --strategy botstrat --tf 15m --symbol XRPUSDT
+python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-004", "variant": "long-only"}'
+python code/vrun.py run --strategy pack100 --tf 1h --symbol HYPEUSDT --params '{"strat": "B17-1h"}'
+python code/vrun.py run --strategy botstrat --tf 1h --symbol AVAXUSDT
+python code/vrun.py run --strategy botstrat --tf 1h --symbol BNBUSDT
+python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-005", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-005", "variant": "long-only"}'
+python code/vrun.py run --strategy dspack2 --tf 1h --symbol SPXUSDT --params '{"costs": "repo6x5", "strat": "ds7", "window": "full"}'
+python code/vrun.py run --strategy dspack2 --tf 1h --symbol DOGEUSDT --params '{"costs": "repo6x5", "strat": "ds7", "window": "full"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "author", "strat": "ds5", "window": "full"}'
+python code/vrun.py run --strategy dspack2 --tf 1h --symbol SOLUSDT --params '{"costs": "repo6x5", "strat": "ds7", "window": "full"}'
+python code/vrun.py run --strategy botstrat --tf 1h --symbol SPXUSDT
+python code/vrun.py run --strategy botstrat --tf 1h --symbol SOLUSDT
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT
+python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{"strat": "QS-004", "variant": "two-sided"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{"costs": "author", "strat": "ds5", "window": "full"}'
+python code/vrun.py run --strategy botstrat --tf 15m --symbol ETHUSDT
+python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{"strat": "QS-009", "variant": "two-sided"}'
+python code/vrun.py run --strategy dspack2 --tf 1h --symbol NEARUSDT --params '{"costs": "repo6x5", "strat": "ds7", "window": "full"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{"strat": "QS-006", "variant": "two-sided"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{"strat": "QS-006", "variant": "long-only"}'
+python code/vrun.py run --strategy pack100 --tf 1h --symbol ETHUSDT --params '{"strat": "C44-1h"}'
+python code/vrun.py run --strategy pack50d --tf 4h --symbol JUPUSDT --params '{"strat": 6}'
+python code/vrun.py run --strategy botstrat --tf 1h --symbol ETHUSDT
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{"fee_bps": 5.0, "slippage_bps": 0.5}'
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT
+python code/vrun.py run --strategy pack50 --tf 1h --symbol BTCUSDT --params '{"strat": 46}'
+python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-009", "variant": "two-sided"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-006", "variant": "long-only"}'
+python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ
+python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-002", "variant": "long-only"}'
+python code/vrun.py run --strategy cbpackf --tf 15m --symbol HYPEUSDT
+python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-004", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{"strat": "QS-006", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-003", "variant": "two-sided"}'
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol BTCUSDT
+python code/vrun.py run --strategy qs --tf 15m --symbol SOLUSDT --params '{"strat": "QS-001", "variant": "two-sided"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-006", "variant": "long-only"}'
+python code/vrun.py run --strategy pack50d --tf 1h --symbol HYPEUSDT --params '{"strat": 24}'
+python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT
+python code/vrun.py run --strategy botstrat --tf 1h --symbol BTCUSDT
+python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-001", "variant": "two-sided"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{"strat": "QS-003", "variant": "two-sided"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-007", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{"strat": "QS-001", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{"strat": "QS-004", "variant": "two-sided"}'
+python code/vrun.py run --strategy cvrmd --tf 1h --symbol SUIUSDT
+python code/vrun.py run --strategy qs --tf 15m --symbol BTCUSDT --params '{"strat": "QS-001", "variant": "long-only"}'
+python code/vrun.py run --strategy fingrad --tf 1h --symbol SUIUSDT --params '{"sig_mode": "b"}'
+python code/vrun.py run --strategy pack50 --tf 4h --symbol SUIUSDT --params '{"strat": 5}'
+python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{"strat": "QS-005", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{"strat": "QS-003", "variant": "two-sided"}'
+python code/vrun.py run --strategy q10 --tf 1h --symbol CARD1 --params '{"card": "CARD1"}'
+python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{"strat": "QS-004", "variant": "long-only"}'
+python code/vrun.py run --strategy qs --tf 15m --symbol HYPEUSDT --params '{"strat": "QS-001", "variant": "long-only"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy smqe --tf 1h --symbol SOLUSDT
+python code/vrun.py run --strategy cvrmd --tf 1h --symbol SOLUSDT
+python code/vrun.py run --strategy pack100 --tf 15m --symbol SPXUSDT --params '{"strat": "A01-15m"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{"costs": "author", "strat": "ds3", "window": "full"}'
+python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{"strat": "QS-006", "variant": "long-only"}'
+python code/vrun.py run --strategy dspack --tf 1h --symbol SPXUSDT --params '{"costs": "author", "strat": "ds1", "window": "full"}'
+python code/vrun.py run --strategy fingrad --tf 1h --symbol NEARUSDT --params '{"preset": "day"}'

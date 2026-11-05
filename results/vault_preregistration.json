@@ -1,0 +1,902 @@
+{
+ "Dual-Indicator-Hybrid-Quantitative-Trading-Strategy.md": {
+  "sha256": "fb7d574a30d78163189f62e8d949f7fe4b5a17a8e3201ba056d28a159e26e9be",
+  "sig": "atr|crossunder|ema|request.security|sma|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.sma|ta.valuewhen",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Moving-Average-Crossover-Multi-Timeframe-Strategy.md": {
+  "sha256": "f42bf16b4a8e60cda35bf7d04a977a03d6f158fa0bc400d6836a641129139506",
+  "sig": "crossover|crossunder|ema|linreg|sma|vwma|wma",
+  "period": "4h",
+  "sym": "BTC_USDT"
+ },
+ "Oscillating-Market-Long-Strategy.md": {
+  "sha256": "cf9bb248094a529f9eca1b4e48afa868635361633b9c60a4803ba84b774774a3",
+  "sig": "atr|change|ema|highest|linreg|lowest|rma|roc|rsi|sma|stdev|stoch|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Kuberan-Strategy-The-Confluence-Approach-for-Market-Mastery.md": {
+  "sha256": "2334fcb5bde23ceb4b4d75cfc332e47cd3249e3238497e2df483292742c7af2b",
+  "sig": "atr|crossover|crossunder|ema|pivothigh|pivotlow|request.security|sma|stdev|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.pivothigh|ta.pivotlow|ta.sma|ta.stdev|ta.valuewhen",
+  "period": "5m",
+  "sym": "BTC_USDT"
+ },
+ "Hybrid-Moving-Average-Breakout-Turtle-Trading-Strategy.md": {
+  "sha256": "136072d0f43275a7a4009411838c0ad72935dcb21c063d52ae005fef9543f9b6",
+  "sig": "change|highest|lowest|request.security|sar|sar(|sma|stdev|vwma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Dual-Trend-Filtering-Optimization-Strategy.md": {
+  "sha256": "2ead9a4a016aac37a03b679a52a46493e1bb8ff790872af73cddc0b3903c15ca",
+  "sig": "crossover|crossunder|ema|linreg|mfi|request.security|rsi|sma|ta.barssince|ta.crossover|ta.crossunder|ta.ema|ta.linreg|ta.mfi|ta.rsi|ta.sma|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-indicator-Trend-Following-Strategy-433078.md": {
+  "sha256": "ef91d12db705bcd3b60faedd930b943e6e9bb88d843a0278f91236d965a5ed0f",
+  "sig": "adx|change|crossover|ema|highest|linreg|lowest|rma|sma|stdev|ta.change|ta.crossover|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.tr|ta.valuewhen|ta.wma|tr|wma",
+  "period": "",
+  "sym": ""
+ },
+ "Concise-Dynamic-Trend-Strategy.md": {
+  "sha256": "6e575c1d2bdfb88902b7ac4c9dd1d484ac355fd2a9677e429a5f3773ca5fd35d",
+  "sig": "macd|rsi|sma|stdev",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Bi-Directional-Trend-Tracking-Moving-Average-Crossover-Strategy.md": {
+  "sha256": "f353f0727d3dbfa946b392ec3c511dea9ef2a61b1568e0e7c0e03ce9493c1ea1",
+  "sig": "change|correlation|crossover|crossunder|ema|highest|linreg|lowest|sma|stdev|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multiple-Moving-Averages-Crossover-Trading-Strategy.md": {
+  "sha256": "985325cccfa85247c845ce284148401f90a83d8938f932f0d277a5652f209a1a",
+  "sig": "atr|crossover|crossunder|ema|request.security|rma|sma|ta.crossover|ta.crossunder|ta.ema|ta.sma|ta.vwma|ta.wma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Zero-Lag-EMA-Trend-Following-Strategy.md": {
+  "sha256": "d6450be4082554c5cbdbce314f6d8641ec5d919577615d74d6a52421df76e3b8",
+  "sig": "crossover|crossunder|ema",
+  "period": "",
+  "sym": ""
+ },
+ "Polynomial-Interpolation-Based-RSI-Momentum-Strategy.md": {
+  "sha256": "eacdb265611ca3f00f41cd9c728f729d56c50ae385acb57982471c0eef37f13b",
+  "sig": "atr|crossover|crossunder|ema|rsi|sma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Timeframe-Adaptive-Market-Regime-Quantitative-Trading-Strategy.md": {
+  "sha256": "e5522e4821eba0d3a53801e0a150ecb7b0ca33cb05e12e257eb94792aa42c014",
+  "sig": "atr|change|ema|highest|lowest|macd|request.security|rma|rsi|sma|stdev|ta.atr|ta.change|ta.ema|ta.highest|ta.lowest|ta.macd|ta.rsi|ta.sma|ta.stdev|ta.tr",
+  "period": "1m",
+  "sym": "TRX_USD"
+ },
+ "SP500-Hybrid-Seasonal-Trading-Strategy.md": {
+  "sha256": "4854cd2539a2b9149d59fdd3cfdc1a561c0708d0b8b8c0ab0641428b29f0deb7",
+  "sig": "atr|ema|highest|request.security|sma|stdev|ta.atr|ta.ema|ta.highest|ta.lowest|ta.sma|ta.stdev",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "RePaNoCHa-Quantitative-Trading-Strategy.md": {
+  "sha256": "81dfcff53c882b68fc4ea8af460161867b7e375f5cd943d0434e44e80e4be01f",
+  "sig": "change|ema|rma|sma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Speculation-Gulf-Trend-Follow-Strategy-Based-on-SAR.md": {
+  "sha256": "fdd848a136e4c68705d08719f20ae33d9b18c728477d2d1b8103647d49e1c754",
+  "sig": "ema|highest|linreg|lowest|sar|sar(|sma|stdev|ta.barssince|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.tr|ta.valuewhen",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Incremental-Order-Size-Fibonacci-Retracement-Trend-Following-Strategy.md": {
+  "sha256": "c15b8e3cf916bcd84e4cf3f72a3d2887e2a07365c5be64ad2113c92adb23a500",
+  "sig": "crossover|crossunder|ema|highest|lowest|rsi",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Adaptive-Multi-Timeframe-Fibonacci-Retracement-Trading-Strategy.md": {
+  "sha256": "5bf2fd1c9a8565852697bafeb0e861b5ebbe509da43bc953898266645365050c",
+  "sig": "change|ema|highest|lowest|sma|ta.barssince|ta.change|ta.ema|ta.highest|ta.lowest|ta.sma",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "SSL-Momentum-Combo-Trading-Strategy.md": {
+  "sha256": "44c88e21ae21eff7ac3eb26cc639c6a197319ab78a5087c3524ab67a6eef592e",
+  "sig": "atr|crossover|crossunder|ema|highest|linreg|lowest|rma|rsi|sma|stdev|tr|wma",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Channel-Adaptive-Turtle-Trading-Strategy-with-Dynamic-Stop-Loss-System.md": {
+  "sha256": "9ae7a3e3ffdb9f578dd8b1c252d43753e0fe94b27abe482bbe39467cf8614bce",
+  "sig": "crossunder|highest|ta.crossover|ta.crossunder|ta.highest|ta.lowest",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Orion-Trading-Strategy.md": {
+  "sha256": "bf45aaf45782e3ac018526ba289eca3ca409b8775b2daf47750ab64b80a2334e",
+  "sig": "change|crossover|crossunder|ema|highest|linreg|lowest|rma|rsi|sma|stdev",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "Triple-Moving-Average-Trading-Strategy.md": {
+  "sha256": "4ba49d3da57e7285c082b2990a48463d820cffad4ad4933228026f782acef246",
+  "sig": "atr|crossover|crossunder|ema|request.security|rma|sma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Technical-Indicator-Gold-Real-Time-Movement-Detection-and-Risk-Management-Strategy.md": {
+  "sha256": "37b906f28f58799d481ea4b18401a4f3dca31947d91b77d02009f56e91b5f16d",
+  "sig": "atr|crossover|crossunder|ema|highest|lowest|request.security|rma|sma|stoch|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.sma|ta.stoch|ta.tr|ta.vwma|ta.wma|tr|vwma|wma",
+  "period": "1d",
+  "sym": "ETH_USDT"
+ },
+ "Multi-Indicator-Quantitative-Trading-Strategy.md": {
+  "sha256": "c6e8f86f2fe7b028e3bf52b1d9b3013efe38b2ec978d2658ddaedece72422c84",
+  "sig": "ema|rsi|sma",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Dual-Breakthrough-Strategy.md": {
+  "sha256": "c8d80e99c027f9cb79f5befa10d7bffeb7b8e9c0d58c38d2ea54c7fcfa5ac48d",
+  "sig": "crossover|crossunder|highest|ta.barssince|ta.crossover|ta.crossunder|ta.highest|ta.valuewhen",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Following-Strategy-Based-on-Time-Series-Decomposition-and-Volume-Weighted-Bollinger-Bands.md": {
+  "sha256": "54e0d5c0600804760aaaee16a0b64005ab12e2dc0144d821f96cf40e06e4e30e",
+  "sig": "change|crossover|crossunder|ema|highest|lowest|sma|stdev",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Goblin-Town-60min.md": {
+  "sha256": "68b48f38e45835bb1009f7f3e4d995fc6ad7ec9e08adc35c8e7a35a8a630377e",
+  "sig": "change|crossover|crossunder|ema|pivothigh|request.security|rma|rsi|sar|sar(|sma|stdev|ta.change|ta.crossover|ta.crossunder|ta.cum|ta.ema|ta.pivothigh|ta.pivotlow|ta.rsi|ta.sma|ta.stdev|ta.tr|ta.valuewhen|vwap",
+  "period": "",
+  "sym": ""
+ },
+ "Dual-Moving-Average-Regression-Trading-Strategy.md": {
+  "sha256": "7185add6e3c39f5372456ed308da6e3521383646c1da827d96291d7d47b7858a",
+  "sig": "atr|crossover|crossunder|linreg|ta.atr|ta.crossover|ta.crossunder|ta.linreg|ta.valuewhen",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Villa-Dinamic-Pivot-Supertrend-Strategy.md": {
+  "sha256": "2b7f70838c4c71b8a8ad52b4733f706ec769fdb8e1c2e63ba73b11601ea71bb1",
+  "sig": "atr|ema|pivothigh|pivotlow|sma|ta.atr|ta.ema|ta.pivothigh|ta.pivotlow|ta.sma|ta.tr",
+  "period": "15m",
+  "sym": "BTC_USDT"
+ },
+ "CVD-Divergence-Quantitative-Trading-Strategy.md": {
+  "sha256": "ead928cbfd2a60960c3a5b746940f4751ba0c27cbb1fd959fcaba54044a2e183",
+  "sig": "pivothigh|pivotlow|sma|ta.barssince|ta.cum|ta.pivothigh|ta.pivotlow|ta.sma|ta.valuewhen",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Combining-Simple-Moving-Average-and-Adaptive-Moving-Average-Strategy.md": {
+  "sha256": "ed63bf43b398fc0188667a05c6db0c2f5e95e4cececf04e6acff2812d309965a",
+  "sig": "change|crossover|crossunder|highest|rsi|sma",
+  "period": "5m",
+  "sym": "BTC_USDT"
+ },
+ "QQE-MOD-SSL-Hybrid-Waddah-Attar-Explosion.md": {
+  "sha256": "7400a4243066b6932479fe984bacb70654761ae7fdf2cc51b1e7606f4c1bfc23",
+  "sig": "crossover|ema|highest|linreg|lowest|rma|rsi|sma|stdev|ta.crossover|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.rsi|ta.sma|ta.stdev|ta.tr|ta.wma|tr|wma",
+  "period": "4h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Trend-Crossover-Strategy.md": {
+  "sha256": "7bede8a71133aba77635f39db7d9de32f75fb135d0922347bea8f65115b9fc2d",
+  "sig": "change|ema|highest|linreg|lowest|rma|sma|stdev|ta.change|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.vwma|ta.wma|vwma|wma",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "A-Momentum-Tracking-Mean-Reversion-Strategy.md": {
+  "sha256": "fe5aee5f3ff9537adbd480eb5eff28e8a3a305e7d759d0812b7799fb28d9591d",
+  "sig": "change|crossover|crossunder|ema|kama|request.security|rsi|sma|stdev|stoch|vwap|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "AlphaTradingBot-Trading-Strategy.md": {
+  "sha256": "0c86b81a880a991bc9b8a6be40f10c2321efcc03de1034238c91f22e12011959",
+  "sig": "highest|lowest|pivothigh|pivotlow|ta.highest|ta.lowest|ta.pivothigh|ta.pivotlow|ta.valuewhen",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "TMA-Legacy.md": {
+  "sha256": "5ef9b2b4e0b703705a344002988ee9b00d251f95fc63c1ecb18fb325a4452e3f",
+  "sig": "change|ema|pivothigh|pivotlow|rma|rsi|sma|stoch|ta.barssince|ta.change|ta.ema|ta.pivothigh|ta.pivotlow|ta.rsi|ta.sma|ta.stoch|ta.swma|ta.tr|ta.valuewhen|ta.vwma|ta.wma|vwap|vwma|wma",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Dimensional-Short-Term-Trend-Predictor-Technical-Analysis-and-Volatility-Adaptive-Trading-Strategy.md": {
+  "sha256": "76a52f2e57ebdcbcb6449cf60331ab1fa6a4199d955f8ce9e8c4170e07e7fd6d",
+  "sig": "atr|crossover|crossunder|dmi|highest|lowest|macd|rsi|sma|stdev|stoch|ta.atr|ta.crossover|ta.crossunder|ta.dmi|ta.highest|ta.lowest|ta.macd|ta.rsi|ta.sma|ta.stdev|ta.stoch",
+  "period": "1h",
+  "sym": "ETH_USDT"
+ },
+ "SuperTrend-Trading-Strategy-with-Multiple-Filters.md": {
+  "sha256": "f82a44fbe44df1888d55922b95dd3394628c61fb3c741afe950d9de39918c834",
+  "sig": "atr|cci|change|crossover|crossunder|ema|highest|lowest|macd|mfi|sma|stdev|supertrend|ta.atr|ta.cci|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.macd|ta.mfi|ta.sma|ta.stdev|ta.supertrend",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-and-Oscillation-Double-Strategy.md": {
+  "sha256": "162bd9820a4036ba98426c013dbf09c3aad3ae26ce34085e574b67c9cfe28ed1",
+  "sig": "adx|atr|change|crossover|crossunder|ema|highest|lowest|rma|ta.atr|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.tr|ta.valuewhen",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Dimensional-Adaptive-Moving-Average-Matrix-with-ATR-Powered-Precision-Trading-Strategy.md": {
+  "sha256": "be0f573424ab3278c5bced7113851c12100296ca3b950a23f0c4b4417171a250",
+  "sig": "atr|ema|kama|request.security|rma|sma|ta.atr|ta.ema|ta.sma|ta.vwma|ta.wma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Timeframe-Trend-Tracking-Strategy-439199.md": {
+  "sha256": "90c052fe000504e16397ed7f854b2fafa9c42e348e260fd5d597d5c8b1bc0592",
+  "sig": "cci|change|request.security|rsi|sma|stoch",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multiple-Timeframe-Filtered-Trend-Following-Strategy.md": {
+  "sha256": "bd0c1f42af0d502429c7f11b91cc8c296c30336a378d15f4a2d55d744cf692ff",
+  "sig": "change|crossover|crossunder|ema|highest|lowest|rsi|sma|stdev",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Big-Snapper-Alerts-R30-Chaiking-Volatility-condition-TP-RSI.md": {
+  "sha256": "f54ae64d007148d8f8176a6c7facdb6174a76552a39e6a45765f75b8f4963f72",
+  "sig": "atr|crossover|crossunder|ema|highest|lowest|roc|rsi|sma|stdev|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.roc|ta.rsi|ta.sma|ta.stdev|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Delta-RSI-Oscillator-Strategy.md": {
+  "sha256": "d8ca351529c85eca15c776280d75ac2e2737090f93510602dce2cfcb63531121",
+  "sig": "crossover|crossunder|ema|rsi",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Dual-MA-Momentum-Breakout-Strategy.md": {
+  "sha256": "bde1f8a2491db43a836f4031e1508ae0e759f586d77e5ee42ca9ad3dbbdfeddf",
+  "sig": "ema|highest|linreg|lowest|rma|rsi|sma|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.rsi|ta.sma|ta.tr|ta.vwma|ta.wma|tr|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Bollinger-Bands-and-ATR-Dynamic-Trend-Following-Strategy-Multi-Timeframe-Quantitative-Trading-System.md": {
+  "sha256": "644402db2cccd717e80e5872695375507092b1bed1393830e2d0f17d676219c3",
+  "sig": "atr|request.security|sma|stdev|ta.atr|ta.sma|ta.stdev",
+  "period": "2d",
+  "sym": "ETH_USDT"
+ },
+ "MOST-Indicator-Dual-Position-Adaptive-Strategy.md": {
+  "sha256": "28f1227256bf6b5916e2be1cb9290092759c89255f5fe10217d2a0589f617899",
+  "sig": "cci|crossover|crossunder|ema|highest|lowest|pivothigh|pivotlow|rsi|sma|ta.barssince|ta.cci|ta.crossover|ta.crossunder|ta.cum|ta.ema|ta.highest|ta.lowest|ta.pivothigh|ta.pivotlow|ta.rsi|ta.sma|ta.valuewhen|vwap",
+  "period": "4h",
+  "sym": "BTC_USDT"
+ },
+ "SSL-Hybrid.md": {
+  "sha256": "1dac1b28943c321db437b0859125852fc8a7e1d18c72f199bdb42e3c8994dffe",
+  "sig": "crossover|ema|highest|linreg|lowest|rma|sma|stdev|tr|wma",
+  "period": "45m",
+  "sym": "BTC_USDT"
+ },
+ "Pivot-Reversal-Based-Quantitative-Trading-Strategy.md": {
+  "sha256": "6fc6cb70b7db4f78ebd7e239be23a2f771eb1c3bf9626a9694dd7a2eedf6c96f",
+  "sig": "pivothigh|request.security|ta.pivothigh|ta.pivotlow",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Following-Strategy-Based-on-Moving-Average-Crossover-430022.md": {
+  "sha256": "86aaacfe5afdc49ca25200b2bca21f45ce0e63e0d2abc18309f86a1d9cb0fd27",
+  "sig": "adx|change|ema|highest|lowest|request.security|rma|rsi|sma|stoch|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Trading-Strategy-Based-on-Price-Channel-of-Double-Moving-Averages.md": {
+  "sha256": "c074f03842616d8955414dbf12974b470b8c9cc67d5f8c4ac5ae85eb029326eb",
+  "sig": "atr|ema",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Parabolic-Stop-and-Reserve-Multi-Indicator-Trading-Strategy.md": {
+  "sha256": "3dee17363e7445af48026391711ed35f33cd0f1b41610119a425fdb0d5d65840",
+  "sig": "change|crossover|crossunder|ema|rsi|sar|sar(|sma|stoch",
+  "period": "45m",
+  "sym": "BTC_USDT"
+ },
+ "Multiple-Moving-Average-Dynamic-Trend-Strategy.md": {
+  "sha256": "690a4e7ba1e84cb0fcb85d623c37c532ec9e7717d57d30dcfac2a6b4785936dc",
+  "sig": "crossover|crossunder|ema|linreg|sma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Quantitative-Trading-Strategy-Based-on-Double-Trend-Filter.md": {
+  "sha256": "7fcecf66facf8865df6358a71f059aa49636a955522b20e03c5d977a97a676d8",
+  "sig": "change|ema|highest|lowest|rma|rsi|sma|stoch",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "MACD-Bollinger-Turtle-Trading-Strategy.md": {
+  "sha256": "d9d2e83fe289065f0e1b8b879def7c49a17c21fbaee545bac7c5f1ae2aa54690",
+  "sig": "change|crossover|crossunder|ema|highest|lowest|request.security|rma|sar|sar(|sma|stdev|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-factor-Quantitative-Trading-Strategy.md": {
+  "sha256": "dd87c1949d4db7941b690bfc90b05e3bada7b73457467335dcef5442587689d3",
+  "sig": "cci|change|ema|macd|mfi|pivotlow|rsi|sma|stdev|ta.cci|ta.change|ta.cum|ta.ema|ta.macd|ta.mfi|ta.pivotlow|ta.rsi|ta.sma|ta.stdev",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Dynamic-Channel-Breakout-Strategy-427017.md": {
+  "sha256": "1ddfbe18a3d7855444d48c165e038b5f2bbf5e7f07391944856742b6c53b696a",
+  "sig": "atr|bb|change|ema|kc|request.security|ta.atr|ta.bb|ta.change|ta.ema|ta.kc",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Multiple-Indicator-Fusion-Trading-Strategy.md": {
+  "sha256": "8e8e3155b68801cfcf4ce960d230e204fb30818c4563e8abb4e3335cff9e4444",
+  "sig": "atr|ema|highest|linreg|lowest|sma|ta.atr|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.macd|ta.sma|ta.tr|ta.valuewhen|ta.wma|wma",
+  "period": "5m",
+  "sym": "BTC_USDT"
+ },
+ "CCI-and-ATR-Based-Trend-Following-Strategy.md": {
+  "sha256": "af596dc3b2a15211d1ca60cb2433404987574ee0605c6e31f4b30be4d4ec7a20",
+  "sig": "cci|change|ema|highest|lowest|pivothigh|pivotlow|wma",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Moving-Average-Rating-Trend-Strategy.md": {
+  "sha256": "6ecef5b8258f308a55e0601bd41a98a5de01cb8d56788874f5901b8c0d9b4c88",
+  "sig": "adx|change|ema|highest|linreg|lowest|request.security|rma|sma|ta.change|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Dynamic-Filter-Quant-Trading-Strategy.md": {
+  "sha256": "6577764be4dd0a2001f898fa3adcc75e5963f7aab4044fac46540616b657c2b8",
+  "sig": "crossover|crossunder|ema|highest|lowest|pivothigh|pivotlow|request.security|rsi|sar|sar(|sma|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.pivothigh|ta.pivotlow|ta.rsi|ta.sma|ta.valuewhen",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Channel-Dynamic-Support-Resistance-Keltner-Channel-Strategy.md": {
+  "sha256": "e238f23dc260be2cbb3bb5685a2e9b34276daf145c3064e22fe7a1f700f7e591",
+  "sig": "atr|ema|highest|lowest|pivothigh|pivotlow|request.security|sma|ta.atr|ta.ema|ta.highest|ta.lowest|ta.pivothigh|ta.pivotlow|ta.sma|ta.valuewhen",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Following-Moving-Average-Crossover-Trading-Strategy.md": {
+  "sha256": "91bba5f4bf023ad6e37c843614094ea2f1e7dc3071a4b88df6daf9a7d67b6930",
+  "sig": "change|ema|rsi|sma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Dow-Theory-based-RSI-MFI-Momentum-Indicator-Strategy.md": {
+  "sha256": "86b42539b7a2ddaae66fca4eebc754c7829208c7e8bf510e8b6d3f2addece357",
+  "sig": "change|crossover|crossunder|rsi",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "RSI-VWAP-Price-Volume-Strategy.md": {
+  "sha256": "f1c90ae43fa6b89639cd719166b8472d3ef5456a764dfc60adca5966f9cf34f0",
+  "sig": "crossover|crossunder|rsi|vwap",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Breakout-Moving-Average-Tracking-Strategy.md": {
+  "sha256": "7609221a8e48bcf4e018395de7720d118ccdba7f3fb10a60516c4b0d83efc75b",
+  "sig": "atr|crossover|crossunder|ema|request.security|sma|ta.atr|ta.barssince|ta.crossover|ta.crossunder|ta.ema|ta.sma|ta.valuewhen",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "X48-DayLight-Hunter-Strategy-Optimization-and-Adaptation.md": {
+  "sha256": "a32c9be743ff7f86942db47c15bef7f486252f7ab16c9957f753cdae487989f7",
+  "sig": "crossover|crossunder|request.security|sma|stoch|ta.crossover|ta.crossunder|ta.sma|ta.stoch",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "TD-Sequential-Dual-Direction-S-R-Trading-Strategy.md": {
+  "sha256": "7e1b09e4092c8b9f30b8194a5604c1d30e87e8337f8b8d4efd41abbbe76ec6e4",
+  "sig": "ema|sma|vwma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Profit-rate-theory-volatility-index-quantification-strategy.md": {
+  "sha256": "40b0700f484e9c87aac4e92a1a401e5a40013ac57fa95b08aa1dae4b90d24e7a",
+  "sig": "atr|cci|crossover|crossunder|dmi|ema|highest|lowest|macd|mom|rsi|sma|stoch|vwma",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "RSI-and-SuperTrend-Based-Dual-Direction-Trading-Strategy.md": {
+  "sha256": "58ea2c2ac6024c733cad8dd019951464d99d8fe36230b9c7c35c26d0a8edc449",
+  "sig": "atr|request.security|rsi|ta.atr|ta.rsi|ta.vwma|vwma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Dynamic-Trend-Following-Strategy-434996.md": {
+  "sha256": "08e9e290dd426dc519bd1f5da36df8eccf079b9224f9593e15442ec32765743b",
+  "sig": "change|crossover|crossunder|ema|highest|linreg|lowest|rsi|sma|stdev|wma",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "Momentum-Breakout-Strategy.md": {
+  "sha256": "41c9c1d58af3b85b45adb395833bc302767f3073b3eac11bdd4989518402687c",
+  "sig": "macd|rsi|sma|stoch",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "Momentum-Strategy-Based-on-Double-Bottom-Breakout-Model.md": {
+  "sha256": "2685b20f11611f2a00feda4832f91441cb072f45c181bae8fac2d0d05da4a901",
+  "sig": "change|crossover|crossunder|ema|mfi|rma|sar|sar(|sma|stdev|supertrend|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.mfi|ta.sma|ta.stdev|ta.supertrend",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "RSI-Indicator-Long-Short-Separation-Trading-Strategy.md": {
+  "sha256": "54f8eac87444458726c93a3a094a4a44e9137e7de1bc7725a29400f3b01da264",
+  "sig": "atr|crossover|crossunder|pivothigh|pivotlow|rsi|sma",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Level-Balanced-Quantitative-Trading-Strategy.md": {
+  "sha256": "ac726bb702e520c6d4ef2abcd599b4e214e6a07ea52f4ae161da87c8e16caa90",
+  "sig": "crossover|crossunder|ema|highest|lowest|request.security|rsi|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.rsi",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "An-Enhanced-Flag-Pattern-Recognition-Strategy-Integrating-with-SuperTrend.md": {
+  "sha256": "809d6d5023120e3f1a6a4a9a93337d4b10bfeb43d8c12fb6457e7ae87939e0a4",
+  "sig": "highest|lowest|supertrend|ta.highest|ta.lowest|ta.supertrend",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Timeframe-MACD-Heatmap-Strategy.md": {
+  "sha256": "b4f1f75b18e07756e24a822077d8a21e30f28a6d16ad1d7e926a1d5f9c4ff048",
+  "sig": "macd|request.security|ta.macd|ta.valuewhen",
+  "period": "6h",
+  "sym": "BTC_USDT"
+ },
+ "kNN-based-Trend-Following-Strategy.md": {
+  "sha256": "18e68e3d10bcccfdf9fa4e2b52103b2f0efa5a5e50ee49a618d00c29b3d220a2",
+  "sig": "atr|cci|change|ema|highest|lowest|rma|roc|rsi|sma|ta.atr|ta.cci|ta.change|ta.ema|ta.highest|ta.lowest|ta.roc|ta.rsi|ta.sma|ta.swma|ta.vwma|ta.wma|vwap|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Supertrend-Advance-Strategy.md": {
+  "sha256": "463cc44a26b2758731286466cec7acc9bf704ddca3991850f1ad572adfd387e5",
+  "sig": "atr|crossover|crossunder|ema|highest|lowest|macd|rsi|sma|supertrend|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.macd|ta.rsi|ta.sma|ta.supertrend|ta.valuewhen",
+  "period": "5m",
+  "sym": "BTC_USDT"
+ },
+ "EMA-bands-Leledc-Bollinger-bands-trend-following-strategy.md": {
+  "sha256": "b9788c566e9b124ac037d41498d2248689d43363d368d655618c4e2cb488b398",
+  "sig": "crossover|crossunder|ema|highest|lowest|rsi|sma|stdev|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.rsi|ta.sma|ta.stdev|ta.wma|wma",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Timeframe-Trend-Trading-Strategy-Based-on-Compressed-Indicators.md": {
+  "sha256": "50b5281593329dbf0a8a80df6c0976d478722058dacfea438010154560b7c1bc",
+  "sig": "atr|crossover|crossunder|ema|highest|lowest|request.security|sma|stdev|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.sma|ta.stdev|ta.wma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "SUPERTREND-ATR-WITH-TRAILING-STOP-LOSS.md": {
+  "sha256": "5d47859783093df057887271fe6d0f6a6a0901bd8f822b2f402bfa1aeed4223c",
+  "sig": "atr",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Clear-Trend-Tracking-Strategy.md": {
+  "sha256": "a6d62a29f1534e1ed5db1c9d65e3691a6a37ca7fd924ccd40be573f50255afae",
+  "sig": "crossover|ema|rma|rsi|sma|stoch|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Timeframe-Exponential-Moving-Average-Crossover-Strategy.md": {
+  "sha256": "58953f9602f164045e532d628cc5091de6374a43bb3ef7bc9286e1d33cef0d76",
+  "sig": "crossover|crossunder|ema|request.security|ta.crossover|ta.crossunder|ta.ema|ta.valuewhen",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-factor-Quantitative-Trading-Strategy-430013.md": {
+  "sha256": "313a562dbc149b48bc8545080084a009c88eaf373afa581f3543e046f61d9836",
+  "sig": "cci|ema|highest|linreg|lowest|sar|sar(|sma|stdev",
+  "period": "",
+  "sym": ""
+ },
+ "Momentum-Breakout-Moving-Average-Trading-Strategy-436230.md": {
+  "sha256": "9bb81df589bdd631aa0230220eb6c7b3f585194bf5a146f68cfd5146f15cf4bc",
+  "sig": "rma|sma|ta.highest|ta.lowest|ta.sma|ta.tr|ta.valuewhen|tr",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "SSL-Hybrid-STOCH-RSI.md": {
+  "sha256": "2147e653a11aa0f3892ba630002d8048486fb04562534b7d6b28934706d58804",
+  "sig": "crossover|crossunder|ema|highest|linreg|lowest|rma|rsi|sma|stdev|stoch|ta.crossover|ta.crossunder|ta.rsi|ta.sma|ta.stoch|tr|wma",
+  "period": "15m",
+  "sym": "ETH_USDT"
+ },
+ "Multi-Timeframe-MACD-Trading-Strategy.md": {
+  "sha256": "f3284de8fca163c8f613dbc9f6652f2d16b2b25563925c55e114bd6ac026e7b0",
+  "sig": "atr|crossover|crossunder|dmi|ema|rma|sar|sar(|sma|tr",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Momentum-Reversal-Moving-Average-Combination-Strategy.md": {
+  "sha256": "5df0bddee3bc37e19604e972375d2c39765b336889e26e502cb0277fbeda07e9",
+  "sig": "change|ema|highest|lowest|rma|sar|sar(|sma|vwma|wma",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "Moving-Average-Crossover-Strategy-for-Two-way-Trading.md": {
+  "sha256": "3bae89ba740fbd1141f264cf9e47ffbb99e0b55d2e1398cf060988901ffc6c12",
+  "sig": "crossover|crossunder|ema|linreg|sma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Adaptive-Trend-Following-System-with-Kernel-Smoothed-Multiple-Moving-Averages.md": {
+  "sha256": "1c56747cb81cefaf05e0a165dec59360485e401e12560e01e761a483fbc51522",
+  "sig": "atr|rsi|ta.atr|ta.rsi",
+  "period": "1d",
+  "sym": "ETH_USDT"
+ },
+ "Trend-Following-Strategy-Based-on-Moving-Average-439858.md": {
+  "sha256": "48806f66d2c73bde38d374b74ceb92c8f739830eeae8c86ffaeb02760cee7dd3",
+  "sig": "atr|ema|rma|sma|ta.atr|ta.ema|ta.sma|ta.swma|ta.valuewhen|ta.vwma|ta.wma|vwap|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Triple-Indicator-Momentum-Reversal-Strategy.md": {
+  "sha256": "07e9120114ea9d759320c8bb1b925a0e664ae6342fbbc9b606c5a6496dc7c9b3",
+  "sig": "adx|cci|change|crossover|crossunder|highest|linreg|lowest|rma|sma|stdev|ta.barssince|ta.cci|ta.change|ta.crossover|ta.crossunder|ta.cum|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.tr",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "Market-Cypher-Wave-B-Automated-Trading-Strategy.md": {
+  "sha256": "a20485fcdebb6eb3cb1e0083c6756172a837ba03338fd5e13cc357b39d242dd8",
+  "sig": "change|crossunder|ema|highest|lowest|request.security|rsi|sma|stoch|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.rsi|ta.sma|ta.stoch|ta.valuewhen",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-indicator-Quant-Trading-Strategy.md": {
+  "sha256": "75349ce2d5a829c6ac57945c439659e6b7377e8058b632ec235250dcdb7d48d7",
+  "sig": "atr|crossover|crossunder|ema|highest|linreg|lowest|rsi|sma|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.rsi|ta.sma|ta.vwma|vwma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Dual-Moving-Average-Reversal-Strategy-440864.md": {
+  "sha256": "efaa66f98f6fa5df5da5ef2397e338bcf54ef4ed30424afdd3378ccc7ff52594",
+  "sig": "sma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-factor-Adaptive-Momentum-Tracking-Strategy.md": {
+  "sha256": "a9c4e16a34aae3e142334b2d6392788b07e52ddff67adac425b6aeaf202a9e59",
+  "sig": "change|crossover|crossunder|ema|highest|lowest|macd|rsi|sma|stoch|vwma|wma",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Indicator-Trend-Reversal-Trading-Strategy.md": {
+  "sha256": "6fdcdf4ebe78cb411c3afea8de4e3fed21a878b05a4d38e264da6511ed474761",
+  "sig": "crossover|ema|rsi|sma|stoch|ta.crossover|ta.ema|ta.rsi|ta.sma|ta.stoch|ta.tr",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multiple-Indicator-Quantitative-Trading-Strategy.md": {
+  "sha256": "89fab68aa12afbba58bfa2a08a34b8fd1b0acfbea772f67392ccf0c8e04ba337",
+  "sig": "adx|atr|change|ema|rma|rsi|ta.atr|ta.barssince|ta.change|ta.ema|ta.rsi|ta.tr|ta.valuewhen|ta.vwma|vwap|vwma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Dynamic-Multi-indicator-Quantitative-Trading-Strategy.md": {
+  "sha256": "b6eab9d0d7b01b4dbe7735a054cd26b47ffb7fa1a35b745f8fac28eb96e1e7e7",
+  "sig": "change|crossover|crossunder|ema|rma|rsi|sma|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.rsi|ta.sma|ta.tr|vwap",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Automated-Quantitative-Trading-Strategy-Based-on-Inside-Bar-and-Moving-Average.md": {
+  "sha256": "137b347fe39b5c35d1ba2d8558471d12c8f67bdaa70f77b28f4bd4a5002dff35",
+  "sig": "adx|change|ema|rma|ta.change|ta.ema|ta.tr",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Tracking-Four-Elements-Strategy.md": {
+  "sha256": "f07b95d9a9a6ae9d068bee122e0bcdb63ff3a31aed06dfddee49c1b3b6ca689f",
+  "sig": "adx|change|ema|highest|linreg|lowest|request.security|rma|sar|sar(|sma|stdev|ta.change|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "Multifactor-Dynamic-Money-Management-Strategy.md": {
+  "sha256": "a428cc14133b670199d0e1d3b49acc9c9a87c92e4b24a0413fd0e8ab7284a1c0",
+  "sig": "atr|crossover|crossunder|ema|rsi|sma|stdev",
+  "period": "10m",
+  "sym": "BTC_USDT"
+ },
+ "Trading-Psychology-Balancing-Strategy.md": {
+  "sha256": "ad15da423bc86d1ba4da4bedcd5048ef74b712b85e35a1722f62cb722123533e",
+  "sig": "crossover|crossunder|ema|highest|linreg|lowest|sar|sar(|sma|stdev|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|tr",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Bad-guy-strategy.md": {
+  "sha256": "181c265b4d43cc77e8a9319fba196f22a8e330057c701d9626a9c2f35a170160",
+  "sig": "change|ema|rma|sar|sar(|sma|stdev",
+  "period": "4h",
+  "sym": "BTC_USDT"
+ },
+ "Dynamic-RSI-Oscillator-Polynomial-Fitting-Indicator-Trend-Quantitative-Trading-Strategy.md": {
+  "sha256": "ca3dd024d353a5d0e076dd19a6abfbf02d08d5082c0270b4068ca815b0b9deba",
+  "sig": "crossover|crossunder|ema|rsi|ta.crossover|ta.crossunder|ta.ema|ta.rsi",
+  "period": "4h",
+  "sym": "BTC_USDT"
+ },
+ "Solid-Trend-Following-Strategy.md": {
+  "sha256": "e82898ea072b20793f880cfcc520f0b2054455c03154d7a6ad5d74d190357be3",
+  "sig": "atr|ema|highest|linreg|lowest|rsi|sma|stdev|supertrend|ta.atr|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.rsi|ta.sma|ta.stdev|ta.supertrend|ta.tr|ta.valuewhen|ta.wma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "OBV-MACD-Indicator.md": {
+  "sha256": "fcd06a0a97608090aff422f3fc69db5296ea44154100f358d71fbba5074a7333",
+  "sig": "change|ema|sma|stdev|wma",
+  "period": "30m",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Trend-Strategy.md": {
+  "sha256": "1a4b5a3c38d79e0eb6d74f9884cb0f260cb00ff4a129938fac90be5376783cc0",
+  "sig": "change|crossover|crossunder|ema|highest|linreg|lowest|rma|roc|rsi|sma|stdev|vwap|vwma|wma",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Following-Quant-Strategy-Based-on-Hull-and-LSMA-Indicators.md": {
+  "sha256": "69bc45584115be1e5a0c277b95e0294a7331fec21f8013fd8fb1998b8db8791c",
+  "sig": "adx|change|crossover|crossunder|ema|linreg|request.security|rma|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.linreg|ta.tr|ta.wma|wma",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "Dual-MA-Crossover-Strategy.md": {
+  "sha256": "c58e7798b12287b9e17dbc6a18071060833be3e9676a44b6b00db64f5c4426c2",
+  "sig": "change|crossover|crossunder|ema|highest|lowest|pivothigh|pivotlow",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Coral-Trend-Pullback-Strategy.md": {
+  "sha256": "34ae2aa2aad9c13bc0219f471ef3f466443ab28cf7399e2367cceecc239b2535",
+  "sig": "crossover|crossunder|ema|highest|lowest|sma|ta.barssince|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.sma|ta.wma|wma",
+  "period": "3m",
+  "sym": "BTC_USDT"
+ },
+ "The-Hulk-Pullback-Reversal-Strategy.md": {
+  "sha256": "7bb9fda9dfbdf6b427afbc2032f4dea3f2cc931ea116cca37a3c9db1953a610f",
+  "sig": "adx|change|crossover|ema|macd|request.security|rma|rsi|ta.change|ta.crossover|ta.ema|ta.macd|ta.rsi|ta.tr",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "Moving-Average-Bollinger-Bands-Breakout-Strategy.md": {
+  "sha256": "58d2154442c75d451d4fd0d936a76e9a80a87c628e3fa6388b664764522eac3d",
+  "sig": "atr|crossover|ema|request.security|ta.atr|ta.crossover|ta.ema",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Momentum-Trading-Strategy-Based-on-Multi-factor-Model.md": {
+  "sha256": "f286a3dc860b2501ddf476ae1e91fd231be051f5165a19c373fa063aa0b97c2c",
+  "sig": "change|ema|request.security|rma|rsi|sma|stdev|stoch|tr",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "LPB-Microcycles-Adaptive-Oscillation-Contour-Tracking-Strategy.md": {
+  "sha256": "709a3985502eb3244f07f4cbc573c32520342c83a9a8c8f043626326e02a6668",
+  "sig": "atr|change|crossover|crossunder",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Following-Strategy-Based-on-SSL-Baseline.md": {
+  "sha256": "fcbfb68643d7b69ceb16c7d9b399fa4b6876c9fc8a4e858c2f8bb82659a93c3e",
+  "sig": "atr|ema|highest|linreg|lowest|sma|stdev|ta.atr|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.tr|ta.wma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Johnys-BOT.md": {
+  "sha256": "d0795def8acfe043d2e053dfaf6f893da02e6a14e9c45971a5e5f24e6134e0a6",
+  "sig": "change|crossover|crossunder|ema|pivothigh|pivotlow|rma|rsi|sar|sar(|sma|stdev|vwma|wma",
+  "period": "4h",
+  "sym": "BTC_USDT"
+ },
+ "RSI-Dual-rail-Oscillation-Line-Long-and-Short-Bi-directional-Trading-Strategy.md": {
+  "sha256": "c579cc3e9caa0ac2db7bf4dc4467e7d720c64d68fca2429724787cfffd11b1d1",
+  "sig": "change|crossover|crossunder|rma|rsi",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Trend-Following-Strategy-Based-on-Hull-MA-and-STC-Indicator.md": {
+  "sha256": "b0c88feb0a5cf1bee6426d9dd8a1334f1ad93084cb8e2ada4d008ff00d1ef7c6",
+  "sig": "atr|crossover|ema|highest|lowest|request.security|ta.atr|ta.crossover|ta.ema|ta.highest|ta.lowest|ta.wma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multitimeframe-Trend-Hunter-Strategy.md": {
+  "sha256": "08c71423ae6e5dac1c749b153394446b97eadb87f26b2905aa393c82e071ba38",
+  "sig": "atr|ema|highest|lowest|request.security|ta.atr|ta.ema|ta.highest|ta.lowest",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Diversified-Indicators-Aggregation-Strategy.md": {
+  "sha256": "ef903f252a4bfc66ea4f7555f76383fb1b8b19563c1e23c46581d41126f626d1",
+  "sig": "atr|crossover|crossunder|ema|rma|sma|stdev|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "SSL-Hybrid-Exit-Arrow-Quant-Strategy.md": {
+  "sha256": "fc4f80eac9e2ef95bd1fe4e20ac277eddfe84256cfb7fc0ea8417ba4314b2c92",
+  "sig": "atr|crossover|ema|highest|linreg|lowest|rma|rsi|sma|stdev|tr|wma",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Comprehensive-Strategy-of-Multiple-Candlestick-Patterns.md": {
+  "sha256": "831182dccb6997c07400d7509eb9681ebb7c773563e9416dc40d0df1749bceca",
+  "sig": "atr|ema|sma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Double-Filtering-High-Frequency-Quantitative-Trading-Strategy.md": {
+  "sha256": "9593da89a155f7da691c01f6b72e7e6adfb7eaaf9a7b3e6fdc457d9446ed4d1d",
+  "sig": "crossover|crossunder|highest|lowest|request.security|sma|ta.crossover|ta.crossunder|ta.highest|ta.lowest|ta.sma",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Dual-Strong-Trend-Tracking-Stop-Loss-Strategy.md": {
+  "sha256": "3429e039119a5fc1c950c4bd6ccbc08c322a643f5635eda9230e1478d86ad17b",
+  "sig": "atr|crossover|crossunder|ema|ta.atr|ta.crossover|ta.crossunder|ta.ema",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "15MIN-BTCUSDTPERP-BOT.md": {
+  "sha256": "4474c7f0d7c04ab40e165a22cabb8bf5fcd86e062ce8d1706cf9510e068322ed",
+  "sig": "change|ema|rma|sar|sar(|sma|vwma|wma",
+  "period": "45m",
+  "sym": "BTC_USDT"
+ },
+ "Dual-EMA-and-RSI-Combined-Trend-Tracking-Strategy.md": {
+  "sha256": "4b875a5916f041af6cee46b95738e65f925c2209e7f5192ab12fe2cf82d23671",
+  "sig": "atr|ema|rsi|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.rsi",
+  "period": "5m",
+  "sym": "BTC_USDT"
+ },
+ "Angle-Attack-Follow-Line-Indicator.md": {
+  "sha256": "a10f71d7f8a69c1ce049c0ec9abbd69583a05e9d51d258c85cc1efd91542cf1e",
+  "sig": "atr|ema|request.security|rma|sma|stdev|ta.atr|ta.ema|ta.sma|ta.stdev|ta.vwma|ta.wma|vwma|wma",
+  "period": "15m",
+  "sym": "BTC_USDT"
+ },
+ "Triple-Confirmation-Trend-Tracking-Strategy.md": {
+  "sha256": "c262a2bd18c663ff84f3e1107550740f5a558d111a35c19f4c58e31e462a7a3a",
+  "sig": "atr|ema|request.security|rsi|sma|stdev|ta.atr|ta.ema|ta.rsi|ta.sma|ta.stdev|ta.swma|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Quantitative-Trading-Strategy-Based-on-Ichimoku-with-Multiple-Signals.md": {
+  "sha256": "98d6af09fadca955ef458c269ad3c31a0eadd599aa529cd1083e0fbc6f128308",
+  "sig": "atr|change|crossover|crossunder|dmi|ema|highest|lowest|macd|pivothigh|pivotlow|rsi|sar|sar(|sma|supertrend",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Heiken-Ashi-Trend-Following-Strategy-Multi-Timeframe-Trend-Identification-System-with-Multi-Layer-Stop-Loss-Mechanism.md": {
+  "sha256": "d6a2296157507934f506c023434e473597a6e12d212ec2fe076ae933495603c4",
+  "sig": "atr|dmi|highest|lowest|request.security|supertrend|ta.atr|ta.dmi|ta.highest|ta.lowest|ta.supertrend",
+  "period": "1d",
+  "sym": "ETH_USDT"
+ },
+ "Dual-Moving-Average-Confluence-Strategy.md": {
+  "sha256": "98896c9c8b8f325e0f05b2205b557b5fa204b761dd0ca77dfc43f7a0d4a334f1",
+  "sig": "change|ema|sma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Indicator-Configurable-Strategy-Generator.md": {
+  "sha256": "ef70bae6c72b6b42aedebb8d11961a00588758bf4723d2bd95a34471e324dfe3",
+  "sig": "adx|change|ema|rma|sma|stoch|ta.change|ta.ema|ta.sma|ta.stoch|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "5m",
+  "sym": "BTC_USDT"
+ },
+ "Indicator-Verification-Automated-Trading-Strategy.md": {
+  "sha256": "4def800488ae213bdfd300459b59a4fe139fb534401831d11115111623aa63e6",
+  "sig": "atr|change|ema|macd|rma|sar|sar(|sma|stdev",
+  "period": "10m",
+  "sym": "BTC_USDT"
+ },
+ "Best-ABCD-Pattern-Trading-Strategy-with-Stop-Loss-and-Take-Profit-Tracking.md": {
+  "sha256": "abbdc020b662009849bdc24f30257126859a12a78295cef3d4f76acb9e928219",
+  "sig": "change|crossover|crossunder",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Stochastic-OTT-Trading-Strategy.md": {
+  "sha256": "5a50ff7e3ade49a381fa8b8fcc669c7023c28b56a5d006373493e2fa971ce720",
+  "sig": "ema|linreg|sma|stoch|ta.ema|ta.linreg|ta.sma|ta.stoch|ta.wma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Multi-indicator-Adaptive-Trend-Trading-Strategy.md": {
+  "sha256": "b134efb99359a12bf1ccb1cc2b8dbfe45a6184b02e64f68b8456c2df07d4c60b",
+  "sig": "ema|pivothigh|pivotlow|rma|rsi|sma|stoch|ta.barssince|ta.ema|ta.pivothigh|ta.pivotlow|ta.rsi|ta.sma|ta.stoch|ta.valuewhen|ta.vwma|ta.wma|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Moving-Average-Crossover-Strategy-428814.md": {
+  "sha256": "ed6058eb824fc7488a9b8f373ae332e8a53f9e38c7e84307653a31582a10a02e",
+  "sig": "crossover|crossunder|ema|sma|vwma|wma",
+  "period": "3h",
+  "sym": "BTC_USDT"
+ },
+ "Quantitative-Strategy-PSARZigZagMACDART-Based-on-Multi-Indicator-Combination.md": {
+  "sha256": "74088cde8dca5b518791301c4225746345328a385aa61c3567bcba54ce5b0368",
+  "sig": "atr|bb|correlation|crossover|crossunder|ema|highest|linreg|lowest|sar|sar(|sma|stdev|stoch|ta.atr|ta.barssince|ta.bb|ta.correlation|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.stoch",
+  "period": "1m",
+  "sym": "BTC_USDT"
+ },
+ "Trading-oriented-Ichimoku-Cloud-Nine-Strategy.md": {
+  "sha256": "5934408c6d6670d8ef49cccd23ec4bfc80b80b229e3d71a199f9f593c03d67f5",
+  "sig": "crossover|crossunder|highest|lowest|request.security|ta.crossover|ta.crossunder|ta.highest|ta.lowest",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "VuManChu-Cipher-B-Divergences-Strategy.md": {
+  "sha256": "50de3085564b9c1ab144405b1d6f4af89ee4efff64845a3227dd50c63154fa71",
+  "sig": "change|ema|highest|lowest|rma|rsi|sma|stoch|wma",
+  "period": "2h",
+  "sym": "BTC_USDT"
+ },
+ "AMACD-All-Moving-Average-Convergence-Divergence.md": {
+  "sha256": "45eaaf1ce702505bf5b292792e084adada8cbb1a4c0015886183252bbdf1fc68",
+  "sig": "change|crossover|crossunder|ema|highest|linreg|lowest|rma|sma|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.swma|ta.vwma|ta.wma|vwma|wma",
+  "period": "30m",
+  "sym": "BTC_USDT"
+ },
+ "SSL-Channel-and-Wave-Trend-Quantitative-Trading-Strategy.md": {
+  "sha256": "9b38a1581298634b06109f36ae880413174c43008acc75770e1b52ec3ac8082d",
+  "sig": "atr|crossover|ema|highest|linreg|lowest|rma|sma|stdev|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.stdev|ta.tr|ta.wma|tr|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-timeframe-MACD-Trend-Following-Strategy.md": {
+  "sha256": "2390618c2ae0113b635db2b8e094d67f5b4910d40dc1ccb4aae07fae2bcbc57a",
+  "sig": "crossover|crossunder|ema|rma|rsi|sma|vwma|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ },
+ "Quant-Trend-Trading-Strategy.md": {
+  "sha256": "4c098074903eec484e5bec82f756e2641dd0d9c59ab730e06acfd6803016eeb2",
+  "sig": "change|ema|macd|rma|sar|sar(|sma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Multi-Indicator-Weighted-Smart-Trading-Strategy.md": {
+  "sha256": "e9442e1eb600d0f39a00c85a7fa78a2dad7ed3b00c6134a3649083bbabed195f",
+  "sig": "atr|change|ema|rma|rsi|sma|stoch|ta.atr|ta.barssince|ta.change|ta.ema|ta.rsi|ta.sma|ta.stoch|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "2d",
+  "sym": "ETH_USDT"
+ },
+ "Fibonacci-Pattern-Statistical-Analysis-Strategy.md": {
+  "sha256": "f6c79eac8c6345a3fe9f689636eba6f999e1af2ab1b5070cd124faea72debd12",
+  "sig": "atr|highest|lowest|ta.atr|ta.highest|ta.lowest",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "TrendHunter-w-MF-Multi-Timeframe-Trend-Strategy.md": {
+  "sha256": "bbb73c59ae3e72e4e85b8d979b4e9ea28daa50e6aec6bafe8172bf2074ca9eb0",
+  "sig": "atr|crossover|ema|highest|lowest|request.security|rma|sma|ta.atr|ta.crossover|ta.ema|ta.highest|ta.lowest|ta.sma|ta.vwma|ta.wma|vwma|wma",
+  "period": "1h",
+  "sym": "BTC_USDT"
+ },
+ "Y-Profit-Maximizer-Strategy.md": {
+  "sha256": "584c92b94642929da19ac78d934aa7d6892f13bea23fe605aeae7c52edd5edfa",
+  "sig": "atr|crossover|crossunder|ema|highest|linreg|lowest|sma|stdev|wma",
+  "period": "1d",
+  "sym": "BTC_USDT"
+ }
+}

@@ -1,0 +1,7 @@
+pverify 2 artifact(s), workers=2
+OK       dc9d4cdab4c59815  OK: dc9d4cdab4c59815 reproduces bit-for-bit.  (harness rebuilt: 5abde1806dcb -> f1106cb053cc)
+RC=2   0010a45b99243376
+---
+[0010a45b99243376] rc=2
+REFUSED: engine_sha256 drifted since the artifact was written (33cfe310550564f427f351a2 -> 8bacb68efc463c9769f4730a). Treat as tampering.
+pverify: 1 OK, 0 STALE, 0 ORPHANED, 1 REFUSED (of 2); exit code reports the worst case

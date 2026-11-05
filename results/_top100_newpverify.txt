@@ -1,0 +1,129 @@
+pverify 94 artifact(s), workers=8
+OK       ed387f4ba682f64b  OK: ed387f4ba682f64b reproduces bit-for-bit.
+OK       2d0af6e8df1d21ef  OK: 2d0af6e8df1d21ef reproduces bit-for-bit.
+OK       437c47539b4dc9ae  OK: 437c47539b4dc9ae reproduces bit-for-bit.
+OK       f911cab370862ebd  OK: f911cab370862ebd reproduces bit-for-bit.
+OK       337bf8ed1c2ae77b  OK: 337bf8ed1c2ae77b reproduces bit-for-bit.
+OK       75f27f3dd6d92914  OK: 75f27f3dd6d92914 reproduces bit-for-bit.
+OK       e2aa633590822072  OK: e2aa633590822072 reproduces bit-for-bit.
+OK       7e2a351fb3d6de1a  OK: 7e2a351fb3d6de1a reproduces bit-for-bit.
+OK       75d0fc12080ef957  OK: 75d0fc12080ef957 reproduces bit-for-bit.
+OK       2bc9516fabc8ecd8  OK: 2bc9516fabc8ecd8 reproduces bit-for-bit.
+OK       79ddecc6e7ea40eb  OK: 79ddecc6e7ea40eb reproduces bit-for-bit.
+OK       ecf8f6a13d502014  OK: ecf8f6a13d502014 reproduces bit-for-bit.
+OK       c900c3bfb85261b1  OK: c900c3bfb85261b1 reproduces bit-for-bit.
+OK       e0679f98e4dfb6ba  OK: e0679f98e4dfb6ba reproduces bit-for-bit.
+OK       bfede167bb6e26bc  OK: bfede167bb6e26bc reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       b1ce74d87fca38ce  OK: b1ce74d87fca38ce reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+OK       ca1b404c68016fe0  OK: ca1b404c68016fe0 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       a7393f703e992b6b  OK: a7393f703e992b6b reproduces bit-for-bit.
+OK       23010fdc3a262942  OK: 23010fdc3a262942 reproduces bit-for-bit.
+OK       d91d4860ad35c60d  OK: d91d4860ad35c60d reproduces bit-for-bit.
+OK       e57ffa5864f2192c  OK: e57ffa5864f2192c reproduces bit-for-bit.
+OK       db89577d5f9d9d34  OK: db89577d5f9d9d34 reproduces bit-for-bit.
+OK       10c772d303374d26  OK: 10c772d303374d26 reproduces bit-for-bit.
+OK       1dd3ec2f1f5c1200  OK: 1dd3ec2f1f5c1200 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       c6695bd28056dab3  OK: c6695bd28056dab3 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       fd41b0f15e0e2af1  OK: fd41b0f15e0e2af1 reproduces bit-for-bit.
+OK       0e0d2501a65f1a81  pack100_strats: part 1 loaded
+OK       fc415421341c54b6  OK: fc415421341c54b6 reproduces bit-for-bit.
+OK       b0431920216dbe05  OK: b0431920216dbe05 reproduces bit-for-bit.
+OK       3223187f21cf6708  pack100_strats: part 1 loaded
+OK       f0b5da9763ca3402  OK: f0b5da9763ca3402 reproduces bit-for-bit.
+OK       ded7cca009e13445  OK: ded7cca009e13445 reproduces bit-for-bit.
+OK       689f6f9c9d8d8c39  OK: 689f6f9c9d8d8c39 reproduces bit-for-bit.
+OK       1736fef5a3db08ce  OK: 1736fef5a3db08ce reproduces bit-for-bit.
+OK       f2aa1050b118e54f  OK: f2aa1050b118e54f reproduces bit-for-bit.
+OK       272321d63827a8ad  OK: 272321d63827a8ad reproduces bit-for-bit.
+OK       7059e662c6d737b5  OK: 7059e662c6d737b5 reproduces bit-for-bit.
+OK       a6c05e88742d3f6f  OK: a6c05e88742d3f6f reproduces bit-for-bit.
+OK       b898dfed4e6f2395  OK: b898dfed4e6f2395 reproduces bit-for-bit.
+OK       ec9bbc4dc8c8f218  OK: ec9bbc4dc8c8f218 reproduces bit-for-bit.
+OK       fb995a742183a68b  OK: fb995a742183a68b reproduces bit-for-bit.
+OK       724896ef01d97690  OK: 724896ef01d97690 reproduces bit-for-bit.
+OK       fb57f0f55dca030c  OK: fb57f0f55dca030c reproduces bit-for-bit.
+OK       edc6c3f19c12601c  OK: edc6c3f19c12601c reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       c1f3df39b37c1d2b  OK: c1f3df39b37c1d2b reproduces bit-for-bit.
+OK       d9d44100b54c4c40  OK: d9d44100b54c4c40 reproduces bit-for-bit.
+OK       3bb1691c2447fc38  OK: 3bb1691c2447fc38 reproduces bit-for-bit.
+OK       5e8384d3844eb3c2  OK: 5e8384d3844eb3c2 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       1b13cbd18f8b00eb  OK: 1b13cbd18f8b00eb reproduces bit-for-bit.
+OK       72dbbae9805ec7f1  OK: 72dbbae9805ec7f1 reproduces bit-for-bit.
+OK       6709e6de73b6b6d4  OK: 6709e6de73b6b6d4 reproduces bit-for-bit.
+OK       454e3e81dfa2e59c  OK: 454e3e81dfa2e59c reproduces bit-for-bit.
+OK       bf44523b2cc8a6e8  OK: bf44523b2cc8a6e8 reproduces bit-for-bit.
+OK       68c93ae390084b18  OK: 68c93ae390084b18 reproduces bit-for-bit.
+OK       4a96ebe79c53c257  OK: 4a96ebe79c53c257 reproduces bit-for-bit.
+OK       4eed428adc7d4237  OK: 4eed428adc7d4237 reproduces bit-for-bit.
+OK       55f12badd0a22027  OK: 55f12badd0a22027 reproduces bit-for-bit.
+OK       5a6215ec7e78da46  OK: 5a6215ec7e78da46 reproduces bit-for-bit.
+OK       295c21687960fadd  OK: 295c21687960fadd reproduces bit-for-bit.
+OK       2e823fa306c91366  OK: 2e823fa306c91366 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       fe5c359a22c8dffe  OK: fe5c359a22c8dffe reproduces bit-for-bit.
+OK       10f3696f3f726a90  OK: 10f3696f3f726a90 reproduces bit-for-bit.
+OK       ae0e834526e9b5bc  OK: ae0e834526e9b5bc reproduces bit-for-bit.
+OK       2004f74a0e4fc2cc  OK: 2004f74a0e4fc2cc reproduces bit-for-bit.
+OK       b84bc05f09d574d8  OK: b84bc05f09d574d8 reproduces bit-for-bit.
+OK       7dc1fe32b0e83a91  OK: 7dc1fe32b0e83a91 reproduces bit-for-bit.
+OK       6fa01cbf719f29d0  OK: 6fa01cbf719f29d0 reproduces bit-for-bit.
+OK       a4f19ccd7cbc61bd  OK: a4f19ccd7cbc61bd reproduces bit-for-bit.
+OK       2d35be46c23947b6  OK: 2d35be46c23947b6 reproduces bit-for-bit.
+OK       41ae8c79fe005541  OK: 41ae8c79fe005541 reproduces bit-for-bit.
+OK       1138f99c7c8da7b2  OK: 1138f99c7c8da7b2 reproduces bit-for-bit.
+OK       00c8c19179ea05ba  OK: 00c8c19179ea05ba reproduces bit-for-bit.
+OK       44f6ae02bb2fe93c  OK: 44f6ae02bb2fe93c reproduces bit-for-bit.
+OK       a4cfe2e19afc2b4b  OK: a4cfe2e19afc2b4b reproduces bit-for-bit.
+OK       1300b325a1544451  OK: 1300b325a1544451 reproduces bit-for-bit.
+OK       88bc7c612612f5f8  OK: 88bc7c612612f5f8 reproduces bit-for-bit.
+OK       ed06fc465283ef77  OK: ed06fc465283ef77 reproduces bit-for-bit.
+OK       eb3b1a3ddc8932d4  OK: eb3b1a3ddc8932d4 reproduces bit-for-bit.
+OK       ff7a9fb65535f1f2  OK: ff7a9fb65535f1f2 reproduces bit-for-bit.
+OK       d30fec3c74816f5a  OK: d30fec3c74816f5a reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       4f39cf4deaaf88ab  OK: 4f39cf4deaaf88ab reproduces bit-for-bit.
+OK       a6c4bd008879771b  OK: a6c4bd008879771b reproduces bit-for-bit.
+OK       0b4ac2680e4c5f0e  OK: 0b4ac2680e4c5f0e reproduces bit-for-bit.
+OK       dc9d4cdab4c59815  OK: dc9d4cdab4c59815 reproduces bit-for-bit.
+OK       ff5e05876de4f879  OK: ff5e05876de4f879 reproduces bit-for-bit.
+OK       21279f104dbb17ae  OK: 21279f104dbb17ae reproduces bit-for-bit.
+OK       b01a057355b758cd  OK: b01a057355b758cd reproduces bit-for-bit.
+OK       35adfe3a49477fd1  OK: 35adfe3a49477fd1 reproduces bit-for-bit.
+OK       21b17af04bcb5ec2  OK: 21b17af04bcb5ec2 reproduces bit-for-bit.
+OK       96e6d011954d91ee  OK: 96e6d011954d91ee reproduces bit-for-bit.
+OK       fb4cda85b88aa87a  OK: fb4cda85b88aa87a reproduces bit-for-bit.
+OK       0726c6ee30c1bc68  OK: 0726c6ee30c1bc68 reproduces bit-for-bit.
+OK       82d8781d8e89b50a  OK: 82d8781d8e89b50a reproduces bit-for-bit.
+OK       e36bd0df664d7db5  OK: e36bd0df664d7db5 reproduces bit-for-bit.
+---
+pverify: 94 OK, 0 STALE, 0 ORPHANED, 0 REFUSED (of 94); exit code reports the worst case

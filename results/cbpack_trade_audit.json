@@ -1,0 +1,930 @@
+{
+ "symbols": {
+  "XRPUSDT": {
+   "bars": 17520,
+   "strategies": {
+    "S01": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 274,
+      "n_trades_mine": 275,
+      "n_trades_artifact": 274.0,
+      "net_pct_pack": -11.31445454176948,
+      "net_pct_mine": -10.082437684865631,
+      "net_pct_artifact": -11.31445454176948,
+      "pf_pack": 0.9336557726421665,
+      "pf_mine": 0.9419075374009739,
+      "pf_artifact": 0.9336557726421665,
+      "win_pct_pack": 35.03649635036496,
+      "win_pct_mine": 35.27272727272727,
+      "maxdd_pack": -25.427216497593697,
+      "maxdd_mine": -23.35962112840706,
+      "exposure_pack": 17.825342465753423,
+      "exposure_mine": 17.69406392694064,
+      "fees_pack": 1806.3042400134736,
+      "fees_mine": 1854.3867995097328,
+      "trades_match": false,
+      "trade_price_match": 37,
+      "trade_price_total": 274
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 15.251372148277209,
+      "net_pct_mine_zc": 16.993920444170275,
+      "pf_pack_zc": 1.086561718409347,
+      "pf_mine_zc": 1.0947022306170626,
+      "trades_pack_zc": 274,
+      "trades_mine_zc": 275
+     },
+     "trade_audit": {
+      "entry_fill_ok": 274,
+      "entry_fill_total": 274,
+      "exit_fill_ok": 274,
+      "fee_ok": 274,
+      "pnl_ok": 274,
+      "non_overlap": true,
+      "exposure_bars_sum": 3397
+     },
+     "truncation": null
+    },
+    "S02": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 224,
+      "n_trades_mine": 224,
+      "n_trades_artifact": 224.0,
+      "net_pct_pack": 184.01093069048534,
+      "net_pct_mine": 184.01093069048534,
+      "net_pct_artifact": 184.01093069048534,
+      "pf_pack": 1.6077892568994903,
+      "pf_mine": 1.6077892568994903,
+      "pf_artifact": 1.6077892568994903,
+      "win_pct_pack": 26.785714285714285,
+      "win_pct_mine": 26.785714285714285,
+      "maxdd_pack": -26.8648421960901,
+      "maxdd_mine": -26.8648421960901,
+      "exposure_pack": 34.509132420091326,
+      "exposure_mine": 34.509132420091326,
+      "fees_pack": 2530.5672077996596,
+      "fees_mine": 2530.5672077996596,
+      "trades_match": true,
+      "trade_price_match": 224,
+      "trade_price_total": 224
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 256.10960090267486,
+      "net_pct_mine_zc": 256.10960090267486,
+      "pf_pack_zc": 1.8460066254892968,
+      "pf_mine_zc": 1.8460066254892968,
+      "trades_pack_zc": 221,
+      "trades_mine_zc": 221
+     },
+     "trade_audit": {
+      "entry_fill_ok": 224,
+      "entry_fill_total": 224,
+      "exit_fill_ok": 224,
+      "fee_ok": 224,
+      "pnl_ok": 224,
+      "non_overlap": true,
+      "exposure_bars_sum": 6269
+     },
+     "truncation": {
+      "truncation_points": 12,
+      "comparisons": 48,
+      "mismatches": 0
+     }
+    },
+    "S03": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 193,
+      "n_trades_mine": 193,
+      "n_trades_artifact": 193.0,
+      "net_pct_pack": 25.18975026683583,
+      "net_pct_mine": 25.43915995668753,
+      "net_pct_artifact": 25.18975026683583,
+      "pf_pack": 1.1693638506187916,
+      "pf_mine": 1.1709761013858504,
+      "pf_artifact": 1.1693638506187916,
+      "win_pct_pack": 41.968911917098445,
+      "win_pct_mine": 41.968911917098445,
+      "maxdd_pack": -12.413158032659222,
+      "maxdd_mine": -12.23866285998253,
+      "exposure_pack": 11.695205479452055,
+      "exposure_mine": 11.581050228310502,
+      "fees_pack": 1920.9979407003366,
+      "fees_mine": 1921.7258020719134,
+      "trades_match": true,
+      "trade_price_match": 192,
+      "trade_price_total": 193
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 53.95002832269715,
+      "net_pct_mine_zc": 54.25616299014564,
+      "pf_pack_zc": 1.3599057057788841,
+      "pf_mine_zc": 1.3618046002267068,
+      "trades_pack_zc": 193,
+      "trades_mine_zc": 193
+     },
+     "trade_audit": {
+      "entry_fill_ok": 193,
+      "entry_fill_total": 193,
+      "exit_fill_ok": 193,
+      "fee_ok": 193,
+      "pnl_ok": 193,
+      "non_overlap": true,
+      "exposure_bars_sum": 2241
+     },
+     "truncation": null
+    },
+    "S04": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 175,
+      "n_trades_mine": 175,
+      "n_trades_artifact": 175.0,
+      "net_pct_pack": -32.318601733093985,
+      "net_pct_mine": -32.318601733093985,
+      "net_pct_artifact": -32.318601733093985,
+      "pf_pack": 0.6297231566673539,
+      "pf_mine": 0.6297231566673539,
+      "pf_artifact": 0.6297231566673539,
+      "win_pct_pack": 38.285714285714285,
+      "win_pct_mine": 38.285714285714285,
+      "maxdd_pack": -35.49933485738413,
+      "maxdd_mine": -35.49933485738413,
+      "exposure_pack": 17.61986301369863,
+      "exposure_mine": 17.61986301369863,
+      "fees_pack": 534.1389571169439,
+      "fees_mine": 534.1389571169439,
+      "trades_match": true,
+      "trade_price_match": 175,
+      "trade_price_total": 175
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": -25.37489360087648,
+      "net_pct_mine_zc": -25.37489360087648,
+      "pf_pack_zc": 0.7032070494833885,
+      "pf_mine_zc": 0.7032070494833885,
+      "trades_pack_zc": 174,
+      "trades_mine_zc": 174
+     },
+     "trade_audit": {
+      "entry_fill_ok": 175,
+      "entry_fill_total": 175,
+      "exit_fill_ok": 175,
+      "fee_ok": 175,
+      "pnl_ok": 175,
+      "non_overlap": true,
+      "exposure_bars_sum": 3261
+     },
+     "truncation": null
+    },
+    "S05": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 581,
+      "n_trades_mine": 581,
+      "n_trades_artifact": 581.0,
+      "net_pct_pack": -28.363293870506013,
+      "net_pct_mine": -28.363293870506013,
+      "net_pct_artifact": -28.363293870506013,
+      "pf_pack": 0.8002260675735502,
+      "pf_mine": 0.8002260675735502,
+      "pf_artifact": 0.8002260675735502,
+      "win_pct_pack": 57.831325301204814,
+      "win_pct_mine": 57.831325301204814,
+      "maxdd_pack": -32.16318912574272,
+      "maxdd_mine": -32.16318912574272,
+      "exposure_pack": 15.02283105022831,
+      "exposure_mine": 15.02283105022831,
+      "fees_pack": 2882.377252307522,
+      "fees_mine": 2882.377252307522,
+      "trades_match": true,
+      "trade_price_match": 581,
+      "trade_price_total": 581
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 12.398241077730997,
+      "net_pct_mine_zc": 12.398241077730997,
+      "pf_pack_zc": 1.0809150462100445,
+      "pf_mine_zc": 1.0809150462100445,
+      "trades_pack_zc": 581,
+      "trades_mine_zc": 581
+     },
+     "trade_audit": {
+      "entry_fill_ok": 581,
+      "entry_fill_total": 581,
+      "exit_fill_ok": 581,
+      "fee_ok": 581,
+      "pnl_ok": 581,
+      "non_overlap": true,
+      "exposure_bars_sum": 3213
+     },
+     "truncation": null
+    },
+    "S06": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 523,
+      "n_trades_mine": 523,
+      "n_trades_artifact": 523.0,
+      "net_pct_pack": -30.39391172256539,
+      "net_pct_mine": -30.39391172256539,
+      "net_pct_artifact": -30.39391172256539,
+      "pf_pack": 0.876477511116922,
+      "pf_mine": 0.876477511116922,
+      "pf_artifact": 0.876477511116922,
+      "win_pct_pack": 39.19694072657744,
+      "win_pct_mine": 39.19694072657744,
+      "maxdd_pack": -40.39174349714567,
+      "maxdd_mine": -40.39174349714567,
+      "exposure_pack": 12.54566210045662,
+      "exposure_mine": 12.54566210045662,
+      "fees_pack": 3638.3583749895674,
+      "fees_mine": 3638.3583749895674,
+      "trades_match": true,
+      "trade_price_match": 523,
+      "trade_price_total": 523
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 20.669066035870554,
+      "net_pct_mine_zc": 20.669066035870554,
+      "pf_pack_zc": 1.0735587608578694,
+      "pf_mine_zc": 1.0735587608578694,
+      "trades_pack_zc": 523,
+      "trades_mine_zc": 523
+     },
+     "trade_audit": {
+      "entry_fill_ok": 523,
+      "entry_fill_total": 523,
+      "exit_fill_ok": 523,
+      "fee_ok": 523,
+      "pnl_ok": 523,
+      "non_overlap": true,
+      "exposure_bars_sum": 2721
+     },
+     "truncation": null
+    },
+    "S07": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 41,
+      "n_trades_mine": 41,
+      "n_trades_artifact": 41.0,
+      "net_pct_pack": -13.737652558429803,
+      "net_pct_mine": -13.737652558429803,
+      "net_pct_artifact": -13.737652558429803,
+      "pf_pack": 0.5437359453978438,
+      "pf_mine": 0.5437359453978438,
+      "pf_artifact": 0.5437359453978438,
+      "win_pct_pack": 24.390243902439025,
+      "win_pct_mine": 24.390243902439025,
+      "maxdd_pack": -16.02490497050636,
+      "maxdd_mine": -16.02490497050636,
+      "exposure_pack": 6.860730593607306,
+      "exposure_mine": 6.860730593607306,
+      "fees_pack": 173.50616651416712,
+      "fees_mine": 173.50616651416712,
+      "trades_match": true,
+      "trade_price_match": 41,
+      "trade_price_total": 41
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": -11.818655623089692,
+      "net_pct_mine_zc": -11.818655623089692,
+      "pf_pack_zc": 0.5883852492245246,
+      "pf_mine_zc": 0.5883852492245246,
+      "trades_pack_zc": 41,
+      "trades_mine_zc": 41
+     },
+     "trade_audit": {
+      "entry_fill_ok": 41,
+      "entry_fill_total": 41,
+      "exit_fill_ok": 41,
+      "fee_ok": 41,
+      "pnl_ok": 41,
+      "non_overlap": true,
+      "exposure_bars_sum": 1243
+     },
+     "truncation": null
+    },
+    "S08": {
+     "status": "skipped",
+     "reason": "S08 needs an open_interest column (use attach_oi)"
+    },
+    "S09": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 215,
+      "n_trades_mine": 215,
+      "n_trades_artifact": 215.0,
+      "net_pct_pack": -34.53868466693578,
+      "net_pct_mine": -34.53868466693578,
+      "net_pct_artifact": -34.53868466693578,
+      "pf_pack": 0.7206475486472865,
+      "pf_mine": 0.7206475486472865,
+      "pf_artifact": 0.7206475486472865,
+      "win_pct_pack": 33.02325581395349,
+      "win_pct_mine": 33.02325581395349,
+      "maxdd_pack": -38.094316359391456,
+      "maxdd_mine": -38.094316359391456,
+      "exposure_pack": 9.549086757990867,
+      "exposure_mine": 9.549086757990867,
+      "fees_pack": 1538.1912373879545,
+      "fees_mine": 1538.1912373879545,
+      "trades_match": true,
+      "trade_price_match": 215,
+      "trade_price_total": 215
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": -14.963506934624515,
+      "net_pct_mine_zc": -14.963506934624515,
+      "pf_pack_zc": 0.8787141986880337,
+      "pf_mine_zc": 0.8787141986880337,
+      "trades_pack_zc": 215,
+      "trades_mine_zc": 215
+     },
+     "trade_audit": {
+      "entry_fill_ok": 215,
+      "entry_fill_total": 215,
+      "exit_fill_ok": 215,
+      "fee_ok": 215,
+      "pnl_ok": 215,
+      "non_overlap": true,
+      "exposure_bars_sum": 1888
+     },
+     "truncation": null
+    },
+    "S10": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 168,
+      "n_trades_mine": 168,
+      "n_trades_artifact": 168.0,
+      "net_pct_pack": 184.21567135078442,
+      "net_pct_mine": 184.21567135078442,
+      "net_pct_artifact": 184.21567135078442,
+      "pf_pack": 1.8148343895176848,
+      "pf_mine": 1.8148343895176848,
+      "pf_artifact": 1.8148343895176848,
+      "win_pct_pack": 30.357142857142854,
+      "win_pct_mine": 30.357142857142854,
+      "maxdd_pack": -20.47378036095018,
+      "maxdd_mine": -20.47378036095018,
+      "exposure_pack": 71.01027397260275,
+      "exposure_mine": 71.01027397260275,
+      "fees_pack": 1506.7647325764804,
+      "fees_mine": 1506.7647325764804,
+      "trades_match": true,
+      "trade_price_match": 168,
+      "trade_price_total": 168
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 211.30942324735727,
+      "net_pct_mine_zc": 211.30942324735727,
+      "pf_pack_zc": 1.9580476736647894,
+      "pf_mine_zc": 1.9580476736647894,
+      "trades_pack_zc": 168,
+      "trades_mine_zc": 168
+     },
+     "trade_audit": {
+      "entry_fill_ok": 168,
+      "entry_fill_total": 168,
+      "exit_fill_ok": 168,
+      "fee_ok": 168,
+      "pnl_ok": 168,
+      "non_overlap": true,
+      "exposure_bars_sum": 12608
+     },
+     "truncation": {
+      "truncation_points": 12,
+      "comparisons": 48,
+      "mismatches": 0
+     }
+    }
+   },
+   "indicator_check": {
+    "donchian_maxdiff": 0.0,
+    "flow_z_finite": true,
+    "strength_maxdiff": 0.0
+   }
+  },
+  "SOLUSDT": {
+   "bars": 17520,
+   "strategies": {
+    "S01": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 339,
+      "n_trades_mine": 340,
+      "n_trades_artifact": 339.0,
+      "net_pct_pack": -50.75834818255556,
+      "net_pct_mine": -50.284386537534154,
+      "net_pct_artifact": -50.75834818255556,
+      "pf_pack": 0.7214413416972828,
+      "pf_mine": 0.7248608137659147,
+      "pf_artifact": 0.7214413416972828,
+      "win_pct_pack": 29.20353982300885,
+      "win_pct_mine": 29.117647058823533,
+      "maxdd_pack": -51.43624776434312,
+      "maxdd_mine": -50.968811050738275,
+      "exposure_pack": 17.654109589041095,
+      "exposure_mine": 17.368721461187214,
+      "fees_pack": 1518.8918777882614,
+      "fees_mine": 1537.1829692006218,
+      "trades_match": false,
+      "trade_price_match": 133,
+      "trade_price_total": 339
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": -34.41135105392776,
+      "net_pct_mine_zc": -33.692329635172015,
+      "pf_pack_zc": 0.8192554903170918,
+      "pf_mine_zc": 0.8236247506935513,
+      "trades_pack_zc": 339,
+      "trades_mine_zc": 340
+     },
+     "trade_audit": {
+      "entry_fill_ok": 339,
+      "entry_fill_total": 339,
+      "exit_fill_ok": 339,
+      "fee_ok": 339,
+      "pnl_ok": 339,
+      "non_overlap": true,
+      "exposure_bars_sum": 3432
+     },
+     "truncation": null
+    },
+    "S02": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 263,
+      "n_trades_mine": 263,
+      "n_trades_artifact": 263.0,
+      "net_pct_pack": 15.302150846721041,
+      "net_pct_mine": 15.302150846721041,
+      "net_pct_artifact": 15.302150846721041,
+      "pf_pack": 1.0812334132619135,
+      "pf_mine": 1.0812334132619135,
+      "pf_artifact": 1.0812334132619135,
+      "win_pct_pack": 25.09505703422053,
+      "win_pct_mine": 25.09505703422053,
+      "maxdd_pack": -26.89712226662727,
+      "maxdd_mine": -26.89712226662727,
+      "exposure_pack": 42.30593607305936,
+      "exposure_mine": 42.30593607305936,
+      "fees_pack": 1383.097106235184,
+      "fees_mine": 1383.097106235184,
+      "trades_match": true,
+      "trade_price_match": 263,
+      "trade_price_total": 263
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 36.04738646107168,
+      "net_pct_mine_zc": 36.04738646107168,
+      "pf_pack_zc": 1.1895724774615009,
+      "pf_mine_zc": 1.1895724774615009,
+      "trades_pack_zc": 263,
+      "trades_mine_zc": 263
+     },
+     "trade_audit": {
+      "entry_fill_ok": 263,
+      "entry_fill_total": 263,
+      "exit_fill_ok": 263,
+      "fee_ok": 263,
+      "pnl_ok": 263,
+      "non_overlap": true,
+      "exposure_bars_sum": 7675
+     },
+     "truncation": {
+      "truncation_points": 12,
+      "comparisons": 48,
+      "mismatches": 0
+     }
+    },
+    "S03": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 169,
+      "n_trades_mine": 171,
+      "n_trades_artifact": 169.0,
+      "net_pct_pack": -3.754820679932469,
+      "net_pct_mine": -10.08485806818653,
+      "net_pct_artifact": -3.754820679932469,
+      "pf_pack": 0.9669672444533218,
+      "pf_mine": 0.9111486698595168,
+      "pf_artifact": 0.9669672444533218,
+      "win_pct_pack": 36.09467455621302,
+      "win_pct_mine": 33.91812865497076,
+      "maxdd_pack": -17.329812431963788,
+      "maxdd_mine": -21.307862708697243,
+      "exposure_pack": 12.174657534246576,
+      "exposure_mine": 11.866438356164384,
+      "fees_pack": 1217.797233869173,
+      "fees_mine": 1197.071472796057,
+      "trades_match": false,
+      "trade_price_match": 20,
+      "trade_price_total": 169
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 14.938976614445544,
+      "net_pct_mine_zc": 7.25035827746896,
+      "pf_pack_zc": 1.1388150658720664,
+      "pf_mine_zc": 1.0673952656545092,
+      "trades_pack_zc": 166,
+      "trades_mine_zc": 169
+     },
+     "trade_audit": {
+      "entry_fill_ok": 169,
+      "entry_fill_total": 169,
+      "exit_fill_ok": 169,
+      "fee_ok": 169,
+      "pnl_ok": 169,
+      "non_overlap": true,
+      "exposure_bars_sum": 2301
+     },
+     "truncation": null
+    },
+    "S04": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 196,
+      "n_trades_mine": 196,
+      "n_trades_artifact": 196.0,
+      "net_pct_pack": -9.521173279187023,
+      "net_pct_mine": -9.521173279187023,
+      "net_pct_artifact": -9.521173279187023,
+      "pf_pack": 0.9017918034123651,
+      "pf_mine": 0.9017918034123651,
+      "pf_artifact": 0.9017918034123651,
+      "win_pct_pack": 45.40816326530612,
+      "win_pct_mine": 45.40816326530612,
+      "maxdd_pack": -20.11798868175513,
+      "maxdd_mine": -20.11798868175513,
+      "exposure_pack": 22.69406392694064,
+      "exposure_mine": 22.69406392694064,
+      "fees_pack": 622.2790888193815,
+      "fees_mine": 622.2790888193815,
+      "trades_match": true,
+      "trade_price_match": 196,
+      "trade_price_total": 196
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": -1.1812739333422528,
+      "net_pct_mine_zc": -1.1812739333422528,
+      "pf_pack_zc": 0.9877242966291181,
+      "pf_mine_zc": 0.9877242966291181,
+      "trades_pack_zc": 196,
+      "trades_mine_zc": 196
+     },
+     "trade_audit": {
+      "entry_fill_ok": 196,
+      "entry_fill_total": 196,
+      "exit_fill_ok": 196,
+      "fee_ok": 196,
+      "pnl_ok": 196,
+      "non_overlap": true,
+      "exposure_bars_sum": 4171
+     },
+     "truncation": null
+    },
+    "S05": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 625,
+      "n_trades_mine": 625,
+      "n_trades_artifact": 625.0,
+      "net_pct_pack": -31.98769158216225,
+      "net_pct_mine": -31.98769158216225,
+      "net_pct_artifact": -31.98769158216225,
+      "pf_pack": 0.782247441586314,
+      "pf_mine": 0.782247441586314,
+      "pf_artifact": 0.782247441586314,
+      "win_pct_pack": 60.0,
+      "win_pct_mine": 60.0,
+      "maxdd_pack": -34.703143823709624,
+      "maxdd_mine": -34.703143823709624,
+      "exposure_pack": 15.102739726027398,
+      "exposure_mine": 15.102739726027398,
+      "fees_pack": 2431.305767113982,
+      "fees_mine": 2431.305767113982,
+      "trades_match": true,
+      "trade_price_match": 625,
+      "trade_price_total": 625
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 3.089580102939049,
+      "net_pct_mine_zc": 3.089580102939049,
+      "pf_pack_zc": 1.0193103661411371,
+      "pf_mine_zc": 1.0193103661411371,
+      "trades_pack_zc": 625,
+      "trades_mine_zc": 625
+     },
+     "trade_audit": {
+      "entry_fill_ok": 625,
+      "entry_fill_total": 625,
+      "exit_fill_ok": 625,
+      "fee_ok": 625,
+      "pnl_ok": 625,
+      "non_overlap": true,
+      "exposure_bars_sum": 3271
+     },
+     "truncation": null
+    },
+    "S06": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 575,
+      "n_trades_mine": 575,
+      "n_trades_artifact": 575.0,
+      "net_pct_pack": -31.40342438927558,
+      "net_pct_mine": -31.40342438927558,
+      "net_pct_artifact": -31.40342438927558,
+      "pf_pack": 0.867105645192365,
+      "pf_mine": 0.867105645192365,
+      "pf_artifact": 0.867105645192365,
+      "win_pct_pack": 41.56521739130435,
+      "win_pct_mine": 41.56521739130435,
+      "maxdd_pack": -34.33815385482239,
+      "maxdd_mine": -34.33815385482239,
+      "exposure_pack": 14.092465753424657,
+      "exposure_mine": 14.092465753424657,
+      "fees_pack": 3169.376299629962,
+      "fees_mine": 3169.376299629962,
+      "trades_match": true,
+      "trade_price_match": 575,
+      "trade_price_total": 575
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 17.303746752167882,
+      "net_pct_mine_zc": 17.303746752167882,
+      "pf_pack_zc": 1.0646007566739157,
+      "pf_mine_zc": 1.0646007566739157,
+      "trades_pack_zc": 575,
+      "trades_mine_zc": 575
+     },
+     "trade_audit": {
+      "entry_fill_ok": 575,
+      "entry_fill_total": 575,
+      "exit_fill_ok": 575,
+      "fee_ok": 575,
+      "pnl_ok": 575,
+      "non_overlap": true,
+      "exposure_bars_sum": 3044
+     },
+     "truncation": null
+    },
+    "S07": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 27,
+      "n_trades_mine": 27,
+      "n_trades_artifact": 27.0,
+      "net_pct_pack": 9.15899707699388,
+      "net_pct_mine": 9.15899707699388,
+      "net_pct_artifact": 9.15899707699388,
+      "pf_pack": 1.5670563535825892,
+      "pf_mine": 1.5670563535825892,
+      "pf_artifact": 1.5670563535825892,
+      "win_pct_pack": 48.148148148148145,
+      "win_pct_mine": 48.148148148148145,
+      "maxdd_pack": -7.985240485433209,
+      "maxdd_mine": -7.985240485433209,
+      "exposure_pack": 3.875570776255708,
+      "exposure_mine": 3.875570776255708,
+      "fees_pack": 142.1134141774172,
+      "fees_mine": 142.1134141774172,
+      "trades_match": true,
+      "trade_price_match": 27,
+      "trade_price_total": 27
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 10.791181570918006,
+      "net_pct_mine_zc": 10.791181570918006,
+      "pf_pack_zc": 1.7092170296342755,
+      "pf_mine_zc": 1.7092170296342755,
+      "trades_pack_zc": 27,
+      "trades_mine_zc": 27
+     },
+     "trade_audit": {
+      "entry_fill_ok": 27,
+      "entry_fill_total": 27,
+      "exit_fill_ok": 27,
+      "fee_ok": 27,
+      "pnl_ok": 27,
+      "non_overlap": true,
+      "exposure_bars_sum": 706
+     },
+     "truncation": null
+    },
+    "S08": {
+     "status": "skipped",
+     "reason": "S08 needs an open_interest column (use attach_oi)"
+    },
+    "S09": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 223,
+      "n_trades_mine": 223,
+      "n_trades_artifact": 223.0,
+      "net_pct_pack": -41.89249109464195,
+      "net_pct_mine": -41.89249109464195,
+      "net_pct_artifact": -41.89249109464195,
+      "pf_pack": 0.6650304826424736,
+      "pf_mine": 0.6650304826424736,
+      "pf_artifact": 0.6650304826424736,
+      "win_pct_pack": 31.390134529147986,
+      "win_pct_mine": 31.390134529147986,
+      "maxdd_pack": -45.893084448685364,
+      "maxdd_mine": -45.893084448685364,
+      "exposure_pack": 9.492009132420092,
+      "exposure_mine": 9.492009132420092,
+      "fees_pack": 1356.6997828440608,
+      "fees_mine": 1356.6997828440608,
+      "trades_match": true,
+      "trade_price_match": 223,
+      "trade_price_total": 223
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": -25.368210005308278,
+      "net_pct_mine_zc": -25.368210005308278,
+      "pf_pack_zc": 0.7973544883897891,
+      "pf_mine_zc": 0.7973544883897891,
+      "trades_pack_zc": 222,
+      "trades_mine_zc": 222
+     },
+     "trade_audit": {
+      "entry_fill_ok": 223,
+      "entry_fill_total": 223,
+      "exit_fill_ok": 223,
+      "fee_ok": 223,
+      "pnl_ok": 223,
+      "non_overlap": true,
+      "exposure_bars_sum": 1886
+     },
+     "truncation": null
+    },
+    "S10": {
+     "status": "ok",
+     "artifact_repro": {
+      "net_pct_match": "True",
+      "pf_match": true,
+      "trades_match": true,
+      "win_pct_match": true
+     },
+     "comparison": {
+      "n_trades_pack": 172,
+      "n_trades_mine": 172,
+      "n_trades_artifact": 172.0,
+      "net_pct_pack": 75.44611102530907,
+      "net_pct_mine": 75.44611102530907,
+      "net_pct_artifact": 75.44611102530907,
+      "pf_pack": 1.643310218308659,
+      "pf_mine": 1.643310218308659,
+      "pf_artifact": 1.643310218308659,
+      "win_pct_pack": 33.72093023255814,
+      "win_pct_mine": 33.72093023255814,
+      "maxdd_pack": -21.56386918903177,
+      "maxdd_mine": -21.56386918903177,
+      "exposure_pack": 75.2568493150685,
+      "exposure_mine": 75.2568493150685,
+      "fees_pack": 769.0674142882428,
+      "fees_mine": 769.0674142882428,
+      "trades_match": true,
+      "trade_price_match": 172,
+      "trade_price_total": 172
+     },
+     "zero_cost": {
+      "net_pct_pack_zc": 90.31921230569999,
+      "net_pct_mine_zc": 90.31921230569999,
+      "pf_pack_zc": 1.786653385453187,
+      "pf_mine_zc": 1.786653385453187,
+      "trades_pack_zc": 172,
+      "trades_mine_zc": 172
+     },
+     "trade_audit": {
+      "entry_fill_ok": 172,
+      "entry_fill_total": 172,
+      "exit_fill_ok": 172,
+      "fee_ok": 172,
+      "pnl_ok": 172,
+      "non_overlap": true,
+      "exposure_bars_sum": 13356
+     },
+     "truncation": {
+      "truncation_points": 12,
+      "comparisons": 48,
+      "mismatches": 0
+     }
+    }
+   },
+   "indicator_check": {
+    "donchian_maxdiff": 0.0,
+    "flow_z_finite": true,
+    "strength_maxdiff": 0.0
+   }
+  }
+ }
+}

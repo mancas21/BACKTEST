@@ -1,0 +1,154 @@
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+pack100_strats: part 1 loaded
+pack100_strats2: part 2a loaded (31-65)
+pack100_strats3: complete
+A01-15m	0b4ac2680e4c5f0e	n=237	ret=13.83	pf=1.0833	expLB=-18.413	be=9.57	v1=156	v2=145689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+A03-5m	286c276453e06510	n=1508	ret=-83.59	pf=0.7245	expLB=-16.318	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+A08-1h	f0e39b4d2b669f5d	n=236	ret=-54.86	pf=0.8007	expLB=-72.545	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+A11-15m	109a7d433651d4a0	n=7885	ret=-99.99	pf=0.8186	expLB=-14.162	be=0.2	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+A13-5m	4b5a9f4efc49e0f2	n=26331	ret=-100.00	pf=0.2266	expLB=-10.964	be=0.2	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+B17-1h	0e0d2501a65f1a81	n=77	ret=53.73	pf=1.3813	expLB=-51.529	be=48.63	v1=356	v2=1234569
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+B20-15m	3a568e0ea9a0083d	n=14	ret=2.46	pf=1.3459	expLB=-79.475	be=15.04	v1=236	v2=123456
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+B22-5m	c41c04daf7586e4d	n=7370	ret=-99.98	pf=0.6775	expLB=-13.284	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+B26-1h	3961291f395783b3	n=119	ret=-21.91	pf=0.9404	expLB=-94.353	be=0.98	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+B30-15m	49c2a2b83e15fd63	n=1166	ret=-77.67	pf=0.9442	expLB=-26.71	be=2.15	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C34-15m	df6fb42642cc8d03	n=5833	ret=-99.98	pf=0.7486	expLB=-16.743	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C36-5m	a3917cefb09e4070	n=2156	ret=-88.47	pf=0.637	expLB=-12.347	be=0.59	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C39-1h	cd11763846daf82f	n=25	ret=-74.49	pf=0.3528	expLB=-851.328	be=0.0	v1=123456	v2=12345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C43-5m	c8b09d9800ba53e9	n=2069	ret=-96.89	pf=0.8229	expLB=-25.03	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+D46-1h	0654d1e8defd038e	n=703	ret=-42.15	pf=0.9907	expLB=-24.89	be=4.88	v1=1346	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+D50-15m	2673529dacd42882	n=5600	ret=-99.96	pf=0.6158	expLB=-15.802	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+D52-5m	84ca821cafb8db23	n=3773	ret=-98.65	pf=0.7283	expLB=-14.29	be=0.2	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+D55-1h	d39c21a3af3fa266	n=2378	ret=-99.91	pf=0.8158	expLB=-36.506	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+E59-15m	79776c65e26e0eed	n=1210	ret=-83.67	pf=0.8298	expLB=-23.596	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+E61-5m	a5af38bb9060489e	n=1850	ret=-89.28	pf=0.5217	expLB=-14.07	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+E65-1h	7607c099fc6ef8e9	n=292	ret=-59.89	pf=0.7605	expLB=-56.441	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+F68-15m	ab11d9e0d116a63b	n=1412	ret=72231281.59	pf=11.2887	expLB=79.63	be=54.1	v1=none	v2=none
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+F70-5m	9a27704b00aa89d8	n=4167	ret=-99.21	pf=0.4454	expLB=-12.7	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+F74-1h	6ab39e80e1230277	n=37	ret=1.01	pf=2.0289	expLB=-444.295	be=None	v1=13456	v2=12345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+F77-15m	15d4134496ccca71	n=1325	ret=-73.45	pf=0.7179	expLB=-13.37	be=0.59	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+G82-1h	71850d500d90e1c9	n=104	ret=2.29	pf=1.0572	expLB=-38.687	be=7.62	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+H100-15m	09ca8bd9aba563db	n=4425	ret=-99.79	pf=0.4888	expLB=-15.521	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+H89-5m	e0da9630309222df	n=1280	ret=-64.82	pf=0.8095	expLB=-12.8	be=1.76	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+H93-1h	70d205e8b3533fbc	n=195	ret=-31.86	pf=0.7811	expLB=-44.093	be=0.0	v1=13456	v2=1345689
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+H99-15m	016842ce08498267	n=1131	ret=-68.49	pf=0.6227	expLB=-13.977	be=0.59	v1=13456	v2=1345689
+shard 0 done

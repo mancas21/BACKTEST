@@ -1,0 +1,104 @@
+pverify 25 artifact(s), workers=8
+RC=2   245680f774f9975e
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+STALE    a9003311251ef79b
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+RC=2   8389ecb85a1a8d1a
+RC=2   0dce64b53b22b009
+STALE    3a95eb2619db6e5b
+RC=2   1bff1c41937b6c73
+OK       30f67b5380bcd458  pack100_strats: part 1 loaded
+RC=2   2b26abb1dd31c997
+STALE    dd870096ddf9dd22
+STALE    ff892226786f9b99
+OK       7e9d9a26e6327c0a  OK: 7e9d9a26e6327c0a reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       9dd125970b540681  OK: 9dd125970b540681 reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+STALE    9e6e85ff95700ef5
+OK       100a72a352b2ed4c  OK: 100a72a352b2ed4c reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       bb91d2ee92a92228  OK: bb91d2ee92a92228 reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       eb9763d7f88326b2  OK: eb9763d7f88326b2 reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+STALE    2288aa01825d36ca
+STALE    1e6d5ad221e0b6eb
+RC=2   6b43c03b6c71fe23
+OK       213714abb98e9fcb  pack100_strats: part 1 loaded
+OK       17717f635b546e5a  OK: 17717f635b546e5a reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       2979c6814c30fa32  OK: 2979c6814c30fa32 reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       bd138f716573c90e  OK: bd138f716573c90e reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+RC=2   1db9ee78678fd8fe
+OK       5549a39c1cc2dd74  OK: 5549a39c1cc2dd74 reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+---
+[0dce64b53b22b009] rc=2
+REFUSED: engine_sha256 drifted since the artifact was written (40ed227aef0a2cb905b0f66c -> c65bb18479072e033fd9fe66). Treat as tampering.
+[1bff1c41937b6c73] rc=2
+pack100_strats: part 1 loaded
+pack100_strats2: part 2a loaded (31-65)
+pack100_strats3: complete
+REFUSED: engine_sha256 drifted since the artifact was written (6b380445f282eb7ae24e487f -> 8c2cda74fa7b5a0760cb9da4). Treat as tampering.
+[1db9ee78678fd8fe] rc=2
+REFUSED: engine_sha256 drifted since the artifact was written (7234369f1684b4357d466f7d -> 1c60d65f85e1e1f0be7c4ba7). Treat as tampering.
+[1e6d5ad221e0b6eb] rc=3
+STALE: data changed since the artifact: BNBUSDT_1h.csv 58525 -> 58837 bars (sha 5326a0f4bfcf -> dff258735298).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[2288aa01825d36ca] rc=3
+STALE: data changed since the artifact: HYPEUSDT_funding.json 2932 -> 3100 bars (sha caf99a523a09 -> 035c99395409).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[245680f774f9975e] rc=2
+REFUSED: engine_sha256 drifted since the artifact was written (c9a60556051009b249add03e -> 95f293aa62970f228a8dc5a6). Treat as tampering.
+[2b26abb1dd31c997] rc=2
+REFUSED: engine_sha256 drifted since the artifact was written (d4d6edf26b22a25c41c49601 -> 95f293aa62970f228a8dc5a6). Treat as tampering.
+[3a95eb2619db6e5b] rc=3
+STALE: data changed since the artifact: NEARUSDT_1h.csv 52644 -> 52885 bars (sha 31ee1225decc -> b1efc3b6e602).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[6b43c03b6c71fe23] rc=2
+pack100_strats: part 1 loaded
+pack100_strats2: part 2a loaded (31-65)
+pack100_strats3: complete
+REFUSED: engine_sha256 drifted since the artifact was written (b0b5bbcbb5d83b9bcd35c168 -> 8c2cda74fa7b5a0760cb9da4). Treat as tampering.
+[8389ecb85a1a8d1a] rc=2
+pack100_strats: part 1 loaded
+pack100_strats2: part 2a loaded (31-65)
+pack100_strats3: complete
+REFUSED: engine_sha256 drifted since the artifact was written (6b380445f282eb7ae24e487f -> 8c2cda74fa7b5a0760cb9da4). Treat as tampering.
+[9e6e85ff95700ef5] rc=3
+STALE: data changed since the artifact: NEARUSDT_1h.csv 52573 -> 52885 bars (sha 6e2c2da80cf5 -> b1efc3b6e602).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[a9003311251ef79b] rc=3
+STALE: data changed since the artifact: BTCUSDT_funding.json 7731 -> 7815 bars (sha 7a3f63003674 -> 7a0cdfef3e69).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[dd870096ddf9dd22] rc=3
+STALE: data changed since the artifact: SUIUSDT_1h.csv 30316 -> 30557 bars (sha 0a80115bcd53 -> cc62dc044b00).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[ff892226786f9b99] rc=3
+STALE: data changed since the artifact: SUIUSDT_1h.csv 30316 -> 30557 bars (sha 0a80115bcd53 -> cc62dc044b00).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+pverify: 11 OK, 7 STALE, 0 ORPHANED, 7 REFUSED (of 25); exit code reports the worst case

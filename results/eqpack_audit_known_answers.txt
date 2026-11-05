@@ -1,0 +1,14 @@
+PASS  E1 cbpack_engine.py matches the engine lock (audited executor bytes)   [sha 055b584de9aa]
+PASS  E2 htf_trend(daily, 1440) == sign(EMA20-EMA50 of same closes, shifted 1)   [uniform rule applied to every strategy that has htf]
+PASS  E3 csv->prepare preserves OHLCV   [2722 rows, first/last close preserved]
+PASS  E4 flow source is the pack's declared candle proxy (no taker field)
+PASS  E5 S07 self-skips (requires ['funding_rate'])   [missing ['funding_rate']]
+PASS  E5 S08 self-skips (requires ['open_interest'])   [missing ['open_interest']]
+NOTE  strategies with an htf parameter (get htf=1440): ['S01', 'S02', 'S05']
+PASS  E6 signals prefix identical (buy/sell/exits)
+PASS  E6 sl_dist prefix identical (nan-aware)
+PASS  E6 no-lookahead truncation (S10, 2000 bars, last bar excluded)   [equity prefix equal on 1999 marked bars]
+PASS  E6 pack convention: open position force-closed at end_of_data   [1 end_of_data close(s), last at 2023-12-12]
+PASS  E7 adapter deterministic   [10 strategy rows]
+
+ALL PASS

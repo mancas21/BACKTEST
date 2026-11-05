@@ -1,0 +1,21 @@
+KLINE DATA QUALITY CHECK — datacheck_klines.py
+Exact asof_utc, sha256 and every exact count: data/KLINES_MANIFEST.json.
+This text carries findings in words only (numbers here would have no
+run_id behind them, and none is needed: nothing below is a backtest
+measurement).
+
+Scope: one directories under data/binance_klines*, sixteen data files in total.
+Findings:
+  - Timestamps: every CSV is strictly monotonic in open_ts, with no
+    duplicate timestamps and no missing bars against its timeframe grid.
+  - OHLC: no high-below-low, no non-positive prices, no negative volume
+    in any file scanned.
+  - Taker columns (where present): taker_buy_base never exceeds volume.
+  - NaN cells: none in numeric columns.
+
+Files with issues: NONE.
+
+Manifest: data/KLINES_MANIFEST.json (snapshot; `vrun stale` is the
+authority if data bytes change after the snapshot moment).
+Note: `binance_klines_15m_cache/` holds numpy archives, not CSVs; they
+are recorded in the manifest for provenance only.

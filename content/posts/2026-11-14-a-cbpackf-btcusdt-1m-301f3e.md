@@ -1,0 +1,14 @@
+# Slot A — BTCUSDT — KILLED
+
+INSTRUCTIONS (not part of the thread): paste each block below as one tweet, in order, using X's Schedule button. Numbers from artifact 301f3e5ecc565769.
+
+Backtest lab — ten rule-based pack, funding charged on BTCUSDT, one-minute. Verdict: KILLED. run 301f3e5ecc565769.
+
+Everything is public: the exact rules, the engine, the artifact — fork it and falsify it yourself. Link in bio. Window 2024-10-14 to 2026-10-14, 1051200 bars.
+
+Aggregate pack result; per-cell numbers live in the artifact. Funding charged.
+
+Verdict: KILLED — a handful of trades carries the PnL.
+
+Backtest is not live; costs and fills decide. Not financial advice. Exact rules, engine code and verification in the bio.
+

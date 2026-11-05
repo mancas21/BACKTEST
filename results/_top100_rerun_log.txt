@@ -1,0 +1,95 @@
+[1/94] ed387f4ba682f64b  <- python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{"costs": "author", "s
+[2/94] f911cab370862ebd  <- python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{"costs": "author", "st
+[3/94] 2d0af6e8df1d21ef  <- python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{"costs": "author", "st
+[4/94] 437c47539b4dc9ae  <- python code/vrun.py run --strategy dspack --tf 1h --symbol XRPUSDT --params '{"costs": "author", "st
+[5/94] e2aa633590822072  <- python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "author", "st
+[6/94] 337bf8ed1c2ae77b  <- python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{"costs": "author", "s
+[7/94] 75f27f3dd6d92914  <- python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{"costs": "author", "st
+[8/94] 7e2a351fb3d6de1a  <- python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{"costs": "author", "s
+[9/94] fc415421341c54b6  <- python code/vrun.py run --strategy pack50d --tf 30m --symbol SUIUSDT --params '{"strat": 5}'
+[10/94] c900c3bfb85261b1  <- python code/vrun.py run --strategy dspack --tf 1h --symbol BTCUSDT --params '{"costs": "author", "st
+[11/94] 2bc9516fabc8ecd8  <- python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "author", "st
+[12/94] 75d0fc12080ef957  <- python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{"costs": "author", "st
+[13/94] 79ddecc6e7ea40eb  <- python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{"costs": "author", "s
+[14/94] e0679f98e4dfb6ba  <- python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{"costs": "author", "s
+[15/94] ecf8f6a13d502014  <- python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{"costs": "author", "s
+[16/94] bfede167bb6e26bc  <- python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{"costs": "author", "st
+[17/94] 295c21687960fadd  <- python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT
+[18/94] db89577d5f9d9d34  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{"fee_bps": 5.0, "slip
+[19/94] d91d4860ad35c60d  <- python code/vrun.py run --strategy emaadx --tf 1h --symbol LINKUSDT --params '{"costs": "author", "w
+[20/94] b1ce74d87fca38ce  <- python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{"costs": "author", "st
+[21/94] fe5c359a22c8dffe  <- python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT --params '{"delta_max_pct": 
+[22/94] 23010fdc3a262942  <- python code/vrun.py run --strategy pack50d --tf 1h --symbol ETHUSDT --params '{"strat": 8}'
+[23/94] ca1b404c68016fe0  <- python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{"costs": "author", "st
+[24/94] a7393f703e992b6b  <- python code/vrun.py run --strategy pack50 --tf 4h --symbol SOLUSDT --params '{"strat": 21}'
+[25/94] 1dd3ec2f1f5c1200  <- python code/vrun.py run --strategy emaadx --tf 1h --symbol ETHUSDT
+[26/94] e57ffa5864f2192c  <- python code/vrun.py run --strategy fingrad --tf 1h --symbol ETHUSDT --params '{"preset": "day"}'
+[27/94] b0431920216dbe05  <- python code/vrun.py run --strategy q10 --tf 1h --symbol CARD2 --params '{"card": "CARD2"}'
+[28/94] ded7cca009e13445  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{"fee_bps": 5.0, "slip
+[29/94] 10c772d303374d26  <- python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{"costs": "author", "s
+[30/94] 3223187f21cf6708  <- python code/vrun.py run --strategy pack100 --tf 15m --symbol HYPEUSDT --params '{"strat": "F74-15m"}
+[31/94] c6695bd28056dab3  <- python code/vrun.py run --strategy botstrat --tf 15m --symbol XRPUSDT
+[32/94] fd41b0f15e0e2af1  <- python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-004", "varian
+[33/94] 0e0d2501a65f1a81  <- python code/vrun.py run --strategy pack100 --tf 1h --symbol HYPEUSDT --params '{"strat": "B17-1h"}'
+[34/94] f0b5da9763ca3402  <- python code/vrun.py run --strategy botstrat --tf 1h --symbol AVAXUSDT
+[35/94] 7059e662c6d737b5  <- python code/vrun.py run --strategy botstrat --tf 1h --symbol BNBUSDT
+[36/94] 1736fef5a3db08ce  <- python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-005", "varian
+[37/94] 272321d63827a8ad  <- python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-005", "varia
+[38/94] b898dfed4e6f2395  <- python code/vrun.py run --strategy dspack2 --tf 1h --symbol SPXUSDT --params '{"costs": "repo6x5", "
+[39/94] 689f6f9c9d8d8c39  <- python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "author", "st
+[40/94] f2aa1050b118e54f  <- python code/vrun.py run --strategy botstrat --tf 1h --symbol SPXUSDT
+[41/94] fb995a742183a68b  <- python code/vrun.py run --strategy botstrat --tf 1h --symbol SOLUSDT
+[42/94] 5e8384d3844eb3c2  <- python code/vrun.py run --strategy dspack2 --tf 1h --symbol DOGEUSDT --params '{"costs": "repo6x5", 
+[43/94] ec9bbc4dc8c8f218  <- python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{"strat": "QS-004", "varian
+[44/94] edc6c3f19c12601c  <- python code/vrun.py run --strategy dspack2 --tf 1h --symbol SOLUSDT --params '{"costs": "repo6x5", "
+[45/94] a6c05e88742d3f6f  <- python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{"costs": "author", "st
+[46/94] c1f3df39b37c1d2b  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT
+[47/94] 724896ef01d97690  <- python code/vrun.py run --strategy botstrat --tf 15m --symbol ETHUSDT
+[48/94] fb57f0f55dca030c  <- python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{"strat": "QS-009", "varian
+[49/94] d9d44100b54c4c40  <- python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{"strat": "QS-006", "varian
+[50/94] bf44523b2cc8a6e8  <- python code/vrun.py run --strategy dspack2 --tf 1h --symbol NEARUSDT --params '{"costs": "repo6x5", 
+[51/94] 72dbbae9805ec7f1  <- python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{"strat": "QS-006", "varian
+[52/94] 3bb1691c2447fc38  <- python code/vrun.py run --strategy pack50d --tf 4h --symbol JUPUSDT --params '{"strat": 6}'
+[53/94] 4eed428adc7d4237  <- python code/vrun.py run --strategy pack100 --tf 1h --symbol ETHUSDT --params '{"strat": "C44-1h"}'
+[54/94] 6709e6de73b6b6d4  <- python code/vrun.py run --strategy botstrat --tf 1h --symbol ETHUSDT
+[55/94] 1b13cbd18f8b00eb  <- python code/vrun.py run --strategy pack50 --tf 1h --symbol BTCUSDT --params '{"strat": 46}'
+[56/94] 454e3e81dfa2e59c  <- python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-009", "varian
+[57/94] 2e823fa306c91366  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{"fee_bps": 5.0, "slip
+[58/94] 55f12badd0a22027  <- python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-006", "varian
+[59/94] 10f3696f3f726a90  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT
+[60/94] 68c93ae390084b18  <- python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ
+[61/94] 4a96ebe79c53c257  <- python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-002", "varia
+[62/94] 5a6215ec7e78da46  <- python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-004", "varia
+[63/94] ae0e834526e9b5bc  <- python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{"strat": "QS-006", "varian
+[64/94] b84bc05f09d574d8  <- python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{"strat": "QS-003", "varian
+[65/94] 2004f74a0e4fc2cc  <- python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-006", "varia
+[66/94] 2d35be46c23947b6  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol BTCUSDT
+[67/94] 7dc1fe32b0e83a91  <- python code/vrun.py run --strategy pack50d --tf 1h --symbol HYPEUSDT --params '{"strat": 24}'
+[68/94] ff5e05876de4f879  <- python code/vrun.py run --strategy cbpackf --tf 15m --symbol HYPEUSDT
+[69/94] a4f19ccd7cbc61bd  <- python code/vrun.py run --strategy botstrat --tf 1h --symbol BTCUSDT
+[70/94] 44f6ae02bb2fe93c  <- python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT
+[71/94] 21b17af04bcb5ec2  <- python code/vrun.py run --strategy qs --tf 15m --symbol SOLUSDT --params '{"strat": "QS-001", "varia
+[72/94] 41ae8c79fe005541  <- python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-001", "varia
+[73/94] 6fa01cbf719f29d0  <- python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{"strat": "QS-007", "varia
+[74/94] a4cfe2e19afc2b4b  <- python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{"strat": "QS-003", "varian
+[75/94] 1138f99c7c8da7b2  <- python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{"strat": "QS-004", "varian
+[76/94] 00c8c19179ea05ba  <- python code/vrun.py run --strategy cvrmd --tf 1h --symbol SUIUSDT
+[77/94] ed06fc465283ef77  <- python code/vrun.py run --strategy fingrad --tf 1h --symbol SUIUSDT --params '{"sig_mode": "b"}'
+[78/94] 1300b325a1544451  <- python code/vrun.py run --strategy pack50 --tf 4h --symbol SUIUSDT --params '{"strat": 5}'
+[79/94] eb3b1a3ddc8932d4  <- python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{"strat": "QS-005", "varian
+[80/94] ff7a9fb65535f1f2  <- python code/vrun.py run --strategy q10 --tf 1h --symbol CARD1 --params '{"card": "CARD1"}'
+[81/94] 96e6d011954d91ee  <- python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{"strat": "QS-001", "varia
+[82/94] 88bc7c612612f5f8  <- python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{"costs": "author", "s
+[83/94] 4f39cf4deaaf88ab  <- python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{"strat": "QS-003", "varian
+[84/94] 0726c6ee30c1bc68  <- python code/vrun.py run --strategy qs --tf 15m --symbol BTCUSDT --params '{"strat": "QS-001", "varia
+[85/94] 21279f104dbb17ae  <- python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{"strat": "QS-004", "varia
+[86/94] d30fec3c74816f5a  <- python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{"costs": "author", "s
+[87/94] a6c4bd008879771b  <- python code/vrun.py run --strategy cvrmd --tf 1h --symbol SOLUSDT
+[88/94] 0b4ac2680e4c5f0e  <- python code/vrun.py run --strategy pack100 --tf 15m --symbol SPXUSDT --params '{"strat": "A01-15m"}'
+[89/94] fb4cda85b88aa87a  <- python code/vrun.py run --strategy qs --tf 15m --symbol HYPEUSDT --params '{"strat": "QS-001", "vari
+[90/94] 35adfe3a49477fd1  <- python code/vrun.py run --strategy smqe --tf 1h --symbol SOLUSDT
+[91/94] dc9d4cdab4c59815  <- python code/vrun.py run --strategy dspack --tf 1h --symbol SPXUSDT --params '{"costs": "author", "st
+[92/94] b01a057355b758cd  <- python code/vrun.py run --strategy fingrad --tf 1h --symbol NEARUSDT --params '{"preset": "day"}'
+[93/94] 82d8781d8e89b50a  <- python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{"strat": "QS-006", "varia
+[94/94] e36bd0df664d7db5  <- python code/vrun.py run --strategy mpv3 --tf 1h --symbol PORTFOLIO --params '{"costs": "repo", "stra
+DONE 94/94 re-runs produced new artifacts; map -> C:\Users\Lenovo\Documents\backtest-system\code\_top100_rerun_map.json

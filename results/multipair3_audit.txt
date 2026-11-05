@@ -1,0 +1,38 @@
+3-strategy multi-pair research — audit
+============================================================
+
+XPROP-LAG-1H-v1 (tested, real 1h data, 10 alts)
+  ETHUSDT   net     -5.6%  DD   -5.6%  trades    58  PF  0.27  BH   +1747%  excess   -1752pp
+  SOLUSDT   net     -1.9%  DD   -1.9%  trades    28  PF  0.55  BH   +3518%  excess   -3520pp
+  XRPUSDT   net     -2.5%  DD   -2.7%  trades    33  PF  0.38  BH    +636%  excess    -638pp
+  ADAUSDT   net     -2.3%  DD   -2.9%  trades    30  PF  0.44  BH    +350%  excess    -352pp
+  AVAXUSDT  net     -1.5%  DD   -1.7%  trades    13  PF  0.27  BH    +170%  excess    -172pp
+  LINKUSDT  net     -2.0%  DD   -2.3%  trades    18  PF  0.29  BH    +405%  excess    -407pp
+  DOGEUSDT  net     -2.4%  DD   -2.7%  trades    16  PF  0.10  BH   +2415%  excess   -2418pp
+  BNBUSDT   net     -3.8%  DD   -3.9%  trades    80  PF  0.57  BH   +3043%  excess   -3047pp
+  NEARUSDT  net     -0.7%  DD   -1.0%  trades     8  PF  0.50  BH    +335%  excess    -335pp
+  SUIUSDT   net     -1.1%  DD   -1.1%  trades    11  PF  0.30  BH     -13%  excess     +12pp
+
+COINT-DYN-1H-v1 (tested with OLS hedge, NOT Johansen)
+  BTCUSDT/ETHUSDT      net     +0.0%  DD   -0.0%  trades     0  PF  0.00  BH   +1143%  excess   -1143pp
+  BTCUSDT/SOLUSDT      net     +0.0%  DD   -0.0%  trades     0  PF  0.00  BH   +2257%  excess   -2257pp
+  ETHUSDT/SOLUSDT      net     +0.4%  DD   -1.7%  trades     4  PF  3.64  BH   +2716%  excess   -2715pp
+  SOLUSDT/ADAUSDT      net    +36.7%  DD  -19.9%  trades    60  PF  1.78  BH   +1956%  excess   -1920pp
+  BTCUSDT/XRPUSDT      net     +0.0%  DD   -0.0%  trades     0  PF  0.00  BH    +572%  excess    -572pp
+  ADAUSDT/AVAXUSDT     net     +0.0%  DD   -0.0%  trades     0  PF  0.00  BH    +276%  excess    -276pp
+  LINKUSDT/AVAXUSDT    net     +5.6%  DD  -15.7%  trades    28  PF  1.30  BH    +249%  excess    -243pp
+  BTCUSDT/DOGEUSDT     net     +0.0%  DD   -0.0%  trades     0  PF  0.00  BH   +1617%  excess   -1617pp
+  SOLUSDT/XRPUSDT      net    +25.3%  DD  -28.6%  trades    74  PF  1.35  BH   +2171%  excess   -2146pp
+  ETHUSDT/ADAUSDT      net     -0.3%  DD   -1.1%  trades     2  PF  0.00  BH    +764%  excess    -764pp
+  BNBUSDT/SOLUSDT      net     +3.4%  DD   -8.2%  trades    50  PF  1.35  BH   +2960%  excess   -2957pp
+  NEARUSDT/SOLUSDT     net    -10.5%  DD  -16.2%  trades     4  PF  0.00  BH   +1624%  excess   -1634pp
+  SUIUSDT/XRPUSDT      net     +0.0%  DD   -0.0%  trades     0  PF  0.00  BH     +72%  excess     -72pp
+  AVAXUSDT/DOGEUSDT    net    +80.2%  DD  -33.4%  trades    66  PF  2.17  BH   +1017%  excess    -937pp
+  BNBUSDT/ETHUSDT      net    -31.0%  DD  -32.9%  trades    42  PF  0.14  BH   +2136%  excess   -2167pp
+
+LIQ-REV-1H-v1 — NOT TESTED
+  No public Binance historical liquidation endpoint exists
+  (allForceOrders/forceOrders 404, rforceOrders 403).
+  Core trigger L_t > 3.0 is undefined without it. OI available
+  only ~30 days. Substituting a proxy would test a different
+  strategy, so it was not done.

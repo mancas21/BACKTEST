@@ -1,0 +1,72 @@
+[
+ {
+  "file": "Big-Snapper-Alerts-R30-Chaiking-Volatility-condition-TP-RSI.md",
+  "sig": "atr|crossover|crossunder|ema|highest|lowest|roc|rsi|sma|stdev|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.roc|ta.rsi|ta.sma|ta.stdev|ta.tr|ta.vwma|ta.wma|vwma|wma",
+  "period": "2h",
+  "L": null,
+  "S": "(1)"
+ },
+ {
+  "file": "Dynamic-Filter-Quant-Trading-Strategy.md",
+  "sig": "crossover|crossunder|ema|highest|lowest|pivothigh|pivotlow|request.security|rsi|sar|sar(|sma|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.lowest|ta.pivothigh|ta.pivotlow|ta.rsi|ta.sma|ta.valuewhen",
+  "period": "1d",
+  "L": null,
+  "S": "(true)"
+ },
+ {
+  "file": "Double-Filtering-High-Frequency-Quantitative-Trading-Strategy.md",
+  "sig": "crossover|crossunder|highest|lowest|request.security|sma|ta.crossover|ta.crossunder|ta.highest|ta.lowest|ta.sma",
+  "period": "1m",
+  "L": "(0) > 0 and close < (0) and (input(true, title=\"\u0422\u043e\u0440\u0433\u043e\u0432\u043b\u044f \u0432 \u041b\u043e\u043d\u0433\")) and ((false) and (false) and ((input(true, title=\"\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c SMA89\")) ? close > (ta.sma(close, 89)) : true))",
+  "S": null
+ },
+ {
+  "file": "Combining-Simple-Moving-Average-and-Adaptive-Moving-Average-Strategy.md",
+  "sig": "change|crossover|crossunder|highest|rsi|sma",
+  "period": "5m",
+  "L": null,
+  "S": "true"
+ },
+ {
+  "file": "Adaptive-Trend-Following-System-with-Kernel-Smoothed-Multiple-Moving-Averages.md",
+  "sig": "atr|rsi|ta.atr|ta.rsi",
+  "period": "1d",
+  "L": null,
+  "S": "(((0) >= (input.int(4, title=\"Trend Confirmation Period\", minval=1, tooltip=\"Number of consecutive bars the entry conditions must be met before a trade is taken. This helps filter out false signals.\", group=(\"Trend Confirmation Settings\")))) and (input.bool(true, title=\"Enable Long Trades\", group=(\"Trade Direction Control\"))))"
+ },
+ {
+  "file": "Multi-indicator-Quant-Trading-Strategy.md",
+  "sig": "atr|crossover|crossunder|ema|highest|linreg|lowest|rsi|sma|ta.atr|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.rsi|ta.sma|ta.vwma|vwma",
+  "period": "1h",
+  "L": null,
+  "S": "(true)"
+ },
+ {
+  "file": "AMACD-All-Moving-Average-Convergence-Divergence.md",
+  "sig": "change|crossover|crossunder|ema|highest|linreg|lowest|rma|sma|ta.change|ta.crossover|ta.crossunder|ta.ema|ta.highest|ta.linreg|ta.lowest|ta.sma|ta.swma|ta.vwma|ta.wma|vwma|wma",
+  "period": "30m",
+  "L": "(true)",
+  "S": null
+ },
+ {
+  "file": "SUPERTREND-ATR-WITH-TRAILING-STOP-LOSS.md",
+  "sig": "atr",
+  "period": "1d",
+  "L": null,
+  "S": "true"
+ },
+ {
+  "file": "Clear-Trend-Tracking-Strategy.md",
+  "sig": "crossover|ema|rma|rsi|sma|stoch|vwma|wma",
+  "period": "1d",
+  "L": null,
+  "S": "(crossover((sma(((ema((((hlc3) - (ema((hlc3), (input(9, \"Channel Length\"))))) / (0.015 * (ema(abs((hlc3) - (ema((hlc3), (input(9, \"Channel Length\"))))), (input(9, \"Channel Length\")))))), (input(12, \"Average Length\"))))),3)),((ema((((hlc3) - (ema((hlc3), (input(9, \"Channel Length\"))))) / (0.015 * (ema(abs((hlc3) - (ema((hlc3), (input(9, \"Channel Length\"))))), (input(9, \"Channel Length\")))))), (input(12, \"Average Length\")))))))"
+ },
+ {
+  "file": "Hybrid-Moving-Average-Breakout-Turtle-Trading-Strategy.md",
+  "sig": "change|highest|lowest|request.security|sar|sar(|sma|stdev|vwma",
+  "period": "1d",
+  "L": null,
+  "S": "(low < (lowest((input(6, minval=1))))[1])"
+ }
+]

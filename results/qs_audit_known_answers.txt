@@ -1,0 +1,29 @@
+QS family-A engine audit — qs_engine.py + qs_strats.py
+run 2026-10-30T22:21:26+00:00
+qs_engine.py sha256: 9c41a24d2b765fea554b80d2ba536d917b5465d43e3ac3275c2d1878457c86e7
+qs_strats.py sha256: 58249a64161f673bec91c15f2b3bb492e2b83cf4ada8be80482210efc926d38d
+
+[PASS] A1a G1 sizing: qty = 1%*eq/(dist + RT cost/unit) — qty=87.717144 exp=87.717144
+[PASS] A1b entry fills at next open (slipped), stop = fill - dist
+[PASS] A1c gross cap 3x binds over a tiny stop — qty=299.94
+[PASS] A2a stop touch fills AT the stop plus adverse slip — exit=99.0002
+[PASS] A2b gap-through stop fills at the open (worse), + slip — exit=97.9804
+[PASS] A2c SL-first on ties (stop and target both inside one bar) — why=stop
+[PASS] A2d target fills at the limit price exactly, anchored at the fill — exit=102.0200
+[PASS] A3a reversal books the long and opens the short at one open
+[PASS] A3b same-side event while positioned is ignored (one trade, held to end_of_data)
+[PASS] A3c rising-edge episodes (no re-fire while the condition persists)
+[PASS] A4a max_hold time stop exits on bar entry+5 — bars=5
+[PASS] A4b trailing 3*ATR ratchets from the best close — why=end_of_data exit=100.20
+[PASS] A5a daily -3% breach bans same-day re-entry (the stop already flattened); day 2 re-enters after cooldown — halts=1 trades=[('stop', 2), ('end_of_data', 10)]
+[PASS] A5b risk halves at -15% from peak and review-halts at -25% — mult=0.5 review=1 trades=43
+[PASS] A6a funding charged at the settlement instant (long pays) — paid=0.194551 exp=0.194551
+[PASS] A6b short RECEIVES the positive funding
+[PASS] A6c cost ladder orders returns: gate > base > adverse > stress — {'gate': np.float64(9988.5), 'base': np.float64(9918.0), 'adverse': np.float64(9811.3), 'stress': np.float64(9677.8)}
+[PASS] R1 truncation causality (signals unchanged on a truncated series)
+[PASS] R2 determinism (two runs identical)
+[PASS] R3 entries fill strictly after the signal bar — n=90
+[PASS] R4 segment assignment covers every non-purged trade exactly once — 79/90
+[PASS] R5 PSR bounds
+
+TOTAL: 22 PASS, 0 FAIL

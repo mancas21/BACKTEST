@@ -1,0 +1,38 @@
+Ahmad PRO+ v2 — Pine port backtest, 1H Binance USDT-M, 6bps+5bps/side, 1% risk, 3x cap, 3-bar cooldown
+
+== A spot/T1
+  BTCUSDT   net  -52.61%  PF  0.87  n 684  WR 36.4%  DD  57.1%  stop-exits 435
+  ETHUSDT   net  -49.18%  PF  0.92  n 938  WR 36.7%  DD  60.4%  stop-exits 593
+  SOLUSDT   net  -51.55%  PF  0.88  n 763  WR 36.8%  DD  66.1%  stop-exits 482
+  SUIUSDT   net  -56.20%  PF  0.84  n 625  WR 34.7%  DD  68.0%  stop-exits 408
+  XRPUSDT   net  -75.27%  PF  0.82  n 871  WR 33.2%  DD  83.5%  stop-exits 581
+  HYPEUSDT  net  +11.67%  PF  1.14  n 166  WR 36.1%  DD  22.3%  stop-exits 106
+  SPXUSDT   net   -3.22%  PF  1.00  n 268  WR 37.7%  DD  30.5%  stop-exits 167
+
+== B lev/T123
+  BTCUSDT   net  +19.69%  PF  1.12  n 389  WR 47.0%  DD  26.9%  stop-exits 312
+  ETHUSDT   net +348.12%  PF  2.48  n 311  WR 45.3%  DD  54.7%  stop-exits 243
+  SOLUSDT   net   -7.35%  PF  0.94  n 273  WR 50.5%  DD  40.5%  stop-exits 215
+  SUIUSDT   net  -22.59%  PF  0.79  n 212  WR 41.0%  DD  42.4%  stop-exits 172
+  XRPUSDT   net  -49.50%  PF  0.66  n 407  WR 44.5%  DD  56.0%  stop-exits 317
+  HYPEUSDT  net   -7.39%  PF  0.89  n  88  WR 30.7%  DD  30.9%  stop-exits 79
+  SPXUSDT   net  -28.89%  PF  0.31  n  69  WR 34.8%  DD  30.1%  stop-exits 63
+
+== C score/T1
+  BTCUSDT   net  -11.30%  PF  0.95  n 398  WR 56.3%  DD  24.5%  stop-exits 174
+  ETHUSDT   net  -28.05%  PF  0.91  n 537  WR 51.2%  DD  45.7%  stop-exits 260
+  SOLUSDT   net  -17.66%  PF  0.94  n 420  WR 52.6%  DD  52.6%  stop-exits 199
+  SUIUSDT   net  -12.43%  PF  0.94  n 300  WR 51.3%  DD  25.1%  stop-exits 146
+  XRPUSDT   net  -67.18%  PF  0.64  n 497  WR 47.9%  DD  76.6%  stop-exits 257
+  HYPEUSDT  net  -15.11%  PF  0.84  n  96  WR 36.5%  DD  29.3%  stop-exits 61
+  SPXUSDT   net   +0.44%  PF  1.02  n 169  WR 47.9%  DD  20.1%  stop-exits 87
+
+== D spot/T123
+  BTCUSDT   net   -1.76%  PF  0.99  n 264  WR 26.9%  DD  19.0%  stop-exits 230
+  ETHUSDT   net +151.30%  PF  2.11  n 249  WR 28.1%  DD  47.9%  stop-exits 212
+  SOLUSDT   net   -2.17%  PF  0.98  n 186  WR 24.2%  DD  23.2%  stop-exits 161
+  SUIUSDT   net  -16.97%  PF  0.81  n 205  WR 20.5%  DD  26.8%  stop-exits 190
+  XRPUSDT   net  -10.21%  PF  0.92  n 300  WR 19.3%  DD  33.4%  stop-exits 267
+  HYPEUSDT  net   -0.11%  PF  1.01  n  69  WR 18.8%  DD  20.3%  stop-exits 64
+  SPXUSDT   net  -19.83%  PF  0.45  n  62  WR 21.0%  DD  21.7%  stop-exits 58
+

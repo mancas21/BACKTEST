@@ -1,0 +1,77 @@
+========================================================================================================
+1. CORRECTION — DD-matched by REAL COMPOUNDING, not linear scaling
+   Each row re-runs the simulator at that notional. DD is measured on the
+   actual equity curve, so the comparison to buy&hold is apples-to-apples.
+========================================================================================================
+symbol    donLen   lev        net      DD     PF      BH net   BH DD  verdict
+BTCUSDT       30    3x    +122.0%   20.6%   1.72     +712.9%   77.2%  
+BTCUSDT       30    6x    +272.2%   37.1%   1.72     +712.9%   77.2%  
+BTCUSDT       30   10x    +450.9%   54.0%   1.72     +712.9%   77.2%  
+BTCUSDT       40    3x    +129.5%   22.3%   1.99     +712.9%   77.2%  
+BTCUSDT       40    6x    +304.0%   38.4%   1.99     +712.9%   77.2%  
+BTCUSDT       40   10x    +550.5%   54.3%   1.99     +712.9%   77.2%  
+BTCUSDT       50    3x     +55.7%   30.3%   1.68     +712.9%   77.2%  
+BTCUSDT       50    6x    +101.2%   50.5%   1.68     +712.9%   77.2%  
+BTCUSDT       50   10x    +133.4%   68.3%   1.68     +712.9%   77.2%  
+                               (buy&hold reference)   +712.9%   77.2%
+
+ETHUSDT       30    3x     +47.7%   35.9%   1.40    +1713.2%   81.4%  
+ETHUSDT       30    6x     +89.7%   59.9%   1.40    +1713.2%   81.4%  
+ETHUSDT       30   10x    +122.6%   79.3%   1.40    +1713.2%   81.4%  loses to BH
+ETHUSDT       40    3x    +140.7%   19.1%   2.25    +1713.2%   81.4%  
+ETHUSDT       40    6x    +362.8%   35.2%   2.25    +1713.2%   81.4%  
+ETHUSDT       40   10x    +775.4%   52.5%   2.25    +1713.2%   81.4%  
+ETHUSDT       50    3x     +90.6%   18.5%   2.07    +1713.2%   81.4%  
+ETHUSDT       50    6x    +202.9%   33.5%   2.07    +1713.2%   81.4%  
+ETHUSDT       50   10x    +366.6%   50.0%   2.07    +1713.2%   81.4%  
+                               (buy&hold reference)  +1713.2%   81.4%
+
+HYPEUSDT      30    3x     +24.5%   10.6%   1.71     +143.3%   65.1%  
+HYPEUSDT      30    6x     +48.5%   19.4%   1.71     +143.3%   65.1%  
+HYPEUSDT      30   10x     +77.8%   29.3%   1.71     +143.3%   65.1%  
+HYPEUSDT      40    3x     +12.3%   12.4%   1.84     +143.3%   65.1%  
+HYPEUSDT      40    6x     +23.5%   23.2%   1.84     +143.3%   65.1%  
+HYPEUSDT      40   10x     +36.0%   35.4%   1.84     +143.3%   65.1%  
+HYPEUSDT      50    3x     +19.0%   15.1%   2.56     +143.3%   65.1%  
+HYPEUSDT      50    6x     +36.5%   27.8%   2.56     +143.3%   65.1%  
+HYPEUSDT      50   10x     +56.7%   41.6%   2.56     +143.3%   65.1%  
+                               (buy&hold reference)   +143.3%   65.1%
+
+========================================================================================================
+2. IS THE TURTLE FILTER DOING ANYTHING? (BTC donLen=40)
+========================================================================================================
+  EMA0/55   net  +133.2%  PF  2.02  n 132  DD  22.3%  IDENTICAL to EMA0/55
+  EMA10/55   net  +133.2%  PF  2.02  n 132  DD  22.3%  IDENTICAL to EMA0/55
+  EMA20/55   net  +133.2%  PF  2.02  n 132  DD  22.3%  IDENTICAL to EMA0/55
+  EMA10/30   net  +133.2%  PF  2.02  n 132  DD  22.3%  IDENTICAL to EMA0/55
+  EMA20/100  net   +88.1%  PF  1.86  n 118  DD  31.1%  differs
+  EMA50/200  net   +49.6%  PF  1.65  n  99  DD  27.6%  differs
+  -> the filter cannot change the answer: a donLen=40 breakout is already
+     above every one of these EMAs. It is decoration, not a filter.
+
+========================================================================================================
+3. THE SURVIVOR — BTC donLen 30-50, long-only + ATR2x. Stable?
+========================================================================================================
+  buy&hold +712.9% at DD 77.2%
+
+  donLen      net     PF    n     DD    WR  IS PF  OOS PF  OOS n   Sharpe
+      25  +204.9%   1.68  309  21.5%   28%   1.63    1.81     73   +0.65  yes
+      30  +122.0%   1.72  196  20.6%   29%   1.63    1.96     49   +0.56  yes
+      35  +127.9%   1.90  151  18.9%   26%   1.82    2.07     39   +0.58  yes
+      40  +129.5%   1.99  134  22.3%   24%   1.97    2.02     34   +0.59  yes
+      45   +73.8%   1.73  121  32.3%   21%   1.95    1.26     31   +0.45  yes
+      50   +55.7%   1.68  106  30.3%   23%   1.74    1.57     29   +0.39  yes
+      55   +34.0%   1.51   96  29.8%   23%   1.42    1.68     26   +0.31  yes
+      60   +53.5%   1.83   82  27.5%   26%   1.77    1.93     23   +0.42  yes
+
+========================================================================================================
+4. BEAT-PASSIVE CHECK at the SAME risk (1% equity risk/trade, 3x cap)
+========================================================================================================
+  symbol     strategy net      DD     PF |    BH net   BH DD | Sharpe str  Sharpe BH
+  BTCUSDT         +129.5%   22.3%   1.99 |   +712.9%   77.2% |      +0.59      +0.49
+  HYPEUSDT         +12.3%   12.4%   1.84 |   +143.3%   65.1% |      +0.73      +0.70
+
+  A strategy that returns a third of passive at a quarter of the drawdown is a
+  RISK-MANAGEMENT overlay, not alpha. Whether that is worth deploying is a
+  portfolio decision, not a backtest question — and it is NOT what the
+  original Pine claimed to be.

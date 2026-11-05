@@ -1,0 +1,29 @@
+QS family-C audit — qs_c_strats.py
+run 2026-10-31T23:31:46+00:00
+qs_c_strats.py sha256: 33f43f8f017fa62fddf9ab6ba95cf1055fff67e508d13aa5b7f3578a697d9dfa
+
+[PASS] C1a QS-021 long fires on the expansion bar after compression — events at [np.int64(121)]
+[PASS] C1b QS-021 short fires on the down expansion bar
+[PASS] C2 QS-022 long fires on the band break after the squeeze — events at [np.int64(248)]
+[PASS] C3 QS-023 long fires after the vol-regime cross + 30-bar-high break — events tail [np.int64(569), np.int64(681), np.int64(687)]
+[PASS] C4a QS-024 long events exactly at the two OR breakouts — events at [np.int64(3), np.int64(7)]
+[PASS] C4b QS-024 stop level = the OR low of the signal day — stops at events [100.0, 101.8]
+[PASS] C5 QS-025 breakout fires with 2x volume, stays silent without
+[PASS] C6a QS-026 long fires on the first close above the NR7 high — events at [np.int64(13)]
+[PASS] C6b QS-026 NR7 stop below the NR low and TP = 2R — dist=2.100 tp=4.200
+[PASS] C6c QS-026 close above the NR high on the 4th bar does not fire
+[PASS] C7 QS-027 chandelier flip fires both sides + native trailing stop
+[PASS] C8a QS-028 long fires on the first close back above the broken low — events at [np.int64(31)]
+[PASS] C8b QS-028 target = the range midpoint measured at the breakdown — tp=0.600
+[PASS] C8c QS-028 recovery on the 4th bar does not fire
+[PASS] C9a QS-029 long fires on the confirmed retest bar — events at [np.int64(32)]
+[PASS] C9b QS-029 stop = L minus 0.75*ATR (3*ATR distance cap applied) — stop=100.045 expected=100.045
+[PASS] C9c QS-029 retest bar closing below its open does not fire
+[PASS] C10a QS-030 longs fire inside the HTF uptrend
+[PASS] C10b QS-030 shorts fire after the HTF regime rolls over
+[PASS] C10c QS-030 no shorts inside the HTF uptrend
+[PASS] R1 truncation causality (QS-025 on real data)
+[PASS] R1b truncation causality (QS-030 HTF regime on real data)
+[PASS] R2 determinism
+
+TOTAL: 23 PASS, 0 FAIL

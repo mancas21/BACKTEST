@@ -1,0 +1,26 @@
+FUNDING COVERAGE CHECK — datacheck_funding.py
+Exact asof_utc, sha256, spans and every exact count: data/FUNDING_MANIFEST.json.
+This text carries findings in words only (nothing below is a backtest
+measurement, so no run_id is needed behind it).
+
+Scope: eight funding files in data/binance_funding/, cross-checked against every kline CSV of the same symbol in data/binance_klines*/.
+Findings:
+  - Settlement series: seven files have missing settlement
+    prints and/or duplicate or non-monotonic timestamps (per-file detail
+    in the manifest; missing prints mean bars inside those intervals
+    carried no funding charge).
+  - Interval switches: one files contain stretches at a
+    shorter funding interval than their modal one (e.g. an exchange moving
+    from eight-hour to four-hour funding). Benign for billing — every
+    settlement is present — but any consumer assuming a fixed interval
+    should read modal_spacing_h and the switch counts in the manifest.
+  - Coverage vs bars: of fifty-five funding-file x kline-window pairs, fifty-three are fully covered (settlement span reaches both
+    ends of the bar window); the rest carry head_gap/tail_gap tags in the
+    manifest. A head_gap means the earliest bars were charged NO funding;
+    a tail_gap means the latest bars were charged none.
+    RESULT: three pairs are NOT fully covered — see manifest
+    field coverage[].issues before trusting any funding-sensitive number
+    built on those bars.
+
+Manifest: data/FUNDING_MANIFEST.json (snapshot; `vrun stale` is the
+authority if data bytes change after the snapshot moment).

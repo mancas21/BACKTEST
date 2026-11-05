@@ -1,0 +1,15 @@
+{
+  "symbol": "SUIUSDT",
+  "days": 30,
+  "bars": 43201,
+  "total_ret_pct": -17.1,
+  "final_equity": 82.9,
+  "max_dd_pct": -67.97,
+  "n_fills": 3104,
+  "n_tp": 1431,
+  "n_stops": 0,
+  "n_rebuilds": 25,
+  "open_positions": 5,
+  "min_equity": 81.67,
+  "max_equity": 254.99
+}

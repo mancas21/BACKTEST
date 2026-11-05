@@ -1,0 +1,12 @@
+{
+  "total_return_pct": -88.76,
+  "bh_return_pct": 2670.04,
+  "excess_pp": -2758.8,
+  "max_dd_pct": -91.32,
+  "turnover_cost": 10075.53,
+  "funding_received": 1394.32,
+  "n_rebalances": 2744,
+  "sharpe": -0.48,
+  "positive_months_pct": 42.4,
+  "worst_month_pct": -48.35
+}

@@ -1,0 +1,116 @@
+
+=== BTCUSDT 1H  61801 bars  2019..2026
+    current-band: entries 855  exits 855  long 442 short 413
+    prior-band  : entries 812  exits 812  long 419 short 393
+    touchUpper fires on 9.4% of bars, touchLower 8.4%  (prior-band: 9.1% / 8.1%)
+BTCUSDT                    buy&hold net   +708.9%  DD  77.2%
+
+=== ETHUSDT 1H  59891 bars  2019..2026
+    current-band: entries 772  exits 772  long 394 short 378
+    prior-band  : entries 734  exits 734  long 374 short 360
+    touchUpper fires on 9.9% of bars, touchLower 7.8%  (prior-band: 9.6% / 7.5%)
+ETHUSDT                    buy&hold net  +1724.9%  DD  81.4%
+
+=== SOLUSDT 1H  52883 bars  2020..2026
+    current-band: entries 726  exits 726  long 365 short 361
+    prior-band  : entries 681  exits 681  long 344 short 337
+    touchUpper fires on 10.5% of bars, touchLower 9.6%  (prior-band: 10.1% / 9.2%)
+SOLUSDT                    buy&hold net  +3844.2%  DD  96.8%
+
+=== SUIUSDT 1H  29810 bars  2023..2026
+    current-band: entries 404  exits 404  long 221 short 183
+    prior-band  : entries 379  exits 379  long 208 short 171
+    touchUpper fires on 10.1% of bars, touchLower 10.1%  (prior-band: 9.7% / 9.6%)
+SUIUSDT                    buy&hold net     -8.3%  DD  87.9%
+
+=== XRPUSDT 1H  58930 bars  2020..2026
+    current-band: entries 760  exits 760  long 400 short 360
+    prior-band  : entries 687  exits 687  long 360 short 327
+    touchUpper fires on 9.2% of bars, touchLower 8.2%  (prior-band: 8.6% / 7.8%)
+XRPUSDT                    buy&hold net   +644.0%  DD  84.9%
+
+=== HYPEUSDT 1H  11624 bars  2025..2026
+    current-band: entries 166  exits 165  long 91 short 75
+    prior-band  : entries 156  exits 156  long 88 short 68
+    touchUpper fires on 12.7% of bars, touchLower 10.9%  (prior-band: 12.3% / 10.5%)
+HYPEUSDT                   buy&hold net   +142.2%  DD  65.1%
+
+=== SPXUSDT 1H  15726 bars  2024..2026
+    current-band: entries 228  exits 228  long 124 short 104
+    prior-band  : entries 213  exits 213  long 119 short 94
+    touchUpper fires on 10.8% of bars, touchLower 11.7%  (prior-band: 10.4% / 11.1%)
+SPXUSDT                    buy&hold net    -32.8%  DD  89.0%
+
+########## A. FAITHFUL (current-bar band) — Pine's own exits, 1.0x notional ##########
+BTCUSDT                    net   -64.46%  PF  0.94  n 851  WR 31.7%  DD  87.8%  bars  29.2 | 2019:-12.3%/30 2020:+71.6%/117 2021:-35.2%/136 2022:-49.8%/130 2023:-13.1%/121 2024:+4.6%/106 2025:-40.9%/131 2026:+35.0%/80
+ETHUSDT                    net   -75.13%  PF  0.95  n 767  WR 33.5%  DD  93.3%  bars  30.6 | 2019:+10.1%/6 2020:+22.1%/96 2021:+43.9%/124 2022:-45.4%/120 2023:-55.1%/135 2024:-9.6%/110 2025:-38.9%/112 2026:-5.1%/64
+SOLUSDT                    net   +26.51%  PF  1.11  n 725  WR 37.0%  DD  64.0%  bars  31.4 | 2020:-31.4%/34 2021:+104.6%/110 2022:-1.8%/123 2023:+7.9%/114 2024:+1.4%/123 2025:-38.5%/140 2026:+36.2%/81
+SUIUSDT                    net    +9.86%  PF  1.11  n 402  WR 35.3%  DD  62.9%  bars  29.2 | 2023:-60.6%/82 2024:+190.1%/126 2025:+33.1%/115 2026:-27.7%/79
+XRPUSDT                    net   -52.81%  PF  1.03  n 758  WR 33.5%  DD  87.0%  bars  30.2 | 2020:-32.8%/105 2021:+9.3%/105 2022:-48.9%/129 2023:-11.5%/96 2024:+44.9%/114 2025:-15.2%/126 2026:+15.7%/83
+HYPEUSDT                   net    -9.08%  PF  1.07  n 166  WR 38.0%  DD  52.1%  bars  32.1 | 2025:-23.6%/71 2026:+19.0%/95
+SPXUSDT                    net   -69.84%  PF  0.95  n 225  WR 38.2%  DD  86.9%  bars  30.7 | 2024:+27.4%/4 2025:-60.9%/131 2026:-39.4%/90
+
+########## B. FAITHFUL + ATR(14)x2 protective stop, 1% risk, 3x cap ##########
+BTCUSDT                    net    +9.98%  PF  1.06  n 851  WR 27.8%  DD  42.5%  bars  24.6 | 2019:-6.8%/30 2020:+34.9%/117 2021:+4.0%/136 2022:-24.2%/130 2023:-10.9%/121 2024:+22.0%/106 2025:-15.5%/131 2026:+20.8%/80
+ETHUSDT                    net   -38.20%  PF  0.92  n 767  WR 29.2%  DD  70.1%  bars  25.5 | 2019:+10.0%/6 2020:+22.7%/96 2021:+32.8%/125 2022:-17.8%/119 2023:-46.3%/135 2024:-16.8%/110 2025:-6.2%/112 2026:-0.1%/64
+SOLUSDT                    net   +34.63%  PF  1.11  n 725  WR 31.4%  DD  28.0%  bars  25.9 | 2020:-3.1%/34 2021:+15.3%/110 2022:-7.3%/123 2023:+6.0%/115 2024:+0.4%/122 2025:+1.9%/140 2026:+19.8%/81
+SUIUSDT                    net   -23.00%  PF  0.92  n 402  WR 30.3%  DD  31.7%  bars  23.3 | 2023:-23.5%/82 2024:+12.0%/127 2025:+15.2%/114 2026:-22.0%/79
+XRPUSDT                    net   +50.70%  PF  1.15  n 758  WR 29.9%  DD  44.5%  bars  25.7 | 2020:-21.9%/105 2021:-4.5%/105 2022:-1.1%/130 2023:+41.4%/95 2024:-1.9%/114 2025:+5.1%/126 2026:+40.1%/83
+HYPEUSDT                   net   +29.75%  PF  1.34  n 166  WR 34.9%  DD  18.9%  bars  27.6 | 2025:-6.4%/71 2026:+38.7%/95
+SPXUSDT                    net    +3.65%  PF  1.05  n 225  WR 35.1%  DD  29.5%  bars  25.8 | 2024:+4.8%/4 2025:+16.7%/131 2026:-15.3%/90
+
+########## C. PRIOR-BAND breakout + Pine's exits, 1.0x notional ##########
+BTCUSDT                    net   -55.34%  PF  0.97  n 809  WR 32.6%  DD  84.1%  bars  30.9 | 2019:-10.9%/29 2020:+65.8%/114 2021:-26.7%/127 2022:-36.5%/120 2023:-10.2%/116 2024:+9.4%/101 2025:-48.7%/125 2026:+28.9%/77
+ETHUSDT                    net   -71.06%  PF  0.96  n 730  WR 34.0%  DD  93.3%  bars  32.0 | 2019:+0.3%/5 2020:+30.6%/90 2021:+45.7%/113 2022:-36.4%/116 2023:-57.1%/132 2024:-0.9%/104 2025:-39.1%/107 2026:-8.0%/63
+SOLUSDT                    net   +35.02%  PF  1.12  n 680  WR 36.8%  DD  73.7%  bars  33.2 | 2020:-37.8%/32 2021:+174.9%/101 2022:+2.2%/119 2023:+27.6%/103 2024:-15.2%/115 2025:-48.4%/132 2026:+38.3%/78
+SUIUSDT                    net   -25.53%  PF  1.06  n 377  WR 35.5%  DD  61.9%  bars  31.2 | 2023:-58.6%/76 2024:+85.1%/119 2025:+49.7%/104 2026:-35.0%/78
+XRPUSDT                    net   -36.87%  PF  1.05  n 686  WR 34.4%  DD  83.3%  bars  32.6 | 2020:-24.4%/94 2021:+26.9%/92 2022:-48.5%/118 2023:-31.3%/83 2024:+88.9%/97 2025:-21.8%/124 2026:+26.0%/78
+HYPEUSDT                   net   -29.88%  PF  0.99  n 156  WR 34.6%  DD  55.5%  bars  32.4 | 2025:-28.2%/65 2026:-2.3%/91
+SPXUSDT                    net   -59.25%  PF  0.99  n 211  WR 37.9%  DD  85.5%  bars  32.4 | 2024:+28.5%/4 2025:-59.7%/126 2026:-21.3%/81
+
+########## D. PRIOR-BAND + ATR(14)x2 stop, 1% risk, 3x cap ##########
+BTCUSDT                    net   +34.92%  PF  1.10  n 809  WR 28.7%  DD  37.6%  bars  25.8 | 2019:-6.0%/29 2020:+37.4%/114 2021:+10.0%/127 2022:-18.3%/120 2023:-7.6%/116 2024:+34.2%/101 2025:-22.4%/125 2026:+20.8%/77
+ETHUSDT                    net   -40.71%  PF  0.91  n 730  WR 29.3%  DD  70.2%  bars  26.3 | 2019:-0.1%/5 2020:+25.1%/90 2021:+29.9%/114 2022:-17.3%/115 2023:-45.8%/132 2024:-14.2%/104 2025:-2.9%/107 2026:-2.2%/63
+SOLUSDT                    net    +2.50%  PF  1.04  n 680  WR 30.4%  DD  32.4%  bars  26.9 | 2020:-6.4%/32 2021:+23.1%/101 2022:-6.4%/119 2023:-1.9%/104 2024:-10.4%/114 2025:-10.7%/132 2026:+21.2%/78
+SUIUSDT                    net   -36.53%  PF  0.83  n 377  WR 29.2%  DD  41.1%  bars  24.2 | 2023:-23.8%/76 2024:+3.0%/120 2025:+5.7%/103 2026:-23.5%/78
+XRPUSDT                    net   +14.38%  PF  1.07  n 686  WR 29.9%  DD  46.5%  bars  27.1 | 2020:-14.5%/94 2021:+3.4%/92 2022:+0.4%/119 2023:-10.2%/82 2024:-0.6%/97 2025:+0.6%/124 2026:+43.2%/78
+HYPEUSDT                   net   +18.25%  PF  1.23  n 156  WR 31.4%  DD  18.3%  bars  27.5 | 2025:-8.0%/65 2026:+28.5%/91
+SPXUSDT                    net   +12.42%  PF  1.13  n 211  WR 34.6%  DD  26.9%  bars  27.1 | 2024:+5.0%/4 2025:+15.3%/126 2026:-7.2%/81
+
+########## E. FAITHFUL long-only (state machine re-run) + ATR stop ##########
+BTCUSDT                    net   +83.92%  PF  1.28  n 442  WR 28.3%  DD  24.3%  bars  25.3 | 2019:-6.9%/16 2020:+38.4%/65 2021:+8.1%/64 2022:-10.6%/65 2023:+2.8%/70 2024:+31.6%/50 2025:-4.7%/68 2026:+14.8%/44
+ETHUSDT                    net    -6.42%  PF  1.00  n 394  WR 30.7%  DD  56.7%  bars  26.1 | 2019:+1.8%/2 2020:+39.6%/53 2021:+37.9%/68 2022:-10.3%/58 2023:-31.6%/69 2024:-6.1%/61 2025:-12.3%/59 2026:-5.4%/24
+SOLUSDT                    net   +15.65%  PF  1.10  n 365  WR 29.3%  DD  35.3%  bars  25.3 | 2020:-8.4%/16 2021:+25.7%/65 2022:-13.0%/53 2023:+4.9%/58 2024:-9.3%/61 2025:-3.9%/70 2026:+26.3%/42
+SUIUSDT                    net    -6.47%  PF  0.98  n 221  WR 30.8%  DD  23.0%  bars  23.0 | 2023:-7.4%/51 2024:+10.3%/73 2025:+2.3%/57 2026:-10.5%/40
+XRPUSDT                    net    -0.04%  PF  1.08  n 400  WR 27.2%  DD  44.6%  bars  23.9 | 2020:-22.2%/61 2021:-4.4%/54 2022:-16.1%/57 2023:+52.4%/57 2024:-6.8%/59 2025:-7.6%/68 2026:+22.0%/44
+HYPEUSDT                   net   +18.74%  PF  1.39  n  91  WR 33.0%  DD  21.2%  bars  25.1 | 2025:-14.7%/37 2026:+39.3%/54
+SPXUSDT                    net    +9.00%  PF  1.15  n 124  WR 34.7%  DD  19.1%  bars  25.1 | 2024:+4.4%/3 2025:+18.3%/67 2026:-11.8%/54
+
+########## F. FAITHFUL long-only + Pine's own band exit, 1.0x notional ##########
+BTCUSDT                    net   +42.95%  PF  1.14  n 442  WR 32.6%  DD  43.9%  bars  30.0 | 2019:-13.8%/16 2020:+84.6%/65 2021:+8.1%/64 2022:-22.3%/65 2023:+7.7%/70 2024:+31.5%/50 2025:-25.9%/68 2026:+1.9%/44
+ETHUSDT                    net  +106.67%  PF  1.23  n 394  WR 36.8%  DD  67.1%  bars  32.0 | 2019:+3.3%/2 2020:+90.6%/53 2021:+161.7%/68 2022:-26.1%/58 2023:-31.7%/69 2024:+34.3%/61 2025:-31.7%/59 2026:-13.3%/24
+SOLUSDT                    net   +57.75%  PF  1.17  n 365  WR 36.7%  DD  65.1%  bars  31.2 | 2020:-18.2%/16 2021:+245.9%/65 2022:-39.2%/53 2023:+25.0%/57 2024:-9.4%/62 2025:-41.4%/70 2026:+38.0%/42
+SUIUSDT                    net   +84.01%  PF  1.27  n 221  WR 35.7%  DD  52.5%  bars  28.6 | 2023:-11.8%/51 2024:+117.8%/72 2025:+10.9%/58 2026:-13.6%/40
+XRPUSDT                    net   -55.96%  PF  0.98  n 400  WR 31.5%  DD  76.0%  bars  29.2 | 2020:-39.9%/61 2021:+9.4%/54 2022:-45.1%/56 2023:+26.3%/58 2024:+29.4%/59 2025:-31.4%/68 2026:+8.9%/44
+HYPEUSDT                   net    -5.84%  PF  1.08  n  91  WR 35.2%  DD  49.6%  bars  30.1 | 2025:-37.0%/37 2026:+49.6%/54
+SPXUSDT                    net   -54.49%  PF  0.94  n 124  WR 37.9%  DD  72.5%  bars  31.0 | 2024:+24.7%/3 2025:-45.2%/67 2026:-33.4%/54
+
+--- equal-weight across symbols ---
+A current/band       net   -98.41%  median PF  1.03  green 2/7  trades 3894  worst DD  93.3%
+B current/atr        net   +42.80%  median PF  1.06  green 5/7  trades 3894  worst DD  70.1%
+C prior/band         net   -97.66%  median PF  0.99  green 1/7  trades 3649  worst DD  93.3%
+D prior/atr          net   -20.86%  median PF  1.07  green 5/7  trades 3649  worst DD  70.2%
+E long-only/atr      net  +140.86%  median PF  1.10  green 4/7  trades 2037  worst DD  56.7%
+F long-only/band     net   +61.82%  median PF  1.14  green 4/7  trades 2037  worst DD  76.0%
+
+--- house gate, best variant per symbol ---
+  BTCUSDT [E long-only/atr] FAIL   ok PF 1.28>1.2 | ok cost/gross 8%<40 | NO green 5/8yr | ok n 442>=30 | ok DD 24.3%<40
+  ETHUSDT [F long-only/band] FAIL   ok PF 1.23>1.2 | ok cost/gross 4%<40 | NO green 4/8yr | ok n 394>=30 | NO DD 67.1%<40
+  SOLUSDT [F long-only/band] FAIL   NO PF 1.17>1.2 | ok cost/gross 3%<40 | NO green 3/7yr | ok n 365>=30 | NO DD 65.1%<40
+  SUIUSDT [F long-only/band] FAIL   ok PF 1.27>1.2 | ok cost/gross 2%<40 | NO green 2/4yr | ok n 221>=30 | NO DD 52.5%<40
+  XRPUSDT [B current/atr] FAIL   NO PF 1.15>1.2 | ok cost/gross 9%<40 | NO green 3/7yr | ok n 758>=30 | NO DD 44.5%<40
+  HYPEUSDT [B current/atr] FAIL   ok PF 1.34>1.2 | ok cost/gross 8%<40 | NO green 1/2yr | ok n 166>=30 | ok DD 18.9%<40
+  SPXUSDT [D prior/atr]  FAIL   NO PF 1.13>1.2 | ok cost/gross 9%<40 | NO green 2/3yr | ok n 211>=30 | ok DD 26.9%<40
+  -> 0/7 symbols pass
+
+artifacts -> C:\Users\Lenovo\Documents\backtest-system\results

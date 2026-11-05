@@ -1,0 +1,23 @@
+0f752f12c7acc9fa python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{"costs": "re
+82b84664bf0192df python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "re
+c9eabf59bc2adde9 python code/vrun.py run --strategy dspack --tf 1h --symbol XRPUSDT --params '{"costs": "re
+6d92238c699d176f python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{"costs": "r
+9513a4e7e7fc11b8 python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{"costs": "re
+8afe2b70ee227f2d python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{"costs": "re
+014f6c78bcfb02d6 python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{"costs": "r
+01f65a4b84d35744 python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{"costs": "r
+8b5aed6594d5a40f python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{"costs": "re
+9c1f86f46e4a20af python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{"costs": "r
+c8b3c3b6b338de11 python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "re
+007e08ccd12e6797 python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{"costs": "r
+1b5ec0b23c89ed71 python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{"costs": "r
+2b1eaba38db1943c python code/vrun.py run --strategy dspack --tf 1h --symbol BTCUSDT --params '{"costs": "re
+fbea0e1522e1e1f5 python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{"costs": "re
+4d5c3d8cc084173d python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{"costs": "re
+f9b06448ac441c0f python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{"costs": "r
+986ae236af7e6ad5 python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{"costs": "re
+479331095afcb985 python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{"costs": "r
+0b78d5862a7bd066 python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{"costs": "re
+2e9a90c6eb633f2c python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{"costs": "re
+326c037409ec1879 python code/vrun.py run --strategy dspack --tf 1h --symbol SPXUSDT --params '{"costs": "re
+DONE 22 / 22

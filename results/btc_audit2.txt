@@ -1,0 +1,84 @@
+====================================================================================================
+BTCUSDT  15m  (130544 bars, ~45 months)
+====================================================================================================
+  ATR x      n    win%     PF      net   med MFE   med MAE  stop-hit%
+  x1.5      33   39.4%   0.66    -7.5%     0.90R     1.11R        67%
+  x2.0      32   34.4%   0.61    -8.3%     0.89R     1.17R        69%
+  x2.5      32   31.2%   0.59    -8.5%     1.15R     1.11R        69%
+  x3.0      32   37.5%   0.85    -2.9%     0.99R     1.03R        62%
+  x4.0      31   41.9%   1.21    +3.0%     0.87R     1.02R        58%
+  x5.0      31   48.4%   1.36    +5.1%     1.56R     1.01R        61%
+  x7.0      30   36.7%   1.06    +0.7%     1.24R     1.06R        67%
+
+----------------------------------------------------------------------------------------------------
+  BTCUSDT: is the win rate flat in stop width? (H1=edge, H2=artifact)
+    x1.5   win  39.4%   stopped out    67% of the time
+    x2.0   win  34.4%   stopped out    69% of the time
+    x2.5   win  31.2%   stopped out    69% of the time
+    x3.0   win  37.5%   stopped out    62% of the time
+    x4.0   win  41.9%   stopped out    58% of the time
+    x5.0   win  48.4%   stopped out    61% of the time
+    x7.0   win  36.7%   stopped out    67% of the time
+    -> win rate flat/falls with stop width; stop-hit rate flat
+    -> H1: behaves like a real edge, but check n and OOS
+
+====================================================================================================
+BTCUSDT 15m WALK-FORWARD — pick ATR on 2023-24, trade 2025-26
+====================================================================================================
+  IS bars 70,176   OOS bars 60,368
+  ATR x      IS net   IS PF   IS n
+  x1.5        -2.8%    0.74     17
+  x2.0        -2.9%    0.73     17
+  x2.5        -0.2%    0.99     17
+  x3.0        +1.4%    1.17     17
+  x4.0        -0.7%    0.93     16
+  x5.0        +2.2%    1.30     16  <-- chosen on IS
+  x7.0        +2.1%    1.31     15
+  chosen: x5.0
+
+  OOS (2025-2026) at x5.0: net +2.8%  PF 1.43  n 15  DD 3.2%  WR 60.0%
+  per-year: 2025:+1.4% 2026:+1.4%
+  -> OOS EDGE
+
+====================================================================================================
+ETHUSDT  15m  (130544 bars, ~45 months)
+====================================================================================================
+  ATR x      n    win%     PF      net   med MFE   med MAE  stop-hit%
+  x1.5      34   44.1%   1.08    +1.4%     1.36R     1.06R        59%
+  x2.0      34   44.1%   1.08    +1.4%     1.30R     1.06R        59%
+  x2.5      34   44.1%   1.09    +1.6%     1.11R     1.08R        59%
+  x3.0      34   38.2%   0.69    -6.7%     1.10R     1.13R        74%
+  x4.0      34   35.3%   0.78    -4.6%     1.21R     1.08R        65%
+  x5.0      34   50.0%   1.33    +5.2%     1.32R     1.03R        56%
+  x7.0      34   52.9%   1.67    +8.9%     1.37R     1.00R        50%
+
+----------------------------------------------------------------------------------------------------
+  ETHUSDT: is the win rate flat in stop width? (H1=edge, H2=artifact)
+    x1.5   win  44.1%   stopped out    59% of the time
+    x2.0   win  44.1%   stopped out    59% of the time
+    x2.5   win  44.1%   stopped out    59% of the time
+    x3.0   win  38.2%   stopped out    74% of the time
+    x4.0   win  35.3%   stopped out    65% of the time
+    x5.0   win  50.0%   stopped out    56% of the time
+    x7.0   win  52.9%   stopped out    50% of the time
+    -> win rate RISES with stop width; stop-hit rate flat
+    -> H1: behaves like a real edge, but check n and OOS
+
+====================================================================================================
+ETHUSDT 15m WALK-FORWARD — pick ATR on 2023-24, trade 2025-26
+====================================================================================================
+  IS bars 70,176   OOS bars 60,368
+  ATR x      IS net   IS PF   IS n
+  x1.5        -3.5%    0.72     18
+  x2.0        -3.4%    0.72     18
+  x2.5        -0.6%    0.95     18
+  x3.0        -4.8%    0.60     18
+  x4.0        -2.3%    0.79     18
+  x5.0        +2.0%    1.24     18
+  x7.0        +2.8%    1.42     18  <-- chosen on IS
+  chosen: x7.0
+
+  OOS (2025-2026) at x7.0: net +6.0%  PF 1.94  n 16  DD 3.0%  WR 62.5%
+  per-year: 2025:+2.3% 2026:+3.5%
+  -> OOS EDGE
+

@@ -1,0 +1,474 @@
+{
+ "best": {
+  "PF": 1.3024208029456883,
+  "bars_over_leverage": 0,
+  "delta_max_pct": 2.0,
+  "fees": 1144146.1371996973,
+  "final_equity": 2299367.589782084,
+  "funding": 1218.609953440323,
+  "green_periods": 3,
+  "maxDD_pct": 43.42426275946995,
+  "max_delta_fill_pct": 205.52786208280668,
+  "max_gross_leverage": 2.1434746281002224,
+  "min_equity_usdt": 25.0,
+  "min_margin_buffer_pct": 98.9282626859499,
+  "n": 5963,
+  "net_pct": 9197370.359128335,
+  "params": {
+   "cover_mult": 1.0,
+   "stop_atr_mult": 0.5,
+   "trend_band": 0.1
+  },
+  "seconds": 3.5,
+  "slices_pct": [
+   8850.483418054753,
+   11357.440227886527,
+   795.5834579608979
+  ],
+  "win_pct": 87.20442730169378
+ },
+ "cells": [
+  {
+   "PF": 0.9326853650628313,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 35.68452718118098,
+   "final_equity": 6.143734707618584,
+   "funding": 0.36240213989660197,
+   "green_periods": 0,
+   "maxDD_pct": 82.2332146489559,
+   "max_delta_fill_pct": 204.9751278808554,
+   "max_gross_leverage": 2.1256484107998173,
+   "min_equity_usdt": 5.222125244426025,
+   "min_margin_buffer_pct": 98.93717579460008,
+   "n": 4469,
+   "net_pct": -75.42506116952566,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.02
+   },
+   "seconds": 7.1,
+   "slices_pct": [
+    -10.509196973227864,
+    -26.804636963561222,
+    -62.482795444072536
+   ],
+   "win_pct": 76.0572835086149
+  },
+  {
+   "PF": 0.590965691908944,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 5.141256001323706,
+   "final_equity": 0.0014989922083988004,
+   "funding": 0.23020279982866573,
+   "green_periods": 0,
+   "maxDD_pct": 99.99417199207163,
+   "max_delta_fill_pct": 204.45464406798223,
+   "max_gross_leverage": 2.2443442223967405,
+   "min_equity_usdt": 0.0014989922083988004,
+   "min_margin_buffer_pct": 98.87782788880163,
+   "n": 3475,
+   "net_pct": -99.99400403116641,
+   "params": {
+    "cover_mult": 2.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.02
+   },
+   "seconds": 7.5,
+   "slices_pct": [
+    -96.23030474549743,
+    -95.05245126854014,
+    -96.78513275855549
+   ],
+   "win_pct": 55.280575539568346
+  },
+  {
+   "PF": 0.503014840135313,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 4.150616318492037,
+   "final_equity": 0.00017828682517183263,
+   "funding": 0.20495473093209984,
+   "green_periods": 0,
+   "maxDD_pct": 99.99930184341294,
+   "max_delta_fill_pct": 203.53780834298192,
+   "max_gross_leverage": 3.1677246767631884,
+   "min_equity_usdt": 0.00017828682517183263,
+   "min_margin_buffer_pct": 98.4161376616184,
+   "n": 3305,
+   "net_pct": -99.99928685269931,
+   "params": {
+    "cover_mult": 3.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.02
+   },
+   "seconds": 6.9,
+   "slices_pct": [
+    -98.59714190307778,
+    -97.55588521217139,
+    -97.92009307499728
+   ],
+   "win_pct": 48.62329803328291
+  },
+  {
+   "PF": 0.9291131037092493,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 34.95377798508853,
+   "final_equity": 4.670215211183115,
+   "funding": 0.6363281530742462,
+   "green_periods": 0,
+   "maxDD_pct": 88.01471511422955,
+   "max_delta_fill_pct": 204.9751278808554,
+   "max_gross_leverage": 2.1256484107998173,
+   "min_equity_usdt": 3.813626063847361,
+   "min_margin_buffer_pct": 98.93717579460008,
+   "n": 4443,
+   "net_pct": -81.31913915526754,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 1.5,
+    "trend_band": 0.02
+   },
+   "seconds": 4.4,
+   "slices_pct": [
+    -1.2868933400441263,
+    -39.133153063669226,
+    -68.90852966701183
+   ],
+   "win_pct": 76.43484132343012
+  },
+  {
+   "PF": 0.6020904604092442,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 5.328397646902827,
+   "final_equity": 0.0006026184694779018,
+   "funding": 0.3511103333165901,
+   "green_periods": 0,
+   "maxDD_pct": 99.99765704905053,
+   "max_delta_fill_pct": 204.45464406798223,
+   "max_gross_leverage": 2.244344222396741,
+   "min_equity_usdt": 0.0006026184694779018,
+   "min_margin_buffer_pct": 98.87782788880163,
+   "n": 3452,
+   "net_pct": -99.99758952612208,
+   "params": {
+    "cover_mult": 2.0,
+    "stop_atr_mult": 1.5,
+    "trend_band": 0.02
+   },
+   "seconds": 4.0,
+   "slices_pct": [
+    -96.02932186142603,
+    -97.30569201539045,
+    -97.74684791780624
+   ],
+   "win_pct": 55.76477404403244
+  },
+  {
+   "PF": 0.5122423549313345,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 4.249689319497196,
+   "final_equity": 3.340288931204625e-05,
+   "funding": 0.31974094892614774,
+   "green_periods": 0,
+   "maxDD_pct": 99.99986919702464,
+   "max_delta_fill_pct": 203.53780834298192,
+   "max_gross_leverage": 3.2119484123865645,
+   "min_equity_usdt": 3.340288931204625e-05,
+   "min_margin_buffer_pct": 98.39402579380672,
+   "n": 3268,
+   "net_pct": -99.99986638844275,
+   "params": {
+    "cover_mult": 3.0,
+    "stop_atr_mult": 1.5,
+    "trend_band": 0.02
+   },
+   "seconds": 4.0,
+   "slices_pct": [
+    -98.60207203604692,
+    -99.1104462098373,
+    -98.92554799962137
+   ],
+   "win_pct": 48.8984088127295
+  },
+  {
+   "PF": 1.3024208029456883,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 1144146.1371996973,
+   "final_equity": 2299367.589782084,
+   "funding": 1218.609953440323,
+   "green_periods": 3,
+   "maxDD_pct": 43.42426275946995,
+   "max_delta_fill_pct": 205.52786208280668,
+   "max_gross_leverage": 2.1434746281002224,
+   "min_equity_usdt": 25.0,
+   "min_margin_buffer_pct": 98.9282626859499,
+   "n": 5963,
+   "net_pct": 9197370.359128335,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.1
+   },
+   "seconds": 3.5,
+   "slices_pct": [
+    8850.483418054753,
+    11357.440227886527,
+    795.5834579608979
+   ],
+   "win_pct": 87.20442730169378
+  },
+  {
+   "PF": 1.0127380534659003,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 94.529601490023,
+   "final_equity": 36.02970110020746,
+   "funding": 7.365235176962862,
+   "green_periods": 1,
+   "maxDD_pct": 88.98250932655579,
+   "max_delta_fill_pct": 205.83087429449063,
+   "max_gross_leverage": 2.336126192181958,
+   "min_equity_usdt": 11.386162921313659,
+   "min_margin_buffer_pct": 98.83193690390902,
+   "n": 4934,
+   "net_pct": 44.118804400829845,
+   "params": {
+    "cover_mult": 2.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.1
+   },
+   "seconds": 3.3,
+   "slices_pct": [
+    -38.72851025900951,
+    185.45439876815246,
+    -17.71944167534495
+   ],
+   "win_pct": 68.76773408998784
+  },
+  {
+   "PF": 0.941098326783332,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 17.0374078753188,
+   "final_equity": 0.16521716603673434,
+   "funding": 3.5394925312434395,
+   "green_periods": 0,
+   "maxDD_pct": 99.70501467276415,
+   "max_delta_fill_pct": 203.7212706587963,
+   "max_gross_leverage": 3.329573777521194,
+   "min_equity_usdt": 0.15743490059841406,
+   "min_margin_buffer_pct": 98.33521311123941,
+   "n": 4442,
+   "net_pct": -99.33913133585305,
+   "params": {
+    "cover_mult": 3.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.1
+   },
+   "seconds": 3.3,
+   "slices_pct": [
+    -93.22625731693941,
+    -58.68959304374788,
+    -76.41701631667937
+   ],
+   "win_pct": 58.55470508779829
+  },
+  {
+   "PF": 1.2599473897582993,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 187113.21202852085,
+   "final_equity": 354313.323406801,
+   "funding": 332.12450918893103,
+   "green_periods": 3,
+   "maxDD_pct": 34.72481955988562,
+   "max_delta_fill_pct": 205.52786208280656,
+   "max_gross_leverage": 2.2605867081555,
+   "min_equity_usdt": 25.0,
+   "min_margin_buffer_pct": 98.86970664592225,
+   "n": 5428,
+   "net_pct": 1417153.293627204,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 1.5,
+    "trend_band": 0.1
+   },
+   "seconds": 3.1,
+   "slices_pct": [
+    4056.653424148881,
+    6067.4194326132365,
+    452.0417626380774
+   ],
+   "win_pct": 88.20928518791452
+  },
+  {
+   "PF": 0.9806915257656166,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 37.311410960774985,
+   "final_equity": 4.413570811102049,
+   "funding": 7.282903927672023,
+   "green_periods": 1,
+   "maxDD_pct": 95.9471525565148,
+   "max_delta_fill_pct": 204.7374846089833,
+   "max_gross_leverage": 2.336126192181959,
+   "min_equity_usdt": 3.448339346348179,
+   "min_margin_buffer_pct": 98.83193690390902,
+   "n": 4491,
+   "net_pct": -82.34571675559181,
+   "params": {
+    "cover_mult": 2.0,
+    "stop_atr_mult": 1.5,
+    "trend_band": 0.1
+   },
+   "seconds": 3.2,
+   "slices_pct": [
+    -78.4300296251429,
+    132.17275110044628,
+    -64.79850948765176
+   ],
+   "win_pct": 71.20908483633934
+  },
+  {
+   "PF": 0.9630917914367344,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 23.29000223010916,
+   "final_equity": 0.10328100685541151,
+   "funding": 5.555689472605409,
+   "green_periods": 0,
+   "maxDD_pct": 99.90221704532073,
+   "max_delta_fill_pct": 206.89460402947998,
+   "max_gross_leverage": 3.798394402299266,
+   "min_equity_usdt": 0.09495573512836519,
+   "min_margin_buffer_pct": 98.10080279885037,
+   "n": 4103,
+   "net_pct": -99.58687597257835,
+   "params": {
+    "cover_mult": 3.0,
+    "stop_atr_mult": 1.5,
+    "trend_band": 0.1
+   },
+   "seconds": 3.3,
+   "slices_pct": [
+    -96.44059217636895,
+    -34.96663868925215,
+    -82.17874595629038
+   ],
+   "win_pct": 62.41774311479406
+  }
+ ],
+ "net_cap_sensitivity": [
+  {
+   "PF": 1.3014845791826237,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 1.0,
+   "fees": 3841.906406337597,
+   "final_equity": 7841.242268445869,
+   "funding": 37.41131831704336,
+   "green_periods": 3,
+   "maxDD_pct": 29.32236141212699,
+   "max_delta_fill_pct": 111.96828590240149,
+   "max_gross_leverage": 1.1368982617330095,
+   "min_equity_usdt": 24.46545163855487,
+   "min_margin_buffer_pct": 99.43155086913349,
+   "n": 3691,
+   "net_pct": 31264.969073783475,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.1
+   },
+   "slices_pct": [
+    622.4279773630258,
+    1323.751579102745,
+    204.94118834417083
+   ],
+   "win_pct": 86.4264426984557
+  },
+  {
+   "PF": 1.3024208029456883,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 2.0,
+   "fees": 1144146.1371996973,
+   "final_equity": 2299367.589782084,
+   "funding": 1218.609953440323,
+   "green_periods": 3,
+   "maxDD_pct": 43.42426275946995,
+   "max_delta_fill_pct": 205.52786208280668,
+   "max_gross_leverage": 2.1434746281002224,
+   "min_equity_usdt": 25.0,
+   "min_margin_buffer_pct": 98.9282626859499,
+   "n": 5963,
+   "net_pct": 9197370.359128335,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.1
+   },
+   "slices_pct": [
+    8850.483418054753,
+    11357.440227886527,
+    795.5834579608979
+   ],
+   "win_pct": 87.20442730169378
+  },
+  {
+   "PF": 1.4214472392968291,
+   "bars_over_leverage": 0,
+   "delta_max_pct": 5.0,
+   "fees": 260300278.02553493,
+   "final_equity": 666279848.5794702,
+   "funding": -240511.45565377458,
+   "green_periods": 3,
+   "maxDD_pct": 39.11280594749121,
+   "max_delta_fill_pct": 505.3668052072058,
+   "max_gross_leverage": 5.893827160123127,
+   "min_equity_usdt": 25.0,
+   "min_margin_buffer_pct": 97.05308641993844,
+   "n": 7221,
+   "net_pct": 2665119294.3178806,
+   "params": {
+    "cover_mult": 1.0,
+    "stop_atr_mult": 0.5,
+    "trend_band": 0.1
+   },
+   "slices_pct": [
+    104575.74695593146,
+    33391.33808911248,
+    7491.330753340013
+   ],
+   "win_pct": 87.9241102340396
+  }
+ ],
+ "sizing": {
+  "delta_max_pct": 2.0,
+  "equity_pct": 1.0,
+  "init_usdt": 25.0,
+  "leverage": 10.0,
+  "maint_margin": 0.005
+ },
+ "snapshot": {
+  "atr_15m_pct": 0.3453138669212283,
+  "atr_pct_percentile_90d": 42.70833333333333,
+  "close": 1.3243,
+  "last_bar_utc": "2026-10-22T13:15:00.000",
+  "last_funding_rate_pct": 0.005301,
+  "outermost_level_pct": 1.7265693346061415,
+  "range_30d_hi": 1.6582,
+  "range_30d_lo": 1.2553,
+  "range_30d_position_pct": 17.125837676842885,
+  "realized_vol_daily_pct": 2.7112408009208924,
+  "rung_spacing_pct": 0.3453138669212283,
+  "stop_distance_pct": 1.8992262680667555,
+  "trend_band": 0.1,
+  "trend_strength": 0.008743312738467957
+ }
+}

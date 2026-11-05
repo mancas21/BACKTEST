@@ -1,0 +1,134 @@
+[
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "0f752f12c7acc9fa",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "82b84664bf0192df",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol XRPUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "c9eabf59bc2adde9",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "6d92238c699d176f",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "new_run_id": "9513a4e7e7fc11b8",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "new_run_id": "8afe2b70ee227f2d",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "new_run_id": "014f6c78bcfb02d6",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "01f65a4b84d35744",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "8b5aed6594d5a40f",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "9c1f86f46e4a20af",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "new_run_id": "c8b3c3b6b338de11",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "007e08ccd12e6797",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "new_run_id": "1b5ec0b23c89ed71",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol BTCUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "2b1eaba38db1943c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "new_run_id": "fbea0e1522e1e1f5",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "4d5c3d8cc084173d",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "f9b06448ac441c0f",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "986ae236af7e6ad5",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds5\", \"window\": \"full\"}'",
+  "new_run_id": "479331095afcb985",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds5\", \"window\": \"full\"}'",
+  "new_run_id": "0b78d5862a7bd066",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds5\", \"window\": \"full\"}'",
+  "new_run_id": "2e9a90c6eb633f2c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SPXUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "new_run_id": "326c037409ec1879",
+  "rc": 0,
+  "err": ""
+ }
+]

@@ -1,0 +1,74 @@
+====================================================================================================
+CANDIDATE 1 — WXYZ (Triple Three) pattern alone, spot mode, exit T1
+====================================================================================================
+  BTCUSDT   net   +9.25%  PF  1.57  n  26  WR 38.5%  DD   6.5% | 2020:+7.7%/7 2021:+2.1%/5 2022:-4.0%/4 2023:+2.3%/1 2024:+4.1%/3 2025:-0.8%/4 2026:-2.0%/2
+  ETHUSDT   net  +14.99%  PF  1.83  n  29  WR 41.4%  DD   4.9% | 2020:+4.5%/10 2021:+3.4%/4 2022:-2.0%/2 2023:+2.5%/1 2024:+1.9%/5 2025:+4.3%/3 2026:-0.3%/4
+  SOLUSDT   net  +17.50%  PF  2.19  n  27  WR 44.4%  DD   9.2% | 2020:-1.0%/1 2021:+14.2%/6 2022:-4.0%/4 2023:+3.8%/8 2024:+2.7%/1 2025:+1.0%/3 2026:+0.5%/4
+  SUIUSDT   net   +2.92%  PF  1.38  n  14  WR 42.9%  DD   3.8% | 2023:+1.7%/3 2024:+0.6%/3 2025:+2.7%/6 2026:-2.0%/2
+  XRPUSDT   net   +1.20%  PF  1.10  n  23  WR 34.8%  DD   9.9% | 2020:+3.4%/5 2021:+0.7%/3 2022:-2.0%/2 2023:-1.0%/1 2024:+0.7%/3 2025:-2.0%/2 2026:+1.5%/7
+  HYPEUSDT  net  +24.66%  PF  7.12  n   7  WR 42.9%  DD   4.4% | 2025:+19.6%/5 2026:+4.3%/2
+  SPXUSDT   net   -1.25%  PF  0.70  n   6  WR 33.3%  DD   5.1% | 2025:+0.5%/3 2026:-1.7%/3
+
+  POOLED (all symbols, one equity): PF 1.87  trades 132  green syms 6/7
+
+  -- per-symbol house gate --
+  BTCUSDT                            FAIL   ok PF 1.57 > 1.2 | ok cost/gross 6% < 40% | NO green 4/7 years | NO n 26 >= 30 | ok DD 6.5% < 40%
+  ETHUSDT                            FAIL   ok PF 1.83 > 1.2 | ok cost/gross 5% < 40% | ok green 5/7 years | NO n 29 >= 30 | ok DD 4.9% < 40%
+  SOLUSDT                            FAIL   ok PF 2.19 > 1.2 | ok cost/gross 5% < 40% | ok green 5/7 years | NO n 27 >= 30 | ok DD 9.2% < 40%
+  SUIUSDT                            FAIL   ok PF 1.38 > 1.2 | ok cost/gross 8% < 40% | ok green 3/4 years | NO n 14 >= 30 | ok DD 3.8% < 40%
+  XRPUSDT                            FAIL   NO PF 1.10 > 1.2 | ok cost/gross 9% < 40% | NO green 4/7 years | NO n 23 >= 30 | ok DD 9.9% < 40%
+  HYPEUSDT                           FAIL   ok PF 7.12 > 1.2 | ok cost/gross 1% < 40% | ok green 2/2 years | NO n 7 >= 30 | ok DD 4.4% < 40%
+  SPXUSDT                            FAIL   NO PF 0.70 > 1.2 | ok cost/gross 13% < 40% | NO green 1/2 years | NO n 6 >= 30 | ok DD 5.1% < 40%
+  -> 0/7 symbols pass the house gate
+
+  -- WALK-FORWARD: train 2023-2024, test 2025-2026 (OOS) --
+  BTCUSDT   IS   +11.5% PF  1.80 n  24  ->  OOS    -2.0% PF  0.00 n   2  inconclusive
+  ETHUSDT   IS   +15.3% PF  2.02 n  25  ->  OOS    -0.3% PF  0.93 n   4  inconclusive
+  SOLUSDT   IS   +16.9% PF  2.34 n  23  ->  OOS    +0.5% PF  1.26 n   4  inconclusive
+  SUIUSDT   IS    +5.0% PF  1.83 n  12  ->  OOS    -2.0% PF  0.00 n   2  inconclusive
+  XRPUSDT   IS    -0.3% PF  0.99 n  16  ->  OOS    +1.5% PF  1.49 n   7  inconclusive
+  HYPEUSDT  IS   +19.6% PF  6.07 n   5  ->  OOS    +4.3% PF   inf n   2  inconclusive
+  SPXUSDT   IS    +0.5% PF  1.25 n   3  ->  OOS    -1.7% PF  0.17 n   3  inconclusive
+
+  -- NEIGHBOURHOOD: is WXYZ alive across nearby settings? --
+    BTCUSDT pivot_len=5   n  32  net  +11.72%  PF  1.58
+    BTCUSDT pivot_len=8   n  26  net   +9.25%  PF  1.57
+    BTCUSDT pivot_len=11  n  19  net  +36.61%  PF  4.87
+    BTCUSDT pivot_len=14  n  19  net   -2.01%  PF  0.88
+
+====================================================================================================
+CANDIDATE 2 — ETH leverage mode: where does the +348% come from?
+====================================================================================================
+  2020:    +383.8%  (117 legs)
+  2021:      -5.6%  (93 legs)
+  2022:      +2.8%  (231 legs)
+  2023:      -0.6%  (21 legs)
+  2024:      +2.8%  (171 legs)
+  2025:      -3.9%  (132 legs)
+  2026:      -2.9%  (168 legs)
+
+  IS  (2019-2024)   +380.1%  PF 3.16  n 212
+  OOS (2025+)         -6.7%  PF 0.84  n 100
+  -> single-regime spike, not a strategy
+  best 5 trades contribute +245.4% of a +348.1% total (70% of the P&L)
+  2020 alone: 39 trades, +214.0% summed (39 of 311 total trades)
+
+====================================================================================================
+CANDIDATE 3 — the score, if the PATTERN is discarded entirely
+====================================================================================================
+  (the Pine's own 'Recommendation' row, long+short, exit T1)
+  BTCUSDT   net  -11.64%  PF  0.95  n 397
+  ETHUSDT   net  -28.80%  PF  0.91  n 538
+  SOLUSDT   net  -19.54%  PF  0.93  n 423
+  SUIUSDT   net  -16.88%  PF  0.91  n 300
+  XRPUSDT   net  -63.55%  PF  0.69  n 516
+  HYPEUSDT  net  -15.11%  PF  0.84  n  96
+  SPXUSDT   net   -1.12%  PF  1.01  n 169
+  Monotonicity check: mean forward 168b return must rise with the score.
+  BTCUSDT   bear  +0.93%  flat  +0.61%  mild-bull  +1.04%  strong-bull  +1.09%   NOT monotonic
+  ETHUSDT   bear  +1.28%  flat  +0.91%  mild-bull  +1.66%  strong-bull  +2.28%   NOT monotonic
+  SOLUSDT   bear  +1.49%  flat  +2.42%  mild-bull  +3.05%  strong-bull  +4.89%   monotonic
+  SUIUSDT   bear  +0.59%  flat  +0.73%  mild-bull  +1.51%  strong-bull  +1.58%   monotonic
+  XRPUSDT   bear  +0.87%  flat  +1.41%  mild-bull  +1.71%  strong-bull  +4.39%   monotonic
+  HYPEUSDT  bear  +3.41%  flat  +1.18%  mild-bull  +2.12%  strong-bull  +0.62%   NOT monotonic
+  SPXUSDT   bear  +2.58%  flat  +3.17%  mild-bull  -1.15%  strong-bull  -1.67%   NOT monotonic

@@ -1,0 +1,17 @@
+{
+  "total_return_pct": 224.67,
+  "bh_return_pct": 2670.04,
+  "excess_pp": -2445.37,
+  "max_dd_pct": -82.93,
+  "bh_max_dd_pct": -77.14,
+  "turnover_cost": 11458.6,
+  "funding_paid": -110326.01,
+  "sharpe": 0.59,
+  "positive_months_pct": 45.9,
+  "worst_month_pct": -32.66,
+  "n_bars": 62548,
+  "n_pairs": 11,
+  "final_weights": {
+    "BNBUSDT": 0.4
+  }
+}

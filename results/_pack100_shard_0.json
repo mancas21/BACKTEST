@@ -1,0 +1,212 @@
+{
+  "A01-15m": {
+    "run_id": "0b4ac2680e4c5f0e",
+    "num": 1,
+    "name": "RSI14 L/S mean-reversion",
+    "sym": "SPXUSDT",
+    "tf": "15m"
+  },
+  "A03-5m": {
+    "run_id": "286c276453e06510",
+    "num": 3,
+    "name": "Bollinger(20,2) reversion",
+    "sym": "SPXUSDT",
+    "tf": "5m"
+  },
+  "A08-1h": {
+    "run_id": "f0e39b4d2b669f5d",
+    "num": 8,
+    "name": "Williams %R reversal (long)",
+    "sym": "HYPEUSDT",
+    "tf": "1h"
+  },
+  "A11-15m": {
+    "run_id": "109a7d433651d4a0",
+    "num": 11,
+    "name": "session-VWAP deviation reversion",
+    "sym": "SUIUSDT",
+    "tf": "15m"
+  },
+  "A13-5m": {
+    "run_id": "4b5a9f4efc49e0f2",
+    "num": 13,
+    "name": "consecutive-down-bars bounce (long)",
+    "sym": "BTCUSDT",
+    "tf": "5m"
+  },
+  "B17-1h": {
+    "run_id": "0e0d2501a65f1a81",
+    "num": 17,
+    "name": "EMA 20/50 trend + EMA200 filter (long)",
+    "sym": "HYPEUSDT",
+    "tf": "1h"
+  },
+  "B20-15m": {
+    "run_id": "3a568e0ea9a0083d",
+    "num": 20,
+    "name": "ADX + DI crossover (long)",
+    "sym": "ETHUSDT",
+    "tf": "15m"
+  },
+  "B22-5m": {
+    "run_id": "c41c04daf7586e4d",
+    "num": 22,
+    "name": "Ichimoku cloud breakout (long)",
+    "sym": "JUPUSDT",
+    "tf": "5m"
+  },
+  "B26-1h": {
+    "run_id": "3961291f395783b3",
+    "num": 26,
+    "name": "triple-EMA pullback (long)",
+    "sym": "HYPEUSDT",
+    "tf": "1h"
+  },
+  "B30-15m": {
+    "run_id": "49c2a2b83e15fd63",
+    "num": 30,
+    "name": "Turtle 55/20 breakout",
+    "sym": "JUPUSDT",
+    "tf": "15m"
+  },
+  "C34-15m": {
+    "run_id": "df6fb42642cc8d03",
+    "num": 34,
+    "name": "NR7 breakout",
+    "sym": "HYPEUSDT",
+    "tf": "15m"
+  },
+  "C36-5m": {
+    "run_id": "a3917cefb09e4070",
+    "num": 36,
+    "name": "ATR expansion momentum (long)",
+    "sym": "ETHUSDT",
+    "tf": "5m"
+  },
+  "C39-1h": {
+    "run_id": "cd11763846daf82f",
+    "num": 39,
+    "name": "previous-day high/low breakout",
+    "sym": "SPXUSDT",
+    "tf": "1h"
+  },
+  "C43-5m": {
+    "run_id": "c8b09d9800ba53e9",
+    "num": 43,
+    "name": "Donchian(55) + volatility filter",
+    "sym": "SUIUSDT",
+    "tf": "5m"
+  },
+  "D46-1h": {
+    "run_id": "0654d1e8defd038e",
+    "num": 46,
+    "name": "ROC(24) momentum (long)",
+    "sym": "JUPUSDT",
+    "tf": "1h"
+  },
+  "D50-15m": {
+    "run_id": "2673529dacd42882",
+    "num": 50,
+    "name": "Elder Impulse (long)",
+    "sym": "HYPEUSDT",
+    "tf": "15m"
+  },
+  "D52-5m": {
+    "run_id": "84ca821cafb8db23",
+    "num": 52,
+    "name": "TRIX(15) zero-cross",
+    "sym": "ETHUSDT",
+    "tf": "5m"
+  },
+  "D55-1h": {
+    "run_id": "d39c21a3af3fa266",
+    "num": 55,
+    "name": "momentum acceleration",
+    "sym": "SPXUSDT",
+    "tf": "1h"
+  },
+  "E59-15m": {
+    "run_id": "79776c65e26e0eed",
+    "num": 59,
+    "name": "Chaikin Money Flow (long)",
+    "sym": "SUIUSDT",
+    "tf": "15m"
+  },
+  "E61-5m": {
+    "run_id": "a5af38bb9060489e",
+    "num": 61,
+    "name": "delta-proxy momentum (long)",
+    "sym": "BTCUSDT",
+    "tf": "5m"
+  },
+  "E65-1h": {
+    "run_id": "7607c099fc6ef8e9",
+    "num": 65,
+    "name": "volume-profile POC",
+    "sym": "SOLUSDT",
+    "tf": "1h"
+  },
+  "F68-15m": {
+    "run_id": "ab11d9e0d116a63b",
+    "num": 68,
+    "name": "order-block retest",
+    "sym": "ETHUSDT",
+    "tf": "15m"
+  },
+  "F70-5m": {
+    "run_id": "9a27704b00aa89d8",
+    "num": 70,
+    "name": "pin-bar at EMA(50) (long)",
+    "sym": "JUPUSDT",
+    "tf": "5m"
+  },
+  "F74-1h": {
+    "run_id": "6ab39e80e1230277",
+    "num": 74,
+    "name": "market-structure HH/HL trend",
+    "sym": "HYPEUSDT",
+    "tf": "1h"
+  },
+  "F77-15m": {
+    "run_id": "15d4134496ccca71",
+    "num": 77,
+    "name": "previous-day low sweep",
+    "sym": "BTCUSDT",
+    "tf": "15m"
+  },
+  "G82-1h": {
+    "run_id": "71850d500d90e1c9",
+    "num": 82,
+    "name": "weekend effect (long)",
+    "sym": "BTCUSDT",
+    "tf": "1h"
+  },
+  "H100-15m": {
+    "run_id": "09ca8bd9aba563db",
+    "num": 100,
+    "name": "HYPE/BTC relative-strength trend (dollar-neutral)",
+    "sym": "HYPEUSDT+BTCUSDT",
+    "tf": "15m"
+  },
+  "H89-5m": {
+    "run_id": "e0da9630309222df",
+    "num": 89,
+    "name": "BTC-regime-filtered trend (long)",
+    "sym": "SOLUSDT+BTCUSDT",
+    "tf": "5m"
+  },
+  "H93-1h": {
+    "run_id": "70d205e8b3533fbc",
+    "num": 93,
+    "name": "Bollinger + RSI + volume confluence (long)",
+    "sym": "BTCUSDT",
+    "tf": "1h"
+  },
+  "H99-15m": {
+    "run_id": "016842ce08498267",
+    "num": 99,
+    "name": "ETH/BTC ratio mean-reversion (dollar-neutral)",
+    "sym": "ETHUSDT+BTCUSDT",
+    "tf": "15m"
+  }
+}

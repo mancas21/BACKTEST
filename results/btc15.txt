@@ -1,0 +1,42 @@
+====================================================================================================
+CVRMD-v1.1 on 15m — 1 symbols, lookbacks x4, ema_cum CVD, one-shot divergence, 6bps+5bps/side
+  BTCUSDT    130544 bars  ~45.3 months  2023..2026
+  round-trip cost 0.22%  |  cost/R at 1.5xATR on 15m was 0.58x (marginal)
+
+====================================================================================================
+0. SIGNAL DENSITY vs LOOKBACK SCALE — is the signal even alive at 15m?
+====================================================================================================
+  A x4 scale means a 60-bar max divergence span becomes 240 bars = 60h on 15m
+  vs 60h on 1H. That is 15m bars needing the same WALL-CLOCK, so trades
+  get 4x rarer per bar but 4x more frequent per hour... unless the
+  pivot structure itself changes. Measure instead of assuming.
+
+  sym                     x1               x2               x3               x4               x6
+  BTCUSDT      208 ( 4.6/mo)     99 ( 2.2/mo)     47 ( 1.0/mo)     33 ( 0.7/mo)     22 ( 0.5/mo)
+
+====================================================================================================
+1. ATR-MULTIPLE SWEEP — the parameter that decides survival
+====================================================================================================
+  sym                 x1.5           x2.0           x2.5           x3.0           x4.0           x5.0
+    BTCUSDT x1.5  net    -7.5%  PF  0.66  n   33  DD  10.7%  WR 39.4%  cost/R 0.38x
+    BTCUSDT x2.0  net    -8.3%  PF  0.61  n   32  DD  12.0%  WR 34.4%  cost/R 0.29x
+    BTCUSDT x2.5  net    -8.5%  PF  0.59  n   32  DD  12.2%  WR 31.2%  cost/R 0.23x
+    BTCUSDT x3.0  net    -2.9%  PF  0.85  n   32  DD   7.7%  WR 37.5%  cost/R 0.19x
+    BTCUSDT x4.0  net    +3.0%  PF  1.21  n   31  DD   5.0%  WR 41.9%  cost/R 0.14x
+    BTCUSDT x5.0  net    +5.1%  PF  1.36  n   31  DD   4.8%  WR 48.4%  cost/R 0.12x
+
+  best ATR multiple per symbol:
+    BTCUSDT   x5.0   net    +5.1%  PF  1.36  n 31
+
+====================================================================================================
+2. FULL RUN at the best ATR multiple per symbol — house gate
+====================================================================================================
+  BTCUSDT   x5.0  net     +5.1%  PF  1.36  n   31  DD   4.8%  WR 48.4%  | 2023:+4.2% 2024:-1.9% 2025:+1.4% 2026:+1.4%
+    BTCUSDT 15m x5.0           PASS  ok PF 1.36>1.2 | ok cost/gross 17%<40 | ok green 3/4yr | ok n 31>=30 | ok DD 4.8%<45
+
+  -> 1/1 symbols pass the house gate
+
+====================================================================================================
+3. NEIGHBOURHOOD — vary the lookback scale x2/x3/x4/x6 at the best ATR
+====================================================================================================
+  BTCUSDT   x2:     +5% PF 1.11 n  97  |  x3:     -9% PF 0.69 n  47  |  x4:     +5% PF 1.36 n  31  |  x6:     +5% PF 1.49 n  22

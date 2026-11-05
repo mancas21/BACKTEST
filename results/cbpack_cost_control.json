@@ -1,0 +1,136 @@
+{
+  "cells": [
+    {
+      "run_id": "b4b13fe5a6120e68",
+      "seconds": 0.9,
+      "sym": "BTCUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "edbefc5b2592d29c",
+      "seconds": 0.9,
+      "sym": "ETHUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "2f0684e8f1457428",
+      "seconds": 0.8,
+      "sym": "HYPEUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "cf055c3ff45a9c9a",
+      "seconds": 1.0,
+      "sym": "JUPUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "ca03a176425b8d76",
+      "seconds": 1.1,
+      "sym": "SOLUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "e9c756adeb09334d",
+      "seconds": 1.1,
+      "sym": "SUIUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "2cfa0d31d2122da2",
+      "seconds": 1.1,
+      "sym": "XRPUSDT",
+      "tf": "1h"
+    },
+    {
+      "run_id": "60896ccc75dcd8b0",
+      "seconds": 3.6,
+      "sym": "BTCUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "51d96017fb8b1129",
+      "seconds": 3.5,
+      "sym": "ETHUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "e8b50fd959ce2e9b",
+      "seconds": 2.5,
+      "sym": "HYPEUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "a490560fc87080c7",
+      "seconds": 2.9,
+      "sym": "JUPUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "f1e8381a7133e767",
+      "seconds": 3.2,
+      "sym": "SOLUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "e62205adc5cc1a34",
+      "seconds": 3.1,
+      "sym": "SUIUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "a1dd7680e1a5f6e5",
+      "seconds": 3.4,
+      "sym": "XRPUSDT",
+      "tf": "15m"
+    },
+    {
+      "run_id": "60c20d2743bfd37f",
+      "seconds": 10.5,
+      "sym": "BTCUSDT",
+      "tf": "5m"
+    },
+    {
+      "run_id": "0f65b683264d46ae",
+      "seconds": 9.5,
+      "sym": "ETHUSDT",
+      "tf": "5m"
+    },
+    {
+      "run_id": "3d5ac1a3995ca2b0",
+      "seconds": 6.7,
+      "sym": "HYPEUSDT",
+      "tf": "5m"
+    },
+    {
+      "run_id": "0f8affb10e41645c",
+      "seconds": 9.1,
+      "sym": "JUPUSDT",
+      "tf": "5m"
+    },
+    {
+      "run_id": "c0075a20867a8331",
+      "seconds": 9.3,
+      "sym": "SOLUSDT",
+      "tf": "5m"
+    },
+    {
+      "run_id": "124b463d2e99479b",
+      "seconds": 9.5,
+      "sym": "SUIUSDT",
+      "tf": "5m"
+    },
+    {
+      "run_id": "41a373bf7e5f90bd",
+      "seconds": 9.5,
+      "sym": "XRPUSDT",
+      "tf": "5m"
+    }
+  ],
+  "gross_params": {
+    "fee_bps": 0.0,
+    "slippage_bps": 0.0
+  },
+  "net_params": {},
+  "note": "fee_bps=0, slippage_bps=0 -> gross (pre-cost) PF"
+}

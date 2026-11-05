@@ -1,0 +1,28 @@
+QS trade-flow audit — qs_flow_strats.py
+run 2026-10-30T23:22:14+00:00
+qs_flow_strats.py sha256: 2a882d0de640e760f9e8aa4ca40a1f88523b1c0c27116f6d4e726b1157137082
+
+[PASS] F1a imbalance = (2*tb - v)/v
+[PASS] F1b delta = 2*tb - v
+[PASS] F1c sell share = 1 - buy share
+[PASS] F2a QS-043 fires when the 3-bar persistence completes on a prior-high break (bar 54, rising edge) — events at [np.int64(54)]
+[PASS] F2b QS-043 requires the prior-high break
+[PASS] F3a QS-044 bullish divergence fires at the SECOND pivot's confirmation (pivot 12 -> bar 15)
+[PASS] F3b QS-044 stop anchored at the second pivot low — stop=98.0
+[PASS] F3c QS-044 target = 2R from the signal close
+[PASS] F3d QS-044 pivots under 0.5*ATR apart are blocked (no_trade)
+[PASS] F4a QS-048 short fade: buy run + efficiency collapse + down-closing bar — events at [np.int64(216)]
+[PASS] F4b QS-048 stop at the run extreme (capped at 3*ATR)
+[PASS] F5a QS-049 long fires on the confirmation close above the absorption high
+[PASS] F5b QS-049 stop at the absorption bar's low
+[PASS] F6a QS-050 long: price down > 1.5*ATR over 6 bars with positive delta6, on an up-closing bar — events at [np.int64(20)]
+[PASS] F6b QS-050 |delta| < 5% of volume is blocked
+[PASS] F7 QS-053 impact slope == rolling cov/var == lstsq beta — cov/var=0.000003 lstsq=0.000003
+[PASS] F8a QS-058 short fade fires on the flip bar after the burst
+[PASS] F8b QS-058 stop at the burst extreme (4-bar high)
+[PASS] F9a QS-093 VWAP reclaim with 2-bar flow confluence fires (after the first hour) — events at [np.int64(13)]
+[PASS] F9b QS-093 first-60-minutes filter active (no event at 00:00 UTC)
+[PASS] R1 truncation causality on real taker data
+[PASS] R2 determinism
+
+TOTAL: 22 PASS, 0 FAIL

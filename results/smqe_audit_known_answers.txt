@@ -1,0 +1,51 @@
+SMQE v2 engine audit — code/smqe_engine.py
+run 2026-10-25T22:43:21+00:00
+engine sha256: see artifact provenance; the audit pins the file as imported
+engine sha256: ff6af0dc1877707e50d64823feba38840431aeb7a3bcde8aec68865b37fc5f14
+
+[PASS] A1 ema_pine == naive recursion (n=3)
+[PASS] A2 rma_pine == SMA-seeded Wilder (n=14)
+[PASS] A3 atr_pine == rma(true_range)
+[PASS] A4 rsi_pine == canonical Wilder RSI
+[PASS] A5a vwap == volume-weighted mean/sd of hlc3 (direct formula)
+[PASS] A5b vwap anchor resets at the UTC day boundary
+[PASS] A6a pivot low/high found once, confirmed at bar 6, no divergence
+[PASS] A6b tie (7,7) -> no pivot at either bar (strict both sides)
+[PASS] A7a bullish divergence fires on the second confirmation bar
+[PASS] A7b osc must make a HIGHER low for a bull divergence
+[PASS] A7c pivot separation beyond max_div_bars=60 -> no signal
+[PASS] A8 signals() runs on the tiny series and gates compose
+[PASS] A10 stop distance floor (0.2% of price) binds over tiny ATR
+[PASS] E1 sizing qty = equity*min(risk/stopFrac,lev)/close (open pos)
+[PASS] E1b entry fill = close*(1+slip), fee = notional*fee
+[PASS] E2 0.2% floor binds -> mult capped at maxLev=3, floor hit counted
+[PASS] E3a flat run leaves the position open (n_open=1)
+[PASS] E3b long TP1 uses the favorable VWAP level
+[PASS] E3c VWAP target beyond 2R -> TP2 (100% of remaining) fills at 2R
+[PASS] E4 TP1 half at 1.5R then stop on the remainder (hand PnL)
+[PASS] E5a long stop gapped through the open fills AT THE OPEN
+[PASS] E5b SL-first on ties: full position at the stop, no TP1
+[PASS] E6 short: TP1 half at 1.5R, stop above closes the rest
+[PASS] E6b short stop gapped through the open fills AT THE OPEN
+[PASS] E7 flip books the long (reason=flip) and opens a short same close
+[PASS] E8a cooldown blocks a signal 1 bar after entry (position stays)
+[PASS] E8b same-side signal while positioned is a no-op (pyramiding=0)
+[PASS] E8c opposite signal 4 bars later flips (cooldown = 3 ok)
+[PASS] E9a long funding accrues from the bar after entry
+[PASS] E9b short RECEIVES funding (fund_paid < 0)
+[PASS] E10 daily breaker blocks same-day re-entry, resets next day
+[PASS] E11 equity-DD killswitch (30%) halts entries permanently
+[PASS] E12a fee identity: fees == rate x (notional_in + notional_out)
+[PASS] E12b cash identity: eq == INIT + closed pnl + open adj
+[PASS] E13 next_open: fills at next open, bracket from signal close, stop live on the fill bar
+[PASS] E13b next_open funding accrues from the fill bar (one bar later)
+[PASS] E14 pos mask + in-market comparator (held bars compound)
+[PASS] E15 flip sizing uses PRE-flip marked equity (fee>0 distinguishes)
+[PASS] R1 run_symbol is deterministic (byte-identical metrics)
+[PASS] R2 PF/WR/n recomputed from the trade table match the metrics
+[PASS] R3 fee identity on the real trade table (5 bps/side)
+[PASS] R4 cash identity: final equity == INIT + sum(closed pnl)
+[PASS] R5 no-lookahead: prefix signals and closed trades are identical — (41 closed trades before the cut)
+[PASS] R6 pine-window pass runs and trades only from 2024
+
+TOTAL: 44 PASS, 0 FAIL

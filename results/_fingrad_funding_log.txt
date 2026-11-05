@@ -1,0 +1,4 @@
+RC=2 python code/vrun.py run --strategy fingrad --tf 1h --symbol NEARUSDT --params '{"preset": 
+3a46a19bcec9ec9e python code/vrun.py run --strategy fingrad --tf 1h --symbol SUIUSDT --params '{"preset": "
+98d8a73f90eb898f python code/vrun.py run --strategy fingrad --tf 1h --symbol ETHUSDT --params '{"preset": "
+DONE 2 / 3

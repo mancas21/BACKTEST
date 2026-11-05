@@ -1,0 +1,854 @@
+[
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "e1cd14baa605aa54"
+  ],
+  "new_run_id": "ed387f4ba682f64b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "55cbf103e822ae30"
+  ],
+  "new_run_id": "f911cab370862ebd",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SOLUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "bfe50d8919258f06"
+  ],
+  "new_run_id": "2d0af6e8df1d21ef",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol XRPUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "11432b7a35eb6fbe"
+  ],
+  "new_run_id": "437c47539b4dc9ae",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "37916f001a9642ff"
+  ],
+  "new_run_id": "e2aa633590822072",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "afa8324fb46f8ff4"
+  ],
+  "new_run_id": "337bf8ed1c2ae77b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "9ed94a5bf977bfe1"
+  ],
+  "new_run_id": "75f27f3dd6d92914",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "21e2bcb475fd6fd3"
+  ],
+  "new_run_id": "7e2a351fb3d6de1a",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50d --tf 30m --symbol SUIUSDT --params '{\"strat\": 5}'",
+  "old_run_ids": [
+   "24702522793f8fe0"
+  ],
+  "new_run_id": "fc415421341c54b6",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol BTCUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "ba388d5123c2b42b"
+  ],
+  "new_run_id": "c900c3bfb85261b1",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "783e8e3b0b57670a"
+  ],
+  "new_run_id": "2bc9516fabc8ecd8",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "f68de1cf973c8037"
+  ],
+  "new_run_id": "75d0fc12080ef957",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol DOGEUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "26249a763343bca4"
+  ],
+  "new_run_id": "79ddecc6e7ea40eb",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "c20fbec817f6087d"
+  ],
+  "new_run_id": "e0679f98e4dfb6ba",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol AVAXUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "7a40c9c3de84ba78"
+  ],
+  "new_run_id": "ecf8f6a13d502014",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ADAUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "130d28759c2d5972"
+  ],
+  "new_run_id": "bfede167bb6e26bc",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT",
+  "old_run_ids": [
+   "295c21687960fadd"
+  ],
+  "new_run_id": "295c21687960fadd",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "old_run_ids": [
+   "90ad4a5727379013",
+   "90ad4a5727379013",
+   "90ad4a5727379013"
+  ],
+  "new_run_id": "db89577d5f9d9d34",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy emaadx --tf 1h --symbol LINKUSDT --params '{\"costs\": \"author\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "53eceda66d866068"
+  ],
+  "new_run_id": "d91d4860ad35c60d",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol BNBUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "621aad7cc886dd58"
+  ],
+  "new_run_id": "b1ce74d87fca38ce",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT --params '{\"delta_max_pct\": 2.0, \"equity_pct\": 1.0, \"init\": 25, \"leverage\": 10.0}'",
+  "old_run_ids": [
+   "fe5c359a22c8dffe"
+  ],
+  "new_run_id": "fe5c359a22c8dffe",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50d --tf 1h --symbol ETHUSDT --params '{\"strat\": 8}'",
+  "old_run_ids": [
+   "cdce9bf5c26d097f"
+  ],
+  "new_run_id": "23010fdc3a262942",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "55647db4bd3f1922"
+  ],
+  "new_run_id": "ca1b404c68016fe0",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50 --tf 4h --symbol SOLUSDT --params '{\"strat\": 21}'",
+  "old_run_ids": [
+   "056f65013c9bc22f"
+  ],
+  "new_run_id": "a7393f703e992b6b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy emaadx --tf 1h --symbol ETHUSDT",
+  "old_run_ids": [
+   "8c1c3acceb9e957f"
+  ],
+  "new_run_id": "1dd3ec2f1f5c1200",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy fingrad --tf 1h --symbol ETHUSDT --params '{\"preset\": \"day\"}'",
+  "old_run_ids": [
+   "cfc08b966ac07b08"
+  ],
+  "new_run_id": "e57ffa5864f2192c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy q10 --tf 1h --symbol CARD2 --params '{\"card\": \"CARD2\"}'",
+  "old_run_ids": [
+   "76955428d8de4012"
+  ],
+  "new_run_id": "b0431920216dbe05",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "old_run_ids": [
+   "0c8732e7a5562c2e",
+   "0c8732e7a5562c2e"
+  ],
+  "new_run_id": "ded7cca009e13445",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol LINKUSDT --params '{\"costs\": \"author\", \"strat\": \"ds5\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "365bef751f370f6c"
+  ],
+  "new_run_id": "10c772d303374d26",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack100 --tf 15m --symbol HYPEUSDT --params '{\"strat\": \"F74-15m\"}'",
+  "old_run_ids": [
+   "3223187f21cf6708"
+  ],
+  "new_run_id": "3223187f21cf6708",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 15m --symbol XRPUSDT",
+  "old_run_ids": [
+   "4c6b3e46b4ab1533"
+  ],
+  "new_run_id": "c6695bd28056dab3",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-004\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "fd41b0f15e0e2af1"
+  ],
+  "new_run_id": "fd41b0f15e0e2af1",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack100 --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"B17-1h\"}'",
+  "old_run_ids": [
+   "0e0d2501a65f1a81"
+  ],
+  "new_run_id": "0e0d2501a65f1a81",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 1h --symbol AVAXUSDT",
+  "old_run_ids": [
+   "80ed06ac9997dd63"
+  ],
+  "new_run_id": "f0b5da9763ca3402",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 1h --symbol BNBUSDT",
+  "old_run_ids": [
+   "79cb2fba8cfc251c"
+  ],
+  "new_run_id": "7059e662c6d737b5",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-005\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "1736fef5a3db08ce"
+  ],
+  "new_run_id": "1736fef5a3db08ce",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-005\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "272321d63827a8ad"
+  ],
+  "new_run_id": "272321d63827a8ad",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack2 --tf 1h --symbol SPXUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds7\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "b898dfed4e6f2395"
+  ],
+  "new_run_id": "b898dfed4e6f2395",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol ETHUSDT --params '{\"costs\": \"author\", \"strat\": \"ds5\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "7e171a9b30d1b41c"
+  ],
+  "new_run_id": "689f6f9c9d8d8c39",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 1h --symbol SPXUSDT",
+  "old_run_ids": [
+   "f2aa1050b118e54f"
+  ],
+  "new_run_id": "f2aa1050b118e54f",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 1h --symbol SOLUSDT",
+  "old_run_ids": [
+   "40c1a07e484e0205"
+  ],
+  "new_run_id": "fb995a742183a68b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack2 --tf 1h --symbol DOGEUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds7\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "b5c18361f8cb3659"
+  ],
+  "new_run_id": "5e8384d3844eb3c2",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-004\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "ec9bbc4dc8c8f218"
+  ],
+  "new_run_id": "ec9bbc4dc8c8f218",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack2 --tf 1h --symbol SOLUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds7\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "de5a02eb67f6100a"
+  ],
+  "new_run_id": "edc6c3f19c12601c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SUIUSDT --params '{\"costs\": \"author\", \"strat\": \"ds5\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "7b6eb3ffd11c7b9f"
+  ],
+  "new_run_id": "a6c05e88742d3f6f",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "old_run_ids": [
+   "507151e1db6eda7e"
+  ],
+  "new_run_id": "c1f3df39b37c1d2b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 15m --symbol ETHUSDT",
+  "old_run_ids": [
+   "118526bf08e1de28"
+  ],
+  "new_run_id": "724896ef01d97690",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{\"strat\": \"QS-009\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "fb57f0f55dca030c"
+  ],
+  "new_run_id": "fb57f0f55dca030c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-006\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "d9d44100b54c4c40"
+  ],
+  "new_run_id": "d9d44100b54c4c40",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack2 --tf 1h --symbol NEARUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds7\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "d9bab10e9203cd71"
+  ],
+  "new_run_id": "bf44523b2cc8a6e8",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{\"strat\": \"QS-006\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "72dbbae9805ec7f1"
+  ],
+  "new_run_id": "72dbbae9805ec7f1",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50d --tf 4h --symbol JUPUSDT --params '{\"strat\": 6}'",
+  "old_run_ids": [
+   "3bb1691c2447fc38"
+  ],
+  "new_run_id": "3bb1691c2447fc38",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack100 --tf 1h --symbol ETHUSDT --params '{\"strat\": \"C44-1h\"}'",
+  "old_run_ids": [
+   "4eed428adc7d4237"
+  ],
+  "new_run_id": "4eed428adc7d4237",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 1h --symbol ETHUSDT",
+  "old_run_ids": [
+   "aa84bbc564f36008"
+  ],
+  "new_run_id": "6709e6de73b6b6d4",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50 --tf 1h --symbol BTCUSDT --params '{\"strat\": 46}'",
+  "old_run_ids": [
+   "be0a85f7ab2b522c"
+  ],
+  "new_run_id": "1b13cbd18f8b00eb",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-009\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "454e3e81dfa2e59c"
+  ],
+  "new_run_id": "454e3e81dfa2e59c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "old_run_ids": [
+   "610f32bd0e580fbd",
+   "610f32bd0e580fbd"
+  ],
+  "new_run_id": "2e823fa306c91366",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-006\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "55f12badd0a22027"
+  ],
+  "new_run_id": "55f12badd0a22027",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT",
+  "old_run_ids": [
+   "0b1e2730fa8c12b8"
+  ],
+  "new_run_id": "10f3696f3f726a90",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "old_run_ids": [
+   "68c93ae390084b18",
+   "68c93ae390084b18",
+   "68c93ae390084b18"
+  ],
+  "new_run_id": "68c93ae390084b18",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-002\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "4a96ebe79c53c257"
+  ],
+  "new_run_id": "4a96ebe79c53c257",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-004\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "5a6215ec7e78da46"
+  ],
+  "new_run_id": "5a6215ec7e78da46",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-006\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "ae0e834526e9b5bc"
+  ],
+  "new_run_id": "ae0e834526e9b5bc",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-003\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "b84bc05f09d574d8"
+  ],
+  "new_run_id": "b84bc05f09d574d8",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-006\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "2004f74a0e4fc2cc"
+  ],
+  "new_run_id": "2004f74a0e4fc2cc",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol BTCUSDT",
+  "old_run_ids": [
+   "2d4b2a301d098ef6"
+  ],
+  "new_run_id": "2d35be46c23947b6",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50d --tf 1h --symbol HYPEUSDT --params '{\"strat\": 24}'",
+  "old_run_ids": [
+   "2f8c28d0cdc329bf"
+  ],
+  "new_run_id": "7dc1fe32b0e83a91",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 15m --symbol HYPEUSDT",
+  "old_run_ids": [
+   "5b493f43c891073d"
+  ],
+  "new_run_id": "ff5e05876de4f879",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy botstrat --tf 1h --symbol BTCUSDT",
+  "old_run_ids": [
+   "03ccd1e99e274c87"
+  ],
+  "new_run_id": "a4f19ccd7cbc61bd",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "old_run_ids": [
+   "9a2c952d550ad410"
+  ],
+  "new_run_id": "44f6ae02bb2fe93c",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 15m --symbol SOLUSDT --params '{\"strat\": \"QS-001\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "21b17af04bcb5ec2"
+  ],
+  "new_run_id": "21b17af04bcb5ec2",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-001\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "41ae8c79fe005541"
+  ],
+  "new_run_id": "41ae8c79fe005541",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-007\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "6fa01cbf719f29d0"
+  ],
+  "new_run_id": "6fa01cbf719f29d0",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol JUPUSDT --params '{\"strat\": \"QS-003\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "a4cfe2e19afc2b4b"
+  ],
+  "new_run_id": "a4cfe2e19afc2b4b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-004\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "1138f99c7c8da7b2"
+  ],
+  "new_run_id": "1138f99c7c8da7b2",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cvrmd --tf 1h --symbol SUIUSDT",
+  "old_run_ids": [
+   "6c0d6968b61b0871"
+  ],
+  "new_run_id": "00c8c19179ea05ba",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy fingrad --tf 1h --symbol SUIUSDT --params '{\"sig_mode\": \"b\"}'",
+  "old_run_ids": [
+   "d954d5040a35b06e"
+  ],
+  "new_run_id": "ed06fc465283ef77",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack50 --tf 4h --symbol SUIUSDT --params '{\"strat\": 5}'",
+  "old_run_ids": [
+   "8321c904af22c0ad"
+  ],
+  "new_run_id": "1300b325a1544451",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-005\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "eb3b1a3ddc8932d4"
+  ],
+  "new_run_id": "eb3b1a3ddc8932d4",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy q10 --tf 1h --symbol CARD1 --params '{\"card\": \"CARD1\"}'",
+  "old_run_ids": [
+   "0f23886c0607a21a"
+  ],
+  "new_run_id": "ff7a9fb65535f1f2",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{\"strat\": \"QS-001\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "96e6d011954d91ee"
+  ],
+  "new_run_id": "96e6d011954d91ee",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "88bc7c612612f5f8"
+  ],
+  "new_run_id": "88bc7c612612f5f8",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-003\", \"variant\": \"two-sided\"}'",
+  "old_run_ids": [
+   "4f39cf4deaaf88ab"
+  ],
+  "new_run_id": "4f39cf4deaaf88ab",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 15m --symbol BTCUSDT --params '{\"strat\": \"QS-001\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "0726c6ee30c1bc68"
+  ],
+  "new_run_id": "0726c6ee30c1bc68",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{\"strat\": \"QS-004\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "21279f104dbb17ae"
+  ],
+  "new_run_id": "21279f104dbb17ae",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol NEARUSDT --params '{\"costs\": \"author\", \"strat\": \"ds3\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "2a900e46df06499a"
+  ],
+  "new_run_id": "d30fec3c74816f5a",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy cvrmd --tf 1h --symbol SOLUSDT",
+  "old_run_ids": [
+   "1929d0f6c93a6bab"
+  ],
+  "new_run_id": "a6c4bd008879771b",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy pack100 --tf 15m --symbol SPXUSDT --params '{\"strat\": \"A01-15m\"}'",
+  "old_run_ids": [
+   "0b4ac2680e4c5f0e"
+  ],
+  "new_run_id": "0b4ac2680e4c5f0e",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 15m --symbol HYPEUSDT --params '{\"strat\": \"QS-001\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "fb4cda85b88aa87a"
+  ],
+  "new_run_id": "fb4cda85b88aa87a",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy smqe --tf 1h --symbol SOLUSDT",
+  "old_run_ids": [
+   "70cb5ae94c926993"
+  ],
+  "new_run_id": "35adfe3a49477fd1",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy dspack --tf 1h --symbol SPXUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "dc9d4cdab4c59815"
+  ],
+  "new_run_id": "dc9d4cdab4c59815",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy fingrad --tf 1h --symbol NEARUSDT --params '{\"preset\": \"day\"}'",
+  "old_run_ids": [
+   "3a95eb2619db6e5b"
+  ],
+  "new_run_id": "b01a057355b758cd",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy qs --tf 15m --symbol SUIUSDT --params '{\"strat\": \"QS-006\", \"variant\": \"long-only\"}'",
+  "old_run_ids": [
+   "82d8781d8e89b50a"
+  ],
+  "new_run_id": "82d8781d8e89b50a",
+  "rc": 0,
+  "err": ""
+ },
+ {
+  "cmd": "python code/vrun.py run --strategy mpv3 --tf 1h --symbol PORTFOLIO --params '{\"costs\": \"repo\", \"strat\": \"MP-V3-S10\", \"window\": \"full\"}'",
+  "old_run_ids": [
+   "00d2a8549e6c898d"
+  ],
+  "new_run_id": "e36bd0df664d7db5",
+  "rc": 0,
+  "err": ""
+ }
+]

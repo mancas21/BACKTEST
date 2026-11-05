@@ -1,0 +1,296 @@
+{
+  "1": {
+    "code": "Q01",
+    "name": "VWAP bounce",
+    "run_id": "37672f4967910d94",
+    "sym": "SPCX",
+    "tf": "5m"
+  },
+  "10": {
+    "code": "Q10",
+    "name": "Bollinger breakout",
+    "run_id": "5c699085d3306b3e",
+    "sym": "SOLUSDT",
+    "tf": "3m"
+  },
+  "12": {
+    "code": "Q12",
+    "name": "EMA 9/21 cross",
+    "run_id": "d000c18cb7300359",
+    "sym": "SPCX",
+    "tf": "15m"
+  },
+  "13": {
+    "code": "Q13",
+    "name": "POC bounce",
+    "run_id": "f6f079f9962070cb",
+    "sym": "ETHUSDT",
+    "tf": "30m"
+  },
+  "14": {
+    "code": "Q14",
+    "name": "Bollinger breakout",
+    "run_id": "4e77a1be6108f0af",
+    "sym": "BTCUSDT",
+    "tf": "3m"
+  },
+  "15": {
+    "code": "Q15",
+    "name": "stochastic cross",
+    "run_id": "70f97efc14907117",
+    "sym": "JUPUSDT",
+    "tf": "15m"
+  },
+  "16": {
+    "code": "Q16",
+    "name": "DI cross, ADX>25",
+    "run_id": "7889b45cf034d8de",
+    "sym": "SOLUSDT",
+    "tf": "1m"
+  },
+  "17": {
+    "code": "Q17",
+    "name": "Supertrend",
+    "run_id": "59b53b133165e34d",
+    "sym": "ETHUSDT",
+    "tf": "30m"
+  },
+  "18": {
+    "code": "Q18",
+    "name": "Ichimoku breakout",
+    "run_id": "2e3a0d4c99c37991",
+    "sym": "SOLUSDT",
+    "tf": "1m"
+  },
+  "19": {
+    "code": "Q19",
+    "name": "Keltner breakout, S/R",
+    "run_id": "adcd4918c94a19f7",
+    "sym": "HYPEUSDT",
+    "tf": "30m"
+  },
+  "20": {
+    "code": "Q20",
+    "name": "POC bounce",
+    "run_id": "c43c7ed28bbe520e",
+    "sym": "JUPUSDT",
+    "tf": "3m"
+  },
+  "21": {
+    "code": "Q21",
+    "name": "stochastic cross",
+    "run_id": "814d633c450ef69f",
+    "sym": "ETHUSDT",
+    "tf": "5m"
+  },
+  "22": {
+    "code": "Q22",
+    "name": "Bollinger breakout, S/R",
+    "run_id": "ccc1bfa3d1d0b408",
+    "sym": "BTCUSDT",
+    "tf": "3m"
+  },
+  "24": {
+    "code": "Q24",
+    "name": "POC bounce",
+    "run_id": "cf5c192490dd1f7f",
+    "sym": "SPCX",
+    "tf": "30m"
+  },
+  "25": {
+    "code": "Q25",
+    "name": "POC bounce",
+    "run_id": "c144dbf478180e38",
+    "sym": "ETHUSDT",
+    "tf": "3m"
+  },
+  "26": {
+    "code": "Q26",
+    "name": "Ichimoku, S/R",
+    "run_id": "380d53e834b0ba86",
+    "sym": "JUPUSDT",
+    "tf": "15m"
+  },
+  "28": {
+    "code": "Q28",
+    "name": "Ichimoku breakout",
+    "run_id": "87776e6bf30dc29b",
+    "sym": "HYPEUSDT",
+    "tf": "15m"
+  },
+  "29": {
+    "code": "Q29",
+    "name": "DI cross, ADX>25",
+    "run_id": "2d4891e1ba1f4ba4",
+    "sym": "JUPUSDT",
+    "tf": "30m"
+  },
+  "3": {
+    "code": "Q03",
+    "name": "stochastic reversion",
+    "run_id": "e9dcb88a1102a73c",
+    "sym": "SPCX",
+    "tf": "1m"
+  },
+  "30": {
+    "code": "Q30",
+    "name": "Ichimoku breakout",
+    "run_id": "f5148447ac6bc001",
+    "sym": "BTCUSDT",
+    "tf": "1m"
+  },
+  "31": {
+    "code": "Q31",
+    "name": "MACD histogram, S/R",
+    "run_id": "c9b25dac593875b1",
+    "sym": "SOLUSDT",
+    "tf": "15m"
+  },
+  "32": {
+    "code": "Q32",
+    "name": "VWAP bounce",
+    "run_id": "4e9e7e4aa9610f0e",
+    "sym": "ETHUSDT",
+    "tf": "1m"
+  },
+  "33": {
+    "code": "Q33",
+    "name": "Bollinger breakout, S/R",
+    "run_id": "e8963ebda209bf4d",
+    "sym": "SUIUSDT",
+    "tf": "1m"
+  },
+  "34": {
+    "code": "Q34",
+    "name": "VWAP bounce",
+    "run_id": "727e827bfe5588b4",
+    "sym": "JUPUSDT",
+    "tf": "30m"
+  },
+  "37": {
+    "code": "Q37",
+    "name": "Keltner breakout",
+    "run_id": "4ce424a180ab9670",
+    "sym": "SOLUSDT",
+    "tf": "30m"
+  },
+  "38": {
+    "code": "Q38",
+    "name": "POC bounce",
+    "run_id": "7ed022216e10db05",
+    "sym": "HYPEUSDT",
+    "tf": "5m"
+  },
+  "39": {
+    "code": "Q39",
+    "name": "EMA 9/21 cross",
+    "run_id": "301fd77e3e52dff9",
+    "sym": "JUPUSDT",
+    "tf": "1m"
+  },
+  "4": {
+    "code": "Q04",
+    "name": "Keltner breakout, S/R",
+    "run_id": "819c9580c85842a8",
+    "sym": "HYPEUSDT",
+    "tf": "1m"
+  },
+  "40": {
+    "code": "Q40",
+    "name": "DI cross, ADX>25",
+    "run_id": "15f1c7c79b461dbd",
+    "sym": "SUIUSDT",
+    "tf": "30m"
+  },
+  "41": {
+    "code": "Q41",
+    "name": "PSAR reversal",
+    "run_id": "5dca2a61088fc8de",
+    "sym": "ETHUSDT",
+    "tf": "3m"
+  },
+  "43": {
+    "code": "Q43",
+    "name": "PSAR reversal",
+    "run_id": "14e7e6dd14206d6f",
+    "sym": "SOLUSDT",
+    "tf": "15m"
+  },
+  "44": {
+    "code": "Q44",
+    "name": "VWAP bounce",
+    "run_id": "239f08656f6149f4",
+    "sym": "JUPUSDT",
+    "tf": "1m"
+  },
+  "45": {
+    "code": "Q45",
+    "name": "Supertrend",
+    "run_id": "ad177f10c49ced4e",
+    "sym": "SOLUSDT",
+    "tf": "3m"
+  },
+  "46": {
+    "code": "Q46",
+    "name": "DI cross, ADX>25",
+    "run_id": "bbc8e2c8e336b609",
+    "sym": "BTCUSDT",
+    "tf": "5m"
+  },
+  "48": {
+    "code": "Q48",
+    "name": "POC bounce",
+    "run_id": "1325025ba31b7ce8",
+    "sym": "ETHUSDT",
+    "tf": "15m"
+  },
+  "49": {
+    "code": "Q49",
+    "name": "Bollinger breakout",
+    "run_id": "b56d86b8b123fab4",
+    "sym": "SUIUSDT",
+    "tf": "3m"
+  },
+  "5": {
+    "code": "Q05",
+    "name": "VWAP bounce",
+    "run_id": "3a50d1b7216e889d",
+    "sym": "BTCUSDT",
+    "tf": "15m"
+  },
+  "50": {
+    "code": "Q50",
+    "name": "stochastic cross, S/R",
+    "run_id": "2eb5711049ca4fa5",
+    "sym": "SOLUSDT",
+    "tf": "15m"
+  },
+  "6": {
+    "code": "Q06",
+    "name": "RSI extremes",
+    "run_id": "c3a87f2efe46ad75",
+    "sym": "ETHUSDT",
+    "tf": "1m"
+  },
+  "7": {
+    "code": "Q07",
+    "name": "DI cross, ADX>25",
+    "run_id": "8c8404e7376fd02b",
+    "sym": "SOLUSDT",
+    "tf": "1m"
+  },
+  "8": {
+    "code": "Q08",
+    "name": "PSAR reversal",
+    "run_id": "00e0f70ad390778e",
+    "sym": "SUIUSDT",
+    "tf": "1m"
+  },
+  "9": {
+    "code": "Q09",
+    "name": "Bollinger breakout",
+    "run_id": "30657f6a3476fec1",
+    "sym": "HYPEUSDT",
+    "tf": "1m"
+  }
+}

@@ -1,0 +1,9 @@
+MA OrderBlocks STRATEGY, fill=nextopen, cost=house
+sym        blocks_b/s      net     mdd    n     pf     wr        bh   bhmdd      fund
+BTCUSDT         77/73    -2.79   10.75   30   0.97   30.0   +732.63   77.24       144
+ETHUSDT         69/72    -4.43    8.36   23   0.82   26.1  +1713.77   81.38        89
+SOLUSDT         55/41    -3.57   11.26   23   0.83   26.1  +3840.71   96.81        41
+SUIUSDT         34/25    +3.53    4.90   10   1.57   40.0     -0.16   87.95         1
+XRPUSDT         81/72   -12.99   18.47   35   0.59   20.0   +528.16   84.88       126
+HYPEUSDT          2/5    +0.00    0.00    0    inf    0.0   +125.16   65.12         0
+SPXUSDT          7/10    +1.39    1.40    2   2.37   50.0    -25.90   89.04         2

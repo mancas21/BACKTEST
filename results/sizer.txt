@@ -1,0 +1,97 @@
+======================================================================================================
+CVRMD long-only SIZE overlay  |  1H  |  every rebalance pays 6bps+5bps/side  |  explicit cash+shares
+======================================================================================================
+  BTCUSDT    61801 bars | full   552 reduced 61249 bear     0  (99% below full)
+  ETHUSDT    59891 bars | full   551 reduced 59340 bear     0  (99% below full)
+  SOLUSDT    52883 bars | full   544 reduced 52339 bear     0  (99% below full)
+  SUIUSDT    29810 bars | full   530 reduced 29280 bear     0  (98% below full)
+  XRPUSDT    58930 bars | full   556 reduced 58374 bear     0  (99% below full)
+  HYPEUSDT   11624 bars | full   509 reduced 11115 bear     0  (96% below full)
+  SPXUSDT    15726 bars | full   512 reduced 15214 bear     0  (97% below full)
+
+======================================================================================================
+1. BASELINE — buy & hold, identical window and accounting
+======================================================================================================
+  symbol           net      DD
+  BTCUSDT      +950.8%   77.2%
+  ETHUSDT     +2053.5%   81.4%
+  SOLUSDT     +4638.5%   96.8%
+  SUIUSDT       +19.2%   88.0%
+  XRPUSDT      +569.4%   84.9%
+  HYPEUSDT     +155.3%   65.1%
+  SPXUSDT       -45.8%   89.1%
+
+======================================================================================================
+2. SIZE CURVE — what the reduced level actually buys
+======================================================================================================
+
+  BTCUSDT   (buy&hold +951% at DD 77%)
+    always full (control)        net   +950.8%  DD  77.2%  rebal   1  cost      6
+    reduced 0.75                 net   +666.6%  DD  65.3%  rebal 106  cost    701
+    reduced 0.50                 net   +369.0%  DD  49.9%  rebal 106  cost    952
+    reduced 0.25                 net   +135.0%  DD  30.3%  rebal 106  cost    861
+    reduced 0.50, flat on bear   net   +369.0%  DD  49.9%  rebal 106  cost    952
+
+  ETHUSDT   (buy&hold +2054% at DD 81%)
+    always full (control)        net  +2053.5%  DD  81.4%  rebal   1  cost      6
+    reduced 0.75                 net  +1689.5%  DD  66.7%  rebal 104  cost   1734
+    reduced 0.50                 net   +969.9%  DD  48.2%  rebal 104  cost   2085
+    reduced 0.25                 net   +354.5%  DD  25.9%  rebal 104  cost   1483
+    reduced 0.50, flat on bear   net   +969.9%  DD  48.2%  rebal 104  cost   2085
+
+  SOLUSDT   (buy&hold +4638% at DD 97%)
+    always full (control)        net  +4638.5%  DD  96.8%  rebal   1  cost      6
+    reduced 0.75                 net  +5701.8%  DD  89.6%  rebal  90  cost   4864
+    reduced 0.50                 net  +4047.2%  DD  74.5%  rebal  90  cost   6737
+    reduced 0.25                 net  +1419.4%  DD  50.4%  rebal  90  cost   4073
+    reduced 0.50, flat on bear   net  +4047.2%  DD  74.5%  rebal  90  cost   6737
+
+  SUIUSDT   (buy&hold +19% at DD 88%)
+    always full (control)        net    +19.2%  DD  88.0%  rebal   1  cost      6
+    reduced 0.75                 net    +54.9%  DD  76.5%  rebal  62  cost    152
+    reduced 0.50                 net    +68.2%  DD  58.9%  rebal  62  cost    282
+    reduced 0.25                 net    +52.4%  DD  35.5%  rebal  62  cost    368
+    reduced 0.50, flat on bear   net    +68.2%  DD  58.9%  rebal  62  cost    282
+
+  XRPUSDT   (buy&hold +569% at DD 85%)
+    always full (control)        net   +569.4%  DD  84.9%  rebal   1  cost      6
+    reduced 0.75                 net   +713.7%  DD  75.5%  rebal 114  cost    706
+    reduced 0.50                 net   +570.2%  DD  63.6%  rebal 114  cost   1197
+    reduced 0.25                 net   +256.0%  DD  48.4%  rebal 114  cost   1145
+    reduced 0.50, flat on bear   net   +570.2%  DD  63.6%  rebal 114  cost   1197
+
+  HYPEUSDT   (buy&hold +155% at DD 65%)
+    always full (control)        net   +155.3%  DD  65.1%  rebal   1  cost      6
+    reduced 0.75                 net   +121.6%  DD  54.1%  rebal  20  cost     44
+    reduced 0.50                 net    +83.0%  DD  40.6%  rebal  20  cost     78
+    reduced 0.25                 net    +42.6%  DD  23.9%  rebal  20  cost    106
+    reduced 0.50, flat on bear   net    +83.0%  DD  40.6%  rebal  20  cost     78
+
+  SPXUSDT   (buy&hold -46% at DD 89%)
+    always full (control)        net    -45.8%  DD  89.1%  rebal   1  cost      6
+    reduced 0.75                 net    -21.7%  DD  79.5%  rebal  26  cost     42
+    reduced 0.50                 net     -3.6%  DD  64.9%  rebal  26  cost     84
+    reduced 0.25                 net     +4.5%  DD  42.3%  rebal  26  cost    126
+    reduced 0.50, flat on bear   net     -3.6%  DD  64.9%  rebal  26  cost     84
+
+======================================================================================================
+3. EQUAL-DRAWDOWN vs buy&hold — scale the overlay to BH's DD
+======================================================================================================
+  symbol     ovl DD   BH DD      x    ovl net     BH net  verdict
+  BTCUSDT     49.9%   77.2%  1.55x    +649.9%    +950.8%  loses
+  ETHUSDT     48.2%   81.4%  1.69x   +2170.7%   +2053.5%  BEATS
+  SOLUSDT     74.5%   96.8%  1.30x   +5588.4%   +4638.5%  BEATS
+  SUIUSDT     58.9%   88.0%  1.49x     +63.9%     +19.2%  BEATS
+  XRPUSDT     63.6%   84.9%  1.33x    +685.5%    +569.4%  BEATS
+  HYPEUSDT    40.6%   65.1%  1.60x    +132.8%    +155.3%  loses
+  SPXUSDT     64.9%   89.1%  1.37x     -16.3%     -45.8%  BEATS
+
+======================================================================================================
+4. WALK-FORWARD — 2019-24 vs 2025-26 untouched (reduced 0.5/floor 0.25)
+======================================================================================================
+  symbol       IS net   IS DD |   OOS net  OOS DD
+  BTCUSDT     +382.6%   49.9% |     -2.9%   29.9%
+  ETHUSDT     +857.4%   48.2% |    +19.9%   37.2%
+  SOLUSDT    +4270.0%   74.5% |     -6.8%   48.0%
+  SUIUSDT     +151.8%   45.0% |    -33.5%   58.9%
+  XRPUSDT     +617.7%   63.6% |     -5.4%   46.1%

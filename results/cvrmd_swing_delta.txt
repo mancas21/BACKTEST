@@ -1,0 +1,27 @@
+============================================================================================================
+CVRMD-v1.1 (swing) port  |  1H Binance USDT-M  |  cvd_mode=ema_delta  cost=house
+============================================================================================================
+BTCUSDT                        net   -31.48%  PF  0.66  n  168  WR 32.1%  DD  32.2%  bars  12.6 | 2019:-0.9%/4 2020:-1.9%/15 2021:-2.7%/37 2022:-8.5%/46 2023:-5.2%/40 2024:-5.7%/31 2025:-6.7%/50 2026:-5.1%/37
+                               signals long 77 short 95 | buy&hold +949.7% DD 77.2%
+ETHUSDT                        net   -19.51%  PF  0.77  n  159  WR 32.1%  DD  25.1%  bars  14.2 | 2019:+1.2%/2 2020:+0.5%/23 2021:-7.6%/35 2022:-8.5%/47 2023:+2.1%/42 2024:-3.2%/34 2025:-4.6%/33 2026:-0.6%/47
+                               signals long 81 short 79 | buy&hold +2051.2% DD 81.4%
+SOLUSDT                        net    -2.59%  PF  0.97  n  144  WR 38.2%  DD  11.3%  bars  11.9 | 2020:-2.7%/5 2021:+4.6%/37 2022:-1.4%/35 2023:-4.2%/43 2024:+0.5%/41 2025:+6.7%/40 2026:-5.4%/36
+                               signals long 70 short 76 | buy&hold +4633.3% DD 96.8%
+SUIUSDT                        net    +3.76%  PF  1.09  n   92  WR 42.4%  DD  11.2%  bars  11.4 | 2023:+1.9%/38 2024:-3.9%/32 2025:-2.8%/39 2026:+9.0%/39
+                               signals long 56 short 40 | buy&hold +19.2% DD 87.9%
+XRPUSDT                        net    -0.70%  PF  1.00  n  159  WR 38.4%  DD  12.9%  bars  17.6 | 2020:+3.4%/33 2021:-1.1%/26 2022:-5.0%/42 2023:+3.1%/44 2024:+4.5%/36 2025:-0.4%/40 2026:-4.8%/49
+                               signals long 78 short 86 | buy&hold +568.7% DD 84.9%
+HYPEUSDT                       net    +3.45%  PF  1.27  n   29  WR 44.8%  DD   4.7%  bars  10.2 | 2025:+3.1%/15 2026:+0.3%/35
+                               signals long 13 short 17 | buy&hold +155.1% DD 65.1%
+SPXUSDT                        net    -2.01%  PF  0.92  n   46  WR 34.8%  DD   5.4%  bars  16.5 | 2025:+1.7%/51 2026:-3.7%/27
+                               signals long 24 short 26 | buy&hold -45.8% DD 89.0%
+
+--- house gate ---
+  BTCUSDT                      FAIL   NO PF 0.66>1.2 | ok cost/gross 21%<40 | NO green 0/8 | ok n 168>=30 | ok DD 32.2%<40
+  ETHUSDT                      FAIL   NO PF 0.77>1.2 | ok cost/gross 22%<40 | NO green 3/8 | ok n 159>=30 | ok DD 25.1%<40
+  SOLUSDT                      FAIL   NO PF 0.97>1.2 | ok cost/gross 19%<40 | NO green 3/7 | ok n 144>=30 | ok DD 11.3%<40
+  SUIUSDT                      FAIL   NO PF 1.09>1.2 | ok cost/gross 17%<40 | NO green 2/4 | ok n 92>=30 | ok DD 11.2%<40
+  XRPUSDT                      FAIL   NO PF 1.00>1.2 | ok cost/gross 20%<40 | NO green 3/7 | ok n 159>=30 | ok DD 12.9%<40
+  HYPEUSDT                     FAIL   ok PF 1.27>1.2 | ok cost/gross 18%<40 | ok green 2/2 | NO n 29>=30 | ok DD 4.7%<40
+  SPXUSDT                      FAIL   NO PF 0.92>1.2 | ok cost/gross 22%<40 | NO green 1/2 | ok n 46>=30 | ok DD 5.4%<40
+  equal-weight net -43.89%  green 2/7  -> 0/7 pass

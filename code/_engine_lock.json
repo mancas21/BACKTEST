@@ -1,0 +1,31 @@
+{
+  "_comment": "sha256 of engines that must NOT change without invalidating every artifact that hashed them. Read by code/xrp_neutral_audit.py (T8). The neutral bot is a NEW engine and is not listed here: adding a new engine does not invalidate anything.",
+  "_anchor": {
+    "cbpack_engine.py": "artifact provenance (126 artifacts)",
+    "cvrmd_backtest.py": "artifact provenance (31 artifacts)",
+    "botstrat_backtest.py": "artifact provenance (20 artifacts)",
+    "mp20_report_ports.py": "artifact provenance (1 artifact)",
+    "grid_audit.py": "THIS LOCKFILE. grid_audit.py was never registered as a vrun adapter, so no artifact hashes it. The sha below is the file as it stood on 2026-10-22 with the four validated defect fixes (D1-D4) applied; it is the anchor from here on."
+  },
+  "engines": {
+    "cbpack_engine.py": "055b584de9aa23c2695934cc50ac0b612f9b374b0c1fa19600072a4fef4e1fde",
+    "cvrmd_backtest.py": "bd7a4c850158c2a98469837f8f9af507c0f8368705e1e009b410465e18a12906",
+    "botstrat_backtest.py": "33d794b5900546a935c052cb7d2c6760576a82a6d57e1ccd9cc66667f6b0a742",
+    "mp20_report_ports.py": "7d950c4232577cdc8beb43c255e5c11345486e849c88604492cc2f52306ca37f",
+    "grid_audit.py": "82f22e9cc6405b59d134bf1cb5e6a4cb14db7550e74ed62f044cf8d6471b6566"
+  },
+  "known_superseded": {
+    "cbpack_funding_engine.py": {
+      "orphaned_sha": "f0269b36f66a85b3601ce3aef1590d6cc8a973e26dbc0f3dcc7d9e07cc0bae3f",
+      "current_sha": "59b6b3a1a09d33642eac8ee875d841317e640ab6b2ad6070f192d520c86e9c1d",
+      "n_orphaned_artifacts": 28,
+      "note": "The engine was rebuilt after the first matrix run to add conc_top5_share_pct. The 28 artifacts produced with the orphaned bytes fail verify with exit 2 (engine drift) -- the same class as the SAX incident, where the engine file was deleted and took 49 artifacts' verifiability with it. The artifacts cited in results/cbpack_funding_report.md are the CURRENT ones. The orphaned files are kept: results/runs/ is append-only."
+    },
+    "smqe_engine.py": {
+      "orphaned_sha": "adf8c603b0c77d286d97da6bf38af230e9a81d7c69321838f4259e1c2730d23a",
+      "current_sha": "6e403bd8b102584db55e8f4416eae114aabb10b61287b64725002d9af5757f21",
+      "n_orphaned_artifacts": 48,
+      "note": "smqe-1 engine upgraded 2026-10-25 after the methodology audit: flip sizing corrected to the declared PRE-flip equity convention (the old code computed it and never used it), F11 metric fixes, and the next-open / exposure / in-market-B&H methodology views added. The 47 campaign artifacts plus the f3261c37 smoke artifact were produced with the old bytes and verify REFUSED (engine drift) by design; kept append-only. Current artifacts are cited by results/smqe_report.md. current_sha is the ADAPTER-SOURCES concatenation (engine + pine source of record), the quantity artifacts actually hash."
+    }
+  }
+}

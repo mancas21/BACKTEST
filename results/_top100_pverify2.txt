@@ -1,0 +1,48 @@
+pverify 11 artifact(s), workers=8
+OK       88bc7c612612f5f8  OK: 88bc7c612612f5f8 reproduces bit-for-bit.  (harness rebuilt: 5abde1806dcb -> f1106cb053cc)
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:239: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:299: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+STALE    0f23886c0607a21a
+STALE    1929d0f6c93a6bab
+STALE    2a900e46df06499a
+OK       0b4ac2680e4c5f0e  pack100_strats: part 1 loaded
+RC=2   1e07f32125c7ee75
+STALE    70cb5ae94c926993
+OK       21279f104dbb17ae  OK: 21279f104dbb17ae reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       fb4cda85b88aa87a  OK: fb4cda85b88aa87a reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+OK       82d8781d8e89b50a  OK: 82d8781d8e89b50a reproduces bit-for-bit.  (harness rebuilt: ceb353f5e54c -> f1106cb053cc)
+RC=2   b6dc3abb12963368
+---
+[0f23886c0607a21a] rc=3
+STALE: data changed since the artifact: BTCUSDT_1h.csv 62307 -> 62548 bars (sha d3bd92a5a63c -> 341ce4586a77).
+STALE: data changed since the artifact: ETHUSDT_1h.csv 60397 -> 60638 bars (sha 9aaf5668014e -> c367bdaa9075).
+STALE: data changed since the artifact: SOLUSDT_1h.csv 53389 -> 53630 bars (sha cbd88a5b681b -> 0d3b7d9a85b4).
+STALE: data changed since the artifact: XRPUSDT_1h.csv 59436 -> 59677 bars (sha ca2f8f887271 -> cec737f74a9a).
+STALE: data changed since the artifact: BTCUSDT_funding.json 7731 -> 7815 bars (sha 7a3f63003674 -> 7a0cdfef3e69).
+STALE: data changed since the artifact: ETHUSDT_funding.json 7498 -> 7582 bars (sha 5fec57e8b961 -> 27b15928a3b0).
+STALE: data changed since the artifact: SOLUSDT_funding.json 6701 -> 6785 bars (sha 2b2849ba60ea -> fcc95e5fd4bc).
+STALE: data changed since the artifact: XRPUSDT_funding.json 7444 -> 7466 bars (sha 915d897a14ef -> 3c1f4736dc9f).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[1929d0f6c93a6bab] rc=3
+STALE: data changed since the artifact: SOLUSDT_1h.csv 53220 -> 53630 bars (sha 47e3dea47d24 -> 0d3b7d9a85b4).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[1e07f32125c7ee75] rc=2
+pack100_strats: part 1 loaded
+pack100_strats2: part 2a loaded (31-65)
+pack100_strats3: complete
+REFUSED: engine_sha256 drifted since the artifact was written (b0b5bbcbb5d83b9bcd35c168 -> 8c2cda74fa7b5a0760cb9da4). Treat as tampering.
+[2a900e46df06499a] rc=3
+STALE: data changed since the artifact: NEARUSDT_1h.csv 52644 -> 52885 bars (sha 31ee1225decc -> b1efc3b6e602).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[70cb5ae94c926993] rc=3
+STALE: data changed since the artifact: SOLUSDT_1h.csv 53548 -> 53630 bars (sha 285b62583446 -> 0d3b7d9a85b4).
+The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. Not a fabrication.
+[b6dc3abb12963368] rc=2
+REFUSED: engine_sha256 drifted since the artifact was written (59b6b3a1a09d33642eac8ee8 -> b529ee7ab135143c1b5efdc6). Treat as tampering.
+pverify: 5 OK, 4 STALE, 0 ORPHANED, 2 REFUSED (of 11); exit code reports the worst case

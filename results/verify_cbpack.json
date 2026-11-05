@@ -1,0 +1,1643 @@
+[
+  {
+    "err": [],
+    "msg": [
+      "OK: 002c42cdd4eeb360 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "002c42cdd4eeb360",
+    "seconds": 12.1,
+    "symbol": "XRPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 018e59b140d25b11 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "018e59b140d25b11",
+    "seconds": 2.0,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 026442c1718e019b reproduces bit-for-bit.  (harness rebuilt: 4d972953c5f0 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "026442c1718e019b",
+    "seconds": 51.5,
+    "symbol": "XRPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 02f93170c835d5d9 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "02f93170c835d5d9",
+    "seconds": 4.3,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 07c549d7d48d9c85 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "07c549d7d48d9c85",
+    "seconds": 10.8,
+    "symbol": "BTCUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 0882c654a7660843 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "0882c654a7660843",
+    "seconds": 1.8,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 0a53f204e2954b55 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-05-30T10:00:00+00:00",
+      "slice_to": "2025-11-14T02:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "0a53f204e2954b55",
+    "seconds": 1.6,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 0f65b683264d46ae reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "0f65b683264d46ae",
+    "seconds": 10.5,
+    "symbol": "ETHUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 0f8affb10e41645c reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "0f8affb10e41645c",
+    "seconds": 10.2,
+    "symbol": "JUPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 1094ef7ea9f6d085 reproduces bit-for-bit.  (harness rebuilt: 4d972953c5f0 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "1094ef7ea9f6d085",
+    "seconds": 46.9,
+    "symbol": "SUIUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 112f41bfc1bfb8a5 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "112f41bfc1bfb8a5",
+    "seconds": 3.2,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 1198af0d0b86b1f3 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-11-14T03:30:00+00:00",
+      "slice_to": "2026-04-30T20:30:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "1198af0d0b86b1f3",
+    "seconds": 2.3,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 124b463d2e99479b reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "124b463d2e99479b",
+    "seconds": 11.7,
+    "symbol": "SUIUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 15cf36ba04d458ef reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "15cf36ba04d458ef",
+    "seconds": 10.7,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 1dfa207ace52daf5 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-02-14T04:20:00+00:00",
+      "slice_to": "2026-10-15T12:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "1dfa207ace52daf5",
+    "seconds": 2.2,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 207f6f759e175517 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "207f6f759e175517",
+    "seconds": 8.8,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 26237876f8e255f3 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "26237876f8e255f3",
+    "seconds": 2.8,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 27ad992e1dd34a27 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "27ad992e1dd34a27",
+    "seconds": 5.9,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 2cfa0d31d2122da2 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "2cfa0d31d2122da2",
+    "seconds": 2.3,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 2e3b6c6ba47d54bd reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "2e3b6c6ba47d54bd",
+    "seconds": 11.1,
+    "symbol": "SUIUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 2f0684e8f1457428 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "2f0684e8f1457428",
+    "seconds": 2.0,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 2fb599ca85852493 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "2fb599ca85852493",
+    "seconds": 6.5,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 3157761960253bfe reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "3157761960253bfe",
+    "seconds": 9.2,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 31b3100569b7f4a3 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "31b3100569b7f4a3",
+    "seconds": 1.6,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 32ed16bf7b96cb35 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "32ed16bf7b96cb35",
+    "seconds": 4.0,
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 343c496e9a293928 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "343c496e9a293928",
+    "seconds": 4.1,
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 3b5193cb4cbf9226 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "3b5193cb4cbf9226",
+    "seconds": 4.4,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 3d5ac1a3995ca2b0 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "3d5ac1a3995ca2b0",
+    "seconds": 7.3,
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 40a20583a7d3c679 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "40a20583a7d3c679",
+    "seconds": 5.7,
+    "symbol": "JUPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 41a373bf7e5f90bd reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "41a373bf7e5f90bd",
+    "seconds": 9.9,
+    "symbol": "XRPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 456f33e22d354596 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S10,S02",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "456f33e22d354596",
+    "seconds": 4.3,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 47b9d0450ac4a7a7 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "47b9d0450ac4a7a7",
+    "seconds": 2.0,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 4dd8b2d0284b8ccc reproduces bit-for-bit.  (harness rebuilt: a3666930ab16 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "4dd8b2d0284b8ccc",
+    "seconds": 43.1,
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 4fa9fbc1a2aaee16 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "4fa9fbc1a2aaee16",
+    "seconds": 4.2,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 50fe9bebd9bb1333 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "50fe9bebd9bb1333",
+    "seconds": 1.5,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 51d96017fb8b1129 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "51d96017fb8b1129",
+    "seconds": 4.0,
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 52ef0460a7426e1c reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "52ef0460a7426e1c",
+    "seconds": 2.9,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 53c36b64f8f3c6e9 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "53c36b64f8f3c6e9",
+    "seconds": 4.1,
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 55a80038d3f682d3 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S10,S02",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "55a80038d3f682d3",
+    "seconds": 4.9,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 58b3350bea9ccbe4 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "58b3350bea9ccbe4",
+    "seconds": 5.0,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 5d7529ed3286ce22 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "5d7529ed3286ce22",
+    "seconds": 4.0,
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 60896ccc75dcd8b0 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "60896ccc75dcd8b0",
+    "seconds": 4.1,
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 60c20d2743bfd37f reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "60c20d2743bfd37f",
+    "seconds": 10.3,
+    "symbol": "BTCUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 6a9729f901914b93 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "6a9729f901914b93",
+    "seconds": 1.9,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 6b322e6cee0cbaef reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "6b322e6cee0cbaef",
+    "seconds": 1.5,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 7380dbece4f1281a reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "7380dbece4f1281a",
+    "seconds": 8.1,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 76d109606da01088 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "76d109606da01088",
+    "seconds": 9.9,
+    "symbol": "ETHUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 7b5e7bbdaf404b71 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-04-30T19:20:00+00:00",
+      "slice_to": "2026-10-15T12:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "7b5e7bbdaf404b71",
+    "seconds": 1.5,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 7d277daf043ab750 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "7d277daf043ab750",
+    "seconds": 1.6,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 7d7d70e160793a11 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "7d7d70e160793a11",
+    "seconds": 7.2,
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 7e730d5c43c2adbe reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "7e730d5c43c2adbe",
+    "seconds": 1.6,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 814c80675d570aae reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "814c80675d570aae",
+    "seconds": 2.0,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 862cc40167c27230 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "862cc40167c27230",
+    "seconds": 9.9,
+    "symbol": "SOLUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 872ee427d61e4880 reproduces bit-for-bit.  (harness rebuilt: a3666930ab16 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "872ee427d61e4880",
+    "seconds": 43.5,
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 898b13b65e1deb27 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "898b13b65e1deb27",
+    "seconds": 4.0,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 908481a873cf8113 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "908481a873cf8113",
+    "seconds": 4.1,
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 92a62a766d246281 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2024-10-15T13:00:00+00:00",
+      "slice_to": "2025-06-15T20:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "92a62a766d246281",
+    "seconds": 1.5,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 939b1368132ceb08 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "939b1368132ceb08",
+    "seconds": 5.0,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 940f7599148758a2 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "940f7599148758a2",
+    "seconds": 4.2,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 95555245d5353174 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "95555245d5353174",
+    "seconds": 1.6,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 9840c3069c15f837 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "9840c3069c15f837",
+    "seconds": 8.6,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 99434312424041b2 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "99434312424041b2",
+    "seconds": 2.1,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 9c7dd1925b43ce50 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S07",
+      "mode": "wf",
+      "test_bars": 2880,
+      "train_bars": 8640
+    },
+    "rc": 0,
+    "run_id": "9c7dd1925b43ce50",
+    "seconds": 2.8,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 9eb69b6dece418a5 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "9eb69b6dece418a5",
+    "seconds": 1.6,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 9ed7a880c34f36c0 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "9ed7a880c34f36c0",
+    "seconds": 8.7,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 9fde16a7db05ee9e reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S07",
+      "mode": "wf",
+      "test_bars": 8640,
+      "train_bars": 17280
+    },
+    "rc": 0,
+    "run_id": "9fde16a7db05ee9e",
+    "seconds": 1.9,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: 9ffb987b7bc94841 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-05-30T10:30:00+00:00",
+      "slice_to": "2025-11-14T03:30:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "9ffb987b7bc94841",
+    "seconds": 2.0,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: a1dd7680e1a5f6e5 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "a1dd7680e1a5f6e5",
+    "seconds": 4.0,
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: a30083333490d945 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "a30083333490d945",
+    "seconds": 2.0,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: a490560fc87080c7 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "a490560fc87080c7",
+    "seconds": 3.9,
+    "symbol": "JUPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: ac4ff6d3a465a268 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "ac4ff6d3a465a268",
+    "seconds": 3.1,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: b20ab929a0f760e9 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "b20ab929a0f760e9",
+    "seconds": 1.8,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: b4b13fe5a6120e68 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "b4b13fe5a6120e68",
+    "seconds": 1.9,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: b54c2bef8a8c4489 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "b54c2bef8a8c4489",
+    "seconds": 1.9,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: b5e27ec2b2e3ee33 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S10,S02",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "b5e27ec2b2e3ee33",
+    "seconds": 8.8,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: b653c5b4b5cf89ae reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "b653c5b4b5cf89ae",
+    "seconds": 2.1,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: b76b478cae5f1048 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "b76b478cae5f1048",
+    "seconds": 10.1,
+    "symbol": "JUPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: bbe07a17afe31e37 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S07",
+      "mode": "wf",
+      "test_bars": 5760,
+      "train_bars": 11520
+    },
+    "rc": 0,
+    "run_id": "bbe07a17afe31e37",
+    "seconds": 2.3,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: bd4ff19eca389209 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-11-14T02:40:00+00:00",
+      "slice_to": "2026-04-30T19:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "bd4ff19eca389209",
+    "seconds": 1.6,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: becc4db47573953d reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "becc4db47573953d",
+    "seconds": 3.3,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: c0075a20867a8331 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "c0075a20867a8331",
+    "seconds": 11.2,
+    "symbol": "SOLUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: c0fad1ec6ad653d6 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "c0fad1ec6ad653d6",
+    "seconds": 8.6,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: c3e2aaf6afcd2422 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "c3e2aaf6afcd2422",
+    "seconds": 4.2,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: c74dccf1ea0ed3b4 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "c74dccf1ea0ed3b4",
+    "seconds": 1.5,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: ca03a176425b8d76 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "ca03a176425b8d76",
+    "seconds": 2.1,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: cf001b8ff0148c27 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "cf001b8ff0148c27",
+    "seconds": 2.0,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: cf055c3ff45a9c9a reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "cf055c3ff45a9c9a",
+    "seconds": 2.1,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: d2084bee13ee07ea reproduces bit-for-bit.  (harness rebuilt: 60e17342a713 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "d2084bee13ee07ea",
+    "seconds": 43.4,
+    "symbol": "JUPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: d78a3306bb576fc3 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "d78a3306bb576fc3",
+    "seconds": 2.1,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: da9c7be30c2fcb23 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-06-15T20:40:00+00:00",
+      "slice_to": "2026-02-14T04:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "da9c7be30c2fcb23",
+    "seconds": 1.6,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: dd4af52ddf5a6a70 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "dd4af52ddf5a6a70",
+    "seconds": 1.6,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: dd8b4389c96acb4a reproduces bit-for-bit.  (harness rebuilt: 4d972953c5f0 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "dd8b4389c96acb4a",
+    "seconds": 49.4,
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: dec8c4aff3503bcb reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "dec8c4aff3503bcb",
+    "seconds": 1.6,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: e383f966e0b38516 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "e383f966e0b38516",
+    "seconds": 2.1,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: e513b30cdeca0436 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "e513b30cdeca0436",
+    "seconds": 1.8,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: e62205adc5cc1a34 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "e62205adc5cc1a34",
+    "seconds": 4.2,
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: e8b50fd959ce2e9b reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "e8b50fd959ce2e9b",
+    "seconds": 3.3,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: e99c833fecd633f4 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "e99c833fecd633f4",
+    "seconds": 2.5,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: e9c756adeb09334d reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "e9c756adeb09334d",
+    "seconds": 1.9,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: edbefc5b2592d29c reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "edbefc5b2592d29c",
+    "seconds": 2.1,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: ef3c6a9bbda4bd71 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "ef3c6a9bbda4bd71",
+    "seconds": 5.2,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f0a1028e69644efa reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "f0a1028e69644efa",
+    "seconds": 1.5,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f19065db840fbacb reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "f19065db840fbacb",
+    "seconds": 2.0,
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f1e8381a7133e767 reproduces bit-for-bit."
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "f1e8381a7133e767",
+    "seconds": 4.0,
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f3440cb869afd3dc reproduces bit-for-bit.  (harness rebuilt: a3666930ab16 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "f3440cb869afd3dc",
+    "seconds": 31.8,
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f4f39e13e9d3debe reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "f4f39e13e9d3debe",
+    "seconds": 1.7,
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f7798500d5b0239e reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "f7798500d5b0239e",
+    "seconds": 4.1,
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: f96061efa23717a4 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "f96061efa23717a4",
+    "seconds": 5.2,
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: fb307b15a0d76c43 reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-04-30T20:30:00+00:00",
+      "slice_to": "2026-10-15T13:30:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "fb307b15a0d76c43",
+    "seconds": 2.0,
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: fe71b471b85bde19 reproduces bit-for-bit."
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "fe71b471b85bde19",
+    "seconds": 4.3,
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "msg": [
+      "OK: ff0e9b3c4d3caa3f reproduces bit-for-bit."
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "ff0e9b3c4d3caa3f",
+    "seconds": 1.6,
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  }
+]

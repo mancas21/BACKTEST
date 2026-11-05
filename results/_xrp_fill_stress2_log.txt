@@ -1,0 +1,34 @@
+{
+ "count_only_original_dynamics": {
+  "pf": 1.3071,
+  "n": 5975,
+  "win": 87.21,
+  "ret_pct": 9388264.86,
+  "mdd": 43.42,
+  "same_bar_covers": 5975
+ },
+ "cushion_only_1bps": {
+  "pf": 1.2217,
+  "n": 5864,
+  "win": 86.2,
+  "ret_pct": 1732492.04,
+  "mdd": 43.88,
+  "same_bar_covers": 0
+ },
+ "cushion_only_2bps": {
+  "pf": 1.1732,
+  "n": 5785,
+  "win": 85.45,
+  "ret_pct": 549249.7,
+  "mdd": 43.88,
+  "same_bar_covers": 0
+ },
+ "cushion_only_5bps": {
+  "pf": 1.0842,
+  "n": 5529,
+  "win": 82.73,
+  "ret_pct": 11258.91,
+  "mdd": 49.85,
+  "same_bar_covers": 0
+ }
+}

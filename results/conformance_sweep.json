@@ -1,0 +1,4611 @@
+[
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_15m.csv 248946 -> 249043 bars (sha c2e1e2bca54b -> 84f891f107d3)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "962abff991a2470d",
+    "seconds": 3.0,
+    "strategy": "botstrat",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_15m.csv 241306 -> 241403 bars (sha 537abeea3094 -> cad6b9a834c7)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "118526bf08e1de28",
+    "seconds": 2.7,
+    "strategy": "botstrat",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: HYPEUSDT_15m.csv 48239 -> 48336 bars (sha 55adcfa900bb -> aa865bdfb40c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "e3dcfdb0a898c6ea",
+    "seconds": 1.2,
+    "strategy": "botstrat",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_15m.csv 213277 -> 213374 bars (sha 28d676e766c9 -> 2a89a46e23ea)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "fbc666a39ec615e6",
+    "seconds": 1.8,
+    "strategy": "botstrat",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_15m.csv 120985 -> 121082 bars (sha 6578a1032bb9 -> 3fa284acc505)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "ea69e381a1138c25",
+    "seconds": 1.3,
+    "strategy": "botstrat",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_15m.csv 237464 -> 237561 bars (sha b3b30d547655 -> c7ce8b637260)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "4c6b3e46b4ab1533",
+    "seconds": 1.7,
+    "strategy": "botstrat",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ADAUSDT_1h.csv 58765 -> 58789 bars (sha 4b00a575842b -> 18b8f1ac5416)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "3395d8614f6f060d",
+    "seconds": 1.6,
+    "strategy": "botstrat",
+    "symbol": "ADAUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: AVAXUSDT_1h.csv 53102 -> 53126 bars (sha fdd954be273b -> 69dca1402fc6)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "80ed06ac9997dd63",
+    "seconds": 1.6,
+    "strategy": "botstrat",
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BNBUSDT_1h.csv 58525 -> 58549 bars (sha 5326a0f4bfcf -> 1ab85dfca413)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "79cb2fba8cfc251c",
+    "seconds": 1.8,
+    "strategy": "botstrat",
+    "symbol": "BNBUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_1h.csv 62236 -> 62260 bars (sha 11b2d367c108 -> 4a29e8bd2253)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "03ccd1e99e274c87",
+    "seconds": 1.6,
+    "strategy": "botstrat",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: DOGEUSDT_1h.csv 54900 -> 54924 bars (sha 5d078c9549fa -> 0f1db01bba48)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "75c101d35f97fce0",
+    "seconds": 1.6,
+    "strategy": "botstrat",
+    "symbol": "DOGEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1h.csv 60226 -> 60350 bars (sha a1ae975b3d3c -> 495bcb508f21)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "aa84bbc564f36008",
+    "seconds": 1.7,
+    "strategy": "botstrat",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1h.csv 60326 -> 60350 bars (sha fd03c2107f5a -> 495bcb508f21)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "c71737e334322c99",
+    "seconds": 1.8,
+    "strategy": "botstrat",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 00f61536cddb22a3 reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 58de1cad6f0e)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "00f61536cddb22a3",
+    "seconds": 1.1,
+    "strategy": "botstrat",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: LINKUSDT_1h.csv 59101 -> 59125 bars (sha d6c5003d1a78 -> a6c940b48233)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "9118223dee1efba7",
+    "seconds": 2.2,
+    "strategy": "botstrat",
+    "symbol": "LINKUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: NEARUSDT_1h.csv 52573 -> 52597 bars (sha 6e2c2da80cf5 -> f3c3581e2eb7)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "9e6e85ff95700ef5",
+    "seconds": 1.5,
+    "strategy": "botstrat",
+    "symbol": "NEARUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_1h.csv 53318 -> 53342 bars (sha 90edc6495a50 -> 9fa6460065ea)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "40c1a07e484e0205",
+    "seconds": 1.5,
+    "strategy": "botstrat",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: f2aa1050b118e54f reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 9ba7285d1fad)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "f2aa1050b118e54f",
+    "seconds": 1.1,
+    "strategy": "botstrat",
+    "symbol": "SPXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_1h.csv 30245 -> 30269 bars (sha 3f896048d588 -> f08e3c0562f4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "1bf2aff96c74fa93",
+    "seconds": 1.3,
+    "strategy": "botstrat",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_1h.csv 59365 -> 59389 bars (sha 0e97efa003cd -> 6448f34b4da4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "f063bb055aa6daaa",
+    "seconds": 2.0,
+    "strategy": "botstrat",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 412dc10538e78196 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 1549216466f7)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "412dc10538e78196",
+    "seconds": 16.4,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: e74b34b0d081dede reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 1549216466f7)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "e74b34b0d081dede",
+    "seconds": 16.5,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 0576c8625c950972 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 072e790dc0b2)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "0576c8625c950972",
+    "seconds": 18.6,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: a5f17be85d46a8a3 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "a5f17be85d46a8a3",
+    "seconds": 20.7,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: ac4f701b43140e5a reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "ac4f701b43140e5a",
+    "seconds": 12.5,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: f64e6df6f8e1101c reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "f64e6df6f8e1101c",
+    "seconds": 13.3,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: c2d2ad3882a5af56 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "c2d2ad3882a5af56",
+    "seconds": 17.8,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: d14561960c46c4e1 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "d14561960c46c4e1",
+    "seconds": 18.0,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 6a80b6e21c5d4859 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "6a80b6e21c5d4859",
+    "seconds": 17.7,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 83d7b22a9d9c58b1 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 8692ea2bc8f3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "83d7b22a9d9c58b1",
+    "seconds": 17.4,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 1cfd358b260bb7d0 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "1cfd358b260bb7d0",
+    "seconds": 16.9,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: fc60626e517f35b6 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "fc60626e517f35b6",
+    "seconds": 19.4,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: b2ab544859b6f055 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "b2ab544859b6f055",
+    "seconds": 16.7,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: ebcd0395863b5ff0 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "ebcd0395863b5ff0",
+    "seconds": 16.2,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 484de3169325af57 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "484de3169325af57",
+    "seconds": 16.9,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: ab5a006b573b4f42 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "ab5a006b573b4f42",
+    "seconds": 19.8,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 5e26207490a7b9f7 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "5e26207490a7b9f7",
+    "seconds": 21.1,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 774a1401dda1c2e6 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "774a1401dda1c2e6",
+    "seconds": 14.2,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 805b8316f7b3c1ed reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> a3666930ab16)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "805b8316f7b3c1ed",
+    "seconds": 13.6,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: a376a4378462ab1d reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 60e17342a713)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "a376a4378462ab1d",
+    "seconds": 12.0,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: d25a1fb936712945 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "d25a1fb936712945",
+    "seconds": 13.1,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: fd7e6836f61f8b5b reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "fd7e6836f61f8b5b",
+    "seconds": 14.6,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 541ddf229a4f65bd reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "541ddf229a4f65bd",
+    "seconds": 14.0,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: dc8b502797bcd913 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "dc8b502797bcd913",
+    "seconds": 15.3,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 5f8480ffd8d6b675 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "5f8480ffd8d6b675",
+    "seconds": 13.2,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: f18b44bb36f456b1 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "f18b44bb36f456b1",
+    "seconds": 16.2,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 0fdf2779c8d0c689 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "0fdf2779c8d0c689",
+    "seconds": 14.0,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: e498fee31aa58d99 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "e498fee31aa58d99",
+    "seconds": 12.9,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 8a70837fb8e5deb2 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "8a70837fb8e5deb2",
+    "seconds": 34.2,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: ca064d3283a086ee reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 4d972953c5f0)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "ca064d3283a086ee",
+    "seconds": 28.3,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 6f318809811fbc68 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "6f318809811fbc68",
+    "seconds": 19.4,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 9705f4225fed35b6 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 4d972953c5f0)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "9705f4225fed35b6",
+    "seconds": 19.9,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 7dfdba2f3a528e8f reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> cf100d06e7d6)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "7dfdba2f3a528e8f",
+    "seconds": 29.2,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: a37b0692219142f6 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 5433a9f42dca)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "a37b0692219142f6",
+    "seconds": 27.2,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: c5b4a8d8099671e0 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> f1484dae30fb)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "c5b4a8d8099671e0",
+    "seconds": 27.2,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: cbacef4f775d6551 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "cbacef4f775d6551",
+    "seconds": 27.1,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 995a7fe94daf2126 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "995a7fe94daf2126",
+    "seconds": 26.9,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: b20ab929a0f760e9 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "b20ab929a0f760e9",
+    "seconds": 1.6,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_15m.csv 248946 -> 249225 bars (sha c2e1e2bca54b -> d47a424465c3)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "826345c6710870f5",
+    "seconds": 4.5,
+    "strategy": "cvrmd",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_15m.csv 241306 -> 241585 bars (sha 537abeea3094 -> 70ef69d31080)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "ce36ef3b97778d5d",
+    "seconds": 4.1,
+    "strategy": "cvrmd",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: HYPEUSDT_15m.csv 48239 -> 48518 bars (sha 55adcfa900bb -> 295e46503080)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "c899ab864bda4c18",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_15m.csv 213277 -> 213556 bars (sha 28d676e766c9 -> a7e55f5b02bb)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "23f91cdfb2b82679",
+    "seconds": 3.5,
+    "strategy": "cvrmd",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_15m.csv 120985 -> 121264 bars (sha 6578a1032bb9 -> 8cba4d3b2ba4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "49f69acae3c5a42f",
+    "seconds": 2.4,
+    "strategy": "cvrmd",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_15m.csv 237464 -> 237743 bars (sha b3b30d547655 -> 43e546d68aac)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "2438df16b5088ee8",
+    "seconds": 3.8,
+    "strategy": "cvrmd",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ADAUSDT_1h.csv 58765 -> 58836 bars (sha 4b00a575842b -> 2321d5b51478)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "431127ec50f96e16",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "ADAUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ADAUSDT_1h.csv 58667 -> 58836 bars (sha 8c395506a683 -> 2321d5b51478)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "f8e856dacb5fbbd2",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "ADAUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: AVAXUSDT_1h.csv 53102 -> 53173 bars (sha fdd954be273b -> 172e4346061c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "c86439c3c5534fac",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: AVAXUSDT_1h.csv 53004 -> 53173 bars (sha 94f6346c794a -> 172e4346061c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "d49c9b6b993e9a9a",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BNBUSDT_1h.csv 58525 -> 58596 bars (sha 5326a0f4bfcf -> cae2a6d0e4a3)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "1e6d5ad221e0b6eb",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "BNBUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BNBUSDT_1h.csv 58427 -> 58596 bars (sha f03096bc669f -> cae2a6d0e4a3)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "940831bb3fc8ed8b",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "BNBUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_1h.csv 62138 -> 62307 bars (sha bb72002eaa3e -> d3bd92a5a63c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "991949ff7ed940fe",
+    "seconds": 1.7,
+    "strategy": "cvrmd",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_1h.csv 62236 -> 62307 bars (sha 11b2d367c108 -> d3bd92a5a63c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "ddc3af0a45e60670",
+    "seconds": 1.7,
+    "strategy": "cvrmd",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: DOGEUSDT_1h.csv 54900 -> 54971 bars (sha 5d078c9549fa -> 7985f1209547)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "3f8c5dd54278825c",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "DOGEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: DOGEUSDT_1h.csv 54802 -> 54971 bars (sha 695aed4be805 -> 7985f1209547)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "74e51a4ad5c59bb3",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "DOGEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1h.csv 60228 -> 60397 bars (sha 19b08d4f1f49 -> 9aaf5668014e)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "3daeeeb4b2d2f316",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1h.csv 60326 -> 60397 bars (sha fd03c2107f5a -> 9aaf5668014e)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "5e9599a41dc09d30",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 6727aeb50edb9bea reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "6727aeb50edb9bea",
+    "seconds": 1.3,
+    "strategy": "cvrmd",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: LINKUSDT_1h.csv 59003 -> 59172 bars (sha 026b022b4338 -> fe20d09848c4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "7d3c255a91f0652b",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "LINKUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: LINKUSDT_1h.csv 59101 -> 59172 bars (sha d6c5003d1a78 -> fe20d09848c4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "fff94bf483860d15",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "LINKUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: NEARUSDT_1h.csv 52573 -> 52644 bars (sha 6e2c2da80cf5 -> 31ee1225decc)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "21aa88f786968664",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "NEARUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: NEARUSDT_1h.csv 52475 -> 52644 bars (sha cca129566f48 -> 31ee1225decc)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "2a295b1756338181",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "NEARUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_1h.csv 53220 -> 53389 bars (sha 47e3dea47d24 -> cbd88a5b681b)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "1929d0f6c93a6bab",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_1h.csv 53318 -> 53389 bars (sha 90edc6495a50 -> cbd88a5b681b)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "64eb32e3269b0d42",
+    "seconds": 1.5,
+    "strategy": "cvrmd",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: aa84ff4de9e1dbd9 reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "aa84ff4de9e1dbd9",
+    "seconds": 1.0,
+    "strategy": "cvrmd",
+    "symbol": "SPXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_1h.csv 30245 -> 30316 bars (sha 3f896048d588 -> 0a80115bcd53)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "6c0d6968b61b0871",
+    "seconds": 1.2,
+    "strategy": "cvrmd",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_1h.csv 30145 -> 30316 bars (sha 61811fa31d5a -> 0a80115bcd53)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "705d73e88fc192fd",
+    "seconds": 1.4,
+    "strategy": "cvrmd",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_1h.csv 30147 -> 30316 bars (sha 50337cea4010 -> 0a80115bcd53)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "f81a0f5ddd95fdc2",
+    "seconds": 1.4,
+    "strategy": "cvrmd",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_1h.csv 59365 -> 59436 bars (sha 0e97efa003cd -> ca2f8f887271)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "5782b8db04b4bdcb",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_1h.csv 59267 -> 59436 bars (sha 9093f34771e0 -> ca2f8f887271)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "d0c5856746eb4e77",
+    "seconds": 1.6,
+    "strategy": "cvrmd",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_15m.csv 248946 -> 249225 bars (sha c2e1e2bca54b -> d47a424465c3)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "8401f883c2690b1b",
+    "seconds": 23.6,
+    "strategy": "ffs",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_15m.csv 241306 -> 241585 bars (sha 537abeea3094 -> 70ef69d31080)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "d0c8668b1a74f804",
+    "seconds": 23.3,
+    "strategy": "ffs",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: HYPEUSDT_15m.csv 48239 -> 48518 bars (sha 55adcfa900bb -> 295e46503080)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "7a0dcdd7a146e941",
+    "seconds": 22.0,
+    "strategy": "ffs",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_15m.csv 213277 -> 213556 bars (sha 28d676e766c9 -> a7e55f5b02bb)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "dadfd123db4f8448",
+    "seconds": 22.4,
+    "strategy": "ffs",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_15m.csv 120985 -> 121264 bars (sha 6578a1032bb9 -> 8cba4d3b2ba4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "c70a28983cdcdd4a",
+    "seconds": 22.2,
+    "strategy": "ffs",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_15m.csv 237464 -> 237743 bars (sha b3b30d547655 -> 43e546d68aac)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "1855e3a9ca59da0b",
+    "seconds": 23.3,
+    "strategy": "ffs",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ADAUSDT_1h.csv 58765 -> 58836 bars (sha 4b00a575842b -> 2321d5b51478)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "f98aed64127f130e",
+    "seconds": 24.3,
+    "strategy": "ffs",
+    "symbol": "ADAUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: AVAXUSDT_1h.csv 53102 -> 53173 bars (sha fdd954be273b -> 172e4346061c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "cb7d8733cfbd8e46",
+    "seconds": 25.0,
+    "strategy": "ffs",
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BNBUSDT_1h.csv 58525 -> 58596 bars (sha 5326a0f4bfcf -> cae2a6d0e4a3)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "b155825805413aa5",
+    "seconds": 24.9,
+    "strategy": "ffs",
+    "symbol": "BNBUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_1h.csv 62236 -> 62307 bars (sha 11b2d367c108 -> d3bd92a5a63c)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "26f3bbd0c2251cfc",
+    "seconds": 24.7,
+    "strategy": "ffs",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: DOGEUSDT_1h.csv 54900 -> 54971 bars (sha 5d078c9549fa -> 7985f1209547)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "a9f6a20c8bdf14d6",
+    "seconds": 21.9,
+    "strategy": "ffs",
+    "symbol": "DOGEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1h.csv 60326 -> 60397 bars (sha fd03c2107f5a -> 9aaf5668014e)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "dbd9b70e75cd84da",
+    "seconds": 21.7,
+    "strategy": "ffs",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: c75ddd77dcff297e reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "c75ddd77dcff297e",
+    "seconds": 22.2,
+    "strategy": "ffs",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: LINKUSDT_1h.csv 59101 -> 59172 bars (sha d6c5003d1a78 -> fe20d09848c4)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "413474ab8e691aee",
+    "seconds": 25.4,
+    "strategy": "ffs",
+    "symbol": "LINKUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: NEARUSDT_1h.csv 52573 -> 52644 bars (sha 6e2c2da80cf5 -> 31ee1225decc)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "3001e53cce8648a4",
+    "seconds": 25.6,
+    "strategy": "ffs",
+    "symbol": "NEARUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SOLUSDT_1h.csv 53318 -> 53389 bars (sha 90edc6495a50 -> cbd88a5b681b)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "e85aa74274cd3f1e",
+    "seconds": 24.0,
+    "strategy": "ffs",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 6916073f822ec7df reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "6916073f822ec7df",
+    "seconds": 23.9,
+    "strategy": "ffs",
+    "symbol": "SPXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: SUIUSDT_1h.csv 30245 -> 30316 bars (sha 3f896048d588 -> 0a80115bcd53)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "59260cd720354f39",
+    "seconds": 23.6,
+    "strategy": "ffs",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: XRPUSDT_1h.csv 59365 -> 59436 bars (sha 0e97efa003cd -> ca2f8f887271)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "92a5bd883fec3e1f",
+    "seconds": 21.5,
+    "strategy": "ffs",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: e21714e6018337ae reproduces bit-for-bit.  (harness rebuilt: None -> 5251044c3120)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "e21714e6018337ae",
+    "seconds": 22.9,
+    "strategy": "ffs",
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: BTCUSDT_1h.csv 62138 -> 62307 bars (sha bb72002eaa3e -> d3bd92a5a63c)."
+    ],
+    "params": {
+      "window": "FULL"
+    },
+    "rc": 3,
+    "run_id": "eb82f4814cfbbab6",
+    "seconds": 1349.5,
+    "strategy": "mp20",
+    "symbol": "PORTFOLIO",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: ccb5e182158b3405 reproduces bit-for-bit.  (harness rebuilt: 4d761dded0a1 -> 9d31e403a9b7)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "ccb5e182158b3405",
+    "seconds": 105.8,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: d2048ac32b01126b reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 9d31e403a9b7)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "d2048ac32b01126b",
+    "seconds": 99.3,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: f4d8aeb8daed1041 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 9d31e403a9b7)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2024-10-14",
+      "slice_to": "2025-06-14"
+    },
+    "rc": 0,
+    "run_id": "f4d8aeb8daed1041",
+    "seconds": 31.1,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 0b9ecedc3af03e61 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 9d31e403a9b7)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2024-10-14",
+      "slice_to": "2025-06-14"
+    },
+    "rc": 0,
+    "run_id": "0b9ecedc3af03e61",
+    "seconds": 38.1,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 35e786d592a4585f reproduces bit-for-bit.  (harness rebuilt: 3faa1b9d014b -> 9d31e403a9b7)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "35e786d592a4585f",
+    "seconds": 109.6,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1m.csv 675000 -> 1051200 bars (sha 81dbcf6cf9b7 -> 8f1e0eff4a56)."
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 3,
+    "run_id": "8a77592516058147",
+    "seconds": 103.8,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: b113de7b4f745354 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "b113de7b4f745354",
+    "seconds": 103.6,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "STALE: data changed since the artifact: ETHUSDT_1m.csv 675000 -> 1051200 bars (sha 81dbcf6cf9b7 -> 8f1e0eff4a56)."
+    ],
+    "params": {},
+    "rc": 3,
+    "run_id": "ba53d34ac48a9dbd",
+    "seconds": 115.0,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: ec73451283910de6 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2025-06-14",
+      "slice_to": "2026-02-13"
+    },
+    "rc": 0,
+    "run_id": "ec73451283910de6",
+    "seconds": 47.1,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 408e69ff4b1709e0 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "408e69ff4b1709e0",
+    "seconds": 74.1,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 5ddf014281dcfcb4 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2025-11-14",
+      "slice_to": "2026-04-30"
+    },
+    "rc": 0,
+    "run_id": "5ddf014281dcfcb4",
+    "seconds": 38.6,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: b6c21d27ee6700ae reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "b6c21d27ee6700ae",
+    "seconds": 79.4,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: d736d11929becff6 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2026-04-30",
+      "slice_to": "2026-10-15"
+    },
+    "rc": 0,
+    "run_id": "d736d11929becff6",
+    "seconds": 31.5,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: e5e863e4d53a0188 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2025-05-30",
+      "slice_to": "2025-11-14"
+    },
+    "rc": 0,
+    "run_id": "e5e863e4d53a0188",
+    "seconds": 21.5,
+    "strategy": "cbot",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 7cfb9f064dbcabb0 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "7cfb9f064dbcabb0",
+    "seconds": 91.0,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: b8dda4894fd9adfc reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "b8dda4894fd9adfc",
+    "seconds": 92.7,
+    "strategy": "cbot",
+    "symbol": "JUPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 079aadeaa00057ac reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "079aadeaa00057ac",
+    "seconds": 103.5,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 72eed2a3e0d8ba11 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2024-10-14",
+      "slice_to": "2025-06-14"
+    },
+    "rc": 0,
+    "run_id": "72eed2a3e0d8ba11",
+    "seconds": 26.3,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 9921801375866faf reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "9921801375866faf",
+    "seconds": 85.6,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: a1410ecf334b4643 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2025-06-14",
+      "slice_to": "2026-02-13"
+    },
+    "rc": 0,
+    "run_id": "a1410ecf334b4643",
+    "seconds": 36.3,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: a1efe4befd8c0326 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2026-02-13",
+      "slice_to": "2026-10-14"
+    },
+    "rc": 0,
+    "run_id": "a1efe4befd8c0326",
+    "seconds": 37.6,
+    "strategy": "cbot",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 94fe9f410b93735a reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "94fe9f410b93735a",
+    "seconds": 88.3,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: d0e024bcd6ebd85d reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "d0e024bcd6ebd85d",
+    "seconds": 80.3,
+    "strategy": "cbot",
+    "symbol": "SUIUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 1a8d1d66636f0e19 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes"
+    },
+    "rc": 0,
+    "run_id": "1a8d1d66636f0e19",
+    "seconds": 81.0,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "58de1cad6f0eb8e11bc338d89058e906293b92730a0c27e023c64f54fc9dd827",
+    "msg": [
+      "OK: 77bbb47dddb4a4f2 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "bars"
+    },
+    "rc": 0,
+    "run_id": "77bbb47dddb4a4f2",
+    "seconds": 89.0,
+    "strategy": "cbot",
+    "symbol": "XRPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 343c496e9a293928 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "343c496e9a293928",
+    "seconds": 4.0,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 60896ccc75dcd8b0 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "60896ccc75dcd8b0",
+    "seconds": 3.9,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 51d96017fb8b1129 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "51d96017fb8b1129",
+    "seconds": 4.2,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 5d7529ed3286ce22 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "5d7529ed3286ce22",
+    "seconds": 3.9,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 112f41bfc1bfb8a5 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "112f41bfc1bfb8a5",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 1198af0d0b86b1f3 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-11-14T03:30:00+00:00",
+      "slice_to": "2026-04-30T20:30:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "1198af0d0b86b1f3",
+    "seconds": 1.8,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 9c7dd1925b43ce50 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S07",
+      "mode": "wf",
+      "test_bars": 2880,
+      "train_bars": 8640
+    },
+    "rc": 0,
+    "run_id": "9c7dd1925b43ce50",
+    "seconds": 2.3,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 9fde16a7db05ee9e reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S07",
+      "mode": "wf",
+      "test_bars": 8640,
+      "train_bars": 17280
+    },
+    "rc": 0,
+    "run_id": "9fde16a7db05ee9e",
+    "seconds": 1.6,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 9ffb987b7bc94841 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-05-30T10:30:00+00:00",
+      "slice_to": "2025-11-14T03:30:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "9ffb987b7bc94841",
+    "seconds": 1.9,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: ac4ff6d3a465a268 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "ac4ff6d3a465a268",
+    "seconds": 2.8,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: bbe07a17afe31e37 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S07",
+      "mode": "wf",
+      "test_bars": 5760,
+      "train_bars": 11520
+    },
+    "rc": 0,
+    "run_id": "bbe07a17afe31e37",
+    "seconds": 2.0,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: e8b50fd959ce2e9b reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "e8b50fd959ce2e9b",
+    "seconds": 2.9,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: fb307b15a0d76c43 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-04-30T20:30:00+00:00",
+      "slice_to": "2026-10-15T13:30:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "fb307b15a0d76c43",
+    "seconds": 1.8,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 40a20583a7d3c679 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "40a20583a7d3c679",
+    "seconds": 3.2,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: a490560fc87080c7 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "a490560fc87080c7",
+    "seconds": 3.3,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 53c36b64f8f3c6e9 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "53c36b64f8f3c6e9",
+    "seconds": 3.3,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f1e8381a7133e767 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "f1e8381a7133e767",
+    "seconds": 3.3,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 32ed16bf7b96cb35 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "32ed16bf7b96cb35",
+    "seconds": 3.3,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: e62205adc5cc1a34 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "e62205adc5cc1a34",
+    "seconds": 3.5,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 908481a873cf8113 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "908481a873cf8113",
+    "seconds": 3.3,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: a1dd7680e1a5f6e5 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "a1dd7680e1a5f6e5",
+    "seconds": 3.3,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 207f6f759e175517 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "207f6f759e175517",
+    "seconds": 6.6,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 26237876f8e255f3 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "26237876f8e255f3",
+    "seconds": 1.6,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 47b9d0450ac4a7a7 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "47b9d0450ac4a7a7",
+    "seconds": 1.6,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 4fa9fbc1a2aaee16 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "4fa9fbc1a2aaee16",
+    "seconds": 3.1,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 50fe9bebd9bb1333 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "50fe9bebd9bb1333",
+    "seconds": 1.2,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 939b1368132ceb08 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "939b1368132ceb08",
+    "seconds": 3.7,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: b4b13fe5a6120e68 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "b4b13fe5a6120e68",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: dd4af52ddf5a6a70 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "dd4af52ddf5a6a70",
+    "seconds": 1.2,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f4f39e13e9d3debe reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "f4f39e13e9d3debe",
+    "seconds": 1.2,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 018e59b140d25b11 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "018e59b140d25b11",
+    "seconds": 1.2,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 3157761960253bfe reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "3157761960253bfe",
+    "seconds": 6.3,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 3b5193cb4cbf9226 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "3b5193cb4cbf9226",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 6b322e6cee0cbaef reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "6b322e6cee0cbaef",
+    "seconds": 1.2,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 7d277daf043ab750 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "7d277daf043ab750",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 99434312424041b2 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "99434312424041b2",
+    "seconds": 1.6,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: b653c5b4b5cf89ae reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "b653c5b4b5cf89ae",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: edbefc5b2592d29c reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "edbefc5b2592d29c",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f96061efa23717a4 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "f96061efa23717a4",
+    "seconds": 3.6,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 02f93170c835d5d9 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "02f93170c835d5d9",
+    "seconds": 2.6,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 0a53f204e2954b55 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-05-30T10:00:00+00:00",
+      "slice_to": "2025-11-14T02:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "0a53f204e2954b55",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 15cf36ba04d458ef reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "15cf36ba04d458ef",
+    "seconds": 4.1,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 2f0684e8f1457428 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "2f0684e8f1457428",
+    "seconds": 1.3,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 52ef0460a7426e1c reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "52ef0460a7426e1c",
+    "seconds": 2.2,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 7b5e7bbdaf404b71 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-04-30T19:20:00+00:00",
+      "slice_to": "2026-10-15T12:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "7b5e7bbdaf404b71",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: bd4ff19eca389209 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-11-14T02:40:00+00:00",
+      "slice_to": "2026-04-30T19:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "bd4ff19eca389209",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: e513b30cdeca0436 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "e513b30cdeca0436",
+    "seconds": 1.3,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 1dfa207ace52daf5 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-02-14T04:20:00+00:00",
+      "slice_to": "2026-10-15T12:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "1dfa207ace52daf5",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 58b3350bea9ccbe4 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "58b3350bea9ccbe4",
+    "seconds": 3.7,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 6a9729f901914b93 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "6a9729f901914b93",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 92a62a766d246281 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2024-10-15T13:00:00+00:00",
+      "slice_to": "2025-06-15T20:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "92a62a766d246281",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: c0fad1ec6ad653d6 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "c0fad1ec6ad653d6",
+    "seconds": 6.2,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: c3e2aaf6afcd2422 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "c3e2aaf6afcd2422",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: cf055c3ff45a9c9a reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "cf055c3ff45a9c9a",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: da9c7be30c2fcb23 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-06-15T20:40:00+00:00",
+      "slice_to": "2026-02-14T04:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "da9c7be30c2fcb23",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f19065db840fbacb reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "f19065db840fbacb",
+    "seconds": 1.4,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 0882c654a7660843 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "0882c654a7660843",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 27ad992e1dd34a27 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "27ad992e1dd34a27",
+    "seconds": 3.7,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 814c80675d570aae reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "814c80675d570aae",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 940f7599148758a2 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "940f7599148758a2",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 9ed7a880c34f36c0 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "9ed7a880c34f36c0",
+    "seconds": 6.4,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: b54c2bef8a8c4489 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "b54c2bef8a8c4489",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: becc4db47573953d reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "becc4db47573953d",
+    "seconds": 2.1,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: c74dccf1ea0ed3b4 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "c74dccf1ea0ed3b4",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: ca03a176425b8d76 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "ca03a176425b8d76",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: dec8c4aff3503bcb reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "dec8c4aff3503bcb",
+    "seconds": 1.2,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: e99c833fecd633f4 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "e99c833fecd633f4",
+    "seconds": 1.8,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f7798500d5b0239e reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "f7798500d5b0239e",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 2fb599ca85852493 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "2fb599ca85852493",
+    "seconds": 3.8,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 31b3100569b7f4a3 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "31b3100569b7f4a3",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 7380dbece4f1281a reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "7380dbece4f1281a",
+    "seconds": 6.2,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 898b13b65e1deb27 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "898b13b65e1deb27",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: cf001b8ff0148c27 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "cf001b8ff0148c27",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: d78a3306bb576fc3 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "d78a3306bb576fc3",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: e9c756adeb09334d reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "e9c756adeb09334d",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f0a1028e69644efa reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "f0a1028e69644efa",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: ff0e9b3c4d3caa3f reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "ff0e9b3c4d3caa3f",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 2cfa0d31d2122da2 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "2cfa0d31d2122da2",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 456f33e22d354596 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S10,S02",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "456f33e22d354596",
+    "seconds": 2.9,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 55a80038d3f682d3 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S10,S02",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "55a80038d3f682d3",
+    "seconds": 3.5,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 7e730d5c43c2adbe reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2025-06-15T05:40:00+00:00",
+      "slice_to": "2026-02-13T13:20:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "7e730d5c43c2adbe",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 95555245d5353174 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2024-10-14T22:00:00+00:00",
+      "slice_to": "2025-06-15T05:40:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "95555245d5353174",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 9840c3069c15f837 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "9840c3069c15f837",
+    "seconds": 5.8,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 9eb69b6dece418a5 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "slice_from": "2026-02-13T13:20:00+00:00",
+      "slice_to": "2026-10-14T21:00:00+00:00"
+    },
+    "rc": 0,
+    "run_id": "9eb69b6dece418a5",
+    "seconds": 1.1,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: a30083333490d945 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "a30083333490d945",
+    "seconds": 1.6,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: b5e27ec2b2e3ee33 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S10,S02",
+      "mode": "wf",
+      "test_bars": 720,
+      "train_bars": 2160
+    },
+    "rc": 0,
+    "run_id": "b5e27ec2b2e3ee33",
+    "seconds": 6.3,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: e383f966e0b38516 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 6.0,
+      "slippage_bps": 5.0
+    },
+    "rc": 0,
+    "run_id": "e383f966e0b38516",
+    "seconds": 1.5,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: ef3c6a9bbda4bd71 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 1440,
+      "train_bars": 2880
+    },
+    "rc": 0,
+    "run_id": "ef3c6a9bbda4bd71",
+    "seconds": 3.8,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: fe71b471b85bde19 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "ids": "S02,S10",
+      "mode": "wf",
+      "test_bars": 2160,
+      "train_bars": 4320
+    },
+    "rc": 0,
+    "run_id": "fe71b471b85bde19",
+    "seconds": 3.0,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 07c549d7d48d9c85 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "07c549d7d48d9c85",
+    "seconds": 9.2,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 60c20d2743bfd37f reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "60c20d2743bfd37f",
+    "seconds": 9.3,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 0f65b683264d46ae reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "0f65b683264d46ae",
+    "seconds": 9.0,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 76d109606da01088 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "76d109606da01088",
+    "seconds": 9.0,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 3d5ac1a3995ca2b0 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "3d5ac1a3995ca2b0",
+    "seconds": 6.5,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 7d7d70e160793a11 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "7d7d70e160793a11",
+    "seconds": 6.4,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 0f8affb10e41645c reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "0f8affb10e41645c",
+    "seconds": 8.5,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: b76b478cae5f1048 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "b76b478cae5f1048",
+    "seconds": 8.9,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 862cc40167c27230 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "862cc40167c27230",
+    "seconds": 9.0,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: c0075a20867a8331 reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "c0075a20867a8331",
+    "seconds": 9.2,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 124b463d2e99479b reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "124b463d2e99479b",
+    "seconds": 9.0,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 2e3b6c6ba47d54bd reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "2e3b6c6ba47d54bd",
+    "seconds": 9.2,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 002c42cdd4eeb360 reproduces bit-for-bit.  (harness rebuilt: 8692ea2bc8f3 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "002c42cdd4eeb360",
+    "seconds": 9.1,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 41a373bf7e5f90bd reproduces bit-for-bit.  (harness rebuilt: 5251044c3120 -> 993035b719a3)"
+    ],
+    "params": {
+      "fee_bps": 0.0,
+      "slippage_bps": 0.0
+    },
+    "rc": 0,
+    "run_id": "41a373bf7e5f90bd",
+    "seconds": 9.4,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "082285e2fb7d7eb5",
+    "seconds": 1.0,
+    "strategy": "sax",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "7a50d91690a8306c",
+    "seconds": 0.9,
+    "strategy": "sax",
+    "symbol": "BTCUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "560796b79a44a16d",
+    "seconds": 0.9,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "b9b86d2fa9afcef5",
+    "seconds": 1.0,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "2ffb44e0ee59f3a4",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "e8ea2e4857faf2ee",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "HYPEUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "26caa8c5e4563a18",
+    "seconds": 0.9,
+    "strategy": "sax",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "e4277764a8d76bc8",
+    "seconds": 0.9,
+    "strategy": "sax",
+    "symbol": "SOLUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "9d66ec99712d1b16",
+    "seconds": 1.0,
+    "strategy": "sax",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "b370d9711e849992",
+    "seconds": 1.0,
+    "strategy": "sax",
+    "symbol": "SUIUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "3638c5f2a9983f93",
+    "seconds": 1.2,
+    "strategy": "sax",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "792fa980f76e861b",
+    "seconds": 1.0,
+    "strategy": "sax",
+    "symbol": "XRPUSDT",
+    "timeframe": "15m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "0cc8a39759e404e5",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "ADAUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "e63895c531e26b0f",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "ADAUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "4e09efe2c3d70396",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "69d1c14da9a34eff",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "AVAXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "79ae65432fcc6fba",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "BNBUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "992999fddb22782d",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "BNBUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "0ab745961ebf2ab7",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "f9b517acfadb61f7",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "3906967986cd22fa",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "DOGEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "aa17cd97ca478420",
+    "seconds": 0.9,
+    "strategy": "sax",
+    "symbol": "DOGEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "2380397d4236b845",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {
+      "trend_len": 100
+    },
+    "rc": 2,
+    "run_id": "d58440c89329c79a",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "f043e8b6498219ae",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "476b96648254e371",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "6edff58ca1e32e5f",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "LINKUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "eb0f2fcf732de26d",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "LINKUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "181cc07917f16b3c",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "NEARUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "996e7653b8dc7ac9",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "NEARUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "1d95815493a2ec34",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "6d2ecc56dcf57f0d",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "e20a0831d386796c",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SPXUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "74e83f78c45d35ed",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "aee6496810a286e0",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SUIUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "5b75ec0806377dd4",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "b32b468b128ebf77",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "XRPUSDT",
+    "timeframe": "1h"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "3de0e534a3ceb8f3",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "BTCUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "16f784cf6b44d577",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "6fe4d1655f41a2f3",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "HYPEUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "f214c67ab0a0fc01",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SOLUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "fe4f9f4e595208e4",
+    "seconds": 0.8,
+    "strategy": "sax",
+    "symbol": "SUIUSDT",
+    "timeframe": "5m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 4dd8b2d0284b8ccc reproduces bit-for-bit.  (harness rebuilt: a3666930ab16 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "4dd8b2d0284b8ccc",
+    "seconds": 42.1,
+    "strategy": "cbpack",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 872ee427d61e4880 reproduces bit-for-bit.  (harness rebuilt: a3666930ab16 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "872ee427d61e4880",
+    "seconds": 42.4,
+    "strategy": "cbpack",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: f3440cb869afd3dc reproduces bit-for-bit.  (harness rebuilt: a3666930ab16 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "f3440cb869afd3dc",
+    "seconds": 29.8,
+    "strategy": "cbpack",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: d2084bee13ee07ea reproduces bit-for-bit.  (harness rebuilt: 60e17342a713 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "d2084bee13ee07ea",
+    "seconds": 40.8,
+    "strategy": "cbpack",
+    "symbol": "JUPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: dd8b4389c96acb4a reproduces bit-for-bit.  (harness rebuilt: 4d972953c5f0 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "dd8b4389c96acb4a",
+    "seconds": 42.7,
+    "strategy": "cbpack",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 1094ef7ea9f6d085 reproduces bit-for-bit.  (harness rebuilt: 4d972953c5f0 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "1094ef7ea9f6d085",
+    "seconds": 42.8,
+    "strategy": "cbpack",
+    "symbol": "SUIUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 026442c1718e019b reproduces bit-for-bit.  (harness rebuilt: 4d972953c5f0 -> 993035b719a3)"
+    ],
+    "params": {},
+    "rc": 0,
+    "run_id": "026442c1718e019b",
+    "seconds": 43.4,
+    "strategy": "cbpack",
+    "symbol": "XRPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "f14141bbce08dcb7",
+    "seconds": 2.1,
+    "strategy": "sax",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "f6e9f18184ce7740",
+    "seconds": 2.1,
+    "strategy": "sax",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "27cc889e145d2d02",
+    "seconds": 1.2,
+    "strategy": "sax",
+    "symbol": "HYPEUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "7feaf8c656199759",
+    "seconds": 2.0,
+    "strategy": "sax",
+    "symbol": "SOLUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "5f3fa0b72c7203b7",
+    "seconds": 0.9,
+    "strategy": "sax",
+    "symbol": "SPXUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "e3c238f2557273ff",
+    "seconds": 1.9,
+    "strategy": "sax",
+    "symbol": "SUIUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills)."
+    ],
+    "params": {},
+    "rc": 2,
+    "run_id": "a7d7b519079f0329",
+    "seconds": 2.0,
+    "strategy": "sax",
+    "symbol": "XRPUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 6be62afb3c88e373 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2025-06-14",
+      "slice_to": "2026-02-13"
+    },
+    "rc": 0,
+    "run_id": "6be62afb3c88e373",
+    "seconds": 42.7,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: a0cf558a3d87dee9 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2026-02-13",
+      "slice_to": "2026-10-14"
+    },
+    "rc": 0,
+    "run_id": "a0cf558a3d87dee9",
+    "seconds": 37.0,
+    "strategy": "cbot",
+    "symbol": "BTCUSDT",
+    "timeframe": "1m"
+  },
+  {
+    "err": [],
+    "harness": "993035b719a3d7dff157db2fbcce0e108404a0703016d9c34b650c74d58cf9ed",
+    "msg": [
+      "OK: 40450a5a486088c0 reproduces bit-for-bit.  (harness rebuilt: ace4b6ee5fab -> 993035b719a3)"
+    ],
+    "params": {
+      "hold_mode": "minutes",
+      "slice_from": "2026-02-13",
+      "slice_to": "2026-10-14"
+    },
+    "rc": 0,
+    "run_id": "40450a5a486088c0",
+    "seconds": 36.9,
+    "strategy": "cbot",
+    "symbol": "ETHUSDT",
+    "timeframe": "1m"
+  }
+]

@@ -1,0 +1,7 @@
+ADX+HMA preset=custom tf=15m cost=pineslip entry=default short=default
+sym        trades       net%     DD%     PF        BH%
+BTCUSDT     21036     -100.0   100.0   0.70       +731
+ETHUSDT     21252     -100.0   100.0   0.68      +1615
+SOLUSDT     18726     -100.0   100.0   0.97      +3178
+XRPUSDT     20212     -100.0   100.0   0.65       +609
+SUIUSDT     10086     -100.0   100.0   0.81        -17

@@ -1,0 +1,96 @@
+========================================================================================================
+1. NEIGHBOURHOOD — full donLen grid, ATR-stop variant, all 7 symbols
+========================================================================================================
+symbol         10      14      20      25      30      35      40      45      55      70
+BTCUSDT      -27%    -30%    +10%    +55%    +85%    +93%   +120%    +60%    +50%    +50%
+ETHUSDT       +7%     +9%    -38%     +3%    +47%    +93%   +158%   +266%   +135%   +251%
+SOLUSDT      +27%    +46%    +35%    -15%     +1%    -24%    -22%    -18%    -28%    -28%
+SUIUSDT      -25%    -15%    -23%    -22%    -30%    -30%    -24%    -35%    -32%    -25%
+XRPUSDT      +53%    +78%    +51%    -22%    +17%    +91%    +68%     -2%     +2%     -7%
+HYPEUSDT     +27%    +13%    +30%    +19%    +23%    +17%    +13%    +19%     +3%     +6%
+SPXUSDT      -15%    -25%     +4%     -1%    +16%     +5%    +17%     +9%     +1%     -0%
+
+symbol         10      14      20      25      30      35      40      45      55      70   (PF)
+BTCUSDT      0.98    0.97    1.06    1.17    1.30    1.38    1.51    1.37    1.37    1.49
+ETHUSDT      1.04    1.05    0.92    1.05    1.21    1.41    1.68    2.03    1.84    2.75
+SOLUSDT      1.07    1.11    1.11    0.98    1.03    0.84    0.83    0.85    0.68    0.63
+SUIUSDT      0.92    0.97    0.92    0.90    0.77    0.68    0.69    0.39    0.35    0.39
+XRPUSDT      1.14    1.17    1.15    0.96    1.10    1.47    1.46    1.01    1.05    0.95
+HYPEUSDT     1.27    1.15    1.34    1.27    1.43    1.60    1.57    1.92    1.20    1.40
+SPXUSDT      0.91    0.82    1.05    1.01    1.27    1.15    1.44    1.28    1.08    1.02
+
+  sign-flip count across the grid (how many params are positive):
+    BTCUSDT   8/10 positive   range -30% .. +120%
+    ETHUSDT   9/10 positive   range -38% .. +266%
+    SOLUSDT   4/10 positive   range -28% .. +46%
+    SUIUSDT   0/10 positive   range -35% .. -15%
+    XRPUSDT   7/10 positive   range -22% .. +91%
+    HYPEUSDT  10/10 positive   range +3% .. +30%
+    SPXUSDT   6/10 positive   range -25% .. +17%
+
+========================================================================================================
+2. WALK-FORWARD at each donLen — train <=2024, test 2025+ (OOS)
+========================================================================================================
+symbol    donLen    IS net   IS PF    n   OOS net  OOS PF    n  verdict
+BTCUSDT       20     +7.8%    1.05  640     +2.1%    1.07  211  weak
+BTCUSDT       30    +36.5%    1.21  303    +35.8%    1.57   92  oedge
+BTCUSDT       40    +85.0%    1.53  199    +18.7%    1.46   65  oedge
+BTCUSDT       55    +35.7%    1.37  137    +10.3%    1.38   51  oedge
+
+ETHUSDT       20    -34.1%    0.91  591     -6.2%    0.97  176  KILL (OOS PF<1)
+ETHUSDT       30     +5.9%    1.08  290    +38.6%    1.67   84  oedge
+ETHUSDT       40    +98.9%    1.68  183    +29.8%    1.71   59  oedge
+ETHUSDT       55   +158.9%    2.30  122     -9.2%    0.75   42  KILL (OOS PF<1)
+
+XRPUSDT       20     +2.4%    1.07  549    +47.2%    1.37  209  oedge
+XRPUSDT       30     +6.2%    1.07  259    +10.3%    1.17  108  weak
+XRPUSDT       40    +12.2%    1.14  159    +50.0%    2.24   61  oedge
+XRPUSDT       55     -6.1%    0.95  105     +8.4%    1.31   40  oedge
+
+SUIUSDT       20    -14.3%    0.91  209    -10.1%    0.93  193  KILL (OOS PF<1)
+SUIUSDT       30    -20.9%    0.68   94    -11.2%    0.86   91  KILL (OOS PF<1)
+SUIUSDT       40    -25.6%    0.34   55     +2.6%    1.11   54  weak
+SUIUSDT       55    -23.2%    0.25   40    -12.1%    0.50   36  KILL (OOS PF<1)
+
+========================================================================================================
+3. IS THE EDGE LONG-SIDE ONLY? (shorts were followed by POSITIVE returns)
+========================================================================================================
+symbol     long-only net     PF |  two-sided net     PF
+BTCUSDT           +83.9%   1.28 |         +10.0%   1.06
+ETHUSDT            -6.4%   1.00 |         -38.2%   0.92
+SOLUSDT           +15.7%   1.10 |         +34.6%   1.11
+SUIUSDT            -6.5%   0.98 |         -23.0%   0.92
+XRPUSDT            -0.0%   1.08 |         +50.7%   1.15
+HYPEUSDT          +18.7%   1.39 |         +29.8%   1.34
+SPXUSDT            +9.0%   1.15 |          +3.6%   1.05
+
+========================================================================================================
+4. BEST CANDIDATE vs THE HOUSE GATE — donLen=40 long-only+ATR, per symbol
+========================================================================================================
+  BTCUSDT                PASS   ok PF 1.99>1.2 | ok cost/gross 4%<40 | ok green 6/8yr | ok n 134>=30 | ok DD 22.3%<40
+    BTCUSDT   net  +129.5%  n 134  2019:-4% 2020:+2% 2021:+14% 2022:-1% 2023:+52% 2024:+7% 2025:+6% 2026:+20%
+  ETHUSDT                FAIL   ok PF 2.25>1.2 | ok cost/gross 4%<40 | NO green 5/8yr | ok n 122>=30 | ok DD 19.1%<40
+    ETHUSDT   net  +140.7%  n 122  2019:-1% 2020:+81% 2021:+21% 2022:+4% 2023:+7% 2024:+7% 2025:-7% 2026:-0%
+  SOLUSDT                FAIL   NO PF 0.65>1.2 | ok cost/gross 12%<40 | NO green 2/7yr | ok n 85>=30 | ok DD 34.4%<40
+    SOLUSDT   net   -21.8%  n  85  2020:-3% 2021:-5% 2022:+16% 2023:-10% 2024:-2% 2025:-19% 2026:+2%
+  SUIUSDT                FAIL   NO PF 0.57>1.2 | ok cost/gross 13%<40 | NO green 1/4yr | ok n 58>=30 | ok DD 30.1%<40
+    SUIUSDT   net   -19.0%  n  58  2023:-7% 2024:-11% 2025:-4% 2026:+3%
+  XRPUSDT                FAIL   ok PF 1.44>1.2 | ok cost/gross 6%<40 | NO green 3/7yr | ok n 116>=30 | ok DD 26.2%<40
+    XRPUSDT   net   +25.7%  n 116  2020:+1% 2021:-5% 2022:-4% 2023:+2% 2024:-9% 2025:+48% 2026:-1%
+  HYPEUSDT               FAIL   ok PF 1.84>1.2 | ok cost/gross 4%<40 | NO green 1/2yr | NO n 21>=30 | ok DD 12.4%<40
+    HYPEUSDT  net   +12.3%  n  21  2025:-2% 2026:+15%
+  SPXUSDT                FAIL   ok PF 1.24>1.2 | ok cost/gross 7%<40 | NO green 1/3yr | ok n 37>=30 | ok DD 13.5%<40
+    SPXUSDT   net    +5.1%  n  37  2024:-0% 2025:-1% 2026:+7%
+  -> 1/7 symbols pass
+
+========================================================================================================
+5. SUMMARY TABLE — the best cell per symbol across the whole grid
+========================================================================================================
+symbol     best donLen       net     PF     n      DD  note
+BTCUSDT             25   +204.9%   1.68   309   21.5%  long-only
+ETHUSDT             45   +266.1%   2.03   213   28.5%  two-sided
+SOLUSDT             14    +45.8%   1.11   909   28.8%  two-sided
+SUIUSDT             10    +14.1%   1.13   302   21.6%  long-only
+XRPUSDT             35    +91.3%   1.47   262   23.4%  two-sided
+HYPEUSDT            20    +29.8%   1.34   166   18.9%  two-sided
+SPXUSDT             40    +16.8%   1.44    63   14.9%  two-sided

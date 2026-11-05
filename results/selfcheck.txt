@@ -1,0 +1,23 @@
+PASS  pivot confirm lag == R   [(6, 4), (9, 7), (12, 10), (18, 16)]
+PASS  pivot value is the bar's own value
+PASS  no lookahead, prefix@2500 identical
+PASS  no lookahead, prefix@3000 identical
+PASS  no lookahead, prefix@3500 identical
+PASS  RSI in [0,100]   [8.6,100.0]
+PASS  EMA21 matches reference recursion
+PASS  MACD hist == line - signal
+PASS  MACD converges to 0 for a constant series
+PASS  ADX in [0,100]   [0.0,59.5]
+PASS  ATR > 0
+PASS  daily bias is zero before the first daily close   first 23 bars all zero, bar23=2.0, bar24=2.0
+PASS  mtf_apply never exposes a bar that had not closed   violations: []
+PASS  mtf_apply exposes a day on its final LTF bar and not before   bar22=nan bar23=23.0 bar24=23.0 bar46=23.0 bar47=47.0
+PASS  no trade is left hanging as 'open' in a finished run
+PASS  equity stays positive   eq=9913.97
+PASS  legs sum to the equity path
+PASS  every entry bar follows its signal bar   1096 signals, 3 entries
+PASS  recorded fill price == the entry bar's OPEN   0 of 3 fills mismatch
+PASS  no fill uses the signal bar's close   no bar was filled at the previous bar's close
+PASS  wrong-side stops are reported and skipped by the entry filter   139/1096 signal bars have a stop already through price (skipped at entry)
+
+ALL CHECKS PASS

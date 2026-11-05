@@ -1,0 +1,224 @@
+{
+ "generated_utc": "2026-11-04T21:40:37Z",
+ "engine_sha256": "9108aa8db0b7651250adcd37748cceb8c2be5ad2c03e4ff8f3a860485c724b4a",
+ "pass": true,
+ "checks": [
+  {
+   "name": "B case A: entry minute then cover minute fills on the bar",
+   "pass": true,
+   "detail": {
+    "trades": [
+     {
+      "dir": 1,
+      "qty": 10.0,
+      "entry": 98.0,
+      "exit": 100.0,
+      "cover": 100.0,
+      "pnl": 19.604,
+      "fees": 0.5960000000000001,
+      "reason": "cover",
+      "ts": 1672535700000,
+      "entry_ts": 1672535700000,
+      "entry_min_ts": 1672535700000,
+      "exit_min_ts": 1672536000000
+     }
+    ],
+    "same_minute": 0,
+    "one_m_covers": 1,
+    "resolved": 1
+   }
+  },
+  {
+   "name": "B case B: cover touch BEFORE entry does not fill on that bar",
+   "pass": true,
+   "detail": {
+    "trades": [
+     {
+      "dir": 1,
+      "qty": 10.0,
+      "entry": 98.0,
+      "exit": 100.0,
+      "cover": 100.0,
+      "pnl": 19.604,
+      "fees": 0.5960000000000001,
+      "reason": "cover",
+      "ts": 1672536600000,
+      "entry_ts": 1672535700000,
+      "entry_min_ts": 1672536000000,
+      "exit_min_ts": -1
+     }
+    ],
+    "one_m_covers": 0
+   }
+  },
+  {
+   "name": "B case C: same-minute touch is banned and counted",
+   "pass": true,
+   "detail": {
+    "trades": [
+     {
+      "dir": 1,
+      "qty": 10.0,
+      "entry": 98.0,
+      "exit": 100.0,
+      "cover": 100.0,
+      "pnl": 19.604,
+      "fees": 0.5960000000000001,
+      "reason": "cover",
+      "ts": 1672536600000,
+      "entry_ts": 1672535700000,
+      "entry_min_ts": 1672535700000,
+      "exit_min_ts": -1
+     }
+    ],
+    "same_minute": 1
+   }
+  },
+  {
+   "name": "B case D: no tape keeps the original same-bar cover",
+   "pass": true,
+   "detail": {
+    "trades": [
+     {
+      "dir": 1,
+      "qty": 10.0,
+      "entry": 98.0,
+      "exit": 100.0,
+      "cover": 100.0,
+      "pnl": 19.604,
+      "fees": 0.5960000000000001,
+      "reason": "cover",
+      "ts": 1672535700000,
+      "entry_ts": 1672535700000,
+      "entry_min_ts": -1,
+      "exit_min_ts": -1
+     }
+    ],
+    "same_bar_covers": 1
+   }
+  },
+  {
+   "name": "B case E: 14/15 minutes is partial and falls back",
+   "pass": true,
+   "detail": {
+    "trades": [
+     {
+      "dir": 1,
+      "qty": 10.0,
+      "entry": 98.0,
+      "exit": 100.0,
+      "cover": 100.0,
+      "pnl": 19.604,
+      "fees": 0.5960000000000001,
+      "reason": "cover",
+      "ts": 1672535700000,
+      "entry_ts": 1672535700000,
+      "entry_min_ts": -1,
+      "exit_min_ts": -1
+     }
+    ],
+    "partial": 1
+   }
+  },
+  {
+   "name": "B order matters: A and B share OHLC but exit on different bars",
+   "pass": true,
+   "detail": {
+    "A_exit_bar": "2023-01-01T01:15:00Z",
+    "B_exit_bar": "2023-01-01T01:30:00Z"
+   }
+  },
+  {
+   "name": "A no tape: dual engine is bit-identical to the 15m engine",
+   "pass": true,
+   "detail": {
+    "diffs": [],
+    "bars": 239470,
+    "trades": 5986
+   }
+  },
+  {
+   "name": "A no tape: every trade carries minute metadata = -1",
+   "pass": true,
+   "detail": {
+    "trades": 5986
+   }
+  },
+  {
+   "name": "A2 a late tape leaves every earlier bar bit-identical",
+   "pass": true,
+   "detail": {
+    "tape_rows": 3710,
+    "first_resolved": "2026-09-29T00:00:00Z",
+    "prefix_bars": 235935,
+    "resolved_bars": 247,
+    "no_tape": 235935
+   }
+  },
+  {
+   "name": "C 15m baseline on the probe slice reproduces",
+   "pass": true,
+   "detail": {
+    "got": {
+     "n_bars_15m": 131479,
+     "profit_factor": 1.3019,
+     "n_trades": 3317,
+     "win_rate": 86.95,
+     "return_pct": 17031.11,
+     "max_dd_pct": 20.54,
+     "final_equity": 4282.78,
+     "same_minute_touched": -1
+    },
+    "expected": {
+     "engine": "xrp_orig_1mwin",
+     "n_bars_15m": 131479,
+     "profit_factor": 1.3019,
+     "n_trades": 3317,
+     "win_rate": 86.95,
+     "return_pct": 17031.11,
+     "max_dd_pct": 20.54,
+     "same_minute_touched": -1,
+     "final_equity_usdt": 4282.78
+    }
+   }
+  },
+  {
+   "name": "C 1m-resolved result reproduces the published kill exactly",
+   "pass": true,
+   "detail": {
+    "got": {
+     "n_bars_15m": 131479,
+     "profit_factor": 0.9326,
+     "n_trades": 3018,
+     "win_rate": 77.53,
+     "return_pct": -74.2,
+     "max_dd_pct": 81.46,
+     "final_equity": 6.45,
+     "same_minute_touched": 290
+    },
+    "expected": {
+     "engine": "xrp_neutral_engine_1m",
+     "n_bars_15m": 131479,
+     "profit_factor": 0.9326,
+     "n_trades": 3018,
+     "win_rate": 77.53,
+     "return_pct": -74.2,
+     "max_dd_pct": 81.46,
+     "same_minute_touched": 290,
+     "final_equity_usdt": 6.45
+    }
+   }
+  },
+  {
+   "name": "C every bar in the slice carries a complete 15-minute tape",
+   "pass": true,
+   "detail": {
+    "bars": 131479,
+    "resolved": 131479,
+    "partial": 0,
+    "no_tape": 0,
+    "minutes_used": 1972185
+   }
+  }
+ ]
+}

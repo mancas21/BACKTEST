@@ -1,0 +1,6 @@
+{"k_bps": 0, "profit_factor": 1.3071, "n_trades": 5975, "win_rate": 87.21, "return_pct": 9388264.86, "max_dd_pct": 43.42, "same_bar_covers_blocked": 0, "final_equity_usdt": 2347091.22, "config": "ORIGINAL engine (parity vs fe5c359a22c8dffe)"}
+{"k_bps": 0, "profit_factor": 0.9026, "n_trades": 5337, "win_rate": 76.17, "return_pct": -99.27, "max_dd_pct": 99.6, "same_bar_covers_blocked": 5337, "final_equity_usdt": 0.18, "config": "STRESS ban-same-bar-cover + 0 bps cushion"}
+{"k_bps": 1, "profit_factor": 0.8796, "n_trades": 5260, "win_rate": 75.48, "return_pct": -99.73, "max_dd_pct": 99.82, "same_bar_covers_blocked": 5260, "final_equity_usdt": 0.07, "config": "STRESS ban-same-bar-cover + 1 bps cushion"}
+{"k_bps": 2, "profit_factor": 0.8701, "n_trades": 5196, "win_rate": 74.65, "return_pct": -99.89, "max_dd_pct": 99.93, "same_bar_covers_blocked": 5196, "final_equity_usdt": 0.03, "config": "STRESS ban-same-bar-cover + 2 bps cushion"}
+{"k_bps": 5, "profit_factor": 0.8342, "n_trades": 5019, "win_rate": 72.84, "return_pct": -99.99, "max_dd_pct": 99.99, "same_bar_covers_blocked": 5019, "final_equity_usdt": 0.0, "config": "STRESS ban-same-bar-cover + 5 bps cushion"}
+PARITY: {"artifact_pf": 1.307093793853637, "probe_pf": 1.3071, "artifact_ret": 9388264.862211347, "probe_ret": 9388264.86, "match": false}

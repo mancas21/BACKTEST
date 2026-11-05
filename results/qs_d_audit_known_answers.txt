@@ -1,0 +1,32 @@
+QS family-D audit — qs_d_strats.py
+run 2026-11-01T15:59:27+00:00
+qs_d_strats.py sha256: 03743992df788633a5f4c47f36ba9c8a34a8366e131a40741fbb6ed4640aaee3
+
+[PASS] D1a QS-031 long fires on the post-confirmation breakout — events at [np.int64(22), np.int64(34)]
+[PASS] D1b QS-031 stop distance inside the declared 1-3*ATR band — stop at event=103.994 atr=1.402
+[PASS] D1c QS-031 no event on the bar before the pivot confirms — events [np.int64(22)]
+[PASS] D2a QS-032 retrace-continuation long fires — events at [np.int64(44)]
+[PASS] D2b QS-032 target = the retest of the last swing high — tp last=2.200
+[PASS] D3a QS-033 sawtooth downtrend keeps ADX below 35 — adx=34.3
+[PASS] D3b QS-033 produces a CHoCH long on the downtrend frame — events at [np.int64(54)]
+[PASS] D4 QS-034 hammer rejection off the pivot-low zone fires — events at [np.int64(34)]
+[PASS] D5 QS-035 sweep-and-reclaim fires on the sweep bar — events tail [np.int64(142)]
+[PASS] D5b QS-035 target = the range midpoint — tp=1.300 mid=101.900
+[PASS] D6 QS-036 retest event fires after the confirmed break — events at [np.int64(24)]
+[PASS] D7a QS-037 upper-third compression breakout fires — events tail [np.int64(90)]
+[PASS] D7b QS-037 target = the prior range high — tp=0.599 pr_hh=104.399
+[PASS] D8a QS-038 frame run exceeds 4*ATR and decelerates — move=9.05 atr=1.25
+[PASS] D8b QS-038 long fade fires on the up-close after the down-run — events at [np.int64(48)]
+[PASS] D8c QS-038 target = 50% of the run (midpoint to the pre-run top) — tp=4.460
+[PASS] D9a QS-039 longs fire inside the HTF uptrend — n_long=10
+[PASS] D9b QS-039 shorts fire after the HTF rollover — n_short=5
+[PASS] D9c QS-039 no shorts inside the HTF uptrend
+[PASS] D10a QS-040 continuation long fires after the shallow retrace — events at [np.int64(28)]
+[PASS] D10b QS-040 stop = the displacement 50% level (3*ATR cap) — stop=103.650 disp50=103.650 cap=102.773
+[PASS] D10c QS-040 plan carries the native 2*ATR trailing stop
+[PASS] R1 truncation causality (QS-031 on real data)
+[PASS] R1 truncation causality (QS-036 on real data)
+[PASS] R1b truncation causality (QS-039 HTF structure on real data)
+[PASS] R2 determinism
+
+TOTAL: 26 PASS, 0 FAIL

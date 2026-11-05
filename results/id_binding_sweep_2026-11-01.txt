@@ -1,0 +1,9 @@
+RUN_ID <-> CONTENT BINDING SWEEP — code/_verify_id_binding.py
+asof_utc: 2026-11-01T20:35:26Z
+scope: every artifact JSON in results/runs/ (read-only)
+
+RESULT: of 5119 artifacts, mismatches found: see list below
+(counts in words: id mismatches 0, filename mismatches 2, params/core.params mismatches 0, missing-core 0).
+
+  4596f8f583d53b6d.COLLIDED-cardid.json: filename 4596f8f583d53b6d.COLLIDED-cardid != run_id field 4596f8f583d53b6d
+  aa28f0084a37a6eb.PREFIX-no-card.json: filename aa28f0084a37a6eb.PREFIX-no-card != run_id field aa28f0084a37a6eb

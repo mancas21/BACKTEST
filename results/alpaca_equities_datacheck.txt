@@ -1,0 +1,33 @@
+Alpaca equities import datacheck 2026-10-29T20:57:58+00:00
+feed=sip adjustment=all tf=1Day window=2016-01-01..now
+PASS  SPY: no duplicate timestamps   [2722 bars]
+PASS  SPY: no split-scale jump (max |1d move| < 35%)   [max 10.8% on 2020-03-16]
+PASS  SPY: no gap over 4 calendar days (market holidays ok)
+PASS  SPY: volume is CONSOLIDATED (median > 1M sh/day)   [median 72,899,604]
+      SPY: 2722 bars 2016-01-04..2026-10-29
+PASS  QQQ: no duplicate timestamps   [2722 bars]
+PASS  QQQ: no split-scale jump (max |1d move| < 35%)   [max 12.0% on 2025-04-09]
+PASS  QQQ: no gap over 4 calendar days (market holidays ok)
+PASS  QQQ: volume is CONSOLIDATED (median > 1M sh/day)   [median 39,327,085]
+      QQQ: 2722 bars 2016-01-04..2026-10-29
+PASS  AAPL: no duplicate timestamps   [2722 bars]
+PASS  AAPL: no split-scale jump (max |1d move| < 35%)   [max 15.3% on 2025-04-09]
+PASS  AAPL: no gap over 4 calendar days (market holidays ok)
+PASS  AAPL: volume is CONSOLIDATED (median > 1M sh/day)   [median 91,692,872]
+PASS  AAPL: split 2020-08-31 x4 shows no jump under adjustment=all   [split-day return +3.39%]
+      AAPL: 2722 bars 2016-01-04..2026-10-29
+PASS  MSFT: no duplicate timestamps   [2722 bars]
+PASS  MSFT: no split-scale jump (max |1d move| < 35%)   [max 15.5% on 2026-07-30]
+PASS  MSFT: no gap over 4 calendar days (market holidays ok)
+PASS  MSFT: volume is CONSOLIDATED (median > 1M sh/day)   [median 27,078,677]
+      MSFT: 2722 bars 2016-01-04..2026-10-29
+PASS  NVDA: no duplicate timestamps   [2722 bars]
+PASS  NVDA: no split-scale jump (max |1d move| < 35%)   [max 29.8% on 2016-11-11]
+PASS  NVDA: no gap over 4 calendar days (market holidays ok)
+PASS  NVDA: volume is CONSOLIDATED (median > 1M sh/day)   [median 406,818,160]
+PASS  NVDA: split 2024-06-10 x10 shows no jump under adjustment=all   [split-day return +0.75%]
+PASS  NVDA: split 2021-07-20 x4 shows no jump under adjustment=all   [split-day return -0.86%]
+      NVDA: 2722 bars 2016-01-04..2026-10-29
+PASS  harness _read_input parses the csv (open_ts, ms epoch)   [2722 bars 2016-01-04..2026-10-29 sha 59fafa110786]
+
+ALL PASS

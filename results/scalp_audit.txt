@@ -1,0 +1,56 @@
+SCALP SUITE AUDIT — 0/10 pass
+======================================================================
+
+GATE 1 — ARITHMETIC (cost/stop > 0.5 = dead before signal
+quality). Measured 1m ATR(14): BTC 0.0234%, ETH 0.0273%, SOL 0.0414%. Taker+slip = 7bps round trip.
+
+  SCALP-1  OBI micro        cost/stop 0.88  DEAD + needs L2
+  SCALP-2  OFI aggr         cost/stop 0.58  DEAD + needs tick
+  SCALP-3  VWAP sigma       cost/stop 4.55  DEAD (stop = 2.5
+           sigma = 0.02%; fees are 4.5x the entire risk)
+  SCALP-6  CVD divergence   cost/stop 0.58  DEAD + needs tick
+  SCALP-7  Iceberg          cost/stop 0.70  DEAD + needs L2
+  SCALP-9  AI confluence    cost/stop 1.52  DEAD (fees 3x stop)
+  6/10 killed before any code ran. 2 more need L2 order-book
+  data that does not exist on this machine and is not
+  obtainable from REST klines at any price.
+
+GATE 2 — TESTED (45 months, 5 symbols, ~9.9M 1m bars)
+
+SCALP-4 funding squeeze: ZERO trades on all 5 symbols.
+  |z|>2 funding plus a 1m reversal candle never coincided.
+  Arithmetically empty, not merely unprofitable.
+
+SCALP-5 / SCALP-8 sweep + tickvol: ACCOUNT LIQUIDATED on all
+  5 symbols. The spec's own sizing rule is the cause: '1.0-1.2%
+  portfolio risk per trade' against a 0.15% stop implies
+  0.012/0.0015 = 8x notional. Measured implied leverage ran
+  24x to 238x depending on symbol and equity path. A stop-
+  based risk target and a 0.15% stop are in direct tension.
+
+SCALP-10 nonlinear model (logistic + gradient boosting):
+  logistic accuracy 0.515 / 0.519 / 0.518 / 0.518 / 0.516
+  on BTC/ETH/SOL/XRP/SUI. A coin toss. The GBM produced ZERO
+  signals past its own 70% confidence gate because no model
+  reaches that confidence on 1m data. An Informer with GMADL
+  would find what logistic cannot only by overfitting harder.
+
+CONCLUSION
+  1-minute scalping is not a retail activity. 7bps of round-trip
+  cost against a 23bps minute-ATR means costs are ~30% of the
+  entire bar range. The edge would have to be enormous before
+  fees enter the conversation. The source document's own
+  docstring states its Sharpe figures are 'illustrative
+  specifications derived from cited research, not fabricated
+  backtests' — the ranking table has no strategy behind it.
+
+HARNESS BUGS FOUND AND FIXED WHILE GETTING HERE
+  - bars_in never incremented, so every trade exited on its
+    first bar (time stop fired immediately)
+  - rolling median returned the UPPER middle element instead
+    of averaging both; biased SCALP-8's squeeze denominator
+  - ML predictions misaligned by 34 bars because
+    build_features drops rows
+  - leverage measured after the liquidation branch had zeroed
+    the position, reporting 0.0x for a 67x run
+  Each caught by asserting against a reference, not by reading.

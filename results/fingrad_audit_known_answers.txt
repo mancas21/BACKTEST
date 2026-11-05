@@ -1,0 +1,25 @@
+PASS  P1 wma vs naive loop   [n=5,7,17,34 with nan holes]
+PASS  P2 hma floored inner lengths   [hma21->10/4, hma34->17/5]
+PASS  P3 rma SMA seed + leading-na skip   [seed=mean of first n valid]
+PASS  P4 atr flat series -> 0
+PASS  P5 sma hand values   [sma5[4]=3.0, na before]
+PASS  P6 ao = sma(hl2,5)-sma(hl2,34)   [na through bar 33]
+PASS  P7 dmi monotone rise: +DI>-DI, adx>0   [diP=101.0 diM=0.0]
+PASS  P8 crossover/crossunder na-falsy + barssince   [crossUp@3 and @6 (24->26 re-cross), crossDn@5, since=0 on event]
+PASS  K1 next-open fill + per-fill fees + signal exit   [entry open[3]=100 q=10 fee 1.0; exit open[7]=104 fee 1.04; pnl=37.96]
+PASS  K2 edge trigger: stL true 3 bars -> ONE entry
+PASS  K3a bracket anchored to FILL from bar2 (SL=101-2=99 fires on l=98.5)   [pnl=-11.00; a stale signal-close anchor (98) would NOT fire]
+PASS  K3b entry bar uses SIGNAL-CLOSE anchor (SL=100-2=98 fills on l=97.5)   [pnl=-15.995; a fill anchor (99) would fill at 99 instead]
+PASS  K3c stop gapped through at open fills AT THE OPEN (TV stop->market)   [entry open=97, stop level 98 -> exit 97, pnl=-0.97 (fees only)]
+PASS  K4 reversal: one fill, exit suppressed, qty re-sized at signal equity   [long pnl +20 (100->102), short q=1010/101=10 @102, pnl -20]
+PASS  K5 maxLev caps risk sizing (qRaw=10000 -> qCap=100 shares = 10x)   [pnl=+179.80 on 2-point move x100]
+PASS  K6 daily breaker: halt at eq<=970 closes at next open, entries blocked   [pnl=-31 (100->96.9 x10), re-entry at day2 open 96.9 q=10 (open)]
+PASS  K7 takeL wins the tie when both edges fire   [one position opened at open[2], side=long]
+PASS  D1 cash identity on BTC 1h with funding   [eq-init -683.916552 = sum(closed pnl) -683.60 - funding 0.31 + open leg 0.00]
+PASS  D2 no-lookahead truncation (BTC 1h, 40k bars)   [signals + equity prefix + trades byte-identical]
+PASS  D3 signal-layer dual (vectorized == loop)   [4 sig modes x 3 adx modes on BTC 1h, all arrays equal]
+PASS  D4 HTF pairs = last two CLOSED HTF-bar HMAs   [hma(2) hand values; every bar of an hour shares one pair]
+PASS  D5 HTF no-lookahead: changing the last hour moves no bar's pair   [the forming HTF bar's HMA is excluded by the [1]/[2] idiom]
+PASS  D6 harness run is deterministic   [two make_artifact calls, identical metrics]
+
+ALL PASS

@@ -1,0 +1,1501 @@
+[
+  {
+    "bars": 17520,
+    "base_run_id": "814c80675d570aae",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2150,
+        "rows": {
+          "S10": {
+            "PF": 1.6445872336840457,
+            "bh_net_%": -37.862156205850695,
+            "buy_hold_%": -33.71113784588109,
+            "conc_net_pct": 74.77282203886378,
+            "conc_net_without_top5_pct": -4.143727093720072,
+            "conc_net_without_topdecile_pct": -72.7299277009684,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 7891.654913258385,
+            "conc_top5_share": 1.0554175565497093,
+            "conc_top5_share_pct": 105.54175565497093,
+            "conc_topdecile_share": 1.9726786513844086,
+            "conc_total_pnl": 7477.282203886378,
+            "excess_%": 108.48395988474498,
+            "excess_net_%": 112.63497824471457,
+            "exp_R": 0.3582740964339033,
+            "exposure_%": 75.27968036529681,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": -3.5038854359630562,
+            "funding_paid_pct": 2.5241223644948803,
+            "gross_%": 84.96986894563933,
+            "id": "S10",
+            "maxDD_%": -21.444095525523043,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 74.77282203886388,
+            "net_no_funding_pct": 78.27670747482694,
+            "pf_no_funding": 1.6693581437267964,
+            "sharpe": 1.309410239299907,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 33.72093023255814
+          }
+        },
+        "run_id": "b1df680e35478907"
+      },
+      "periods": [
+        {
+          "bars": 17520,
+          "from": "2024-10-14 22:00:00+00:00",
+          "rows": {
+            "S10": {
+              "PF": 1.0001922317916896,
+              "buy_hold_%": -6.73716203381246,
+              "excess_%": 6.745247066485327,
+              "exp_R": 0.01698313014330946,
+              "exposure_%": 71.74657534246576,
+              "gross_%": 1.8269546350294041,
+              "id": "S10",
+              "maxDD_%": -19.463213712910377,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 0.008085032672866532,
+              "sharpe": 0.1177520082139459,
+              "status": "ok",
+              "trades": 62.0,
+              "win_%": 25.806451612903224
+            }
+          },
+          "run_id": "c74dccf1ea0ed3b4",
+          "slice": 1,
+          "to": "2025-06-15 05:40:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2025-06-15 05:40:00+00:00",
+          "rows": {
+            "S10": {
+              "PF": 2.827738043989613,
+              "buy_hold_%": -45.19808743169399,
+              "excess_%": 91.27461784151708,
+              "exp_R": 0.8516722707347077,
+              "exposure_%": 78.16780821917808,
+              "gross_%": 47.88563952313114,
+              "id": "S10",
+              "maxDD_%": -8.47534652486912,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 46.07653040982309,
+              "sharpe": 2.5815204778658747,
+              "status": "ok",
+              "trades": 47.0,
+              "win_%": 46.808510638297875
+            }
+          },
+          "run_id": "0882c654a7660843",
+          "slice": 2,
+          "to": "2026-02-13 13:20:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2026-02-13 13:20:00+00:00",
+          "rows": {
+            "S10": {
+              "PF": 1.686452333739176,
+              "buy_hold_%": 28.007380073800725,
+              "excess_%": -5.8000385219995065,
+              "exp_R": 0.3862679828454086,
+              "exposure_%": 73.30022264086317,
+              "gross_%": 24.92475627440545,
+              "id": "S10",
+              "maxDD_%": -16.712854703135825,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 22.207341551801218,
+              "sharpe": 1.3942281385700876,
+              "status": "ok",
+              "trades": 59.0,
+              "win_%": 30.508474576271187
+            }
+          },
+          "run_id": "dec8c4aff3503bcb",
+          "slice": 3,
+          "to": "2026-10-14 21:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {
+          "S10": {
+            "PF": 1.6693581437267964,
+            "buy_hold_%": -33.71113784588109,
+            "excess_%": 111.98784532070802,
+            "exp_R": 0.3705343007448585,
+            "exposure_%": 75.27968036529681,
+            "gross_%": 86.03827625710629,
+            "id": "S10",
+            "maxDD_%": -21.37630011865903,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 78.27670747482694,
+            "sharpe": 1.3520344853215505,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 33.72093023255814
+          }
+        },
+        "run_id": "74a3d55891ed5d34",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {
+          "S10": {
+            "PF": 1.6445872336840457,
+            "bh_net_%": -37.862156205850695,
+            "buy_hold_%": -33.71113784588109,
+            "conc_net_pct": 74.77282203886378,
+            "conc_net_without_top5_pct": -4.143727093720072,
+            "conc_net_without_topdecile_pct": -72.7299277009684,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 7891.654913258385,
+            "conc_top5_share": 1.0554175565497093,
+            "conc_top5_share_pct": 105.54175565497093,
+            "conc_topdecile_share": 1.9726786513844086,
+            "conc_total_pnl": 7477.282203886378,
+            "excess_%": 108.48395988474498,
+            "excess_net_%": 112.63497824471457,
+            "exp_R": 0.3582740964339033,
+            "exposure_%": 75.27968036529681,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": -3.5038854359630562,
+            "funding_paid_pct": 2.5241223644948803,
+            "gross_%": 84.96986894563933,
+            "id": "S10",
+            "maxDD_%": -21.444095525523043,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 74.77282203886388,
+            "net_no_funding_pct": 78.27670747482694,
+            "pf_no_funding": 1.6693581437267964,
+            "sharpe": 1.309410239299907,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 33.72093023255814
+          }
+        },
+        "run_id": "0c8732e7a5562c2e",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": -0.002841662863930594,
+          "run_id": "becc4db47573953d",
+          "strategies": {
+            "S10": {
+              "folds": 10,
+              "folds_profitable": 4,
+              "mean_test_net_%": 3.302062806252343,
+              "oos_net_%": 35.601770981350555
+            }
+          },
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": 0.11618075436472336,
+          "run_id": "940f7599148758a2",
+          "strategies": {
+            "S10": {
+              "folds": 21,
+              "folds_profitable": 9,
+              "mean_test_net_%": 1.270114039399201,
+              "oos_net_%": 25.69930042726758
+            }
+          },
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": 4.289651341035952,
+          "run_id": "e99c833fecd633f4",
+          "strategies": {
+            "S10": {
+              "folds": 6,
+              "folds_profitable": 3,
+              "mean_test_net_%": 1.8387235152730994,
+              "oos_net_%": 9.807165301591958
+            }
+          },
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [
+      "S10"
+    ],
+    "sym": "SOLUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-14 22:00:00+00:00",
+      "2026-10-14 21:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17520,
+    "base_run_id": "39994dd17dc1157f",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2190,
+        "rows": {
+          "S02": {
+            "PF": 1.6337819824858277,
+            "bh_net_%": 116.50825200145616,
+            "buy_hold_%": 142.8285402257008,
+            "conc_net_pct": 190.61854257599012,
+            "conc_net_without_top5_pct": -46.382568327497104,
+            "conc_net_without_topdecile_pct": -217.04667472286823,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 23700.11109034872,
+            "conc_top5_share": 1.2433266339186635,
+            "conc_top5_share_pct": 124.33266339186635,
+            "conc_topdecile_share": 2.1386440783238205,
+            "conc_total_pnl": 19061.85425759901,
+            "excess_%": 47.790002350289114,
+            "excess_net_%": 74.11029057453375,
+            "exp_R": 0.6004653902538772,
+            "exposure_%": 34.8458904109589,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -6.496476834725456,
+            "funding_paid_pct": 4.456936017696512,
+            "gross_%": 220.56969194154556,
+            "id": "S02",
+            "maxDD_%": -26.708006744090586,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 190.61854257598992,
+            "net_no_funding_pct": 197.11501941071538,
+            "pf_no_funding": 1.6498670489768388,
+            "sharpe": 1.7064049380335091,
+            "status": "ok",
+            "trades": 223.0,
+            "win_%": 27.802690582959645
+          },
+          "S10": {
+            "PF": 1.8308870434063733,
+            "bh_net_%": 116.50825200145616,
+            "buy_hold_%": 142.8285402257008,
+            "conc_net_pct": 184.18070600782107,
+            "conc_net_without_top5_pct": -60.016898825776586,
+            "conc_net_without_topdecile_pct": -173.5652893895673,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 24419.760483359765,
+            "conc_top5_share": 1.3258587727599873,
+            "conc_top5_share_pct": 132.58587727599874,
+            "conc_topdecile_share": 1.9423641224515507,
+            "conc_total_pnl": 18418.070600782106,
+            "excess_%": 41.352165782120395,
+            "excess_net_%": 67.67245400636503,
+            "exp_R": 0.9167582340026984,
+            "exposure_%": 71.3755707762557,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": -5.723482716184776,
+            "funding_paid_pct": 4.792097811514507,
+            "gross_%": 203.9410477441855,
+            "id": "S10",
+            "maxDD_%": -20.71279653239847,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 184.1807060078212,
+            "net_no_funding_pct": 189.90418872400596,
+            "pf_no_funding": 1.8479848647576422,
+            "sharpe": 1.7205041531555862,
+            "status": "ok",
+            "trades": 168.0,
+            "win_%": 30.357142857142854
+          }
+        },
+        "run_id": "c204806ab987f9f0"
+      },
+      "periods": [
+        {
+          "bars": 17520,
+          "from": "2024-10-14 22:00:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 2.2059607485686654,
+              "buy_hold_%": 293.0651619949035,
+              "excess_%": -203.01720187010136,
+              "exp_R": 1.150000921088306,
+              "exposure_%": 33.76712328767123,
+              "gross_%": 95.39431308939615,
+              "id": "S02",
+              "maxDD_%": -17.19026707112826,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 90.04796012480219,
+              "sharpe": 2.713398717713274,
+              "status": "ok",
+              "trades": 66.0,
+              "win_%": 30.303030303030305
+            },
+            "S10": {
+              "PF": 2.5446922069530173,
+              "buy_hold_%": 293.0651619949035,
+              "excess_%": -188.34302027548543,
+              "exp_R": 2.134024002996809,
+              "exposure_%": 70.87328767123287,
+              "gross_%": 108.12026390797833,
+              "id": "S10",
+              "maxDD_%": -18.892345305267032,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 104.72214171941809,
+              "sharpe": 2.636172197110629,
+              "status": "ok",
+              "trades": 55.0,
+              "win_%": 27.27272727272727
+            }
+          },
+          "run_id": "c4f966d0efc3ef8f",
+          "slice": 1,
+          "to": "2025-06-15 05:40:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2025-06-15 05:40:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 1.4219918420767985,
+              "buy_hold_%": -36.06618330544712,
+              "excess_%": 59.906372767686236,
+              "exp_R": 0.3190995751413334,
+              "exposure_%": 33.8013698630137,
+              "gross_%": 28.42193506382447,
+              "id": "S02",
+              "maxDD_%": -14.631804029257234,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 23.840189462239113,
+              "sharpe": 1.3124969602463783,
+              "status": "ok",
+              "trades": 79.0,
+              "win_%": 26.582278481012654
+            },
+            "S10": {
+              "PF": 1.9784366379273808,
+              "buy_hold_%": -36.06618330544712,
+              "excess_%": 66.24772682156396,
+              "exp_R": 0.5539350302018884,
+              "exposure_%": 71.69520547945206,
+              "gross_%": 32.39280209326589,
+              "id": "S10",
+              "maxDD_%": -14.762048809580685,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 30.18154351611684,
+              "sharpe": 1.6274399352769442,
+              "status": "ok",
+              "trades": 52.0,
+              "win_%": 36.53846153846153
+            }
+          },
+          "run_id": "d73a4a8cabf424f5",
+          "slice": 2,
+          "to": "2026-02-13 13:20:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2026-02-13 13:20:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 1.5087608192029958,
+              "buy_hold_%": -4.369808595160707,
+              "excess_%": 29.59642133565058,
+              "exp_R": 0.46542769269965023,
+              "exposure_%": 34.56071245076212,
+              "gross_%": 29.981289591400945,
+              "id": "S02",
+              "maxDD_%": -24.540811197135127,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 25.226612740489873,
+              "sharpe": 1.091947019064268,
+              "status": "ok",
+              "trades": 74.0,
+              "win_%": 27.027027027027028
+            },
+            "S10": {
+              "PF": 1.3869858092687488,
+              "buy_hold_%": -4.369808595160707,
+              "excess_%": 16.860565325227338,
+              "exp_R": 0.2604517631092998,
+              "exposure_%": 67.49443397842097,
+              "gross_%": 15.109039349707063,
+              "id": "S10",
+              "maxDD_%": -17.73705590780793,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 12.490756730066632,
+              "sharpe": 0.8088913004855991,
+              "status": "ok",
+              "trades": 55.0,
+              "win_%": 29.09090909090909
+            }
+          },
+          "run_id": "5f00de5be575248e",
+          "slice": 3,
+          "to": "2026-10-14 21:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {
+          "S02": {
+            "PF": 1.6498670489768388,
+            "buy_hold_%": 142.8285402257008,
+            "excess_%": 54.28647918501457,
+            "exp_R": 0.6116052998589123,
+            "exposure_%": 34.8458904109589,
+            "gross_%": 222.95947202647432,
+            "id": "S02",
+            "maxDD_%": -26.483933314298923,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 197.11501941071538,
+            "sharpe": 1.7385939648243627,
+            "status": "ok",
+            "trades": 223.0,
+            "win_%": 27.802690582959645
+          },
+          "S10": {
+            "PF": 1.8479848647576422,
+            "buy_hold_%": 142.8285402257008,
+            "excess_%": 47.07564849830517,
+            "exp_R": 0.9354575120037716,
+            "exposure_%": 71.3755707762557,
+            "gross_%": 205.0844584801764,
+            "id": "S10",
+            "maxDD_%": -20.162324916319186,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 189.90418872400596,
+            "sharpe": 1.7525782469032336,
+            "status": "ok",
+            "trades": 168.0,
+            "win_%": 30.952380952380953
+          }
+        },
+        "run_id": "4444b905a3ecacd0",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {
+          "S02": {
+            "PF": 1.6337819824858277,
+            "bh_net_%": 116.50825200145616,
+            "buy_hold_%": 142.8285402257008,
+            "conc_net_pct": 190.61854257599012,
+            "conc_net_without_top5_pct": -46.382568327497104,
+            "conc_net_without_topdecile_pct": -217.04667472286823,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 23700.11109034872,
+            "conc_top5_share": 1.2433266339186635,
+            "conc_top5_share_pct": 124.33266339186635,
+            "conc_topdecile_share": 2.1386440783238205,
+            "conc_total_pnl": 19061.85425759901,
+            "excess_%": 47.790002350289114,
+            "excess_net_%": 74.11029057453375,
+            "exp_R": 0.6004653902538772,
+            "exposure_%": 34.8458904109589,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -6.496476834725456,
+            "funding_paid_pct": 4.456936017696512,
+            "gross_%": 220.56969194154556,
+            "id": "S02",
+            "maxDD_%": -26.708006744090586,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 190.61854257598992,
+            "net_no_funding_pct": 197.11501941071538,
+            "pf_no_funding": 1.6498670489768388,
+            "sharpe": 1.7064049380335091,
+            "status": "ok",
+            "trades": 223.0,
+            "win_%": 27.802690582959645
+          },
+          "S10": {
+            "PF": 1.8308870434063733,
+            "bh_net_%": 116.50825200145616,
+            "buy_hold_%": 142.8285402257008,
+            "conc_net_pct": 184.18070600782107,
+            "conc_net_without_top5_pct": -60.016898825776586,
+            "conc_net_without_topdecile_pct": -173.5652893895673,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 24419.760483359765,
+            "conc_top5_share": 1.3258587727599873,
+            "conc_top5_share_pct": 132.58587727599874,
+            "conc_topdecile_share": 1.9423641224515507,
+            "conc_total_pnl": 18418.070600782106,
+            "excess_%": 41.352165782120395,
+            "excess_net_%": 67.67245400636503,
+            "exp_R": 0.9167582340026984,
+            "exposure_%": 71.3755707762557,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": -5.723482716184776,
+            "funding_paid_pct": 4.792097811514507,
+            "gross_%": 203.9410477441855,
+            "id": "S10",
+            "maxDD_%": -20.71279653239847,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 184.1807060078212,
+            "net_no_funding_pct": 189.90418872400596,
+            "pf_no_funding": 1.8479848647576422,
+            "sharpe": 1.7205041531555862,
+            "status": "ok",
+            "trades": 168.0,
+            "win_%": 30.357142857142854
+          }
+        },
+        "run_id": "90ad4a5727379013",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": -2.286035251175453,
+          "run_id": "f84fbd6532fa6835",
+          "strategies": {
+            "S02": {
+              "folds": 10,
+              "folds_profitable": 4,
+              "mean_test_net_%": 4.601406449065415,
+              "oos_net_%": 38.09687559824644
+            },
+            "S10": {
+              "folds": 10,
+              "folds_profitable": 4,
+              "mean_test_net_%": 1.2969232440261313,
+              "oos_net_%": 10.075895780947718
+            }
+          },
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": -1.338838789795966,
+          "run_id": "aa5123c1c681f745",
+          "strategies": {
+            "S02": {
+              "folds": 21,
+              "folds_profitable": 10,
+              "mean_test_net_%": 3.436890332936408,
+              "oos_net_%": 77.1475621621174
+            },
+            "S10": {
+              "folds": 21,
+              "folds_profitable": 10,
+              "mean_test_net_%": 1.8040377105660963,
+              "oos_net_%": 36.548691536874166
+            }
+          },
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": -2.454639392046836,
+          "run_id": "6fe3b32133e1d2fa",
+          "strategies": {
+            "S02": {
+              "folds": 6,
+              "folds_profitable": 2,
+              "mean_test_net_%": 4.732384112120349,
+              "oos_net_%": 23.256995512001755
+            },
+            "S10": {
+              "folds": 6,
+              "folds_profitable": 1,
+              "mean_test_net_%": -3.1513476119441344,
+              "oos_net_%": -18.962993580396038
+            }
+          },
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [
+      "S10",
+      "S02"
+    ],
+    "sym": "XRPUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-14 22:00:00+00:00",
+      "2026-10-14 21:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 48301,
+    "base_run_id": "ac4ff6d3a465a268",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2932,
+        "rows": {
+          "S07": {
+            "PF": 1.3125566803137958,
+            "bh_net_%": 118.71815542481147,
+            "buy_hold_%": 134.4242749411309,
+            "conc_net_pct": 23.80788260328429,
+            "conc_net_without_top5_pct": 12.823002461329292,
+            "conc_net_without_topdecile_pct": -2.197775634003124,
+            "conc_passes": true,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 1098.4880141955002,
+            "conc_top5_share": 0.4613967703469623,
+            "conc_top5_share_pct": 46.13967703469623,
+            "conc_topdecile_share": 1.0923129398201896,
+            "conc_total_pnl": 2380.7882603284293,
+            "excess_%": -110.61639233784636,
+            "excess_net_%": -94.91027282152696,
+            "exp_R": 0.1965671141618047,
+            "exposure_%": 5.420177636073787,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": 0.7607716776454332,
+            "funding_paid_pct": -0.6589618958246676,
+            "gross_%": 33.61249948935283,
+            "id": "S07",
+            "maxDD_%": -13.334908602653083,
+            "name": "Funding Extreme Fade",
+            "net_%": 23.807882603284526,
+            "net_no_funding_pct": 23.047110925639092,
+            "pf_no_funding": 1.3025060881443957,
+            "sharpe": 1.26414700296684,
+            "status": "ok",
+            "trades": 115.0,
+            "win_%": 43.47826086956522
+          }
+        },
+        "run_id": "5b493f43c891073d"
+      },
+      "periods": [
+        {
+          "bars": 48301,
+          "from": "2025-05-30 10:30:00+00:00",
+          "rows": {
+            "S07": {
+              "PF": 1.5769701617281717,
+              "buy_hold_%": 13.144952159527868,
+              "excess_%": -3.4824999905615384,
+              "exp_R": 0.32923601000371994,
+              "exposure_%": 5.055900621118012,
+              "gross_%": 11.700234144117035,
+              "id": "S07",
+              "maxDD_%": -5.3999369823295895,
+              "name": "Funding Extreme Fade",
+              "net_%": 9.662452168966329,
+              "sharpe": 1.6747995398217297,
+              "status": "ok",
+              "trades": 29.0,
+              "win_%": 48.275862068965516
+            }
+          },
+          "run_id": "9ffb987b7bc94841",
+          "slice": 1,
+          "to": "2025-11-14 03:30:00+00:00"
+        },
+        {
+          "bars": 48301,
+          "from": "2025-11-14 03:30:00+00:00",
+          "rows": {
+            "S07": {
+              "PF": 0.7565022043659495,
+              "buy_hold_%": 4.102086933404214,
+              "excess_%": -10.792457995268546,
+              "exp_R": -0.17761523540562196,
+              "exposure_%": 4.894409937888199,
+              "gross_%": -4.266143710231043,
+              "id": "S07",
+              "maxDD_%": -13.40515525471937,
+              "name": "Funding Extreme Fade",
+              "net_%": -6.690371061864331,
+              "sharpe": -1.1635202589963032,
+              "status": "ok",
+              "trades": 37.0,
+              "win_%": 29.72972972972973
+            }
+          },
+          "run_id": "1198af0d0b86b1f3",
+          "slice": 2,
+          "to": "2026-04-30 20:30:00+00:00"
+        },
+        {
+          "bars": 48301,
+          "from": "2026-04-30 20:30:00+00:00",
+          "rows": {
+            "S07": {
+              "PF": 1.688928300554096,
+              "buy_hold_%": 98.68991181118416,
+              "excess_%": -85.16400405351456,
+              "exp_R": 0.3738768447123445,
+              "exposure_%": 4.478260869565218,
+              "gross_%": 17.788776929374766,
+              "id": "S07",
+              "maxDD_%": -8.58330403392442,
+              "name": "Funding Extreme Fade",
+              "net_%": 13.525907757669597,
+              "sharpe": 2.4278459853111687,
+              "status": "ok",
+              "trades": 35.0,
+              "win_%": 51.42857142857142
+            }
+          },
+          "run_id": "fb307b15a0d76c43",
+          "slice": 3,
+          "to": "2026-10-15 13:30:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {
+          "S07": {
+            "PF": 1.3025060881443957,
+            "buy_hold_%": 134.4242749411309,
+            "excess_%": -111.3771640154918,
+            "exp_R": 0.19118084580379552,
+            "exposure_%": 5.420177636073787,
+            "gross_%": 33.46665195726521,
+            "id": "S07",
+            "maxDD_%": -13.405155254719404,
+            "name": "Funding Extreme Fade",
+            "net_%": 23.047110925639092,
+            "sharpe": 1.2292435324609203,
+            "status": "ok",
+            "trades": 115.0,
+            "win_%": 43.47826086956522
+          }
+        },
+        "run_id": "997f6ca694766edb",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {
+          "S07": {
+            "PF": 1.3125566803137958,
+            "bh_net_%": 118.71815542481147,
+            "buy_hold_%": 134.4242749411309,
+            "conc_net_pct": 23.80788260328429,
+            "conc_net_without_top5_pct": 12.823002461329292,
+            "conc_net_without_topdecile_pct": -2.197775634003124,
+            "conc_passes": true,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 1098.4880141955002,
+            "conc_top5_share": 0.4613967703469623,
+            "conc_top5_share_pct": 46.13967703469623,
+            "conc_topdecile_share": 1.0923129398201896,
+            "conc_total_pnl": 2380.7882603284293,
+            "excess_%": -110.61639233784636,
+            "excess_net_%": -94.91027282152696,
+            "exp_R": 0.1965671141618047,
+            "exposure_%": 5.420177636073787,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": 0.7607716776454332,
+            "funding_paid_pct": -0.6589618958246676,
+            "gross_%": 33.61249948935283,
+            "id": "S07",
+            "maxDD_%": -13.334908602653083,
+            "name": "Funding Extreme Fade",
+            "net_%": 23.807882603284526,
+            "net_no_funding_pct": 23.047110925639092,
+            "pf_no_funding": 1.3025060881443957,
+            "sharpe": 1.26414700296684,
+            "status": "ok",
+            "trades": 115.0,
+            "win_%": 43.47826086956522
+          }
+        },
+        "run_id": "879d229d477df0d8",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": 22.645402762893397,
+          "run_id": "bbe07a17afe31e37",
+          "strategies": {
+            "S07": {
+              "folds": 6,
+              "folds_profitable": 3,
+              "mean_test_net_%": 0.05430977590340317,
+              "oos_net_%": 0.16249827844971865
+            }
+          },
+          "test_bars": 5760,
+          "test_days": 60,
+          "train_bars": 11520,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": 12.93992655590705,
+          "run_id": "9c7dd1925b43ce50",
+          "strategies": {
+            "S07": {
+              "folds": 13,
+              "folds_profitable": 4,
+              "mean_test_net_%": 0.031103966615028893,
+              "oos_net_%": 0.23631091119733494
+            }
+          },
+          "test_bars": 2880,
+          "test_days": 30,
+          "train_bars": 8640,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": 47.54623891897649,
+          "run_id": "9fde16a7db05ee9e",
+          "strategies": {
+            "S07": {
+              "folds": 3,
+              "folds_profitable": 2,
+              "mean_test_net_%": -0.0028073880728414955,
+              "oos_net_%": -0.0896400855098789
+            }
+          },
+          "test_bars": 8640,
+          "test_days": 90,
+          "train_bars": 17280,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [
+      "S07"
+    ],
+    "sym": "HYPEUSDT",
+    "tf": "15m",
+    "window": [
+      "2025-05-30 10:30:00+00:00",
+      "2026-10-15 13:30:00+00:00"
+    ]
+  },
+  {
+    "bars": 12075,
+    "base_run_id": "b20ab929a0f760e9",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2932,
+        "rows": {
+          "S07": {
+            "PF": 0.6940344207557577,
+            "bh_net_%": 118.36837546294244,
+            "buy_hold_%": 134.1342269830346,
+            "conc_net_pct": -8.160497954962821,
+            "conc_net_without_top5_pct": -17.592184930710257,
+            "conc_net_without_topdecile_pct": -15.762702279840845,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 943.1686975747435,
+            "conc_top5_share": NaN,
+            "conc_top5_share_pct": NaN,
+            "conc_topdecile_share": NaN,
+            "conc_total_pnl": -816.0497954962821,
+            "excess_%": -142.29472493799736,
+            "excess_net_%": -126.52887341790517,
+            "exp_R": -0.2155857665362459,
+            "exposure_%": 7.668737060041408,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": 0.2066640658400658,
+            "funding_paid_pct": -0.2212734663193835,
+            "gross_%": -7.242114460985534,
+            "id": "S07",
+            "maxDD_%": -14.600015075630512,
+            "name": "Funding Extreme Fade",
+            "net_%": -8.160497954962743,
+            "net_no_funding_pct": -8.367162020802809,
+            "pf_no_funding": 0.6873833639871172,
+            "sharpe": -0.7843090042589841,
+            "status": "ok",
+            "trades": 38.0,
+            "win_%": 28.947368421052634
+          }
+        },
+        "run_id": "9a2c952d550ad410"
+      },
+      "periods": [
+        {
+          "bars": 12075,
+          "from": "2025-05-30 10:00:00+00:00",
+          "rows": {
+            "S07": {
+              "PF": 0.9059459631932101,
+              "buy_hold_%": 14.063014272463437,
+              "excess_%": -14.754316580171034,
+              "exp_R": -0.05453984765033937,
+              "exposure_%": 9.06832298136646,
+              "gross_%": -0.32158247302225873,
+              "id": "S07",
+              "maxDD_%": -5.745869309730766,
+              "name": "Funding Extreme Fade",
+              "net_%": -0.6913023077075975,
+              "sharpe": -0.1447608118563147,
+              "status": "ok",
+              "trades": 11.0,
+              "win_%": 36.36363636363637
+            }
+          },
+          "run_id": "0a53f204e2954b55",
+          "slice": 1,
+          "to": "2025-11-14 02:40:00+00:00"
+        },
+        {
+          "bars": 12075,
+          "from": "2025-11-14 02:40:00+00:00",
+          "rows": {
+            "S07": {
+              "PF": 0.374839474997347,
+              "buy_hold_%": 3.76864487464299,
+              "excess_%": -9.96934833242128,
+              "exp_R": -0.5258516338731732,
+              "exposure_%": 5.440993788819876,
+              "gross_%": -5.913803869936387,
+              "id": "S07",
+              "maxDD_%": -8.697828915582505,
+              "name": "Funding Extreme Fade",
+              "net_%": -6.200703457778289,
+              "sharpe": -2.2583053810813287,
+              "status": "ok",
+              "trades": 12.0,
+              "win_%": 16.666666666666664
+            }
+          },
+          "run_id": "bd4ff19eca389209",
+          "slice": 2,
+          "to": "2026-04-30 19:20:00+00:00"
+        },
+        {
+          "bars": 12075,
+          "from": "2026-04-30 19:20:00+00:00",
+          "rows": {
+            "S07": {
+              "PF": 0.4683221627592126,
+              "buy_hold_%": 101.47799542101245,
+              "excess_%": -104.74803012638598,
+              "exp_R": -0.4085081745352823,
+              "exposure_%": 6.312127236580517,
+              "gross_%": -2.9848426821290404,
+              "id": "S07",
+              "maxDD_%": -5.76885385888215,
+              "name": "Funding Extreme Fade",
+              "net_%": -3.2700347053735146,
+              "sharpe": -1.0346374907497862,
+              "status": "ok",
+              "trades": 8.0,
+              "win_%": 25.0
+            }
+          },
+          "run_id": "7b5e7bbdaf404b71",
+          "slice": 3,
+          "to": "2026-10-15 12:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {
+          "S07": {
+            "PF": 0.6873833639871172,
+            "buy_hold_%": 134.1342269830346,
+            "excess_%": -142.50138900383743,
+            "exp_R": -0.22151973619886134,
+            "exposure_%": 7.668737060041408,
+            "gross_%": -7.229127292733578,
+            "id": "S07",
+            "maxDD_%": -14.705217968652196,
+            "name": "Funding Extreme Fade",
+            "net_%": -8.367162020802809,
+            "sharpe": -0.805959235477218,
+            "status": "ok",
+            "trades": 38.0,
+            "win_%": 28.947368421052634
+          }
+        },
+        "run_id": "e881e413a1680538",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {
+          "S07": {
+            "PF": 0.6940344207557577,
+            "bh_net_%": 118.36837546294244,
+            "buy_hold_%": 134.1342269830346,
+            "conc_net_pct": -8.160497954962821,
+            "conc_net_without_top5_pct": -17.592184930710257,
+            "conc_net_without_topdecile_pct": -15.762702279840845,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 943.1686975747435,
+            "conc_top5_share": NaN,
+            "conc_top5_share_pct": NaN,
+            "conc_topdecile_share": NaN,
+            "conc_total_pnl": -816.0497954962821,
+            "excess_%": -142.29472493799736,
+            "excess_net_%": -126.52887341790517,
+            "exp_R": -0.2155857665362459,
+            "exposure_%": 7.668737060041408,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": 0.2066640658400658,
+            "funding_paid_pct": -0.2212734663193835,
+            "gross_%": -7.242114460985534,
+            "id": "S07",
+            "maxDD_%": -14.600015075630512,
+            "name": "Funding Extreme Fade",
+            "net_%": -8.160497954962743,
+            "net_no_funding_pct": -8.367162020802809,
+            "pf_no_funding": 0.6873833639871172,
+            "sharpe": -0.7843090042589841,
+            "status": "ok",
+            "trades": 38.0,
+            "win_%": 28.947368421052634
+          }
+        },
+        "run_id": "dc6b741a76cef1cf",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": 62.68591538441779,
+          "run_id": "4b619324327db55a",
+          "strategies": {
+            "S07": {
+              "folds": 6,
+              "folds_profitable": 1,
+              "mean_test_net_%": 0.7914906603859814,
+              "oos_net_%": 4.748943962315888
+            }
+          },
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "cdf6bcac21f4ed8a",
+          "strategies": {
+            "S07": {
+              "folds": 13,
+              "folds_profitable": 0,
+              "mean_test_net_%": 0.0,
+              "oos_net_%": 0.0
+            }
+          },
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": 81.45442948875495,
+          "run_id": "8876c38a2564326a",
+          "strategies": {
+            "S07": {
+              "folds": 3,
+              "folds_profitable": 1,
+              "mean_test_net_%": 1.1616324241382,
+              "oos_net_%": 3.4327785354081986
+            }
+          },
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [
+      "S07"
+    ],
+    "sym": "HYPEUSDT",
+    "tf": "1h",
+    "window": [
+      "2025-05-30 10:00:00+00:00",
+      "2026-10-15 12:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17520,
+    "base_run_id": "26237876f8e255f3",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2149,
+        "rows": {},
+        "run_id": "2d4b2a301d098ef6"
+      },
+      "periods": [
+        {
+          "bars": 17520,
+          "from": "2024-10-14 22:00:00+00:00",
+          "rows": {},
+          "run_id": "dd4af52ddf5a6a70",
+          "slice": 1,
+          "to": "2025-06-15 05:40:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2025-06-15 05:40:00+00:00",
+          "rows": {},
+          "run_id": "50fe9bebd9bb1333",
+          "slice": 2,
+          "to": "2026-02-13 13:20:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2026-02-13 13:20:00+00:00",
+          "rows": {},
+          "run_id": "f4f39e13e9d3debe",
+          "slice": 3,
+          "to": "2026-10-14 21:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "1fc20df51374a6bb",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "7c806297ea2261c9",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "6dc242935a5fe055",
+          "strategies": {},
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "52bc433838262d72",
+          "strategies": {},
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "b639146acdb29cb0",
+          "strategies": {},
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [],
+    "sym": "BTCUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-14 22:00:00+00:00",
+      "2026-10-14 21:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17520,
+    "base_run_id": "99434312424041b2",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2149,
+        "rows": {},
+        "run_id": "f8da9dd308b0a728"
+      },
+      "periods": [
+        {
+          "bars": 17520,
+          "from": "2024-10-14 22:00:00+00:00",
+          "rows": {},
+          "run_id": "6b322e6cee0cbaef",
+          "slice": 1,
+          "to": "2025-06-15 05:40:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2025-06-15 05:40:00+00:00",
+          "rows": {},
+          "run_id": "7d277daf043ab750",
+          "slice": 2,
+          "to": "2026-02-13 13:20:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2026-02-13 13:20:00+00:00",
+          "rows": {},
+          "run_id": "018e59b140d25b11",
+          "slice": 3,
+          "to": "2026-10-14 21:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "ea0910763403373f",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "610f32bd0e580fbd",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "b231b08fdeb03159",
+          "strategies": {},
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "c0ac9b0ab719c423",
+          "strategies": {},
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "e86e04844dd64584",
+          "strategies": {},
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [],
+    "sym": "ETHUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-14 22:00:00+00:00",
+      "2026-10-14 21:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17520,
+    "base_run_id": "6a9729f901914b93",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 0,
+        "rows": {},
+        "run_id": "0b1e2730fa8c12b8"
+      },
+      "periods": [
+        {
+          "bars": 17520,
+          "from": "2024-10-15 13:00:00+00:00",
+          "rows": {},
+          "run_id": "92a62a766d246281",
+          "slice": 1,
+          "to": "2025-06-15 20:40:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2025-06-15 20:40:00+00:00",
+          "rows": {},
+          "run_id": "da9c7be30c2fcb23",
+          "slice": 2,
+          "to": "2026-02-14 04:20:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2026-02-14 04:20:00+00:00",
+          "rows": {},
+          "run_id": "1dfa207ace52daf5",
+          "slice": 3,
+          "to": "2026-10-15 12:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "85086113fd18ca8d",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "aa377a432b9055fd",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "3038ee5546d7f758",
+          "strategies": {},
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "fc5970f750f0cf35",
+          "strategies": {},
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "8535602b09d31827",
+          "strategies": {},
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [],
+    "sym": "JUPUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-15 13:00:00+00:00",
+      "2026-10-15 12:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17520,
+    "base_run_id": "cf001b8ff0148c27",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2151,
+        "rows": {},
+        "run_id": "507151e1db6eda7e"
+      },
+      "periods": [
+        {
+          "bars": 17520,
+          "from": "2024-10-14 22:00:00+00:00",
+          "rows": {},
+          "run_id": "31b3100569b7f4a3",
+          "slice": 1,
+          "to": "2025-06-15 05:40:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2025-06-15 05:40:00+00:00",
+          "rows": {},
+          "run_id": "f0a1028e69644efa",
+          "slice": 2,
+          "to": "2026-02-13 13:20:00+00:00"
+        },
+        {
+          "bars": 17520,
+          "from": "2026-02-13 13:20:00+00:00",
+          "rows": {},
+          "run_id": "ff0e9b3c4d3caa3f",
+          "slice": 3,
+          "to": "2026-10-14 21:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "8955c698c5920f49",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {},
+        "run_id": "f7b8e2aad81d1013",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "3c516b78f309c4aa",
+          "strategies": {},
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "3901c452c9d98f3a",
+          "strategies": {},
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": NaN,
+          "run_id": "18233792841e31ec",
+          "strategies": {},
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [],
+    "sym": "SUIUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-14 22:00:00+00:00",
+      "2026-10-14 21:00:00+00:00"
+    ]
+  }
+]

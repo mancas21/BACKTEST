@@ -1,0 +1,18 @@
+SFS v3.0 ported gate — house gate
+symbol   arm                net     pf    n     mdd   gate        bh    delta
+BTCUSDT  two-sided        +2.16   1.15   24    6.79   fail   +949.66  -947.51
+BTCUSDT  long-only        -0.14   1.00   21    6.79   fail   +949.66  -949.81
+ETHUSDT  two-sided        +9.44   1.65   27    4.24   fail  +2051.20 -2041.76
+ETHUSDT  long-only        +9.44   1.65   27    4.24   fail  +2051.20 -2041.76
+SOLUSDT  two-sided        -2.88   0.70   13    6.80   fail  +4633.35 -4636.22
+SOLUSDT  long-only        -3.70   0.53   10    5.82   fail  +4633.35 -4637.04
+SUIUSDT  two-sided        +7.98   3.29   11    2.70   fail    +19.16   -11.18
+SUIUSDT  long-only        +1.87   1.56    7    2.70   fail    +19.16   -17.29
+XRPUSDT  two-sided        -1.47   0.90   21    8.62   fail   +568.69  -570.16
+XRPUSDT  long-only        -0.44   0.98   20    8.62   fail   +568.69  -569.13
+HYPEUSDT two-sided        +0.00   1.01    5    3.92   fail   +155.08  -155.08
+HYPEUSDT long-only        +1.10   1.50    4    2.86   fail   +155.08  -153.98
+SPXUSDT  two-sided        -3.63   0.10    5    3.68   fail    -45.79   +42.15
+SPXUSDT  long-only        -2.06   0.00    2    2.10   fail    -45.79   +43.73
+
+pass 0/14   beat BH 2/14

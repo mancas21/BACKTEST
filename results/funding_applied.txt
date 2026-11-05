@@ -1,0 +1,9 @@
+LONG-ONLY CVRMD funding applied, holdBars=0
+symbol      net_nofund    net_fund    delta      mdd  fund_usdt  in_mkt
+BTCUSDT          -4.91       -8.71    -3.80    14.31        380     1.5
+ETHUSDT          +9.86       +9.76    -0.11     4.93         11     1.4
+SOLUSDT         +16.01      +16.00    -0.00     3.60          0     1.1
+SUIUSDT         +11.82      +11.82    -0.00     3.28          0     1.4
+XRPUSDT          -0.52       -0.52    -0.00     7.18          0     1.9
+HYPEUSDT         +2.36       +2.36    -0.00     2.40          0     0.9
+SPXUSDT          -2.22       -2.22    +0.00     3.87         -0     0.7
