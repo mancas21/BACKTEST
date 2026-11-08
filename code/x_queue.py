@@ -221,32 +221,48 @@ DEFAULT_TAGS = "#Crypto #Trading"
 def adapter_tags(adapter):
     return ADAPTER_TAGS.get(adapter, DEFAULT_TAGS)
 
-# ── aggressive hook templates ─────────────────────────────────────────────
+# ── attention-first templates for a free 280-character X post ──────────────
+# Single-line hooks (no \n) so each post is exactly 2 tweets.
 HOOK_TEMPLATES = {
     "KILLED": [
-        "I backtested {desc} on {pair}. {pf} profit factor across {n} trades. Looks like an edge. It isn't. 🤯",
-        "This {desc} printed {pf} PF on {pair}. Then I checked the fills. 👀",
-        "Everyone talks about {desc} on {pair}. I ran the numbers. The truth hurts. 📉",
+        "🚨 Crypto traders: most would call {pf} PF a winner on {pair}. I would not. The kill reason is in reply 2. 🧵",
+        "⚠️ The headline number is the distraction. This {desc} reached {pf} PF across {n} trades on {pair}. It still died. Reply 2 shows why. 🧵",
+        "🚫 A pretty PF is not an edge. This {desc} on {pair} posted {pf} PF across {n} trades. Then the harder gates hit. Reply 2 has the verdict. 🧵",
+        "🧨 Stop. Do not copy this {desc} onto {pair} yet. It printed {pf} PF across {n} trades. The catch is in reply 2. 🧵",
+        "👀 I follow backtests until they confess. This {desc} on {pair}: {pf} PF, {n} trades. Here is the part influencers skip. Reply 2. 🧵",
+        "📉 {pf} PF can make a dead strategy look alive. This {desc} on {pair} reached {pf} PF across {n} trades. Now the uncomfortable part. Reply 2. 🧵",
+        "💀 Retail sees PF. Quant sees the failure mode. This {desc} on {pair} hit {pf} PF over {n} trades. The verdict changes the story. Reply 2. 🧵",
+        "🔥 I publish losses too. This {desc} on {pair} posted {pf} PF across {n} trades. Then it failed the rules that matter. Reply 2. 🧵",
     ],
     "CANDIDATE": [
-        "I backtested {desc} on {pair}. {pf} PF across {n} trades. This one might actually work. 🔥",
-        "This {desc} on {pair} passed every screen gate. But there's a catch. 👀",
+        "🚨 Crypto traders: this {desc} on {pair} looks like the one. {pf} PF across {n} trades. But there is a catch I refuse to hide. Reply 2. 🧵",
+        "⚠️ Passed every screen gate is not the same as proven. This {desc} on {pair} reached {pf} PF over {n} trades. Here is the dangerous detail. Reply 2. 🧵",
+        "🧨 This {desc} on {pair} survived the screen. {pf} PF and {n} trades. Do not call it alpha yet. Reply 2 explains why. 🧵",
+        "👀 A candidate is only useful if you know how it can lie. This {desc} on {pair}: {pf} PF, {n} trades. The catch matters. Reply 2. 🧵",
+        "🔥 This one survived the first screen, so I attacked it harder. {desc} + {pair}: {pf} PF across {n} trades. Verdict in reply 2. 🧵",
     ],
     "FAIL": [
-        "I backtested {desc} on {pair}. {pf} PF across {n} trades. It failed every single gate. 📉",
-        "This {desc} on {pair} looked promising. The data said otherwise. 👀",
+        "🚨 Crypto traders: this {desc} on {pair} never had a clean edge. {pf} PF across {n} trades was only the first warning. Reply 2 has the ugly verdict. 🧵",
+        "⚠️ The strategy looked defensible. The data disagreed. This {desc} on {pair}: {pf} PF, {n} trades. Reply 2 is the autopsy. 🧵",
+        "🧨 {pf} PF is not protection. This {desc} on {pair} produced {n} trades. The gate result is worse than expected. Reply 2. 🧵",
+        "👀 I do not hide ugly backtests. This {desc} on {pair}: {pf} PF, {n} trades. Its failure mode is the lesson. Reply 2. 🧵",
     ],
     "SUSPENDED": [
-        "I backtested {desc} on {pair}. {pf} PF across {n} trades. No honest OOS left. ⚠️",
+        "⚠️ A strategy without honest OOS is just a story. This {desc} on {pair}: {pf} PF across {n} trades. I suspended it for one reason. Reply 2. 🧵",
+        "🧨 {pf} PF means little if the validation is broken. This {desc} on {pair} has {n} trades. The missing piece is in reply 2. 🧵",
+        "👀 Backtesters: do not trade a story without clean validation. This {desc} on {pair}: {pf} PF, {n} trades. Reply 2 shows why I stopped. 🧵",
     ],
     "REJECTED": [
-        "I backtested {desc} on {pair}. {pf} PF across {n} trades. Rejected at the gate. 📉",
+        "🚫 Rejected at the gate. This {desc} on {pair} reached {pf} PF across {n} trades. The reason is more interesting than the result. Reply 2. 🧵",
+        "⚠️ Zero cells cleared the gate. This {desc} on {pair}: {pf} PF, {n} trades. Most would never post this. I do. Reply 2. 🧵",
+        "🧨 A backtest is only useful when it can say no. This {desc} on {pair}: {pf} PF, {n} trades. Reply 2 has the verdict. 🧵",
     ],
     "NOT VALIDATED": [
-        "I re-measured {desc} on {pair} at repo costs. {pf} PF across {n} trades. Not validated. ⚠️",
+        "⚠️ Re-measured at real repo costs, this edge shrank. {desc} on {pair}: {pf} PF across {n} trades. The verdict is in reply 2. 🧵",
+        "🧨 Costs can erase a fantasy edge. This {desc} on {pair}: {pf} PF, {n} trades. Reply 2 shows the honest verdict. 🧵",
     ],
 }
-DEFAULT_HOOK = "I backtested {desc} on {pair}. {pf} PF across {n} trades. The results will shock you. 👀"
+DEFAULT_HOOK = "Crypto traders: this {desc} on {pair} needs more than a headline number. {pf} PF. {n} trades. The full verdict is in reply 2. 🧵"
 
 def spec_id_for(adapter, name):
     n = name or ""
@@ -344,22 +360,27 @@ def thread_text(r):
     n_str = str(int(round(n))) if n is not None else None
     dd_str = f"{dd:.1f}%" if dd is not None else None
 
-    # Build hook based on available numbers
+    # Build hook: always single-line, always concrete
     if pf_str and n_str:
         templates = HOOK_TEMPLATES.get(label, [DEFAULT_HOOK])
-        idx = hash((desc, pair, label)) % len(templates)
-        hook = templates[idx].format(desc=desc, pair=pair, pf=pf_str, n=n_str)
+        idx = abs(hash((desc, pair, label))) % len(templates)
+        t1 = templates[idx].format(desc=desc, pair=pair, pf=pf_str, n=n_str)
+        win = f" {bars} bars." if bars else ""
+        if win and len(t1) + len(win) <= 265:
+            t1 += win
+    elif bars and (n_str or dd_str):
+        # pack-level artifact: use available counts
+        stat = n_str and f"{n_str} trades" or dd_str
+        t1 = f"🚨 Crypto traders: {bars} bars through a {desc} on {pair} — {stat}. No hype. The verdict is in reply 2. 🧵"
     elif bars:
-        hook = f"I ran {bars} bars through a {desc} on {pair}. The results will shock you. 👀"
+        t1 = f"🚨 Crypto traders: {bars} bars through a {desc} on {pair}. No hype. Verdict in reply 2. 🧵"
     else:
-        hook = f"I backtested a {desc} on {pair}. The results will shock you. 👀"
-
-    # append window info if space allows
-    window_part = f" {start} to {end}. {bars} bars." if bars else ""
-    if len(hook) + len(window_part) + 40 <= 270:
-        t1 = hook + window_part
-    else:
-        t1 = hook
+        t1 = f"🚨 Crypto traders: this {desc} on {pair} deserves more than a headline. Verdict in reply 2. 🧵"
+    if len(t1) > 265:
+        t1 = t1[:262].rsplit(" ", 1)[0] + "..."
+    # guard-safe: strip stray digits from fixed copy ("reply 2" -> "reply below")
+    # unless they are part of a metric we quote (pf/n/bars/dd)
+    t1 = t1.replace("reply 2", "the reply below")
 
     # Tweet 2: stats + verdict + CTA + hashtags
     stats_parts = []
@@ -372,15 +393,16 @@ def thread_text(r):
     if stats_parts:
         stats = " · ".join(stats_parts) + "."
     else:
-        stats = "Aggregate pack result. Per-cell numbers in the artifact."
+        stats = "Pack-level result. Details in the repo."
 
-    verdict_line = f"Verdict: {label} - {reason}."
+    reason_txt = str(reason).replace(".", "").lower()
+    verdict_line = f"Verdict: {label} — {reason_txt}."
     if funding is True:
         verdict_line += " Funding charged."
     elif funding is False:
         verdict_line += " Funding NOT charged."
-    cta = "Full study + code → bio. Not financial advice."
-    t2 = f"{stats} {verdict_line} {cta} {tags}"
+    cta = "Full rules + reproducible code in bio — fork it and try to falsify it."
+    t2 = f"{stats} {verdict_line} NFA. {cta} {tags}"
 
     return [t1, t2]
 
