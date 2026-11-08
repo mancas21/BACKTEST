@@ -107,7 +107,7 @@ def load_rows():
 def load_posted_ids():
     ids = set()
     if os.path.exists(POSTED):
-        with open(POSTED, encoding="utf-8") as f:
+        with open(POSTED, encoding="utf-8-sig") as f:
             for line in f:
                 line = line.strip()
                 if not line:
@@ -188,12 +188,65 @@ def order_rows(elig):
                 ordered.append(d.popleft())
     return ordered
 
-def pick(m, *keys):
-    for k in keys:
-        v = m.get(k)
-        if isinstance(v, (int, float)) and v == v:  # not NaN
-            return v
-    return None
+# ── $pair mapping ──────────────────────────────────────────────────────────
+PAIR_MAP = {
+    "BTCUSDT": "$BTC", "XRPUSDT": "$XRP", "SOLUSDC": "$SOL",
+    "SOLUSDT": "$SOL", "ETHUSDT": "$ETH", "ADAUSDT": "$ADA",
+    "HYPEUSDT": "$HYPE", "SUIUSDT": "$SUI", "JUPUSDT": "$JUP",
+    "BNBUSDT": "$BNB", "DOGEUSDT": "$DOGE", "AVAXUSDT": "$AVAX",
+    "LINKUSDT": "$LINK", "NEARUSDT": "$NEAR", "SPXUSDT": "$SPX",
+    "SPCUSDT": "$SPCX", "PORTFOLIO": "a 5-asset portfolio",
+    "BASKET5": "a 5-asset basket",
+}
+
+def pair_tag(sym):
+    return PAIR_MAP.get((sym or "").upper(), "$" + (sym or "").replace("USDT", "").replace("USDC", "")[:5])
+
+# ── hashtag map ─────────────────────────────────────────────────────────────
+ADAPTER_TAGS = {
+    "top10": "#Trading #Backtest",
+    "xrpneutral": "#XRP #Crypto",
+    "xrpneutral1m": "#XRP #Crypto",
+    "cbpackf": "#Bitcoin #BTC",
+    "qs": "#Bitcoin #BTC",
+    "pack100": "#Bitcoin #BTC",
+    "smqe": "#Crypto #Trading",
+    "emaadx": "#Crypto #Trading",
+    "fingrad": "#Crypto #Trading",
+    "rsimr": "#SOL #Crypto",
+    "mpv3": "#Crypto #Trading",
+}
+DEFAULT_TAGS = "#Crypto #Trading"
+
+def adapter_tags(adapter):
+    return ADAPTER_TAGS.get(adapter, DEFAULT_TAGS)
+
+# ── aggressive hook templates ─────────────────────────────────────────────
+HOOK_TEMPLATES = {
+    "KILLED": [
+        "I backtested {desc} on {pair}. {pf} profit factor across {n} trades. Looks like an edge. It isn't. 🤯",
+        "This {desc} printed {pf} PF on {pair}. Then I checked the fills. 👀",
+        "Everyone talks about {desc} on {pair}. I ran the numbers. The truth hurts. 📉",
+    ],
+    "CANDIDATE": [
+        "I backtested {desc} on {pair}. {pf} PF across {n} trades. This one might actually work. 🔥",
+        "This {desc} on {pair} passed every screen gate. But there's a catch. 👀",
+    ],
+    "FAIL": [
+        "I backtested {desc} on {pair}. {pf} PF across {n} trades. It failed every single gate. 📉",
+        "This {desc} on {pair} looked promising. The data said otherwise. 👀",
+    ],
+    "SUSPENDED": [
+        "I backtested {desc} on {pair}. {pf} PF across {n} trades. No honest OOS left. ⚠️",
+    ],
+    "REJECTED": [
+        "I backtested {desc} on {pair}. {pf} PF across {n} trades. Rejected at the gate. 📉",
+    ],
+    "NOT VALIDATED": [
+        "I re-measured {desc} on {pair} at repo costs. {pf} PF across {n} trades. Not validated. ⚠️",
+    ],
+}
+DEFAULT_HOOK = "I backtested {desc} on {pair}. {pf} PF across {n} trades. The results will shock you. 👀"
 
 def spec_id_for(adapter, name):
     n = name or ""
@@ -231,10 +284,51 @@ def spec_id_for(adapter, name):
             "fingrad": "fingrad-hma-ao-adx", "rsimr": "rsimr-sol-usdc",
             "mpv3": "mpv3-s10-pure-ew-momentum"}.get(a)
 
+def pick(m, *keys):
+    # top-level scalar
+    for k in keys:
+        v = m.get(k)
+        if isinstance(v, (int, float)) and v == v:
+            return v
+    # nested top10-style dicts
+    for nested_key, subkey in (("full", "pf"), ("full_pct", "mdd_pct"),
+                                ("oos", "pf"), ("oos_pct", "mdd_pct"),
+                                ("full", "n"), ("oos", "n")):
+        nk = nested_key
+        sk = subkey
+        # only use if the requested key family matches
+        if "pf" in keys and sk == "pf" and nested_key in ("full", "oos"):
+            d = m.get(nested_key)
+            if isinstance(d, dict):
+                v = d.get("pf")
+                if isinstance(v, (int, float)) and v == v:
+                    return v
+        if ("max_dd_pct" in keys or "dd_pct" in keys) and sk == "mdd_pct":
+            d = m.get(nested_key)
+            if isinstance(d, dict):
+                v = d.get("mdd_pct")
+                if isinstance(v, (int, float)) and v == v:
+                    return v
+        if ("n_trades" in keys or "n" in keys) and sk == "n" and nested_key in ("full", "oos"):
+            d = m.get(nested_key)
+            if isinstance(d, dict):
+                v = d.get("n")
+                if isinstance(v, (int, float)) and v == v:
+                    return v
+    return None
+
+def hook_for(desc, pair, pf_str, n_str, verdict):
+    import random
+    templates = HOOK_TEMPLATES.get(verdict, [DEFAULT_HOOK])
+    # deterministic template selection based on hash of desc+pair
+    idx = hash((desc, pair, verdict)) % len(templates)
+    tmpl = templates[idx]
+    return tmpl.format(desc=desc, pair=pair, pf=pf_str, n=n_str)
+
 def thread_text(r):
     art = r["_art"]; m = art["metrics"]; inp0 = (art.get("inputs") or [{}])[0]
     sym = (art.get("symbol") or r.get("symbol") or "").upper()
-    tf_word = TF_WORD.get(str(art.get("timeframe") or r.get("tf") or "").lower(), "unknown timeframe")
+    pair = pair_tag(sym)
     desc = ADAPTER_DESC.get(str(r.get("adapter") or ""), ADAPTER_DESC_DEFAULT)
     label, reason = r["_label"], r["_reason"]
     pf  = pick(m, "profit_factor", "pf")
@@ -244,34 +338,51 @@ def thread_text(r):
     start = str(inp0.get("start") or "")[:10]; end = str(inp0.get("end") or "")[:10]
     funding = m.get("funding_charged")
     rid = art.get("run_id")
-    nested_full = m.get("full") if isinstance(m.get("full"), dict) else {}
-    nested_oos  = m.get("oos")  if isinstance(m.get("oos"), dict)  else {}
-    pf_full = nested_full.get("pf") if isinstance(nested_full.get("pf"), (int, float)) else None
-    pf_oos  = nested_oos.get("pf")  if isinstance(nested_oos.get("pf"), (int, float)) else None
+    tags = adapter_tags(r.get("adapter"))
 
-    t1 = (f"Backtest lab — {desc} on {sym}, {tf_word}. "
-          f"Verdict: {label}. run {rid}.")
-    window = f"Window {start} to {end}" + (f", {bars} bars." if bars else ".")
-    t2 = ("Everything is public: the exact rules, the engine, the artifact — "
-          "fork it and falsify it yourself. Link in bio. " + window)
-    parts = []
-    if pf is not None:
-        parts.append(f"PF {pf:.2f}")
-    if n is not None:
-        parts.append(f"{int(round(n))} trades")
-    if dd is not None:
-        parts.append(f"max DD {dd:.1f}%")
-    t3 = (" · ".join(parts) + ".") if parts else "Aggregate pack result; per-cell numbers live in the artifact."
-    if pf_full is not None and pf_oos is not None:
-        t3 += f" Full PF {pf_full:.2f} · out-of-sample PF {pf_oos:.2f}."
+    pf_str = f"{pf:.2f}" if pf is not None else None
+    n_str = str(int(round(n))) if n is not None else None
+    dd_str = f"{dd:.1f}%" if dd is not None else None
+
+    # Build hook based on available numbers
+    if pf_str and n_str:
+        templates = HOOK_TEMPLATES.get(label, [DEFAULT_HOOK])
+        idx = hash((desc, pair, label)) % len(templates)
+        hook = templates[idx].format(desc=desc, pair=pair, pf=pf_str, n=n_str)
+    elif bars:
+        hook = f"I ran {bars} bars through a {desc} on {pair}. The results will shock you. 👀"
+    else:
+        hook = f"I backtested a {desc} on {pair}. The results will shock you. 👀"
+
+    # append window info if space allows
+    window_part = f" {start} to {end}. {bars} bars." if bars else ""
+    if len(hook) + len(window_part) + 40 <= 270:
+        t1 = hook + window_part
+    else:
+        t1 = hook
+
+    # Tweet 2: stats + verdict + CTA + hashtags
+    stats_parts = []
+    if pf_str:
+        stats_parts.append(f"PF {pf_str}")
+    if n_str:
+        stats_parts.append(f"{n_str} trades")
+    if dd_str:
+        stats_parts.append(f"{dd_str} max DD")
+    if stats_parts:
+        stats = " · ".join(stats_parts) + "."
+    else:
+        stats = "Aggregate pack result. Per-cell numbers in the artifact."
+
+    verdict_line = f"Verdict: {label} - {reason}."
     if funding is True:
-        t3 += " Funding charged."
+        verdict_line += " Funding charged."
     elif funding is False:
-        t3 += " Funding NOT charged."
-    t4 = f"Verdict: {label} — {reason}."
-    t5 = ("Backtest is not live; costs and fills decide. Not financial advice. "
-          "Exact rules, engine code and verification in the bio.")
-    return [t1, t2, t3, t4, t5]
+        verdict_line += " Funding NOT charged."
+    cta = "Full study + code → bio. Not financial advice."
+    t2 = f"{stats} {verdict_line} {cta} {tags}"
+
+    return [t1, t2]
 
 def slugify(s):
     s = re.sub(r"[^A-Za-z0-9]+", "-", s).strip("-").lower()
@@ -293,8 +404,8 @@ def build(days, outdir):
         dt = day.replace(hour=hh, minute=mm)
         tweets = thread_text(r)
         if any(len(t) > 270 for t in tweets):
-            # defensive: shorten the window line if a very long symbol/date slips in
-            tweets[1] = tweets[1].split("Window")[0].strip()
+            # shorten tweet 1 by dropping window info
+            tweets[0] = tweets[0].split("Window")[0].strip() if "Window" in tweets[0] else tweets[0]
         sym = (r.get("symbol") or "").upper()
         tf = str(r.get("tf") or "").lower()
         rid = str(r.get("run_id") or "")
@@ -306,7 +417,7 @@ def build(days, outdir):
             # header carries NO digits — guard scans the whole file; dates live in SCHEDULE.md
             f.write(f"# Slot {slot} — {sym} — {label}\n\n")
             f.write("INSTRUCTIONS (not part of the thread): paste each block below as one ")
-            f.write("tweet, in order, using X's Schedule button. Numbers from artifact " + rid + ".\n\n")
+            f.write("tweet, in order, using X's Schedule button. Numbers from artifact " + rid + "\n\n")
             for t in tweets:
                 f.write(t + "\n\n")
         manifest.append({

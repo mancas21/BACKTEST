@@ -1,0 +1,8 @@
+# Slot C — BTCUSDT — KILLED
+
+INSTRUCTIONS (not part of the thread): paste each block below as one tweet, in order, using X's Schedule button. Numbers from artifact 16a2eed10933a01a
+
+I ran 17520 bars through a hundred-prompt pack on $BTC. The results will shock you. 👀 2024-10-14 to 2026-10-14. 17520 bars.
+
+294 trades · 37.4% max DD. Verdict: KILLED - it did not clear the gates. Funding charged. Full study + code → bio. Not financial advice. #Bitcoin #BTC
+
