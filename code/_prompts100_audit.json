@@ -1,0 +1,142 @@
+{
+ "pass_": true,
+ "checks": [
+  {
+   "name": "A/B LONG: the entry fill carries slippage against the book",
+   "pass": true,
+   "detail": "100.00500000000001 vs 100.00500000000001"
+  },
+  {
+   "name": "A/B LONG: the trade PnL matches the hand computation",
+   "pass": true,
+   "detail": "94.44500249999957 vs 94.44500249999957"
+  },
+  {
+   "name": "A/B LONG: the final cash matches the hand computation",
+   "pass": true,
+   "detail": "10094.4450025 vs 10094.4450025"
+  },
+  {
+   "name": "A/B LONG: the fee was CHARGED (not credited)",
+   "pass": true,
+   "detail": "fees 5.049997500000001"
+  },
+  {
+   "name": "A LONG: a rising price makes the long PROFIT",
+   "pass": true,
+   "detail": "94.44500249999957"
+  },
+  {
+   "name": "A/B SHORT: the entry fill carries slippage against the book",
+   "pass": true,
+   "detail": "99.995 vs 99.995"
+  },
+  {
+   "name": "A/B SHORT: the trade PnL matches the hand computation",
+   "pass": true,
+   "detail": "94.5550024999999 vs 94.5550024999999"
+  },
+  {
+   "name": "A/B SHORT: the final cash matches the hand computation",
+   "pass": true,
+   "detail": "10094.555002499997 vs 10094.555002500001"
+  },
+  {
+   "name": "A/B SHORT: the fee was CHARGED (not credited)",
+   "pass": true,
+   "detail": "fees 4.9499975"
+  },
+  {
+   "name": "B SHORT: a falling price makes the short PROFIT",
+   "pass": true,
+   "detail": "94.5550024999999"
+  },
+  {
+   "name": "B SHORT: the mark-to-market of a short is a LIABILITY (the equity falls when the price rises)",
+   "pass": true,
+   "detail": "equity 9958.877999"
+  },
+  {
+   "name": "C LONG: a bar touching stop AND target exits at the STOP",
+   "pass": true,
+   "detail": "['stop']"
+  },
+  {
+   "name": "C SHORT: a bar touching stop AND target exits at the STOP",
+   "pass": true,
+   "detail": "['stop']"
+  },
+  {
+   "name": "D LONG: the gap-through stop fills AT THE OPEN",
+   "pass": true,
+   "detail": "96.99515 vs 96.99515"
+  },
+  {
+   "name": "D LONG: the exit is the stop",
+   "pass": true,
+   "detail": "stop_gap"
+  },
+  {
+   "name": "D SHORT: the gap-through stop fills AT THE OPEN",
+   "pass": true,
+   "detail": "103.00515000000001 vs 103.00515000000001"
+  },
+  {
+   "name": "D SHORT: the exit is the stop",
+   "pass": true,
+   "detail": "stop_gap"
+  },
+  {
+   "name": "E: a gap at ENTRY is NOT skipped (the repo fills it at the open)",
+   "pass": true,
+   "detail": "1 trades"
+  },
+  {
+   "name": "E: the entry gap fills AT THE OPEN",
+   "pass": true,
+   "detail": "97.00485"
+  },
+  {
+   "name": "E: the pack's own mode DOES skip it (that is one of the declared differences)",
+   "pass": true,
+   "detail": "0 trades, 1 skipped"
+  },
+  {
+   "name": "F LONG: a positive funding rate has the RIGHT sign (pays)",
+   "pass": true,
+   "detail": "funding_paid 2.0"
+  },
+  {
+   "name": "F SHORT: a positive funding rate has the RIGHT sign (receives)",
+   "pass": true,
+   "detail": "funding_paid -2.0"
+  },
+  {
+   "name": "G: final equity - initial equity == sum(pnl) - funding, on every synthetic case",
+   "pass": true,
+   "detail": "worst residual 2.402e-12"
+  },
+  {
+   "name": "G: a broken ledger makes the metrics RAISE",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "H: the pack's mode folds its cost into the fill price",
+   "pass": true,
+   "detail": "100.0055 vs 100.0055"
+  },
+  {
+   "name": "H: the pack's mode charges its cost AGAIN as a fee",
+   "pass": true,
+   "detail": "0.28048457250000003 vs 0.28048457250000003"
+  },
+  {
+   "name": "H: the pack's effective cost is 1.1 bps round trip, ten times cheaper than the repo's 11 bps",
+   "pass": true,
+   "detail": "2.2000 bps RT"
+  }
+ ],
+ "n_checks": 27,
+ "pack_cost_per_side_bps": 0.55
+}

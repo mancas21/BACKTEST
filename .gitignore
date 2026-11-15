@@ -22,6 +22,9 @@ paper_status_check.md
 # Third-party Pine libraries (not ours to redistribute)
 pine/
 
+# Third-party research frameworks (not ours to redistribute)
+pybroker/
+
 # Raw run logs (machine-specific paths; reports are published instead)
 *.log
 

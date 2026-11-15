@@ -121,7 +121,7 @@
   "dd": -5.069755970175271,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 4,
+  "n_artifacts": 5,
   "status": 0
  },
  {
@@ -138,7 +138,7 @@
   "dd": -20.71279653239847,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 8,
+  "n_artifacts": 10,
   "status": 0
  },
  {
@@ -155,7 +155,7 @@
   "dd": -21.444095525523043,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 7,
+  "n_artifacts": 8,
   "status": 0
  },
  {
@@ -172,7 +172,7 @@
   "dd": -26.708006744090586,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 8,
+  "n_artifacts": 10,
   "status": 0
  },
  {
@@ -192,7 +192,7 @@
    5,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -328,7 +328,7 @@
   "dd": -6.663322560172329,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 3,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -405,7 +405,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -445,7 +445,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -465,7 +465,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -502,7 +502,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -522,7 +522,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -542,7 +542,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -562,7 +562,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -616,7 +616,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -636,7 +636,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -707,7 +707,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -727,7 +727,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -761,7 +761,7 @@
   "dd": -12.03655168773582,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 8,
+  "n_artifacts": 10,
   "status": 0
  },
  {
@@ -781,7 +781,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -852,7 +852,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -872,7 +872,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -892,7 +892,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -912,7 +912,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -952,7 +952,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1006,7 +1006,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1080,7 +1080,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1117,7 +1117,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1171,7 +1171,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1191,7 +1191,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1228,7 +1228,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1285,7 +1285,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1325,7 +1325,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1345,7 +1345,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1385,7 +1385,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1405,7 +1405,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1459,7 +1459,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1536,7 +1536,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1553,7 +1553,7 @@
   "dd": -26.72905489766515,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 7,
+  "n_artifacts": 8,
   "status": 0
  },
  {
@@ -1641,7 +1641,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1729,7 +1729,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1766,7 +1766,7 @@
    4,
    7
   ],
-  "n_artifacts": 2,
+  "n_artifacts": 4,
   "status": 0
  },
  {
@@ -1851,7 +1851,7 @@
   "dd": -16.949765398934325,
   "liquidated": null,
   "gates": null,
-  "n_artifacts": 7,
+  "n_artifacts": 8,
   "status": 0
  },
  {

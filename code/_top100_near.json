@@ -11,6 +11,28 @@
   "status": 2
  },
  {
+  "run_id": "00915ec321531a5d",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 23.7,
+  "pf": 1.347202618093875,
+  "n": 138.0,
+  "status": null
+ },
+ {
+  "run_id": "051325c35f095703",
+  "adapter": "qsb",
+  "label": "QS-019 OU-process spread reversion (BTC/ETH)",
+  "symbol": "BTCUSDT+ETHUSDT",
+  "tf": "1h",
+  "ret": 4.18,
+  "pf": 1.0980635063624327,
+  "n": 34.0,
+  "status": null
+ },
+ {
   "run_id": "056f65013c9bc22f",
   "adapter": "pack50",
   "label": "S21 ATR-expansion breakout",
@@ -22,26 +44,70 @@
   "status": 3
  },
  {
-  "run_id": "598aa2663968ebdd",
+  "run_id": "f911813458f9a2ec",
   "adapter": "cbpackf",
   "label": "S02 Donchian + Flow Breakout",
   "symbol": "JUPUSDT",
   "tf": "1h",
-  "ret": 17.284901661778473,
-  "pf": 1.1088968765368694,
-  "n": 238.0,
-  "status": 2
+  "ret": 15.544556154808564,
+  "pf": 1.0961207345124961,
+  "n": 243.0,
+  "status": null
  },
  {
-  "run_id": "0b1e2730fa8c12b8",
+  "run_id": "de5e832e962d8d9f",
   "adapter": "cbpackf",
   "label": "S03 Squeeze Release",
   "symbol": "JUPUSDT",
   "tf": "1h",
-  "ret": 7.270252480207828,
-  "pf": 1.0610896467601942,
-  "n": 169.0,
-  "status": 3
+  "ret": 6.768624456510652,
+  "pf": 1.0559104716105103,
+  "n": 172.0,
+  "status": null
+ },
+ {
+  "run_id": "bc05fce85d442e0c",
+  "adapter": "qs",
+  "label": "QS-023 Realized-volatility regime breakout",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 7.75,
+  "pf": 1.242782285303343,
+  "n": 48.0,
+  "status": null
+ },
+ {
+  "run_id": "0be0854a2f52fe2e",
+  "adapter": "qs097",
+  "label": "SUIUSDT",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 26.0795906655648,
+  "pf": 1.192127777598374,
+  "n": 295.0,
+  "status": null
+ },
+ {
+  "run_id": "0c30b2efaae1a589",
+  "adapter": "smqe11",
+  "label": "smqe11",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 10.651597347353704,
+  "pf": 1.437709167831726,
+  "n": 53.0,
+  "status": null
+ },
+ {
+  "run_id": "0d78d36f19b8f49f",
+  "adapter": "pack20",
+  "label": "17_atr_vol_breakout",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "ret": 331.1153595475615,
+  "pf": 1.2088406484054912,
+  "n": 361.0,
+  "status": null
  },
  {
   "run_id": "0dce64b53b22b009",
@@ -66,6 +132,39 @@
   "status": 2
  },
  {
+  "run_id": "11de44fd24c5ecac",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 29.817778477714096,
+  "pf": 1.4966064247625424,
+  "n": 148.0,
+  "status": null
+ },
+ {
+  "run_id": "1226e4b82a54afca",
+  "adapter": "smqe11",
+  "label": "smqe11",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 14.987887132811428,
+  "pf": 1.4236665444233354,
+  "n": 84.0,
+  "status": null
+ },
+ {
+  "run_id": "21f78ce657de0945",
+  "adapter": "qs",
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "ret": 5.78,
+  "pf": 1.0302378120080136,
+  "n": 510.0,
+  "status": null
+ },
+ {
   "run_id": "12cac307d46702ba",
   "adapter": "smqe",
   "label": "smqe",
@@ -75,6 +174,83 @@
   "pf": 1.0364,
   "n": 100.0,
   "status": 3
+ },
+ {
+  "run_id": "13b310dd7de79feb",
+  "adapter": "qs",
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "ret": 0.24,
+  "pf": 1.0053494772906773,
+  "n": 156.0,
+  "status": null
+ },
+ {
+  "run_id": "1531130936c7e113",
+  "adapter": "qs",
+  "label": "QS-022 Bollinger Band squeeze breakout",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 20.59,
+  "pf": 1.2204111302238383,
+  "n": 177.0,
+  "status": null
+ },
+ {
+  "run_id": "b59bf7e6e53987ac",
+  "adapter": "qs",
+  "label": "QS-022 Bollinger Band squeeze breakout",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "ret": 60.56,
+  "pf": 1.4900575347899148,
+  "n": 165.0,
+  "status": null
+ },
+ {
+  "run_id": "1681d304142e1dcd",
+  "adapter": "qs",
+  "label": "QS-040 Price displacement with continuation",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "ret": 3.98,
+  "pf": 1.0524173569114144,
+  "n": 165.0,
+  "status": null
+ },
+ {
+  "run_id": "16b83bafe5ed4f67",
+  "adapter": "qs",
+  "label": "QS-011V2 RSI oversold reversal (V2 persistent)",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "ret": 2.23,
+  "pf": 1.0110996240234882,
+  "n": 268.0,
+  "status": null
+ },
+ {
+  "run_id": "172c2168dd0bb06e",
+  "adapter": "qs",
+  "label": "QS-023 Realized-volatility regime breakout",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 3.64,
+  "pf": 1.1596940396442197,
+  "n": 44.0,
+  "status": null
+ },
+ {
+  "run_id": "177a598c398080b5",
+  "adapter": "qs",
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "symbol": "SUIUSDT",
+  "tf": "5m",
+  "ret": 5.91,
+  "pf": 1.034881915648191,
+  "n": 311.0,
+  "status": null
  },
  {
   "run_id": "1791e653a68abc30",
@@ -88,6 +264,28 @@
   "status": 2
  },
  {
+  "run_id": "543c494de5456a23",
+  "adapter": "qs",
+  "label": "QS-040 Price displacement with continuation",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "ret": 3.67,
+  "pf": 1.1872302738770224,
+  "n": 45.0,
+  "status": null
+ },
+ {
+  "run_id": "1b36fe43e7cee680",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "DOGEUSDT",
+  "tf": "1h",
+  "ret": 31.157116535255792,
+  "pf": 1.3178882562786438,
+  "n": 241.0,
+  "status": null
+ },
+ {
   "run_id": "1bff1c41937b6c73",
   "adapter": "pack100",
   "label": "E61-1h delta-proxy momentum (long)",
@@ -97,6 +295,39 @@
   "pf": 1.1813,
   "n": 144.0,
   "status": 2
+ },
+ {
+  "run_id": "1c8839b830c9682a",
+  "adapter": "qs",
+  "label": "QS-028 Failed breakout reversal",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 0.17,
+  "pf": 1.0003528351807507,
+  "n": 506.0,
+  "status": null
+ },
+ {
+  "run_id": "1cc6f7489bcaa85a",
+  "adapter": "qs",
+  "label": "QS-031 Confirmed swing-high/swing-low breakout",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 7.28,
+  "pf": 1.0523650665984734,
+  "n": 384.0,
+  "status": null
+ },
+ {
+  "run_id": "36567d2821be4afb",
+  "adapter": "qs",
+  "label": "QS-011 RSI oversold reversal (V1 event)",
+  "symbol": "JUPUSDT",
+  "tf": "15m",
+  "ret": 19.5,
+  "pf": 1.07345499276655,
+  "n": 471.0,
+  "status": null
  },
  {
   "run_id": "1dac06b2e17c8562",
@@ -121,6 +352,17 @@
   "status": 2
  },
  {
+  "run_id": "829abb112d6b3564",
+  "adapter": "qs",
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 53.3,
+  "pf": 1.399277576685764,
+  "n": 240.0,
+  "status": null
+ },
+ {
   "run_id": "1e07f32125c7ee75",
   "adapter": "pack100",
   "label": "B27-1h Aroon(25) trend (long)",
@@ -141,6 +383,39 @@
   "pf": 1.2200840934253965,
   "n": 85.0,
   "status": 3
+ },
+ {
+  "run_id": "21f1495a22c44230",
+  "adapter": "qs",
+  "label": "QS-037 Compression inside a prior range",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 46.13,
+  "pf": 1.728232984173763,
+  "n": 122.0,
+  "status": null
+ },
+ {
+  "run_id": "21f1927a1049fc6b",
+  "adapter": "qs",
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "ret": 4.84,
+  "pf": 1.0573731324246043,
+  "n": 209.0,
+  "status": null
+ },
+ {
+  "run_id": "222c713810f25548",
+  "adapter": "qsb",
+  "label": "QS-019 OU-process spread reversion (BTC/ETH)",
+  "symbol": "BTCUSDT+ETHUSDT",
+  "tf": "15m",
+  "ret": 2.78,
+  "pf": 1.0316791083045922,
+  "n": 153.0,
+  "status": null
  },
  {
   "run_id": "24702522793f8fe0",
@@ -176,6 +451,105 @@
   "status": 2
  },
  {
+  "run_id": "25a0d385da7c5026",
+  "adapter": "qs",
+  "label": "QS-021 ATR compression followed by expansion",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "ret": 22.64,
+  "pf": 1.4018914133680995,
+  "n": 85.0,
+  "status": null
+ },
+ {
+  "run_id": "5c2128e5190aa4b7",
+  "adapter": "qs",
+  "label": "QS-022 Bollinger Band squeeze breakout",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "ret": 62.55,
+  "pf": 1.568510243936649,
+  "n": 121.0,
+  "status": null
+ },
+ {
+  "run_id": "280e88028bd44e31",
+  "adapter": "pack20",
+  "label": "1 01_liq_fvg",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "ret": 29.66646643255362,
+  "pf": 1.3319135197008305,
+  "n": 61.0,
+  "status": null
+ },
+ {
+  "run_id": "28c0994cdbf23f38",
+  "adapter": "qs",
+  "label": "QS-014W Anchored VWAP reversion (week anchor)",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "ret": 2.46,
+  "pf": 1.0108067298802113,
+  "n": 325.0,
+  "status": null
+ },
+ {
+  "run_id": "cf5025e43dc25bc3",
+  "adapter": "qs",
+  "label": "QS-018 Volatility-expansion fade",
+  "symbol": "JUPUSDT",
+  "tf": "15m",
+  "ret": 8.19,
+  "pf": 1.6417502956799017,
+  "n": 47.0,
+  "status": null
+ },
+ {
+  "run_id": "694b8e7e1b64e88c",
+  "adapter": "qs",
+  "label": "QS-037 Compression inside a prior range",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 1.41,
+  "pf": 1.028997067010427,
+  "n": 145.0,
+  "status": null
+ },
+ {
+  "run_id": "2b7bc76f88084065",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 27.231154806793924,
+  "pf": 1.2734360579928363,
+  "n": 269.0,
+  "status": null
+ },
+ {
+  "run_id": "54b08fba5644209c",
+  "adapter": "qs",
+  "label": "QS-011 RSI oversold reversal (V1 event)",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "ret": 2.23,
+  "pf": 1.0110996240234882,
+  "n": 268.0,
+  "status": null
+ },
+ {
+  "run_id": "2f21db59610c9249",
+  "adapter": "qs",
+  "label": "QS-040 Price displacement with continuation",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 27.33,
+  "pf": 2.3892970670758076,
+  "n": 50.0,
+  "status": null
+ },
+ {
   "run_id": "2f8c28d0cdc329bf",
   "adapter": "pack50d",
   "label": "P24 52-bar high, long-only",
@@ -185,6 +559,39 @@
   "pf": 1.0933,
   "n": 169.0,
   "status": 3
+ },
+ {
+  "run_id": "310b62e31caa2c3d",
+  "adapter": "pack20",
+  "label": "13_vwap_fade",
+  "symbol": "XRPUSDT",
+  "tf": "15m",
+  "ret": 25.620894243115533,
+  "pf": 1.0018005377965222,
+  "n": 18320.0,
+  "status": null
+ },
+ {
+  "run_id": "320171df945f7651",
+  "adapter": "qs",
+  "label": "QS-034 Support/resistance rejection",
+  "symbol": "HYPEUSDT",
+  "tf": "5m",
+  "ret": 0.4,
+  "pf": 1.007610248850323,
+  "n": 143.0,
+  "status": null
+ },
+ {
+  "run_id": "f3a22e459849e2f4",
+  "adapter": "qs",
+  "label": "QS-023 Realized-volatility regime breakout",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 25.89,
+  "pf": 1.6875247505665454,
+  "n": 50.0,
+  "status": null
  },
  {
   "run_id": "37aaf1d3abdad552",
@@ -198,6 +605,17 @@
   "status": 2
  },
  {
+  "run_id": "37ee9e2c9227f0fd",
+  "adapter": "qs",
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "ret": 1.51,
+  "pf": 1.0247710160900056,
+  "n": 221.0,
+  "status": null
+ },
+ {
   "run_id": "3a6053c52d7639f5",
   "adapter": "smqe",
   "label": "smqe",
@@ -207,6 +625,17 @@
   "pf": 1.8278,
   "n": 49.0,
   "status": 2
+ },
+ {
+  "run_id": "3aaf8d34f49f1187",
+  "adapter": "pack20",
+  "label": "17_atr_vol_breakout",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 882.1364248028462,
+  "pf": 1.5855491361907,
+  "n": 388.0,
+  "status": null
  },
  {
   "run_id": "8f4afde584051b2d",
@@ -220,6 +649,72 @@
   "status": 2
  },
  {
+  "run_id": "60a7947b051101c1",
+  "adapter": "cvrmd",
+  "label": "cvrmd",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 0.47231228898145794,
+  "pf": 1.0184753509362043,
+  "n": 94.0,
+  "status": null
+ },
+ {
+  "run_id": "3f3e22e27e26315b",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "HYPEUSDT",
+  "tf": "15m",
+  "ret": 7.86,
+  "pf": 1.0894964920515073,
+  "n": 221.0,
+  "status": null
+ },
+ {
+  "run_id": "3fe037783fb12904",
+  "adapter": "qs",
+  "label": "QS-035 Range sweep and reversal",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 35.94,
+  "pf": 1.2903063029188662,
+  "n": 137.0,
+  "status": null
+ },
+ {
+  "run_id": "de77151964899879",
+  "adapter": "qs",
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 18.8,
+  "pf": 1.2260893682981482,
+  "n": 226.0,
+  "status": null
+ },
+ {
+  "run_id": "c403a294e46f89e5",
+  "adapter": "qs",
+  "label": "QS-023 Realized-volatility regime breakout",
+  "symbol": "ETHUSDT",
+  "tf": "5m",
+  "ret": 24.95,
+  "pf": 1.2068720433896338,
+  "n": 161.0,
+  "status": null
+ },
+ {
+  "run_id": "44a23ab194b621be",
+  "adapter": "pack20",
+  "label": "13_vwap_fade",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "ret": 405901.0192855201,
+  "pf": 1.0774942139348782,
+  "n": 17850.0,
+  "status": null
+ },
+ {
   "run_id": "45ca1c5757341ad0",
   "adapter": "pack50d",
   "label": "P28 momentum ignition",
@@ -229,6 +724,28 @@
   "pf": 1.3156,
   "n": 266.0,
   "status": 2
+ },
+ {
+  "run_id": "45ccfbbb288a7ea7",
+  "adapter": "cvrmd",
+  "label": "cvrmd",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "ret": 2.615436708751484,
+  "pf": 1.060358987133471,
+  "n": 99.0,
+  "status": null
+ },
+ {
+  "run_id": "48bbf8b6e6ada97f",
+  "adapter": "qs",
+  "label": "QS-040 Price displacement with continuation",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 14.79,
+  "pf": 1.5968829553726953,
+  "n": 57.0,
+  "status": null
  },
  {
   "run_id": "4c6b3e46b4ab1533",
@@ -253,6 +770,39 @@
   "status": 2
  },
  {
+  "run_id": "50b60069f86c09ec",
+  "adapter": "qs097",
+  "label": "ETHUSDT",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 25.98931654142975,
+  "pf": 1.2336366602027775,
+  "n": 306.0,
+  "status": null
+ },
+ {
+  "run_id": "52677740cad35881",
+  "adapter": "pack20",
+  "label": "1 01_liq_fvg",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "ret": 25.502906382896875,
+  "pf": 1.0944278240305338,
+  "n": 172.0,
+  "status": null
+ },
+ {
+  "run_id": "53c79260fac01e20",
+  "adapter": "qs",
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 32.07,
+  "pf": 1.3987624930467293,
+  "n": 180.0,
+  "status": null
+ },
+ {
   "run_id": "54aef3bd10027404",
   "adapter": "pack50d",
   "label": "P01 Supertrend + EMA200",
@@ -264,15 +814,136 @@
   "status": 2
  },
  {
-  "run_id": "5782b8db04b4bdcb",
-  "adapter": "cvrmd",
-  "label": "cvrmd",
-  "symbol": "XRPUSDT",
+  "run_id": "6738cdaccbb558de",
+  "adapter": "qs",
+  "label": "QS-028 Failed breakout reversal",
+  "symbol": "BTCUSDT",
+  "tf": "5m",
+  "ret": 5.81,
+  "pf": 1.0550807964921174,
+  "n": 248.0,
+  "status": null
+ },
+ {
+  "run_id": "61a839cefd3fdfab",
+  "adapter": "qs",
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "symbol": "HYPEUSDT",
   "tf": "1h",
-  "ret": 2.615436708751484,
-  "pf": 1.060358987133471,
-  "n": 99.0,
-  "status": 3
+  "ret": 11.86,
+  "pf": 1.2977233896622982,
+  "n": 117.0,
+  "status": null
+ },
+ {
+  "run_id": "ce6ac1a096d49d4f",
+  "adapter": "qs",
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "ret": 11.49,
+  "pf": 1.1705376623246944,
+  "n": 144.0,
+  "status": null
+ },
+ {
+  "run_id": "5b40bea28abe5ad9",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "JUPUSDT",
+  "tf": "15m",
+  "ret": 14.73,
+  "pf": 1.0599431505657717,
+  "n": 571.0,
+  "status": null
+ },
+ {
+  "run_id": "5cdb10b47424023f",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "ret": 32.86666528923965,
+  "pf": 2.609154738247906,
+  "n": 68.0,
+  "status": null
+ },
+ {
+  "run_id": "73a2506159a85ad4",
+  "adapter": "qs",
+  "label": "QS-038 Momentum exhaustion reversal",
+  "symbol": "SUIUSDT",
+  "tf": "5m",
+  "ret": 5.4,
+  "pf": 1.2530016891681783,
+  "n": 33.0,
+  "status": null
+ },
+ {
+  "run_id": "7a7bd74f7f402e07",
+  "adapter": "qs",
+  "label": "QS-021 ATR compression followed by expansion",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 16.66,
+  "pf": 1.392022688423342,
+  "n": 51.0,
+  "status": null
+ },
+ {
+  "run_id": "5e7437e527e0ab54",
+  "adapter": "qs",
+  "label": "QS-029 Breakout with retest confirmation",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "ret": 26.02,
+  "pf": 1.1373487511903686,
+  "n": 268.0,
+  "status": null
+ },
+ {
+  "run_id": "5e9fca474627e82d",
+  "adapter": "pack20",
+  "label": "6 06_ema_pullback",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "ret": 13.508305305191382,
+  "pf": 1.0119467802744855,
+  "n": 1070.0,
+  "status": null
+ },
+ {
+  "run_id": "f99ca41f1263843a",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "ret": 0.38,
+  "pf": 1.0059073462235508,
+  "n": 93.0,
+  "status": null
+ },
+ {
+  "run_id": "d16cf5428d8ca01d",
+  "adapter": "qs",
+  "label": "QS-037 Compression inside a prior range",
+  "symbol": "ETHUSDT",
+  "tf": "15m",
+  "ret": 8.6,
+  "pf": 1.0619603530631145,
+  "n": 359.0,
+  "status": null
+ },
+ {
+  "run_id": "6aa3e550b74655a9",
+  "adapter": "pack20",
+  "label": "17_atr_vol_breakout",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "ret": 33.90701153024662,
+  "pf": 1.0628564295646488,
+  "n": 434.0,
+  "status": null
  },
  {
   "run_id": "6b43c03b6c71fe23",
@@ -308,6 +979,28 @@
   "status": 2
  },
  {
+  "run_id": "6e693e7bd4dd8608",
+  "adapter": "qs",
+  "label": "QS-038 Momentum exhaustion reversal",
+  "symbol": "SOLUSDT",
+  "tf": "5m",
+  "ret": 0.67,
+  "pf": 1.0238647737216633,
+  "n": 46.0,
+  "status": null
+ },
+ {
+  "run_id": "d2f68e91ecb3a767",
+  "adapter": "qs",
+  "label": "QS-023 Realized-volatility regime breakout",
+  "symbol": "HYPEUSDT",
+  "tf": "15m",
+  "ret": 3.13,
+  "pf": 1.0650671805542076,
+  "n": 108.0,
+  "status": null
+ },
+ {
   "run_id": "6f6268b058c7ae16",
   "adapter": "cbpackf",
   "label": "S10 Vol-Targeted Time-Series Momentum",
@@ -330,6 +1023,28 @@
   "status": 2
  },
  {
+  "run_id": "7891ba697c8b55af",
+  "adapter": "qs",
+  "label": "QS-031 Confirmed swing-high/swing-low breakout",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "ret": 15.56,
+  "pf": 1.100410769568778,
+  "n": 366.0,
+  "status": null
+ },
+ {
+  "run_id": "7b0022b3bbf0a0f7",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "ret": 23.57,
+  "pf": 1.096762690370435,
+  "n": 595.0,
+  "status": null
+ },
+ {
   "run_id": "7e034fb9f6b89883",
   "adapter": "smqe",
   "label": "smqe",
@@ -341,6 +1056,28 @@
   "status": 2
  },
  {
+  "run_id": "7efc035fd52a8911",
+  "adapter": "qs",
+  "label": "QS-034 Support/resistance rejection",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 4.3,
+  "pf": 1.0602723369640858,
+  "n": 197.0,
+  "status": null
+ },
+ {
+  "run_id": "ea9d8bbda925b7ef",
+  "adapter": "qs",
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 17.68,
+  "pf": 1.2904459933029906,
+  "n": 155.0,
+  "status": null
+ },
+ {
   "run_id": "8389ecb85a1a8d1a",
   "adapter": "pack100",
   "label": "A15-15m EMA(50) overextension reversion",
@@ -350,6 +1087,17 @@
   "pf": 1.075,
   "n": 229.0,
   "status": 2
+ },
+ {
+  "run_id": "a204b14dac5f7e47",
+  "adapter": "qs",
+  "label": "QS-028 Failed breakout reversal",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 14.59,
+  "pf": 1.0696223852629887,
+  "n": 403.0,
+  "status": null
  },
  {
   "run_id": "85ca846eef50178c",
@@ -385,6 +1133,50 @@
   "status": 2
  },
  {
+  "run_id": "8a8484ca9cab174b",
+  "adapter": "qs",
+  "label": "QS-023 Realized-volatility regime breakout",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "ret": 0.93,
+  "pf": 1.013225166654369,
+  "n": 175.0,
+  "status": null
+ },
+ {
+  "run_id": "cfaf023ce80d3ed8",
+  "adapter": "qs",
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "ret": 2.24,
+  "pf": 1.0579805788180043,
+  "n": 149.0,
+  "status": null
+ },
+ {
+  "run_id": "e63b3a81499c0c76",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "SUIUSDT",
+  "tf": "5m",
+  "ret": 19.54,
+  "pf": 1.075240756470503,
+  "n": 431.0,
+  "status": null
+ },
+ {
+  "run_id": "b01020e4f9a579f6",
+  "adapter": "qs",
+  "label": "QS-011V2 RSI oversold reversal (V2 persistent)",
+  "symbol": "JUPUSDT",
+  "tf": "15m",
+  "ret": 19.5,
+  "pf": 1.07345499276655,
+  "n": 471.0,
+  "status": null
+ },
+ {
   "run_id": "962abff991a2470d",
   "adapter": "botstrat",
   "label": "botstrat",
@@ -394,6 +1186,17 @@
   "pf": 1.0788416079568577,
   "n": 641.0,
   "status": 2
+ },
+ {
+  "run_id": "9a869c49aaa083d6",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "NVDAUSDT",
+  "tf": "15m",
+  "ret": 4.3609736688735135,
+  "pf": 1.1160399817984457,
+  "n": 85.0,
+  "status": null
  },
  {
   "run_id": "9e6e85ff95700ef5",
@@ -407,6 +1210,17 @@
   "status": 3
  },
  {
+  "run_id": "f12bf23e1042d8c9",
+  "adapter": "qs",
+  "label": "QS-028 Failed breakout reversal",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 2.62,
+  "pf": 1.0292797061635826,
+  "n": 152.0,
+  "status": null
+ },
+ {
   "run_id": "a40038eeccf8b222",
   "adapter": "pack50b",
   "label": "D04 Ichimoku cloud breakout",
@@ -416,6 +1230,61 @@
   "pf": 1.0379436684400132,
   "n": 1512.0,
   "status": 2
+ },
+ {
+  "run_id": "aa6c9d276a9a0c03",
+  "adapter": "pack20",
+  "label": "10_rsi2_connors",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 64.31600082950214,
+  "pf": 1.0137006705517424,
+  "n": 2374.0,
+  "status": null
+ },
+ {
+  "run_id": "d762dd6c2495298f",
+  "adapter": "qs",
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 29.03,
+  "pf": 1.306630205126662,
+  "n": 210.0,
+  "status": null
+ },
+ {
+  "run_id": "b29f619911482c3c",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "LINKUSDT",
+  "tf": "1h",
+  "ret": 1.872248016573197,
+  "pf": 1.0199392477510423,
+  "n": 291.0,
+  "status": null
+ },
+ {
+  "run_id": "b40c0d432705fc83",
+  "adapter": "pack20",
+  "label": "2 02_order_block",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "ret": 27.767829205658035,
+  "pf": 1.0066840645434096,
+  "n": 1062.0,
+  "status": null
+ },
+ {
+  "run_id": "b55f4301053944a2",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "ret": 8.818749830299154,
+  "pf": 1.033449576859118,
+  "n": 1183.0,
+  "status": null
  },
  {
   "run_id": "b6dc3abb12963368",
@@ -429,15 +1298,147 @@
   "status": 2
  },
  {
-  "run_id": "c86439c3c5534fac",
-  "adapter": "cvrmd",
-  "label": "cvrmd",
+  "run_id": "bd9100c8bd70d366",
+  "adapter": "pack20",
+  "label": "15_squeeze_rank_breakout",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 89.97716203214394,
+  "pf": 1.075881938158012,
+  "n": 684.0,
+  "status": null
+ },
+ {
+  "run_id": "cae06c339ca696d7",
+  "adapter": "qs",
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 13.94,
+  "pf": 1.136309150472017,
+  "n": 234.0,
+  "status": null
+ },
+ {
+  "run_id": "c29b5798f9f69df7",
+  "adapter": "qs096",
+  "label": "qs096",
   "symbol": "AVAXUSDT",
   "tf": "1h",
-  "ret": 0.4972012683128524,
-  "pf": 1.0191366410053195,
-  "n": 90.0,
-  "status": 3
+  "ret": 4.506657664643354,
+  "pf": 1.0494183508191497,
+  "n": 255.0,
+  "status": null
+ },
+ {
+  "run_id": "c4ad405b3c428ce5",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "ret": 24.739716538832333,
+  "pf": 1.274657036485706,
+  "n": 286.0,
+  "status": null
+ },
+ {
+  "run_id": "c8a00fe20ff4ad6f",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 16.765176527745453,
+  "pf": 1.1764434074122079,
+  "n": 309.0,
+  "status": null
+ },
+ {
+  "run_id": "ccff24de952452f7",
+  "adapter": "qs",
+  "label": "QS-032 Trend structure continuation",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 8.78,
+  "pf": 1.0766566026353346,
+  "n": 199.0,
+  "status": null
+ },
+ {
+  "run_id": "cdbed9c0749e2dee",
+  "adapter": "qs",
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 13.37,
+  "pf": 1.1056996418828637,
+  "n": 277.0,
+  "status": null
+ },
+ {
+  "run_id": "d4ba13a9ab12605d",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "ret": 4.99,
+  "pf": 1.090951306027591,
+  "n": 134.0,
+  "status": null
+ },
+ {
+  "run_id": "e174928decd9b917",
+  "adapter": "qs",
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "ret": 43.44,
+  "pf": 1.4482194577154452,
+  "n": 118.0,
+  "status": null
+ },
+ {
+  "run_id": "da9f1b3771077f89",
+  "adapter": "qs096",
+  "label": "qs096",
+  "symbol": "NEARUSDT",
+  "tf": "1h",
+  "ret": 20.690374143208224,
+  "pf": 1.1731370579310716,
+  "n": 279.0,
+  "status": null
+ },
+ {
+  "run_id": "ddb39cfadb02ce59",
+  "adapter": "pack20",
+  "label": "1 01_liq_fvg",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 4.334420910510772,
+  "pf": 1.0464456242899707,
+  "n": 36.0,
+  "status": null
+ },
+ {
+  "run_id": "e2cf2e0aae688a2c",
+  "adapter": "qs",
+  "label": "QS-029 Breakout with retest confirmation",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "ret": 78.05,
+  "pf": 1.3892033728641502,
+  "n": 351.0,
+  "status": null
+ },
+ {
+  "run_id": "ea426bb3fb821132",
+  "adapter": "pack20",
+  "label": "16_ttm_squeeze",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "ret": 488.29602516331903,
+  "pf": 1.0483097132600214,
+  "n": 3396.0,
+  "status": null
  },
  {
   "run_id": "ea69e381a1138c25",

@@ -1,4 +1,4 @@
-# Por familia: vwap_cvd_divergence — 19 estrategias
+# Por familia: vwap_cvd_divergence — 21 estrategias
 
 
 | # | TF | Estrategia | Ret declarado | Ret costo cero | Ret 11bps RT | PF | n | maxDD | Ventana (años) | Veredicto | run_id |
@@ -22,3 +22,5 @@
 | 17 | 15m | cvrmd | -41.08 | — | — | 0.758 | 333 | -42.24 | — | FRAGILE/SUSPENDED (PF ~1.02 historia completa) | 23f91cdfb2b82679 |
 | 18 | 15m | cvrmd | -48.82 | — | — | 0.732 | 384 | -51.0 | — | FRAGILE/SUSPENDED (PF ~1.02 historia completa) | ce36ef3b97778d5d |
 | 19 | 15m | cvrmd | -65.61 | — | — | 0.601 | 398 | -66.05 | — | FRAGILE/SUSPENDED (PF ~1.02 historia completa) | 826345c6710870f5 |
+| 20 | 1d | [EQ] cvrmd on SPY 1d (standard costs) | 0.0 | — | — | 0.0 | 0 | -0.0 | — | FRAGILE/SUSPENDED (PF ~1.02 historia completa) | 2eb5fe1e4d2caebe |
+| 21 | 1d | [EQ] cvrmd on QQQ 1d (standard costs) | 0.0 | — | — | 0.0 | 0 | -0.0 | — | FRAGILE/SUSPENDED (PF ~1.02 historia completa) | b5c4bcb32aa91e9b |

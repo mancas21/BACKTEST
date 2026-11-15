@@ -1,0 +1,341 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © mancas21 — Optimized & Hardened Build (CVRMD Engine 1 Only)
+
+//@version=6
+// ═════════════════════════════════════════════════════════════════════════════
+// CVRMD v2 [OPTIMIZED — ULTRA FAST] (CVRMD Core 1 + Risk Execution)
+// ═════════════════════════════════════════════════════════════════════════════
+// Optimized build eliminating the heavy visual overhead of SMC structures [A],
+// MA Order Blocks [B], Confluence Gates [②], and Dashboard [④].
+//
+// WHAT WAS REMOVED & WHY IT IS NOW FAST:
+//   1. REMOVED: Unconditional request.security_lower_tf (the primary cause of
+//      TradingView freeze / timeouts). Now strictly guarded or defaults to CLV proxy.
+//   2. REMOVED: SMC & MA Order Block loops, UDT allocations, and 500+ dynamic boxes/lines.
+//   3. REMOVED: Unused opt-in confluence gates (all defaulted to false anyway).
+//   4. REMOVED: Heavy 17-row dashboard table redraw on every bar.
+//
+// RETAINED (100% Trading Signal & Execution Parity):
+//   • Engine ①: CVRMD Core (MACD Divergence, Session VWAP Bands, CVD Slope, RSI filter)
+//   • Execution ①b: Process orders on close, dynamic sizing, 50% TP1 (VWAP / 1.5R) +
+//     2R TP2, Min Stop % floor, funding ledger, daily breaker, equity DD killswitch.
+// ═════════════════════════════════════════════════════════════════════════════
+
+strategy("CVRMD v2 [Fast Execution] — Strategy", "CVRMD v2 Fast", 
+     overlay = true, 
+     initial_capital = 10000, 
+     currency = currency.USD, 
+     commission_type = strategy.commission.percent, 
+     commission_value = 0.06, 
+     slippage = 0, 
+     process_orders_on_close = true, 
+     calc_on_every_tick = false, 
+     pyramiding = 0, 
+     margin_long = 33, 
+     margin_short = 33)
+
+// ═════════════════════════════════════════════════════════════════════════════
+// CONSTANTS & GROUPS
+// ═════════════════════════════════════════════════════════════════════════════
+CVD_PROXY    = 'CLV Proxy'
+CVD_LTF      = 'True LTF Delta (chart/12)'
+INIT_CAP     = 10000.0
+
+SIG_GROUP    = '① Signal Engine — CVRMD Core'
+SIM_GROUP    = '①b Strategy Execution & Risk'
+DISP_GROUP   = 'Display'
+
+// ═════════════════════════════════════════════════════════════════════════════
+// INPUTS — ① SIGNAL ENGINE (CVRMD)
+// ═════════════════════════════════════════════════════════════════════════════
+useCvd          = input.bool(true, 'Require CVD Confirmation', group = SIG_GROUP)
+cvdModeInput    = input.string(CVD_PROXY, 'CVD Source', options = [CVD_PROXY, CVD_LTF], group = SIG_GROUP, tooltip = 'CLV Proxy is ultra-fast and works without latency. True LTF Delta queries intrabar ticks.')
+cvdSmooth       = input.int(3, 'CVD EMA Smoothing', minval = 1, maxval = 20, group = SIG_GROUP)
+cvdSlopeLen     = input.int(5, 'CVD Slope Lookback', minval = 2, maxval = 50, group = SIG_GROUP)
+
+useVwap         = input.bool(true, 'Require VWAP Alignment', group = SIG_GROUP)
+vwapAnchor      = input.string('Session', 'Anchor', options = ['Session', 'Week'], group = SIG_GROUP)
+bandMult        = input.float(1.0, 'Band (SD)', minval = 0.5, maxval = 3.0, step = 0.5, group = SIG_GROUP)
+
+useRsi          = input.bool(true, 'Require RSI Filter', group = SIG_GROUP)
+rsiLen          = input.int(14, 'RSI Length', minval = 2, maxval = 50, group = SIG_GROUP)
+rsiOS           = input.float(30.0, 'Oversold', minval = 5.0, maxval = 45.0, group = SIG_GROUP)
+rsiOB           = input.float(70.0, 'Overbought', minval = 55.0, maxval = 95.0, group = SIG_GROUP)
+
+useDiv          = input.bool(true, 'Require Divergence', group = SIG_GROUP)
+macdFast        = input.int(12, 'Fast', minval = 2, maxval = 50, group = SIG_GROUP)
+macdSlow        = input.int(26, 'Slow', minval = 5, maxval = 100, group = SIG_GROUP)
+macdSig         = input.int(9, 'Signal', minval = 2, maxval = 50, group = SIG_GROUP)
+pivL            = input.int(3, 'Pivot Left', minval = 1, maxval = 8, group = SIG_GROUP)
+pivR            = input.int(3, 'Pivot Right', minval = 1, maxval = 8, group = SIG_GROUP)
+minDivBars      = input.int(5, 'Min Bars Between Pivots', minval = 2, maxval = 50, group = SIG_GROUP)
+maxDivBars      = input.int(60, 'Max Bars Between Pivots', minval = 10, maxval = 200, group = SIG_GROUP)
+
+// ═════════════════════════════════════════════════════════════════════════════
+// INPUTS — ①b STRATEGY EXECUTION & RISK
+// ═════════════════════════════════════════════════════════════════════════════
+riskPct         = input.float(1.0, 'Risk % per Trade', minval = 0.1, maxval = 10.0, step = 0.1, group = SIM_GROUP)
+maxLev          = input.float(3.0, 'Max Notional (x equity)', minval = 1.0, maxval = 10.0, step = 0.5, group = SIM_GROUP)
+atrLenSl        = input.int(14, 'ATR Length', minval = 2, maxval = 50, group = SIM_GROUP)
+atrMult         = input.float(1.5, 'ATR Stop Mult', minval = 0.5, maxval = 5.0, step = 0.1, group = SIM_GROUP)
+minStopPct      = input.float(0.2, 'Min Stop %', minval = 0.05, step = 0.05, group = SIM_GROUP, tooltip = 'Hard floor on stop distance as % of price.')
+tp1R            = input.float(1.5, 'TP1 Fixed R (fallback)', minval = 0.5, maxval = 5.0, step = 0.1, group = SIM_GROUP)
+tp2R            = input.float(2.0, 'TP2 R Multiple', minval = 1.0, maxval = 6.0, step = 0.5, group = SIM_GROUP)
+cooldown        = input.int(3, 'Cooldown (bars)', minval = 0, maxval = 50, group = SIM_GROUP)
+
+fundRate8h      = input.float(0.01, 'Funding Rate % / 8h', minval = 0.0, step = 0.005, group = SIM_GROUP)
+dailyLossPct    = input.float(3.0, 'Daily Loss Breaker %', minval = 0.0, step = 0.5, group = SIM_GROUP)
+maxDDLimit      = input.float(30.0, 'Equity DD Killswitch %', minval = 0.0, step = 5.0, group = SIM_GROUP)
+simStartDate    = input.time(timestamp('01 Jan 2024 00:00 +0000'), 'Sim Start (UTC)', group = SIM_GROUP)
+simEndDate      = input.time(timestamp('01 Jan 2030 00:00 +0000'), 'Sim End (UTC)', group = SIM_GROUP)
+allowLong       = input.bool(true, 'Allow Longs', group = SIM_GROUP)
+allowShort      = input.bool(true, 'Allow Shorts', group = SIM_GROUP)
+
+// Display toggles
+showVwap        = input.bool(true, 'Show VWAP + Bands', group = DISP_GROUP)
+showSigs        = input.bool(true, 'Show Signal Shapes', group = DISP_GROUP)
+showTradeLevels = input.bool(true, 'Show Active Trade Levels', group = DISP_GROUP)
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SIGNAL ENGINE — CVRMD CALCULATIONS
+// ═════════════════════════════════════════════════════════════════════════════
+// 1. CVD (Protected against unconditional request.security_lower_tf)
+float hlR    = math.max(high - low, 0.0000001)
+float clv    = ((close - low) - (high - close)) / hlR
+float dProxy = clv * nz(volume, 0.0)
+float dLtf   = na
+
+// [PERF FIX] Only fetch lower timeframe data if the user explicitly chooses it
+bool ltfOk   = cvdModeInput == CVD_LTF and timeframe.in_seconds() >= 60
+if ltfOk
+    int ltfMin = math.max(1, math.round(timeframe.in_seconds() / 60.0 / 12))
+    array<float> dArr = request.security_lower_tf(syminfo.tickerid, str.tostring(ltfMin), (close - open) * nz(volume))
+    dLtf := dArr.size() > 0 ? array.sum(dArr) : dProxy
+
+float dRaw     = cvdModeInput == CVD_LTF and not na(dLtf) ? dLtf : dProxy
+float cvdCum   = ta.cum(dRaw)
+float cvdSm    = ta.ema(cvdCum, cvdSmooth)
+float cvdSlope = cvdSm - nz(cvdSm[cvdSlopeLen], cvdSm)
+bool  cvdBull  = cvdSlope > 0
+bool  cvdBear  = cvdSlope < 0
+
+// 2. Session VWAP with Welford recursion
+bool isNewDay  = ta.change(time("D")) != 0
+bool isNewWeek = ta.change(time("W")) != 0
+bool newAnchor = vwapAnchor == "Session" ? isNewDay : isNewWeek
+
+var float vSumV = 0.0
+var float vMean = na
+var float vM2   = 0.0
+
+if newAnchor or na(vMean)
+    vSumV := nz(volume, 0.0)
+    vMean := hlc3
+    vM2   := 0.0
+else
+    float vv = nz(volume, 0.0)
+    vSumV += vv
+    float d = hlc3 - vMean
+    vMean += vSumV > 0 ? d * vv / vSumV : 0.0
+    vM2   += vv * d * (hlc3 - vMean)
+
+float vwap   = vSumV > 0 ? vMean : na
+float vwapSd = vSumV > 0 ? math.sqrt(math.max(vM2 / vSumV, 0.0)) : 0.0
+
+var int barsInAnchor = 0
+barsInAnchor := newAnchor ? 1 : barsInAnchor + 1
+bool vwapReady = barsInAnchor >= 5 and vwapSd > 0
+
+float vb1u = vwap + vwapSd * bandMult
+float vb1l = vwap - vwapSd * bandMult
+
+bool nearLowBand  = vwapReady and low <= vb1l and vb1l < close
+bool nearHighBand = vwapReady and high >= vb1u and close < vb1u
+bool vwapUsable   = timeframe.in_seconds() < timeframe.in_seconds("D")
+
+// 3. RSI
+float rsi = ta.rsi(close, rsiLen)
+bool rsiLongOK  = rsi <= rsiOS + 5 or (rsi < 50 and rsi > rsi[1])
+bool rsiShortOK = rsi >= rsiOB - 5 or (rsi > 50 and rsi < rsi[1])
+
+// 4. MACD Histogram Divergence
+float macdLine = ta.ema(close, macdFast) - ta.ema(close, macdSlow)
+float macdSigL = ta.ema(macdLine, macdSig)
+float osc      = macdLine - macdSigL
+
+float plP = ta.pivotlow(low, pivL, pivR)
+float phP = ta.pivothigh(high, pivL, pivR)
+
+var float prevLowPx  = na
+var float lastLowPx  = na
+var float prevLowOsc = na
+var float lastLowOsc = na
+var int   prevLowBar = na
+var int   lastLowBar = na
+
+var float prevHighPx  = na
+var float lastHighPx  = na
+var float prevHighOsc = na
+var float lastHighOsc = na
+var int   prevHighBar = na
+var int   lastHighBar = na
+
+if not na(plP)
+    prevLowPx  := lastLowPx
+    prevLowOsc := lastLowOsc
+    prevLowBar := lastLowBar
+    lastLowPx  := plP
+    lastLowOsc := osc[pivR]
+    lastLowBar := bar_index - pivR
+
+if not na(phP)
+    prevHighPx  := lastHighPx
+    prevHighOsc := lastHighOsc
+    prevHighBar := lastHighBar
+    lastHighPx  := phP
+    lastHighOsc := osc[pivR]
+    lastHighBar := bar_index - pivR
+
+bool sepL_ok = not na(prevLowBar) and (lastLowBar - prevLowBar) >= minDivBars and (lastLowBar - prevLowBar) <= maxDivBars
+bool sepH_ok = not na(prevHighBar) and (lastHighBar - prevHighBar) >= minDivBars and (lastHighBar - prevHighBar) <= maxDivBars
+
+bool bullDiv = not na(plP) and sepL_ok and lastLowPx < prevLowPx and lastLowOsc > prevLowOsc
+bool bearDiv = not na(phP) and sepH_ok and lastHighPx > prevHighPx and lastHighOsc < prevHighOsc
+
+// 5. Final Signal
+bool barOk = barstate.isconfirmed
+bool vwapGateLong  = not useVwap or (vwapUsable and nearLowBand)
+bool vwapGateShort = not useVwap or (vwapUsable and nearHighBand)
+
+bool longOK  = barOk and (bullDiv or not useDiv) and vwapGateLong and (not useCvd or cvdBull) and (not useRsi or rsiLongOK)
+bool shortOK = barOk and (bearDiv or not useDiv) and vwapGateShort and (not useCvd or cvdBear) and (not useRsi or rsiShortOK)
+
+// ═════════════════════════════════════════════════════════════════════════════
+// STRATEGY EXECUTION & RISK
+// ═════════════════════════════════════════════════════════════════════════════
+float atrX       = ta.atr(atrLenSl)
+float stopDNow   = math.max(atrX * atrMult, close * minStopPct / 100.0)
+float fundFrac   = timeframe.in_seconds() / 28800.0
+bool  inRangeNow = time >= simStartDate and time <= simEndDate
+
+var float peakEquity   = INIT_CAP
+var float fundPaid     = 0.0
+var float fundToday    = 0.0
+var float dayStartEq   = INIT_CAP
+var bool  dailyHalt    = false
+var bool  killed       = false
+var int   lastEntryBar = -1000000
+
+var float bookEntry    = na
+var float bookStop     = na
+var float bookTp1      = na
+var float bookTp2      = na
+
+bool inPos = strategy.position_size != 0
+
+if barstate.isconfirmed
+    // Accrue funding estimation
+    if strategy.position_size != 0
+        float fPay = (strategy.position_size > 0 ? 1.0 : -1.0) * math.abs(strategy.position_size) * close * (fundRate8h / 100.0) * fundFrac
+        fundPaid  += fPay
+        fundToday += fPay
+
+    // Daily loss breaker
+    if isNewDay
+        dayStartEq := strategy.equity
+        fundToday  := 0.0
+        dailyHalt  := false
+    if dailyLossPct > 0 and dayStartEq > 0 and (strategy.equity - dayStartEq - fundToday) / dayStartEq * 100 <= -dailyLossPct
+        dailyHalt := true
+
+    // Equity DD killswitch
+    peakEquity := math.max(peakEquity, strategy.equity)
+    if maxDDLimit > 0 and peakEquity > 0 and (peakEquity - strategy.equity) / peakEquity * 100 >= maxDDLimit
+        killed := true
+
+    // Orders submission
+    bool entryGateOK = inRangeNow and not killed and not dailyHalt
+    bool coolOk      = bar_index - lastEntryBar >= cooldown
+
+    if strategy.position_size == 0 and not na(stopDNow) and stopDNow > 0 and entryGateOK and coolOk
+        if longOK and allowLong
+            float stopFrac = stopDNow / close
+            float mult = math.min(riskPct / 100.0 / stopFrac, maxLev)
+            float qtyNew = strategy.equity * mult / close
+            float slPx = close - stopDNow
+            float tp1Px = vwap > close ? vwap : close + stopDNow * tp1R
+            float tp2Px = close + stopDNow * tp2R
+            strategy.entry('L', strategy.long, qty = qtyNew)
+            strategy.exit('TP1', 'L', stop = slPx, limit = tp1Px, qty_percent = 50)
+            strategy.exit('TP2', 'L', stop = slPx, limit = tp2Px, qty_percent = 100)
+            bookEntry    := close
+            bookStop     := slPx
+            bookTp1      := tp1Px
+            bookTp2      := tp2Px
+            lastEntryBar := bar_index
+        else if shortOK and allowShort
+            float stopFrac = stopDNow / close
+            float mult = math.min(riskPct / 100.0 / stopFrac, maxLev)
+            float qtyNew = strategy.equity * mult / close
+            float slPx = close + stopDNow
+            float tp1Px = vwap < close ? vwap : close - stopDNow * tp1R
+            float tp2Px = close - stopDNow * tp2R
+            strategy.entry('S', strategy.short, qty = qtyNew)
+            strategy.exit('TP1', 'S', stop = slPx, limit = tp1Px, qty_percent = 50)
+            strategy.exit('TP2', 'S', stop = slPx, limit = tp2Px, qty_percent = 100)
+            bookEntry    := close
+            bookStop     := slPx
+            bookTp1      := tp1Px
+            bookTp2      := tp2Px
+            lastEntryBar := bar_index
+
+    // Reversal logic
+    else if strategy.position_size > 0 and shortOK and allowShort and entryGateOK and coolOk
+        float stopFracR = stopDNow / close
+        float multR = math.min(riskPct / 100.0 / stopFracR, maxLev)
+        float qtyRev = strategy.equity * multR / close
+        float slPxR = close + stopDNow
+        float tp1PxR = vwap < close ? vwap : close - stopDNow * tp1R
+        float tp2PxR = close - stopDNow * tp2R
+        strategy.entry('S', strategy.short, qty = qtyRev)
+        strategy.exit('TP1', 'S', stop = slPxR, limit = tp1PxR, qty_percent = 50)
+        strategy.exit('TP2', 'S', stop = slPxR, limit = tp2PxR, qty_percent = 100)
+        bookEntry    := close
+        bookStop     := slPxR
+        bookTp1      := tp1PxR
+        bookTp2      := tp2PxR
+        lastEntryBar := bar_index
+
+    else if strategy.position_size < 0 and longOK and allowLong and entryGateOK and coolOk
+        float stopFracR = stopDNow / close
+        float multR = math.min(riskPct / 100.0 / stopFracR, maxLev)
+        float qtyRev = strategy.equity * multR / close
+        float slPxR = close - stopDNow
+        float tp1PxR = vwap > close ? vwap : close + stopDNow * tp1R
+        float tp2PxR = close + stopDNow * tp2R
+        strategy.entry('L', strategy.long, qty = qtyRev)
+        strategy.exit('TP1', 'L', stop = slPxR, limit = tp1PxR, qty_percent = 50)
+        strategy.exit('TP2', 'L', stop = slPxR, limit = tp2PxR, qty_percent = 100)
+        bookEntry    := close
+        bookStop     := slPxR
+        bookTp1      := tp1PxR
+        bookTp2      := tp2PxR
+        lastEntryBar := bar_index
+
+// ═════════════════════════════════════════════════════════════════════════════
+// PLOTS & ALERTS
+// ═════════════════════════════════════════════════════════════════════════════
+plot(showVwap ? vwap : na, 'VWAP', color.new(#FF9800, 0), 2)
+plot(showVwap ? vb1u : na, 'VWAP +1SD', color.new(#9E9E9E, 45))
+plot(showVwap ? vb1l : na, 'VWAP -1SD', color.new(#9E9E9E, 45))
+
+plot(showTradeLevels and inPos ? bookEntry : na, 'Entry', color.new(#787B86, 0), 1, plot.style_linebr)
+plot(showTradeLevels and inPos ? bookStop : na, 'Stop', color.new(#F23645, 0), 1, plot.style_linebr)
+plot(showTradeLevels and inPos ? bookTp1 : na, 'TP1', color.new(#26C6DA, 30), 1, plot.style_linebr)
+plot(showTradeLevels and inPos ? bookTp2 : na, 'TP2', color.new(#00E676, 30), 1, plot.style_linebr)
+
+plotshape(showSigs and longOK, 'Long Entry Signal', shape.triangleup, location.belowbar, #00E676, size = size.small)
+plotshape(showSigs and shortOK, 'Short Entry Signal', shape.triangledown, location.abovebar, #FF5252, size = size.small)
+
+alertcondition(longOK, 'Long Signal', 'CVRMD Fast: Long condition met')
+alertcondition(shortOK, 'Short Signal', 'CVRMD Fast: Short condition met')

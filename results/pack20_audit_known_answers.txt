@@ -1,0 +1,20 @@
+pack20 known answers -- 2026-11-08T21:06:11Z
+pandas 3.0.5 / numpy 2.4.6
+engine sha256: 48aecbdddd21f8747296d75515523404c8712addc1cf573d418f45061a693298
+
+PASS no_signal_flat
+PASS entry_next_open_costs_close_exit
+PASS sl_first_tie
+PASS tp_fill_at_level
+PASS gap_through_stop_fills_at_level
+PASS signal_exit_at_close
+PASS same_bar_exit_after_fill
+PASS max_hold_exit
+PASS short_tp
+PASS short_costs
+PASS determinism
+PASS wrapper_pf_no_losses
+PASS loader_dedup_sort_utc
+
+13 known answers, 0 FAIL
+VERDICT: ALL PASS

@@ -1,0 +1,26 @@
+{
+  "hma_backtest_oos_consolidado.json": {
+    "sha256": "e6ff81bc71d93e16406f7730e4d952fe64e1a20eb19bc1443fa238d16bd824e6",
+    "bytes": 8946
+  },
+  "hma_backtest_is_oos_all_pairs.json": {
+    "sha256": "362cc018836fbbf4d2bba305689c8deabec76f2d2495a685b0320da4a82edae5",
+    "bytes": 16805
+  },
+  "hma_backtest_results.json": {
+    "sha256": "10a5d45f1ac2ccd81a15f51d4766714a888abeedd0623a29db9073835b6d81ed",
+    "bytes": 79800
+  },
+  "hma_backtest_all_pairs.json": {
+    "sha256": "3063e86462afb0c9fd74ff4364b5efb7a3a9ce7744538cb0ff9df5a3efbfbf6f",
+    "bytes": 6971
+  },
+  "hma_backtest_OOS_JUPUSDT.json": {
+    "sha256": "f0dbe6d98cb9ac345bcbce2a0f8f76258d3722cd01be1734f0c3a2141d02617b",
+    "bytes": 25255
+  },
+  "jup_1h_2026.json": {
+    "sha256": "7d6a117679c1d13564e5e17e7193819b6d05cd25c90ee659bb54b5e40d9b2ee1",
+    "bytes": 1163751
+  }
+}

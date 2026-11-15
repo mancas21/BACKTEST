@@ -1,0 +1,421 @@
+{
+ "name": "s101-screen",
+ "workers": 1,
+ "gates": {
+  "screen": [
+   [
+    "profit_factor",
+    ">",
+    1.2
+   ],
+   [
+    "n_trades",
+    ">=",
+    30
+   ],
+   [
+    "return_pct",
+    ">",
+    0.0
+   ],
+   [
+    "n_periods_green",
+    ">=",
+    2
+   ],
+   [
+    "oos_profit_factor",
+    ">",
+    1.2
+   ],
+   [
+    "oos_return_pct",
+    ">",
+    0.0
+   ],
+   [
+    "net_without_top5_pct",
+    ">",
+    0.0
+   ],
+   [
+    "boot_ci_lo",
+    ">",
+    0.0
+   ]
+  ]
+ },
+ "jobs": [
+  {
+   "label": "s101_101_BTCUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=101"
+   ]
+  },
+  {
+   "label": "s101_102_BTCUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=102"
+   ]
+  },
+  {
+   "label": "s101_103_BTCUSDT_1m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "1m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=103"
+   ]
+  },
+  {
+   "label": "s101_104_BTCUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=104"
+   ]
+  },
+  {
+   "label": "s101_105_BTCUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=105"
+   ]
+  },
+  {
+   "label": "s101_106_BTCUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=106"
+   ]
+  },
+  {
+   "label": "s101_107_BTCUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=107"
+   ]
+  },
+  {
+   "label": "s101_108_BTCUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "BTCUSDT",
+   "set": [
+    "id=108"
+   ]
+  },
+  {
+   "label": "s101_109_ETHUSDT_1m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "1m",
+   "symbol": "ETHUSDT",
+   "set": [
+    "id=109"
+   ]
+  },
+  {
+   "label": "s101_110_ETHUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "ETHUSDT",
+   "set": [
+    "id=110"
+   ]
+  },
+  {
+   "label": "s101_112_ETHUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "ETHUSDT",
+   "set": [
+    "id=112"
+   ]
+  },
+  {
+   "label": "s101_115_ETHUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "ETHUSDT",
+   "set": [
+    "id=115"
+   ]
+  },
+  {
+   "label": "s101_116_SOLUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=116"
+   ]
+  },
+  {
+   "label": "s101_117_SOLUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=117"
+   ]
+  },
+  {
+   "label": "s101_118_SOLUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=118"
+   ]
+  },
+  {
+   "label": "s101_119_SOLUSDT_1m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "1m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=119"
+   ]
+  },
+  {
+   "label": "s101_120_SOLUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=120"
+   ]
+  },
+  {
+   "label": "s101_121_SOLUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=121"
+   ]
+  },
+  {
+   "label": "s101_122_SOLUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "SOLUSDT",
+   "set": [
+    "id=122"
+   ]
+  },
+  {
+   "label": "s101_123_HYPEUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "HYPEUSDT",
+   "set": [
+    "id=123"
+   ]
+  },
+  {
+   "label": "s101_124_HYPEUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "HYPEUSDT",
+   "set": [
+    "id=124"
+   ]
+  },
+  {
+   "label": "s101_125_HYPEUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "HYPEUSDT",
+   "set": [
+    "id=125"
+   ]
+  },
+  {
+   "label": "s101_126_HYPEUSDT_1m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "1m",
+   "symbol": "HYPEUSDT",
+   "set": [
+    "id=126"
+   ]
+  },
+  {
+   "label": "s101_127_HYPEUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "HYPEUSDT",
+   "set": [
+    "id=127"
+   ]
+  },
+  {
+   "label": "s101_128_HYPEUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "HYPEUSDT",
+   "set": [
+    "id=128"
+   ]
+  },
+  {
+   "label": "s101_129_SUIUSDT_1m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "1m",
+   "symbol": "SUIUSDT",
+   "set": [
+    "id=129"
+   ]
+  },
+  {
+   "label": "s101_130_SUIUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "SUIUSDT",
+   "set": [
+    "id=130"
+   ]
+  },
+  {
+   "label": "s101_131_SUIUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "SUIUSDT",
+   "set": [
+    "id=131"
+   ]
+  },
+  {
+   "label": "s101_133_SUIUSDT_dbars",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "dbars",
+   "symbol": "SUIUSDT",
+   "set": [
+    "id=133"
+   ]
+  },
+  {
+   "label": "s101_134_SUIUSDT_renko",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "renko",
+   "symbol": "SUIUSDT",
+   "set": [
+    "id=134"
+   ]
+  },
+  {
+   "label": "s101_135_JUPUSDT_range",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "range",
+   "symbol": "JUPUSDT",
+   "set": [
+    "id=135"
+   ]
+  },
+  {
+   "label": "s101_138_JUPUSDT_15m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "15m",
+   "symbol": "JUPUSDT",
+   "set": [
+    "id=138"
+   ]
+  },
+  {
+   "label": "s101_139_JUPUSDT_3m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "3m",
+   "symbol": "JUPUSDT",
+   "set": [
+    "id=139"
+   ]
+  },
+  {
+   "label": "s101_140_JUPUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "JUPUSDT",
+   "set": [
+    "id=140"
+   ]
+  },
+  {
+   "label": "s101_141_NVDAUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "NVDAUSDT",
+   "set": [
+    "id=141"
+   ]
+  },
+  {
+   "label": "s101_144_NVDAUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "NVDAUSDT",
+   "set": [
+    "id=144"
+   ]
+  },
+  {
+   "label": "s101_150_SPCXUSDT_5m",
+   "role": "screen",
+   "strategy": "s101",
+   "tf": "5m",
+   "symbol": "SPCXUSDT",
+   "set": [
+    "id=150"
+   ]
+  }
+ ],
+ "report": "results/s101_screen_report.md"
+}

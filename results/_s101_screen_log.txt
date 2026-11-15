@@ -1,0 +1,46 @@
+
+=== stage 1/4: screen (37 job(s), workers=1) ===
+  s101_101_BTCUSDT_5m bc72325e86792a79  fail (profit_factor=0.14150127825196873; return_pct=-99.99999999930816; n_periods_green=0; oos_profit_factor=0.1430350253242946; oos_return_pct=-99.96008867805224; net_without_top5_pct=-102.54888739041928; boot_ci_lo=-1.0169506954973813)
+  s101_102_BTCUSDT_15m 47f39372fa9704b5  fail (profit_factor=0.5047760009705142; return_pct=-94.76486540039758; n_periods_green=0; oos_profit_factor=0.4857470545713449; oos_return_pct=-49.21739303709399; net_without_top5_pct=-104.71556898885812; boot_ci_lo=-0.6977731669829637)
+  s101_103_BTCUSDT_1m aa4623b03a05c16c  fail (profit_factor=0.021741944016530047; return_pct=-99.99983408033837; n_periods_green=0; oos_profit_factor=0.019282382780708616; oos_return_pct=-98.28482440730627; net_without_top5_pct=-100.88483810867584; boot_ci_lo=-1.175423580025669)
+  s101_104_BTCUSDT_5m ERROR ValueError: cell 104 not runnable
+  s101_105_BTCUSDT_15m 68b9f8db34841219  fail (profit_factor=0.4224365060027622; return_pct=-99.99999950335483; n_periods_green=0; oos_profit_factor=0.41029958826067564; oos_return_pct=-99.87378742402981; net_without_top5_pct=-102.40927485821592; boot_ci_lo=-0.6879068027683639)
+  s101_106_BTCUSDT_3m a92e4439ac5839bb  fail (profit_factor=0.1468080800159547; return_pct=-92.21265321579662; n_periods_green=0; oos_profit_factor=0.0986600157682175; oos_return_pct=-57.08971054746505; net_without_top5_pct=-101.91556142382979; boot_ci_lo=-1.3751739562490335)
+  s101_107_BTCUSDT_5m 7dc911da8321a819  fail (profit_factor=0.1677058081523262; return_pct=-99.99312347186547; n_periods_green=0; oos_profit_factor=0.09107407509906996; oos_return_pct=-95.38164435743494; net_without_top5_pct=-102.80795945771443; boot_ci_lo=-1.1121991617968336)
+  s101_108_BTCUSDT_3m afa62e1ea9fcf394  fail (profit_factor=0.04435060718359038; return_pct=-99.99991092116993; n_periods_green=0; oos_profit_factor=0.04425605197160711; oos_return_pct=-98.42975805965855; net_without_top5_pct=-101.56706553380256; boot_ci_lo=-1.1956583851421256)
+  s101_109_ETHUSDT_1m ERROR KeyError: 'taker_buy_base_vol'
+  s101_110_ETHUSDT_3m ERROR KeyError: 'taker_buy_base_vol'
+  s101_112_ETHUSDT_15m 103c77e39a3a0749  fail (profit_factor=0.0; return_pct=-99.35669069625483; n_periods_green=0; oos_profit_factor=0.0; oos_return_pct=-58.58980076475277; net_without_top5_pct=-99.35028770478313; boot_ci_lo=-1.540024350152182)
+  s101_115_ETHUSDT_15m b028d805710de6df  fail (profit_factor=0.0; n_trades=0; return_pct=0.0; n_periods_green=0; oos_profit_factor=0.0; oos_return_pct=0.0; net_without_top5_pct missing; boot_ci_lo=0.0)
+  s101_116_SOLUSDT_5m 420757780b86bc6e  fail (profit_factor=0.7823087815626005; return_pct=-99.99999843561362; n_periods_green=0; oos_profit_factor=0.5284839188956716; oos_return_pct=-99.93940034905894; net_without_top5_pct=-103.5434689863949; boot_ci_lo=-0.4486205140647278)
+  s101_117_SOLUSDT_15m c7b48df5c9af2381  fail (profit_factor=0.2795389788772402; return_pct=-99.9961588320928; n_periods_green=0; oos_profit_factor=0.05889101613434251; oos_return_pct=-0.06461263118331374; net_without_top5_pct=-107.63740999556994; boot_ci_lo=-0.04811360582630446)
+  s101_118_SOLUSDT_3m 53401f7f475c825a  fail (profit_factor=0.1538665354198074; return_pct=-99.3744589074669; n_periods_green=0; oos_profit_factor=0.05155414291823916; oos_return_pct=-1.8307998802011987; net_without_top5_pct=-101.8708529880076; boot_ci_lo=-0.0941576348469264)
+  s101_119_SOLUSDT_1m c996cd01520c8756  fail (profit_factor=0.20469987327348893; return_pct=-34.65750344432805; n_periods_green=0; oos_profit_factor=0.05156082719219609; oos_return_pct=-9.807306037117192; net_without_top5_pct=-38.248907507134334; boot_ci_lo=-1.0721073000899342)
+  s101_120_SOLUSDT_5m f9ac0c45edcf75b7  fail (profit_factor=0.5492552638414953; return_pct=-99.99402336986162; n_periods_green=0; oos_profit_factor=0.36461438027943677; oos_return_pct=-97.47539135994103; net_without_top5_pct=-104.2771173297718; boot_ci_lo=-0.7413393162253308)
+  s101_121_SOLUSDT_15m 6795dc79a9ee5570  fail (profit_factor=0.676425253178238; return_pct=-32.35678650102489; n_periods_green=0; oos_profit_factor=0.5693661914463722; oos_return_pct=-16.58601685420772; net_without_top5_pct=-36.8908828739123; boot_ci_lo=-0.4315342730114202)
+  s101_122_SOLUSDT_3m 0217abd952ba9480  fail (profit_factor=0.24713899637679926; return_pct=-90.61003135574688; n_periods_green=0; oos_profit_factor=0.2139251953670777; oos_return_pct=-48.536846154669476; net_without_top5_pct=-93.21036995427505; boot_ci_lo=-0.8672533059105452)
+  s101_123_HYPEUSDT_5m 94404876a41b736c  fail (profit_factor=0.5641457439963184; return_pct=-96.00845245264115; n_periods_green=0; oos_profit_factor=0.546612413601381; oos_return_pct=-64.45503606074271; net_without_top5_pct=-99.93093862108492; boot_ci_lo=-0.46795502023017704)
+  s101_124_HYPEUSDT_15m 79b3a03e59bf256f  fail (profit_factor=0.3475835129462931; return_pct=-70.33934739152348; n_periods_green=0; oos_profit_factor=0.481707027830036; oos_return_pct=-30.074890936189767; net_without_top5_pct=-82.16913479146453; boot_ci_lo=-0.7713134961476124)
+  s101_125_HYPEUSDT_3m 11300f7761e46158  fail (profit_factor=0.3686212751582897; return_pct=-71.06591899978643; n_periods_green=0; oos_profit_factor=0.2758926348210587; oos_return_pct=-33.121184161612405; net_without_top5_pct=-74.66826682763927; boot_ci_lo=-0.7784781551056947)
+  s101_126_HYPEUSDT_1m bfe0a786b46dcb84  fail (profit_factor=0.06572762774910597; return_pct=-99.97745713105775; n_periods_green=0; oos_profit_factor=0.06987648421736349; oos_return_pct=-92.73749837755022; net_without_top5_pct=-102.70411981497482; boot_ci_lo=-1.1168766447084597)
+  s101_127_HYPEUSDT_15m a47969aba8f47d12  fail (profit_factor=0.5799654790571795; return_pct=-92.109100973004; n_periods_green=0; oos_profit_factor=0.42898923493555374; oos_return_pct=-63.30718084175842; net_without_top5_pct=-103.00190756032437; boot_ci_lo=-0.4911780035518009)
+  s101_128_HYPEUSDT_5m 4cdf9ef73e57d91e  fail (profit_factor=0.0; n_trades=0; return_pct=0.0; n_periods_green=0; oos_profit_factor=0.0; oos_return_pct=0.0; net_without_top5_pct missing; boot_ci_lo=0.0)
+  s101_129_SUIUSDT_1m 4b4c0396cb1ce7a8  fail (profit_factor=0.32639007489094024; return_pct=-99.99635849188365; n_periods_green=0; oos_profit_factor=0.15995119282526268; oos_return_pct=-96.31918313340498; net_without_top5_pct=-103.17694220163303; boot_ci_lo=-1.0031894014022111)
+  s101_130_SUIUSDT_3m ERROR AttributeError: 'Series' object has no attribute 'dayofweek'
+  s101_131_SUIUSDT_5m 809ac4b5454e2728  fail (profit_factor=0.0; n_trades=0; return_pct=0.0; n_periods_green=0; oos_profit_factor=0.0; oos_return_pct=0.0; net_without_top5_pct missing; boot_ci_lo=0.0)
+  s101_133_SUIUSDT_dbars ERROR KeyError: 'taker_buy_base_vol'
+  s101_134_SUIUSDT_renko ERROR TypeError: Cannot convert tz-naive timestamps, use tz_localize to localize
+  s101_135_JUPUSDT_range ERROR TypeError: Cannot convert tz-naive timestamps, use tz_localize to localize
+  s101_138_JUPUSDT_15m 46320ae82e591cb5  fail (profit_factor=0.8683592670273431; return_pct=-12.649462209757623; n_periods_green=0; oos_profit_factor=0.9655535310340653; oos_return_pct=-1.1764197238359309; net_without_top5_pct=-17.892332924689917; boot_ci_lo=-0.20661370762899278)
+  s101_139_JUPUSDT_3m 75a82517a31483b3  fail (profit_factor=0.5233663620132949; return_pct=-99.97051156155739; n_periods_green=0; oos_profit_factor=0.47493504613017296; oos_return_pct=-90.34356345992153; net_without_top5_pct=-103.97040700594494; boot_ci_lo=-0.5843133176942432)
+  s101_140_JUPUSDT_5m 828aa491492a52ab  fail (profit_factor=0.543244674946117; return_pct=-88.42644455636382; n_periods_green=0; oos_profit_factor=0.43313476847442806; oos_return_pct=-51.216335055762904; net_without_top5_pct=-93.04428642921738; boot_ci_lo=-0.5595583980018993)
+  s101_141_NVDAUSDT_5m 5452716e7e33c488  fail (profit_factor=0.5750478916446353; return_pct=-22.628133372683166; n_periods_green=0; oos_profit_factor=0.2814151594230002; oos_return_pct=-14.286865343932353; net_without_top5_pct=-27.328377915218404; boot_ci_lo=-0.3254394192018293)
+  s101_144_NVDAUSDT_5m 7705cb88f693982f  fail (profit_factor=0.055735555842961915; return_pct=-32.97402599231039; n_periods_green=0; oos_profit_factor=0.008068374696238789; oos_return_pct=-12.453375028146151; net_without_top5_pct=-34.64852157524617; boot_ci_lo=-1.4130048486548505)
+  s101_150_SPCXUSDT_5m 1fa4a9eaaef8dfd1  fail (profit_factor=0.0; n_trades=17; return_pct=-9.094135379512736; n_periods_green=0; oos_profit_factor=0.0; oos_return_pct=-5.223145462228751; net_without_top5_pct=-6.902078518854492; boot_ci_lo=-1.1877148908320065)
+  -> 0 survivor(s), 7 error(s)
+  stage screen: 5180.4s
+
+early stop: the screen emptied — no expensive stages run.
+
+report: results/s101_screen_report.md
+no survivors — guard not run (empty report has no numbers).

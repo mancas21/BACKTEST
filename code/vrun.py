@@ -23,14 +23,24 @@ WHY THE ENGINE IS WHAT IT IS
     result (AGENTS.md REGLA 0).
 
 Commands
-    run     --strategy cbot --tf 1m --symbol BTCUSDT [--set k=v]
+    run     --strategy cbot --tf 1m --symbol BTCUSDT [--set k=v] [--cut-ts ISO]
     render  <run_id>
     verify  <run_id>         0 OK | 2 REFUSED (drift) | 3 STALE (data extended)
-    matrix  --strategy cbot [--tf 1h,15m]
+    matrix  --strategy cbot [--tf 1h,15m] [--workers N]
     pmatrix --strategy cbot [--tf 1h,15m] [--workers N]   parallel matrix
     pverify --strategy cbot | --ids id1,id2 [--workers N] [--quiet]
     guard   --report report.md
     show
+
+DATA CUTS (run_id generation 2, 2026-11-06)
+    New artifacts freeze a data cut: `core.cut_ts` (UTC, default = creation
+    day) and `inputs` hash only the bytes before that instant (CSV byte-exact
+    prefix by open_ts, funding JSON records with t < cut, canonical). The
+    engine is served the same slice, so the hash covers exactly what it read.
+    Appends to data files can no longer stale an artifact; STALE means an edit
+    inside the cut, a changed engine, or changed params. Legacy artifacts
+    (without cut_ts in core) keep the full-file comparison. `--cut-ts full`
+    restores legacy behavior for a single run.
 """
 from __future__ import annotations
 
@@ -61,6 +71,10 @@ TF_DIR = {
     "15m": (os.path.join(DATA, "binance_klines_15m"), "15m"),
     "5m":  (os.path.join(DATA, "binance_klines"),     "5m"),
     "1m":  (os.path.join(DATA, "binance_klines_1m"),  "1m"),
+    # 1d (2026-11-14, top100 1d campaign): daily klines fetched by
+    # code/fetch_1d_pairs.py, window 2026-01-01..now by construction —
+    # "data from 2026 only" is enforced at the bytes, not by a param.
+    "1d":  (os.path.join(DATA, "binance_klines_1d"),  "1d"),
 }
 # taker-field data (Binance kline field 9). Only cbot's S05/S06 need it.
 TF_TAKER = {
@@ -68,9 +82,29 @@ TF_TAKER = {
     "15m": (os.path.join(DATA, "binance_klines_15m_taker"), "15m"),
     "5m":  (os.path.join(DATA, "binance_klines_5m_taker"),  "5m"),
     "1m":  (os.path.join(DATA, "binance_klines_1m_taker"),  "1m"),
+    # 1d taker files carry the same 9 columns as the other taker dirs;
+    # produced by code/fetch_1d_pairs.py together with the plain 1d files.
+    "1d":  (os.path.join(DATA, "binance_klines_1d_taker"),  "1d"),
+}
+
+# Input directories for the WAVE_1 scalp adapter. The pack's own timeframes
+# are 1m/3m/5m/15m; 3m has no directory in this repo (it would have to be
+# resampled from 1m, which is the pack's job, not the adapter's).
+# NOTE: 5m points at data/binance_klines_5m/ (the real history), NOT at
+# TF_DIR["5m"] = data/binance_klines/, which holds a 30-day stub.
+SCALPWAVE_DIRS = {
+    "1m":  (os.path.join(DATA, "binance_klines_1m"),  "1m"),
+    "5m":  (os.path.join(DATA, "binance_klines_5m"),  "5m"),
+    "15m": (os.path.join(DATA, "binance_klines_15m"), "15m"),
 }
 
 MIN_TRADE_FLAG = 30
+
+# The universe of the `xsml` cross-sectional book: the perps that carry BOTH
+# 1h klines and a real funding file in this store. Funding is mandatory on a
+# perp (the repo's own lesson), so a name without it cannot be traded.
+XSML_UNIVERSE = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT",
+                 "SUIUSDT", "ARBUSDT", "JUPUSDT", "HYPEUSDT"]
 
 # The SAX v3 engine is GONE from disk. Its 49 artifacts are permanently
 # unverifiable; the adapter exists only so the failure is explicit rather than a
@@ -80,6 +114,23 @@ SAX_ENGINE_SHA = "e991efc36515ade5f54f70a0bd6514955c47dd520a10f7a1ba02eead29a2e7
 
 
 # ══════════════════════════════════════════════ hashing / loading
+
+def _load_csv_cached(path: str):
+    """pd.read_csv with per-process in-memory cache (FIX1).
+
+    Keyed by abspath so the same file is parsed only once per process,
+    regardless of how many cells or timeframes request it.  The hashing
+    layer (_sha256_file, _cut_hash) reads raw bytes directly and is NOT
+    affected by this cache.
+    """
+    key = os.path.abspath(path)
+    if key in _CSV_CACHE:
+        return _CSV_CACHE[key].copy()   # defensive copy; callers may mutate
+    df = pd.read_csv(path)
+    _CSV_CACHE[key] = df
+    return df.copy()
+
+
 def _sha256_file(p: str) -> str:
     h = hashlib.sha256()
     with open(p, "rb") as f:
@@ -106,6 +157,7 @@ def _sha256_engine(paths: list) -> str:
 
 
 _MODCACHE = {}
+_CSV_CACHE: dict = {}   # FIX1: per-process CSV cache; keyed by abspath
 
 
 def _load_module(path: str, name: str):
@@ -203,6 +255,257 @@ def _read_input(p: str) -> dict:
             res["missing_bars"] = missing
             res["gap_breach"] = bool(max_gap > 24.0)
     return res
+
+
+# ══════════════════════════════════════════════ data cuts (run_id generation 2)
+# 2026-11-06. Data files are append-only and grow (daily funding, API tail files),
+# so a FULL-FILE sha256 in `inputs` went STALE for every artifact after every
+# append (1,280 stale on 2026-10-29 after one extension; 648 cells re-run after a
+# single edit). Generation 2 freezes the data cut instead:
+#
+#   * an artifact records `core.cut_ts` (UTC ISO) and hashes ONLY the data that
+#     existed before that instant: klines CSV rows with open_ts < cut_ts (a
+#     byte-exact prefix of the file), funding JSON records with t < cut_ts
+#     (canonical serialization, so re-fetch order changes cannot drift it),
+#     parquet untouched (recorder tapes do not grow);
+#   * the engine is SERVED that same slice (temporary file in a process-local
+#     temp dir, original basename preserved so engines that derive the symbol
+#     from the filename keep working), so the hash covers exactly the bytes the
+#     engine consumed;
+#   * a later APPEND therefore cannot stale an artifact; STALE now means an edit
+#     INSIDE the cut, a changed engine, or changed params. Nothing else.
+#
+# Legacy artifacts (no `cut_ts` in core) keep the full-file comparison exactly as
+# before -- verify/stale branch on the stored core, nothing old is re-keyed.
+
+CUT_TCOLS = ("open_ts", "open_time", "timestamp", "time", "datetime", "date",
+             "transact_time")
+
+
+def _default_cut_ts() -> str:
+    """Creation day, truncated to UTC midnight: same command re-run the same
+    day derives the same cut and the same run_id."""
+    now = datetime.now(timezone.utc)
+    return now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
+
+
+def _parse_cut_ts(v) -> int:
+    """ISO string / date string / epoch-ms number -> epoch milliseconds."""
+    if isinstance(v, (int, float)):
+        return int(v)
+    s = str(v).strip()
+    if s.endswith("Z"):
+        s = s[:-1] + "+00:00"
+    dt = pd.Timestamp(s)
+    if dt.tzinfo is None:
+        dt = dt.tz_localize("UTC")
+    else:
+        dt = dt.tz_convert("UTC")
+    return int(dt.value // 1_000_000)
+
+
+def _norm_cut_ts(v) -> str:
+    """Canonical UTC ISO form for storing in core (stable run_id derivation)."""
+    return pd.Timestamp(_parse_cut_ts(v), unit="ms", tz="UTC").isoformat()
+
+
+_SLICE_TMP: str | None = None
+_SLICE_CACHE: dict = {}
+
+
+def _slice_tmpdir() -> str:
+    global _SLICE_TMP
+    if _SLICE_TMP is None:
+        import atexit
+        import shutil
+        import tempfile
+        _SLICE_TMP = tempfile.mkdtemp(prefix="vrun_slices_")
+        atexit.register(shutil.rmtree, _SLICE_TMP, True)
+    return _SLICE_TMP
+
+
+def _csv_cut_boundary(path: str, cut_ms: int) -> tuple:
+    """Binary search the byte offset of the first CSV row with ts >= cut_ms.
+
+    Returns (data_start, boundary, size): rows in bytes [data_start, boundary)
+    are exactly the rows with ts < cut_ts. Requires the file sorted by ts
+    ascending (the append-only kline convention; datacheck_klines.py enforces
+    it for the bulk data). Blank lines (the taker-exported CRLF pairs) are
+    skipped by the search but stay inside the hashed bytes.
+    """
+    with open(path, "rb") as f:
+        size = os.path.getsize(path)
+        head = f.read(1 << 16)
+        first = head.split(b"\n", 1)[0]
+        names = [c.strip().strip('"').lower()
+                 for c in first.decode("utf-8", "replace").split(",")]
+        tcol_idx = None
+        for want in CUT_TCOLS:
+            if want in names:
+                tcol_idx = names.index(want)
+                break
+
+        # header vs headerless: if the first line parses as a number the file
+        # has no header row (ts column = first field); if it does not parse it
+        # must name a known time column, else the cut cannot proceed.
+        def first_line_ts():
+            txt = first.decode("utf-8", "replace").split(",")[tcol_idx or 0].strip()
+            try:
+                return int(float(txt))
+            except ValueError:
+                return None
+
+        ts0 = first_line_ts()
+        if ts0 is not None:
+            data_start = 0
+            if tcol_idx is None:
+                tcol_idx = 0
+        else:
+            if tcol_idx is None:
+                raise ValueError(f"{os.path.basename(path)}: no time column "
+                                 f"({names[:6]}...) for a data cut")
+            data_start = len(first) + 1
+
+        def line_start_after(off: int):
+            """Start of the first line whose start byte is >= off, or None."""
+            if off <= data_start:
+                return data_start
+            f.seek(off - 1)
+            chunk = f.read(min(1 << 20, size - (off - 1)))
+            nl = chunk.find(b"\n")
+            if nl < 0:
+                return None
+            return (off - 1) + nl + 1
+
+        def next_data_line(off: int):
+            """(start, ts, line_len) of the first NON-EMPTY line at/after off.
+
+            The taker-exported kline CSVs carry blank lines between rows
+            (CRLF pairs); pandas skips them, so the cut search must too. The
+            bytes they occupy stay inside the slice (the hash is byte-exact).
+            """
+            cur = max(off, data_start)
+            while cur < size:
+                s = line_start_after(cur)
+                if s is None or s >= size:
+                    return None
+                f.seek(s)
+                line = f.readline()
+                if not line:
+                    return None
+                if line.strip(b"\r\n \t"):
+                    txt = line.decode("utf-8", "replace").split(",")[tcol_idx or 0].strip()
+                    try:
+                        return s, int(float(txt)), len(line)
+                    except ValueError:
+                        return s, None, len(line)
+                cur = s + len(line)
+            return None
+
+        lo, hi = data_start, size
+        while lo < hi:
+            mid = (lo + hi) // 2
+            hit = next_data_line(mid)
+            if hit is None or hit[0] >= hi:
+                hi = mid
+                continue
+            s, ts, llen = hit
+            if ts is None:
+                raise ValueError(f"{os.path.basename(path)}: unparsable ts at "
+                                 f"byte {s} (cut search)")
+            if ts >= cut_ms:
+                hi = s
+            else:
+                lo = s + llen
+        return data_start, lo, size
+
+
+def _slice_serve(p: str, cut_iso: str) -> tuple:
+    """Materialize the [0, cut_ts) slice of input p; return (record, served_path).
+
+    The record mirrors _read_input's fields but computed ON THE SLICE, with
+    `path` pointing at the ORIGINAL file (reports stay readable) and `cut_ts`
+    recording the generation. The served temp file carries the ORIGINAL
+    basename inside a per-cut subdirectory: engines both derive symbols from
+    basenames (`XRPUSDT_15m.csv`) and RECONSTRUCT filenames from the serving
+    directory (the neutral book joins fund_dir + "{sym}_funding.json"), so the
+    slice must be byte-path-compatible with the real layout. The subdirectory
+    name carries the cut and a hash of the source path for uniqueness.
+    sha256 of the served bytes IS the recorded hash: hash covers exactly what
+    the engine reads.
+    """
+    key = (os.path.abspath(p), cut_iso)
+    st = os.stat(p)
+    key = key + (st.st_size, st.st_mtime_ns)
+    hit = _SLICE_CACHE.get(key)
+    if hit is not None and os.path.exists(hit[1]):
+        return hit
+
+    cut_ms = _parse_cut_ts(cut_iso)
+    ext = os.path.splitext(p)[1].lower()
+    base = os.path.basename(p)
+    tmpdir = _slice_tmpdir()
+    src_tag = hashlib.sha256(os.path.abspath(p).encode()).hexdigest()[:8]
+    subdir = os.path.join(
+        tmpdir, f"cut{cut_iso.replace(':', '').replace('+', 'p')}_{src_tag}")
+    os.makedirs(subdir, exist_ok=True)
+    served = os.path.join(subdir, base)
+
+    if ext == ".json":
+        # funding history: keep records with t < cut, canonical serialization
+        # (sorted keys, tight separators) so the hash is re-fetch-order-proof
+        with open(p, encoding="utf-8") as f:
+            data = json.load(f)
+        kept = [x for x in data if isinstance(x, dict) and "t" in x
+                and int(x["t"]) < cut_ms]
+        canon = json.dumps(kept, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        with open(served, "wb") as f:
+            f.write(canon)
+        rec = _read_input(served) if kept else {
+            "path": os.path.abspath(p), "sha256": hashlib.sha256(b"").hexdigest(),
+            "bars": 0}
+    elif ext == ".parquet":
+        # recorder tapes do not grow; a full-file hash stays valid for them
+        rec = _read_input(p)
+        _SLICE_CACHE[key] = (rec, p)
+        return rec, p
+    else:
+        data_start, boundary, _size = _csv_cut_boundary(p, cut_ms)
+        h = hashlib.sha256()
+        with open(p, "rb") as src, open(served, "wb") as dst:
+            src.seek(0)
+            remaining = boundary
+            while remaining > 0:
+                chunk = src.read(min(1 << 20, remaining))
+                if not chunk:
+                    break
+                h.update(chunk)
+                dst.write(chunk)
+                remaining -= len(chunk)
+        if boundary <= data_start:
+            # cut before the first row: hash of the (empty) slice is the hash
+            # of zero data bytes; served file is header-only if a header exists
+            rec = {"path": os.path.abspath(p), "sha256": h.hexdigest(), "bars": 0}
+        else:
+            rec = _read_input(served)
+            rec["sha256"] = h.hexdigest()   # == _sha256_file(served); explicit
+
+    rec["path"] = os.path.abspath(p)
+    rec["cut_ts"] = cut_iso
+    out = (rec, served)
+    _SLICE_CACHE[key] = out
+    return out
+
+
+def _resolve_cut(cut_ts) -> str | None:
+    """CLI/core value -> canonical cut ISO, or None for legacy full-file mode."""
+    if cut_ts is None:
+        return None
+    if cut_ts == "auto":
+        return _default_cut_ts()
+    if str(cut_ts).strip().lower() in ("", "full", "none"):
+        return None
+    return _norm_cut_ts(cut_ts)
 
 
 # ══════════════════════════════════════════════ dspack (DeepSeek 5-pack)
@@ -728,6 +1031,122 @@ def run_cvrmd(paths, params):
     return metrics, {"adapter": "cvrmd", "engine_version": "cvrmd"}, None
 
 
+def run_scalpwave(paths, params):
+    """The WAVE_1 scalp pack (code/scalp_wave_engine.py) as an adapter.
+
+    Source: Downloads/scalp_wave1_v1.1.0/wave1 (Python-only, pack 1.1.0).
+    Four kline-only indicators (IND-04 session VWAP bands, IND-06 liquidity
+    sweep, IND-07a squeeze/burst; IND-05 is a regime gate with no events).
+    The signal logic is copied into the engine because Downloads/ is not
+    durable; the engine carries the declared params verbatim.
+
+    Conventions are declared in the engine docstring: signal on the closed
+    bar, fill at the NEXT open, stop-first on ties, gap-through fills at the
+    open, one position at a time, 1% risk to the frozen stop, repo costs
+    (5 bps fee + 0.5 bps slip per side), funding NOT charged (the pack is
+    kline-only and carries no funding input).
+
+    The zero-cost control runs INSIDE the artifact, so the cost drag is
+    measured rather than derived.
+    """
+    m = _load_module(os.path.join(CODE, "scalp_wave_engine.py"),
+                     "scalp_wave_engine")
+    metrics, prov, tables = m.run_symbol(paths, dict(params))
+    return metrics, prov, tables
+
+
+def _xsml_inputs(tf, sym, params):
+    """The eight universe klines plus the prediction file the run asks for.
+
+    The prediction file is an INPUT of the artifact: its sha lands in core, so
+    a variant that reads different predictions cannot share a run_id with the
+    base book.
+    """
+    preds = (params or {}).get("preds_file", "xsml_preds.csv")
+    return ([os.path.join(DATA, "binance_klines_1h", f"{s}_1h.csv")
+             for s in XSML_UNIVERSE]
+            + [os.path.join(DATA, preds)])
+
+
+# The pair and basket prompts read MORE than one symbol: the input set of
+# their artifact is the set of their legs (each one hashed).
+P100_BASKET_SYMBOLS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "HYPEUSDT",
+                       "SUIUSDT", "JUPUSDT"]
+P100_PAIR_SYMBOLS = {
+    81: ["SOLUSDT", "ETHUSDT"], 82: ["BTCUSDT", "ETHUSDT"],
+    85: ["HYPEUSDT", "SOLUSDT"], 86: ["SUIUSDT", "JUPUSDT"],
+    88: ["ETHUSDT", "SOLUSDT", "HYPEUSDT", "SUIUSDT", "JUPUSDT", "BTCUSDT"],
+    89: ["ETHUSDT", "BTCUSDT"],
+}
+
+
+def _p100screen_inputs(tf, sym, params):
+    """The klines the prompt actually reads.
+
+    A single-symbol prompt reads one file; a pair or a basket reads its
+    legs, and every one of them is hashed into the artifact.
+    """
+    p = params or {}
+    symbol = str(p.get("symbol", "") or sym)
+    tfr = str(p.get("tf", "") or tf)
+    entry = TF_DIR.get(tfr)
+    if entry is None:
+        raise ValueError(f"p100screen: sin directorio de klines para tf={tfr}")
+    d, suffix = entry            # TF_DIR maps tf -> (directorio, sufijo)
+    try:
+        sid = int(p.get("id"))
+    except (TypeError, ValueError):
+        sid = None
+    if sid in P100_PAIR_SYMBOLS:
+        syms = P100_PAIR_SYMBOLS[sid]
+    elif sid in (83, 84, 87, 90):
+        syms = P100_BASKET_SYMBOLS
+    else:
+        syms = [symbol]
+    return [os.path.join(d, f"{s}_{suffix}.csv") for s in syms]
+
+
+def run_prompts100(paths, params):
+    """The 100-prompt pack, re-screened with the repo's harness.
+
+    The SIGNAL is the pack's own (code/prompts100/, copied verbatim and
+    pinned by sha256); the EXECUTION is the repo's (next open, stop first,
+    gap fills at the open, 11 bps round trip per leg, funding charged at the
+    real settlements) and the accounting invariant is asserted inside the
+    artifact.
+
+    The strategy id is a param: every prompt is its own book, with its own
+    artifact, its own run_id and its own verdict.
+    """
+    m = _load_module(os.path.join(CODE, "prompts100_engine.py"),
+                     "prompts100_engine")
+    metrics, prov, tables = m.run_symbol(paths, dict(params))
+    return metrics, prov, tables
+
+
+def run_xsml(paths, params):
+    """The `xsml` cross-sectional ML book (code/xsml_engine.py) as an adapter.
+
+    The universe is FIXED (the eight perps that carry both 1h klines and a
+    real funding file), so the inputs are the eight kline files plus the
+    model's prediction file, which is an INPUT of the artifact: the
+    predictions are hashed into the run_id, so an artifact cannot be
+    re-pointed at different predictions without a new id.
+
+    The engine's execution is the REPO's, not pybroker's: next open, stop
+    first on ties, gap-through at the open, funding at the real settlements,
+    11 bps round trip per leg.
+    """
+    m = _load_module(os.path.join(CODE, "xsml_engine.py"), "xsml_engine")
+    p = dict(params)
+    # `preds_file` is a HARNESS-level param: it selects the INPUT file (the
+    # engine never sees it). It stays in core, so each variant gets its own
+    # run_id.
+    p.pop("preds_file", None)
+    metrics, prov, tables = m.run_symbol(paths, p)
+    return metrics, prov, tables
+
+
 def run_botstrat(paths, params):
     B = _load_module(os.path.join(CODE, "botstrat_backtest.py"), "botstrat_backtest")
     sym = os.path.basename(paths[0]).split("_")[0]
@@ -780,6 +1199,31 @@ def run_mp20(paths, params):
     metrics = {"window": want, "n_strategies": len(tables),
                "bench_ret_pct": float(b["ret"]), "bench_dd_pct": float(b["dd"])}
     return metrics, {"adapter": "mp20", "engine_version": "mp20"}, tables
+
+
+def run_capfloor(paths, params):
+    """Fund-squeeze cross-sectional rotation (sesión 2026-11-14).
+    Funding extremo negativo long / positivo short, filtro de dispersión
+    anti-§5.7. Smoke full-sample pre-registrado: −95.1% — muerta tal como
+    está; se registra para que el IS/OOS formal lo archive con run_id."""
+    M = _load_module(os.path.join(CODE, "strat151_ports.py"), "strat151_ports")
+    return M.run_capfloor(paths, params)
+
+
+def run_smcrot(paths, params):
+    """SMC structure-state cross-sectional rotation (sesión 2026-11-14).
+    Port del smc.py del early-engine (CHOCH/BOS sin lookahead) como factor
+    con gate de momento MP-18. Smoke full-sample: +2889% / Sharpe 0.98 /
+    DD −87.6% — las gates deciden."""
+    M = _load_module(os.path.join(CODE, "strat151_ports.py"), "strat151_ports")
+    return M.run_smcrot(paths, params)
+
+
+def run_ewexh(paths, params):
+    """EW impulse-exhaustion rotation (sesión 2026-11-15): impulso de 5 ondas
+    completado con reglas duras de Elliott => reversión por agotamiento."""
+    M = _load_module(os.path.join(CODE, "strat151_ports.py"), "strat151_ports")
+    return M.run_ewexh(paths, params)
 
 
 def run_emaadx(paths, params):
@@ -961,6 +1405,28 @@ def run_pack50d(paths, params):
     return m.run_one(paths, dict(params))
 
 
+def run_pack20(paths, params):
+    """Twenty-strategy pack (Downloads/strategy_pack_20.py, 2026-11-08),
+    engine copied BYTE-IDENTICAL to code/pack20_engine.py (sha256
+    48aecbdddd21f874...93298, pinned by code/_pack20_audit.py, 13/13 known
+    answers ALL PASS before any real-data artifact). One artifact = one
+    strategy id (--set id=1..20, file order 01..20) on ONE declared market.
+    Every number comes from the pack's OWN executor: next-open entries,
+    close exits, SL-first ties, bracket fills at the level (gap-through
+    fills at the level too -- declared optimistic), max_hold, full-equity
+    compounding 1x. The wrapper measures repo / zero / pack-default costs,
+    the 70/30 split, thirds, best-5 concentration, bootstrap CI, buy & hold
+    and yearly PnL INSIDE the artifact. Funding NOT charged (declared).
+    Audit findings A1 (01_liq_fvg htf-pivot 1-bar-early exposure) and A2
+    (18/20 unpurged 4-bar label split) are inflationary and run VERBATIM;
+    a passing cell of 01/18/20 needs a patched re-run before any CANDIDATE
+    claim."""
+    sys.path.insert(0, CODE)
+    import importlib
+    m = importlib.import_module("pack20_wrap")
+    return m.run_one(paths, dict(params))
+
+
 def run_pack100(paths, params):
     """Sonnet 100-prompt pack (Downloads/strategy_prompts_100-sonnet-claude.md,
     numbered 01..100). One artifact per (prompt, timeframe) cell -- the pack's
@@ -981,6 +1447,18 @@ def run_pack100(paths, params):
 def _pack100_inputs(tf, sym):
     """pack50b's file mapping; SPCX -> SPXUSDT; pair/aux legs keep their order."""
     return _pack50b_inputs(tf, sym.replace("SPCX", "SPXUSDT"))
+
+
+def _pack20_inputs(tf, sym):
+    """One kline file per cell: the harness-native dir first, taker fallback
+    (same convention as the qs096 adapter), plus any appended tail files.
+    Funding files are NOT hashed -- pack20 declares funding NOT charged."""
+    d, suf = TF_DIR[tf]
+    p = os.path.join(d, f"{sym}_{suf}.csv")
+    if not os.path.exists(p):
+        dt, st = TF_TAKER[tf]
+        p = os.path.join(dt, f"{sym}_{st}.csv")
+    return [p] + sorted(glob.glob(os.path.join(d, f"{sym}_{suf}_tail_*.csv")))
 
 
 def run_qs(paths, params):
@@ -1177,7 +1655,11 @@ def run_eqpack(paths, params):
     htf_minutes = int(p.pop("htf_minutes", 1440))
     if p:
         raise ValueError(f"unknown eqpack params: {sorted(p)}")
-    _COSTS = {"eq": (0.1, 0.5), "cons": (1.0, 1.0), "zero": (0.0, 0.0)}
+    _COSTS = {"eq": (0.1, 0.5), "cons": (1.0, 1.0), "zero": (0.0, 0.0),
+              # the repo's standard regime, added so the equities transfer can
+              # be compared with the crypto numbers at the SAME cost (the
+              # engine is untouched; this is the runner's own vocabulary)
+              "repo": (5.0, 0.5)}
     if costs_key not in _COSTS:
         raise ValueError(f"eqpack costs: use one of {sorted(_COSTS)}")
     fee, slip = _COSTS[costs_key]
@@ -1892,6 +2374,27 @@ def run_prompts100(paths, params):
     return m.run(paths, dict(params))
 
 
+def run_p100screen(paths, params):
+    """The 100-prompt pack RE-SCREENED with the repo's harness.
+
+    The SIGNAL is the pack's own (code/prompts100/, copied verbatim and
+    pinned by sha256); the EXECUTION is the repo's (next open, stop first,
+    gap fills at the open, 11 bps round trip per leg, funding charged at the
+    real settlements) and the accounting invariant is asserted inside the
+    artifact.
+
+    Every prompt is its own book, with its own artifact, its own run_id and
+    its own verdict. The prompt id is a param and it is BOUND to the pack's
+    own symbol and timeframe: the engine refuses any other combination.
+
+    Spec: results/prompts100_rescreen_pre_registration.md
+    """
+    m = _load_module(os.path.join(CODE, "p100_screen_engine.py"),
+                     "p100_screen_engine")
+    metrics, prov, tables = m.run_symbol(paths, dict(params))
+    return metrics, prov, tables
+
+
 def run_top10(paths, params):
     """The TOP10 shortlist of the prompts-100 screen (TOP10_ESTRATEGIAS.md,
     2026-11-01) through their frozen port code/top10_engine.py: the five
@@ -2011,6 +2514,63 @@ def run_xsc(paths, params):
     return E.run(paths, dict(params))
 
 
+def run_fvgup(paths, params):
+    """fvg_system + fvg_upgrades pack (ICT 4H FVG -> 15M FVG; 2026-11-13 
+    attachments, byte-identical sources of record). Adapter engine 
+    code/fvgup_engine.py: cards BTCFINE|BTCCOARSE|BTCNOSESS|ETHFINE 
+    (card_from_symbol; FVGUP_CARDS maps card -> symbol). The pack's 
+    dual-engine parity FAILS on real data (measured trade-by-trade and 
+    DECLARED inside every artifact -- see the pre-registration 
+    addendum); the artifacts publish the EVENT engine at repo costs 
+    (5 bps fee + 0.5 bps slip per side), funding = the pack's 
+    constant-rate model (declared approximation), window sliced to the 
+    1m coverage [2023-01-01, 2026-10-01). Fine cells resolve maker 
+    fills on the 1m tape (certifiable); the coarse cell is the 
+    declared NOT-certifiable comparison."""
+    E = _load_fresh(os.path.join(CODE, "fvgup_engine.py"), "fvgup_engine_run")
+    return E.run(paths, dict(params))
+
+
+def run_s101(paths, params):
+    """STRATEGIES 101-150 pack (2026-11-13, 37 cells; 13 NO-DATA skips
+    declared). Engine code/s101_engine.py over the audited p100 Book:
+    signal close / enter next open, stop-first, repo costs 11 bps RT,
+    0.5% risk, daily counters (3 losses / 6 trades on 1m-3m), funding
+    at real settlements for the perps, 70/30 chronological split.
+    --set id=<N> selects the prompt; pre-registration
+    results/s101_pre_registration.md."""
+    E = _load_fresh(os.path.join(CODE, "s101_engine.py"), "s101_engine_run")
+    return E.dispatch(paths, dict(params))
+
+
+def _hmatrend_input(sym):
+    """hmatrend inputs: 1h klines + funding when a file exists. 1000PEPEUSDT
+    carries 1h only in the taker cache; XAUUSDT has no file anywhere (the
+    missing input fails loudly = the declared NO DATA cell)."""
+    d, suf = TF_DIR["1h"]
+    native = os.path.join(d, f"{sym}_{suf}.csv")
+    if os.path.exists(native):
+        files = [native]
+    else:
+        dt, st = TF_TAKER["1h"]
+        files = [os.path.join(dt, f"{sym}_{st}.csv")]
+    fpath = os.path.join(DATA, "binance_funding", f"{sym}_funding.json")
+    if os.path.exists(fpath):
+        files.append(fpath)
+    return files
+
+
+def run_hmatrend(paths, params):
+    """External "hermes" HMA(34) Trend pack (2026-11-14): DECLARED
+    reconstruction. Engine code/hma_trend_engine.py, dual mode: mode=hermes
+    replays the pack's own zero-cost 2026 windows (claim-check); mode=repo is
+    the repo battery (11 bps RT, funding at real settlements, zero-cost
+    control inside the artifact). Sources of record bound into every run_id:
+    code/hma_trend_sources/ (the pack's surviving output JSONs)."""
+    E = _load_fresh(os.path.join(CODE, "hma_trend_engine.py"), "hma_trend_engine_run")
+    return E.dispatch(paths, dict(params))
+
+
 def _prompts100_inputs(tf, sym):
     d, suf = TF_DIR[tf]
     native = os.path.join(d, f"{sym}_{suf}.csv")
@@ -2023,6 +2583,95 @@ def _prompts100_inputs(tf, sym):
     # appended API tail files (new data files only; existing files untouched)
     files += sorted(glob.glob(os.path.join(d, f"{sym}_{suf}_tail_*.csv")))
     return files
+
+
+def run_qs096(paths, params):
+    """QS-096 "Market-structure reversal plus volatility filter" (family J).
+    Signal core: #33 (CHoCH retest reversal).
+    Volatility filter: ATR(14) percentile over 500 bars in [30, 80].
+    Catalog executor code/qs_engine.py by identity (G1 sizing, G2 costs 11 bps RT,
+    G3 funding, stop-first + gap fills, 5-bar cooldown, max_hold 100)."""
+    E = _load_module(os.path.join(CODE, "qs096_engine.py"), "qs096_engine")
+    m = E.run_cell(paths, dict(params))
+    prov = {"adapter": "qs096", "engine_version": E.ENGINE_VERSION,
+            "source": "catalog card QS-096",
+            "executor": "code/qs_engine.py by identity",
+            "funding": m.get("funding_model")}
+    tables = [{"kind": "plan", **m.get("plan_counts", {})},
+              {"kind": "cost", "id": m.get("cost_mode"),
+               "cost_bp_roundtrip": m.get("cost_bp_roundtrip"),
+               "drag_pp": m.get("drag_pp")}]
+    return m, prov, tables
+
+
+def run_htffvg(paths, params):
+    """htf_ltf_fvg pack (attachment, byte-identical source of record
+    code/htf_ltf_fvg_strategy.py) -- code/htffvg_engine.py adapter: "4H FVG
+    -> 15M tap -> new 15M FVG entry". The pack's OWN dual engines (vector +
+    event) must agree 1:1 or the run aborts; the accounting invariant and
+    the standard battery live inside the artifact. Costs: cost_mode gate
+    (taker 5 + slip 0.5 per side, maker fills 2) | zero (control). Params:
+    entry_mode market|limit (limit = maker_intrabar fill model -- NOT
+    certifiable on OHLC bars per the repo fill-model rule), rr, entry_frac,
+    max_hold 96, risk_pct 0.01, max_leverage 5. Funding NOT charged
+    (declared, kline-only pack). 15m only. Audit:
+    code/_htffvg_audit.py -- forty-five known answers, ALL PASS before any
+    real-data artifact."""
+    E = _load_module(os.path.join(CODE, "htffvg_engine.py"), "htffvg_engine")
+    m = E.run_cell(paths, dict(params))
+    prov = {"adapter": "htffvg", "engine_version": E.ENGINE_VERSION,
+            "source_of_record": "code/htf_ltf_fvg_strategy.py",
+            "fill_model": m.get("fill_model"),
+            "funding": m.get("funding_model"),
+            "parity_ok": m.get("parity_ok")}
+    tables = [{"kind": "cost", "id": m.get("cost_mode"),
+               "cost_bp_roundtrip": m.get("cost_bp_roundtrip"),
+               "drag_pp": m.get("drag_pp")},
+              {"kind": "exits", **m.get("exits", {})}]
+    return m, prov, tables
+
+
+def run_qs097(paths, params):
+    """QS-097 "Cross-asset confirmation strategy" (family J, catalog card via
+    user prompt 2026-11-06) -- code/qs097_engine.py. The traded book comes
+    from params["card"] (card_from_symbol); the OTHER five perps are the
+    confirmation panel (BTC+ETH above/below their EMA(50) required, >=2 of
+    the other perps). Donchian(20) breakout, episode = first bar of a
+    breakout run, exit = 10-bar low/high break or confirmation lost, stop
+    2*ATR(14), max hold 150, stale confirmation set = no trade. Executor =
+    the catalog qs_engine imported BY IDENTITY (G1 sizing, G3 funding at
+    real settlements, stop-first + gap fills). Costs: cost=gate (11 bps RT,
+    the verdict regime) | base | adverse | stress | zero (control). Audit:
+    code/_qs097_audit.py, twenty-five known answers, ALL PASS before any
+    real-data artifact. Long-only and two-sided are SEPARATE hypotheses
+    (params variant=long|two_side) and separate verdicts (REGLA 1)."""
+    E = _load_module(os.path.join(CODE, "qs097_engine.py"), "qs097_engine")
+    m = E.run_cell(paths, dict(params))
+    prov = {"adapter": "qs097", "engine_version": E.ENGINE_VERSION,
+            "source": "catalog card QS-097 (user prompt 2026-11-06)",
+            "executor": "code/qs_engine.py by identity",
+            "funding": m.get("funding_model")}
+    tables = [{"kind": "plan", **m.get("plan_counts", {})},
+              {"kind": "cost", "id": m.get("cost_mode"),
+               "cost_bp_roundtrip": m.get("cost_bp_roundtrip"),
+               "drag_pp": m.get("drag_pp")}]
+    return m, prov, tables
+
+
+def run_smqe11(paths, params):
+    """SMQE v1.1 (indicator merge, audit-patched) — code/smqe11_engine.py.
+    Source of record code/smqe_v1_1_strategy.pine (attachment, byte-identical).
+    The signal core reuses the v2 engine's audited primitives BY IDENTITY;
+    the v1.1 simulator is ported verbatim with the shipped defaults
+    (fill-mode stop-first, every confluence gate OFF). Params: cost_mode
+    (repo|pine|zero), funding (off|real), fill_mode (stop|tp|emu), plus the
+    Pine's declared constants. 1h only."""
+    p = dict(params)
+    if p.get("tf", "1h") != "1h":
+        raise ValueError(f"smqe11 supports 1h only (got tf={p.get('tf')!r}); "
+                         "the engine's funding factor assumes the 1h chart")
+    E = _load_module(os.path.join(CODE, "smqe11_engine.py"), "smqe11_engine")
+    return E.run_symbol(paths, p)
 
 
 def run_smqe(paths, params):
@@ -2069,11 +2718,139 @@ def run_xrpneutral_1m(paths, params):
     return run_xrpneutral(paths, p)
 
 
+FVGUP_CARDS = {"BTCFINE": "BTCUSDT", "BTCCOARSE": "BTCUSDT",
+               "BTCNOSESS": "BTCUSDT", "ETHFINE": "ETHUSDT"}
+
+S101_FILES = {
+    "BTCUSDT": ["BTCUSDT_1m.csv", "BTCUSDT_5m.csv", "BTCUSDT_15m.csv",
+                "BTCUSDT_1h.csv", "BTCUSDT_funding.json"],
+    "ETHUSDT": ["ETHUSDT_1m.csv", "ETHUSDT_5m.csv", "ETHUSDT_15m.csv",
+                "ETHUSDT_1h.csv", "ETHUSDT_funding.json", "BTCUSDT_15m.csv"],
+    "SOLUSDT": ["SOLUSDT_1m.csv", "SOLUSDT_5m.csv", "SOLUSDT_15m.csv",
+                "SOLUSDT_funding.json", "BTCUSDT_5m.csv", "BTCUSDT_15m.csv",
+                "BTCUSDT_1m.csv", "ETHUSDT_1m.csv"],
+    "HYPEUSDT": ["HYPEUSDT_1m.csv", "HYPEUSDT_5m.csv", "HYPEUSDT_15m.csv",
+                 "HYPEUSDT_funding.json"],
+    "SUIUSDT": ["SUIUSDT_1m.csv", "SUIUSDT_5m.csv", "SUIUSDT_15m.csv",
+                "SUIUSDT_funding.json"],
+    "JUPUSDT": ["JUPUSDT_1m.csv", "JUPUSDT_5m.csv", "JUPUSDT_15m.csv",
+                "JUPUSDT_funding.json"],
+    "NVDAUSDT": ["NVDAUSDT_5m.csv"],
+    "SPCXUSDT": ["SPCXUSDT_5m.csv"],
+}
+
+
+def _s101_input(sym):
+    """Per-symbol input superset, one file per role. 1m resolves to the
+    TAKER dir first: the native and taker 1m share the basename and the
+    gen-2 cut slice serves inputs under the basename only -- both copies
+    would collide in the temp dir."""
+    out = []
+    for f in S101_FILES[sym]:
+        if "funding" in f:
+            out.append(os.path.join(DATA, "binance_funding", f))
+            continue
+        dirs = (("binance_klines_1m_taker", "binance_klines_1m")
+                if f.endswith("_1m.csv") else
+                ("binance_klines_5m", "binance_klines_15m",
+                 "binance_klines_1h"))
+        for dd in dirs:
+            p = os.path.join(DATA, dd, f)
+            if os.path.exists(p):
+                out.append(p)
+                break
+    return out
+
+
 ADAPTERS = {
+    "qs096": {
+        "sources": [os.path.join(CODE, "qs096_engine.py"),
+                    os.path.join(CODE, "qs_engine.py"),
+                    os.path.join(CODE, "qs_d_strats.py")],
+        "version": "qs096-1",
+        "inputs": lambda tf, sym: (
+            [os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv")
+             if os.path.exists(os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"))
+             else os.path.join(TF_TAKER[tf][0], f"{sym}_{TF_TAKER[tf][1]}.csv")]
+            + sorted(glob.glob(os.path.join(TF_DIR[tf][0], f"{sym}_*_tail_*.csv")))
+            + ([os.path.join(DATA, "binance_funding", f"{sym}_funding.json")]
+               if os.path.exists(os.path.join(DATA, "binance_funding", f"{sym}_funding.json")) else [])
+        ),
+        "run": run_qs096, "matrix": True, "needs_tf": True,
+    },
+    "htffvg": {
+        # 4H FVG -> 15M tap -> 15M FVG entry (foreign PYTHON pack, attached
+        # 2026-11-12, copied byte-identical). 15m klines only; the pack's own
+        # vector/event dual engine is the parity proof. entry_mode=market is
+        # the certifiable cell; entry_mode=limit is a maker_intrabar fill
+        # model and carries the repo's not-certifiable-on-OHLC warning.
+        "sources": [os.path.join(CODE, "htffvg_engine.py"),
+                    os.path.join(CODE, "htf_ltf_fvg_strategy.py")],
+        "version": "htffvg-1",
+        "inputs": lambda tf, sym: (
+            [os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv")
+             if os.path.exists(os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"))
+             else os.path.join(TF_TAKER[tf][0], f"{sym}_{TF_TAKER[tf][1]}.csv")]
+            + sorted(glob.glob(os.path.join(TF_DIR[tf][0],
+                                            f"{sym}_{TF_DIR[tf][1]}_tail_*.csv")))),
+        "run": run_htffvg, "matrix": False, "needs_tf": True,
+        "card_from_symbol": True,
+    },
+    "qs097": {
+        # Cross-asset confirmation (catalog QS-097, 2026-11-06). The panel is
+        # ALWAYS all six perps (BTC ETH SOL HYPE SUI JUP: the confirmation
+        # needs them even when the traded book is one symbol), so every cell
+        # hashes the full panel; the traded book comes from card_from_symbol.
+        # G5 verified 2026-11-06: 1h native for all six (HYPE + tail file,
+        # merged); 15m native for five, JUP 15m via the taker fallback.
+        "sources": [os.path.join(CODE, "qs097_engine.py"),
+                    os.path.join(CODE, "qs_engine.py")],
+        "version": "qs097-1",
+        "inputs": lambda tf, sym: (
+            [os.path.join(TF_DIR[tf][0], f"{s}_{TF_DIR[tf][1]}.csv")
+             if os.path.exists(os.path.join(TF_DIR[tf][0], f"{s}_{TF_DIR[tf][1]}.csv"))
+             else os.path.join(TF_TAKER[tf][0], f"{s}_{TF_TAKER[tf][1]}.csv")
+             for s in ("BTCUSDT", "ETHUSDT", "SOLUSDT", "HYPEUSDT", "SUIUSDT",
+                       "JUPUSDT")]
+            + sorted(glob.glob(os.path.join(TF_DIR[tf][0], "*_tail_*.csv")))
+            + ([os.path.join(DATA, "binance_funding", f"{sym}_funding.json")]
+               if os.path.exists(os.path.join(DATA, "binance_funding",
+                                              f"{sym}_funding.json")) else [])),
+        "run": run_qs097, "matrix": False, "needs_tf": True,
+        "card_from_symbol": True,
+    },
+    "smqe11": {
+        # SMQE v1.1 (2026-11-06): the audit-patched single-indicator merge.
+        # Signal core = the validated CVRMD logic via the v2 engine's AUDITED
+        # primitives imported BY IDENTITY (smqe_engine.py is hashed into every
+        # run_id); the v1.1 execution simulator is ported verbatim (fill at
+        # signal-bar close, frozen ATR stop, TP1 = VWAP-if-inside-else-1.5R at
+        # 50%, TP2 = 2R, flips, cooldown on entries and flips, stop-first
+        # intrabar default, commission on every fill inside the trade P&L).
+        # Every confluence gate ships OFF and stays off (the Pine declares
+        # them outside the validated backtest). Costs: cost_mode pine (0.06%/side,
+        # the shipped baseline) | repo (5+0.5 bps) | zero (control); funding:
+        # off (declared, the Pine's default) or real (actual settlements and
+        # rates from data/binance_funding — adapter extension, cbpackf
+        # convention). 1h only (the engine's funding factor assumes it).
+        # Audit: code/_smqe11_audit.py — 29 checks ALL PASS before any
+        # real-data artifact.
+        "sources": [os.path.join(CODE, "smqe11_engine.py"),
+                    os.path.join(CODE, "smqe_engine.py"),
+                    os.path.join(CODE, "smqe_v1_1_strategy.pine")],
+        "version": "smqe11-1",
+        "inputs": lambda tf, sym: [
+            os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"),
+            *([os.path.join(DATA, "binance_funding", f"{sym}_funding.json")]
+              if os.path.exists(os.path.join(DATA, "binance_funding",
+                                             f"{sym}_funding.json")) else []),
+        ],
+        "run": run_smqe11, "matrix": True, "needs_tf": True,
+        "matrix_dirs": {"1h": TF_DIR["1h"]},
+    },
     "smqe": {
         "sources": [os.path.join(CODE, "smqe_engine.py"),
-                    os.path.join(CODE, "smqe_v2_strategy.pine")],
-        "version": "smqe-1",
+                    os.path.join(CODE, "smqe_v2_strategy.pine")],        "version": "smqe-1",
         # Harness-native klines first (long history, 13+6 symbols); the taker
         # dirs are the FALLBACK because JUPUSDT exists only there. At 5m the
         # taker dir is the PRIMARY: the native 5m dir holds ~2-month stubs
@@ -2180,6 +2957,53 @@ ADAPTERS = {
         "inputs": lambda tf, sym: [os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv")],
         "run": run_cvrmd, "matrix": True,
     },
+    # The 100-prompt pack RE-SCREENED with the repo's harness: the pack's
+    # signal (code/prompts100/, verbatim) under the repo's execution, with a
+    # DEV/OOS split that keeps the selection out of the verdict. The prompt
+    # id is a param and it is bound to the pack's own symbol/timeframe.
+    "p100screen": {
+        # the pack's ported source IS part of the engine: the signal comes
+        # from there, so its bytes have to be hashed into the run_id (a
+        # signal edit must change the artifact's id)
+        "sources": [os.path.join(CODE, "p100_screen_engine.py")]
+        + [os.path.join(CODE, "prompts100", fn) for fn in
+           ("backtest100_strategies.py", "backtest100_engine.py",
+            "backtest100_pairs_engine.py", "backtest100_funding_strategies.py",
+            "pairs_signals.py", "MANIFEST.json")],
+        "version": "p100-screen-1",
+        "inputs": _p100screen_inputs,
+        # the prompt id decides WHICH klines the book reads (a pair reads two,
+        # a basket six), so the inputs lambda needs the params
+        "inputs_with_params": True,
+        "run": run_p100screen, "matrix": False, "needs_tf": True,
+    },
+    # The `xsml` book: a cross-sectional ML book over the eight perps that
+    # carry BOTH 1h klines and a real funding file (funding is mandatory on a
+    # perp). The bundle is one "symbol" for the harness; the universe is
+    # declared, not derived.
+    "xsml": {
+        "sources": [os.path.join(CODE, "xsml_engine.py")],
+        "version": "xsml-1",
+        "inputs": _xsml_inputs,
+        "inputs_with_params": True,
+        "run": run_xsml, "matrix": False, "needs_tf": False,
+    },
+    # WAVE_1 scalp pack, ported from Downloads/scalp_wave1_v1.1.0. Judged on
+    # its OWN artifacts (AGENTS.md REGLA 1): the kill list is history, never
+    # a pre-gate for a new port.
+    #
+    # The input directories are NOT TF_DIR's: TF_DIR["5m"] is
+    # data/binance_klines/, which holds only a 30-day stub (8,640 bars), while
+    # the real 5m history lives in data/binance_klines_5m/ (SOL 646k bars
+    # 2020-2026). A scalp book needs the history; the stub would make every
+    # cell a 30-day sample.
+    "scalpwave": {
+        "sources": [os.path.join(CODE, "scalp_wave_engine.py")],
+        "version": "scalpwave-1",
+        "inputs": lambda tf, sym: [
+            os.path.join(SCALPWAVE_DIRS[tf][0], f"{sym}_{SCALPWAVE_DIRS[tf][1]}.csv")],
+        "run": run_scalpwave, "matrix": True, "needs_tf": True,
+    },
     "botstrat": {
         "sources": [os.path.join(CODE, "botstrat_backtest.py")],
         "version": "botstrat",
@@ -2199,6 +3023,38 @@ ADAPTERS = {
                                    for s in ("BTCUSDT", "ETHUSDT", "SOLUSDT",
                                              "AVAXUSDT", "LINKUSDT")],
         "run": run_mp20, "matrix": False,
+    },
+    "capfloor": {
+        "sources": [os.path.join(CODE, "capfloor_rotation_v1.py"),
+                    os.path.join(CODE, "strat151_ports.py")],
+        "version": "capfloor-v1",
+        "inputs": lambda tf, sym: ([os.path.join(DATA, "binance_funding", f"{s}_funding.json")
+                                    for s in ("BTCUSDT", "ETHUSDT", "HYPEUSDT", "JUPUSDT",
+                                              "SOLUSDT", "SUIUSDT", "XRPUSDT")]
+                                   + [os.path.join(DATA, "binance_klines_1h", f"{s}_1h.csv")
+                                      for s in ("BTCUSDT", "ETHUSDT", "HYPEUSDT", "JUPUSDT",
+                                                "SOLUSDT", "SUIUSDT", "XRPUSDT")]),
+        "run": run_capfloor, "matrix": False,
+    },
+    "smcrot": {
+        "sources": [os.path.join(CODE, "smc_structure_rotation_v1.py"),
+                    os.path.join(CODE, "strat151_ports.py")],
+        "version": "smcrot-v1",
+        "inputs": lambda tf, sym: [os.path.join(DATA, "binance_klines_1h", f"{s}_1h.csv")
+                                   for s in ("ADAUSDT", "AVAXUSDT", "BNBUSDT", "BTCUSDT",
+                                             "DOGEUSDT", "ETHUSDT", "LINKUSDT", "NEARUSDT",
+                                             "SOLUSDT", "SUIUSDT", "XRPUSDT")],
+        "run": run_smcrot, "matrix": False,
+    },
+    "ewexh": {
+        "sources": [os.path.join(CODE, "ew_exhaustion_rotation_v1.py"),
+                    os.path.join(CODE, "strat151_ports.py")],
+        "version": "ewexh-v1",
+        "inputs": lambda tf, sym: [os.path.join(DATA, "binance_klines_1h", f"{s}_1h.csv")
+                                   for s in ("ADAUSDT", "AVAXUSDT", "BNBUSDT", "BTCUSDT",
+                                             "DOGEUSDT", "ETHUSDT", "LINKUSDT", "NEARUSDT",
+                                             "SOLUSDT", "SUIUSDT", "XRPUSDT")],
+        "run": run_ewexh, "matrix": False,
     },
     "mps20": {
         "sources": [os.path.join(CODE, "claude_bot_1", "engine_core.py"),
@@ -2266,6 +3122,19 @@ ADAPTERS = {
         "version": "pack100-1",
         "inputs": _pack100_inputs,
         "run": run_pack100, "matrix": False, "needs_tf": False,
+    },
+    "pack20": {
+        # Twenty-strategy pack (Downloads/strategy_pack_20.py, 2026-11-08).
+        # sources hash BOTH files: the byte-identical engine copy AND the
+        # wrapper (which measures the cost controls and the gate metrics).
+        # Declared screen grid: BTC/ETH/SOL/XRP x {1h, 15m}. All 20 cards
+        # are OHLCV-only; no pre-run refusal. Funding NOT charged (declared);
+        # findings A1/A2 inflationary, verbatim (see run_pack20 docstring).
+        "sources": [os.path.join(CODE, "pack20_engine.py"),
+                    os.path.join(CODE, "pack20_wrap.py")],
+        "version": "pack20-1",
+        "inputs": _pack20_inputs,
+        "run": run_pack20, "matrix": False, "needs_tf": False,
     },
     "qs": {
         "sources": [os.path.join(CODE, "qs_engine.py"),
@@ -2491,18 +3360,124 @@ ADAPTERS = {
         "run": run_xsc, "matrix": False, "needs_tf": False,
         "card_from_symbol": True,
     },
+    "fvgup": {
+        # fvg_system + fvg_upgrades pack (2026-11-13): ICT 4H FVG -> 15M FVG
+        # with 1m intrabar fill resolution and DST session filters. Card from
+        # --symbol (card_from_symbol); FVGUP_CARDS maps card -> symbol.
+        # PACK PARITY FAILS ON REAL DATA -- measured and declared inside every
+        # artifact (pre-registration addendum). Pre-registration:
+        # results/fvgup_pre_registration.md.
+        "sources": [os.path.join(CODE, "fvgup_engine.py"),
+                    os.path.join(CODE, "fvg_system.py"),
+                    os.path.join(CODE, "fvg_upgrades.py")],
+        "version": "fvgup-1",
+        "inputs": lambda tf, sym: [
+            os.path.join(DATA, "binance_klines_15m", f"{FVGUP_CARDS[sym]}_15m.csv"),
+            os.path.join(DATA, "binance_klines_1m", f"{FVGUP_CARDS[sym]}_1m.csv")],
+        "run": run_fvgup, "matrix": False, "needs_tf": False,
+        "card_from_symbol": True,
+    },
+    "s101": {
+        # STRATEGIES 101-150 pack (2026-11-13 attachment, source of record
+        # code/prompts_101_150.txt). 37 cells run, 13 NO-DATA skips declared
+        # (pack rule #19). Engine: code/s101_engine.py over the audited
+        # p100_screen_engine.Book. --set id=<N> selects the prompt. The
+        # inputs are the per-symbol superset (all frames the symbol's cells
+        # may read, incl. companions for the ratio/lead-lag cells) so the
+        # run_id binds every byte the engine touches. Pre-registration:
+        # results/s101_pre_registration.md.
+        "sources": [os.path.join(CODE, "s101_engine.py"),
+                    os.path.join(CODE, "p100_screen_engine.py"),
+                    os.path.join(CODE, "prompts_101_150.txt")],
+        "version": "s101-1",
+        "inputs": lambda tf, sym: _s101_input(sym),
+        "run": run_s101, "matrix": False, "needs_tf": False,
+    },
+    "hmatrend": {
+        # External "hermes" HMA(34) Trend pack (2026-11-14): DECLARED
+        # reconstruction — the source engine's code did NOT survive, only its
+        # output JSONs (byte-identical copies in code/hma_trend_sources/,
+        # sha256 in MANIFEST.json; all bound into the run_id as sources).
+        # Measured from the outputs: next-open fills, stop = entry - 3.0 *
+        # ATR14(signal bar) exact, zero fees, long-only, full-equity
+        # compounding. Declared (not recoverable): the exact exit predicate;
+        # the frozen spec uses exit = HMA falling (the pack's own 'HMA_DOWN'
+        # label), with 'close < HMA' as a declared sensitivity. mode=hermes
+        # replays the pack's own 2026 windows zero-cost (claim-check);
+        # mode=repo (default) is the repo battery: 11 bps RT, funding at real
+        # settlements, zero-cost control, 70/30 split, thirds, bootstrap.
+        # XAUUSDT has no data on disk -> NO DATA declared.
+        "sources": [os.path.join(CODE, "hma_trend_engine.py"),
+                    os.path.join(CODE, "hma_trend_sources",
+                                 "hma_backtest_oos_consolidado.json"),
+                    os.path.join(CODE, "hma_trend_sources",
+                                 "hma_backtest_is_oos_all_pairs.json"),
+                    os.path.join(CODE, "hma_trend_sources",
+                                 "hma_backtest_results.json"),
+                    os.path.join(CODE, "hma_trend_sources",
+                                 "hma_backtest_all_pairs.json"),
+                    os.path.join(CODE, "hma_trend_sources",
+                                 "hma_backtest_OOS_JUPUSDT.json"),
+                    os.path.join(CODE, "hma_trend_sources", "jup_1h_2026.json"),
+                    os.path.join(CODE, "hma_trend_sources", "MANIFEST.json")],
+        "version": "hmatrend-1",
+        "card_from_symbol": True,
+        "inputs": lambda tf, sym: _hmatrend_input(sym),
+        "run": run_hmatrend, "matrix": False, "needs_tf": False,
+    },
 }
 
 
 # ══════════════════════════════════════════════ artifact
-def make_artifact(strategy: str, tf: str, symbol: str, params: dict) -> dict:
+def make_artifact(strategy: str, tf: str, symbol: str, params: dict,
+                  cut_ts="auto") -> dict:
+    """Build one artifact. Generation 2 (2026-11-06): cut_ts="auto" freezes the
+    data cut at the creation day (UTC midnight) and hashes only the bytes
+    before it, so later appends cannot stale the artifact. cut_ts=None runs the
+    legacy full-file comparison (verify uses it for artifacts stored without a
+    cut); any ISO/date value freezes that exact instant."""
     a = ADAPTERS[strategy]
-    in_paths = a["inputs"](tf, symbol)
+    cut_iso = _resolve_cut(cut_ts)
+
+    # An adapter whose INPUTS depend on its params (e.g. a book that consumes a
+    # prediction file chosen by a param) declares "inputs_with_params": True.
+    # The file then lands in core, so a variant that reads different
+    # predictions cannot share a run_id with the base book.
+    if a.get("inputs_with_params"):
+        in_paths = a["inputs"](tf, symbol, params)
+    else:
+        in_paths = a["inputs"](tf, symbol)
+
+    # ALTERNATIVE DATA SOURCE. `data_dir` re-points every input at
+    # <data_dir>/<SYMBOL>_<TF>.csv, which is how the same engine can be run on
+    # a market it was not written for (the equities transfer: the Alpaca daily
+    # SPY/QQQ bars in data/alpaca_1d). The directory is part of the params, so
+    # it lands in the artifact's core and its run_id: a run on another data
+    # source can never collide with the crypto one.
+    # The override is applied AFTER the adapter's own inputs lambda: that
+    # lambda resolves TF_DIR[tf], which has no entry for a timeframe the
+    # crypto store does not carry.
+    # An input that does not exist in the alternative source is DROPPED, not
+    # silently replaced by the crypto file: equities carry no perp funding
+    # file, and a multi-leg or fixed-universe book has nothing to read there
+    # (it ends up with no inputs and fails loudly).
+    data_dir = params.get("data_dir")
+    if data_dir:
+        alt = os.path.join(data_dir, f"{symbol}_{tf}.csv")
+        in_paths = [alt] if os.path.exists(alt) else []
+
     inputs = []
+    serve_paths = []
     for p in in_paths:
         if not os.path.exists(p):
             raise FileNotFoundError(p)
-        inputs.append(_read_input(p))
+        if cut_iso is None:
+            inputs.append(_read_input(p))
+            serve_paths.append(p)
+        else:
+            rec, served = _slice_serve(p, cut_iso)
+            inputs.append(rec)
+            serve_paths.append(served)
 
     # adapters that need the timeframe for internal timing get it injected; the
     # run_id uses the CLI params only, so an injected key never changes an id.
@@ -2513,7 +3488,12 @@ def make_artifact(strategy: str, tf: str, symbol: str, params: dict) -> dict:
     if a.get("card_from_symbol"):
         params = {**params, "card": symbol}
         run_params = dict(params)
-    metrics, prov, tables = a["run"](in_paths, run_params)
+    # `data_dir` is a HARNESS-level param, not an engine one: it selects the
+    # data source and it belongs in core (it changes the bytes the engine
+    # reads, so it must change the run_id), but the engine never sees it —
+    # most runners reject unknown params.
+    run_params = {k: v for k, v in run_params.items() if k != "data_dir"}
+    metrics, prov, tables = a["run"](serve_paths, run_params)
 
     prov = dict(prov)
     prov["engine_files"] = [os.path.basename(s) for s in a["sources"]]
@@ -2531,11 +3511,15 @@ def make_artifact(strategy: str, tf: str, symbol: str, params: dict) -> dict:
         "engine_sha256": prov["engine_sha256"],
         "engine_version": prov["engine_version"],
     }
+    if cut_iso is not None:
+        core["cut_ts"] = cut_iso
     run_id = hashlib.sha256(
         json.dumps(core, sort_keys=True, separators=(",", ":")).encode()).hexdigest()[:16]
     cmd = f"python code/vrun.py run --strategy {strategy} --tf {tf} --symbol {symbol}"
     if params:
         cmd += f" --params '{json.dumps(params, sort_keys=True)}'"
+    if cut_iso is not None:
+        cmd += f" --cut-ts {cut_iso}"
     return {
         "schema": SCHEMA, "run_id": run_id,
         "created_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -2614,7 +3598,8 @@ def parse_params(ns) -> dict:
 
 
 def cmd_run(args):
-    a = make_artifact(args.strategy, args.tf, args.symbol, parse_params(args))
+    a = make_artifact(args.strategy, args.tf, args.symbol, parse_params(args),
+                      cut_ts=getattr(args, "cut_ts", "auto"))
     print(_fmt(a))
     print("artifact      :", save_artifact(a))
     return 0
@@ -2652,12 +3637,15 @@ def cmd_verify(args):
                       f"Artifact {args.run_id} is permanently orphaned (known killed).")
                 return 4
     try:
-        b = make_artifact(a["strategy"], a["timeframe"], a["symbol"], a["params"])
+        # generation 2: re-derive the artifact's OWN data cut; a legacy artifact
+        # (no cut_ts in core) keeps the full-file comparison, unchanged
+        b = make_artifact(a["strategy"], a["timeframe"], a["symbol"], a["params"],
+                          cut_ts=(a.get("core") or {}).get("cut_ts"))
     except FileNotFoundError as e:
         print(f"REFUSED: input file missing: {e}")
         return 2
     ca, cb = a["core"], b["core"]
-    for k in ("engine_sha256", "engine_version", "params", "strategy"):
+    for k in ("engine_sha256", "engine_version", "params", "strategy", "cut_ts"):
         if ca.get(k) != cb.get(k):
             print(f"REFUSED: {k} drifted since the artifact was written "
                   f"({str(ca.get(k))[:24]} -> {str(cb.get(k))[:24]}). Treat as tampering.")
@@ -2667,6 +3655,9 @@ def cmd_verify(args):
             if x != y:
                 print(f"STALE: data changed since the artifact: {os.path.basename(x[0])} "
                       f"{x[2]} -> {y[2]} bars (sha {x[1][:12]} -> {y[1][:12]}).")
+        if ca.get("cut_ts"):
+            print(f"(cut {ca['cut_ts']}: an edit INSIDE the cut, or an added/removed "
+                  "input file, changed the frozen bytes.)")
         print("The artifact is a frozen snapshot of the OLD bytes; re-run to refresh. "
               "Not a fabrication.")
         return 3
@@ -2753,6 +3744,7 @@ def cmd_matrix(args):
         return 2
     params = parse_params(args)
     tfs = args.tf.split(",") if args.tf else ["1h", "15m", "5m", "1m"]
+    cut_ts = getattr(args, "cut_ts", "") or "auto"
 
     # --index-only rebuilds the index FROM THE ARTIFACTS instead of re-running
     # them. Use it when an index is missing or was written by an older harness:
@@ -2777,17 +3769,53 @@ def cmd_matrix(args):
         return 0
 
     rows = []
-    for tf, sym in _iter_combos(tfs, a.get("matrix_dirs")):
-        try:
-            art = make_artifact(args.strategy, tf, sym, params)
-            save_artifact(art)
-            n, ret, pf, dd, flag = _matrix_cols(art)
-            rows.append((tf, sym, art["run_id"], n, ret, pf, dd, flag))
-            print(f"{tf:>4} {sym:<10} {art['run_id']}  n={str(n):>6} "
-                  f"ret%={_f(ret, 9, 2)} PF={_f(pf)} "
-                  f"DD%={_f(dd, 8, 2)} {flag}", flush=True)
-        except Exception as e:
-            print(f"{tf:>4} {sym:<10} ERROR {type(e).__name__} {e}", flush=True)
+    prune_tf = getattr(args, "prune_tf", False)   # FIX3
+    _tf_any_pass: dict = {}                          # FIX3: tf -> bool
+    combos = list(_iter_combos(tfs, a.get("matrix_dirs")))
+    workers = int(getattr(args, "workers", 1) or 1)
+    if workers > 1 and len(combos) > 1:
+        # same code path as pmatrix (make_artifact + save_artifact per cell),
+        # results re-ordered into the sequential matrix's deterministic order
+        from concurrent.futures import ProcessPoolExecutor, as_completed
+        results = {}
+        n_workers = max(1, min(workers, len(combos)))
+        print(f"matrix {args.strategy} params={json.dumps(params, sort_keys=True)} "
+              f"cells={len(combos)} workers={n_workers}", flush=True)
+        with ProcessPoolExecutor(max_workers=n_workers) as ex:
+            futs = [ex.submit(_pmatrix_one, (args.strategy, tf, sym, params, cut_ts))
+                    for tf, sym in combos]
+            for fut in as_completed(futs):
+                _st, tf, sym, line, row = fut.result()
+                print(line, flush=True)
+                if row is not None:
+                    results[(tf, sym)] = row
+        rows = [results[c] for c in combos if c in results]
+    else:
+        _prev_tf = None   # FIX3
+        for tf, sym in combos:
+            # FIX3: check prune gate when TF changes
+            if prune_tf and _prev_tf is not None and tf != _prev_tf:
+                if not _tf_any_pass.get(_prev_tf, False):
+                    # ALL symbols on the previous TF failed PF<1.2 — skip the rest
+                    remaining_tfs = {c[0] for c in combos if c[0] != _prev_tf and c[0] not in _tf_any_pass}
+                    if remaining_tfs:
+                        print(f"[prune-tf] {_prev_tf}: 0 symbols passed PF>=1.2 — "
+                              f"skipping {sorted(remaining_tfs)}", flush=True)
+                        break
+            _prev_tf = tf
+            try:
+                art = make_artifact(args.strategy, tf, sym, params, cut_ts=cut_ts)
+                save_artifact(art)
+                n, ret, pf, dd, flag = _matrix_cols(art)
+                rows.append((tf, sym, art["run_id"], n, ret, pf, dd, flag))
+                print(f"{tf:>4} {sym:<10} {art['run_id']}  n={str(n):>6} "
+                      f"ret%={_f(ret, 9, 2)} PF={_f(pf)} "
+                      f"DD%={_f(dd, 8, 2)} {flag}", flush=True)
+                if prune_tf:   # FIX3: track whether ANY symbol in this TF passed
+                    _pf = art.get("metrics", {}).get("profit_factor", 0) or 0
+                    _tf_any_pass[tf] = _tf_any_pass.get(tf, False) or (_pf >= 1.2)
+            except Exception as e:
+                print(f"{tf:>4} {sym:<10} ERROR {type(e).__name__} {e}", flush=True)
     _write_matrix_index(args.strategy, rows)
     return 0
 
@@ -2807,9 +3835,10 @@ def _default_workers():
 
 def _pmatrix_one(job):
     """One (tf, symbol) cell in a worker process."""
-    strategy, tf, sym, params = job
+    strategy, tf, sym, params = job[0], job[1], job[2], job[3]
+    cut_ts = job[4] if len(job) > 4 else "auto"
     try:
-        art = make_artifact(strategy, tf, sym, params)
+        art = make_artifact(strategy, tf, sym, params, cut_ts=cut_ts)
         save_artifact(art)
         n, ret, pf, dd, flag = _matrix_cols(art)
         line = (f"{tf:>4} {sym:<10} {art['run_id']}  n={str(n):>6} "
@@ -2828,6 +3857,7 @@ def cmd_pmatrix(args):
         return 2
     params = parse_params(args)
     tfs = args.tf.split(",") if args.tf else ["1h", "15m", "5m", "1m"]
+    cut_ts = getattr(args, "cut_ts", "") or "auto"
     combos = list(_iter_combos(tfs, a.get("matrix_dirs")))
     if not combos:
         print("no combos found for tf(s): " + (args.tf or "(default)"))
@@ -2838,7 +3868,7 @@ def cmd_pmatrix(args):
           f"cells={len(combos)} workers={n_workers}", flush=True)
     results = {}
     with ProcessPoolExecutor(max_workers=n_workers) as ex:
-        futs = [ex.submit(_pmatrix_one, (args.strategy, tf, sym, params))
+        futs = [ex.submit(_pmatrix_one, (args.strategy, tf, sym, params, cut_ts))
                 for tf, sym in combos]
         for fut in as_completed(futs):
             _st, tf, sym, line, row = fut.result()
@@ -2934,7 +3964,12 @@ def cmd_pverify(args):
 # by a cited artifact?", never "is this number right?". It passed on a report
 # whose builder was double-counting cells, so assert totals yourself.
 RUNID_RE = re.compile(r"\b[0-9a-fA-F]{16}\b")
-HEXWORD_RE = re.compile(r"\b[0-9a-fA-F]{8,}\b")
+# Standalone hex ids only: a run must NOT touch a decimal point, or the
+# fractional digits of a full-precision float ("91.09034194265688") get
+# swallowed as pseudo-hex and the number is then judged as "91" — false
+# REFUSEDs and accidental rounding matches (found 2026-11-06 on the bt-one
+# reports; run_ids never sit attached to a '.', so the exclusion is safe).
+HEXWORD_RE = re.compile(r"(?<![\w.])[0-9a-fA-F]{8,}(?![\w.])")
 # A sign only counts as a sign when it is NOT glued to a preceding digit/word.
 # Without the lookbehind, the range "0.652-1.788" tokenises as 0.652 and -1.788,
 # and guard then reports an unbacked NEGATIVE number that is not in the report at
@@ -3018,7 +4053,11 @@ def cmd_guard(args):
         except ValueError:
             continue
         dps = len(tok.split(".")[1]) if "." in tok else 0
+        # FIX4: primary — exact round match; secondary — rounding tolerance <=0.01%
         if any(abs(round(v, dps) - val) < 1e-9 for v in values):
+            continue
+        tol = max(abs(val) * 1e-4, 1e-6)  # 0.01% relative floor 1e-6
+        if any(abs(v - val) <= tol for v in values):
             continue
         if tok in seen:
             continue
@@ -3044,13 +4083,22 @@ def cmd_stale(args):
     missing_count = 0
 
     file_cache = {}
-    def check_file(p):
-        if p not in file_cache:
+    def check_file(p, cut_iso=None):
+        """(sha, bars) of the data the artifact is bound to: the full file for
+        legacy artifacts, the frozen [0, cut_ts) slice for generation-2 ones."""
+        key = (p, cut_iso)
+        if key not in file_cache:
             if not os.path.exists(p):
-                file_cache[p] = None
+                file_cache[key] = None
+            elif cut_iso:
+                try:
+                    rec, _ = _slice_serve(p, cut_iso)
+                    file_cache[key] = (rec["sha256"], rec["bars"])
+                except Exception:
+                    file_cache[key] = None
             else:
-                file_cache[p] = (_sha256_file(p), _read_input(p)["bars"])
-        return file_cache[p]
+                file_cache[key] = (_sha256_file(p), _read_input(p)["bars"])
+        return file_cache[key]
 
     stale_entries = []
     for p in all_arts:
@@ -3062,6 +4110,7 @@ def cmd_stale(args):
         except Exception:
             continue
         rid = art.get("run_id", os.path.basename(p)[:-5])
+        art_cut = (art.get("core") or {}).get("cut_ts")
         inputs = art.get("inputs", [])
         matched_inputs = []
         for inp in inputs:
@@ -3079,7 +4128,7 @@ def cmd_stale(args):
 
         for inp in matched_inputs:
             ipath = inp["path"]
-            current = check_file(ipath)
+            current = check_file(ipath, art_cut)
             if current is None:
                 is_missing = True
                 reasons.append(f"file missing: {os.path.basename(ipath)}")
@@ -3087,7 +4136,9 @@ def cmd_stale(args):
             cur_sha, cur_bars = current
             if cur_sha != inp.get("sha256") or cur_bars != inp.get("bars"):
                 is_stale = True
-                reasons.append(f"{os.path.basename(ipath)}: artifact {inp.get('bars')} bars ({inp.get('sha256','')[:8]}) "
+                cut_note = f" (cut {art_cut})" if art_cut else ""
+                reasons.append(f"{os.path.basename(ipath)}{cut_note}: artifact "
+                               f"{inp.get('bars')} bars ({inp.get('sha256','')[:8]}) "
                                f"-> disk {cur_bars} bars ({cur_sha[:8]})")
 
         meta = f"{art.get('strategy','?'):<10} {art.get('symbol','?'):<10} {art.get('timeframe','?'):<4}"
@@ -3167,6 +4218,26 @@ def cmd_stats(args):
     return 0
 
 
+def _neighborhood_one(job):
+    """One neighborhood value in a worker process (same make_artifact path)."""
+    strategy, tf, sym, param_name, v, cut_ts, base = job
+    try:
+        val = float(v) if "." in str(v) else int(v)   # same coercion as before
+        params = {**base, param_name: val}
+        art = make_artifact(strategy, tf, sym, params, cut_ts=cut_ts)
+        save_artifact(art)
+        m = art["metrics"]
+        pf = _first(m, "profit_factor", "best_pf")
+        ret = _first(m, "return_pct", "best_net_pct")
+        n = _first(m, "n_trades")
+        dd = _first(m, "max_dd_pct")
+        return (v, art["run_id"], pf, ret, n, dd,
+                "OK" if pf and pf > 1.2 else "FAIL")
+    except Exception as e:
+        print(f"  {param_name}={v:<8} ERROR: {e}", flush=True)
+        return (v, None, None, None, None, None, "ERROR")
+
+
 def cmd_neighborhood(args):
     """Evaluates parameter neighborhood stability."""
     vals = [v.strip() for v in args.values.split(",") if v.strip()]
@@ -3174,28 +4245,27 @@ def cmd_neighborhood(args):
         print("neighborhood: give --values v1,v2,v3")
         return 2
     param_name = args.param
-    print(f"Neighborhood stability sweep: {args.strategy} {args.symbol} {args.tf} on '{param_name}' across {vals}")
+    cut_ts = getattr(args, "cut_ts", "") or "auto"
+    base = parse_params(args)
+    print(f"Neighborhood stability sweep: {args.strategy} {args.symbol} {args.tf} "
+          f"on '{param_name}' across {vals}"
+          + (f" with {json.dumps(base, sort_keys=True)}" if base else ""))
     results = []
-    for v in vals:
-        try:
-            val = float(v) if "." in v else int(v)
-        except ValueError:
-            val = v
-        p = {param_name: val}
-        try:
-            art = make_artifact(args.strategy, args.tf, args.symbol, p)
-            save_artifact(art)
-            m = art["metrics"]
-            pf = _first(m, "profit_factor", "best_pf")
-            ret = _first(m, "return_pct", "best_net_pct")
-            n = _first(m, "n_trades")
-            dd = _first(m, "max_dd_pct")
-            results.append((v, art["run_id"], pf, ret, n, dd, "OK" if pf and pf > 1.2 else "FAIL"))
-            print(f"  {param_name}={v:<8} run_id={art['run_id']} PF={_f(pf, 5, 2)} Ret%={_f(ret, 7, 2)} "
-                  f"n={str(n):>5} DD%={_f(dd, 6, 2)}")
-        except Exception as e:
-            print(f"  {param_name}={v:<8} ERROR: {e}")
-            results.append((v, None, None, None, None, None, "ERROR"))
+    workers = int(getattr(args, "workers", 1) or 1)
+    jobs = [(args.strategy, args.tf, args.symbol, param_name, v, cut_ts, base)
+            for v in vals]
+    if workers > 1 and len(jobs) > 1:
+        from concurrent.futures import ProcessPoolExecutor
+        n_workers = max(1, min(workers, len(jobs)))
+        with ProcessPoolExecutor(max_workers=n_workers) as ex:
+            # results re-ordered into the declared value order, like the
+            # sequential sweep, so the verdict line is identical
+            results = list(ex.map(_neighborhood_one, jobs))
+    else:
+        results = [_neighborhood_one(j) for j in jobs]
+    for v, rid, pf, ret, n, dd, verdict in results:
+        print(f"  {param_name}={v:<8} run_id={rid} PF={_f(pf, 5, 2)} "
+              f"Ret%={_f(ret, 7, 2)} n={str(n):>5} DD%={_f(dd, 6, 2)}")
 
     valid_pfs = [r[2] for r in results if r[2] is not None and isinstance(r[2], (int, float))]
     if valid_pfs:
@@ -3232,6 +4302,10 @@ def main():
     r.add_argument("--symbol", required=True)
     r.add_argument("--params", default="")
     r.add_argument("--set", action="append")
+    r.add_argument("--cut-ts", default="auto",
+                   help="freeze the data cut at this UTC instant (ISO or date); "
+                        "'auto' = creation day (default); 'full' = legacy "
+                        "full-file hashing")
     r.set_defaults(fn=cmd_run)
 
     rd = sub.add_parser("render")
@@ -3249,6 +4323,12 @@ def main():
                     help="rebuild the index CSV from existing artifacts; do not re-run")
     mx.add_argument("--params", default="")
     mx.add_argument("--set", action="append")
+    mx.add_argument("--cut-ts", default="auto",
+                    help="'auto' (creation day, default), an ISO instant, or 'full'")
+    mx.add_argument("--prune-tf", action="store_true", dest="prune_tf",
+                    help="skip lower TFs when ALL symbols fail PF>=1.2 on a higher TF (FIX3)")
+    mx.add_argument("--workers", type=int, default=_default_workers(),
+                    help="process-pool workers (default=cpu//2); same artifacts as sequential")
     mx.set_defaults(fn=cmd_matrix)
 
     pm = sub.add_parser("pmatrix",
@@ -3257,6 +4337,8 @@ def main():
     pm.add_argument("--tf", default="")
     pm.add_argument("--params", default="")
     pm.add_argument("--set", action="append")
+    pm.add_argument("--cut-ts", default="auto",
+                    help="'auto' (creation day, default), an ISO instant, or 'full'")
     pm.add_argument("--workers", type=int, default=_default_workers())
     pm.set_defaults(fn=cmd_pmatrix)
 
@@ -3300,6 +4382,14 @@ def main():
     nh.add_argument("--param", required=True)
     nh.add_argument("--values", required=True,
                     help="comma-separated parameter values, e.g. 0.08,0.10,0.12")
+    nh.add_argument("--cut-ts", default="auto",
+                    help="'auto' (creation day, default), an ISO instant, or 'full'")
+    nh.add_argument("--params", default="",
+                    help="base params JSON merged under the swept param")
+    nh.add_argument("--set", action="append",
+                    help="base params (key=value), e.g. --set cost_mode=repo")
+    nh.add_argument("--workers", type=int, default=1,
+                    help=">1 sweeps the values on a process pool (same artifacts)")
     nh.set_defaults(fn=cmd_neighborhood)
 
     sh = sub.add_parser("show")

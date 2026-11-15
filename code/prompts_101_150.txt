@@ -1,0 +1,138 @@
+# STRATEGIES 101-150
+# New batch: market structure / traps / sessions / flow / relative value
+# These are not guaranteed to work. The goal is to find a few that survive out-of-sample testing.
+
+# GLOBAL BACKTEST RULES FOR ALL 50:
+# - Signal on candle close, enter next candle open. No lookahead, no repainting.
+# - If stop loss and take profit are both hit in the same candle, assume stop loss hit first.
+# - Fees and slippage ON:
+#   BTC/ETH: 0.04% per side + 1 bp slippage
+#   SOL/HYPE/SUI/JUP: 0.06% per side + 3 bp slippage
+#   NVDA/SPCX: $0.005 per share + $0.02 slippage
+# - Risk 0.5% of equity per trade. No martingale, no averaging down.
+# - Max 3 losing trades per day. Max 6 trades per day for 1m/3m scalps.
+# - No trailing stop unless the strategy explicitly says so.
+# - Backtest full history available.
+# - Show: net return, max drawdown, profit factor, trade count, buy and hold.
+# - Also show: 70/30 chronological in-sample/out-of-sample results, fee drag, average trade, expectancy.
+# - If out-of-sample trade count is below 200, label the result fragile.
+# - If required data is unavailable, skip the strategy. Do not fake it with price-only data.
+# - SL = stop loss, TP = take profit, R = risk multiple, ATR = Average True Range.
+
+# ============ BTCUSDT ============
+
+101. Build a market-structure trend strategy on BTCUSDT 5 minute. Define swing highs/lows using 2-bar fractals. Long only when the 1 hour structure is up and the 5 minute chart breaks the latest swing high, then retests it. Enter on the retest. SL below the retest low, TP 2R. No trailing stop.
+
+102. Build a liquidity-sweep reversal strategy on BTCUSDT 15 minute. Long when price sweeps below the prior 20-bar low by at least 0.15%, then closes back above that low. Only take the trade if the 1 hour ADX is below 20. SL below the sweep low, TP at the prior 20-bar high. No trailing stop.
+
+103. Build a failed-breakout scalping strategy on BTCUSDT 1 minute. Short when price breaks the 20-bar high but closes back inside the range within 2 bars, with volume above 1.5x its 20-bar average. SL above the breakout high, TP at the 20-bar low. Time stop after 10 bars. No trailing stop.
+
+104. Build a session-range break-and-retest strategy on BTCUSDT 5 minute. Mark the Asian range from 00:00 to 06:00 UTC. During 07:00 to 12:00 UTC, enter on a break and retest of the range high or low. SL at the opposite side of the range, TP 1.5R. Flat by 20:00 UTC. No trailing stop.
+
+105. Build an anchored-VWAP pullback strategy on BTCUSDT 15 minute. Anchor VWAP to the daily open. Long only when the 1 hour trend is up and price pulls back within 0.25 ATR of the anchored VWAP. SL 1 ATR, TP 2 ATR. No trailing stop.
+
+106. Build a value-area rotation strategy on BTCUSDT 3 minute. Use the prior day volume profile value area. Long at the value-area low when price is inside the value area and the point of control is above. SL 0.5 ATR below the value-area low, TP at the point of control. Only trade when ATR percentile is below 40. No trailing stop.
+
+107. Build an order-block retest strategy on BTCUSDT 5 minute. Define a bullish order block as the last down candle before a 1.5 ATR impulse that breaks a swing high. Enter when price retests 50% of that order block. SL below the order block, TP 2R. Only trade in the direction of the 15 minute trend. No trailing stop.
+
+108. Build a fair-value-gap continuation strategy on BTCUSDT 3 minute. Define a bullish fair value gap as a 3-candle imbalance where the middle candle leaves a gap between the first candle high and third candle low. Enter when price fills 50% of the gap in an uptrend. SL below the gap, TP 2R. Time stop after 20 bars. No trailing stop.
+
+# ============ ETHUSDT ============
+
+109. Build a cumulative-volume-delta divergence strategy on ETHUSDT 1 minute. Long when price makes a lower low but cumulative volume delta makes a higher low, then price closes above the latest micro swing high. SL below the divergence low, TP 1.5R. Requires CVD data. No trailing stop.
+
+110. Build a delta-absorption strategy on ETHUSDT 3 minute. Long when price makes a new low but cumulative delta does not make a new low, and the candle closes in the upper third of its range. SL below the absorption low, TP at VWAP. Requires delta data. No trailing stop.
+
+111. Build a liquidation-cascade fade strategy on ETHUSDT 5 minute. Long after a liquidation spike above the 95th percentile of the last 30 days, but only when price reclaims the cascade origin level. SL below the cascade low, TP at 50% of the cascade range. Requires liquidation data. No trailing stop.
+
+112. Build a funding-extreme fade strategy on ETHUSDT 15 minute. Short when funding is above the 95th percentile of the last 30 days and price is below VWAP. SL 1 ATR, TP at VWAP. Requires funding data. No trailing stop.
+
+113. Build an open-interest divergence strategy on ETHUSDT 5 minute. Short when price makes a new 20-bar high but open interest is lower than its prior high, then price breaks the latest 5-bar low. SL above the divergence high, TP 2R. Requires open-interest data. No trailing stop.
+
+114. Build a perp-spot basis mean-reversion strategy on ETHUSDT 1 minute. When the perp premium over spot is above the 99th percentile of the last 7 days, short the perp and long spot. Exit when the premium returns to its 7-day median. Stop if the premium reaches the 99.5th percentile. Requires perp and spot data. No trailing stop.
+
+115. Build a BTC lead-lag strategy on ETHUSDT 15 minute. Long ETH only when BTC breaks a 15 minute swing high and ETH/BTC is above its VWAP. Enter ETH on a pullback to the 9 EMA. SL 1.5 ATR, TP 2.5 ATR. No trailing stop.
+
+# ============ SOLUSDT ============
+
+116. Build a relative-strength rotation strategy on SOLUSDT 5 minute. Long SOL only when SOL/BTC makes a 20-bar relative-strength high and SOL is above VWAP. Enter on a break of the 10-bar high. SL 1.5 ATR, TP 3 ATR. No trailing stop.
+
+117. Build a beta-neutral pairs strategy on SOLUSDT 15 minute. Long SOL and short BTC when the SOL/BTC z-score over 200 bars is below -2, only if the pair passes a rolling cointegration test. Exit when z-score returns to 0. Stop at z-score -3. Keep dollar exposure neutral. No trailing stop.
+
+118. Build a statistical-arbitrage spread strategy on SOLUSDT 3 minute. Trade the SOL/ETH spread. Long the spread when z-score is below -2, short when above +2. Exit at z-score 0.5. Stop at z-score 3. Only trade when the spread half-life is under 50 bars. No trailing stop.
+
+119. Build a correlation-breakdown strategy on SOLUSDT 1 minute. Long SOL when its 5-minute correlation with BTC falls below 0.2 and SOL market structure is up. Enter on a micro swing-high break. SL 1 ATR, TP 2 ATR. No trailing stop.
+
+120. Build an NR7 volatility-breakout strategy on SOLUSDT 5 minute. Find the narrowest range of the last 7 bars. Enter on a break of that bar’s high or low with volume above 1.5x average. Only trade when ATR percentile is below 30. SL at the opposite side of the NR7 bar, TP 2R. No trailing stop.
+
+121. Build an inside-bar continuation strategy on SOLUSDT 15 minute. After an impulse candle larger than 1.5 ATR, wait for an inside bar. Enter on a break in the impulse direction. SL at the opposite side of the inside bar, TP 2R. No trailing stop.
+
+122. Build an outside-bar reversal strategy on SOLUSDT 3 minute. Long when an outside bar sweeps the prior day low but closes back inside the prior day range. SL below the outside-bar low, TP 1.5R. No trailing stop.
+
+# ============ HYPEUSDT ============
+
+123. Build a round-number sweep strategy on HYPEUSDT 5 minute. Long when price sweeps a major round number by more than 0.2%, then reclaims it. SL below the sweep low, TP 2R. Only trade when ATR percentile is above 50. No trailing stop.
+
+124. Build a prior-day-high sweep strategy on HYPEUSDT 15 minute. Short when price sweeps the prior day high, then closes back below it. SL above the sweep high, TP at the prior day close. No trailing stop.
+
+125. Build a weekly-open retest strategy on HYPEUSDT 3 minute. Long only when price is above the weekly open and retests it within 0.2 ATR. SL below the retest low, TP 2R. Only take trades on Monday and Tuesday. No trailing stop.
+
+126. Build a daily-open reclaim strategy on HYPEUSDT 1 minute. Long when price dips below the daily open, then reclaims it. SL below the reclaim dip, TP at the daily high or 2R, whichever comes first. Time stop after 15 bars. No trailing stop.
+
+127. Build a volatility-regime switch strategy on HYPEUSDT 15 minute. If ATR percentile is above 70, trade 20-bar breakouts with SL 1.5 ATR and TP 2R. If ATR percentile is below 30, fade 20-bar extremes back to the range midpoint with SL 1 ATR and TP at midpoint. No trailing stop.
+
+128. Build a liquidation-wick fade strategy on HYPEUSDT 5 minute. Long after a downside wick larger than 2 ATR that closes in the upper third of the candle. SL below the wick low, TP at 50% of the wick range. No trailing stop.
+
+# ============ SUIUSDT ============
+
+129. Build a time-of-day momentum strategy on SUIUSDT 1 minute. Trade only from 13:30 to 16:00 UTC. Long on a 20-bar high break with volume above 1.5x average. SL 1 ATR, TP 2 ATR. No trailing stop.
+
+130. Build a weekend liquidity-fade strategy on SUIUSDT 3 minute. On Saturday and Sunday only, fade 20-bar extremes back toward VWAP. SL 1 ATR beyond the extreme, TP at VWAP. No trailing stop.
+
+131. Build a session-open range strategy on SUIUSDT 5 minute. Mark the first 15 minutes of the 00:00, 08:00, and 16:00 UTC sessions. Enter on a break and retest of that range. SL at the opposite side, TP 1.5R. Flat 4 hours after session open. No trailing stop.
+
+132. Build a macro-event drift strategy on SUIUSDT 15 minute. Trade only on CPI or FOMC days. After the release, mark the first 15-minute range and enter on a break. SL 1.5 ATR, TP 2R. Requires an economic calendar. No trailing stop.
+
+133. Build a dollar-bar imbalance strategy on SUIUSDT 3 minute. Use dollar bars instead of time bars. Long when bar delta is above 2 standard deviations and price breaks structure upward. SL 1 ATR, TP 2 ATR. Requires dollar bars and delta data. No trailing stop.
+
+134. Build a Renko trend strategy on SUIUSDT 5 minute source data. Use Renko bricks sized at 0.5 ATR. Enter after two same-color bricks following a reversal. SL 2 bricks, TP 4 bricks. No trailing stop.
+
+# ============ JUPUSDT ============
+
+135. Build a range-bar breakout strategy on JUPUSDT 1 minute source data. Use fixed range bars sized at 0.3 ATR. Enter on a break of the last 5 range-bar high or low. SL at the opposite side, TP 2R. No trailing stop.
+
+136. Build a tick-imbalance scalping strategy on JUPUSDT 3 minute. Long when buy-tick volume is above 70% over the last 200 ticks and price is above micro-VWAP. SL 0.8 ATR, TP 1.2 ATR. Time stop after 10 bars. Requires tick data. No trailing stop.
+
+137. Build an order-book imbalance strategy on JUPUSDT 5 minute. Long when bid depth within 10 bps is more than 2x ask depth and the spread is tight. SL 1 ATR, TP 1.5 ATR. Requires order-book data. No trailing stop.
+
+138. Build a stop-run continuation strategy on JUPUSDT 15 minute. Long after price sweeps a local low, then breaks the local high. SL below the sweep low, TP 2R. No trailing stop.
+
+139. Build a swing-failure-pattern strategy on JUPUSDT 3 minute. Short when price breaks the prior swing high but closes below it, then the next bar confirms downward. SL above the failed high, TP 2R. No trailing stop.
+
+140. Build a three-bar reversal strategy on JUPUSDT 5 minute. Long after three consecutive down bars, followed by a bullish engulfing candle at the prior day low. SL below the pattern low, TP 2R. No trailing stop.
+
+# ============ NVDA ============
+# NVDA is equity, not crypto. Included because it was in your original list.
+
+141. Build a premarket-range breakout strategy on NVDA 5 minute. Mark the premarket high and low. After the open, enter on a break with relative volume above 1.5x. SL at the opposite side of the premarket range, TP 2R. Flat by 15:55 ET. No overnight positions. No trailing stop.
+
+142. Build an opening-drive pullback strategy on NVDA 1 minute. Use the first 5-minute candle direction as bias. Enter on a pullback to the 9 EMA only if SMH confirms the same direction. SL 1 ATR, TP 2R. Flat by the close. No trailing stop.
+
+143. Build a lunch-hour fade strategy on NVDA 3 minute. From 12:00 to 14:00 ET, fade the prior 30-minute extreme only when ADX is below 20. SL 1 ATR beyond the extreme, TP at VWAP. Flat by the close. No trailing stop.
+
+144. Build a power-hour breakout strategy on NVDA 5 minute. From 15:00 to 16:00 ET, enter on a break of the day high with volume above 1.5x average. SL 1 ATR, TP 2R. Flat by the close. No trailing stop.
+
+145. Build a sector lead-lag strategy on NVDA 15 minute. Long NVDA only when SMH breaks structure upward and NVDA is lagging. Enter NVDA on a pullback. SL 1.5 ATR, TP 2.5 ATR. Flat by the close. No trailing stop.
+
+# ============ SPCX ============
+# SPCX is equity/ETF, not crypto. If you meant SPX/SPY, replace the ticker.
+
+146. Build a gap-fade strategy on SPCX 1 minute. If the open gaps more than 0.5% from the prior close and the first 5-minute candle fails, trade back toward the prior close. SL at the gap extreme, TP at the prior close. Time stop after 60 bars. Flat by the close. No trailing stop.
+
+147. Build a sector lead-lag strategy on SPCX 5 minute. Long SPCX only when SPY breaks structure upward and SPCX is lagging. Enter on a pullback. SL 1 ATR, TP 2 ATR. Flat by the close. No trailing stop.
+
+148. Build a VIX-regime trend strategy on SPCX 15 minute. Long only when VIX is below 20 and the VIX term structure is in contango. Enter on a 20-bar breakout. SL 2 ATR, TP 3 ATR. Requires VIX data. Flat by the close. No trailing stop.
+
+149. Build a breadth-confirmation strategy on SPCX 3 minute. Long only when index advance-decline breadth is above 60% and price is above VWAP. SL 1 ATR, TP 2 ATR. Requires breadth data. Flat by the close. No trailing stop.
+
+150. Build an opening-auction fade strategy on SPCX 5 minute. Fade the opening auction extreme only when price reclaims VWAP. SL at the auction extreme, TP at VWAP or prior close, whichever comes first. Flat by the close. No trailing stop.

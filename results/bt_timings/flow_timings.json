@@ -1,0 +1,28 @@
+{
+  "name": "flow",
+  "report": "..\\..\\AppData\\Local\\Temp\\tmpz1zp0gx0\\report.md",
+  "stages": {
+    "neighborhood": {
+      "jobs": 1,
+      "seconds": 0.0,
+      "survivors": null
+    },
+    "screen": {
+      "jobs": 1,
+      "seconds": 0.0,
+      "survivors": [
+        "s"
+      ]
+    },
+    "stats": {
+      "jobs": 0,
+      "seconds": 0.0
+    },
+    "wf": {
+      "jobs": 1,
+      "seconds": 0.0,
+      "survivors": null
+    }
+  },
+  "started_utc": "2026-11-06T20:11:14+00:00"
+}

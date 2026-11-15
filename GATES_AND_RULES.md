@@ -194,14 +194,23 @@ disagree, the stricter reading wins.
 
 ---
 
-## 3. REGLA 0 — the artifact protocol (unchanged by v2)
+## 3. REGLA 0 — the artifact protocol (generation 2 run_ids since 2026-11-06)
 
 > A number is a result only if a persisted run artifact backs it and that
 > artifact verifies. Otherwise it is text and must not be reported.
 
 - All runs go through the harness `code/vrun.py`. Never hand-write metrics.
-- `run_id = sha256(engine_bytes + canonical params + [(data_path, data_sha256,
-  bars)])[:16]`. Change the engine, the params or the data and the id changes.
+- **Generation 2 (2026-11-06):** new artifacts freeze a data cut — `core.cut_ts`
+  (UTC, default = creation day) is part of the hashed core and `inputs` hash
+  only the bytes BEFORE the cut (kline CSV byte-exact prefix by `open_ts`,
+  funding JSON records with `t < cut_ts` canonicalized); the engine is SERVED
+  that same slice. `run_id = sha256(engine_bytes + canonical params +
+  cut-hashed inputs + cut_ts)[:16]`. A later append to a data file can no
+  longer stale an artifact; STALE now means an edit inside the cut, a changed
+  engine, or changed params. Legacy artifacts (no `cut_ts` in core) keep the
+  full-file comparison — the museum is not migrated. Details and the selftest
+  pointer: AGENTS.md, "Data cuts". Reproduce an old window with
+  `--cut-ts (max input end) + 1s`.
 - Every results table cites its `run_id` and artifact path; `results/runs/` is
   append-only.
 - `verify` before publishing — exit `0` OK · `2` REFUSED (never publish) ·
@@ -281,7 +290,8 @@ GBM and author-reported figures are not evidence until reproduced.
    G8's breakeven is the control, not a regime model.
 4. **Environment binding**: versions and seeds are recorded in new artifacts
    but not yet hashed into the `run_id` (deferred to avoid orphaning the
-   corpus); no artifact hash chain yet.
+   corpus). Tamper evidence exists since `_CHAIN.jsonl` (§1, sidecar-first —
+   it does not touch `run_id`), so this bullet no longer claims otherwise.
 5. **PBO/CSCV** is implemented but a campaign-wide PBO needs the full
    candidate returns matrix; the near-miss re-scoring covers the claude2
    candidates only.
@@ -298,8 +308,15 @@ ten-strategy pack (rejected before porting) · the claude1 fifty-prompt pack ·
 the claude2 fifty-prompt pack. Full reasons and run_ids: `STATUS.md` and the
 campaign reports in `results/`.
 
-The one book that has cleared every v1 gate to date: the **delta-neutral XRP
-grid** (`xrpneutral`) — carrying both its declared twelve-combination grid
-haircut and the program-level trial haircut of G7, with its forward paper run
-as the locked holdout (G10), and with the C4 leg-risk scenarios required before
-any real-money promotion.
+Formerly the one book that had cleared every v1 gate: the **delta-neutral XRP
+grid** (`xrpneutral`) — **KILLED 2026-10-31 by 1m fill resolution**: the 15m
+OHLC convention credited a cover whenever the same bar's high reached the cover
+level; 100% of the book's trades were such same-bar round trips, and resolving
+touches on the real 1m tape took OOS PF from 1.30 to 0.93 (OOS PF < 1 = kill).
+Fill-model rule adopted repo-wide: resting/limit-fill books are not certifiable
+on OHLC bars at 5m or above without 1m resolution or a forward record
+(`bookreplay` measured the same double-sided bias on real aggTrades). Zero
+books clear every gate as of 2026-11-06; the nearest directional candidates are
+TOP10 #44/#28 (selection-contaminated OOS, both lose to buy & hold OOS) and the
+SMQE v1.1 SUI cell (fails the bootstrap CI). Full reasons and run_ids:
+`STATUS.md` and the campaign reports in `results/`.

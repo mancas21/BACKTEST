@@ -1,4 +1,284 @@
-# Backtest System — Estado al 2026-09-26
+# Backtest System - Estado al 2026-09-26
+
+## 2026-11-14 - pack externo "hermes" HMA(34) Trend (adapter `hmatrend`): KILLED - cero de once celdas pasa la bateria, y el claim externo es IRREPRODUCIBLE desde sus propios outputs
+
+El usuario trae `hma_backtest_oos_consolidado.json` (scratch de una sesion CLI
+externa "hermes"): HMA(34) Trend en 1h, 12 pares, 3000 barras de 2026, split
+70/30, PF OOS medio 2.28. El codigo fuente del motor NO sobrevivio (solo los
+JSON de salida, byte-identicos en `code/hma_trend_sources/` con MANIFEST,
+sha-bound en cada run_id). Protocolo completo ejecutado:
+
+- **Medido desde los outputs** (paridad 12/12 PASS, `code/_hma_trend_parity.py`):
+  fills next-open (247/247), stop = entry − 3.0×ATR(14 Wilder @ barra señal)
+  exacto (18/18), CERO fees, CERO funding en perps, long-only, equity 100%
+  compuesto, PF del pack ponderado por % (2.2533) vs por dinero (2.1709),
+  OOS = un solo slice de ~38 dias por par (NVDA/SPCX desplazados), 5 de 12
+  pares ya pierden contra B&H a coste cero. Cuatro trades pnl-0 delatan un
+  quirk de orden de flags del motor externo (no reproducido, declarado).
+- **Declarado** (no recuperable): el predicado exacto de salida — ninguna
+  familia de candidatos separa las 229 barras de salida de las 2970 de
+  mantenimiento (HMA 1h/4h x 7 fuentes, periodos 10-50, lags 1-3, close vs
+  HMA, trailing, unrealized-PnL, price-action). Spec congelado: entrada HMA(34)
+  rising, salida HMA falling (la lectura literal del label 'HMA_DOWN'),
+  stop 3×ATR14. En los PROPIOS bytes del pack el libro declarado reproduce el
+  nº de trades (292 vs 247) y el hold (12.7 vs 12.9 barras) pero NO el retorno
+  (+86.4% vs +890.5% del claim, PF 1.18 vs 2.25): el filo del claim vive en un
+  timing de salida irrecuperable. Ningun parametro se ajusto a los trades del
+  claim.
+- **Engine audit** (`code/_hma_trend_audit.py`) 16/16 PASS — cazó DOS bugs
+  reales del engine antes de tocar mercado: entrada sin ATR (stop = entry →
+  auto-stop instantaneo) y base de pnl que omitia el fee de entrada.
+- **Claim-check** (mode=hermes, 11 pares, coste cero, ventanas del pack,
+  claim_* metrics dentro de cada artefacto): nada se parece al claim.
+- **Bateria repo** (`bt.py one` x 11, historia completa, 11 bps RT, funding
+  real, control zero-cost dentro de cada artefacto): PF ex-cost 0.6883-1.0128,
+  OOS PF 0.7470-1.1074, CI bootstrap negativo en las once celdas. JUPUSDT
+  `30ef63651b4760db` net −69.26% PF 0.9056 (912 trades) con zero-cost −20.09%
+  PF 0.9798 — la señal pierde TAMBIEN a coste cero (antipredictiva); funding
+  del JUP 2026 negativo: el long RECIBE (funding_paid −206.76). XAUUSDT NO
+  DATA (sin fichero en todo data/).
+- 22 artefactos verify bit-a-bit (`results/_hmatrend_verify.txt`); reporte
+  `results/hmatrend_report_2026-11-14.md` guard OK strict; registry
+  regenerado (familia nueva `trend_hma_simple`, 22 filas).
+
+Lección de método nueva: los números de un claim externo se citan SOLO a
+través de artefactos propios — el engine del adapter carga los JSON fuente
+(sha-bound como sources) y publica `claim_*`/`parity_*` metrics dentro del
+artefacto, así `guard` respalda hasta las cifras del pack auditado.
+
+## 2026-11-12 - htf_ltf_fvg (4H FVG -> 15M tap -> 15M FVG, adjunto Python): KILLED - cero de doce celdas pasa la bateria estandar; el modo limit (el mejor) ademas NO es certificable por fill-model
+
+El adjunto (Python autocontenido, copiado byte-identico como
+`code/htf_ltf_fvg_strategy.py`, sha 4b96cf6e...) trae DOS motores
+independientes (vector y evento) con paridad incorporada y convenciones
+no-lookahead declaradas. Adapter `htffvg` (`code/htffvg_engine.py`): klines
+de 15m del repo hasheados, paridad vector/evento EXIGIDA dentro del
+artefacto, invariante contable publicado, costes gate (taker 5 + slip 0.5;
+maker 2) con control de coste cero, bateria estandar completa. Audit
+`code/_htffvg_audit.py`: cuarenta y cinco respuestas conocidas ALL PASS
+antes de datos reales - tres convenciones del pack que el test habia mal
+leido (el sl_ref de la FVG bear es el maximo de los tres highs, no el borde
+del hueco; la R del pack va NETA de fees como declara su docstring) y toda
+una corona de geometrias del test sin zona 4H real.
+
+- **Celdas**: doce (seis simbolos x market/limit a 15m). Market
+  (certificable, taker en la apertura siguiente): BTC PF 0.859 / -72.55 por
+  ciento, ETH 0.875 / -67.25, SOL 0.987 / -11.44, HYPE 1.014 / +2.12, SUI
+  0.840 / -46.85, JUP 0.971 / -8.66 - OOS PF 0.71-0.78 en todas. Limit
+  (maker intrabar - NO certificable sobre OHLC, regla de fill-model; los
+  numeros van como historia): el mejor es ETH `96cffffa95971b6c` PF 1.022 /
+  +12.31 y muere por PF, tercios, OOS, concentracion (118.3 por ciento) e
+  IC propio [-12.44, +16.14].
+- **Por que muere**: el drag de costes con este ritmo de trading es
+  gigantesco (ETH limit: coste cero +204.15 por ciento -> +12.31 con
+  costes, drag +191.84pp; BTC market: +108.10 -> -72.55, drag +180.66pp);
+  ningun IC bootstrap propio excluye el cero; concentracion de tres cifras
+  en las celdas vivas (JUP limit 1111.6 por ciento).
+- **Integridad**: los doce artefactos carrying parity_ok=True y
+  inv_gap < 1e-11 - los numeros son lo que los dos motores calculan, y lo
+  que calculan no pasa. Reporte `results/htffvg_report.md` (guard OK
+  strict) con las lineas de celdas REGENERADAS mecanicamente desde los
+  artefactos tras un REFUSED que pillo valores OOS escritos a mano - la
+  regla de la casa (cada numero desde su artefacto) aplicada al propio
+  redactor del informe.
+- Proximo paso segun doctrina: ninguno por re-corrida; el modo limit solo
+  tiene camino por registro forward en papel o fills a 1m.
+
+
+## 2026-11-06 (madrugada) - QS-097 cross-asset confirmation: KILLED - cero de veinticuatro celdas pasa la bateria estandar; la mejor (ETH 1h two_side) muere por concentracion e IC propio
+
+Primera estrategia backtesteada end-to-end con el sistema nuevo (REGLA 1 +
+`bt.py one`). La tarjeta del catalogo (familia J) portada a
+`code/qs097_engine.py`: Donchian(20) por simbolo con confirmacion cross-asset
+(BTC y ETH sobre su EMA(50) exigidos, dos o mas de los otros perps), episodio
+= primera barra del run de breakout, salida por minimo/maximo de diez barras o
+confirmacion perdida, stop dos ATR(14), max hold ciento cincuenta, no-trade
+si el panel esta stale. Ejecutor del catalogo por identidad (G1: uno por
+ciento de riesgo, halt diario, halve/review por DD; G3 funding real). Audit
+`code/_qs097_audit.py`: veinticinco respuestas conocidas ALL PASS antes de
+datos reales (toda la primera corona de fallos fue del test: geometrias que
+nunca rompian el canal, el low del burst dentro de la ventana de diez, umbral
+de otros heredado del default).
+
+- **Celdas**: veinticuatro (seis simbolos x 1h/15m x long/two_side como
+  hipotesis separadas), cada una con su veredicto aislado `bt.py one`
+  (costes once puntos basicos, funding real, control de coste cero y
+  bootstrap dentro del artefacto). Verificacion implicita: run_ids
+  deterministas por corte del dia; reporte `results/qs097_report.md`
+  (guard OK strict) con los veinticuatro run_ids citados.
+- **Veredicto**: 15m ruina universal (net entre -15.80 y -24.31 por ciento,
+  tercios cero de tres en las doce - el aviso de costes de la propia
+  tarjeta, medido). En 1h la unica celda sobre PF 1.2 es ETH two_side
+  (`c07e26b442263679`: PF 1.234, +25.99 por ciento, OOS PF 1.407, tercios
+  dos de tres) y muere por concentracion (best-5 = 154.3 por ciento del PnL)
+  y por su IC bootstrap propio ([-7.14, +26.58], P de media menor o igual a
+  cero 0.157). El drag de costes de esa celda: +23.91pp (el control de coste
+  cero da +49.90). Concentracion de tres cifras en todas las celdas vivas.
+- **Ventana activa (leccion xsf aplicada)**: la regla no-trade stale veta el
+  panel hasta que HYPE tiene historia caliente - las ventanas activas
+  empiezan ~2025-06-01; tercios/OOS/concentracion se miden dentro de la
+  ventana activa y el artefacto declara `active_start_utc`/`active_bars`.
+- **Dos bugs del porte cazados en el camino**: el parseo de basename
+  anadia "USDT" duplicado (BTCUSDTUSDT) y el merge main+tail del panel
+  sobreescribia en vez de concatenar; ambos dentro de `run_cell`, ninguno
+  afecta al ejecutor del catalogo.
+
+
+## 2026-11-06 ( noche) - REGLA 1: aislamiento de veredicto + `bt.py one` - el motor ya no mezcla estrategias
+
+Decision del usuario: "todas las estrategias son unicas; no se puede decir que
+una estrategia fallo en una parte porque otra estrategia distinta fallo en lo
+mismo - ese es el principal problema de este motor". Implementado:
+
+- **AGENTS.md REGLA 1 (aislamiento de veredicto)**: una estrategia = un
+  veredicto, construido SOLO sobre sus propios artefactos (PF, n, net,
+  tercios, OOS, concentracion, bootstrap CI - medido dentro del artefacto).
+  La kill list queda como registro historico, NUNCA como pre-gate; prohibida
+  la transferencia de fallo ("la familia ya fallo", "su primo murio por
+  concentracion") como parte de un veredicto; mencionar contexto con run_ids
+  si, deducir el veredicto del contexto no. La incertidumbre que sustituye a
+  los haircuts entre hermanos es la PROPIA (bootstrap CI de la serie de
+  trades; null de entrada aleatoria opcional via gatecal). El checklist del
+  template de adaptadores ya no dice "killed families stay killed".
+- **`bt.py one`** - el comando del contrato: `python code/bt.py one
+  --strategy <s> --tf <tf> --symbol <sym> [--set k=v]`. Un artefacto (con los
+  datos historicos del repo, cortados en core.cut_ts), la batería estandar
+  IDENTICA para todas las estrategias impresa antes del veredicto (reglas y
+  costos declarados: 11 bps RT, funding real, fill model), cada gate PASS /
+  FAIL / N-A (metrica que el adaptador no trae - listada, nunca pasado
+  silencioso), veredicto FAIL/PASS, reporte en results/bt_one/ y guard
+  strict. Cero comparaciones con hermanos. Demostrado en dos dialectos:
+  smqe11 SUIUSDT 1h repo+funding `da87389998c1153c` FAIL (solo boot_ci) y
+  top10 #44 BTCUSDT 1h `d544d85516c7158a` PASS - ambos guard OK strict, sin una sola palabra sobre otras estrategias. **Un hueco de la bateria, corregido el 2026-11-12:** el gate `boot_ci` buscaba solo la metrica plana `boot_ci_lo`, y el adapter `top10` guarda el bootstrap como dict anidado (`bootstrap.ci_low`), asi que la significancia le salia N-A y #28 se leia como PASS por el comando del contrato mientras el informe lo mataba por significancia. `bt.py` ahora resuelve `bootstrap.ci_low` tambien: el mismo artefacto da FAIL (boot_ci -0.0049) y #44 PASS (0.2609), y el comando y el informe coinciden. Los 303 artefactos que ya traian la metrica plana no cambian: el alias solo se consulta si la plana no existe.
+- **Bug de guard corregido de paso** (destapado por los reportes de `one`):
+  HEXWORD_RE se comia las fracciones largas de floats de precision completa
+  ("91.09034194265688" -> "91.") produciendo falsos REFUSED y falsos OK por
+  redondeo accidental. El regex ahora exige que el pseudo-hex no toque un
+  punto decimal (los run_ids reales nunca lo hacen); los tres reportes que
+  ya pasaban siguen pasando. Ademas el reporte de `one` cita los valores
+  TAL COMO ESTAN en el artefacto (backeables), y las normalizaciones de
+  dialecto (fraccion a por ciento) aplican solo a la comparacion.
+
+## 2026-11-06 (noche) - SMQE v1.1 (adjunto del usuario): KILLED - cero de diez celdas pasa todos los gates; la mas cercana (SUI 1h, repo+funding real) falla solo el IC bootstrap
+
+## 2026-11-06 (noche) - SMQE v1.1 (adjunto del usuario): KILLED - cero de diez celdas pasa todos los gates; la mas cercana (SUI 1h, repo+funding real) falla solo el IC bootstrap
+
+El adjunto `smqe_v1_1.pine` (merge de indicadores, build auditada; fuente de
+registro `code/smqe_v1_1_strategy.pine`, sha256 bf19d04c...f5c) se porto como
+`code/smqe11_engine.py` + adapter `smqe11`: nucleo de senal CVRMD con las
+primitivas auditadas del motor v2 importadas POR IDENTIDAD, simulador de
+ejecucion v1.1 portado verbatim (fill al close de la barra de senal, stop ATR
+congelado, TP1 = VWAP-si-dentro-sino-1.5R al cincuenta por ciento, TP2 = 2R,
+flip con reversa en la misma barra, cooldown en entradas y flips, stop primero
+por defecto, comision en cada fill dentro del P&L del trade, DD mark-to-market),
+gates de confluencia apagadas (el Pine las declara fuera del backtest
+validado). Auditoria `code/_smqe11_audit.py`: veintinueve comprobaciones ALL
+PASS antes de ningun dato real; cuatro fallos de la primera pasada fueron del
+test (aritmetica del modo emulador, precio de fill del stop, cooldown no
+observable, comparacion de NaN) - la leccion auditada otra vez.
+
+- **Cel­das**: cinco simbolos (BTC ETH SOL XRP SUI) x dos regimenes de costes
+  (repo cinco+medio puntos basicos con funding real cobrado en asentamientos
+  reales; pine como se distribuye, comision de seis por mil, funding apagado),
+  control de coste cero dentro de cada artefacto, y bootstrap sembrado dentro
+  del artefacto (rng siete, veinte mil sorteos). Verificacion: diez de diez
+  artifacts verify OK.
+- **Veredicto**: BTC PF 0.556 / ETH 0.896 / SOL 0.748 / XRP 0.922 con costes
+  del repo - KILL (SOL gana +14.99% solo a costes pine, giro de costes de
+  casi treinta puntos). SUI PF 1.543, +11.81%, cincuenta y tres trades, tercios
+  tres de tres, OOS PF 1.303, best-5 ochenta por ciento del PnL, excess +47.4pp
+  contra un buy&hold de -35.6% - pasa los gates de criba y FALLA la
+  significancia: IC bootstrap [-8.32, +53.55], P(media menor o igual a cero)
+  0.0835. Vecindarios de atr_mult y tp2_r STABLE; el gate de cooldown es inerte
+  en esta muestra (declarado). Reporte `results/smqe11_report.md` (guard OK
+  strict), veinte artefactos de generaciones previas del mismo dia quedaron
+  REFUSED por drift del motor (numeros identicos, nunca citados) cuando el
+  motor enriquecio sus metricas con la serie por trade y el bootstrap.
+- **Dos lecciones nuevas para los reportes con guard**: (a) el signo menos
+  Unicode se tokeniza como positivo - los reportes que pasan guard deben usar
+  guion ASCII; (b) `neighborhood` ahora acepta `--set` y `--params` para barrer
+  con parametros base (funding real, modo de coste).
+- **Proximo paso segun doctrina**: ninguno por re-corrida; si la idea sigue
+  viva, registro forward en papel sobre la celda de SUI con la puerta del IC.
+
+
+## 2026-11-06 — Pipeline restructured: data cuts kill the stale cascade; staged `bt.py`; parallel harness layer — no engine touched, no gate touched
+
+The hours a "full" validation took were never compute (the hundred-strategy
+screen runs in minutes); they went into the validation layer: every append to
+the append-only data files re-hashed the whole corpus STALE (one extension,
+2026-10-29, staled one thousand two hundred and eighty artifacts), and
+verify/matrix/neighborhood ran strictly sequentially. Decision: operate on both
+repos, target *idea → validated verdict* in about thirty minutes, engines and
+the gate battery untouched.
+
+- **Generation 2 run_ids (data cuts).** `core.cut_ts` (UTC, default = creation
+  day) is now part of core, and `inputs` hash only the data BEFORE that
+  instant — kline CSV rows with `open_ts < cut_ts` as a byte-exact prefix
+  (binary search; the taker CSVs' blank CRLF lines are skipped by the search
+  and hashed), funding JSON records with `t < cut_ts` canonicalized. The
+  engine is SERVED the same slice (temp dir, original basename preserved),
+  so the hash covers exactly the bytes the engine read. Verified by
+  `code/_cut_hash_selftest.py` (nine checks: append-proof, edit-inside-cut
+  detection, full-file compatibility, pandas ground truth, the funding
+  filename reconstruction, cut modes, monotone sweep) — ALL PASS.
+- **Regression, bit-for-bit.** Thirteen of the fifteen prompts100/top10
+  artifacts re-run under cut hashing with metrics equal to the stored ones
+  EXACTLY (`code/_cut_regression_prompts100.py`); gen-2 artifacts saved. Two
+  excluded because the on-disk bytes genuinely changed since creation
+  (SUIUSDT funding, JUPUSDT taker klines) — those are STALE under the old
+  regime too. Reproduction cut = max(input end) + 1s, one cut for ALL inputs
+  (multi-input artifacts splice main + tail files). Legacy verify/stale
+  behavior unchanged; the museum is not migrated.
+- **The cascade is dead, measured live**: the gen-2 artifacts verify OK and
+  audit OK under `stale --data` on the same day the underlying BTCUSDT_1h
+  file grew one hundred and thirty-nine bars beyond their cut. A legacy
+  artifact of the same strategy says STALE, as it should.
+- **One serving bug, caught by the artifact itself.** The first slice-serving
+  naming appended a `.cut` suffix to the basename; the neutral-book wrapper
+  passes `fund_dir` and the engine reconstructs `{sym}_funding.json`, so it
+  found nothing and charged funding ZERO (n_funding_events 0, funding_paid
+  0.0 — the exact failure class AGENTS.md warns about). The two freshly
+  created xrpneutral artifacts were overwritten in place minutes after
+  creation (never cited, same run_id identity, verify green after), the
+  serving now uses per-cut subdirectories with the EXACT original basename,
+  and a selftest pins the reconstruction. Fixed v2: funding_paid 518.86 over
+  seven thousand four hundred sixty-six events. Note: both new neutral-book
+  artifacts carry `funding_covers_bars: False` — the funding file on disk
+  ends 2026-10-29 while klines run to 2026-11-05 (the known funding gap;
+  re-extend funding with the documented script before quoting those tail
+  days).
+- **Parallel harness layer.** `matrix --workers N` and `neighborhood
+  --workers N` (default sequential, same artifacts and order);
+  `_cbpack_gates.py` fans the eight independent gate runs per cell out over
+  a pool (`--workers`, default four; XRP S02 re-confirmed FAIL on
+  concentration, best five trades over a hundred percent of PnL). cbpack 1h
+  grid: thirteen cells in about thirteen seconds.
+- **`bt.py`** — the staged pipeline over the existing machinery (no gate
+  re-implemented): screen gates → walk-forward → neighborhood → scorecard →
+  guarded report, each stage only for survivors, early stop when a stage
+  empties, per-stage timings in `results/bt_timings/` (never quoted in the
+  report — guard cannot back durations). Demo campaign (plans in
+  `results/bt_plans/`): screen three candidates in about two seconds,
+  walk-forward via table-row gates, neighborhood STABLE, `guard --strict` OK.
+- **`code/adapter_template.py`** — copy-me template with the checklist (port,
+  known answers BEFORE real data, register, run, gates, guarded report) and
+  the zero-cost control measured in-artifact. Selftest passes.
+- **trading-engines side**: the prompts100 screen now builds each signal once
+  and scores it at both costs, carries a feather CSV cache (keyed on source
+  name+mtime+size; backtest-system data stays read-only; the cached frame is
+  the raw parse so post-processing is shared) and fans out over a process
+  pool (`--workers`, default sequential; `--eq oos` trims equity curves to
+  the OOS slice, `--eq full` for `make_charts10.py`). Old-vs-new equality on
+  every code path (signal, tuple, flip, xs, funding): zero diffs. aroon,
+  percentrank and the connors streak/percentrank are vectorized and verified
+  bit-identical INCLUDING the pandas NaN rule (a window holding NaN yields
+  NaN); wma/hma/kama/supertrend/psar stay as loops (one strategy each, and
+  float summation order is not provably identical). Full screen: two hundred
+  runs in about thirty-nine seconds (was five minutes eight), dataframe
+  identical across the pre/post-vectorization runs.
+- Scanner link intact: all ten `scanner-engine/tests/test_backtest_link.py`
+  tests pass against the new artifact schema (additive `core.cut_ts` only).
 
 ## 2026-11-01 — Family D (QS-031..QS-040, market structure) KILLED by the gates, 0/10 — two more G5-passing near-misses, both on ETH 1h
 
@@ -892,129 +1172,67 @@ Reproducir v2:
     python code/vrun.py verify 7737dd3dc499721f
     python code/vrun.py guard --report results/xrp_neutral_25x10_report.md
 
-Desplegado en el VPS el 2026-10-23 00:22 UTC: day-0 congelado en 25.00, 0 lotes
-abiertos, forward 0, 238240 barras y 7446 prints de funding. El estado v1 quedo
-archivado como `*.v1` en `/home/ubuntu/xrp-paper-bot/`. El log de eventos forward
-arranca vacio: no vuelca los 5963 cierres del backtest.
+### Despliegue actual — framework `neutral-paper` (5 pares)
 
-**Cooldown activo al desplegar.** El motor tiene 96 barras de cooldown tras un
-stop. El ultimo stop del historico es 2026-10-22 08:15 UTC; el cooldown termina
-2026-10-23 08:15 UTC. Al cierre de la barra 00:15 quedan 32 barras, asi que el bot
-no abrira un grid nuevo hasta ~08:15 UTC. El status expone `last_stop_utc`,
-`cooldown_until_utc` y `cooldown_bars_left` para que la pausa sea visible, no
-silenciosa.
+El bot standalone (`/home/ubuntu/xrp-paper-bot/`) fue retirado del cron y el
+proyecto migro a `/home/ubuntu/neutral-paper/`: un forward paper de **5 pares**
+(JUP, XRP, SOL, HYPE, SUI) a 25 USDT x 10x, con runner compartido
+(`neutral_paper_bot.py`), un motor por par y cron escalonado cada 15 min
+(XRP en :04/:19/:34/:49).
 
-### Forward al 2026-10-23 22:00 UTC
+- **Motor en produccion:** `/home/ubuntu/neutral-paper/xrp_neutral_engine.py`,
+  hash `834f3de9f5d0dddd3a5b13f4a881995643b35d0f485200336df19d1c71b74776`.
+  Distinto del hash original `e6f7422f53d3` porque se le anadio metadato
+  `entry_ts` por lote/trade (verificado bit-for-bit identico en simulacion:
+  misma equity, fees, funding, MDD, trade count y PnL sobre 70,081 barras XRP).
+  Esto rompe la restriccion original de "motor no se modifica"; el README lo
+  documenta como cambio solo de metadatos.
+- **Day-0 nuevo:** `2026-10-31 22:44:26 UTC`. Reinicio limpio del conteo
+  forward (clean OOS). El lote abierto se lleva como `forward_carry_pnl`.
+- **Ventana de evaluacion:** 7 dias (31 Oct 22:42-22:45 -> 7 Nov 23:00 UTC).
+  Informe final: `FINAL_REPORT_2026-11-07.md` (generado).
+- **Kill criterion:** `forward_pf < 1.0` con `n >= 30` cierres forward por par.
 
-El cooldown expiro a las 08:15 UTC. Primer tramo forward: **5 cierres, 4 covers
-y 1 stop**. Equity **24.87**, forward **-0.1295 USDT (-0.53%)**. El stop de las
-19:00 UTC (-0.4063) se comio los cuatro covers (+0.2768); es el riesgo
-estructural del libro: los stops cargan las perdidas.
+### Estado forward actual (2026-11-09 19:19 UTC)
 
-| # | cierre UTC | lado | entrada | salida | P&L USDT | motivo |
+| par | equity | fwd % | lotes | PF | trend gate | kill |
 |---|---|---|---|---|---|---|
-| 1 | 10:00 | long | 1.31870113 | 1.32290057 | +0.0692 | cover |
-| 2 | 13:15 | long | 1.31450170 | 1.31870113 | +0.0692 | cover |
-| 3 | 14:30 | long | 1.31030226 | 1.31450170 | +0.0692 | cover |
-| 4 | 15:15 | long | 1.30610283 | 1.31030226 | +0.0692 | cover |
-| 5 | 19:00 | long | 1.32290057 | 1.30224855 | -0.4063 | stop |
+| SOL | 23.91 | -4.38% | 19 | 0.614 | ON (5.35%) | no |
+| JUP | 26.39 | +5.58% | 29 | 2.347 | ON (2.86%) | no |
+| SUI | 21.96 | -12.16% | 11 | 0.291 | ON (2.65%) | no |
+| HYPE | 24.08 | -3.70% | 13 | 0.947 | ON (6.09%) | no |
+| **XRP** | **23.62** | **-5.52%** | **10** | **0.519** | **ON (8.84%)** | no |
+| **5 pares** | **119.96** | **-4.03%** | 82 | agg 0.720 | ON x5 | **0** |
 
-| campo | valor |
-|---|---|
-| equity | 24.87 |
-| forward P&L | -0.1295 (-0.528%) |
-| lotes cerrados | 5 (4W / 1L) |
-| forward PF | 0.681 |
-| win rate forward | 80.0% |
-| lotes abiertos | 0 |
-| funding pagado | 0.0025 |
-| cooldown | hasta 2026-10-24 19:00 UTC (85 barras al 21:45) |
-| max gross / min buffer | 2.14x / 98.9% |
+**XRP en detalle:**
+- 10 cierres forward (7W / 3L), PF 0.519, win 70%, 0 lotes abiertos.
+- El gate de tendencia esta ON: el bot no construye grids nuevos.
+- Kill: 10/30, no disparado.
+- Funding recibido: -0.0207 USDT.
+- Max gross 2.14x, buffer 98.9% (sin cambios vs backtest).
 
-El P&L cerrado es -0.1295; el equity marca -0.13 porque suma -0.0025 de funding.
-El stop de las 19:00 disparo el cooldown de 96 barras: el bot no abrira grid
-nuevo hasta 2026-10-24 19:00 UTC.
+El bot standalone anterior (`/home/ubuntu/xrp-paper-bot/`) queda como registro
+historico (no esta en cron). Su estado congelado: 21 cierres, PF 1.203, equity 24.90.
 
-**Lectura del kill criterion.** El informe v2 resumio el kill como PF < 1; el
-baseline del repo (`code/xrp_neutral_baseline.py`) exige ademas **n >= 30
-cierres**. Con 5 cierres, PF 0.681 es "too few trades", no un kill. Se deja
-correr hasta 30 cierres forward y ahi se aplica la regla; si se prefiere la letra
-estricta del informe, se detiene ahora. **Cinco cierres no son evidencia**: ni
-los cuatro covers prueban el edge ni el stop prueba que no exista.
+### Leccion del forward (XRP)
 
-`forward_pf` se emite `null` cuando no hay perdedores (`Infinity` no es JSON
-valido); ahora que hay un stop, el PF es finito. El status pasa un parseo
-estricto.
+El bot capturo el piso con 6 covers consecutivos (1.15-1.18) despues de dos
+stops en el pump. El PF paso de 0.06 (5 Nov) a 0.519 (9 Nov). El gate de
+tendencia es la unica defensa activa y esta haciendo su trabajo: nadie esta
+comprando el pump ni promediando el crash. No hay que tocar nada.
 
-**Actualizacion 2026-10-24 11:57 UTC.** Sin cambios en el libro: 0 lotes,
-equity 24.87, forward -0.1295, 5 cierres, PF 0.681. Cooldown hasta las 19:00 UTC
-(30 barras restantes al cierre de 11:30). XRP en 1.2784, **1.8% por debajo de la
-salida del stop** (1.30225): el stop evito la caida posterior, aunque un solo
-trade no valida la regla.
+### Caveat (igual que v1)
 
-**Actualizacion 2026-10-26 22:20 UTC.** El bot reanudo el 24 a las 19:00 UTC y
-cerro **5 covers nuevos, todos ganadores**:
+Es el maximo de 12 celdas pre-declaradas, asi que el haircut de multiple-testing
+aplica; el forward paper es el OOS real. El 10x es capacidad, no exposicion
+promedio.
 
-| cierre UTC | lado | entrada | salida | P&L USDT |
-|---|---|---|---|---|
-| 2026-10-25 23:30 | short | 1.29155237 | 1.28630000 | +0.0916 |
-| 2026-10-25 23:45 | short | 1.29680475 | 1.29155237 | +0.0915 |
-| 2026-10-26 02:30 | long | 1.28104763 | 1.28630000 | +0.0916 |
-| 2026-10-26 04:00 | long | 1.27579525 | 1.28104763 | +0.0917 |
-| 2026-10-26 14:45 | short | 1.30205712 | 1.29680475 | +0.0915 |
+---
 
-Equity **25.33**, forward **+0.3284 (+1.33%)**, PF **1.808**, 9W/1L en 10
-cierres, 0 lotes abiertos. El kill criterion ya no se dispara (PF > 1), pero
-n=10 sigue por debajo de 30: "too few trades" para un veredicto. El funding
-forward paso a **-0.0051** (recibido), no pagado.
-
-**Actualizacion 2026-10-27 19:58 UTC.** Dos cierres nuevos:
-
-| cierre UTC | lado | entrada | salida | P&L USDT | motivo |
-|---|---|---|---|---|---|
-| 2026-10-26 23:45 | short | 1.30730950 | 1.30205712 | +0.0914 | cover |
-| 2026-10-27 12:30 | short | 1.31256187 | 1.31715825 | -0.1067 | stop |
-
-Equity **25.32**, forward **+0.3132 (+1.27%)**, PF **1.611**, 10W/2L en 12
-cierres, 0 lotes abiertos. El stop de hoy disparo cooldown hasta **2026-10-28
-12:30 UTC** (68 barras al 19:30). XRP en 1.3246, 0.56% por encima de la salida
-del stop: otra vez el stop evito la continuacion, pero el libro plano tambien se
-perdio el rally. PF > 1 y n=12 < 30: sigue "too few trades", sin kill.
-
-**Actualizacion 2026-10-31 20:17 UTC.** Nueve cierres desde el 27: 7 covers
-(+0.4800) y 2 stops (-0.5727), neto **-0.0927**. Los dos stops son dos lotes
-long que cerraron en la misma barra, el 29 a las 02:30; el status cuenta un
-"stop trigger" por barra, no por lote, por eso `exit_reasons` sube 1 y no 2.
-
-| cierre UTC | lado | entrada | salida | P&L USDT | motivo |
-|---|---|---|---|---|---|
-| 2026-10-28 13:30 | short | 1.31939083 | 1.31530000 | +0.0686 | cover |
-| 2026-10-28 14:15 | long | 1.31120917 | 1.31530000 | +0.0686 | cover |
-| 2026-10-28 18:00 | short | 1.32348166 | 1.31939083 | +0.0686 | cover |
-| 2026-10-28 18:30 | short | 1.32757249 | 1.32348166 | +0.0685 | cover |
-| 2026-10-28 19:30 | short | 1.33166333 | 1.32757249 | +0.0685 | cover |
-| 2026-10-28 20:15 | short | 1.33575416 | 1.33166333 | +0.0685 | cover |
-| 2026-10-29 01:45 | long | 1.30302751 | 1.30711834 | +0.0687 | cover |
-| 2026-10-29 02:30 | long | 1.30711834 | 1.28905515 | -0.3651 | stop |
-| 2026-10-29 02:30 | long | 1.29893667 | 1.28905515 | -0.2076 | stop |
-
-Equity **24.90**, forward **-0.10 (-0.405%)**: el cerrado sigue en +0.2205 y el
-lote abierto resta -0.3372 de MTM (funding recibido +0.0167). 21 cierres,
-17W/4L, PF **1.203**, win 81.0%, 1 lote abierto. El stop del 29 disparo cooldown
-hasta el 30 a las 02:30; ya expiro.
-
-**Fix del log de eventos.** El CSV tenia 20 filas y el status 21: la clave
-`(ts, side)` no es unica y dos lotes del mismo lado cerraron en la misma barra.
-La clave ahora incluye entrada/salida/pnl; el ciclo siguiente appendo la fila
-faltante (el segundo stop, -19095.52 engine) y el CSV quedo con 21 filas, en
-linea con `forward_closed_lots`. Backup: `xrp_paper_bot_events.csv.pre_dedup_fix`.
-
-Kill criterion: PF 1.203 > 1, n=21 < 30; sigue "too few trades". La regla se
-aplica al llegar a 30 cierres.
-
-**Caveat, igual que v1:** es el maximo de 12 celdas pre-declaradas, asi que el
-haircut de multiple-testing aplica; el forward paper es el OOS real. El 10x es
-capacidad, no exposicion promedio.
+**Despliegue original (2026-10-23, historico):** el bot standalone se desplego
+el 2026-10-23 00:22 UTC con day-0 congelado en 25.00, 0 lotes abiertos,
+238240 barras y 7446 prints de funding. Estado v1 archivado como `*.v1` en
+`/home/ubuntu/xrp-paper-bot/`. El log de eventos forward arrancaba vacio.
 
 ## ACTUALIZACION (octubre) — "XRP paper bot": book NEUTRAL en XRP, desplegado en el VPS
 
@@ -3355,3 +3573,381 @@ whole pre-tape history cannot move.
 
 **No edge is claimed.** The 1m numbers are worse than the 15m ones, and worse
 for the honest reason.
+
+## 2026-11-11 — WAVE_1 scalp pack (`Downloads/scalp_wave1_v1.1.0`): portado, medido, KILLED
+
+**Qué es.** Paquete de otro autor con 4 indicadores kline-only para perps
+Binance USD-M 1m–15m (IND-04 VWAP de sesión ±σ con lado de reversión; IND-05
+gate de régimen sin eventos; IND-06 liquidity sweep; IND-07a squeeze release y
+burst de volumen). El pack original es Python y trae motor propio, pero
+`Downloads/` no es durable, así que la lógica de señal está COPIADA al repo en
+`code/scalp_wave_engine.py` (params declarados verbatim de `specs/params.yaml`).
+
+**Adapter `scalpwave`** en `code/vrun.py`. Costes: los del repo (5 bps de
+comisión + 0.5 bps de slip por lado, 11 bps round trip, cobrados en entrada Y
+salida). **Funding NO cobrado**: el pack es kline-only y no tiene input de
+funding — límite declarado del port, no omisión silenciosa.
+
+**Paridad obligatoria ANTES de los números** (`code/_scalp_wave_parity.py` →
+`_scalp_wave_parity.json`): 25/25 PASS. Las 39 columnas de indicadores
+coinciden con el pack original a rtol 1e-9 y el conjunto de eventos de señal
+es IDÉNTICO, en datos reales de 5m y 15m.
+
+**Resultado: 12 celdas, todas pierden.** PF ex-cost entre 0.6644 y 0.8624;
+NINGUNA celda llega a PF 1.
+
+| celda | net % | PF | n | win % | maxDD % | run_id |
+|---|---:|---:|---:|---:|---:|---|
+| SOLUSDT 5m | -99.99999999 | 0.7757 | 18590 | 31.0 | -100.00 | `f36ea24e4dbaf5f9` |
+| SOLUSDT 15m | -99.99993369 | 0.8213 | 10477 | 29.9 | -100.00 | `b99fd9a5ef57871c` |
+| SOLUSDT 1m | -88.26 | 0.7232 | 1871 | 31.2 | -96.23 | `628e8d2fdd6fcbb9` |
+| SUIUSDT 5m | -99.99945858 | 0.7915 | 10039 | 31.4 | -100.00 | `7a8e4006da88f6ce` |
+| SUIUSDT 15m | -99.73264057 | 0.8624 | 5627 | 31.3 | -99.93 | `2d4064eeea7e9785` |
+| SUIUSDT 1m | -93.20 | 0.7463 | 2548 | 31.4 | -97.89 | `28735e7746de83ac` |
+| HYPEUSDT 5m | -99.41319711 | 0.7339 | 4352 | 30.7 | -99.81 | `5a84a94cb0db4941` |
+| HYPEUSDT 15m | -96.36384684 | 0.8160 | 2589 | 30.1 | -99.00 | `17e31ae19837a1ec` |
+| HYPEUSDT 1m | -97.95 | 0.7004 | 2804 | 30.1 | -99.34 | `772e4214494ba358` |
+| BTCUSDT 5m *(contexto)* | -99.99999930 | 0.6644 | 15512 | 31.1 | -100.00 | `e5e63789aa7b881b` |
+| BTCUSDT 15m *(contexto)* | -99.99979862 | 0.7312 | 10940 | 30.6 | -100.00 | `33298ec622bfbd25` |
+| BTCUSDT 1m *(contexto)* | -71.66 | 0.7291 | 1139 | 30.7 | -90.66 | `796579b77d6df8c0` |
+
+5m/15m sobre toda la historia del repo; 1m sobre la ventana de 12 meses que
+declara el propio pack (`DATA_WINDOW.klines_1m_months: 12`) porque los ficheros
+de 1m tienen ~2M filas y la mediana robusta materializa una ventana de 101 por
+barra. LINKUSDT, uno de los cuatro símbolos puntuados del pack, NO tiene
+fichero 1m/5m/15m en el repo (solo 1h, fuera del rango del pack): tres de los
+cuatro están medidos, el cuarto no pudo.
+
+**NO es un problema de costes.** Las 12 celdas siguen perdiendo a coste CERO
+(net entre -98.58% y -0.32%, todas negativas): la señal es negativa-expectancy
+por sí misma y los costes solo aceleran la ruina. El kill no depende del
+régimen de costes ni del tamaño de posición.
+
+**Por familia de señal** (el propio pack exige analizarlas por separado):
+96 combinaciones familia×celda medidas, **una sola** alcanza PF 1
+(IND-04:VWAP_EXT_DN en HYPEUSDT 5m, PF 1.0059, net +3.08%, n 1018) — el máximo
+de 96 sorteos, y queda muy por debajo del gate del repo (PF 1.2). Ninguna
+familia llega a 1.2 en ninguna celda. El propio spec del pack anticipaba esto
+para sus señales de reversión ("the study may classify the signal
+ANTI-INFORMATIVE... that is a finding, not a defect").
+
+**Sondas de sensibilidad** (no rescatan): el gate de costes propio del pack
+(13–17 bps RT) da PF 0.7715 en SOL 5m (`b5508330cf8436d2`) y 0.8121 en SUI 5m
+(`fd8301a9c82108cd`); el filtro de régimen IND-05 activado da PF 0.7830 en
+SOL 5m (`a3ba999fbaa607f5`).
+
+**Tres defectos encontrados por la auditoría del port** (los tres habrían dado
+números plausibles pero falsos; los tres están corregidos y cubiertos por
+tests):
+1. La salida de un corto se cobraba con `(1-fee)` en vez de `(1+fee)`:
+   subestimaba la comisión de recompra de cada corto y favorecía a las familias
+   cortas. Los known-answers ahora cubren largo Y corto.
+2. El PnL por trade no incluía fees: el PF era pre-coste mientras la curva de
+   equity era neta, así que una familia podía mostrar PF > 1 y aun así perder
+   dinero. El PF que se publica es ex-cost, como exige el gate del repo.
+3. **El tamaño de posición dividía por el precio dos veces**
+   (`cash*risk/stop_dist/fill`): el riesgo por unidad YA está en `stop_dist`,
+   así que la posición quedaba `precio` veces más pequeña de lo debido (un
+   activo a 100.000 USDT arriesgaba 1/100000 del presupuesto). Lo detectó que
+   BTC mostrara -0.22% con PF 0.62. Ahora hay un known-answer con un activo
+   caro que fija que un stop-out arriesga ~1% de la caja.
+
+El invariante `eq[-1] − INIT == sum(pnl)` se aserta DENTRO de cada artefacto:
+fue lo que delató el defecto 1, y ahora hace fallar cualquier divergencia
+futura en lugar de producir un PF plausible.
+
+**Veredicto: KILLED.** 0 de 12 celdas pasan; de 96 combinaciones
+familia×celda, UNA roza PF 1 (y no llega al gate); y el resultado no depende
+del régimen de costes ni del tamaño de posición. Informe:
+`results/scalpwave_report_2026-11-11.md` (guard OK strict, 15 artefactos
+citados). Adapter `scalpwave`, familia de registro `scalp_wave`.
+
+## 2026-11-11 — Transferencia al S&P 500: cada estrategia del repo, corrida sobre la serie de equities
+
+**Qué se pidió.** Backtestear todas las estrategias del repo sobre el S&P 500.
+**Lo que el repo tiene de S&P 500 es `data/alpaca_1d`** (SPY = el ETF del S&P
+500, QQQ = Nasdaq 100; 2.722 sesiones diarias reales de Alpaca, 2016-2026).
+
+**Aclaración que había que hacer antes de medir nada: `SPXUSDT` NO es el
+índice.** Es un perp de Binance cuyo activo base es `SPX`, un token cripto.
+Medido sobre el solape de retornos diarios: corr(SPY, SPXUSDT) = **0.31**
+mientras corr(SPY, QQQ) = **0.95**. Las 52 filas `SPXUSDT` del registro NO son
+exposición al índice. Cualquier lectura que las tomara por S&P 500 está
+equivocada.
+
+**Método.** El MISMO engine y los MISMOS parámetros declarados sobre otro
+mercado: el override `data_dir` del harness (`code/vrun.py`, `make_artifact`)
+reapunta la entrada a `<data_dir>/<SÍMBOLO>_<TF>.csv`. El directorio entra en
+el `core`, así que el `run_id` no puede colisionar con el cripto. Las barras de
+equity son diarias, así que la transferencia corre a 1d.
+
+**Resultado: 60 celdas intentadas, 20 con artefacto, 40 rechazadas.** Los
+rechazos son los guards de cada engine (declaran los timeframes, símbolos o
+columnas que soportan y niegan en voz alta): cbpack/cbpackf piden HTF intradía
+que no existe en diario; smqe/fingrad/hmaaoadx/smqe11 declaran "unsupported
+tf '1d'"; botstrat está anclado a 1h; qs097 exige un símbolo del universo
+cripto; cbot necesita la columna taker; prompts100/top10 son conjuntos de
+estrategias fijas.
+
+**Sobre SPY (el S&P 500 de verdad): 5 de las 10 celdas con número pierden, y la
+única positiva es `ffs` con UN trade (+0.92%), que es ruido:**
+
+| estrategia | n | net % | PF | run_id |
+|---|---:|---:|---:|---|
+| qs096 (coste repo) | 17 | -7.17 | 0.1634 | `500afd611f6f7ec1` |
+| qs096 (coste cero) | 17 | -6.92 | 0.1750 | `fc95155b303cb1b8` |
+| scalpwave | 21 | -2.74 | 0.8069 | `37b7af84e45bb772` |
+| emaadx | 7 | -7.14 | 0.5383 | `48a916b8b4bf4866` |
+| pack20 | 3 | -4.85 | 0.0 | `db1fe26a129d3959` |
+| ffs | 1 | +0.92 | inf | `bc190acdbc641394` |
+| cvrmd | 0 | 0 | 0 | `2eb5fe1e4d2caebe` |
+
+La familia cbpack sobre SPY (la adaptación de equities ya declarada del repo,
+7 estrategias en marcha) dice en su artefacto: **0 pasan todos los gates, 0
+baten al buy & hold, 1 clears PF>1.2 con el suelo de muestra** (S05, +15.76%
+neto con 103 trades) **contra un índice que devolvió +350.76% en la misma
+ventana** — y su top-5 se lleva el 47.51% del PnL.
+
+Y **no es un problema de costes**: qs096 a coste CERO sigue negativo (-6.92%),
+igual que el resto.
+
+**Sobre QQQ, cinco celdas positivas (tres estrategias distintas) y ninguna pasa
+el suelo:** qs096 +1.49% (n=10, top-5 = 307.04% del PnL), scalpwave +8.35% PF
+1.9314 (n=17, DD -66.61%), pack20 +11.95% (n=3, top-5 = 100%), emaadx +11.97%
+PF 1.4983 (n=8). Todas por debajo del piso de n≥30 del repo, y todas muy por
+debajo del buy & hold de la misma ventana (QQQ +607.07%).
+
+**La lectura honesta es sobre el TIMEFRAME, no sobre el índice.** Casi todos
+los libros del repo trades estructura intradía (VWAP de sesión, sweeps,
+squeezes, alineación HTF) que no existe en una barra diaria. Una celda con
+cero trades ahí es una afirmación sobre el timeframe; leerla como "estrategia
+fallida en el S&P 500" sería incorrecto, y leerla como pase, peor.
+
+**Veredicto: NINGÚN EDGE TRANSFIERE AL S&P 500.** Informe
+`results/equities_transfer_2026-11-11.md` (guard OK strict, 24 artefactos
+citados; los 20 artefactos de equity y las 4 re-ejecuciones de qs096
+verifican bit-a-bit).
+
+**Dos defectos encontrados por el propio barrido** (ambos corregidos, ambos
+habrían producido una tabla que mentiría):
+1. Las celdas "pure" de qs096 eran en realidad la MISMA corrida: el engine lee
+   el coste de `p["cost"]` (vocabulario `gate|base|adverse|stress|zero`),
+   no de `cost_mode`. Las celdas de coste cero salían con 11 bps declarados.
+   Corregido (`cost=gate` / `cost=zero`) y re-ejecutado: la celda pura
+   reproduce exactamente el control a coste cero embebido en la celda standard
+   (SPY -6.9228, QQQ +1.7208), que es la comprobación cruzada de que mide lo
+   mismo.
+2. `eqpack` no tenía clave de coste "repo" (solo eq/cons/zero); añadida en el
+   runner, sin tocar el engine (que sigue bloqueado por hash).
+
+## 2026-11-11 — `xsml`: libro cross-sectional con filtro ML (1h, perps) — KILLED
+## (y un defecto de contabilidad encontrado y corregido)
+
+**Libro nuevo desde cero**, construido con el pipeline de skills de pybroker
+pero con la **ejecución del repo**, no la de pybroker. Pre-registrado ANTES de
+la primera corrida de mercado: `results/xsml_pre_registration.md` (spec,
+features, modelo, gates y riesgos, congelados). Variantes V2..V5 pre-
+registradas en `results/xsml_variants_pre_registration.md`; la ambigüedad del
+turnover pre-registrada en `results/xsml_turnover_pre_registration.md`.
+
+**Tesis (mecanismo).** El funding de los perps es un coste público, recurrente y
+signed, y su signo **difiere por símbolo y por momento**: hay un componente de
+carry cross-sectional (tomar el lado que recibe) y un coste real por mantener
+el lado equivocado. La hipótesis es que un forecast de retorno RELATIVO
+construido con momentum multi-timeframe, régimen de volatilidad, participación y
+estado de funding contiene más información que el retorno pasado, y que esa
+diferencia sobrevive a 22 bps de coste round-trip más el funding.
+
+**Pipeline (tres pasos, el harness se queda al final).**
+1. `code/xsml_features.py` — 10 features declaradas con el **motor de
+   indicadores de pybroker** (sin su backtester): `data/xsml_features_1h.csv`,
+   139.869 filas, cobertura ≥97% en todas.
+2. `code/xsml_model.py` — `HistGradientBoostingRegressor` con hiperparámetros
+   **fijos** (sin grid, sin Optuna, sin selección por score): un solo ajuste
+   sobre DEV, con purga/embargo de 24 barras; predicciones en
+   `data/xsml_preds*.csv` (INPUT del artefacto, con su hash en el `run_id`).
+3. `code/xsml_engine.py` — ejecución **del repo**: entrada al open siguiente,
+   stop-first en empates, gap-through al open, stop y objetivo a 2×ATR14,
+   11 bps RT por pierna y **funding en los settlements reales**, en las dos
+   piernas. Adapter `xsml`.
+
+**Universo:** los 8 perps con 1h **y** funding real (BTC, ETH, SOL, XRP, SUI,
+ARB, JUP, HYPE). Los que no tienen fichero de funding no pueden operarse: en un
+perp el funding no es opcional.
+
+### EL DEFECTO (lo importante de esta entrada)
+
+El engine multiplicaba por `side` una cantidad que **ya era firmada**
+(`qty = side * notional / fill`), así que cada pierna corta se contabilizaba
+como un espejo-largo y su comisión se **acreditaba** en vez de cobrarse. Lo
+detectó el invariante contable del repo —`eq[-1] − INIT == sum(pnl)`— que el
+engine **no asertaba**: el residuo era de **1689.65 USDT**, exactamente cuatro
+comisiones por cada uno de los 507 trades cortos de la corrida original.
+
+El artefacto `a2fc128ff0f42f5d` y el informe `results/xsml_report.md` original
+publicaban un libro **mal contabilizado**: sus cifras quedan **RETIRADAS**.
+La corrección no fue una elección (un libro con la contabilidad rota no es un
+libro), y ahora:
+
+- el engine **aserta el invariante DENTRO de cada artefacto** y publica el
+  residuo (`pnl_identity_resid`, del orden de 1e-10 en las doce celdas);
+- una sola cantidad firmada en todo el ledger: `cash -= qty*fill + fee` al
+  entrar, `cash += qty*fill − fee` al salir, `equity = cash + qty*mark`,
+  `funding −= qty*mark*rate` (un largo PAGA un rate positivo, un corto lo
+  RECIBE);
+- `code/_xsml_engine_audit.py` — respuestas conocidas **en ambas direcciones**
+  (fill, PnL, stop-first, gap a través del stop, signo del funding,
+  invariante, giro completo vs.keep, stop/objetivo asimétricos): **32/32 PASS**.
+  WAVE_1 ya pagó esa factura ("tests solo del lado largo y un bug de comisión
+  en el corto durante toda la campaña"), así que aquí el lado corto está
+  cubierto en todas las reglas.
+
+### Resultado (12 artefactos: 5 libros × 2 lecturas del turnover)
+
+| libro | lectura | run_id | net % | PF | n | sin costes % | drag pp |
+|---|---|---|---:|---:|---:|---:|---:|
+| V1 base | full | `d5cefbaf8e3dcb85` | −20.75 | 0.8969 | 1116 | +1.16 | 21.91 |
+| V1 base | keep | `0e8adaec680f1812` | −16.40 | 0.9162 | 1011 | +3.77 | 20.17 |
+| V2 payoff-aligned | full | `06037549e0434944` | −33.60 | 0.8381 | 1116 | −11.69 | 21.91 |
+| V2 payoff-aligned | keep | `9c79769109b9bb82` | −30.16 | 0.8514 | 1014 | −10.12 | 20.05 |
+| V3 72 barras | full | `8ffa1a048fd876f5` | −5.62 | 0.9236 | 372 | +0.88 | 6.50 |
+| V3 72 barras | keep | `ca7c886dea55eba4` | −5.07 | 0.9307 | 371 | +1.42 | 6.49 |
+| V4 R:R asimétrico | full | `dd55ec2a475e10c4` | −30.66 | 0.8116 | 1116 | −10.25 | 20.41 |
+| V4 R:R asimétrico | keep | `8b8d501fffe01ec4` | −26.48 | 0.8337 | 1036 | −7.39 | 19.09 |
+| V5 solo largo | full | `93360e729828ae14` | −13.23 | 0.8733 | 558 | −2.49 | 10.74 |
+| V5 solo largo | keep | `b42c416f294a1fa1` | −15.18 | 0.8535 | 526 | −4.85 | 10.33 |
+| V5 solo corto | full | `8dd9aaac81213d5f` | −7.52 | 0.9213 | 558 | +3.65 | 11.17 |
+| V5 solo corto | keep | `a1f1082585188e08` | −8.05 | 0.9154 | 523 | +2.48 | 10.53 |
+
+**Veredicto: KILLED en las doce celdas.** El profit factor out-of-sample está
+por debajo de uno en todas, así que la conclusión es **robusta a la ambigüedad
+del spec** (no depende de qué lectura del turnover se tomase). El libro base
+corrige: PF 0.8969, 1116 trades, win rate 50.2 %, max DD −29.3 %, y el forecast
+correlaciona **0.1484** con la etiqueta en la ventana operada (medido dentro
+del artefacto).
+
+**Lo más informativo, y hay que decirlo de frente: el libro base SIN COSTES es
+marginalmente POSITIVO (+1.16 % con giro completo, +3.77 % con la lectura
+`keep`).** O sea: el edge por operación existe pero es más pequeño que el coste
+de tener la posición. Por eso este kill es un kill de **régimen de costes
+contra una señal débil-pero-real**, no un libro sin señal. Corregir el balance
+reward:risk no lo arregla (V4 tiene el PEOR profit factor de las doce: con objetivo
+3×ATR y stop 1×ATR la win rate cae al 27 %; el que pierde más en términos
+absolutos es V2, la etiqueta alineada con el payoff). Etiquetar con el payoff
+realizado tampoco lo arregla (V2 es peor que la base aun con correlación MAYOR:
+la etiqueta no era el cuello de botella). Menos giros es lo que más ayuda (V3 es
+el menos malo) pero no basta. Y V5 **falsifica H0 en las dos lecturas**: el
+lado largo pierde y el corto también, así que el libro neutral no estaba
+midiendo el lado equivocado — el rank no tiene contenido operable.
+
+**El libro base sin costes tampoco es un edge operativo**: con 22 bps de giro por
+rotación sobre un nocional completo cada día, el coste se come el edge entero.
+Cerrar la línea aquí: no hay quinta variante.
+
+**Doctrina cumplida:** veredicto por SUS PROPIOS artefactos (REGLA 1); un solo
+ajuste del modelo por variante, sin grid, pre-registrado; el control a coste
+cero DENTRO del artefacto; los informes con `guard --strict` OK. Informes:
+`results/xsml_report.md` y `results/xsml_variants_report.md`.
+
+## 2026-11-12 — El pack de 100 prompts re-screeneado con el harness del repo:
+## el "Top 5" no sobrevive a una criba sin contaminación
+
+**Que se pidio.** La tabla "Top 5 Estrategias — 100-Prompt Backtest Pack"
+(fuente `backtest100_results/results_all_100.csv`, 2026-11-10) con cinco
+prompts del pack y sus numeros. La opcion elegida fue **re-screenear los
+cien prompts con el harness del repo**, porque el pack **ordeno los cien por
+su propio OOS Profit Factor**: elegir por una metrica medida fuera de
+muestra convierte ese tramo en un tramo de *seleccion*, y la metrica deja de
+ser una estimacion fuera de muestra.
+
+**La tabla es fiel al CSV.** Las cinco filas coinciden exactamente con
+`Downloads/backtest100_results/results_all_100.csv`. Los logs y el CSV del
+pack **no llevan nombres**, solo ids y numeros: los nombres de la tabla
+estan puestos fuera del pack, y dos de ellos contradicen al port congelado de
+este repo del mismo pack (**#44 = "168-bar breakout"**, no "Donchian 55/20";
+**#60 = "Keltner con RSI"**, no "Supertrend filtro"). Los recuentos de trades
+y el buy&hold del IS coinciden entre el pack y el port del repo, asi que es
+el repo el que tiene el nombre bien.
+
+**Lo que se ha construido.** El codigo del pack esta **copiado verbatim** a
+`code/prompts100/` con manifiesto sha256 (`Downloads/` no es durable: la
+leccion del SAX v3). Sobre esa copia corre el motor del repo
+(`code/p100_screen_engine.py`): la senal es del pack **sin tocar**, la
+ejecucion es la del repo (next open, stop-first, hueco al open, 11 bps RT por
+pierna, **funding en los settlements reales**) y el invariante contable se
+**aserta dentro de cada artefacto**.
+
+**La cadena de prueba** (la del repo, en orden): paridad a nivel de trade
+contra el motor del pack (`code/_prompts100_parity.py`: 29 de 29 prompts con
+trades y metricas identicos bajo las convenciones del pack;
+`code/_p100_pairs_parity.py`: los seis pares con las arrays de senal Y los
+trades y el PnL identicos); respuestas conocidas del motor **en ambas
+direcciones** (`code/_prompts100_audit.py`: 27/27 PASS); invariante contable
+dentro del artefacto.
+
+**CUATRO DEFECTOS DEL PACK MEDIDOS AL PORTARLO** (los encontro la disciplina
+del repo, no la lectura de su documentacion):
+
+1. **Costes: la constante del pack es `FEE_PER_SIDE = 0.000055`, o sea 0.55
+   bps por lado**, no los 5.5 bps que su comentario y su documentacion
+   dicen (1 bp = 1e-4). Y la cobra **dos veces por lado** (una en el precio
+   del fill y otra como comision), de modo que sus libros corren a
+   **2.2 bps round trip** contra los 11 bps del repo: **cinco veces mas
+   baratos** que el estandar de la casa, y cien veces mas baratos que el ida
+   y vuelta real de un taker en Binance. Lo destapo la paridad. Las
+   constantes estan **medidas dentro del artefacto**
+   (`pack_cost_per_side_bps`, `pack_cost_roundtrip_bps`,
+   `pack_cost_constant`), no afirmadas aqui.
+2. **El profit factor del pack no es del todo ex-cost**: el PnL por trade
+   **omite la comision de entrada** (solo la carga en la caja), de modo que su
+   caja y su PnL publicado no describen el mismo dinero. Aqui el PnL lleva
+   las dos comisiones y el invariante cierra.
+3. **Los libros de par no son sustainable.** Su dimensionamiento (N =
+   riesgo/distancia en unidades del spread logaritmico, con tope de 20x del
+   equity *en unidades*) implica un **nocional bruto de 30651x el equity
+   (mediana) y 2215984x (maximo)** en el prompt 82, y 236795x en el 89. Con
+   esa palanca el funding —que el pack no cobra— pasa a ser el motor del
+   resultado: unos pocos puntos por settlement pesan mas que el spread. El
+   coste que el regimen del repo cobraria sobre ese nocional real son
+   **2345456 USDT por trade** en una cuenta de 10.000. La puerta de los
+   pares es por tanto la **certificabilidad** (el tope de 20x del propio
+   pack), no el profit factor: el unico superviviente con buenas metricas
+   de OOS (el 85, PF 3.0997) tiene un nocional implicito de 52.4x el
+   equity, por encima del tope del propio pack.
+
+4. **El pack descarta el trade cuyo hueco de entrada ya atraviesa el stop**
+   ("setup invalido"). Aqui no se descarta ninguna operacion: un hueco malo
+   es un relleno malo, no un trade que no existio.
+
+**El re-screen.** Tramos: DEV (todo hasta 2025-10-01) para la **seleccion**,
+un mes de purga sin operar, y OOS (desde 2025-11-01) para el veredicto. La
+criba y el veredicto usan la bateria estandar del repo, y el control de
+multiplicidad declarado en el spec se aplica: se publica la **distribucion
+completa de los PF de OOS de los prompts medibles** (el null empirico de la
+propia criba) y un superviviente tiene que destacar de ahi.
+
+**EL VEREDICTO DEL RE-SCREEN.** De los 75 prompts con muestra
+suficiente, **5** limpian la criba sobre DEV (26, 28, 44, 68, 85) y **ninguno**
+supera el veredicto completo sobre OOS. El unico con metricas de OOS
+aceptables es el **85** (HYPE-SOL Kalman: PF 3.0997, 383 trades, boot CI
+0.1152 sobre cero, concentracion 72.34 % %), y **no es certificable**:
+su nocional implicito es 52.4x el equity, por encima del tope de 20x del
+propio pack, y a esa palanca el resultado es una cosecha de funding, no una
+senal. Los otros cuatro caen por PF, por muestra, por significancia o por
+concentracion. **Control de multiplicidad**: el percentil 95 de la
+distribucion de PF de OOS de los prompts medibles es 2.0449, y el maximo es
+6.9875 (el prompt 89, que es un par y no es certificable): el unico
+superviviente que supera ese percentil es justamente el que no se puede
+sostener.
+
+El tramo OOS (desde 2025-11-01) es un mercado EN CAIDA (el buy & hold del
+tramo va de -29 % a -50 %), asi que los supervivientes tienen un exceso
+grande frente al mercado; eso no los salva: los gates son absolutos.
+
+Ademas hay tres prompts sin datos (JUP 5m: el repo no tiene ese fichero) y
+la familia de prompts de funding del pack, que es un tercer tipo de libro y
+**no se ha medido**: se declara como no medido, nunca se estima.
+`results/prompts100_rescreen_report.md` (guard `--strict`) y en el informe
+de la campana. La familia de prompts 91-100 (los libros de funding del pack)
+es **un tercer tipo de libro** y **no se ha medido**: se declara como no
+medido, nunca se estima.

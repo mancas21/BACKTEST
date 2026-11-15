@@ -1,0 +1,47 @@
+{
+ "_comment": "The 100-prompt pack's source, copied VERBATIM into the repo because Downloads/ is not durable. Do NOT edit these files: the repo's runner imports them and the parity test proves the signal port against them.",
+ "origin": "~/Downloads (the author's machine, pack 'backtest100')",
+ "copied_utc": "2026-11-12",
+ "files": {
+  "backtest100_strategies.py": {
+   "sha256": "406eebec40785484e7e73497f1be6c11afe4d38fc65cf727037bc0cb8a962939",
+   "bytes": 67455,
+   "sha256_origin": "406eebec40785484e7e73497f1be6c11afe4d38fc65cf727037bc0cb8a962939"
+  },
+  "backtest100_engine.py": {
+   "sha256": "04d34afcf3903e2ee06d4f4b1b457e64deb80a267ed1e570439cf772a41366e9",
+   "bytes": 22482,
+   "sha256_origin": "04d34afcf3903e2ee06d4f4b1b457e64deb80a267ed1e570439cf772a41366e9"
+  },
+  "backtest100_pairs_engine.py": {
+   "sha256": "7dd549a70c70a6be903f02efad9ee6e90aff6891cc831ff8e1e3c2bebe8b21dc",
+   "bytes": 25197,
+   "sha256_origin": "7dd549a70c70a6be903f02efad9ee6e90aff6891cc831ff8e1e3c2bebe8b21dc"
+  },
+  "backtest100_funding_strategies.py": {
+   "sha256": "a2eedc2e3a3fda09049f0a4b10c6197221ad2480b30d71bc6a10a49db9cd4490",
+   "bytes": 13045,
+   "sha256_origin": "a2eedc2e3a3fda09049f0a4b10c6197221ad2480b30d71bc6a10a49db9cd4490"
+  },
+  "backtest100_runner.py": {
+   "sha256": "deaee89f7290a5b7a69f81cc3c7429bc04bc52270c0dbcf7a992020e10379e9f",
+   "bytes": 6511,
+   "sha256_origin": "deaee89f7290a5b7a69f81cc3c7429bc04bc52270c0dbcf7a992020e10379e9f"
+  },
+  "backtest100_runner_batch1.py": {
+   "sha256": "c5bb42e029e2698551eecd7a20abbf9110decc6bda9f7ef6e33c479ec21e734f",
+   "bytes": 5454,
+   "sha256_origin": "c5bb42e029e2698551eecd7a20abbf9110decc6bda9f7ef6e33c479ec21e734f"
+  },
+  "backtest100_runner_batch2.py": {
+   "sha256": "34be1e2bddb77acfa16c58e1fa7399625e6a65938bb300b1224ed7552f7531b0",
+   "bytes": 4221,
+   "sha256_origin": "34be1e2bddb77acfa16c58e1fa7399625e6a65938bb300b1224ed7552f7531b0"
+  },
+  "backtest100_runner_extra.py": {
+   "sha256": "f32bf4ed99ed04d007014746f81eb6b1704401eea53a0e793f06ee5b64b80451",
+   "bytes": 2000,
+   "sha256_origin": "f32bf4ed99ed04d007014746f81eb6b1704401eea53a0e793f06ee5b64b80451"
+  }
+ }
+}

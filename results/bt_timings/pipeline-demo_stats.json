@@ -1,0 +1,42 @@
+{
+  "5f1dcdefe4d054e3": {
+    "autocorrelation_ljung_box": {},
+    "block_bootstrap": {},
+    "calmar_ratio": null,
+    "concentration": null,
+    "headline_strat": null,
+    "liquidation_check": {},
+    "max_dd_pct": null,
+    "n_trades": 432,
+    "profit_factor": null,
+    "return_pct": null,
+    "run_id": "5f1dcdefe4d054e3",
+    "sharpe_annualized": null,
+    "sortino_annualized": null,
+    "strategy": "top10",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "var_cvar": null,
+    "win_rate": null
+  },
+  "b2527f9b2b8d7220": {
+    "autocorrelation_ljung_box": {},
+    "block_bootstrap": {},
+    "calmar_ratio": null,
+    "concentration": null,
+    "headline_strat": null,
+    "liquidation_check": {},
+    "max_dd_pct": null,
+    "n_trades": 161,
+    "profit_factor": null,
+    "return_pct": null,
+    "run_id": "b2527f9b2b8d7220",
+    "sharpe_annualized": null,
+    "sortino_annualized": null,
+    "strategy": "top10",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "var_cvar": null,
+    "win_rate": null
+  }
+}

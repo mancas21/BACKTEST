@@ -13,16 +13,16 @@ REPO = Path(__file__).resolve().parent.parent
 RUNS = REPO / "results" / "runs"
 
 IDS = {
-    60: "de7605f0ed27044a",
-    44: "62468f4aaf6ede7a",
-    73: "04c2ae793f3fcb97",
-    71: "fdc6a1783b45c877",
-    28: "e80247ec32b0579b",
-    56: "0a50a498888f4e76",
-    95: "2238dab3387fa706",
-    26: "a861c6d5259fe18f",
-    34: "805f2d1edbbd61fc",
-    59: "5f69e40e4c3f5674",
+    60: "350602de4a81aa64",
+    44: "d544d85516c7158a",
+    73: "34e3deaed3039572",
+    71: "678d9d8154270030",
+    28: "ccba31d818c05bec",
+    56: "40eace298df351e9",
+    95: "d53c042fc53bc5e5",
+    26: "6a221c1519023d0f",
+    34: "ebb28d8d97d6168d",
+    59: "a1f3a041c28bbe0e",
 }
 ORDER = [60, 44, 73, 71, 28, 56, 95, 26, 34, 59]
 

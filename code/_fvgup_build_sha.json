@@ -1,0 +1,5 @@
+{
+ "source_sha256": "8b46d5bdf74e6fedba74b1cdaadc0f1b7f530b0435ce1b755d5f926431b93f26",
+ "pinned_utc": "2026-11-13",
+ "patch": "FineData step: derive the 1m lookup window from the tape's own spacing (pandas-3.0 unit fix; the original mixes us datetime ints with a ns Timedelta int -> 1000x window, fine silently dead)"
+}

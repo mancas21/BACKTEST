@@ -1,0 +1,5835 @@
+[
+ {
+  "rank": 1,
+  "label": "botstrat",
+  "adapter": "botstrat",
+  "symbol": "SPXUSDT",
+  "timeframe": "1h",
+  "run_id": "f2aa1050b118e54f",
+  "strategy_key": "botstrat",
+  "engine_files": [
+   "botstrat_backtest.py"
+  ],
+  "engine_sha256": "33d794b5900546a935c052cb7d2c6760576a82a6d57e1ccd9cc66667f6b0a742",
+  "engine_version": "botstrat",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy botstrat --tf 1h --symbol SPXUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy botstrat --tf 1h --symbol SPXUSDT",
+  "inputs": [
+   {
+    "bars": 15726,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SPXUSDT_1h.csv",
+    "sha256": "6ec31317376292a3ed07e8d95f23888c590a8e842772f7fd052f4631f3617386",
+    "start": "2024-12-10 12:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "botstrat_backtest.py",
+    "token": "run",
+    "line": 35
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 38.71984289728423,
+   "profit_factor": 3.079308656540484,
+   "n_trades": 31.0
+  },
+  "rule_es": "BOT-Strat: caja de pivotes cuarenta y nueve barras, rotura al cierre, entrada al siguiente open; stops y salidas parciales en múltiplos de R."
+ },
+ {
+  "rank": 2,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "5cdb10b47424023f",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol HYPEUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol HYPEUSDT",
+  "inputs": [
+   {
+    "bars": 11624,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h.csv",
+    "sha256": "ff44639f5f120b2481d4e0341ecf27a2bbe340017a9929ccbbc4c42aee6b55ee",
+    "start": "2025-05-30 10:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   },
+   {
+    "bars": 797,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h_tail_20261029.csv",
+    "sha256": "de4e8815401ee17a2cc10ef460800abf55b4ba9d80edcef7ceb8bf0767d46006",
+    "start": "2026-09-26 18:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "af5b19e083d7f7f9d7e70d33f683761afd0ccfe3d321497d8d3c5054eb68fadf",
+    "start": "2025-05-30 12:00:00.006000+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "off"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 32.86666528923965,
+   "profit_factor": 2.609154738247906,
+   "n_trades": 68.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 3,
+  "label": "168-bar breakout",
+  "adapter": "top10",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "run_id": "b2527f9b2b8d7220",
+  "strategy_key": "44",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 44
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol BTCUSDT --params '{\"id\": 44}' --cut-ts 2026-11-06T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol BTCUSDT --params '{\"id\":44}'",
+  "inputs": [
+   {
+    "bars": 62687,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\BTCUSDT_1h.csv",
+    "sha256": "4637f6fee8629cc2a01be427420af80569dbbdde2ffb405b559fedb29c9d4ee5",
+    "start": "2019-09-08 17:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s44",
+    "line": 176,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 367.9696721194178,
+   "profit_factor": 2.5446141703286527,
+   "n_trades": 161.0
+  },
+  "rule_es": "cierre sobre el máximo de ciento sesenta y ocho barras; salida bajo el mínimo de setenta y dos; stop a dos y medio ATR."
+ },
+ {
+  "rank": 4,
+  "label": "QS-040 Price displacement with continuation",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "2f21db59610c9249",
+  "strategy_key": "QS-040",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-040",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-040\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-040\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-040",
+    "line": 576
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 27.33,
+   "profit_factor": 2.3892970670758076,
+   "n_trades": 50.0
+  },
+  "rule_es": "desplazamiento con cuerpo dominante y hold del midpoint durante una a tres barras, con rotura de la consolidacion; trailing de dos ATR."
+ },
+ {
+  "rank": 5,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "eqpack",
+  "symbol": "QQQ",
+  "timeframe": "1d",
+  "run_id": "68c93ae390084b18",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_engine.py"
+  ],
+  "engine_sha256": "055b584de9aa23c2695934cc50ac0b612f9b374b0c1fa19600072a4fef4e1fde",
+  "engine_version": "cbpack-1-eq",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "same_engine_command_template": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "inputs": [
+   {
+    "bars": 2722,
+    "end": "2026-10-29 04:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 4.0,
+    "missing_bars": 1230,
+    "path": "data\\alpaca_1d\\QQQ_1d.csv",
+    "sha256": "844adcc1e80e09739bb04c34f31abd3995d37eeb67790ddec6c0190fb514d665",
+    "start": "2016-01-04 05:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 0.1,
+   "provenance.costs": {
+    "fee_bps": 0.1,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_engine.py",
+    "token": "s02_dfb",
+    "line": 287,
+    "spec_line": 422
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 25.238609603001795,
+   "profit_factor": 2.1923578197812312,
+   "n_trades": 39.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 6,
+  "label": "S10 Vol-Targeted Time-Series Momentum",
+  "adapter": "cbpackf",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "db89577d5f9d9d34",
+  "strategy_key": "S10",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\XRPUSDT_1h.csv",
+    "sha256": "c2ac4c1e703105c37325eccf9f04b5af4c111b4ea0defe047e1bd6e79ba1d404",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7466,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\XRPUSDT_funding.json",
+    "sha256": "3c1f4736dc9fa3ff2b515dd788bc6f77c5b9de25e3f6c640bc81b2db7a0fdcc8",
+    "start": "2020-01-06 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s10_tsm",
+    "line": 555,
+    "spec_line": 612
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 174.39082069540098,
+   "profit_factor": 1.7551049970235086,
+   "n_trades": 173.0
+  },
+  "rule_es": "momentum time-series con retorno ajustado por volatilidad y umbral de entrada/salida; pocas operaciones y stop ATR ancho."
+ },
+ {
+  "rank": 7,
+  "label": "QS-037 Compression inside a prior range",
+  "adapter": "qsd",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "21f1495a22c44230",
+  "strategy_key": "QS-037",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-037",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-037\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-037\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-037",
+    "line": 573
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 46.13,
+   "profit_factor": 1.728232984173763,
+   "n_trades": 122.0
+  },
+  "rule_es": "compresion de ocho barras dentro del tercio alto/bajo de un rango previo de sesenta y rotura de la consolidacion; objetivo al extremo del rango previo."
+ },
+ {
+  "rank": 8,
+  "label": "QS-023 Realized-volatility regime breakout",
+  "adapter": "qsc",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "f3a22e459849e2f4",
+  "strategy_key": "QS-023",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-023",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-023\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-023\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-023",
+    "line": 372
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 25.89,
+   "profit_factor": 1.6875247505665454,
+   "n_trades": 50.0
+  },
+  "rule_es": "regimen de volatilidad realizada que cruza hacia arriba tras estar bajo; ruptura Donchian de treinta barras; stop a dos ATR."
+ },
+ {
+  "rank": 9,
+  "label": "smqe11",
+  "adapter": "smqe11",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "628003fe77ab72f8",
+  "strategy_key": "smqe11",
+  "engine_files": [
+   "smqe11_engine.py",
+   "smqe_engine.py",
+   "smqe_v1_1_strategy.pine"
+  ],
+  "engine_sha256": "09d6012065750b101cefb156f5c47b30cea24d9d1f0a3cac9e9e745c7978e618",
+  "engine_version": "smqe11-1",
+  "params": {
+   "cost_mode": "pine"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy smqe11 --tf 1h --symbol SUIUSDT --params '{\"cost_mode\": \"pine\"}' --cut-ts 2026-11-06T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy smqe11 --tf 1h --symbol SUIUSDT --params '{\"cost_mode\":\"pine\"}'",
+  "inputs": [
+   {
+    "bars": 30696,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SUIUSDT_1h.csv",
+    "sha256": "2d3880abaca9a763bac9a3eb234aac3b9c7e271904b7288a24368a0e19adb605",
+    "start": "2023-05-03 16:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "a2d0d6252b6ac053a911f50302d88bae911baa9c640495318f9c30fc3c9e8099",
+    "start": "2023-05-03 16:00:00.011000+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "cost_mode": "pine",
+   "provenance.funding": "off (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "smqe11_engine.py",
+    "token": "run_symbol",
+    "line": 374
+   },
+   {
+    "file": "smqe_engine.py",
+    "token": "run_symbol",
+    "line": 709
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 14.649769553903425,
+   "profit_factor": 1.6753201063114058,
+   "n_trades": 53.0
+  },
+  "rule_es": "SMQE v1.1: núcleo CVRMD con divergencia alcista/bajista, cercanía a banda VWAP, pendiente CVD y filtro RSI; entradas y flips con cooldown, TP parciales y stop congelado."
+ },
+ {
+  "rank": 10,
+  "label": "Keltner con RSI",
+  "adapter": "top10",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "41826481d4dfbdeb",
+  "strategy_key": "60",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 60
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol HYPEUSDT --params '{\"id\": 60}' --cut-ts 2026-10-29T22:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol HYPEUSDT --params '{\"id\":60}'",
+  "inputs": [
+   {
+    "bars": 11624,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h.csv",
+    "sha256": "ff44639f5f120b2481d4e0341ecf27a2bbe340017a9929ccbbc4c42aee6b55ee",
+    "start": "2025-05-30 10:00:00+00:00",
+    "cut_ts": "2026-10-29T22:00:01+00:00"
+   },
+   {
+    "bars": 797,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h_tail_20261029.csv",
+    "sha256": "de4e8815401ee17a2cc10ef460800abf55b4ba9d80edcef7ceb8bf0767d46006",
+    "start": "2026-09-26 18:00:00+00:00",
+    "cut_ts": "2026-10-29T22:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s60",
+    "line": 199,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 40.311141830518025,
+   "profit_factor": 1.6024897252599695,
+   "n_trades": 128.0
+  },
+  "rule_es": "cierre sobre Keltner veinte con banda dos y RSI catorce sobre sesenta; salida bajo EMA veinte; stop a dos ATR."
+ },
+ {
+  "rank": 11,
+  "label": "QS-040 Price displacement with continuation",
+  "adapter": "qsd",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "48bbf8b6e6ada97f",
+  "strategy_key": "QS-040",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-040",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-040\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-040\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-040",
+    "line": 576
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 14.79,
+   "profit_factor": 1.5968829553726953,
+   "n_trades": 57.0
+  },
+  "rule_es": "desplazamiento con cuerpo dominante y hold del midpoint durante una a tres barras, con rotura de la consolidacion; trailing de dos ATR."
+ },
+ {
+  "rank": 12,
+  "label": "S10 Vol-Targeted Time-Series Momentum",
+  "adapter": "cbpackf",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "ded7cca009e13445",
+  "strategy_key": "S10",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s10_tsm",
+    "line": 555,
+    "spec_line": 612
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 70.79388060833382,
+   "profit_factor": 1.5897805070289364,
+   "n_trades": 176.0
+  },
+  "rule_es": "momentum time-series con retorno ajustado por volatilidad y umbral de entrada/salida; pocas operaciones y stop ATR ancho."
+ },
+ {
+  "rank": 13,
+  "label": "17_atr_vol_breakout",
+  "adapter": "pack20",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "3aaf8d34f49f1187",
+  "strategy_key": "17_atr_vol_breakout",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 17
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol ETHUSDT --params '{\"id\": 17}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol ETHUSDT --params '{\"id\":17}'",
+  "inputs": [
+   {
+    "bars": 60777,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "a6cc18ad467225970a6166f88bcaac59387872544b6fabcc3ad9672f274d1ece",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "17_atr_vol_breakout",
+    "line": 776,
+    "function": "atr_vol_breakout",
+    "function_line": 568
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 882.1364248028462,
+   "profit_factor": 1.5855491361907,
+   "n_trades": 388.0
+  },
+  "rule_es": "ruptura de noventa y seis barras con ATR expandiendo y nivel de ATR alto; trailing de dos y media ATR y salida por EMA veintiuno."
+ },
+ {
+  "rank": 14,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "cbpackf",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "db89577d5f9d9d34",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\XRPUSDT_1h.csv",
+    "sha256": "c2ac4c1e703105c37325eccf9f04b5af4c111b4ea0defe047e1bd6e79ba1d404",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7466,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\XRPUSDT_funding.json",
+    "sha256": "3c1f4736dc9fa3ff2b515dd788bc6f77c5b9de25e3f6c640bc81b2db7a0fdcc8",
+    "start": "2020-01-06 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s02_dfb",
+    "line": 445,
+    "spec_line": 580
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 180.87129158567356,
+   "profit_factor": 1.5835803925482832,
+   "n_trades": 227.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 15,
+  "label": "QS-022 Bollinger Band squeeze breakout",
+  "adapter": "qsc",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "5c2128e5190aa4b7",
+  "strategy_key": "QS-022",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-022",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-022\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol HYPEUSDT --params '{\"strat\":\"QS-022\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-022",
+    "line": 371
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 62.55,
+   "profit_factor": 1.568510243936649,
+   "n_trades": 121.0
+  },
+  "rule_es": "squeeze Bollinger de veinte barras y dos desviaciones, banda en el decil bajo de doscientas; ruptura del squeeze; stop a dos ATR."
+ },
+ {
+  "rank": 16,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "11de44fd24c5ecac",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol SUIUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol SUIUSDT",
+  "inputs": [
+   {
+    "bars": 30696,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SUIUSDT_1h.csv",
+    "sha256": "2d3880abaca9a763bac9a3eb234aac3b9c7e271904b7288a24368a0e19adb605",
+    "start": "2023-05-03 16:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "a2d0d6252b6ac053a911f50302d88bae911baa9c640495318f9c30fc3c9e8099",
+    "start": "2023-05-03 16:00:00.011000+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 29.817778477714096,
+   "profit_factor": 1.4966064247625424,
+   "n_trades": 148.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 17,
+  "label": "Sunday-to-Monday reversion",
+  "adapter": "top10",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "92416cc5f41137af",
+  "strategy_key": "73",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 73
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol ETHUSDT --params '{\"id\": 73}' --cut-ts 2026-10-27T20:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol ETHUSDT --params '{\"id\":73}'",
+  "inputs": [
+   {
+    "bars": 60638,
+    "end": "2026-10-27 20:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "c367bdaa90758c39ee3d2c628a209c3b35a1a33160a99753c74e325bb6619f84",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-10-27T20:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s73",
+    "line": 216,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 37.53138012575272,
+   "profit_factor": 1.4533678451246677,
+   "n_trades": 128.0
+  },
+  "rule_es": "reversión domingo-lunes: domingo por la noche tras caída de más de un ATR desde la apertura del domingo y cierre el lunes por la noche/martes; stop a dos ATR."
+ },
+ {
+  "rank": 18,
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "adapter": "qsc",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "e174928decd9b917",
+  "strategy_key": "QS-030",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-030",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-030\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-030\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-030",
+    "line": 379
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 43.44,
+   "profit_factor": 1.4482194577154452,
+   "n_trades": 118.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras solo si el regimen de mayor temporalidad sigue el mismo lado; stop a dos ATR."
+ },
+ {
+  "rank": 19,
+  "label": "S01 Taker-Flow Drift Bands",
+  "adapter": "eqpack",
+  "symbol": "QQQ",
+  "timeframe": "1d",
+  "run_id": "68c93ae390084b18",
+  "strategy_key": "S01",
+  "engine_files": [
+   "cbpack_engine.py"
+  ],
+  "engine_sha256": "055b584de9aa23c2695934cc50ac0b612f9b374b0c1fa19600072a4fef4e1fde",
+  "engine_version": "cbpack-1-eq",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "same_engine_command_template": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "inputs": [
+   {
+    "bars": 2722,
+    "end": "2026-10-29 04:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 4.0,
+    "missing_bars": 1230,
+    "path": "data\\alpaca_1d\\QQQ_1d.csv",
+    "sha256": "844adcc1e80e09739bb04c34f31abd3995d37eeb67790ddec6c0190fb514d665",
+    "start": "2016-01-04 05:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 0.1,
+   "provenance.costs": {
+    "fee_bps": 0.1,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_engine.py",
+    "token": "s01_tfd",
+    "line": 273,
+    "spec_line": 418
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 24.179042974028732,
+   "profit_factor": 1.4274139873559957,
+   "n_trades": 81.0
+  },
+  "rule_es": "bandas de deriva de flujo taker con alineación HTF y guardia anti-inversión de banda; entradas al cruzar bandas y salidas por inversión."
+ },
+ {
+  "rank": 20,
+  "label": "smqe11",
+  "adapter": "smqe11",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "2bdc4afdf0d51f93",
+  "strategy_key": "smqe11",
+  "engine_files": [
+   "smqe11_engine.py",
+   "smqe_engine.py",
+   "smqe_v1_1_strategy.pine"
+  ],
+  "engine_sha256": "09d6012065750b101cefb156f5c47b30cea24d9d1f0a3cac9e9e745c7978e618",
+  "engine_version": "smqe11-1",
+  "params": {
+   "cost_mode": "pine"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy smqe11 --tf 1h --symbol SOLUSDT --params '{\"cost_mode\": \"pine\"}' --cut-ts 2026-11-06T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy smqe11 --tf 1h --symbol SOLUSDT --params '{\"cost_mode\":\"pine\"}'",
+  "inputs": [
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "de67eaedce00bdd01d701e0671fedfa10191c2e434fb31de1bd763f70a261554",
+    "start": "2020-09-13 16:00:00.004000+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "cost_mode": "pine",
+   "provenance.funding": "off (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "smqe11_engine.py",
+    "token": "run_symbol",
+    "line": 374
+   },
+   {
+    "file": "smqe_engine.py",
+    "token": "run_symbol",
+    "line": 709
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 14.987887132811428,
+   "profit_factor": 1.4236665444233354,
+   "n_trades": 84.0
+  },
+  "rule_es": "SMQE v1.1: núcleo CVRMD con divergencia alcista/bajista, cercanía a banda VWAP, pendiente CVD y filtro RSI; entradas y flips con cooldown, TP parciales y stop congelado."
+ },
+ {
+  "rank": 21,
+  "label": "S05 HTF Trend Pullback (RSI-2)",
+  "adapter": "eqpack",
+  "symbol": "QQQ",
+  "timeframe": "1d",
+  "run_id": "68c93ae390084b18",
+  "strategy_key": "S05",
+  "engine_files": [
+   "cbpack_engine.py"
+  ],
+  "engine_sha256": "055b584de9aa23c2695934cc50ac0b612f9b374b0c1fa19600072a4fef4e1fde",
+  "engine_version": "cbpack-1-eq",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "same_engine_command_template": "python code/vrun.py run --strategy eqpack --tf 1d --symbol QQQ",
+  "inputs": [
+   {
+    "bars": 2722,
+    "end": "2026-10-29 04:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 4.0,
+    "missing_bars": 1230,
+    "path": "data\\alpaca_1d\\QQQ_1d.csv",
+    "sha256": "844adcc1e80e09739bb04c34f31abd3995d37eeb67790ddec6c0190fb514d665",
+    "start": "2016-01-04 05:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 0.1,
+   "provenance.costs": {
+    "fee_bps": 0.1,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_engine.py",
+    "token": "s05_tpb",
+    "line": 327,
+    "spec_line": 434
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 11.431799139144605,
+   "profit_factor": 1.4112997505060667,
+   "n_trades": 99.0
+  },
+  "rule_es": "pullback de tendencia HTF con RSI dos extremo; entrada al snap-back y salida por RSI, ATR o tiempo."
+ },
+ {
+  "rank": 22,
+  "label": "QS-021 ATR compression followed by expansion",
+  "adapter": "qsc",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "run_id": "25a0d385da7c5026",
+  "strategy_key": "QS-021",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-021",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol BTCUSDT --params '{\"strat\": \"QS-021\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol BTCUSDT --params '{\"strat\":\"QS-021\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\BTCUSDT_1h.csv",
+    "sha256": "14c0c7247264a12131b093d89ea452b1dd15a121e3d56d8124ee6ceb5e4a85c7",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7815,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\BTCUSDT_funding.json",
+    "sha256": "7a0cdfef3e6926265753b7478f5cfccd6e44f03ca3553a0938b7c0b9f0613f87",
+    "start": "2019-09-10 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-021",
+    "line": 370
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 22.64,
+   "profit_factor": 1.4018914133680995,
+   "n_trades": 85.0
+  },
+  "rule_es": "compresion ATR relativa frente a su ATR lento; vela de expansion con cierre en el tercio superior/inferior; stop a dos ATR."
+ },
+ {
+  "rank": 23,
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "829abb112d6b3564",
+  "strategy_key": "QS-025",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-025",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-025\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-025\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-025",
+    "line": 374
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 53.3,
+   "profit_factor": 1.399277576685764,
+   "n_trades": 240.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras con volumen mayor que el doble de su media de veinte; stop a dos ATR."
+ },
+ {
+  "rank": 24,
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "adapter": "qsd",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "53c79260fac01e20",
+  "strategy_key": "QS-033",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-033",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-033\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-033\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-033",
+    "line": 569
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 32.07,
+   "profit_factor": 1.3987624930467293,
+   "n_trades": 180.0
+  },
+  "rule_es": "cambio de caracter confirmado: ruptura del ultimo máximo/mínimo con volumen y ADX acotado, retest del nivel roto y continuacion; stop desde el swing previo."
+ },
+ {
+  "rank": 25,
+  "label": "QS-021 ATR compression followed by expansion",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "7a7bd74f7f402e07",
+  "strategy_key": "QS-021",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-021",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-021\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-021\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-021",
+    "line": 370
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 16.66,
+   "profit_factor": 1.392022688423342,
+   "n_trades": 51.0
+  },
+  "rule_es": "compresion ATR relativa frente a su ATR lento; vela de expansion con cierre en el tercio superior/inferior; stop a dos ATR."
+ },
+ {
+  "rank": 26,
+  "label": "QS-029 Breakout with retest confirmation",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "e2cf2e0aae688a2c",
+  "strategy_key": "QS-029",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-029",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-029\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-029\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-029",
+    "line": 378
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 78.05,
+   "profit_factor": 1.3892033728641502,
+   "n_trades": 351.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras seguida de retest del nivel roto dentro de diez barras y continuacion del lado roto; stop cerca del nivel tensionado."
+ },
+ {
+  "rank": 27,
+  "label": "Donchian breakout",
+  "adapter": "top10",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "run_id": "758e39eb9d13681a",
+  "strategy_key": "28",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 28
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol BTCUSDT --params '{\"id\": 28}' --cut-ts 2026-10-27T20:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol BTCUSDT --params '{\"id\":28}'",
+  "inputs": [
+   {
+    "bars": 62548,
+    "end": "2026-10-27 20:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\BTCUSDT_1h.csv",
+    "sha256": "341ce4586a77f2d5f48eaac3ca5e3d29716d526bbc104e60512ccd988f6a7234",
+    "start": "2019-09-08 17:00:00+00:00",
+    "cut_ts": "2026-10-27T20:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s28",
+    "line": 153,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 113.71343162793863,
+   "profit_factor": 1.3705566964502955,
+   "n_trades": 430.0
+  },
+  "rule_es": "cierre sobre el máximo Donchian de cincuenta y cinco; salida bajo el mínimo Donchian de veinte; stop a tres ATR."
+ },
+ {
+  "rank": 28,
+  "label": "EMA cross",
+  "adapter": "top10",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "4605b2b4d2607fc0",
+  "strategy_key": "26",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 26
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol ETHUSDT --params '{\"id\": 26}' --cut-ts 2026-10-27T20:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol ETHUSDT --params '{\"id\":26}'",
+  "inputs": [
+   {
+    "bars": 60638,
+    "end": "2026-10-27 20:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "c367bdaa90758c39ee3d2c628a209c3b35a1a33160a99753c74e325bb6619f84",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-10-27T20:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s26",
+    "line": 145,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 444.7006110653086,
+   "profit_factor": 1.3580583782578426,
+   "n_trades": 1134.0
+  },
+  "rule_es": "cruce EMA veinte / EMA cincuenta; cierre contra el cruce contrario; stop a tres ATR."
+ },
+ {
+  "rank": 29,
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "00915ec321531a5d",
+  "strategy_key": "QS-030",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-030",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-030\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-030\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-030",
+    "line": 379
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 23.7,
+   "profit_factor": 1.347202618093875,
+   "n_trades": 138.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras solo si el regimen de mayor temporalidad sigue el mismo lado; stop a dos ATR."
+ },
+ {
+  "rank": 30,
+  "label": "1 01_liq_fvg",
+  "adapter": "pack20",
+  "symbol": "SOLUSDT",
+  "timeframe": "15m",
+  "run_id": "280e88028bd44e31",
+  "strategy_key": "01_liq_fvg",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 1
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 15m --symbol SOLUSDT --params '{\"id\": 1}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 15m --symbol SOLUSDT --params '{\"id\":1}'",
+  "inputs": [
+   {
+    "bars": 215588,
+    "end": "2026-11-07 23:45:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m\\SOLUSDT_15m.csv",
+    "sha256": "d21081191c962c4f6f9b66d1a4332800650e3024f5fbe7ea21cd3da2c9dddecf",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "01_liq_fvg",
+    "line": 768,
+    "function": "liq_fvg",
+    "function_line": 112
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 29.66646643255362,
+   "profit_factor": 1.3319135197008305,
+   "n_trades": 61.0
+  },
+  "rule_es": "barrido de liquidez en nivel HTF más FVG de tres barras; entrada al tocar el FVG y cerrar de vuelta por su midpoint; stop tras el extremo barrido."
+ },
+ {
+  "rank": 31,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "DOGEUSDT",
+  "timeframe": "1h",
+  "run_id": "1b36fe43e7cee680",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol DOGEUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol DOGEUSDT",
+  "inputs": [
+   {
+    "bars": 55351,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\DOGEUSDT_1h.csv",
+    "sha256": "21a2078353656fe5ed97e80b1bba119b693922d4140adea2b335641e5fab6972",
+    "start": "2020-07-10 09:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "off"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 31.157116535255792,
+   "profit_factor": 1.3178882562786438,
+   "n_trades": 241.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 32,
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "adapter": "qsd",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "d762dd6c2495298f",
+  "strategy_key": "QS-039",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-039",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-039\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-039\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-039",
+    "line": 575
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 29.03,
+   "profit_factor": 1.306630205126662,
+   "n_trades": 210.0
+  },
+  "rule_es": "alineacion estructural multi-temporal: ruptura LTF del ultimo pivote solo si la estructura HTF apunta al mismo lado; stop desde el pivote contrario."
+ },
+ {
+  "rank": 33,
+  "label": "S46 weekend-gap fade",
+  "adapter": "pack50",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "run_id": "1b13cbd18f8b00eb",
+  "strategy_key": "S46",
+  "engine_files": [
+   "pack50_engine.py",
+   "pack50_core.py",
+   "pack50_strats.py"
+  ],
+  "engine_sha256": "95f293aa62970f228a8dc5a6a88778bf56a6d467d8c202b1122c30bfa41f10e6",
+  "engine_version": "pack50-1",
+  "params": {
+   "strat": 46
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack50 --tf 1h --symbol BTCUSDT --params '{\"strat\": 46}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack50 --tf 1h --symbol BTCUSDT --params '{\"strat\":46}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\BTCUSDT_1h.csv",
+    "sha256": "14c0c7247264a12131b093d89ea452b1dd15a121e3d56d8124ee6ceb5e4a85c7",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7815,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\BTCUSDT_funding.json",
+    "sha256": "7a0cdfef3e6926265753b7478f5cfccd6e44f03ca3553a0938b7c0b9f0613f87",
+    "start": "2019-09-10 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 4.0,
+   "funding_charged": true
+  },
+  "source_refs": [
+   {
+    "file": "pack50_strats.py",
+    "token": "b46",
+    "line": 671,
+    "registry_line": 811
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 26.684686686623316,
+   "profit_factor": 1.3028117853662207,
+   "n_trades": 60.0
+  },
+  "rule_es": "gap de fin de semana superior o inferior al uno por ciento; fade hacia el cierre del viernes, stop a una y media veces el gap."
+ },
+ {
+  "rank": 34,
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "adapter": "qsd",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "61a839cefd3fdfab",
+  "strategy_key": "QS-033",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-033",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-033\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol HYPEUSDT --params '{\"strat\":\"QS-033\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-033",
+    "line": 569
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 11.86,
+   "profit_factor": 1.2977233896622982,
+   "n_trades": 117.0
+  },
+  "rule_es": "cambio de caracter confirmado: ruptura del ultimo máximo/mínimo con volumen y ADX acotado, retest del nivel roto y continuacion; stop desde el swing previo."
+ },
+ {
+  "rank": 35,
+  "label": "QS-033 Confirmed change-of-character reversal",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "ea9d8bbda925b7ef",
+  "strategy_key": "QS-033",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-033",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-033\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-033\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-033",
+    "line": 569
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 17.68,
+   "profit_factor": 1.2904459933029906,
+   "n_trades": 155.0
+  },
+  "rule_es": "cambio de caracter confirmado: ruptura del ultimo máximo/mínimo con volumen y ADX acotado, retest del nivel roto y continuacion; stop desde el swing previo."
+ },
+ {
+  "rank": 36,
+  "label": "QS-035 Range sweep and reversal",
+  "adapter": "qsd",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "3fe037783fb12904",
+  "strategy_key": "QS-035",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-035",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-035\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-035\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-035",
+    "line": 571
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 35.94,
+   "profit_factor": 1.2903063029188662,
+   "n_trades": 137.0
+  },
+  "rule_es": "barrido de rango viejo con dos toques en cada extremo y giro de vuelta dentro; objetivo al midpoint; stop tras el extremo barrido."
+ },
+ {
+  "rank": 37,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "c4ad405b3c428ce5",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol XRPUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol XRPUSDT",
+  "inputs": [
+   {
+    "bars": 59816,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\XRPUSDT_1h.csv",
+    "sha256": "9e44dc353bc6bd63b2d786fee8a942737b4528052563fac415b879c922f42632",
+    "start": "2020-01-06 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   },
+   {
+    "bars": 7466,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\XRPUSDT_funding.json",
+    "sha256": "3ee1b28ab257923b07fdec3a0b4acd15a541cacd58624fc6d77c1cfd8b1a84fd",
+    "start": "2020-01-06 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 24.739716538832333,
+   "profit_factor": 1.274657036485706,
+   "n_trades": 286.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 38,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "2b7bc76f88084065",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {
+   "cost": "gate",
+   "variant": "two_side"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol SOLUSDT --params '{\"cost\": \"gate\", \"variant\": \"two_side\"}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol SOLUSDT --params '{\"cost\":\"gate\",\"variant\":\"two_side\"}'",
+  "inputs": [
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "de67eaedce00bdd01d701e0671fedfa10191c2e434fb31de1bd763f70a261554",
+    "start": "2020-09-13 16:00:00.004000+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 27.231154806793924,
+   "profit_factor": 1.2734360579928363,
+   "n_trades": 269.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 39,
+  "label": "Hour-of-day filter",
+  "adapter": "top10",
+  "symbol": "JUPUSDT",
+  "timeframe": "1h",
+  "run_id": "19e3ac2f0e90cad2",
+  "strategy_key": "71",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 71
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol JUPUSDT --params '{\"id\": 71}' --cut-ts 2026-10-29T22:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol JUPUSDT --params '{\"id\":71}'",
+  "inputs": [
+   {
+    "bars": 24053,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\JUPUSDT_1h.csv",
+    "sha256": "940da24b8416a793a3940be27b52869a7e0ab941d886e245b08b12c4c22c563d",
+    "start": "2024-01-31 18:00:00+00:00",
+    "cut_ts": "2026-10-29T22:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s71",
+    "line": 207,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 15.82224454570824,
+   "profit_factor": 1.2646097881576874,
+   "n_trades": 97.0
+  },
+  "rule_es": "cruce EMA veinte / cincuenta solo en horas catorce a diecisiete UTC; stop a dos ATR."
+ },
+ {
+  "rank": 40,
+  "label": "Regression slope",
+  "adapter": "top10",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "f4e6f60d74c61383",
+  "strategy_key": "34",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 34
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol SOLUSDT --params '{\"id\": 34}' --cut-ts 2026-10-27T20:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol SOLUSDT --params '{\"id\":34}'",
+  "inputs": [
+   {
+    "bars": 53630,
+    "end": "2026-10-27 20:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "0d3b7d9a85b4f9302126ed088c98d6377fe64f42b1a007c30b5fa121b80184fa",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-10-27T20:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s34",
+    "line": 161,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 354.99286631084806,
+   "profit_factor": 1.2584718005071647,
+   "n_trades": 1096.0
+  },
+  "rule_es": "pendiente de regresión de cincuenta barras que cruza cero; stop a dos ATR."
+ },
+ {
+  "rank": 41,
+  "label": "QS-038 Momentum exhaustion reversal",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "5m",
+  "run_id": "73a2506159a85ad4",
+  "strategy_key": "QS-038",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-038",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 5m --symbol SUIUSDT --params '{\"strat\": \"QS-038\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 5m --symbol SUIUSDT --params '{\"strat\":\"QS-038\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 210240,
+    "end": "2026-10-14 21:20:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_5m_taker\\SUIUSDT_5m.csv",
+    "sha256": "35ad3ba468a05354a475124175425911467bbb02aa89c2fcc32a974b6cf5bfc3",
+    "start": "2024-10-14 21:25:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-038",
+    "line": 574
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 5.4,
+   "profit_factor": 1.2530016891681783,
+   "n_trades": 33.0
+  },
+  "rule_es": "agotamiento tras cinco cierres del mismo signo y deceleracion con volumen cayente; entrada contra la racha al primer cierre opuesto."
+ },
+ {
+  "rank": 42,
+  "label": "Range expansion",
+  "adapter": "top10",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "14bf1f0ec9b63682",
+  "strategy_key": "59",
+  "engine_files": [
+   "top10_engine.py"
+  ],
+  "engine_sha256": "d3197b2a4ba246429ad9ac912b054b9208210fc444c1ed5ab6af451eb4c5c4c2",
+  "engine_version": "top10-1",
+  "params": {
+   "id": 59
+  },
+  "same_engine_command": "python code/vrun.py run --strategy top10 --tf 1h --symbol SOLUSDT --params '{\"id\": 59}' --cut-ts 2026-10-27T20:00:01+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy top10 --tf 1h --symbol SOLUSDT --params '{\"id\":59}'",
+  "inputs": [
+   {
+    "bars": 53630,
+    "end": "2026-10-27 20:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "0d3b7d9a85b4f9302126ed088c98d6377fe64f42b1a007c30b5fa121b80184fa",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-10-27T20:00:01+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   },
+   "funding_charged": false
+  },
+  "source_refs": [
+   {
+    "file": "top10_engine.py",
+    "token": "s59",
+    "line": 189,
+    "registry_line": null
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 40.93951259643873,
+   "profit_factor": 1.2485204829527567,
+   "n_trades": 533.0
+  },
+  "rule_es": "rango mayor que dos ATR y cierre en la parte alta de la barra; stop por el cuerpo inferior y salida bajo el mínimo previo."
+ },
+ {
+  "rank": 43,
+  "label": "QS-023 Realized-volatility regime breakout",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "bc05fce85d442e0c",
+  "strategy_key": "QS-023",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-023",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-023\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-023\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-023",
+    "line": 372
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 7.75,
+   "profit_factor": 1.242782285303343,
+   "n_trades": 48.0
+  },
+  "rule_es": "regimen de volatilidad realizada que cruza hacia arriba tras estar bajo; ruptura Donchian de treinta barras; stop a dos ATR."
+ },
+ {
+  "rank": 44,
+  "label": "card=ETHUSDT",
+  "adapter": "qs097",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "c07e26b442263679",
+  "strategy_key": "qs097",
+  "engine_files": [
+   "qs097_engine.py",
+   "qs_engine.py"
+  ],
+  "engine_sha256": "6f47a35feb5b430b1edb5e66f94d287fe9aa4df9bacbd72d3ca59ad090d91c0e",
+  "engine_version": "qs097-1",
+  "params": {
+   "card": "ETHUSDT",
+   "variant": "two_side"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qs097 --tf 1h --symbol ETHUSDT --params '{\"card\": \"ETHUSDT\", \"variant\": \"two_side\"}' --cut-ts 2026-11-06T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs097 --tf 1h --symbol ETHUSDT --params '{\"card\":\"ETHUSDT\",\"variant\":\"two_side\"}'",
+  "inputs": [
+   {
+    "bars": 62687,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\BTCUSDT_1h.csv",
+    "sha256": "4637f6fee8629cc2a01be427420af80569dbbdde2ffb405b559fedb29c9d4ee5",
+    "start": "2019-09-08 17:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 60777,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "a6cc18ad467225970a6166f88bcaac59387872544b6fabcc3ad9672f274d1ece",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 11624,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h.csv",
+    "sha256": "ff44639f5f120b2481d4e0341ecf27a2bbe340017a9929ccbbc4c42aee6b55ee",
+    "start": "2025-05-30 10:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 30696,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SUIUSDT_1h.csv",
+    "sha256": "2d3880abaca9a763bac9a3eb234aac3b9c7e271904b7288a24368a0e19adb605",
+    "start": "2023-05-03 16:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 24053,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\JUPUSDT_1h.csv",
+    "sha256": "940da24b8416a793a3940be27b52869a7e0ab941d886e245b08b12c4c22c563d",
+    "start": "2024-01-31 18:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 797,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h_tail_20261029.csv",
+    "sha256": "de4e8815401ee17a2cc10ef460800abf55b4ba9d80edcef7ceb8bf0767d46006",
+    "start": "2026-09-26 18:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "e66c12edb0989cf4cace1cd384df3dde9ccbe1d961ed3312ffcd890c34abb906",
+    "start": "2019-11-27 08:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs097_engine.py",
+    "token": "build_plan",
+    "line": 146
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 25.98931654142975,
+   "profit_factor": 1.2336366602027775,
+   "n_trades": 306.0
+  },
+  "rule_es": "QS-097: ruptura Donchian de veinte barras en el activo operado solo si BTC y ETH están sobre su EMA cincuenta y al menos dos de los otros están sobre la suya."
+ },
+ {
+  "rank": 45,
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "de77151964899879",
+  "strategy_key": "QS-025",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-025",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-025\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-025\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-025",
+    "line": 374
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 18.8,
+   "profit_factor": 1.2260893682981482,
+   "n_trades": 226.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras con volumen mayor que el doble de su media de veinte; stop a dos ATR."
+ },
+ {
+  "rank": 46,
+  "label": "S10 Vol-Targeted Time-Series Momentum",
+  "adapter": "cbpackf",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "2e823fa306c91366",
+  "strategy_key": "S10",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s10_tsm",
+    "line": 555,
+    "spec_line": 612
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 26.1649160840151,
+   "profit_factor": 1.2243803675009164,
+   "n_trades": 181.0
+  },
+  "rule_es": "momentum time-series con retorno ajustado por volatilidad y umbral de entrada/salida; pocas operaciones y stop ATR ancho."
+ },
+ {
+  "rank": 47,
+  "label": "QS-022 Bollinger Band squeeze breakout",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "1531130936c7e113",
+  "strategy_key": "QS-022",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-022",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-022\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-022\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-022",
+    "line": 371
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 20.59,
+   "profit_factor": 1.2204111302238383,
+   "n_trades": 177.0
+  },
+  "rule_es": "squeeze Bollinger de veinte barras y dos desviaciones, banda en el decil bajo de doscientas; ruptura del squeeze; stop a dos ATR."
+ },
+ {
+  "rank": 48,
+  "label": "rsimr",
+  "adapter": "rsimr",
+  "symbol": "SOLUSDC",
+  "timeframe": "1h",
+  "run_id": "dcf66a3eb320e7a7",
+  "strategy_key": "rsimr",
+  "engine_files": [
+   "rsi_mr_engine.py"
+  ],
+  "engine_sha256": "d9113b8145dcbd87916d199e3200a4c37dabe42b02dc52d583c3680cd2aca522",
+  "engine_version": "rsi-mr-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy rsimr --tf 1h --symbol SOLUSDC",
+  "same_engine_command_template": "python code/vrun.py run --strategy rsimr --tf 1h --symbol SOLUSDC",
+  "inputs": [
+   {
+    "bars": 5086,
+    "end": "2026-10-29 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDC_1h.csv",
+    "sha256": "fd789284b3090652f8bac34701a3607ba5d0ab21129c69c54b5b305ee903833e",
+    "start": "2026-04-01 00:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "rsi_mr_engine.py",
+    "token": "execute",
+    "line": 123
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 7.5615,
+   "profit_factor": 1.2172,
+   "n_trades": 60.0
+  },
+  "rule_es": "RSI catorce en SOL/USDC: entrada a la baja cuando RSI cruza bajo treinta y salida cuando vuelve sobre setenta; ejecución al siguiente open."
+ },
+ {
+  "rank": 49,
+  "label": "17_atr_vol_breakout",
+  "adapter": "pack20",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "0d78d36f19b8f49f",
+  "strategy_key": "17_atr_vol_breakout",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 17
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol XRPUSDT --params '{\"id\": 17}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol XRPUSDT --params '{\"id\":17}'",
+  "inputs": [
+   {
+    "bars": 59816,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\XRPUSDT_1h.csv",
+    "sha256": "9e44dc353bc6bd63b2d786fee8a942737b4528052563fac415b879c922f42632",
+    "start": "2020-01-06 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "17_atr_vol_breakout",
+    "line": 776,
+    "function": "atr_vol_breakout",
+    "function_line": 568
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 331.1153595475615,
+   "profit_factor": 1.2088406484054912,
+   "n_trades": 361.0
+  },
+  "rule_es": "ruptura de noventa y seis barras con ATR expandiendo y nivel de ATR alto; trailing de dos y media ATR y salida por EMA veintiuno."
+ },
+ {
+  "rank": 50,
+  "label": "QS-023 Realized-volatility regime breakout",
+  "adapter": "qsc",
+  "symbol": "ETHUSDT",
+  "timeframe": "5m",
+  "run_id": "c403a294e46f89e5",
+  "strategy_key": "QS-023",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-023",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 5m --symbol ETHUSDT --params '{\"strat\": \"QS-023\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 5m --symbol ETHUSDT --params '{\"strat\":\"QS-023\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 210240,
+    "end": "2026-10-14 21:20:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_5m_taker\\ETHUSDT_5m.csv",
+    "sha256": "9e242f53403fff227174ab16ea18392295533873c1d11f1a181443128a26522a",
+    "start": "2024-10-14 21:25:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-023",
+    "line": 372
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 24.95,
+   "profit_factor": 1.2068720433896338,
+   "n_trades": 161.0
+  },
+  "rule_es": "regimen de volatilidad realizada que cruza hacia arriba tras estar bajo; ruptura Donchian de treinta barras; stop a dos ATR."
+ },
+ {
+  "rank": 51,
+  "label": "card=SUIUSDT",
+  "adapter": "qs097",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "69d9e9bb940152d6",
+  "strategy_key": "qs097",
+  "engine_files": [
+   "qs097_engine.py",
+   "qs_engine.py"
+  ],
+  "engine_sha256": "6f47a35feb5b430b1edb5e66f94d287fe9aa4df9bacbd72d3ca59ad090d91c0e",
+  "engine_version": "qs097-1",
+  "params": {
+   "card": "SUIUSDT",
+   "variant": "two_side"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qs097 --tf 1h --symbol SUIUSDT --params '{\"card\": \"SUIUSDT\", \"variant\": \"two_side\"}' --cut-ts 2026-11-06T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs097 --tf 1h --symbol SUIUSDT --params '{\"card\":\"SUIUSDT\",\"variant\":\"two_side\"}'",
+  "inputs": [
+   {
+    "bars": 62687,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\BTCUSDT_1h.csv",
+    "sha256": "4637f6fee8629cc2a01be427420af80569dbbdde2ffb405b559fedb29c9d4ee5",
+    "start": "2019-09-08 17:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 60777,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "a6cc18ad467225970a6166f88bcaac59387872544b6fabcc3ad9672f274d1ece",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 11624,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h.csv",
+    "sha256": "ff44639f5f120b2481d4e0341ecf27a2bbe340017a9929ccbbc4c42aee6b55ee",
+    "start": "2025-05-30 10:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 30696,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SUIUSDT_1h.csv",
+    "sha256": "2d3880abaca9a763bac9a3eb234aac3b9c7e271904b7288a24368a0e19adb605",
+    "start": "2023-05-03 16:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 24053,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\JUPUSDT_1h.csv",
+    "sha256": "940da24b8416a793a3940be27b52869a7e0ab941d886e245b08b12c4c22c563d",
+    "start": "2024-01-31 18:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 797,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h_tail_20261029.csv",
+    "sha256": "de4e8815401ee17a2cc10ef460800abf55b4ba9d80edcef7ceb8bf0767d46006",
+    "start": "2026-09-26 18:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "a2d0d6252b6ac053a911f50302d88bae911baa9c640495318f9c30fc3c9e8099",
+    "start": "2023-05-03 16:00:00.011000+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs097_engine.py",
+    "token": "build_plan",
+    "line": 146
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 26.0795906655648,
+   "profit_factor": 1.192127777598374,
+   "n_trades": 295.0
+  },
+  "rule_es": "QS-097: ruptura Donchian de veinte barras en el activo operado solo si BTC y ETH están sobre su EMA cincuenta y al menos dos de los otros están sobre la suya."
+ },
+ {
+  "rank": 52,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "cbpackf",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "c1f3df39b37c1d2b",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s02_dfb",
+    "line": 445,
+    "spec_line": 580
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 34.749023403598486,
+   "profit_factor": 1.1910101156132775,
+   "n_trades": 240.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 53,
+  "label": "S03 Squeeze Release",
+  "adapter": "cbpackf",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "db89577d5f9d9d34",
+  "strategy_key": "S03",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol XRPUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\XRPUSDT_1h.csv",
+    "sha256": "c2ac4c1e703105c37325eccf9f04b5af4c111b4ea0defe047e1bd6e79ba1d404",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7466,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\XRPUSDT_funding.json",
+    "sha256": "3c1f4736dc9fa3ff2b515dd788bc6f77c5b9de25e3f6c640bc81b2db7a0fdcc8",
+    "start": "2020-01-06 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s03_sqz",
+    "line": 457,
+    "spec_line": 584
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 28.40108651970663,
+   "profit_factor": 1.188314488776956,
+   "n_trades": 196.0
+  },
+  "rule_es": "liberación de squeeze Bollinger/Keltner con momentum y acuerdo de flujo; objetivo a múltiplos ATR."
+ },
+ {
+  "rank": 54,
+  "label": "card=HYPEUSDT",
+  "adapter": "qs097",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "6f5ec1d20c40a815",
+  "strategy_key": "qs097",
+  "engine_files": [
+   "qs097_engine.py",
+   "qs_engine.py"
+  ],
+  "engine_sha256": "6f47a35feb5b430b1edb5e66f94d287fe9aa4df9bacbd72d3ca59ad090d91c0e",
+  "engine_version": "qs097-1",
+  "params": {
+   "card": "HYPEUSDT",
+   "variant": "long"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qs097 --tf 1h --symbol HYPEUSDT --params '{\"card\": \"HYPEUSDT\", \"variant\": \"long\"}' --cut-ts 2026-11-06T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs097 --tf 1h --symbol HYPEUSDT --params '{\"card\":\"HYPEUSDT\",\"variant\":\"long\"}'",
+  "inputs": [
+   {
+    "bars": 62687,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\BTCUSDT_1h.csv",
+    "sha256": "4637f6fee8629cc2a01be427420af80569dbbdde2ffb405b559fedb29c9d4ee5",
+    "start": "2019-09-08 17:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 60777,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "a6cc18ad467225970a6166f88bcaac59387872544b6fabcc3ad9672f274d1ece",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 11624,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h.csv",
+    "sha256": "ff44639f5f120b2481d4e0341ecf27a2bbe340017a9929ccbbc4c42aee6b55ee",
+    "start": "2025-05-30 10:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 30696,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SUIUSDT_1h.csv",
+    "sha256": "2d3880abaca9a763bac9a3eb234aac3b9c7e271904b7288a24368a0e19adb605",
+    "start": "2023-05-03 16:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 24053,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\JUPUSDT_1h.csv",
+    "sha256": "940da24b8416a793a3940be27b52869a7e0ab941d886e245b08b12c4c22c563d",
+    "start": "2024-01-31 18:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 797,
+    "end": "2026-10-29 22:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h_tail_20261029.csv",
+    "sha256": "de4e8815401ee17a2cc10ef460800abf55b4ba9d80edcef7ceb8bf0767d46006",
+    "start": "2026-09-26 18:00:00+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "af5b19e083d7f7f9d7e70d33f683761afd0ccfe3d321497d8d3c5054eb68fadf",
+    "start": "2025-05-30 12:00:00.006000+00:00",
+    "cut_ts": "2026-11-06T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs097_engine.py",
+    "token": "build_plan",
+    "line": 146
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 10.54777386687389,
+   "profit_factor": 1.1805188511444735,
+   "n_trades": 162.0
+  },
+  "rule_es": "QS-097: ruptura Donchian de veinte barras en el activo operado solo si BTC y ETH están sobre su EMA cincuenta y al menos dos de los otros están sobre la suya."
+ },
+ {
+  "rank": 55,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "c8a00fe20ff4ad6f",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol ETHUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol ETHUSDT",
+  "inputs": [
+   {
+    "bars": 60777,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\ETHUSDT_1h.csv",
+    "sha256": "a6cc18ad467225970a6166f88bcaac59387872544b6fabcc3ad9672f274d1ece",
+    "start": "2019-11-27 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "e66c12edb0989cf4cace1cd384df3dde9ccbe1d961ed3312ffcd890c34abb906",
+    "start": "2019-11-27 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "real settlements"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 16.765176527745453,
+   "profit_factor": 1.1764434074122079,
+   "n_trades": 309.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 56,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "NEARUSDT",
+  "timeframe": "1h",
+  "run_id": "da9f1b3771077f89",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol NEARUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol NEARUSDT",
+  "inputs": [
+   {
+    "bars": 53024,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\NEARUSDT_1h.csv",
+    "sha256": "4a847c040070ff71ed1a3dafe5c6a384fbe698ce749a2c7f8aa501976498a040",
+    "start": "2020-10-15 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "off"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 20.690374143208224,
+   "profit_factor": 1.1731370579310716,
+   "n_trades": 279.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 57,
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "adapter": "qsc",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "ce6ac1a096d49d4f",
+  "strategy_key": "QS-025",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-025",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-025\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol HYPEUSDT --params '{\"strat\":\"QS-025\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-025",
+    "line": 374
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 11.49,
+   "profit_factor": 1.1705376623246944,
+   "n_trades": 144.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras con volumen mayor que el doble de su media de veinte; stop a dos ATR."
+ },
+ {
+  "rank": 58,
+  "label": "QS-023 Realized-volatility regime breakout",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "172c2168dd0bb06e",
+  "strategy_key": "QS-023",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-023",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-023\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-023\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-023",
+    "line": 372
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 3.64,
+   "profit_factor": 1.1596940396442197,
+   "n_trades": 44.0
+  },
+  "rule_es": "regimen de volatilidad realizada que cruza hacia arriba tras estar bajo; ruptura Donchian de treinta barras; stop a dos ATR."
+ },
+ {
+  "rank": 59,
+  "label": "ds1",
+  "adapter": "dspack",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "88bc7c612612f5f8",
+  "strategy_key": "ds1",
+  "engine_files": [
+   "deepseek_pack.py",
+   "dspack_engine.py"
+  ],
+  "engine_sha256": "01ec614f43146e1453da939bc6a00614722f46a834db60416983d16453971679",
+  "engine_version": "dspack-1",
+  "params": {
+   "costs": "author",
+   "strat": "ds1",
+   "window": "full"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{\"costs\": \"author\", \"strat\": \"ds1\", \"window\": \"full\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy dspack --tf 1h --symbol HYPEUSDT --params '{\"costs\":\"author\",\"strat\":\"ds1\",\"window\":\"full\"}'",
+  "inputs": [
+   {
+    "bars": 11624,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\HYPEUSDT_1h.csv",
+    "sha256": "ff44639f5f120b2481d4e0341ecf27a2bbe340017a9929ccbbc4c42aee6b55ee",
+    "start": "2025-05-30 10:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "deepseek_pack.py",
+    "token": "strat_tsmom",
+    "line": 4
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 14.397083500305175,
+   "profit_factor": 1.1501244705824942,
+   "n_trades": 407.0
+  },
+  "rule_es": "ds1: momentum time-series de ciento sesenta y ocho horas con objetivo de volatilidad; el tamaño se deriva del equity y cambia con la señal."
+ },
+ {
+  "rank": 60,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "cbpackf",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "2e823fa306c91366",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s02_dfb",
+    "line": 445,
+    "spec_line": 580
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 28.016586289071064,
+   "profit_factor": 1.1500205618593866,
+   "n_trades": 249.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 61,
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "cae06c339ca696d7",
+  "strategy_key": "QS-039",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-039",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-039\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-039\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-039",
+    "line": 575
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 13.94,
+   "profit_factor": 1.136309150472017,
+   "n_trades": 234.0
+  },
+  "rule_es": "alineacion estructural multi-temporal: ruptura LTF del ultimo pivote solo si la estructura HTF apunta al mismo lado; stop desde el pivote contrario."
+ },
+ {
+  "rank": 62,
+  "label": "S10 Vol-Targeted Time-Series Momentum",
+  "adapter": "cbpackf",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "c1f3df39b37c1d2b",
+  "strategy_key": "S10",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s10_tsm",
+    "line": 555,
+    "spec_line": 612
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 12.989923427233553,
+   "profit_factor": 1.1326585024953155,
+   "n_trades": 167.0
+  },
+  "rule_es": "momentum time-series con retorno ajustado por volatilidad y umbral de entrada/salida; pocas operaciones y stop ATR ancho."
+ },
+ {
+  "rank": 63,
+  "label": "S10 Vol-Targeted Time-Series Momentum",
+  "adapter": "cbpackf",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "44f6ae02bb2fe93c",
+  "strategy_key": "S10",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s10_tsm",
+    "line": 555,
+    "spec_line": 612
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 9.299070854092983,
+   "profit_factor": 1.1300366967019264,
+   "n_trades": 121.0
+  },
+  "rule_es": "momentum time-series con retorno ajustado por volatilidad y umbral de entrada/salida; pocas operaciones y stop ATR ancho."
+ },
+ {
+  "rank": 64,
+  "label": "S07 Funding Extreme Fade",
+  "adapter": "cbpackf",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "2e823fa306c91366",
+  "strategy_key": "S07",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol ETHUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s07_fun",
+    "line": 511,
+    "spec_line": 600
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 2.7110624556759833,
+   "profit_factor": 1.1261691407518057,
+   "n_trades": 34.0
+  },
+  "rule_es": "fade de funding extremo con rollover tras EMA; entrada contra el posicionamiento, TP amplio ATR y holding máximo."
+ },
+ {
+  "rank": 65,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "NVDAUSDT",
+  "timeframe": "15m",
+  "run_id": "9a869c49aaa083d6",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 15m --symbol NVDAUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 15m --symbol NVDAUSDT",
+  "inputs": [
+   {
+    "bars": 21212,
+    "end": "2026-11-02 13:15:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m\\NVDAUSDT_15m.csv",
+    "sha256": "c8c97819b48f7ecc232e342e5e38cd0cb6cbc3d749e2ab264e147b74d941f660",
+    "start": "2026-03-26 14:30:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "off"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 4.3609736688735135,
+   "profit_factor": 1.1160399817984457,
+   "n_trades": 85.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 66,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "cbpackf",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "44f6ae02bb2fe93c",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s02_dfb",
+    "line": 445,
+    "spec_line": 580
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 11.95842096363393,
+   "profit_factor": 1.1091652724572703,
+   "n_trades": 177.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 67,
+  "label": "ds7",
+  "adapter": "dspack2",
+  "symbol": "SPXUSDT",
+  "timeframe": "1h",
+  "run_id": "b898dfed4e6f2395",
+  "strategy_key": "ds7",
+  "engine_files": [
+   "deepseek_pack2.py",
+   "dspack_engine.py",
+   "dspack2_engine.py"
+  ],
+  "engine_sha256": "f4cba772e47885d6d74781b5cd97ad5d662524fabd36dab7976eb56dab13e052",
+  "engine_version": "dspack2-1",
+  "params": {
+   "costs": "repo6x5",
+   "strat": "ds7",
+   "window": "full"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy dspack2 --tf 1h --symbol SPXUSDT --params '{\"costs\": \"repo6x5\", \"strat\": \"ds7\", \"window\": \"full\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy dspack2 --tf 1h --symbol SPXUSDT --params '{\"costs\":\"repo6x5\",\"strat\":\"ds7\",\"window\":\"full\"}'",
+  "inputs": [
+   {
+    "bars": 15726,
+    "end": "2026-09-26 17:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SPXUSDT_1h.csv",
+    "sha256": "6ec31317376292a3ed07e8d95f23888c590a8e842772f7fd052f4631f3617386",
+    "start": "2024-12-10 12:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "deepseek_pack2.py",
+    "token": "strat_rsi2",
+    "line": 30
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 44.96852586435456,
+   "profit_factor": 1.1078076403424875,
+   "n_trades": 296.0
+  },
+  "rule_es": "ds7: RSI dos estilo Connors con filtro de tendencia EMA doscientas; entradas por extremo, salidas por retorno a la media."
+ },
+ {
+  "rank": 68,
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "adapter": "qsc",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "cdbed9c0749e2dee",
+  "strategy_key": "QS-025",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-025",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-025\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-025\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-025",
+    "line": 374
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 13.37,
+   "profit_factor": 1.1056996418828637,
+   "n_trades": 277.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras con volumen mayor que el doble de su media de veinte; stop a dos ATR."
+ },
+ {
+  "rank": 69,
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "adapter": "qsc",
+  "symbol": "SOLUSDT",
+  "timeframe": "15m",
+  "run_id": "7b0022b3bbf0a0f7",
+  "strategy_key": "QS-030",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-030",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 15m --symbol SOLUSDT --params '{\"strat\": \"QS-030\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 15m --symbol SOLUSDT --params '{\"strat\":\"QS-030\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 70080,
+    "end": "2026-10-14 21:45:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m_taker\\SOLUSDT_15m.csv",
+    "sha256": "a33daee15e8b5efac15cb282fa6d513d2df2b854df0fe2c6feb1373db024b690",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-030",
+    "line": 379
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 23.57,
+   "profit_factor": 1.096762690370435,
+   "n_trades": 595.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras solo si el regimen de mayor temporalidad sigue el mismo lado; stop a dos ATR."
+ },
+ {
+  "rank": 70,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "cbpackf",
+  "symbol": "JUPUSDT",
+  "timeframe": "1h",
+  "run_id": "f911813458f9a2ec",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 6,
+   "slippage_bps": 5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT --params '{\"fee_bps\": 6, \"slippage_bps\": 5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT --params '{\"fee_bps\":6,\"slippage_bps\":5}'",
+  "inputs": [
+   {
+    "bars": 17950,
+    "end": "2026-11-02 10:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\JUPUSDT_1h.csv",
+    "sha256": "1e3e6834154880a18fb40c52de147ea4f791617b7636abbe52daae17b0693f45",
+    "start": "2024-10-15 13:00:00+00:00"
+   },
+   {
+    "bars": 4574,
+    "end": "2026-11-02 08:00:00.001000+00:00",
+    "path": "data\\binance_funding\\JUPUSDT_funding.json",
+    "sha256": "c509b19ab9c0235df25f11cb8ab68c8b5f866cc4f2170e86aaec91cb90f415e8",
+    "start": "2024-10-01 00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 6.0,
+   "slippage_bps_per_side": 5.0,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 6.0,
+    "slippage_bps": 5.0
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s02_dfb",
+    "line": 445,
+    "spec_line": 580
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 15.544556154808564,
+   "profit_factor": 1.0961207345124961,
+   "n_trades": 243.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 71,
+  "label": "1 01_liq_fvg",
+  "adapter": "pack20",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "52677740cad35881",
+  "strategy_key": "01_liq_fvg",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 1
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol XRPUSDT --params '{\"id\": 1}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol XRPUSDT --params '{\"id\":1}'",
+  "inputs": [
+   {
+    "bars": 59816,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\XRPUSDT_1h.csv",
+    "sha256": "9e44dc353bc6bd63b2d786fee8a942737b4528052563fac415b879c922f42632",
+    "start": "2020-01-06 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "01_liq_fvg",
+    "line": 768,
+    "function": "liq_fvg",
+    "function_line": 112
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 25.502906382896875,
+   "profit_factor": 1.0944278240305338,
+   "n_trades": 172.0
+  },
+  "rule_es": "barrido de liquidez en nivel HTF más FVG de tres barras; entrada al tocar el FVG y cerrar de vuelta por su midpoint; stop tras el extremo barrido."
+ },
+ {
+  "rank": 72,
+  "label": "S03 Squeeze Release",
+  "adapter": "cbpackf",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "44f6ae02bb2fe93c",
+  "strategy_key": "S03",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol HYPEUSDT",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s03_sqz",
+    "line": 457,
+    "spec_line": 584
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 7.138830925149153,
+   "profit_factor": 1.0916062517843679,
+   "n_trades": 111.0
+  },
+  "rule_es": "liberación de squeeze Bollinger/Keltner con momentum y acuerdo de flujo; objetivo a múltiplos ATR."
+ },
+ {
+  "rank": 73,
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "d4ba13a9ab12605d",
+  "strategy_key": "QS-030",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-030",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-030\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-030\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-030",
+    "line": 379
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 4.99,
+   "profit_factor": 1.090951306027591,
+   "n_trades": 134.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras solo si el regimen de mayor temporalidad sigue el mismo lado; stop a dos ATR."
+ },
+ {
+  "rank": 74,
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "adapter": "qsc",
+  "symbol": "HYPEUSDT",
+  "timeframe": "15m",
+  "run_id": "3f3e22e27e26315b",
+  "strategy_key": "QS-030",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-030",
+   "variant": "long-only"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 15m --symbol HYPEUSDT --params '{\"strat\": \"QS-030\", \"variant\": \"long-only\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 15m --symbol HYPEUSDT --params '{\"strat\":\"QS-030\",\"variant\":\"long-only\"}'",
+  "inputs": [
+   {
+    "bars": 48301,
+    "end": "2026-10-15 13:30:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m_taker\\HYPEUSDT_15m.csv",
+    "sha256": "0ecd18de917ccb3f844e5c5df1a8904aedc4bf84a086dddf1f089f72b984b39c",
+    "start": "2025-05-30 10:30:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-030",
+    "line": 379
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 7.86,
+   "profit_factor": 1.0894964920515073,
+   "n_trades": 221.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras solo si el regimen de mayor temporalidad sigue el mismo lado; stop a dos ATR."
+ },
+ {
+  "rank": 75,
+  "label": "13_vwap_fade",
+  "adapter": "pack20",
+  "symbol": "SOLUSDT",
+  "timeframe": "15m",
+  "run_id": "44a23ab194b621be",
+  "strategy_key": "13_vwap_fade",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 13
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 15m --symbol SOLUSDT --params '{\"id\": 13}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 15m --symbol SOLUSDT --params '{\"id\":13}'",
+  "inputs": [
+   {
+    "bars": 215588,
+    "end": "2026-11-07 23:45:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m\\SOLUSDT_15m.csv",
+    "sha256": "d21081191c962c4f6f9b66d1a4332800650e3024f5fbe7ea21cd3da2c9dddecf",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "13_vwap_fade",
+    "line": 774,
+    "function": "vwap_fade",
+    "function_line": 461
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 405901.0192855201,
+   "profit_factor": 1.0774942139348782,
+   "n_trades": 17850.0
+  },
+  "rule_es": "desviación intradía de VWAP por debajo de menos dos sigmas con rechazo alcista; retorno a VWAP y stop a tres y medio sigmas."
+ },
+ {
+  "rank": 76,
+  "label": "S5 Heikin-Ashi trend",
+  "adapter": "pack50",
+  "symbol": "SUIUSDT",
+  "timeframe": "4h",
+  "run_id": "1300b325a1544451",
+  "strategy_key": "S5",
+  "engine_files": [
+   "pack50_engine.py",
+   "pack50_core.py",
+   "pack50_strats.py"
+  ],
+  "engine_sha256": "95f293aa62970f228a8dc5a6a88778bf56a6d467d8c202b1122c30bfa41f10e6",
+  "engine_version": "pack50-1",
+  "params": {
+   "strat": 5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack50 --tf 4h --symbol SUIUSDT --params '{\"strat\": 5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack50 --tf 4h --symbol SUIUSDT --params '{\"strat\":5}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "funding_charged": true
+  },
+  "source_refs": [
+   {
+    "file": "pack50_strats.py",
+    "token": "b05",
+    "line": 99,
+    "registry_line": 769
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 16.088759778498908,
+   "profit_factor": 1.0772983473122852,
+   "n_trades": 110.0
+  },
+  "rule_es": "Heikin-Ashi: tres velas verdes sin mecha inferior consecutivas; salida en la primera roja; stop a dos y medio ATR."
+ },
+ {
+  "rank": 77,
+  "label": "QS-032 Trend structure continuation",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "ccff24de952452f7",
+  "strategy_key": "QS-032",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-032",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-032\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-032\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-032",
+    "line": 568
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 8.78,
+   "profit_factor": 1.0766566026353346,
+   "n_trades": 199.0
+  },
+  "rule_es": "continuacion de estructura: pullback del treinta y ocho al sesenta y dos por ciento de la ultima pierna con estructura HH/HL o LH/LL; objetivo al extremo previo."
+ },
+ {
+  "rank": 78,
+  "label": "15_squeeze_rank_breakout",
+  "adapter": "pack20",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "bd9100c8bd70d366",
+  "strategy_key": "15_squeeze_rank_breakout",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 15
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol SOLUSDT --params '{\"id\": 15}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol SOLUSDT --params '{\"id\":15}'",
+  "inputs": [
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "15_squeeze_rank_breakout",
+    "line": 775,
+    "function": "squeeze_rank_breakout",
+    "function_line": 516
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 89.97716203214394,
+   "profit_factor": 1.075881938158012,
+   "n_trades": 684.0
+  },
+  "rule_es": "squeeze por ancho Bollinger en el decil bajo, ruptura de veinte barras con ROC diez a favor; salida si el rank supera sesenta."
+ },
+ {
+  "rank": 79,
+  "label": "QS-030 Breakout filtered by higher-timeframe regime",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "5m",
+  "run_id": "e63b3a81499c0c76",
+  "strategy_key": "QS-030",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-030",
+   "variant": "long-only"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 5m --symbol SUIUSDT --params '{\"strat\": \"QS-030\", \"variant\": \"long-only\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 5m --symbol SUIUSDT --params '{\"strat\":\"QS-030\",\"variant\":\"long-only\"}'",
+  "inputs": [
+   {
+    "bars": 210240,
+    "end": "2026-10-14 21:20:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_5m_taker\\SUIUSDT_5m.csv",
+    "sha256": "35ad3ba468a05354a475124175425911467bbb02aa89c2fcc32a974b6cf5bfc3",
+    "start": "2024-10-14 21:25:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-030",
+    "line": 379
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 19.54,
+   "profit_factor": 1.075240756470503,
+   "n_trades": 431.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras solo si el regimen de mayor temporalidad sigue el mismo lado; stop a dos ATR."
+ },
+ {
+  "rank": 80,
+  "label": "QS-028 Failed breakout reversal",
+  "adapter": "qsc",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "run_id": "a204b14dac5f7e47",
+  "strategy_key": "QS-028",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-028",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\": \"QS-028\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol ETHUSDT --params '{\"strat\":\"QS-028\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17520,
+    "end": "2026-10-14 21:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\ETHUSDT_1h.csv",
+    "sha256": "63099238cc308265c55a3a038d477c662e154e18feed5192a6d25934739b5e2d",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-028",
+    "line": 377
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 14.59,
+   "profit_factor": 1.0696223852629887,
+   "n_trades": 403.0
+  },
+  "rule_es": "ruptura fallida de veinte barras seguida, en una a tres barras, de cierre de vuelta dentro del nivel roto; objetivo al midpoint y stop tras el extremo fallido."
+ },
+ {
+  "rank": 81,
+  "label": "QS-023 Realized-volatility regime breakout",
+  "adapter": "qsc",
+  "symbol": "HYPEUSDT",
+  "timeframe": "15m",
+  "run_id": "d2f68e91ecb3a767",
+  "strategy_key": "QS-023",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-023",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 15m --symbol HYPEUSDT --params '{\"strat\": \"QS-023\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 15m --symbol HYPEUSDT --params '{\"strat\":\"QS-023\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 48301,
+    "end": "2026-10-15 13:30:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m_taker\\HYPEUSDT_15m.csv",
+    "sha256": "0ecd18de917ccb3f844e5c5df1a8904aedc4bf84a086dddf1f089f72b984b39c",
+    "start": "2025-05-30 10:30:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-023",
+    "line": 372
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 3.13,
+   "profit_factor": 1.0650671805542076,
+   "n_trades": 108.0
+  },
+  "rule_es": "regimen de volatilidad realizada que cruza hacia arriba tras estar bajo; ruptura Donchian de treinta barras; stop a dos ATR."
+ },
+ {
+  "rank": 82,
+  "label": "17_atr_vol_breakout",
+  "adapter": "pack20",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "run_id": "6aa3e550b74655a9",
+  "strategy_key": "17_atr_vol_breakout",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 17
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol BTCUSDT --params '{\"id\": 17}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol BTCUSDT --params '{\"id\":17}'",
+  "inputs": [
+   {
+    "bars": 62687,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\BTCUSDT_1h.csv",
+    "sha256": "4637f6fee8629cc2a01be427420af80569dbbdde2ffb405b559fedb29c9d4ee5",
+    "start": "2019-09-08 17:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "17_atr_vol_breakout",
+    "line": 776,
+    "function": "atr_vol_breakout",
+    "function_line": 568
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 33.90701153024662,
+   "profit_factor": 1.0628564295646488,
+   "n_trades": 434.0
+  },
+  "rule_es": "ruptura de noventa y seis barras con ATR expandiendo y nivel de ATR alto; trailing de dos y media ATR y salida por EMA veintiuno."
+ },
+ {
+  "rank": 83,
+  "label": "QS-037 Compression inside a prior range",
+  "adapter": "qsd",
+  "symbol": "ETHUSDT",
+  "timeframe": "15m",
+  "run_id": "d16cf5428d8ca01d",
+  "strategy_key": "QS-037",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-037",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 15m --symbol ETHUSDT --params '{\"strat\": \"QS-037\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 15m --symbol ETHUSDT --params '{\"strat\":\"QS-037\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 70080,
+    "end": "2026-10-14 21:45:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m_taker\\ETHUSDT_15m.csv",
+    "sha256": "6bf400a9987d6603ad224d2d4573f1f258792abc59d84654d448be1110846857",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 7582,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\ETHUSDT_funding.json",
+    "sha256": "27b15928a3b084dc74c4818804fc3d6b9997eda9139492b41653b7a39d30b625",
+    "start": "2019-11-27 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-037",
+    "line": 573
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 8.6,
+   "profit_factor": 1.0619603530631145,
+   "n_trades": 359.0
+  },
+  "rule_es": "compresion de ocho barras dentro del tercio alto/bajo de un rango previo de sesenta y rotura de la consolidacion; objetivo al extremo del rango previo."
+ },
+ {
+  "rank": 84,
+  "label": "cvrmd",
+  "adapter": "cvrmd",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "45ccfbbb288a7ea7",
+  "strategy_key": "cvrmd",
+  "engine_files": [
+   "cvrmd_backtest.py"
+  ],
+  "engine_sha256": "bd7a4c850158c2a98469837f8f9af507c0f8368705e1e009b410465e18a12906",
+  "engine_version": "cvrmd",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cvrmd --tf 1h --symbol XRPUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cvrmd --tf 1h --symbol XRPUSDT",
+  "inputs": [
+   {
+    "bars": 59816,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\XRPUSDT_1h.csv",
+    "sha256": "9e44dc353bc6bd63b2d786fee8a942737b4528052563fac415b879c922f42632",
+    "start": "2020-01-06 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "cvrmd_backtest.py",
+    "token": "run",
+    "line": 32
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 2.615436708751484,
+   "profit_factor": 1.060358987133471,
+   "n_trades": 99.0
+  },
+  "rule_es": "CVRMD: VWAP de sesión más una desviación, pendiente CVD, RSI catorce y divergencia MACD en pivotes; stop ATR y salidas parciales en VWAP y dos R."
+ },
+ {
+  "rank": 85,
+  "label": "QS-034 Support/resistance rejection",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "7efc035fd52a8911",
+  "strategy_key": "QS-034",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-034",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-034\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-034\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-034",
+    "line": 570
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 4.3,
+   "profit_factor": 1.0602723369640858,
+   "n_trades": 197.0
+  },
+  "rule_es": "rechazo de zona de soporte/resistencia: dos pivotes cercanos, mecha de rechazo y cierre de vuelta dentro; objetivo a dos veces el riesgo."
+ },
+ {
+  "rank": 86,
+  "label": "QS-039 Multi-timeframe structural alignment",
+  "adapter": "qsd",
+  "symbol": "HYPEUSDT",
+  "timeframe": "1h",
+  "run_id": "cfaf023ce80d3ed8",
+  "strategy_key": "QS-039",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-039",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol HYPEUSDT --params '{\"strat\": \"QS-039\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol HYPEUSDT --params '{\"strat\":\"QS-039\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 12343,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\HYPEUSDT_1h.csv",
+    "sha256": "87e72a80b7d0911d1a4bb0b44e005789f0707a3389421b6b0e6d4733fd45e11f",
+    "start": "2025-05-30 10:00:00+00:00"
+   },
+   {
+    "bars": 3100,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\HYPEUSDT_funding.json",
+    "sha256": "035c99395409f66492c65ab0db42eba47970f085208dc3a872bdc4f7f13907e8",
+    "start": "2025-05-30 12:00:00.006000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-039",
+    "line": 575
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 2.24,
+   "profit_factor": 1.0579805788180043,
+   "n_trades": 149.0
+  },
+  "rule_es": "alineacion estructural multi-temporal: ruptura LTF del ultimo pivote solo si la estructura HTF apunta al mismo lado; stop desde el pivote contrario."
+ },
+ {
+  "rank": 87,
+  "label": "S03 Squeeze Release",
+  "adapter": "cbpackf",
+  "symbol": "JUPUSDT",
+  "timeframe": "1h",
+  "run_id": "de5e832e962d8d9f",
+  "strategy_key": "S03",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol JUPUSDT",
+  "inputs": [
+   {
+    "bars": 17950,
+    "end": "2026-11-02 10:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\JUPUSDT_1h.csv",
+    "sha256": "1e3e6834154880a18fb40c52de147ea4f791617b7636abbe52daae17b0693f45",
+    "start": "2024-10-15 13:00:00+00:00"
+   },
+   {
+    "bars": 4574,
+    "end": "2026-11-02 08:00:00.001000+00:00",
+    "path": "data\\binance_funding\\JUPUSDT_funding.json",
+    "sha256": "c509b19ab9c0235df25f11cb8ab68c8b5f866cc4f2170e86aaec91cb90f415e8",
+    "start": "2024-10-01 00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s03_sqz",
+    "line": 457,
+    "spec_line": 584
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 6.768624456510652,
+   "profit_factor": 1.0559104716105103,
+   "n_trades": 172.0
+  },
+  "rule_es": "liberación de squeeze Bollinger/Keltner con momentum y acuerdo de flujo; objetivo a múltiplos ATR."
+ },
+ {
+  "rank": 88,
+  "label": "QS-028 Failed breakout reversal",
+  "adapter": "qsc",
+  "symbol": "BTCUSDT",
+  "timeframe": "5m",
+  "run_id": "6738cdaccbb558de",
+  "strategy_key": "QS-028",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-028",
+   "variant": "long-only"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 5m --symbol BTCUSDT --params '{\"strat\": \"QS-028\", \"variant\": \"long-only\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 5m --symbol BTCUSDT --params '{\"strat\":\"QS-028\",\"variant\":\"long-only\"}'",
+  "inputs": [
+   {
+    "bars": 210240,
+    "end": "2026-10-14 21:20:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_5m_taker\\BTCUSDT_5m.csv",
+    "sha256": "b9674e11f9bf5cb93061809f7a5da822b4752c9ed92ce83c8ba61d81ff5311fd",
+    "start": "2024-10-14 21:25:00+00:00"
+   },
+   {
+    "bars": 7815,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\BTCUSDT_funding.json",
+    "sha256": "7a0cdfef3e6926265753b7478f5cfccd6e44f03ca3553a0938b7c0b9f0613f87",
+    "start": "2019-09-10 08:00:00+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-028",
+    "line": 377
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 5.81,
+   "profit_factor": 1.0550807964921174,
+   "n_trades": 248.0
+  },
+  "rule_es": "ruptura fallida de veinte barras seguida, en una a tres barras, de cierre de vuelta dentro del nivel roto; objetivo al midpoint y stop tras el extremo fallido."
+ },
+ {
+  "rank": 89,
+  "label": "QS-040 Price displacement with continuation",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "15m",
+  "run_id": "1681d304142e1dcd",
+  "strategy_key": "QS-040",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-040",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 15m --symbol SUIUSDT --params '{\"strat\": \"QS-040\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 15m --symbol SUIUSDT --params '{\"strat\":\"QS-040\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 70080,
+    "end": "2026-10-14 21:45:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m_taker\\SUIUSDT_15m.csv",
+    "sha256": "e92c7e4d875f331a55e716f3167454d5412cb3ddd0dcc6eff9732c8018eb7bae",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-040",
+    "line": 576
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 3.98,
+   "profit_factor": 1.0524173569114144,
+   "n_trades": 165.0
+  },
+  "rule_es": "desplazamiento con cuerpo dominante y hold del midpoint durante una a tres barras, con rotura de la consolidacion; trailing de dos ATR."
+ },
+ {
+  "rank": 90,
+  "label": "QS-031 Confirmed swing-high/swing-low breakout",
+  "adapter": "qsd",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "1cc6f7489bcaa85a",
+  "strategy_key": "QS-031",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-031",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SOLUSDT --params '{\"strat\": \"QS-031\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SOLUSDT --params '{\"strat\":\"QS-031\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-031",
+    "line": 567
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 7.28,
+   "profit_factor": 1.0523650665984734,
+   "n_trades": 384.0
+  },
+  "rule_es": "ruptura del ultimo pivote confirmado con distancia minima de media ATR; stop entre uno y tres ATR; salida al cruzar el pivote contrario."
+ },
+ {
+  "rank": 91,
+  "label": "S02 Donchian + Flow Breakout",
+  "adapter": "cbpackf",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "ded7cca009e13445",
+  "strategy_key": "S02",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {
+   "fee_bps": 5.0,
+   "slippage_bps": 0.5
+  },
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{\"fee_bps\": 5.0, \"slippage_bps\": 0.5}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SOLUSDT --params '{\"fee_bps\":5.0,\"slippage_bps\":0.5}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SOLUSDT_1h.csv",
+    "sha256": "99c891698c5a52c083b12724706685e8573a515379ee69dd2a03d315bbc8ab91",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 6785,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SOLUSDT_funding.json",
+    "sha256": "fcc95e5fd4bc21ec7829ee01c2b04133c7878420d5eb4ff43766d3429733cb6f",
+    "start": "2020-09-13 16:00:00.004000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s02_dfb",
+    "line": 445,
+    "spec_line": 580
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 9.936172625474548,
+   "profit_factor": 1.0513020483869857,
+   "n_trades": 269.0
+  },
+  "rule_es": "ruptura Donchian con confirmación de flujo agresivo y tendencia HTF; stop ancho ATR."
+ },
+ {
+  "rank": 92,
+  "label": "qs096",
+  "adapter": "qs096",
+  "symbol": "AVAXUSDT",
+  "timeframe": "1h",
+  "run_id": "c29b5798f9f69df7",
+  "strategy_key": "qs096",
+  "engine_files": [
+   "qs096_engine.py",
+   "qs_engine.py",
+   "qs_d_strats.py"
+  ],
+  "engine_sha256": "39868648b7acfac407113bbcbd2dd105b8d104db1f726e065706c9625e699d42",
+  "engine_version": "qs096-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy qs096 --tf 1h --symbol AVAXUSDT --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy qs096 --tf 1h --symbol AVAXUSDT",
+  "inputs": [
+   {
+    "bars": 53553,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\AVAXUSDT_1h.csv",
+    "sha256": "7fb3b269e68f19a417d35b078e5a49042f10691c0450344a913b51cb30d1dae3",
+    "start": "2020-09-23 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "cost_mode": "gate",
+   "provenance.funding": "off"
+  },
+  "source_refs": [
+   {
+    "file": "qs096_engine.py",
+    "token": "build_plan",
+    "line": 55
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 4.506657664643354,
+   "profit_factor": 1.0494183508191497,
+   "n_trades": 255.0
+  },
+  "rule_es": "QS-096: retest CHoCH tipo QS-033 pero solo cuando el percentil de ATR de quinientas barras está entre treinta y ochenta."
+ },
+ {
+  "rank": 93,
+  "label": "16_ttm_squeeze",
+  "adapter": "pack20",
+  "symbol": "XRPUSDT",
+  "timeframe": "1h",
+  "run_id": "ea426bb3fb821132",
+  "strategy_key": "16_ttm_squeeze",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 16
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol XRPUSDT --params '{\"id\": 16}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol XRPUSDT --params '{\"id\":16}'",
+  "inputs": [
+   {
+    "bars": 59816,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\XRPUSDT_1h.csv",
+    "sha256": "9e44dc353bc6bd63b2d786fee8a942737b4528052563fac415b879c922f42632",
+    "start": "2020-01-06 08:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "16_ttm_squeeze",
+    "line": 775,
+    "function": "ttm_squeeze",
+    "function_line": 542
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 488.29602516331903,
+   "profit_factor": 1.0483097132600214,
+   "n_trades": 3396.0
+  },
+  "rule_es": "TTM squeeze: Bollinger dentro de Keltner y momentum hl2 cruzando cero; stop a dos ATR."
+ },
+ {
+  "rank": 94,
+  "label": "1 01_liq_fvg",
+  "adapter": "pack20",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "run_id": "ddb39cfadb02ce59",
+  "strategy_key": "01_liq_fvg",
+  "engine_files": [
+   "pack20_engine.py",
+   "pack20_wrap.py"
+  ],
+  "engine_sha256": "dd89ed4d84fd718152db2c1738aae1067504208a744a1461980874f9526f1577",
+  "engine_version": "pack20-1",
+  "params": {
+   "id": 1
+  },
+  "same_engine_command": "python code/vrun.py run --strategy pack20 --tf 1h --symbol SOLUSDT --params '{\"id\": 1}' --cut-ts 2026-11-08T00:00:00+00:00",
+  "same_engine_command_template": "python code/vrun.py run --strategy pack20 --tf 1h --symbol SOLUSDT --params '{\"id\":1}'",
+  "inputs": [
+   {
+    "bars": 53769,
+    "end": "2026-11-02 15:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h\\SOLUSDT_1h.csv",
+    "sha256": "bd007583edc7bbde64d2a56f2b1e6a467da12169b392aad553fe22dec600c2b6",
+    "start": "2020-09-14 07:00:00+00:00",
+    "cut_ts": "2026-11-08T00:00:00+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": false,
+   "provenance.funding": "not charged (declared)"
+  },
+  "source_refs": [
+   {
+    "file": "pack20_engine.py",
+    "token": "01_liq_fvg",
+    "line": 768,
+    "function": "liq_fvg",
+    "function_line": 112
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 4.334420910510772,
+   "profit_factor": 1.0464456242899707,
+   "n_trades": 36.0
+  },
+  "rule_es": "barrido de liquidez en nivel HTF más FVG de tres barras; entrada al tocar el FVG y cerrar de vuelta por su midpoint; stop tras el extremo barrido."
+ },
+ {
+  "rank": 95,
+  "label": "S01 Taker-Flow Drift Bands",
+  "adapter": "cbpackf",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "c1f3df39b37c1d2b",
+  "strategy_key": "S01",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s01_tfd",
+    "line": 431,
+    "spec_line": 576
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 8.762801002913712,
+   "profit_factor": 1.0453970469541143,
+   "n_trades": 292.0
+  },
+  "rule_es": "bandas de deriva de flujo taker con alineación HTF y guardia anti-inversión de banda; entradas al cruzar bandas y salidas por inversión."
+ },
+ {
+  "rank": 96,
+  "label": "S07 Funding Extreme Fade",
+  "adapter": "cbpackf",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "c1f3df39b37c1d2b",
+  "strategy_key": "S07",
+  "engine_files": [
+   "cbpack_funding_engine.py"
+  ],
+  "engine_sha256": "b529ee7ab135143c1b5efdc6e199210b7e42b5b80fd110d48c3be8a10b360f91",
+  "engine_version": "cbpack-funding-1",
+  "params": {},
+  "same_engine_command": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "same_engine_command_template": "python code/vrun.py run --strategy cbpackf --tf 1h --symbol SUIUSDT",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {
+   "fee_bps_per_side": 5.0,
+   "slippage_bps_per_side": 0.5,
+   "funding_charged": true,
+   "provenance.costs": {
+    "fee_bps": 5.0,
+    "slippage_bps": 0.5
+   }
+  },
+  "source_refs": [
+   {
+    "file": "cbpack_funding_engine.py",
+    "token": "s07_fun",
+    "line": 511,
+    "spec_line": 600
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 0.9913960780866704,
+   "profit_factor": 1.035880364510498,
+   "n_trades": 40.0
+  },
+  "rule_es": "fade de funding extremo con rollover tras EMA; entrada contra el posicionamiento, TP amplio ATR y holding máximo."
+ },
+ {
+  "rank": 97,
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "5m",
+  "run_id": "177a598c398080b5",
+  "strategy_key": "QS-025",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-025",
+   "variant": "long-only"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 5m --symbol SUIUSDT --params '{\"strat\": \"QS-025\", \"variant\": \"long-only\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 5m --symbol SUIUSDT --params '{\"strat\":\"QS-025\",\"variant\":\"long-only\"}'",
+  "inputs": [
+   {
+    "bars": 210240,
+    "end": "2026-10-14 21:20:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_5m_taker\\SUIUSDT_5m.csv",
+    "sha256": "35ad3ba468a05354a475124175425911467bbb02aa89c2fcc32a974b6cf5bfc3",
+    "start": "2024-10-14 21:25:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-025",
+    "line": 374
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 5.91,
+   "profit_factor": 1.034881915648191,
+   "n_trades": 311.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras con volumen mayor que el doble de su media de veinte; stop a dos ATR."
+ },
+ {
+  "rank": 98,
+  "label": "QS-025 Donchian breakout with volume confirmation",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "15m",
+  "run_id": "21f78ce657de0945",
+  "strategy_key": "QS-025",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-025",
+   "variant": "long-only"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 15m --symbol SUIUSDT --params '{\"strat\": \"QS-025\", \"variant\": \"long-only\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 15m --symbol SUIUSDT --params '{\"strat\":\"QS-025\",\"variant\":\"long-only\"}'",
+  "inputs": [
+   {
+    "bars": 70080,
+    "end": "2026-10-14 21:45:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_15m_taker\\SUIUSDT_15m.csv",
+    "sha256": "e92c7e4d875f331a55e716f3167454d5412cb3ddd0dcc6eff9732c8018eb7bae",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-025",
+    "line": 374
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 5.78,
+   "profit_factor": 1.0302378120080136,
+   "n_trades": 510.0
+  },
+  "rule_es": "ruptura Donchian de veinte barras con volumen mayor que el doble de su media de veinte; stop a dos ATR."
+ },
+ {
+  "rank": 99,
+  "label": "QS-028 Failed breakout reversal",
+  "adapter": "qsc",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "f12bf23e1042d8c9",
+  "strategy_key": "QS-028",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_c_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "d9ad72dc2ac07ebb2ceb3147352381ec2effc03f56dcb90191dbec4a0e874839",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-028",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-028\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsc --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-028\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_c_strats.py",
+    "token": "QS-028",
+    "line": 377
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 2.62,
+   "profit_factor": 1.0292797061635826,
+   "n_trades": 152.0
+  },
+  "rule_es": "ruptura fallida de veinte barras seguida, en una a tres barras, de cierre de vuelta dentro del nivel roto; objetivo al midpoint y stop tras el extremo fallido."
+ },
+ {
+  "rank": 100,
+  "label": "QS-037 Compression inside a prior range",
+  "adapter": "qsd",
+  "symbol": "SUIUSDT",
+  "timeframe": "1h",
+  "run_id": "694b8e7e1b64e88c",
+  "strategy_key": "QS-037",
+  "engine_files": [
+   "qs_engine.py",
+   "qs_strats.py",
+   "qs_d_strats.py",
+   "qs_run.py"
+  ],
+  "engine_sha256": "55a2ec6f4533f1bcdf0b8364ceb930b0201db322adc05c40fc8ed60fb828942c",
+  "engine_version": "qs-1",
+  "params": {
+   "strat": "QS-037",
+   "variant": "two-sided"
+  },
+  "same_engine_command": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\": \"QS-037\", \"variant\": \"two-sided\"}'",
+  "same_engine_command_template": "python code/vrun.py run --strategy qsd --tf 1h --symbol SUIUSDT --params '{\"strat\":\"QS-037\",\"variant\":\"two-sided\"}'",
+  "inputs": [
+   {
+    "bars": 17803,
+    "end": "2026-10-26 16:00:00+00:00",
+    "gap_breach": false,
+    "max_gap_bars": 1.0,
+    "missing_bars": 0,
+    "path": "data\\binance_klines_1h_taker\\SUIUSDT_1h.csv",
+    "sha256": "8c961e21d12a2060d1da1e8792b24691fb385f20ba7a8c12df6fc3af9c35b81a",
+    "start": "2024-10-14 22:00:00+00:00"
+   },
+   {
+    "bars": 3825,
+    "end": "2026-10-29 16:00:00+00:00",
+    "path": "data\\binance_funding\\SUIUSDT_funding.json",
+    "sha256": "96d9e90af8ee92abf5abd474d978ff7e1f38b2e65bca9fe32713f591000d5df7",
+    "start": "2023-05-03 16:00:00.011000+00:00"
+   }
+  ],
+  "costs": {},
+  "source_refs": [
+   {
+    "file": "qs_d_strats.py",
+    "token": "QS-037",
+    "line": 573
+   }
+  ],
+  "target_metrics": {
+   "return_pct": 1.41,
+   "profit_factor": 1.028997067010427,
+   "n_trades": 145.0
+  },
+  "rule_es": "compresion de ocho barras dentro del tercio alto/bajo de un rango previo de sesenta y rotura de la consolidacion; objetivo al extremo del rango previo."
+ }
+]

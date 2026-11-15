@@ -1,0 +1,27 @@
+{
+  "name": "pipeline-demo",
+  "workers": 3,
+  "gates": {
+    "screen": [
+      ["full.pf|profit_factor|best_pf|PF", ">", 1.2],
+      ["n_trades|trades|full.n", ">=", 30],
+      ["full_pct.net_pct|return_pct|net_%", ">", 0],
+      ["oos.pf|oos_pf", ">", 1.2]
+    ],
+    "wf": [
+      ["S02.oos_net_%|oos_net_%|mean_test_net_%", ">", 0]
+    ]
+  },
+  "jobs": [
+    {"label": "s28", "role": "screen", "strategy": "top10", "tf": "1h", "symbol": "BTCUSDT", "set": ["id=28"]},
+    {"label": "s44", "role": "screen", "strategy": "top10", "tf": "1h", "symbol": "BTCUSDT", "set": ["id=44"]},
+    {"label": "s60", "role": "screen", "strategy": "prompts100", "tf": "1h", "symbol": "HYPEUSDT", "set": ["id=60"]},
+    {"label": "wf-xrp-s02", "role": "wf", "needs": "s28", "strategy": "cbpack", "tf": "1h", "symbol": "XRPUSDT",
+     "set": ["mode=wf", "train_bars=1440", "test_bars=720", "ids=S02"]},
+    {"label": "nb-xrp-s02", "role": "neighborhood", "needs": "s28", "strategy": "cbpack", "tf": "1h", "symbol": "XRPUSDT",
+     "param": "fee_bps", "values": "4.0,5.0,6.0"},
+    {"label": "s28", "role": "stats", "needs": "s28"},
+    {"label": "s44", "role": "stats", "needs": "s44"}
+  ],
+  "report": "results/bt_pipeline-demo_report.md"
+}

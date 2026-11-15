@@ -3,11 +3,12 @@
 x_queue.py — generate the X (@nftepml) posting pack from the strategy registry.
 
 Doctrine (non-negotiable):
-  - Numbers ONLY from artifact metrics/inputs/params via results/runs/<run_id>.json.
-  - Fixed copy contains ZERO digits (guard-safe by construction).
-  - Every generated file cites its run_id; `vrun.py guard` must pass on each file.
+  - The tweet PUBLISHES THE STRATEGY: the rule itself (entry/exit/stop/costs),
+    verbatim from content/specs.md. Performance numbers and the verdict never
+    appear — the reader has to open the repo link to find out how it did.
+  - Every digit in a tweet must exist in the cited artifact
+    (results/runs/<run_id>.json); `vrun.py guard` must pass on each file.
   - Nothing is invented; unmapped verdicts are skipped, never guessed.
-  - Verdict honesty: killed strategies are posted as "tested and failed".
 
 Usage:
   python code/x_queue.py build --days 30 --out content/posts
@@ -258,9 +259,12 @@ def spec_id_for(adapter, name):
             "fingrad": "fingrad-hma-ao-adx", "rsimr": "rsimr-sol-usdc",
             "mpv3": "mpv3-s10-pure-ew-momentum"}.get(a)
 
-# ── story engine ────────────────────────────────────────────────────────────
-# Every number that reaches a tweet must exist in the cited artifact:
-# no unit conversions, no dates, no derived arithmetic, no filler digits.
+# ── story engine — ONE tweet per post, the verdict NEVER appears ─────────────
+# Rules for every number that reaches a tweet:
+#   * it must be a value that exists in the cited artifact (guard checks this);
+#   * no unit conversions, no dates, no bars, no derived arithmetic;
+#   * NO verdict word, ever — the result lives in the repo behind the link,
+#     and the reader has to go get it (assert_clean enforces this).
 SYMBOL_TAGS = {
     "BTC": "#Bitcoin #BTC", "ETH": "#Ethereum #ETH", "SOL": "#Solana #SOL",
     "XRP": "#XRP #Crypto", "BNB": "#BNB #Crypto", "ADA": "#Cardano #ADA",
@@ -268,6 +272,21 @@ SYMBOL_TAGS = {
     "SUI": "#SUI #Crypto", "JUP": "#JUP #Solana", "LINK": "#LINK #Crypto",
     "NEAR": "#NEAR #Crypto", "SPX": "#SPX #Crypto", "QQQ": "#QQQ #Trading",
 }
+
+# rotation the pack cycles through: one style per slot, in this order
+HOOK_STYLES = ["curiosity", "shock", "contradiction", "cost"]
+
+# any of these in a tweet is a build failure, not a warning
+BANNED_RE = re.compile(
+    r"\b(verdict|killed|killing|kill|failed|failing|fails|died|die|dying|dead|"
+    r"candidate|rejected|reject|suspended|suspend|inconclusive|graveyard|loser|"
+    r"losing|no edge|never works|broke|broken|survived|clears the gates)\b",
+    re.IGNORECASE)
+
+def assert_clean(text):
+    hits = sorted({m.group(0).lower() for m in BANNED_RE.finditer(text)})
+    if hits:
+        raise ValueError("verdict language leaked into copy: %s | %s" % (hits, text[:140]))
 
 def tags_for(sym):
     sym = (sym or "").lstrip("$").upper()
@@ -314,7 +333,7 @@ def facts_of(m):
         "n": _first(m, "n_trades", "n") or _nested(m, "full", "n"),
         "dd": _first(m, "max_dd_pct", "dd_pct"),
         "cost": _first(m, "cost_bp_roundtrip"),
-        "cost_side": _first(m, "cost_bps_per_side"),
+        "cost_side": _first(m, "cost_bps_per_side", "fee_bps_per_side"),
         "zc": _first(m, "zero_cost_pf"),
         "pack_pf": _first(m, "pack_pf"),
         "best_pf": _first(m, "best_pf"),
@@ -334,214 +353,286 @@ def facts_of(m):
         "funding": m.get("funding_charged"),
     }
 
-DEAD_LABELS = ("KILLED", "FAIL", "SUSPENDED", "REJECTED", "INCONCLUSIVE", "NOT VALIDATED")
+# ── spec engine — the tweet PUBLISHES THE STRATEGY, never a result ──────────
+# The body of every tweet is the strategy itself (MECHANISM / RULES / COSTS),
+# verbatim from content/specs.md, adapted to the artifact's instrument:
+#   * a spec that names another pair is restated on the traded pair
+#     (the rule is symbol-agnostic; the artifact proves it ran there);
+#   * a timeframe claim that disagrees with the artifact drops the candidate;
+#   * every digit must exist in the cited artifact (numbers_backed / guard);
+#   * NO verdict word and no performance number, ever (assert_clean).
+SPEC_PATH = os.path.join(REPO, "content", "specs.md")
+_SPECS_CACHE = None
 
-def _angle_candidates(f, sym, tfw, desc, label, adapter):
-    """[(priority, kind, hook)] — every number stays artifact-backed."""
-    pf, n = f["pf"], f["n"]
-    if pf is None:
-        pf = f["pack_pf"]
-    at = f"{sym} {tfw}" if tfw else sym
+def load_specs():
+    global _SPECS_CACHE
+    if _SPECS_CACHE is not None:
+        return _SPECS_CACHE
+    specs, cur = {}, None
+    with open(SPEC_PATH, encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip()
+            if line.startswith("## "):
+                cur = line[3:].strip()
+                specs[cur] = {}
+            elif cur and ":" in line and line.split(":", 1)[0] in ("SOURCE", "MECHANISM", "RULES", "COSTS"):
+                k, v = line.split(":", 1)
+                specs[cur][k] = v.strip()
+    _SPECS_CACHE = specs
+    return specs
+
+_HEX_TOK_RE = re.compile(r"(?<![\w.])[0-9a-fA-F]{8,}(?![\w.])")
+_NUM_TOK_RE = re.compile(r"(?<![\w.])[+-]?\d+(?:\.\d+)?")
+_NUMCACHE = {}
+
+def _art_numbers(rid):
+    """Every number guard would quote from this artifact (metrics/tables/inputs/params)."""
+    if rid in _NUMCACHE:
+        return _NUMCACHE[rid]
+    art = load_artifact(rid) or {}
+    vals = []
+    def walk(o):
+        if isinstance(o, dict):
+            [walk(v) for v in o.values()]
+        elif isinstance(o, list):
+            [walk(v) for v in o]
+        elif isinstance(o, bool):
+            return
+        elif isinstance(o, (int, float)):
+            if o == o:
+                vals.append(float(o))
+        elif isinstance(o, str):
+            for t in _NUM_TOK_RE.findall(o):
+                try:
+                    vals.append(float(t))
+                except ValueError:
+                    pass
+    for k in ("metrics", "tables", "inputs", "params"):
+        walk(art.get(k))
+    _NUMCACHE[rid] = vals
+    return vals
+
+def numbers_backed(text, rid):
+    """True when guard would accept every digit in text for this artifact."""
+    vals = _art_numbers(rid)
+    for tok in _NUM_TOK_RE.findall(_HEX_TOK_RE.sub(" ", text)):
+        try:
+            v = float(tok)
+        except ValueError:
+            continue
+        dps = len(tok.split(".")[1]) if "." in tok else 0
+        if any(abs(round(x, dps) - v) < 1e-9 for x in vals):
+            continue
+        tol = max(abs(v) * 1e-4, 1e-6)
+        if any(abs(x - v) <= tol for x in vals):
+            continue
+        return False
+    return True
+
+_PAIR_TOKEN_RE = re.compile(r"\b[A-Z0-9]{3,10}(?:USDT|USDC)\b")
+_TF_WORDS = {"1m": "one-minute", "5m": "five-minute", "15m": "fifteen-minute",
+             "30m": "thirty-minute", "1h": "hourly", "4h": "four-hour",
+             "1d": "daily", "1w": "weekly"}
+# these phrases are NOT timeframe claims (a per-day breaker, a rebalance cadence,
+# a fill tape) — masking them keeps honest strategies from being dropped
+_TF_MASK = [r"daily[- ]loss", r"day-start", r"weekly rebalance",
+            r"1m tape", r"minute by minute", r"1m record"]
+
+def adapt_spec(text, art):
+    """Restate a spec on the artifact's instrument; None when its timeframe
+    claim contradicts the artifact (those are dropped, never rewritten)."""
+    if not text:
+        return None
+    sym = str(art.get("symbol") or "").upper()
+    tf = str(art.get("timeframe") or "").lower()
+    if sym and not re.search(r"[+,/]", sym):
+        text = _PAIR_TOKEN_RE.sub(
+            lambda m: m.group(0) if m.group(0) == sym else sym, text)
+    masked = text
+    for pat in _TF_MASK:
+        masked = re.sub(pat, " ", masked, flags=re.I)
+    low = masked.lower()
+    claims = {k for k, w in _TF_WORDS.items() if re.search(r"\b" + w + r"\b", low)}
+    claims.update(re.findall(r"\b\d+[mhdw]\b", low))
+    if any(c != tf for c in claims):
+        return None
+    return text
+
+# hook per rotation style — fixed copy, ZERO digits, no verdict language
+STYLE_HOOKS = {
+    "curiosity": [
+        "The whole rule, published. No black box: 👀",
+        "What does the system actually do? Exactly this: 👀",
+        "Copy it, backtest it, argue with it: 👀",
+    ],
+    "shock": [
+        "No indicator soup. This is the entire system: 🚨",
+        "One entry, one exit, nothing else: 🚨",
+        "This is the whole strategy — every line of it: 🚨",
+    ],
+    "contradiction": [
+        "Everyone shows the entry. The exit is the system: 🤯",
+        "Simple entry, strict exit — that tension is the design: 🤯",
+        "The entry is boring. The exit does the work: 🤯",
+    ],
+    "cost": [
+        "The rule is free. Running it is not: 💸",
+        "Before you copy it — what it costs to run: 💸",
+        "Same rule, the fee is the filter: 💸",
+    ],
+}
+
+def _condense_variants(rules):
+    """Progressively shorter tradeable versions of a RULES line, cleanest
+    first: entry/exit/stop only, then those plus fills/risk/mirror, then the
+    full line. Only WHOLE clauses are dropped — no digit is ever added,
+    rewritten or converted, so numbers_backed/guard stay honest."""
+    if not rules:
+        return []
+    parts = [p.strip() for p in rules.split(";") if p.strip()]
+    if len(parts) <= 1:
+        return [rules]
+    core_w = ("entry", "exit", "stop", "target", "trail")
+    # a core clause states the rule; "stop checked intrabar..." is
+    # microstructure, so it only survives in the wider tier
+    core = [p for p in parts
+            if any(p.lower().startswith(w + " =") or p.lower().startswith(w + "=")
+                   for w in core_w)
+            or p.lower().startswith(("long =", "short =", "long=", "short="))]
+    wide = core + [p for p in parts
+                   if p not in core and p.lower().startswith(
+                       ("entry", "exit", "stop", "target", "trail", "fill",
+                        "risk", "mirror", "reverse", "long", "short"))]
     out = []
-
-    # CANDIDATE: the story is the selection, not the PF
-    if label == "CANDIDATE" and pf is not None and n is not None:
-        out.append((0, "candidate", _choose([
-            f"{at}. PF {_f2(pf)} over {_int(n)} trades, and it passed every screen gate. Then I checked how the shortlist was picked. 👀",
-            f"This {desc} on {sym} survived every screen gate: PF {_f2(pf)}, {_int(n)} trades. The way it was selected is the problem. 👀",
-        ], sym, tfw, pf)))
-
-    # fill-model kill: bar-resolution number vs one-minute replay
-    if adapter in ("xrpneutral",) and label == "KILLED" and pf is not None and n is not None:
-        out.append((0, "fills", _choose([
-            f"{at}. PF {_f2(pf)} over {_int(n)} trades. Then I replayed every fill on one-minute candles. 👀",
-            f"This {desc} on {sym} printed PF {_f2(pf)} over {_int(n)} trades. One-minute fills told a different story. 👀",
-        ], sym, tfw, pf)))
-
-    # concentration: the best five trades ARE the PnL
-    if f["best5"] is not None and f["best5"] > 100 and pf is not None and n is not None:
-        if f["netwo"] is not None:
-            out.append((1, "concentration", _choose([
-                f"{at}. PF {_f2(pf)} over {_int(n)} trades. Remove the best five and the PnL flips to {_f1(f['netwo'])}%. That is not an edge. That is five lottery tickets in a trench coat. 🕵️",
-                f"This {desc} on {sym} shows PF {_f2(pf)} over {_int(n)} trades. Kill the five best trades and you get {_f1(f['netwo'])}%. Five lottery tickets in a trench coat. 🕵️",
-            ], sym, tfw, pf)))
-        else:
-            out.append((1, "concentration", _choose([
-                f"{at}. PF {_f2(pf)} over {_int(n)} trades, and the best five trades are {_f1(f['best5'])}% of the PnL. That is five lottery tickets in a trench coat. 🕵️",
-            ], sym, tfw, pf)))
-
-    # pack graveyard
-    if f["nstrat"] is not None and f["npass"] is not None and f["npass"] == 0:
-        bits = f"{_int(f['nstrat'])} strategies entered."
-        if f["npos"] is not None:
-            bits += f" {_int(f['npos'])} ended net-positive."
-        bits += f" {_int(f['npass'])} cleared every gate."
-        if f["nbeat"] is not None and f["nbeat"] == 0 and f["npos"] is not None:
-            out.append((1, "pack", _choose([
-                f"{at}. {_int(f['nstrat'])} strategies ran. {_int(f['npos'])} finished net-positive. {_int(f['nbeat'])} beat buy and hold. 📉",
-                f"{at}. {_int(f['nstrat'])} strategies, {_int(f['npos'])} green, {_int(f['nbeat'])} that beat holding spot. That is the whole story. 🪦",
-            ], sym, tfw, f["nstrat"])))
-        else:
-            out.append((1, "pack", _choose([
-                f"{at}. {bits} This {desc} is a graveyard. 🪦",
-                f"{at}. {bits} Same pair, same data, same costs. The thread-bros post the one cell that worked. 🪦",
-            ], sym, tfw, f["nstrat"])))
-    elif f["nstrat"] is not None and f["npass"] is not None and f["npass"] > 0:
-        out.append((1, "packpass", _choose([
-            f"{at}. {_int(f['npass'])} of {_int(f['nstrat'])} cells cleared every gate. The pack still died. One survivor is not a strategy. 👀",
-            f"{at}. One cell out of {_int(f['nstrat'])} passed every gate. The pack still got killed. That is the multiple-testing tax. 💀",
-        ], sym, tfw, f["nstrat"])))
-
-    # tiny sample
-    if n is not None and n < 60:
-        pfx = f"PF {_f2(pf)} over " if pf is not None else ""
-        out.append((2, "tiny", _choose([
-            f"{at}. {pfx}{_int(n)} trades in total. You cannot validate an edge on that. You can barely call it evidence. 🔬",
-            f"This {desc} on {sym} produced {_int(n)} trades in the whole window. That is not a sample. That is an anecdote with a spreadsheet. 🔬",
-        ], sym, tfw, n)))
-
-    # unstable halves
-    if f["h1"] is not None and f["h2"] is not None and (f["h1"] < 1) != (f["h2"] < 1):
-        out.append((2, "halves", _choose([
-            f"{at}. PF {_f2(f['h1'])} in the first half. PF {_f2(f['h2'])} in the second. Same rules, same pair, opposite outcomes. That is a coin flip with extra steps. 🪙",
-            f"PF {_f2(f['h1'])} in the first half, {_f2(f['h2'])} in the second. This {desc} on {sym} changed personality halfway through. 🪙",
-        ], sym, tfw, f["h1"])))
-
-    # cost cliff
-    if (f["zc"] is not None and f["zc"] > 1 and pf is not None and pf < 1.2
-            and f["zc"] - pf > 0.2):
-        if f["cost"] is not None:
-            at_cost = f"At {_int(f['cost'])} bps roundtrip"
-        elif f["cost_side"] is not None:
-            at_cost = f"At {_f1(f['cost_side'])} bps per side"
-        else:
-            at_cost = "At repo costs"
-        out.append((2, "cost", _choose([
-            f"{at}. Zero fees: PF {_f2(f['zc'])}. {at_cost}: PF {_f2(pf)}. The edge lived in the cost assumption, not in the market. 🧾",
-            f"The gross book on {sym} made PF {_f2(f['zc'])}. {at_cost}: PF {_f2(pf)}. Fees ate the strategy. 🧾",
-        ], sym, tfw, pf)))
-
-    # beat buy and hold?
-    if (f["bh"] is not None and f["ret"] is not None and f["bh"] > 0
-            and f["bh"] - f["ret"] > 10 and label != "CANDIDATE"):
-        out.append((3, "bh", _choose([
-            f"{at}. The book returned {_f1(f['ret'])}%. Buy and hold returned {_f1(f['bh'])}%. A lot of work to underperform a spot wallet. 📉",
-            f"This {desc} on {sym} returned {_f1(f['ret'])}%. Holding spot returned {_f1(f['bh'])}%. The strategy lost to doing nothing. 📉",
-        ], sym, tfw, f["ret"])))
-
-    # in-sample vs out-of-sample gap
-    if f["full_pf"] is not None and f["oos_pf"] is not None and f["full_pf"] - f["oos_pf"] > 0.05:
-        out.append((2, "oos", _choose([
-            f"{at}. In-sample PF {_f2(f['full_pf'])}. Out-of-sample PF {_f2(f['oos_pf'])}. That gap is where accounts die. 🕳️",
-            f"The {sym} backtest shows PF {_f2(f['full_pf'])} in-sample and {_f2(f['oos_pf'])} out-of-sample. The gap is the whole story. 🕳️",
-        ], sym, tfw, f["full_pf"])))
-
-    # a good PF that still died
-    if pf is not None and pf >= 1 and label in DEAD_LABELS:
-        nbit = f" over {_int(n)} trades" if n is not None else ""
-        if label == "SUSPENDED":
-            tail = "The backtest looks fine. The validation is what broke. ⚠️"
-        elif label == "INCONCLUSIVE":
-            tail = "No clean verdict either way. That is its own verdict. ⚠️"
-        else:
-            tail = "On paper it looks tradeable. Then the gates did their job. 👀"
-        out.append((3, "goodpf", f"{at}. PF {_f2(pf)}{nbit}. {tail}"))
-
-    # a losing PF
-    if pf is not None and pf < 1:
-        nbit = f" over {_int(n)} trades" if n is not None else ""
-        out.append((4, "losspf", _choose([
-            f"{at}. PF {_f2(pf)}{nbit}. That is what a losing edge looks like before someone puts a logo on it. 📉",
-            f"PF {_f2(pf)}{nbit} for this {desc} on {sym}. No logo will fix that. 📉",
-        ], sym, tfw, pf)))
-
-    # fallback: never empty, never flattering
-    out.append((5, "fallback", f"{at}. This {desc} has a headline number and no edge behind it. The interesting part is why. 👀"))
+    # fullest first: single_tweet takes the first variant that fits, so the
+    # most complete recipe wins and shorter ones only serve as fallback
+    for cand in (parts, wide, core):
+        t = "; ".join(cand)
+        if t and t not in out:
+            out.append(t)
     return out
 
-def hook_for(f, sym, tfw, desc, label, rid, adapter):
-    cands = _angle_candidates(f, sym, tfw, desc, label, adapter)
-    cands.sort(key=lambda x: (x[0], x[2]))
-    top = [c for c in cands if c[0] == cands[0][0]]
-    chosen = top[_stable(rid, sym, tfw) % len(top)]
-    return chosen[2], chosen[1]
+def style_texts(r):
+    """{style: [strategy bodies]} straight from specs.md. The body IS the
+    recipe (entry/exit/stop, condensed to fit a tweet); the mechanism line is
+    the fallback when a parameter is not in the artifact (guard backs only
+    digits the artifact carries). Every candidate is digit-backed, free of
+    verdict language, and a row with NO artifact-backed rule text is dropped —
+    a cost line alone never counts as publishing a strategy."""
+    art = r["_art"]
+    rid = str(art.get("run_id") or r.get("run_id") or "")
+    sid = spec_id_for(str(r.get("adapter") or ""), r.get("name"))
+    spec = load_specs().get(sid or "")
+    out = defaultdict(list)
+    if not spec:
+        return out
 
-def _short_reason(label, adapter, reason):
-    if label == "CANDIDATE":
-        return "passes the screen but is selection-contaminated and unproven forward"
-    if label == "INCONCLUSIVE":
-        return "no cell in the pack cleared the gates"
-    if adapter in ("qs", "qsb", "qsc", "qsd", "qsf"):
-        return {"FAIL": "it failed the gate battery",
-                "REJECTED": "the gate said no"}.get(label, str(reason).strip().rstrip("."))
-    return str(reason).strip().rstrip(".")
+    def valid(s):
+        return bool(s) and len(s) >= 10 and numbers_backed(s, rid)
 
-def _stats_line(f, kind):
-    bits = []
-    pf = f["pf"] if f["pf"] is not None else f["pack_pf"]
-    if pf is not None:
-        bits.append(f"{'Full PF' if kind == 'halves' else 'PF'} {_f2(pf)}")
-    elif f["best_pf"] is not None:
-        bits.append(f"Best cell PF {_f2(f['best_pf'])}")
-    elif f["best_net"] is not None:
-        bits.append(f"Best cell {_f1(f['best_net'])}%")
-    if f["n"] is not None:
-        bits.append(f"{_int(f['n'])} trades")
-    if f["dd"] is not None:
-        bits.append(f"{_f1(f['dd'])}% max DD")
-    return (" · ".join(bits) + ".") if bits else "Pack-level result."
+    mech = adapt_spec(spec.get("MECHANISM", ""), art)
+    rules = adapt_spec(spec.get("RULES", ""), art)
+    costs = adapt_spec(spec.get("COSTS", ""), art)
+    bodies = []
+    for cand in _condense_variants(rules):
+        if valid(cand) and cand not in bodies:
+            bodies.append(cand)
+    if valid(mech) and mech not in bodies:
+        bodies.append(mech)
+    if not bodies:
+        # no artifact-backed rule text: this row cannot publish a strategy
+        return out
+    for style in HOOK_STYLES:
+        if style == "cost":
+            continue
+        out[style] = list(bodies)
+    if valid(costs):
+        # the cost style must actually carry the cost line — never the bare
+        # rule under a "what it costs" hook (that promise would be a lie)
+        combos = [f"{b} {costs}" for b in bodies]
+        combos = [t for t in combos if valid(t)]
+        if combos:
+            out["cost"] = combos
+    for k in list(out):
+        out[k] = [t for t in out[k] if valid(t)]
+        if not out[k]:
+            del out[k]
+    return out
 
-def thread_text(r):
-    art = r["_art"]; m = art.get("metrics") or {}
+def styles_of(r):
+    a = r["_art"]
+    raw = (a.get("symbol") or r.get("symbol") or "").upper()
+    parts = [p.replace("USDT", "").replace("USDC", "") for p in re.split(r"[+/,]", raw) if p]
+    parts = [p for p in parts if p and p not in ("PORTFOLIO", "BASKET", "BASKET5")]
+    sym = " + ".join("$" + p for p in parts) if parts else "the basket"
+    tfw = TF_WORD.get(str(a.get("timeframe") or r.get("tf") or "").lower(), "")
+    desc = ADAPTER_DESC.get(str(r.get("adapter") or ""), ADAPTER_DESC_DEFAULT)
+    return style_texts(r), (sym, tfw, desc)
+
+LINK = "github.com/mancas21/BACKTEST"
+
+def x_len(text):
+    """X's weighted length: our fixed URL counts 23, an emoji counts 2, every
+    other character counts 1 (the generated copy is ASCII outside the emoji).
+    Python len() is the wrong yardstick on its own: it charges 28 for the URL
+    and 1 for an emoji, which is 6 chars stricter than X per tweet."""
+    n = 0
+    parts = text.split(LINK)
+    for i, p in enumerate(parts):
+        if i:
+            n += 23
+        for ch in p:
+            n += 2 if 0x1F000 <= ord(ch) <= 0x1FAFF else 1
+    return n
+
+def single_tweet(r, style):
+    """One post = one tweet: hook + THE STRATEGY + link + tags + NFA.
+    No verdict, no performance number, ever."""
+    art = r["_art"]
+    rid = str(art.get("run_id") or "")
     raw = (art.get("symbol") or r.get("symbol") or "").upper()
     parts = [p.replace("USDT", "").replace("USDC", "") for p in re.split(r"[+/,]", raw) if p]
     parts = [p for p in parts if p and p not in ("PORTFOLIO", "BASKET", "BASKET5")]
-    if parts:
-        sym = " + ".join("$" + p for p in parts)
-        tag_sym = parts[0]
-        tags = ("#" + " #".join(parts[:2]) + " #Crypto") if len(parts) > 1 else tags_for(tag_sym)
-    else:
-        sym = "the basket"
-        tag_sym = ""
-        tags = tags_for(tag_sym)
-    tfw = TF_WORD.get(str(art.get("timeframe") or r.get("tf") or "").lower(), "")
-    desc = ADAPTER_DESC.get(str(r.get("adapter") or ""), ADAPTER_DESC_DEFAULT)
-    label, reason = r["_label"], r["_reason"]
-    rid = art.get("run_id") or ""
-    adapter = str(r.get("adapter") or "")
-    f = facts_of(m)
+    tags = ((" #" + " #".join(parts[:2]) + " #Crypto") if len(parts) > 1
+            else (" " + tags_for(parts[0]) if parts else " #Crypto #Trading"))
+    texts, (sym, tfw, desc) = styles_of(r)
+    pool = texts.get(style) or [v for k in HOOK_STYLES for v in texts.get(k, [])]
+    hooks = STYLE_HOOKS.get(style) or [h for k in HOOK_STYLES for h in STYLE_HOOKS.get(k, [])]
+    if not pool or not hooks:
+        return ""
+    # body order stays pool order (fullest recipe first); only the hook is
+    # rotated, so different run_ids open differently without ever hiding the
+    # most complete rule text behind a shorter variant
+    rot = _stable(rid, style) % len(hooks)
+    hooks = hooks[rot:] + hooks[:rot]
 
-    hook, kind = hook_for(f, sym, tfw, desc, label, rid, adapter)
-    if len(hook) > 270:
-        hook = hook[:267].rsplit(" ", 1)[0] + "..."
-
-    stats_line = _stats_line(f, kind)
-    verdict = f"Verdict: {label} — {_short_reason(label, adapter, reason)}."
-
-    caveats = []
-    if f["funding"] is True:
-        caveats.append("Funding charged.")
-    elif f["funding"] is False and "funding" not in str(reason).lower():
-        caveats.append("Funding not charged.")
-    if label == "CANDIDATE":
-        caveats.append("Forward record pending.")
-
-    body = ""
-    for tag_line in (tags + " #Backtest", tags, ""):
-        for cta in ("Rules + artifact: github.com/mancas21/BACKTEST",
-                    "Rules: github.com/mancas21/BACKTEST", ""):
-            candidate = " ".join(x for x in [stats_line, verdict, " ".join(caveats),
-                                             cta, tag_line, "NFA"] if x)
-            if len(candidate) <= 270:
-                body = candidate
-                break
-        if body:
-            break
-    if not body:
-        body = _stats_line(f, kind) + " " + verdict
-        body = body[:267].rsplit(" ", 1)[0] + "..."
-
-    return [hook, body]
+    for body in pool:
+        # name the instrument when the rule text does not already carry it;
+        # a prefix reads better than a trailing "on $SOL" after a stop clause
+        if parts and parts[0] not in body.upper():
+            body = f"{sym}: {body}"
+        if body and body[-1] not in ".!?":
+            body += "."
+        for hook in hooks:
+            h = f"{hook} {body}"
+            # tags before CTA wording: hashtags buy reach, the CTA is cosmetic,
+            # so the longest CTA is only spent when the hashtags already fit.
+            # the pair-only tier keeps at least one hashtag on tweets whose
+            # full recipe leaves no room for the full tag line.
+            for tag_line in (tags + " #Backtest", tags,
+                             (" #" + parts[0]) if parts else "", ""):
+                for cta in ("Full recipe, params and artifact: " + LINK,
+                            "Full recipe + artifact: " + LINK,
+                            "Recipe + artifact: " + LINK,
+                            "Recipe: " + LINK,
+                            LINK):
+                    # X's weighted count (URL 23, emoji 2), 278 keeps a
+                    # margin under the 280 limit
+                    tweet = " ".join(x for x in [h, cta, tag_line, "NFA"] if x)
+                    if x_len(tweet) <= 278:
+                        assert_clean(tweet)
+                        return tweet
+    return ""
 
 def slugify(s):
     s = re.sub(r"[^A-Za-z0-9]+", "-", s).strip("-").lower()
@@ -557,25 +648,76 @@ def _content_key(r):
             None if f["netwo"] is None else round(f["netwo"], 2),
             r["_reason"])
 
-def build(days, outdir, start=None):
+def _styles_available(r):
+    texts, _ = styles_of(r)
+    return {s for s in HOOK_STYLES if texts.get(s)}
+
+def _has_recipe(texts):
+    """True when a body states the actual entry rule, not just a label —
+    a mechanism line alone is not publishing the strategy."""
+    for b in texts.get("curiosity", []):
+        low = b.lower()
+        if "entry" in low or re.match(r"^(long|short)\s*=", low):
+            return True
+    return False
+
+def build(days=0, outdir=None, start=None, posts=None):
+    outdir = outdir or os.path.join(REPO, "content", "posts")
     rows = load_rows()
     elig, skipped = eligibility(rows)
     ordered = order_rows(elig)
-    need = days * 3
-    # no two posts may tell the same story with the same numbers
-    picked, seen, seen_pair, dup_story = [], set(), set(), 0
-    for r in ordered:
-        k = _content_key(r)
-        a = r["_art"]
-        pair_key = (r.get("adapter"), a.get("symbol"))
-        if k in seen or pair_key in seen_pair:
-            dup_story += 1
-            continue
-        seen.add(k)
-        seen_pair.add(pair_key)
-        picked.append(r)
-        if len(picked) >= need:
+    need = (posts if posts else 0) or days * 3
+
+    # ── rotation picker: slot i wants HOOK_STYLES[i % 4]; take the first
+    # eligible row that offers that style (fallback: any style), while
+    # deduping content-key AND (adapter, symbol) so no story repeats.
+    picked, styles, seen, seen_pair, seen_sym, seen_spec, dup_story = [], [], set(), set(), set(), set(), 0
+    pool = list(ordered)
+    while len(picked) < need and pool:
+        want = HOOK_STYLES[len(picked) % len(HOOK_STYLES)]
+        # rank every candidate lexicographically:
+        #   1. the rotated style (verify() checks the rotation order),
+        #   2. a full recipe over a mechanism label (publishing the strategy
+        #      IS the job — a label-only tweet is a weak post),
+        #   3. a symbol not yet used in this pack (variety).
+        # hard filters (posted / same artifact / same pair / same spec) apply
+        # before ranking.
+        chosen, chosen_style = None, None
+        best_rank = None
+        for r in pool:
+            k = _content_key(r)
+            pair_key = (r.get("adapter"), r["_art"].get("symbol"))
+            sym_key = (r["_art"].get("symbol") or r.get("symbol") or "")
+            # one strategy story per pack: the spec IS the story now
+            spec_key = spec_id_for(str(r.get("adapter") or ""), r.get("name"))
+            if k in seen or pair_key in seen_pair or \
+                    (spec_key is not None and spec_key in seen_spec):
+                continue
+            texts, _ = styles_of(r)
+            if not texts:
+                continue
+            if want in texts:
+                style_rank, style = 0, want
+            else:
+                style_rank, style = 1, sorted(texts)[0]
+            rank = (style_rank,
+                    0 if _has_recipe(texts) else 1,
+                    0 if sym_key not in seen_sym else 1)
+            if best_rank is None or rank < best_rank:
+                best_rank, chosen, chosen_style = rank, r, style
+                if rank == (0, 0, 0):
+                    break
+        if chosen is None:
             break
+        pool.remove(chosen)
+        seen.add(_content_key(chosen))
+        seen_pair.add((chosen.get("adapter"), chosen["_art"].get("symbol")))
+        seen_sym.add(chosen["_art"].get("symbol") or chosen.get("symbol") or "")
+        _sk = spec_id_for(str(chosen.get("adapter") or ""), chosen.get("name"))
+        if _sk is not None:
+            seen_spec.add(_sk)
+        picked.append(chosen)
+        styles.append(chosen_style)
     skipped = dict(skipped)
     skipped["duplicate_story"] = dup_story
     os.makedirs(outdir, exist_ok=True)
@@ -584,22 +726,22 @@ def build(days, outdir, start=None):
         day0 = datetime.strptime(start, "%Y-%m-%d").replace(tzinfo=timezone.utc)
     else:
         day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
-    slots = [("A", 1, 30), ("B", 13, 0), ("C", 21, 0)]
-    # never emit a post with a past timestamp: skip slots already gone
+    # three slots per day, chosen hours
+    slots = [("A", 9, 0), ("B", 14, 0), ("C", 21, 0)]
     slot_times = []
     d = day0
-    while len(slot_times) < need:
+    while len(slot_times) < len(picked):
         for slot, hh, mm in slots:
             dt = d.replace(hour=hh, minute=mm)
             if dt > now:
                 slot_times.append((slot, dt))
         d += timedelta(days=1)
     manifest = []
-    for r, (slot, dt) in zip(picked, slot_times):
-        tweets = thread_text(r)
-        if any(len(t) > 280 for t in tweets):
-            tweets[0] = tweets[0][:277].rsplit(" ", 1)[0] + "..."
-            tweets[1] = tweets[1][:277].rsplit(" ", 1)[0] + "..."
+    for r, style, (slot, dt) in zip(picked, styles, slot_times):
+        tweet = single_tweet(r, style)
+        if not tweet:
+            raise ValueError("no tweet for %s (%s)" % (r.get("run_id"), style))
+        assert_clean(tweet)
         sym = (r.get("symbol") or "").upper()
         tf = str(r.get("tf") or "").lower()
         rid = str(r.get("run_id") or "")
@@ -609,14 +751,13 @@ def build(days, outdir, start=None):
         label = r["_label"]
         with open(path, "w", encoding="utf-8") as f:
             # header carries NO digits — guard scans the whole file; dates live in SCHEDULE.md
-            f.write(f"# Slot {slot} — {sym} — {label}\n\n")
-            f.write("INSTRUCTIONS (not part of the thread): paste each block below as one ")
-            f.write("tweet, in order, using X's Schedule button. Numbers from artifact " + rid + "\n\n")
-            for t in tweets:
-                f.write(t + "\n\n")
+            f.write(f"# Slot {slot} — {sym} — {style}\n\n")
+            f.write("INSTRUCTIONS (not part of the tweet): paste the block below as ONE tweet ")
+            f.write("using X's Schedule button. Numbers from artifact " + rid + "\n\n")
+            f.write(tweet + "\n")
         manifest.append({
             "file": f"posts/{fname}", "datetime_utc": dt.isoformat(),
-            "slot": slot, "run_id": rid, "adapter": r.get("adapter"),
+            "slot": slot, "style": style, "run_id": rid, "adapter": r.get("adapter"),
             "spec_id": spec_id_for(r.get("adapter"), r.get("name")),
             "family": family_of(r), "symbol": sym, "tf": tf,
             "verdict": label, "source_verdict": r.get("verdict"),
@@ -627,35 +768,77 @@ def build(days, outdir, start=None):
             f.write(json.dumps(mrec, ensure_ascii=False) + "\n")
     with open(os.path.join(REPO, "content", "SCHEDULE.md"), "w", encoding="utf-8") as f:
         f.write("# SCHEDULE — @nftepml content pack\n\n")
-        f.write("Dates/times UTC. Paste each block of `posts/<file>` as one thread, in order.\n\n")
-        f.write("| When (UTC) | Slot | File | Verdict |\n|---|---|---|---|\n")
+        f.write("Dates/times UTC. One tweet per post; paste the block from `posts/<file>` ")
+        f.write("using X's Schedule button. The verdict is NOT in the tweet — it lives in the repo.\n\n")
+        f.write("| When (UTC) | Slot | Style | File | Verdict |\n|---|---|---|---|---|\n")
         for mrec in manifest:
-            f.write(f"| {mrec['datetime_utc'][:16].replace('T',' ')} | {mrec['slot']} | `{mrec['file']}` | {mrec['verdict']} |\n")
+            f.write(f"| {mrec['datetime_utc'][:16].replace('T',' ')} | {mrec['slot']} | "
+                    f"{mrec['style']} | `{mrec['file']}` | {mrec['verdict']} |\n")
     # one copy-paste digest with the complete text of every post
     with open(os.path.join(REPO, "content", "WEEK.md"), "w", encoding="utf-8") as f:
         f.write("# Full text — every scheduled post\n\n")
-        f.write("Copy each tweet block in order. Times are UTC.\n\n")
+        f.write("Copy each tweet block. Times are UTC. No verdict appears in any tweet.\n\n")
         for mrec in manifest:
             p = os.path.join(outdir, os.path.basename(mrec["file"]))
             lines = open(p, encoding="utf-8").read().splitlines()
             blocks = [b for b in lines[4:] if b.strip()]
-            f.write(f"## {mrec['datetime_utc'][:16].replace('T',' ')} UTC · slot {mrec['slot']} · {mrec['verdict']}\n\n")
+            f.write(f"## {mrec['datetime_utc'][:16].replace('T',' ')} UTC · slot {mrec['slot']} · {mrec['style']}\n\n")
             f.write(f"`{mrec['adapter']} · {mrec['symbol']} · {mrec['tf']} · artifact {mrec['run_id']}`\n\n")
             for i, b in enumerate(blocks, 1):
                 f.write(f"**Tweet {i}**\n\n> {b}\n\n")
     print(f"picked {len(manifest)} posts -> {outdir}")
+    print("styles:", styles)
     print("skips:", dict(skipped))
 
+def _post_tweet(path):
+    """The single tweet block of a post file (everything after the instructions line)."""
+    lines = open(path, encoding="utf-8").read().splitlines()
+    blocks = [b for b in lines[4:] if b.strip()]
+    return blocks
+
 def verify():
-    files = sorted(f for f in os.listdir(os.path.join(REPO, "content", "posts"))
-                   if f.endswith(".md"))
+    posts_dir = os.path.join(REPO, "content", "posts")
+    files = sorted(f for f in os.listdir(posts_dir) if f.endswith(".md"))
     bad = []
+    hooks = {}
+    styles = []
     for f in files:
-        p = os.path.join(REPO, "content", "posts", f)
+        p = os.path.join(posts_dir, f)
         rc = subprocess.call([sys.executable, os.path.join(REPO, "code", "vrun.py"),
                               "guard", "--report", p], stdout=subprocess.DEVNULL)
         if rc != 0:
-            bad.append(f)
+            bad.append(f + " (guard)")
+            continue
+        text = open(p, encoding="utf-8").read()
+        tweets = _post_tweet(p)
+        if len(tweets) != 1:
+            bad.append(f + " (block-count=%d, want 1)" % len(tweets))
+            continue
+        tweet = tweets[0]
+        try:
+            assert_clean(tweet)
+        except ValueError as e:
+            bad.append(f + " (banned: %s)" % str(e)[:60])
+            continue
+        if "github.com/mancas21/BACKTEST" not in tweet:
+            bad.append(f + " (no link)")
+            continue
+        if x_len(tweet) > 280:
+            bad.append(f + " (len %d)" % x_len(tweet))
+            continue
+        # dedupe: same hook text or same style twice is a repetition bug
+        head = tweet.split(" github.com")[0][:60]
+        if head in hooks:
+            bad.append(f + " (dup hook of %s)" % hooks[head])
+        else:
+            hooks[head] = f
+        m = re.search(r"— (\w+) — (\w+)\s*$", text.splitlines()[0])
+        if m:
+            styles.append(m.group(2))
+    # rotation check: styles must cycle curiosity/shock/contradiction/cost
+    want = [HOOK_STYLES[i % len(HOOK_STYLES)] for i in range(len(styles))]
+    if styles and styles != want:
+        bad.append("rotation is %s, want %s" % (styles, want))
     print(f"guard OK: {len(files) - len(bad)}/{len(files)}")
     for f in bad:
         print("REFUSED:", f)
@@ -666,12 +849,14 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     b = sub.add_parser("build")
     b.add_argument("--days", type=int, default=30)
+    b.add_argument("--posts", type=int, default=None,
+                   help="exact number of posts (overrides --days)")
     b.add_argument("--out", default=os.path.join(REPO, "content", "posts"))
     b.add_argument("--start", default=None, help="UTC date YYYY-MM-DD (past slots are skipped)")
     sub.add_parser("verify")
     args = ap.parse_args()
     if args.cmd == "build":
-        build(args.days, args.out, args.start)
+        build(args.days, args.out, args.start, args.posts)
     elif args.cmd == "verify":
         sys.exit(verify())
 

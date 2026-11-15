@@ -249,406 +249,6 @@
     ]
   },
   {
-    "bars": 17520,
-    "base_run_id": "39994dd17dc1157f",
-    "gates": {
-      "funding_and_concentration": {
-        "engine_version": "cbpack-funding-1",
-        "funding_charged": true,
-        "n_settlements": 2190,
-        "rows": {
-          "S02": {
-            "PF": 1.6337819824858277,
-            "bh_net_%": 116.50825200145616,
-            "buy_hold_%": 142.8285402257008,
-            "conc_net_pct": 190.61854257599012,
-            "conc_net_without_top5_pct": -46.382568327497104,
-            "conc_net_without_topdecile_pct": -217.04667472286823,
-            "conc_passes": false,
-            "conc_passes_decile": false,
-            "conc_top5_pnl": 23700.11109034872,
-            "conc_top5_share": 1.2433266339186635,
-            "conc_top5_share_pct": 124.33266339186635,
-            "conc_topdecile_share": 2.1386440783238205,
-            "conc_total_pnl": 19061.85425759901,
-            "excess_%": 47.790002350289114,
-            "excess_net_%": 74.11029057453375,
-            "exp_R": 0.6004653902538772,
-            "exposure_%": 34.8458904109589,
-            "flow_source": "taker",
-            "funding_charged": true,
-            "funding_drag_pp": -6.496476834725456,
-            "funding_paid_pct": 4.456936017696512,
-            "gross_%": 220.56969194154556,
-            "id": "S02",
-            "maxDD_%": -26.708006744090586,
-            "name": "Donchian + Flow Breakout",
-            "net_%": 190.61854257598992,
-            "net_no_funding_pct": 197.11501941071538,
-            "pf_no_funding": 1.6498670489768388,
-            "sharpe": 1.7064049380335091,
-            "status": "ok",
-            "trades": 223.0,
-            "win_%": 27.802690582959645
-          },
-          "S10": {
-            "PF": 1.8308870434063733,
-            "bh_net_%": 116.50825200145616,
-            "buy_hold_%": 142.8285402257008,
-            "conc_net_pct": 184.18070600782107,
-            "conc_net_without_top5_pct": -60.016898825776586,
-            "conc_net_without_topdecile_pct": -173.5652893895673,
-            "conc_passes": false,
-            "conc_passes_decile": false,
-            "conc_top5_pnl": 24419.760483359765,
-            "conc_top5_share": 1.3258587727599873,
-            "conc_top5_share_pct": 132.58587727599874,
-            "conc_topdecile_share": 1.9423641224515507,
-            "conc_total_pnl": 18418.070600782106,
-            "excess_%": 41.352165782120395,
-            "excess_net_%": 67.67245400636503,
-            "exp_R": 0.9167582340026984,
-            "exposure_%": 71.3755707762557,
-            "flow_source": "n/a",
-            "funding_charged": true,
-            "funding_drag_pp": -5.723482716184776,
-            "funding_paid_pct": 4.792097811514507,
-            "gross_%": 203.9410477441855,
-            "id": "S10",
-            "maxDD_%": -20.71279653239847,
-            "name": "Vol-Targeted Time-Series Momentum",
-            "net_%": 184.1807060078212,
-            "net_no_funding_pct": 189.90418872400596,
-            "pf_no_funding": 1.8479848647576422,
-            "sharpe": 1.7205041531555862,
-            "status": "ok",
-            "trades": 168.0,
-            "win_%": 30.357142857142854
-          }
-        },
-        "run_id": "c204806ab987f9f0"
-      },
-      "periods": [
-        {
-          "bars": 17520,
-          "from": "2024-10-14 22:00:00+00:00",
-          "rows": {
-            "S02": {
-              "PF": 2.2059607485686654,
-              "buy_hold_%": 293.0651619949035,
-              "excess_%": -203.01720187010136,
-              "exp_R": 1.150000921088306,
-              "exposure_%": 33.76712328767123,
-              "gross_%": 95.39431308939615,
-              "id": "S02",
-              "maxDD_%": -17.19026707112826,
-              "name": "Donchian + Flow Breakout",
-              "net_%": 90.04796012480219,
-              "sharpe": 2.713398717713274,
-              "status": "ok",
-              "trades": 66.0,
-              "win_%": 30.303030303030305
-            },
-            "S10": {
-              "PF": 2.5446922069530173,
-              "buy_hold_%": 293.0651619949035,
-              "excess_%": -188.34302027548543,
-              "exp_R": 2.134024002996809,
-              "exposure_%": 70.87328767123287,
-              "gross_%": 108.12026390797833,
-              "id": "S10",
-              "maxDD_%": -18.892345305267032,
-              "name": "Vol-Targeted Time-Series Momentum",
-              "net_%": 104.72214171941809,
-              "sharpe": 2.636172197110629,
-              "status": "ok",
-              "trades": 55.0,
-              "win_%": 27.27272727272727
-            }
-          },
-          "run_id": "c4f966d0efc3ef8f",
-          "slice": 1,
-          "to": "2025-06-15 05:40:00+00:00"
-        },
-        {
-          "bars": 17520,
-          "from": "2025-06-15 05:40:00+00:00",
-          "rows": {
-            "S02": {
-              "PF": 1.4219918420767985,
-              "buy_hold_%": -36.06618330544712,
-              "excess_%": 59.906372767686236,
-              "exp_R": 0.3190995751413334,
-              "exposure_%": 33.8013698630137,
-              "gross_%": 28.42193506382447,
-              "id": "S02",
-              "maxDD_%": -14.631804029257234,
-              "name": "Donchian + Flow Breakout",
-              "net_%": 23.840189462239113,
-              "sharpe": 1.3124969602463783,
-              "status": "ok",
-              "trades": 79.0,
-              "win_%": 26.582278481012654
-            },
-            "S10": {
-              "PF": 1.9784366379273808,
-              "buy_hold_%": -36.06618330544712,
-              "excess_%": 66.24772682156396,
-              "exp_R": 0.5539350302018884,
-              "exposure_%": 71.69520547945206,
-              "gross_%": 32.39280209326589,
-              "id": "S10",
-              "maxDD_%": -14.762048809580685,
-              "name": "Vol-Targeted Time-Series Momentum",
-              "net_%": 30.18154351611684,
-              "sharpe": 1.6274399352769442,
-              "status": "ok",
-              "trades": 52.0,
-              "win_%": 36.53846153846153
-            }
-          },
-          "run_id": "d73a4a8cabf424f5",
-          "slice": 2,
-          "to": "2026-02-13 13:20:00+00:00"
-        },
-        {
-          "bars": 17520,
-          "from": "2026-02-13 13:20:00+00:00",
-          "rows": {
-            "S02": {
-              "PF": 1.5087608192029958,
-              "buy_hold_%": -4.369808595160707,
-              "excess_%": 29.59642133565058,
-              "exp_R": 0.46542769269965023,
-              "exposure_%": 34.56071245076212,
-              "gross_%": 29.981289591400945,
-              "id": "S02",
-              "maxDD_%": -24.540811197135127,
-              "name": "Donchian + Flow Breakout",
-              "net_%": 25.226612740489873,
-              "sharpe": 1.091947019064268,
-              "status": "ok",
-              "trades": 74.0,
-              "win_%": 27.027027027027028
-            },
-            "S10": {
-              "PF": 1.3869858092687488,
-              "buy_hold_%": -4.369808595160707,
-              "excess_%": 16.860565325227338,
-              "exp_R": 0.2604517631092998,
-              "exposure_%": 67.49443397842097,
-              "gross_%": 15.109039349707063,
-              "id": "S10",
-              "maxDD_%": -17.73705590780793,
-              "name": "Vol-Targeted Time-Series Momentum",
-              "net_%": 12.490756730066632,
-              "sharpe": 0.8088913004855991,
-              "status": "ok",
-              "trades": 55.0,
-              "win_%": 29.09090909090909
-            }
-          },
-          "run_id": "5f00de5be575248e",
-          "slice": 3,
-          "to": "2026-10-14 21:00:00+00:00"
-        }
-      ],
-      "repo_costs": {
-        "cost_bp_roundtrip": 11.0,
-        "fee_bps": 5.0,
-        "rows": {
-          "S02": {
-            "PF": 1.6498670489768388,
-            "buy_hold_%": 142.8285402257008,
-            "excess_%": 54.28647918501457,
-            "exp_R": 0.6116052998589123,
-            "exposure_%": 34.8458904109589,
-            "gross_%": 222.95947202647432,
-            "id": "S02",
-            "maxDD_%": -26.483933314298923,
-            "name": "Donchian + Flow Breakout",
-            "net_%": 197.11501941071538,
-            "sharpe": 1.7385939648243627,
-            "status": "ok",
-            "trades": 223.0,
-            "win_%": 27.802690582959645
-          },
-          "S10": {
-            "PF": 1.8479848647576422,
-            "buy_hold_%": 142.8285402257008,
-            "excess_%": 47.07564849830517,
-            "exp_R": 0.9354575120037716,
-            "exposure_%": 71.3755707762557,
-            "gross_%": 205.0844584801764,
-            "id": "S10",
-            "maxDD_%": -20.162324916319186,
-            "name": "Vol-Targeted Time-Series Momentum",
-            "net_%": 189.90418872400596,
-            "sharpe": 1.7525782469032336,
-            "status": "ok",
-            "trades": 168.0,
-            "win_%": 30.952380952380953
-          }
-        },
-        "run_id": "4444b905a3ecacd0",
-        "slippage_bps": 0.5
-      },
-      "repo_costs_with_funding": {
-        "fee_bps": 5.0,
-        "rows": {
-          "S02": {
-            "PF": 1.6337819824858277,
-            "bh_net_%": 116.50825200145616,
-            "buy_hold_%": 142.8285402257008,
-            "conc_net_pct": 190.61854257599012,
-            "conc_net_without_top5_pct": -46.382568327497104,
-            "conc_net_without_topdecile_pct": -217.04667472286823,
-            "conc_passes": false,
-            "conc_passes_decile": false,
-            "conc_top5_pnl": 23700.11109034872,
-            "conc_top5_share": 1.2433266339186635,
-            "conc_top5_share_pct": 124.33266339186635,
-            "conc_topdecile_share": 2.1386440783238205,
-            "conc_total_pnl": 19061.85425759901,
-            "excess_%": 47.790002350289114,
-            "excess_net_%": 74.11029057453375,
-            "exp_R": 0.6004653902538772,
-            "exposure_%": 34.8458904109589,
-            "flow_source": "taker",
-            "funding_charged": true,
-            "funding_drag_pp": -6.496476834725456,
-            "funding_paid_pct": 4.456936017696512,
-            "gross_%": 220.56969194154556,
-            "id": "S02",
-            "maxDD_%": -26.708006744090586,
-            "name": "Donchian + Flow Breakout",
-            "net_%": 190.61854257598992,
-            "net_no_funding_pct": 197.11501941071538,
-            "pf_no_funding": 1.6498670489768388,
-            "sharpe": 1.7064049380335091,
-            "status": "ok",
-            "trades": 223.0,
-            "win_%": 27.802690582959645
-          },
-          "S10": {
-            "PF": 1.8308870434063733,
-            "bh_net_%": 116.50825200145616,
-            "buy_hold_%": 142.8285402257008,
-            "conc_net_pct": 184.18070600782107,
-            "conc_net_without_top5_pct": -60.016898825776586,
-            "conc_net_without_topdecile_pct": -173.5652893895673,
-            "conc_passes": false,
-            "conc_passes_decile": false,
-            "conc_top5_pnl": 24419.760483359765,
-            "conc_top5_share": 1.3258587727599873,
-            "conc_top5_share_pct": 132.58587727599874,
-            "conc_topdecile_share": 1.9423641224515507,
-            "conc_total_pnl": 18418.070600782106,
-            "excess_%": 41.352165782120395,
-            "excess_net_%": 67.67245400636503,
-            "exp_R": 0.9167582340026984,
-            "exposure_%": 71.3755707762557,
-            "flow_source": "n/a",
-            "funding_charged": true,
-            "funding_drag_pp": -5.723482716184776,
-            "funding_paid_pct": 4.792097811514507,
-            "gross_%": 203.9410477441855,
-            "id": "S10",
-            "maxDD_%": -20.71279653239847,
-            "name": "Vol-Targeted Time-Series Momentum",
-            "net_%": 184.1807060078212,
-            "net_no_funding_pct": 189.90418872400596,
-            "pf_no_funding": 1.8479848647576422,
-            "sharpe": 1.7205041531555862,
-            "status": "ok",
-            "trades": 168.0,
-            "win_%": 30.357142857142854
-          }
-        },
-        "run_id": "90ad4a5727379013",
-        "slippage_bps": 0.5
-      },
-      "walk_forward": [
-        {
-          "oos_bh_mean_pct": -2.286035251175453,
-          "run_id": "f84fbd6532fa6835",
-          "strategies": {
-            "S02": {
-              "folds": 10,
-              "folds_profitable": 4,
-              "mean_test_net_%": 4.601406449065415,
-              "oos_net_%": 38.09687559824644
-            },
-            "S10": {
-              "folds": 10,
-              "folds_profitable": 4,
-              "mean_test_net_%": 1.2969232440261313,
-              "oos_net_%": 10.075895780947718
-            }
-          },
-          "test_bars": 1440,
-          "test_days": 60,
-          "train_bars": 2880,
-          "train_days": 120
-        },
-        {
-          "oos_bh_mean_pct": -1.338838789795966,
-          "run_id": "aa5123c1c681f745",
-          "strategies": {
-            "S02": {
-              "folds": 21,
-              "folds_profitable": 10,
-              "mean_test_net_%": 3.436890332936408,
-              "oos_net_%": 77.1475621621174
-            },
-            "S10": {
-              "folds": 21,
-              "folds_profitable": 10,
-              "mean_test_net_%": 1.8040377105660963,
-              "oos_net_%": 36.548691536874166
-            }
-          },
-          "test_bars": 720,
-          "test_days": 30,
-          "train_bars": 2160,
-          "train_days": 90
-        },
-        {
-          "oos_bh_mean_pct": -2.454639392046836,
-          "run_id": "6fe3b32133e1d2fa",
-          "strategies": {
-            "S02": {
-              "folds": 6,
-              "folds_profitable": 2,
-              "mean_test_net_%": 4.732384112120349,
-              "oos_net_%": 23.256995512001755
-            },
-            "S10": {
-              "folds": 6,
-              "folds_profitable": 1,
-              "mean_test_net_%": -3.1513476119441344,
-              "oos_net_%": -18.962993580396038
-            }
-          },
-          "test_bars": 2160,
-          "test_days": 90,
-          "train_bars": 4320,
-          "train_days": 180
-        }
-      ]
-    },
-    "ids": [
-      "S10",
-      "S02"
-    ],
-    "sym": "XRPUSDT",
-    "tf": "1h",
-    "window": [
-      "2024-10-14 22:00:00+00:00",
-      "2026-10-14 21:00:00+00:00"
-    ]
-  },
-  {
     "bars": 48301,
     "base_run_id": "ac4ff6d3a465a268",
     "gates": {
@@ -1496,6 +1096,996 @@
     "window": [
       "2024-10-14 22:00:00+00:00",
       "2026-10-14 21:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17803,
+    "base_run_id": "1392a7c01bb12742",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2226,
+        "rows": {
+          "S02": {
+            "PF": 1.5835803925482832,
+            "bh_net_%": 109.11309287550056,
+            "buy_hold_%": 135.78449217327994,
+            "conc_net_pct": 180.87129158567373,
+            "conc_net_without_top5_pct": -56.12981931781346,
+            "conc_net_without_topdecile_pct": -226.79392571318456,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 23700.11109034872,
+            "conc_top5_share": 1.3103301736042854,
+            "conc_top5_share_pct": 131.03301736042854,
+            "conc_topdecile_share": 2.2538967556703633,
+            "conc_total_pnl": 18087.129158567375,
+            "excess_%": 45.08679941239362,
+            "excess_net_%": 71.75819871017302,
+            "exp_R": 0.5749046168427213,
+            "exposure_%": 34.66831432904567,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -6.277114170712849,
+            "funding_paid_pct": 4.456068199966303,
+            "gross_%": 211.54580606276187,
+            "id": "S02",
+            "maxDD_%": -26.708006744090586,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 180.87129158567356,
+            "net_no_funding_pct": 187.1484057563864,
+            "pf_no_funding": 1.5984946343277118,
+            "sharpe": 1.6410782287757602,
+            "status": "ok",
+            "trades": 227.0,
+            "win_%": 27.312775330396477
+          }
+        },
+        "run_id": "2e93a59efb8170b0"
+      },
+      "pbo_cscv": {
+        "S02": {
+          "dsr": 0.9897169723391417,
+          "n_configs": 12,
+          "passes_pbo": false,
+          "pbo": 0.7,
+          "status": "ok"
+        }
+      },
+      "periods": [
+        {
+          "bars": 17803,
+          "from": "2024-10-14 22:00:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 2.127221934224494,
+              "buy_hold_%": 294.1754641427011,
+              "excess_%": -206.89136869062062,
+              "exp_R": 1.094728133323711,
+              "exposure_%": 33.85574654533198,
+              "gross_%": 92.88027316993428,
+              "id": "S02",
+              "maxDD_%": -17.19026707112826,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 87.28409545208046,
+              "sharpe": 2.624039399263254,
+              "status": "ok",
+              "trades": 68.0,
+              "win_%": 29.411764705882355
+            }
+          },
+          "run_id": "263dba631eac1a84",
+          "slice": 1,
+          "to": "2025-06-19 04:00:00+00:00"
+        },
+        {
+          "bars": 17803,
+          "from": "2025-06-19 04:00:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 1.4255698705869648,
+              "buy_hold_%": -33.625542124204124,
+              "excess_%": 57.686195474094944,
+              "exp_R": 0.31753226099609044,
+              "exposure_%": 32.84462419952814,
+              "gross_%": 28.65431027835381,
+              "id": "S02",
+              "maxDD_%": -14.631804029257179,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 24.060653349890828,
+              "sharpe": 1.3171962607448227,
+              "status": "ok",
+              "trades": 80.0,
+              "win_%": 26.25
+            }
+          },
+          "run_id": "ee28e58b49a933d4",
+          "slice": 2,
+          "to": "2026-02-21 10:00:00+00:00"
+        },
+        {
+          "bars": 17803,
+          "from": "2026-02-21 10:00:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 1.439364055917378,
+              "buy_hold_%": -9.89438576987216,
+              "excess_%": 32.96809756308203,
+              "exp_R": 0.43023877517552406,
+              "exposure_%": 34.39501179642737,
+              "gross_%": 28.12567022265088,
+              "id": "S02",
+              "maxDD_%": -21.205174850096174,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 23.073711793209874,
+              "sharpe": 1.0149392462061448,
+              "status": "ok",
+              "trades": 76.0,
+              "win_%": 26.31578947368421
+            }
+          },
+          "run_id": "65e4de8b66c84aa7",
+          "slice": 3,
+          "to": "2026-10-26 16:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {
+          "S02": {
+            "PF": 1.5984946343277118,
+            "buy_hold_%": 135.78449217327994,
+            "excess_%": 51.36391358310646,
+            "exp_R": 0.5858461707140928,
+            "exposure_%": 34.66831432904567,
+            "gross_%": 213.73332718022482,
+            "id": "S02",
+            "maxDD_%": -26.483933314298923,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 187.1484057563864,
+            "sharpe": 1.6729123206878551,
+            "status": "ok",
+            "trades": 227.0,
+            "win_%": 27.312775330396477
+          }
+        },
+        "run_id": "208ccf5428433e1d",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {
+          "S02": {
+            "PF": 1.5835803925482832,
+            "bh_net_%": 109.11309287550056,
+            "buy_hold_%": 135.78449217327994,
+            "conc_net_pct": 180.87129158567373,
+            "conc_net_without_top5_pct": -56.12981931781346,
+            "conc_net_without_topdecile_pct": -226.79392571318456,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 23700.11109034872,
+            "conc_top5_share": 1.3103301736042854,
+            "conc_top5_share_pct": 131.03301736042854,
+            "conc_topdecile_share": 2.2538967556703633,
+            "conc_total_pnl": 18087.129158567375,
+            "excess_%": 45.08679941239362,
+            "excess_net_%": 71.75819871017302,
+            "exp_R": 0.5749046168427213,
+            "exposure_%": 34.66831432904567,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -6.277114170712849,
+            "funding_paid_pct": 4.456068199966303,
+            "gross_%": 211.54580606276187,
+            "id": "S02",
+            "maxDD_%": -26.708006744090586,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 180.87129158567356,
+            "net_no_funding_pct": 187.1484057563864,
+            "pf_no_funding": 1.5984946343277118,
+            "sharpe": 1.6410782287757602,
+            "status": "ok",
+            "trades": 227.0,
+            "win_%": 27.312775330396477
+          }
+        },
+        "run_id": "6dfc4f0303fb5fe1",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": -2.2860352511754534,
+          "run_id": "8e71a2132bc35af3",
+          "strategies": {
+            "S02": {
+              "folds": 10,
+              "folds_profitable": 4,
+              "mean_test_net_%": 4.601406449065415,
+              "oos_net_%": 38.09687559824644
+            }
+          },
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": -1.3388387897959666,
+          "run_id": "9a57d2815f0ffae3",
+          "strategies": {
+            "S02": {
+              "folds": 21,
+              "folds_profitable": 10,
+              "mean_test_net_%": 3.436890332936408,
+              "oos_net_%": 77.1475621621174
+            }
+          },
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": -2.454639392046836,
+          "run_id": "d76cd72639eb5456",
+          "strategies": {
+            "S02": {
+              "folds": 6,
+              "folds_profitable": 2,
+              "mean_test_net_%": 4.732384112120349,
+              "oos_net_%": 23.256995512001755
+            }
+          },
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [
+      "S02"
+    ],
+    "sym": "XRPUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-10-14 22:00:00+00:00",
+      "2026-10-26 16:00:00+00:00"
+    ]
+  },
+  {
+    "bars": 17499,
+    "base_run_id": "213c6ad369638d49",
+    "gates": {
+      "funding_and_concentration": {
+        "engine_version": "cbpack-funding-1",
+        "funding_charged": true,
+        "n_settlements": 2187,
+        "rows": {
+          "S02": {
+            "PF": 1.3254607423724742,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 57.17110608576713,
+            "conc_net_without_top5_pct": -3.0194254652009382,
+            "conc_net_without_topdecile_pct": -103.71879547295907,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 6019.053155096807,
+            "conc_top5_share": 1.0528138367774666,
+            "conc_top5_share_pct": 105.28138367774666,
+            "conc_topdecile_share": 2.8141820680775687,
+            "conc_total_pnl": 5717.110608576713,
+            "excess_%": 129.17559254627045,
+            "excess_net_%": 137.03294126943982,
+            "exp_R": 0.22391678654059347,
+            "exposure_%": 38.55077432996171,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -1.9953771941591896,
+            "funding_paid_pct": 1.6146022250189727,
+            "gross_%": 69.47196142135648,
+            "id": "S02",
+            "maxDD_%": -18.875131245350985,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 57.17110608576732,
+            "net_no_funding_pct": 59.16648327992651,
+            "pf_no_funding": 1.3351547689902583,
+            "sharpe": 1.0962840574709227,
+            "status": "ok",
+            "trades": 226.0,
+            "win_%": 34.070796460176986
+          },
+          "S03": {
+            "PF": 1.1287933111109987,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 16.322724107084632,
+            "conc_net_without_top5_pct": 4.61556224611566,
+            "conc_net_without_topdecile_pct": -25.0943498739811,
+            "conc_passes": true,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 1170.7161860968972,
+            "conc_top5_share": 0.7172308852471295,
+            "conc_top5_share_pct": 71.72308852471295,
+            "conc_topdecile_share": 2.537387369249798,
+            "conc_total_pnl": 1632.2724107084632,
+            "excess_%": 88.32721056758783,
+            "excess_net_%": 96.18455929075719,
+            "exp_R": 0.09849174681782391,
+            "exposure_%": 10.720612606434655,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -0.4749322422843889,
+            "funding_paid_pct": 0.4686263611378306,
+            "gross_%": 26.682107440621376,
+            "id": "S03",
+            "maxDD_%": -16.542238516829766,
+            "name": "Squeeze Release",
+            "net_%": 16.322724107084706,
+            "net_no_funding_pct": 16.797656349369095,
+            "pf_no_funding": 1.1325103299925021,
+            "sharpe": 0.6543220895515164,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 38.372093023255815
+          },
+          "S09": {
+            "PF": 1.1905629505826671,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 26.923310946442612,
+            "conc_net_without_top5_pct": 14.511164849508582,
+            "conc_net_without_topdecile_pct": -25.828891307344747,
+            "conc_passes": true,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 1241.2146096934034,
+            "conc_top5_share": 0.4610185620046874,
+            "conc_top5_share_pct": 46.10185620046874,
+            "conc_topdecile_share": 1.9593504810283195,
+            "conc_total_pnl": 2692.3310946442616,
+            "excess_%": 98.9277974069456,
+            "excess_net_%": 106.78514613011497,
+            "exp_R": 0.12138744131589754,
+            "exposure_%": 9.874849991428082,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": 0.318342761273005,
+            "funding_paid_pct": -0.2716433741745592,
+            "gross_%": 40.632891350222195,
+            "id": "S09",
+            "maxDD_%": -11.889438041701206,
+            "name": "Liquidity Sweep Reversal",
+            "net_%": 26.92331094644247,
+            "net_no_funding_pct": 26.604968185169465,
+            "pf_no_funding": 1.1885293788570832,
+            "sharpe": 0.8888242733669482,
+            "status": "ok",
+            "trades": 214.0,
+            "win_%": 41.58878504672897
+          },
+          "S10": {
+            "PF": 1.1108492491073185,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 11.90971399927672,
+            "conc_net_without_top5_pct": -34.64395201056228,
+            "conc_net_without_topdecile_pct": -78.00378784482824,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 4655.3666009839,
+            "conc_top5_share": 3.9088819439884297,
+            "conc_top5_share_pct": 390.888194398843,
+            "conc_topdecile_share": 7.549593705572228,
+            "conc_total_pnl": 1190.9713999276719,
+            "excess_%": 83.9142004597797,
+            "excess_net_%": 91.77154918294907,
+            "exp_R": 0.08695472080014557,
+            "exposure_%": 75.5414595119721,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": -0.8559357057526427,
+            "funding_paid_pct": 0.8193079949179912,
+            "gross_%": 17.218545159146814,
+            "id": "S10",
+            "maxDD_%": -17.408384684767164,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 11.909713999276583,
+            "net_no_funding_pct": 12.765649705029226,
+            "pf_no_funding": 1.118377003494203,
+            "sharpe": 0.3756411102568307,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 29.651162790697676
+          }
+        },
+        "run_id": "10eba614697a8f9c"
+      },
+      "pbo_cscv": {
+        "S02": {
+          "dsr": 0.9072333095744116,
+          "n_configs": 12,
+          "passes_pbo": true,
+          "pbo": 0.35714285714285715,
+          "status": "ok"
+        },
+        "S03": {
+          "dsr": 0.5809857900373765,
+          "n_configs": 6,
+          "passes_pbo": true,
+          "pbo": 0.12857142857142856,
+          "status": "ok"
+        },
+        "S09": {
+          "dsr": 0.9024549374934296,
+          "n_configs": 9,
+          "passes_pbo": false,
+          "pbo": 0.8142857142857143,
+          "status": "ok"
+        },
+        "S10": {
+          "dsr": 0.8588464168861318,
+          "n_configs": 9,
+          "passes_pbo": false,
+          "pbo": 0.7,
+          "status": "ok"
+        }
+      },
+      "periods": [
+        {
+          "bars": 17499,
+          "from": "2024-11-10 21:00:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 2.1930522320554697,
+              "buy_hold_%": -34.401538215029646,
+              "excess_%": 82.36273067920861,
+              "exp_R": 0.5838425068161757,
+              "exposure_%": 39.1908109034802,
+              "gross_%": 50.65102505868329,
+              "id": "S02",
+              "maxDD_%": -11.069157896301473,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 47.96119246417896,
+              "sharpe": 2.608290070297237,
+              "status": "ok",
+              "trades": 71.0,
+              "win_%": 39.436619718309856
+            },
+            "S03": {
+              "PF": 1.511354909271874,
+              "buy_hold_%": -34.401538215029646,
+              "excess_%": 48.925566729796884,
+              "exp_R": 0.2997634097410022,
+              "exposure_%": 10.269158237613578,
+              "gross_%": 16.881984471194002,
+              "id": "S03",
+              "maxDD_%": -6.813048007499467,
+              "name": "Squeeze Release",
+              "net_%": 14.52402851476724,
+              "sharpe": 1.799980322928446,
+              "status": "ok",
+              "trades": 47.0,
+              "win_%": 44.680851063829785
+            },
+            "S09": {
+              "PF": 1.0505477144627424,
+              "buy_hold_%": -34.401538215029646,
+              "excess_%": 36.780589117561256,
+              "exp_R": 0.04256783685735182,
+              "exposure_%": 10.354877421566947,
+              "gross_%": 6.415663774096181,
+              "id": "S09",
+              "maxDD_%": -10.565474621282734,
+              "name": "Liquidity Sweep Reversal",
+              "net_%": 2.37905090253161,
+              "sharpe": 0.30596691838683415,
+              "status": "ok",
+              "trades": 72.0,
+              "win_%": 38.88888888888889
+            },
+            "S10": {
+              "PF": 1.17918562945698,
+              "buy_hold_%": -34.401538215029646,
+              "excess_%": 40.75332438421757,
+              "exp_R": 0.1338148882108978,
+              "exposure_%": 69.7582719012515,
+              "gross_%": 7.727958253498289,
+              "id": "S10",
+              "maxDD_%": -12.502298601160888,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 6.351786169187923,
+              "sharpe": 0.560067762048545,
+              "status": "ok",
+              "trades": 57.0,
+              "win_%": 31.57894736842105
+            }
+          },
+          "run_id": "a652c72e91db70e4",
+          "slice": 1,
+          "to": "2025-07-11 21:40:00+00:00"
+        },
+        {
+          "bars": 17499,
+          "from": "2025-07-11 21:40:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 0.7860922088762942,
+              "buy_hold_%": -74.96892866020383,
+              "excess_%": 65.26919594509287,
+              "exp_R": -0.11906307491325148,
+              "exposure_%": 35.04200240013715,
+              "gross_%": -7.166898257294584,
+              "id": "S02",
+              "maxDD_%": -15.63329430195185,
+              "name": "Donchian + Flow Breakout",
+              "net_%": -9.699732715110954,
+              "sharpe": -0.6547842902265167,
+              "status": "ok",
+              "trades": 78.0,
+              "win_%": 28.205128205128204
+            },
+            "S03": {
+              "PF": 0.9849936781478502,
+              "buy_hold_%": -74.96892866020383,
+              "excess_%": 74.3808238650458,
+              "exp_R": -8.12943955997204e-05,
+              "exposure_%": 11.349219955426024,
+              "gross_%": 2.3064134589686573,
+              "id": "S03",
+              "maxDD_%": -16.49760797379075,
+              "name": "Squeeze Release",
+              "net_%": -0.5881047951580287,
+              "sharpe": -0.004576216538216925,
+              "status": "ok",
+              "trades": 57.0,
+              "win_%": 35.08771929824561
+            },
+            "S09": {
+              "PF": 1.0882425559406292,
+              "buy_hold_%": -74.96892866020383,
+              "excess_%": 78.54397574275961,
+              "exp_R": 0.05914671082887188,
+              "exposure_%": 10.59489113663638,
+              "gross_%": 7.128327065704887,
+              "id": "S09",
+              "maxDD_%": -9.509707611990848,
+              "name": "Liquidity Sweep Reversal",
+              "net_%": 3.5750470825557823,
+              "sharpe": 0.45718288045984773,
+              "status": "ok",
+              "trades": 70.0,
+              "win_%": 40.0
+            },
+            "S10": {
+              "PF": 0.7922203973210834,
+              "buy_hold_%": -74.96892866020383,
+              "excess_%": 67.21360329213529,
+              "exp_R": -0.11870082345519033,
+              "exposure_%": 73.68421052631578,
+              "gross_%": -6.288330017040746,
+              "id": "S10",
+              "maxDD_%": -16.65268209367613,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": -7.755325368068533,
+              "sharpe": -0.5601619088911567,
+              "status": "ok",
+              "trades": 62.0,
+              "win_%": 27.419354838709676
+            }
+          },
+          "run_id": "42ea56d4e1f20290",
+          "slice": 2,
+          "to": "2026-03-11 22:20:00+00:00"
+        },
+        {
+          "bars": 17499,
+          "from": "2026-03-11 22:20:00+00:00",
+          "rows": {
+            "S02": {
+              "PF": 1.3802049684873958,
+              "buy_hold_%": 75.35999999999999,
+              "excess_%": -55.7698324911428,
+              "exp_R": 0.2724773293673038,
+              "exposure_%": 38.66598079561043,
+              "gross_%": 22.719660004895836,
+              "id": "S02",
+              "maxDD_%": -13.815217655145752,
+              "name": "Donchian + Flow Breakout",
+              "net_%": 19.59016750885718,
+              "sharpe": 1.2162308199167575,
+              "status": "ok",
+              "trades": 74.0,
+              "win_%": 35.13513513513514
+            },
+            "S03": {
+              "PF": 0.9940264702767947,
+              "buy_hold_%": 75.35999999999999,
+              "excess_%": -75.62464016869936,
+              "exp_R": 0.0061665125662015985,
+              "exposure_%": 10.322359396433471,
+              "gross_%": 3.2003096474852195,
+              "id": "S03",
+              "maxDD_%": -11.468137418999458,
+              "name": "Squeeze Release",
+              "net_%": -0.26464016869937046,
+              "sharpe": 0.03723086159308803,
+              "status": "ok",
+              "trades": 65.0,
+              "win_%": 35.38461538461539
+            },
+            "S09": {
+              "PF": 1.3603379069750334,
+              "buy_hold_%": 75.35999999999999,
+              "excess_%": -58.30665485508679,
+              "exp_R": 0.23575003166119315,
+              "exposure_%": 8.23045267489712,
+              "gross_%": 22.740433533022856,
+              "id": "S09",
+              "maxDD_%": -5.7624789097136535,
+              "name": "Liquidity Sweep Reversal",
+              "net_%": 17.05334514491319,
+              "sharpe": 1.6844997040242802,
+              "status": "ok",
+              "trades": 70.0,
+              "win_%": 45.714285714285715
+            },
+            "S10": {
+              "PF": 1.4651404506902557,
+              "buy_hold_%": 75.35999999999999,
+              "excess_%": -60.942894292514424,
+              "exp_R": 0.2874469839592089,
+              "exposure_%": 78.06927297668038,
+              "gross_%": 15.926845621774696,
+              "id": "S10",
+              "maxDD_%": -13.2690078992735,
+              "name": "Vol-Targeted Time-Series Momentum",
+              "net_%": 14.417105707485556,
+              "sharpe": 1.0345499264247855,
+              "status": "ok",
+              "trades": 52.0,
+              "win_%": 26.923076923076923
+            }
+          },
+          "run_id": "fae53ed85f02e94e",
+          "slice": 3,
+          "to": "2026-11-09 23:00:00+00:00"
+        }
+      ],
+      "repo_costs": {
+        "cost_bp_roundtrip": 11.0,
+        "fee_bps": 5.0,
+        "rows": {
+          "S02": {
+            "PF": 1.3351547689902583,
+            "buy_hold_%": -72.00448646050313,
+            "excess_%": 131.17096974042963,
+            "exp_R": 0.22965721272625278,
+            "exposure_%": 38.55077432996171,
+            "gross_%": 69.92947210917113,
+            "id": "S02",
+            "maxDD_%": -18.471325362518687,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 59.16648327992651,
+            "sharpe": 1.1237372325036918,
+            "status": "ok",
+            "trades": 226.0,
+            "win_%": 34.51327433628318
+          },
+          "S03": {
+            "PF": 1.1325103299925021,
+            "buy_hold_%": -72.00448646050313,
+            "excess_%": 88.80214280987222,
+            "exp_R": 0.10086511567468276,
+            "exposure_%": 10.720612606434655,
+            "gross_%": 26.712035146970585,
+            "id": "S03",
+            "maxDD_%": -16.497607973790707,
+            "name": "Squeeze Release",
+            "net_%": 16.797656349369095,
+            "sharpe": 0.6702702330008623,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 38.372093023255815
+          },
+          "S09": {
+            "PF": 1.1885293788570832,
+            "buy_hold_%": -72.00448646050313,
+            "excess_%": 98.60945464567259,
+            "exp_R": 0.12020402253312298,
+            "exposure_%": 9.874849991428082,
+            "gross_%": 40.563045279941505,
+            "id": "S09",
+            "maxDD_%": -11.965034854662026,
+            "name": "Liquidity Sweep Reversal",
+            "net_%": 26.604968185169465,
+            "sharpe": 0.8803534056007122,
+            "status": "ok",
+            "trades": 214.0,
+            "win_%": 41.58878504672897
+          },
+          "S10": {
+            "PF": 1.118377003494203,
+            "buy_hold_%": -72.00448646050313,
+            "excess_%": 84.77013616553235,
+            "exp_R": 0.09151434077103121,
+            "exposure_%": 75.5414595119721,
+            "gross_%": 17.275265724163766,
+            "id": "S10",
+            "maxDD_%": -17.298561337690288,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 12.765649705029226,
+            "sharpe": 0.3941166062160037,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 29.069767441860467
+          }
+        },
+        "run_id": "1fb5d77997419f91",
+        "slippage_bps": 0.5
+      },
+      "repo_costs_with_funding": {
+        "fee_bps": 5.0,
+        "rows": {
+          "S02": {
+            "PF": 1.3254607423724742,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 57.17110608576713,
+            "conc_net_without_top5_pct": -3.0194254652009382,
+            "conc_net_without_topdecile_pct": -103.71879547295907,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 6019.053155096807,
+            "conc_top5_share": 1.0528138367774666,
+            "conc_top5_share_pct": 105.28138367774666,
+            "conc_topdecile_share": 2.8141820680775687,
+            "conc_total_pnl": 5717.110608576713,
+            "excess_%": 129.17559254627045,
+            "excess_net_%": 137.03294126943982,
+            "exp_R": 0.22391678654059347,
+            "exposure_%": 38.55077432996171,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -1.9953771941591896,
+            "funding_paid_pct": 1.6146022250189727,
+            "gross_%": 69.47196142135648,
+            "id": "S02",
+            "maxDD_%": -18.875131245350985,
+            "name": "Donchian + Flow Breakout",
+            "net_%": 57.17110608576732,
+            "net_no_funding_pct": 59.16648327992651,
+            "pf_no_funding": 1.3351547689902583,
+            "sharpe": 1.0962840574709227,
+            "status": "ok",
+            "trades": 226.0,
+            "win_%": 34.070796460176986
+          },
+          "S03": {
+            "PF": 1.1287933111109987,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 16.322724107084632,
+            "conc_net_without_top5_pct": 4.61556224611566,
+            "conc_net_without_topdecile_pct": -25.0943498739811,
+            "conc_passes": true,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 1170.7161860968972,
+            "conc_top5_share": 0.7172308852471295,
+            "conc_top5_share_pct": 71.72308852471295,
+            "conc_topdecile_share": 2.537387369249798,
+            "conc_total_pnl": 1632.2724107084632,
+            "excess_%": 88.32721056758783,
+            "excess_net_%": 96.18455929075719,
+            "exp_R": 0.09849174681782391,
+            "exposure_%": 10.720612606434655,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": -0.4749322422843889,
+            "funding_paid_pct": 0.4686263611378306,
+            "gross_%": 26.682107440621376,
+            "id": "S03",
+            "maxDD_%": -16.542238516829766,
+            "name": "Squeeze Release",
+            "net_%": 16.322724107084706,
+            "net_no_funding_pct": 16.797656349369095,
+            "pf_no_funding": 1.1325103299925021,
+            "sharpe": 0.6543220895515164,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 38.372093023255815
+          },
+          "S09": {
+            "PF": 1.1905629505826671,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 26.923310946442612,
+            "conc_net_without_top5_pct": 14.511164849508582,
+            "conc_net_without_topdecile_pct": -25.828891307344747,
+            "conc_passes": true,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 1241.2146096934034,
+            "conc_top5_share": 0.4610185620046874,
+            "conc_top5_share_pct": 46.10185620046874,
+            "conc_topdecile_share": 1.9593504810283195,
+            "conc_total_pnl": 2692.3310946442616,
+            "excess_%": 98.9277974069456,
+            "excess_net_%": 106.78514613011497,
+            "exp_R": 0.12138744131589754,
+            "exposure_%": 9.874849991428082,
+            "flow_source": "taker",
+            "funding_charged": true,
+            "funding_drag_pp": 0.318342761273005,
+            "funding_paid_pct": -0.2716433741745592,
+            "gross_%": 40.632891350222195,
+            "id": "S09",
+            "maxDD_%": -11.889438041701206,
+            "name": "Liquidity Sweep Reversal",
+            "net_%": 26.92331094644247,
+            "net_no_funding_pct": 26.604968185169465,
+            "pf_no_funding": 1.1885293788570832,
+            "sharpe": 0.8888242733669482,
+            "status": "ok",
+            "trades": 214.0,
+            "win_%": 41.58878504672897
+          },
+          "S10": {
+            "PF": 1.1108492491073185,
+            "bh_net_%": -79.8618351836725,
+            "buy_hold_%": -72.00448646050313,
+            "conc_net_pct": 11.90971399927672,
+            "conc_net_without_top5_pct": -34.64395201056228,
+            "conc_net_without_topdecile_pct": -78.00378784482824,
+            "conc_passes": false,
+            "conc_passes_decile": false,
+            "conc_top5_pnl": 4655.3666009839,
+            "conc_top5_share": 3.9088819439884297,
+            "conc_top5_share_pct": 390.888194398843,
+            "conc_topdecile_share": 7.549593705572228,
+            "conc_total_pnl": 1190.9713999276719,
+            "excess_%": 83.9142004597797,
+            "excess_net_%": 91.77154918294907,
+            "exp_R": 0.08695472080014557,
+            "exposure_%": 75.5414595119721,
+            "flow_source": "n/a",
+            "funding_charged": true,
+            "funding_drag_pp": -0.8559357057526427,
+            "funding_paid_pct": 0.8193079949179912,
+            "gross_%": 17.218545159146814,
+            "id": "S10",
+            "maxDD_%": -17.408384684767164,
+            "name": "Vol-Targeted Time-Series Momentum",
+            "net_%": 11.909713999276583,
+            "net_no_funding_pct": 12.765649705029226,
+            "pf_no_funding": 1.118377003494203,
+            "sharpe": 0.3756411102568307,
+            "status": "ok",
+            "trades": 172.0,
+            "win_%": 29.651162790697676
+          }
+        },
+        "run_id": "b819239a1ff78eda",
+        "slippage_bps": 0.5
+      },
+      "walk_forward": [
+        {
+          "oos_bh_mean_pct": -0.39265905041335003,
+          "run_id": "6354a688ccdfb0cb",
+          "strategies": {
+            "S02": {
+              "folds": 10,
+              "folds_profitable": 7,
+              "mean_test_net_%": 3.064458292851848,
+              "oos_net_%": 33.27785100769922
+            },
+            "S03": {
+              "folds": 10,
+              "folds_profitable": 5,
+              "mean_test_net_%": -0.5602180805779033,
+              "oos_net_%": -6.114506651125495
+            },
+            "S09": {
+              "folds": 10,
+              "folds_profitable": 7,
+              "mean_test_net_%": 1.3887500870976823,
+              "oos_net_%": 12.69714261122279
+            },
+            "S10": {
+              "folds": 10,
+              "folds_profitable": 3,
+              "mean_test_net_%": -0.5733603991501088,
+              "oos_net_%": -6.362622350448732
+            }
+          },
+          "test_bars": 1440,
+          "test_days": 60,
+          "train_bars": 2880,
+          "train_days": 120
+        },
+        {
+          "oos_bh_mean_pct": -1.1456053485337017,
+          "run_id": "0355a155904cc57e",
+          "strategies": {
+            "S02": {
+              "folds": 21,
+              "folds_profitable": 14,
+              "mean_test_net_%": 1.5171937922770569,
+              "oos_net_%": 34.75386756309633
+            },
+            "S03": {
+              "folds": 21,
+              "folds_profitable": 10,
+              "mean_test_net_%": -0.37027096318460473,
+              "oos_net_%": -8.81590632864706
+            },
+            "S09": {
+              "folds": 21,
+              "folds_profitable": 12,
+              "mean_test_net_%": 0.45237622122254467,
+              "oos_net_%": 7.570312086295661
+            },
+            "S10": {
+              "folds": 21,
+              "folds_profitable": 12,
+              "mean_test_net_%": 0.9999025502030505,
+              "oos_net_%": 20.266522382723462
+            }
+          },
+          "test_bars": 720,
+          "test_days": 30,
+          "train_bars": 2160,
+          "train_days": 90
+        },
+        {
+          "oos_bh_mean_pct": -3.0960434679581397,
+          "run_id": "7dad779bc911fbcc",
+          "strategies": {
+            "S02": {
+              "folds": 6,
+              "folds_profitable": 4,
+              "mean_test_net_%": 6.869184905875606,
+              "oos_net_%": 43.38772092097371
+            },
+            "S03": {
+              "folds": 6,
+              "folds_profitable": 5,
+              "mean_test_net_%": 0.6767308424732498,
+              "oos_net_%": 3.4352376792846417
+            },
+            "S09": {
+              "folds": 6,
+              "folds_profitable": 3,
+              "mean_test_net_%": 0.8192622895120127,
+              "oos_net_%": 3.548291689866989
+            },
+            "S10": {
+              "folds": 6,
+              "folds_profitable": 3,
+              "mean_test_net_%": 0.35850224374865763,
+              "oos_net_%": 1.0658402890176832
+            }
+          },
+          "test_bars": 2160,
+          "test_days": 90,
+          "train_bars": 4320,
+          "train_days": 180
+        }
+      ]
+    },
+    "ids": [
+      "S02",
+      "S03",
+      "S09",
+      "S10"
+    ],
+    "sym": "ARBUSDT",
+    "tf": "1h",
+    "window": [
+      "2024-11-10 21:00:00+00:00",
+      "2026-11-09 23:00:00+00:00"
     ]
   }
 ]

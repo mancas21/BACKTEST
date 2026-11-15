@@ -1,0 +1,602 @@
+[
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.1,
+  "strategy": "cbpack",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.5,
+  "strategy": "cbpack",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.9,
+  "strategy": "cbpack",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.3,
+  "strategy": "cbpack",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.2,
+  "strategy": "cbpackf",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.1,
+  "strategy": "cbpackf",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.2,
+  "strategy": "cbpackf",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: htf minutes must be >= chart timeframe",
+  "secs": 1.3,
+  "strategy": "cbpackf",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.2,
+  "strategy": "prompts100",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.1,
+  "strategy": "prompts100",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.2,
+  "strategy": "prompts100",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.1,
+  "strategy": "prompts100",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.3,
+  "strategy": "top10",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.2,
+  "strategy": "top10",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.4,
+  "strategy": "top10",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: 'id'",
+  "secs": 1.2,
+  "strategy": "top10",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.1,
+  "strategy": "smqe",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.1,
+  "strategy": "smqe",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.2,
+  "strategy": "smqe",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.6,
+  "strategy": "smqe",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe11 supports 1h only (got tf='1d'); the engine's funding factor assumes the 1h chart",
+  "secs": 1.3,
+  "strategy": "smqe11",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe11 supports 1h only (got tf='1d'); the engine's funding factor assumes the 1h chart",
+  "secs": 1.2,
+  "strategy": "smqe11",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe11 supports 1h only (got tf='1d'); the engine's funding factor assumes the 1h chart",
+  "secs": 1.0,
+  "strategy": "smqe11",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: smqe11 supports 1h only (got tf='1d'); the engine's funding factor assumes the 1h chart",
+  "secs": 1.2,
+  "strategy": "smqe11",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: fingrad: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.2,
+  "strategy": "fingrad",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: fingrad: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.1,
+  "strategy": "fingrad",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: fingrad: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.4,
+  "strategy": "fingrad",
+  "symbol": "SPY",
+  "regime": "extra:repo6x5"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: fingrad: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.4,
+  "strategy": "fingrad",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: fingrad: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.1,
+  "strategy": "fingrad",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: fingrad: unsupported tf '1d' (use 1h/15m/5m/1m)",
+  "secs": 1.2,
+  "strategy": "fingrad",
+  "symbol": "QQQ",
+  "regime": "extra:repo6x5"
+ },
+ {
+  "ok": true,
+  "run_id": "ef76eae918ddf6d5",
+  "rc": 0,
+  "error": null,
+  "secs": 1.8,
+  "strategy": "eqpack",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "7f204f1a85300b6a",
+  "rc": 0,
+  "error": null,
+  "secs": 1.7,
+  "strategy": "eqpack",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": true,
+  "run_id": "66e278f18ed51cbc",
+  "rc": 0,
+  "error": null,
+  "secs": 1.6,
+  "strategy": "eqpack",
+  "symbol": "SPY",
+  "regime": "extra:eq"
+ },
+ {
+  "ok": true,
+  "run_id": "f34b6a9d5eace74e",
+  "rc": 0,
+  "error": null,
+  "secs": 1.6,
+  "strategy": "eqpack",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "ae70a3dabb96d042",
+  "rc": 0,
+  "error": null,
+  "secs": 1.6,
+  "strategy": "eqpack",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": true,
+  "run_id": "fae78a6d68f77157",
+  "rc": 0,
+  "error": null,
+  "secs": 1.6,
+  "strategy": "eqpack",
+  "symbol": "QQQ",
+  "regime": "extra:eq"
+ },
+ {
+  "ok": true,
+  "run_id": "2eb5fe1e4d2caebe",
+  "rc": 0,
+  "error": null,
+  "secs": 1.2,
+  "strategy": "cvrmd",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "b5c4bcb32aa91e9b",
+  "rc": 0,
+  "error": null,
+  "secs": 1.1,
+  "strategy": "cvrmd",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: botstrat only runs the 1h file; got SPY_1d.csv (the engine hardcodes data/binance_klines_1h)",
+  "secs": 1.5,
+  "strategy": "botstrat",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: botstrat only runs the 1h file; got QQQ_1d.csv (the engine hardcodes data/binance_klines_1h)",
+  "secs": 1.3,
+  "strategy": "botstrat",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "bc190acdbc641394",
+  "rc": 0,
+  "error": null,
+  "secs": 21.9,
+  "strategy": "ffs",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "2e95d3304ca9de47",
+  "rc": 0,
+  "error": null,
+  "secs": 21.0,
+  "strategy": "ffs",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "48a916b8b4bf4866",
+  "rc": 0,
+  "error": null,
+  "secs": 1.2,
+  "strategy": "emaadx",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "643e89162b1967cc",
+  "rc": 0,
+  "error": null,
+  "secs": 1.3,
+  "strategy": "emaadx",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: hmaaoadx supports 1h only (got tf='1d')",
+  "secs": 1.2,
+  "strategy": "hmaaoadx",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: hmaaoadx supports 1h only (got tf='1d')",
+  "secs": 1.1,
+  "strategy": "hmaaoadx",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "37b7af84e45bb772",
+  "rc": 0,
+  "error": null,
+  "secs": 1.1,
+  "strategy": "scalpwave",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "032c0fe2d4dfce9e",
+  "rc": 0,
+  "error": null,
+  "secs": 1.3,
+  "strategy": "scalpwave",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: \"['taker_buy_base'] not in index\"",
+  "secs": 4.9,
+  "strategy": "cbot",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 1,
+  "error": "KeyError: \"['taker_buy_base'] not in index\"",
+  "secs": 4.1,
+  "strategy": "cbot",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "db1fe26a129d3959",
+  "rc": 0,
+  "error": null,
+  "secs": 2.0,
+  "strategy": "pack20",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "bfc192689b9e23bf",
+  "rc": 0,
+  "error": null,
+  "secs": 1.6,
+  "strategy": "pack20",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "500afd611f6f7ec1",
+  "rc": 0,
+  "error": null,
+  "secs": 1.8,
+  "strategy": "qs096",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "fc95155b303cb1b8",
+  "rc": 0,
+  "error": null,
+  "secs": 1.7,
+  "strategy": "qs096",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": true,
+  "run_id": "491666f94498daef",
+  "rc": 0,
+  "error": null,
+  "secs": 1.8,
+  "strategy": "qs096",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": true,
+  "run_id": "519f853fc53f4904",
+  "rc": 0,
+  "error": null,
+  "secs": 1.7,
+  "strategy": "qs096",
+  "symbol": "QQQ",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: qs097 traded symbol must be one of ('BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'HYPEUSDT', 'SUIUSDT', 'JUPUSDT') (got 'SPY')",
+  "secs": 1.0,
+  "strategy": "qs097",
+  "symbol": "SPY",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: qs097 traded symbol must be one of ('BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'HYPEUSDT', 'SUIUSDT', 'JUPUSDT') (got 'SPY')",
+  "secs": 1.1,
+  "strategy": "qs097",
+  "symbol": "SPY",
+  "regime": "pure"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: qs097 traded symbol must be one of ('BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'HYPEUSDT', 'SUIUSDT', 'JUPUSDT') (got 'QQQ')",
+  "secs": 1.1,
+  "strategy": "qs097",
+  "symbol": "QQQ",
+  "regime": "standard"
+ },
+ {
+  "ok": false,
+  "run_id": null,
+  "rc": 2,
+  "error": "REFUSED: qs097 traded symbol must be one of ('BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'HYPEUSDT', 'SUIUSDT', 'JUPUSDT') (got 'QQQ')",
+  "secs": 1.2,
+  "strategy": "qs097",
+  "symbol": "QQQ",
+  "regime": "pure"
+ }
+]

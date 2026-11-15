@@ -1,0 +1,132 @@
+{
+ "generated_utc": "2026-11-11T18:22:12Z",
+ "pack": "C:\\Users\\Lenovo\\Downloads\\scalp_wave1_v1.1.0\\wave1",
+ "pass": true,
+ "checks": [
+  {
+   "name": "C the port's PARAMS_DECLARED == the pack's specs/params.yaml",
+   "pass": true,
+   "detail": "declared params differ from the source pack"
+  },
+  {
+   "name": "A 5m SOLUSDT: 39 indicator columns agree (rtol 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "A 5m SOLUSDT: no indicator column missing in the port",
+   "pass": true,
+   "detail": "missing: []"
+  },
+  {
+   "name": "B 5m SOLUSDT: the signal event SET is identical (22 events)",
+   "pass": true,
+   "detail": "pack=22 port=22; first diff: length/order only"
+  },
+  {
+   "name": "B 5m SOLUSDT: event column 'target_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m SOLUSDT: event column 'stop_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m SOLUSDT: event column 'cost_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m SOLUSDT: event column 'k' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m SOLUSDT: event column 'gate_pass' agrees",
+   "pass": true,
+   "detail": "0 diffs"
+  },
+  {
+   "name": "A 15m SUIUSDT: 39 indicator columns agree (rtol 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "A 15m SUIUSDT: no indicator column missing in the port",
+   "pass": true,
+   "detail": "missing: []"
+  },
+  {
+   "name": "B 15m SUIUSDT: the signal event SET is identical (31 events)",
+   "pass": true,
+   "detail": "pack=31 port=31; first diff: length/order only"
+  },
+  {
+   "name": "B 15m SUIUSDT: event column 'target_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 15m SUIUSDT: event column 'stop_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 15m SUIUSDT: event column 'cost_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 15m SUIUSDT: event column 'k' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 15m SUIUSDT: event column 'gate_pass' agrees",
+   "pass": true,
+   "detail": "0 diffs"
+  },
+  {
+   "name": "A 5m HYPEUSDT: 39 indicator columns agree (rtol 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "A 5m HYPEUSDT: no indicator column missing in the port",
+   "pass": true,
+   "detail": "missing: []"
+  },
+  {
+   "name": "B 5m HYPEUSDT: the signal event SET is identical (28 events)",
+   "pass": true,
+   "detail": "pack=28 port=28; first diff: length/order only"
+  },
+  {
+   "name": "B 5m HYPEUSDT: event column 'target_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m HYPEUSDT: event column 'stop_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m HYPEUSDT: event column 'cost_bps' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m HYPEUSDT: event column 'k' agrees",
+   "pass": true,
+   "detail": "max rel 0.000e+00"
+  },
+  {
+   "name": "B 5m HYPEUSDT: event column 'gate_pass' agrees",
+   "pass": true,
+   "detail": "0 diffs"
+  }
+ ]
+}

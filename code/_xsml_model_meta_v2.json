@@ -1,0 +1,38 @@
+{
+ "variant": "v2",
+ "features": [
+  "mom_24",
+  "mom_72",
+  "mom_1d",
+  "vol_pct",
+  "vol_ratio",
+  "chop",
+  "vol_z",
+  "vwap_dist",
+  "fund_last",
+  "fund_avg3"
+ ],
+ "horizon_bars": 24,
+ "label": "payoff",
+ "stop_mult": 2.0,
+ "target_mult": 2.0,
+ "dev_end": "2026-04-30",
+ "oos_start": "2026-05-01",
+ "seed": 42,
+ "model": "HistGradientBoostingRegressor",
+ "model_kw": {
+  "max_iter": 200,
+  "learning_rate": 0.05,
+  "max_depth": 3,
+  "min_samples_leaf": 20,
+  "l2_regularization": 1.0,
+  "random_state": 42
+ },
+ "train_rows": 100007,
+ "purged_dev_rows": 192,
+ "dev_insample_r2": 0.08376531371671925,
+ "dev_insample_corr": 0.29273125921326537,
+ "oos_rows": 35833,
+ "oos_corr": 0.2005977705474248,
+ "preds_file": "xsml_preds_v2.csv"
+}

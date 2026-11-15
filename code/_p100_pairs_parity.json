@@ -1,0 +1,41 @@
+{
+ "pass_": true,
+ "results": [
+  {
+   "id": 81,
+   "signal_ok": true,
+   "book_ok": true,
+   "detail": []
+  },
+  {
+   "id": 82,
+   "signal_ok": true,
+   "book_ok": true,
+   "detail": []
+  },
+  {
+   "id": 85,
+   "signal_ok": true,
+   "book_ok": true,
+   "detail": []
+  },
+  {
+   "id": 86,
+   "signal_ok": true,
+   "book_ok": true,
+   "detail": []
+  },
+  {
+   "id": 88,
+   "signal_ok": true,
+   "book_ok": true,
+   "detail": []
+  },
+  {
+   "id": 89,
+   "signal_ok": true,
+   "book_ok": true,
+   "detail": []
+  }
+ ]
+}

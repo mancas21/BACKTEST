@@ -77,6 +77,94 @@ Adaptador nuevo en `vrun.py`: `xrpneutral1m` (misma matemática, tape 1m como
 INPUT; artefactos `c7f1063c88f3268f` 15m baseline, `18d686932bf06f78` 1m —
 los dos `verify` OK). `xrpneutral` NO cambió: mismos run_ids.
 
+## 3c. Pack WAVE_1 scalp (2026-11-11) — port desde `Downloads/scalp_wave1_v1.1.0`
+
+Paquete Python de 4 indicadores kline-only (IND-04 VWAP de sesión ±σ, IND-05
+gate de régimen, IND-06 liquidity sweep, IND-07a squeeze/burst) para perps
+Binance USD-M 1m–15m. El pack original es de otro autor y vive en
+`Downloads/`, que NO es durable: la lógica de señal está COPIADA aquí.
+
+| Archivo | Qué es |
+|---|---|
+| `scalp_wave_engine.py` | el engine del repo: `compute_all` (las 39 columnas de indicadores, copiadas del pack), `generate_signals` (eventos con gate de costes), `execute` (next-open, stop-first, gap-through al open, una posición a la vez, 1% de riesgo) y `run_symbol`. Sus 7 known-answers cubren largo Y corto. |
+| `_scalp_wave_parity.py` → `_scalp_wave_parity.json` | PARITY contra el pack ORIGINAL (importado como segundo engine): 39 columnas de indicadores a rtol 1e-9 y conjunto de eventos IDÉNTICO, en datos reales de 5m y 15m. |
+| `_scalp_wave_report.py` | genera `results/scalpwave_report_2026-11-11.md` LEYENDO los artefactos (ningún número escrito a mano). |
+
+Adapter `scalpwave` en `vrun.py`. Sus directorios de entrada NO son los de
+`TF_DIR`: 5m apunta a `data/binance_klines_5m/` (la historia real), no a
+`data/binance_klines/` (un stub de 30 días).
+
+**Dos defectos encontrados por la auditoría, ambos corregidos** (habrían dado
+números plausibles pero falsos): (1) la salida del corto se cobraba con
+`(1-fee)` en vez de `(1+fee)`, subestimando la fee de recompra de cada corto;
+(2) el PnL por trade no incluía fees, así que el PF era pre-coste mientras la
+curva de equity era neta — una familia podía mostrar PF > 1 y aun así perder
+dinero. El invariante `eq[-1]-INIT == sum(pnl)` ahora se aserta DENTRO de cada
+artefacto.
+
+## 3d. Transferencia al S&P 500 (2026-11-11) — el mismo engine sobre otra serie
+
+El store de equities es `data/alpaca_1d` (SPY = ETF del S&P 500, QQQ = Nasdaq
+100; 2.722 sesiones diarias reales de Alpaca). **`SPXUSDT` NO es el índice**
+(medido: corr con SPY 0.31, corr SPY-QQQ 0.95): es un perp cripto.
+
+| Archivo | Qué es |
+|---|---|
+| `code/vrun.py` (`make_artifact`) | override `data_dir`: reapunta las entradas a `<data_dir>/<SÍMBOLO>_<TF>.csv` y descarta lo que no exista ahí. El directorio entra en el `core` (el `run_id` no colisiona con el cripto) y se elimina de los params que ve el runner. |
+| `_equities_sweep.py` → `_equities_sweep.json` | el barrido: cada adapter símbolo×tf × SPY/QQQ × regímenes de coste (repo y cero), con el vocabulario de coste de CADA engine (nunca inventado). Registra los rechazos con su razón. |
+| `_equities_transfer_report.py` | genera `results/equities_transfer_2026-11-11.md` leyendo los artefactos (ningún número escrito a mano). |
+| `_equities_rank.py` | añade las celdas de equity al universo (`_top100_rank.json`), con el activo y el régimen de coste en la etiqueta, y limpia las filas de una pasada anterior. |
+
+Resultado: 60 celdas intentadas, 20 con artefacto, 40 rechazadas por los
+guards de cada engine. **Ningún edge transfiere al S&P 500.**
+
+## 3e. Libro cross-sectional con filtro ML, `xsml` (2026-11-11)
+
+| file | qué es |
+|---|---|
+| `code/xsml_engine.py` | el libro, con la ejecución DEL REPO (next open, stop-first, gap al open, 11 bps RT por pierna, funding en los settlements reales). **VERSION 2 del engine usa UNA sola cantidad firmada en todo el ledger**: `cash -= qty*fill + fee` al entrar, `cash += qty*fill − fee` al salir, `equity = cash + qty*mark`, `funding −= qty*mark*rate` (un largo PAGA un rate positivo, un corto lo RECIBE). La version 1 multiplicaba por `side` una cantidad que YA era firmada, lo que invertia cada pierna corta y ACREDITABA su comisión; lo detectó el invariante contable del repo (residuo 1689.65 USDT = cuatro comisiones por cada uno de los 507 trades cortos). El invariante ahora se **aserta dentro de cada artefacto** y el residuo se publica (`pnl_identity_resid`). |
+| `code/_xsml_engine_audit.py` | suite de respuestas conocidas del LEDGER, **en ambas direcciones** (fill, PnL, stop-first, gap, signo del funding, invariante, las dos lecturas del turnover, stop/objetivo asimétricos). 32/32 PASS. El lado corto está cubierto en todas las reglas porque WAVE_1 ya pagó un bug de comisión en el corto. |
+| `code/xsml_features.py` | las diez features DECLARADAS, con el motor de indicadores de pybroker (sin su backtester). |
+| `code/_xsml_feature_audit.py` | auditoría de features, con el test **bump-last-bar** de look-ahead que este repo no tenía. 5/5 PASS. |
+| `code/xsml_model.py` | un ajuste por variante sobre DEV, hiperparámetros fijos, sin grid/Optuna/selección por score. `--variant v1\|v2\|v3\|v4`. |
+| `code/_xsml_report.py` | el informe del libro base, construido desde el artefacto. |
+| `code/_xsml_variants_report.py` | el informe de variantes (cinco libros × dos lecturas del turnover), construido desde los artefactos. |
+| `results/xsml_pre_registration.md` | el spec congelado (escrito antes de la primera corrida de mercado). |
+| `results/xsml_variants_pre_registration.md` | el spec congelado de V2..V5. |
+| `results/xsml_turnover_pre_registration.md` | el spec congelado de la ambigüedad del turnover (las dos lecturas, declaradas y reportadas). |
+| `results/_xsml_variants_cells.json` | los run_id de las doce celdas (los lee el generador de informes). |
+
+El param `turnover` del adapter (`full` \| `keep`) es la ÚNICA lectura del spec
+congelado que este no determina del todo: el spec dice que la cartera es
+top-3/bottom-3 en cada rebalance, pero no dice si una pierna que SIGUE
+seleccionada se cierra y se reabre. Las dos lecturas se declaran, se corren y se
+reportan; el veredicto es robusto a la ambigüedad (las doce celdas tienen
+profit factor out-of-sample por debajo de uno).
+
+## 3f. El re-screen de los 100 prompts del pack (2026-11-12)
+
+| file | qué es |
+|---|---|
+| `code/prompts100/` | el código del pack **copiado verbatim** (el pack vive en `Downloads/`, que no es durable) con `MANIFEST.json` y el sha256 de cada fichero: si alguien edita esa copia, la prueba de paridad deja de significar nada |
+| `code/prompts100/pairs_signals.py` | el port de las **señales** de los prompts de par (81, 82, 85, 86, 88, 89) y de las cestas (83, 84, 87, 90), recortado del motor del pack: la parte de indicadores y las reglas de entrada/salida son suyas, la ejecución no |
+| `code/p100_screen_engine.py` | el motor del repo: el libro de una pierna, el libro de dos piernas del spread y el libro de pesos de la cesta, con las convenciones del repo (next open, stop-first, hueco al open, 11 bps RT por pierna, funding en los settlements reales) y el invariante contable asertado dentro del artefacto |
+| `code/_prompts100_parity.py` | **paridad a nivel de trade** contra el motor del pack en 29 prompts: los trades y las metricas son identicos con las convenciones del pack |
+| `code/_p100_pairs_parity.py` | la misma paridad para los seis pares: las arrays de señal Y los trades y el PnL |
+| `code/_prompts100_audit.py` | respuestas conocidas del motor, **en ambas direcciones** (fill, PnL, stop-first, hueco a través del stop, hueco de entrada, signo del funding, invariante, y el modo de convenciones del pack) |
+| `code/_p100_screen_run.py` | la criba: un artefacto por (prompt, tramo), un fichero por celda para que doscorridas no se pisen |
+| `code/_p100_screen_report.py` | el informe, construido desde los artefactos (guard `--strict` obligatorio) |
+| `results/prompts100_rescreen_pre_registration.md` | el spec congelado antes de la primera corrida (tramos, gates, control de multiplicidad y las diferencias declaradas con el pack) |
+| `results/_p100_cells/` | una celda por fichero (la criba en curso) |
+
+Adapter: `p100screen` en `code/vrun.py` (params: `id`, `segment`). **No**
+confundir con el adapter `prompts100` que ya existia en el repo (las cinco
+supervivientes OOS del pack, con su port congelado en
+`code/prompts100_engine.py`): ese se queda intacto.
+
+El param `turnover` no existe aqui: el re-screen usa las dos lecturas del
+spec (giro completo vs. solo lo que sale del ranking) solo en la familia A del
+pack de 5 survivors, no en las cien.
+
 ## 4. Herramientas de auditoría por familia (`_*_audit.py`, `_*_gates.py`)
 
 `_cbpack_audit.py` (known-answer), `_cbpack_cost.py` (control costo cero),

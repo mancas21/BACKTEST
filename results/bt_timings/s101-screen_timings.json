@@ -1,0 +1,12 @@
+{
+  "name": "s101-screen",
+  "report": "results\\s101_screen_report.md",
+  "stages": {
+    "screen": {
+      "jobs": 37,
+      "seconds": 1821.3,
+      "survivors": []
+    }
+  },
+  "started_utc": "2026-11-14T19:28:12+00:00"
+}

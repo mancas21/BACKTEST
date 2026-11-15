@@ -1,0 +1,31 @@
+{
+  "name": "pipeline-demo",
+  "report": "results\\bt_pipeline-demo_report.md",
+  "stages": {
+    "neighborhood": {
+      "jobs": 1,
+      "seconds": 3.1,
+      "survivors": null
+    },
+    "screen": {
+      "jobs": 3,
+      "seconds": 2.6,
+      "survivors": [
+        "s28",
+        "s44",
+        "s60"
+      ]
+    },
+    "stats": {
+      "jobs": 2,
+      "seconds": 0.0,
+      "survivors": null
+    },
+    "wf": {
+      "jobs": 1,
+      "seconds": 5.1,
+      "survivors": null
+    }
+  },
+  "started_utc": "2026-11-06T17:47:19+00:00"
+}

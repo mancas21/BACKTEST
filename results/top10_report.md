@@ -34,38 +34,38 @@ senal-stop, funding para la #95.
 
 | # | Estrategia | Par | run_id | n | PF | net% | DD% | OOS n | OOS PF | OOS net% | OOS exceso% | screen | conc | thirds | sig | veredicto |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 60 | Keltner con RSI | HYPE | `de7605f0ed27044a` | 128 | 1.60 | +40.3 | -9.9 | 42 | 1.61 | +12.2 | -40.5 | PASS | FAIL | PASS | PASS | KILLED (concentracion) |
-| 44 | 168-bar breakout | BTC | `62468f4aaf6ede7a` | 161 | 2.54 | +368.0 | -21.4 | 52 | 1.52 | +18.7 | -25.1 | PASS | PASS | PASS | PASS | CANDIDATE |
-| 73 | Sunday-to-Monday reversion | ETH | `04c2ae793f3fcb97` | 128 | 1.45 | +37.5 | -20.1 | 42 | 1.45 | +10.0 | +22.1 | PASS | FAIL | PASS | FAIL | KILLED (concentracion) |
-| 71 | Hour-of-day filter | JUP | `fdc6a1783b45c877` | 97 | 1.26 | +15.8 | -15.3 | 30 | 1.38 | +12.5 | -15.3 | PASS | FAIL | PASS | FAIL | KILLED (concentracion) |
-| 28 | Donchian breakout | BTC | `e80247ec32b0579b` | 430 | 1.37 | +113.7 | -21.4 | 138 | 1.30 | +19.2 | -24.6 | PASS | PASS | PASS | PASS | CANDIDATE |
-| 56 | Donchian chandelier | JUP | `0a50a498888f4e76` | 299 | 1.01 | -1.6 | -17.0 | 89 | 1.27 | +11.7 | -16.0 | FAIL | FAIL | FAIL | FAIL | KILLED (gate completo) |
-| 95 | Price-funding divergence | SUI | `2238dab3387fa706` | 153 | 1.25 | +21.0 | -12.0 | 36 | 1.17 | +1.4 | +64.8 | FAIL | FAIL | PASS | FAIL | KILLED (OOS PF bajo el gate) |
-| 26 | EMA cross | ETH | `a861c6d5259fe18f` | 1134 | 1.36 | +444.7 | -29.1 | 385 | 1.09 | +15.6 | +27.7 | FAIL | PASS | PASS | PASS | KILLED (OOS PF bajo el gate) |
-| 34 | Regression slope | SOL | `805f2d1edbbd61fc` | 1096 | 1.26 | +355.0 | -26.5 | 332 | 1.06 | +4.8 | +51.4 | FAIL | PASS | PASS | PASS | KILLED (OOS PF bajo el gate) |
-| 59 | Range expansion | SOL | `5f69e40e4c3f5674` | 533 | 1.25 | +40.9 | -17.3 | 155 | 1.03 | +0.9 | +47.4 | FAIL | PASS | PASS | FAIL | KILLED (OOS PF bajo el gate) |
+| 60 | Keltner con RSI | HYPE | `350602de4a81aa64` | 129 | 1.56 | +37.2 | -9.9 | 41 | 1.38 | +7.3 | -1.6 | PASS | FAIL | PASS | PASS | KILLED (concentracion) |
+| 44 | 168-bar breakout | BTC | `d544d85516c7158a` | 161 | 2.54 | +368.0 | -21.4 | 52 | 1.52 | +18.7 | -17.5 | PASS | PASS | PASS | PASS | CANDIDATE |
+| 73 | Sunday-to-Monday reversion | ETH | `34e3deaed3039572` | 128 | 1.45 | +37.5 | -20.1 | 41 | 1.52 | +11.3 | +14.6 | PASS | FAIL | PASS | FAIL | KILLED (concentracion) |
+| 71 | Hour-of-day filter | JUP | `678d9d8154270030` | 97 | 1.26 | +15.8 | -15.3 | 30 | 1.38 | +12.5 | -15.3 | PASS | FAIL | PASS | FAIL | KILLED (concentracion) |
+| 28 | Donchian breakout | BTC | `ccba31d818c05bec` | 432 | 1.36 | +109.0 | -21.4 | 139 | 1.25 | +15.4 | -20.8 | PASS | PASS | PASS | FAIL | KILLED (significacion) |
+| 56 | Donchian chandelier | JUP | `40eace298df351e9` | 299 | 1.01 | -1.6 | -17.0 | 89 | 1.27 | +11.7 | -16.0 | FAIL | FAIL | FAIL | FAIL | KILLED (gate completo) |
+| 95 | Price-funding divergence | SUI | `d53c042fc53bc5e5` | 155 | 1.23 | +19.7 | -12.0 | 38 | 1.11 | +1.9 | +70.5 | FAIL | FAIL | PASS | FAIL | KILLED (OOS PF bajo el gate) |
+| 26 | EMA cross | ETH | `6a221c1519023d0f` | 1136 | 1.35 | +428.2 | -29.1 | 387 | 1.07 | +4.6 | +8.0 | FAIL | PASS | PASS | PASS | KILLED (OOS PF bajo el gate) |
+| 34 | Regression slope | SOL | `ebb28d8d97d6168d` | 1100 | 1.25 | +337.1 | -28.3 | 335 | 1.05 | +2.8 | +53.3 | FAIL | PASS | PASS | PASS | KILLED (OOS PF bajo el gate) |
+| 59 | Range expansion | SOL | `a1f3a041c28bbe0e` | 533 | 1.25 | +40.9 | -17.3 | 155 | 1.03 | +0.9 | +51.4 | FAIL | PASS | PASS | FAIL | KILLED (OOS PF bajo el gate) |
 
 Dos de las diez limpian los cuatro gates: la #44 y la #28, ambas BTC 1h. 
 Las otras ocho mueren con la razon medida en su artefacto.
 
 ## Detalle por estrategia (mediciones del artefacto)
 
-### #60 Keltner con RSI — HYPEUSDT · run_id `de7605f0ed27044a`
+### #60 Keltner con RSI — HYPEUSDT · run_id `350602de4a81aa64`
 
-- Ventana: 2025-05-30 a 2026-10-29 (12421 barras 1h); split OOS en la barra 8694.
-- IS: n 86, PF 1.60, net +25.1%. OOS: n 42, PF 1.61, net +12.2%, DD -8.4%, exceso vs B&H -40.5pp (B&H OOS +52.6%).
-- Concentracion: mejores 5 trades = 1.105 del PnL total; net sin ellas -0.047; PF sin ellas 0.94.
-- Tercios (net en fraccion): [0.098, 0.064, 0.203] (verdes: 3 de 3); mitades: +0.119 / +0.254.
-- Significacion: R medio 0.285, IC95 bootstrap [0.060, 0.516], t 1.56.
-- Coste cero: PF 1.74 / OOS PF 1.76 (net OOS +0.147). A coste doble: PF 1.48 / OOS PF 1.47.
-- Meses verdes: 0.765 de 17 (peor mes -5.7%). Apalancamiento implicito: mediana 0.37x, max 0.85x.
+- Ventana: 2025-05-30 a 2026-11-06 (12614 barras 1h); split OOS en la barra 8829.
+- IS: n 88, PF 1.65, net +27.8%. OOS: n 41, PF 1.38, net +7.3%, DD -8.4%, exceso vs B&H -1.6pp (B&H OOS +9.0%).
+- Concentracion: mejores 5 trades = 1.179 del PnL total; net sin ellas -0.068; PF sin ellas 0.90.
+- Tercios (net en fraccion): [0.098, 0.106, 0.129] (verdes: 3 de 3); mitades: +0.111 / +0.239.
+- Significacion: R medio 0.265, IC95 bootstrap [0.055, 0.504], t 1.47.
+- Coste cero: PF 1.69 / OOS PF 1.51 (net OOS +0.097). A coste doble: PF 1.44 / OOS PF 1.26.
+- Meses verdes: 0.722 de 18 (peor mes -5.7%). Apalancamiento implicito: mediana 0.37x, max 0.85x.
 - Fills: 7 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 5 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: KILLED (concentracion).**
 
-### #44 168-bar breakout — BTCUSDT · run_id `62468f4aaf6ede7a`
+### #44 168-bar breakout — BTCUSDT · run_id `d544d85516c7158a`
 
-- Ventana: 2019-09-08 a 2026-10-27 (62548 barras 1h); split OOS en la barra 43783.
-- IS: n 109, PF 3.05, net +294.2%. OOS: n 52, PF 1.52, net +18.7%, DD -21.4%, exceso vs B&H -25.1pp (B&H OOS +43.8%).
+- Ventana: 2019-09-08 a 2026-11-02 (62687 barras 1h); split OOS en la barra 43880.
+- IS: n 109, PF 3.05, net +294.2%. OOS: n 52, PF 1.52, net +18.7%, DD -21.4%, exceso vs B&H -17.5pp (B&H OOS +36.2%).
 - Concentracion: mejores 5 trades = 0.850 del PnL total; net sin ellas +0.250; PF sin ellas 1.23.
 - Tercios (net en fraccion): [1.07, 0.894, 0.194] (verdes: 3 de 3); mitades: +2.063 / +0.528.
 - Significacion: R medio 1.135, IC95 bootstrap [0.261, 2.208], t 2.21.
@@ -74,19 +74,19 @@ Las otras ocho mueren con la razon medida en su artefacto.
 - Fills: 2 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 5 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: CANDIDATE.**
 
-### #73 Sunday-to-Monday reversion — ETHUSDT · run_id `04c2ae793f3fcb97`
+### #73 Sunday-to-Monday reversion — ETHUSDT · run_id `34e3deaed3039572`
 
-- Ventana: 2019-11-27 a 2026-10-27 (60638 barras 1h); split OOS en la barra 42446.
-- IS: n 86, PF 1.46, net +25.0%. OOS: n 42, PF 1.45, net +10.0%, DD -9.8%, exceso vs B&H +22.1pp (B&H OOS -12.1%).
+- Ventana: 2019-11-27 a 2026-11-02 (60777 barras 1h); split OOS en la barra 42543.
+- IS: n 87, PF 1.43, net +23.6%. OOS: n 41, PF 1.52, net +11.3%, DD -9.8%, exceso vs B&H +14.6pp (B&H OOS -3.3%).
 - Concentracion: mejores 5 trades = 1.213 del PnL total; net sin ellas -0.082; PF sin ellas 0.90.
-- Tercios (net en fraccion): [0.315, -0.066, 0.12] (verdes: 2 de 3); mitades: +0.188 / +0.158.
+- Tercios (net en fraccion): [0.315, -0.076, 0.132] (verdes: 2 de 3); mitades: +0.188 / +0.158.
 - Significacion: R medio 0.275, IC95 bootstrap [-0.161, 0.620], t 1.33.
-- Coste cero: PF 1.61 / OOS PF 1.62 (net OOS +0.133). A coste doble: PF 1.32 / OOS PF 1.30.
+- Coste cero: PF 1.61 / OOS PF 1.70 (net OOS +0.144). A coste doble: PF 1.32 / OOS PF 1.37.
 - Meses verdes: 0.446 de 65 (peor mes -3.4%). Apalancamiento implicito: mediana 0.54x, max 2.16x.
 - Fills: 2 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 11 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: KILLED (concentracion).**
 
-### #71 Hour-of-day filter — JUPUSDT · run_id `fdc6a1783b45c877`
+### #71 Hour-of-day filter — JUPUSDT · run_id `678d9d8154270030`
 
 - Ventana: 2024-01-31 a 2026-10-29 (24053 barras 1h); split OOS en la barra 16837.
 - IS: n 67, PF 1.21, net +3.4%. OOS: n 30, PF 1.38, net +12.5%, DD -12.5%, exceso vs B&H -15.3pp (B&H OOS +27.7%).
@@ -98,19 +98,19 @@ Las otras ocho mueren con la razon medida en su artefacto.
 - Fills: 5 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 1 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: KILLED (concentracion).**
 
-### #28 Donchian breakout — BTCUSDT · run_id `e80247ec32b0579b`
+### #28 Donchian breakout — BTCUSDT · run_id `ccba31d818c05bec`
 
-- Ventana: 2019-09-08 a 2026-10-27 (62548 barras 1h); split OOS en la barra 43783.
-- IS: n 292, PF 1.41, net +79.2%. OOS: n 138, PF 1.30, net +19.2%, DD -21.4%, exceso vs B&H -24.6pp (B&H OOS +43.8%).
-- Concentracion: mejores 5 trades = 0.888 del PnL total; net sin ellas +0.034; PF sin ellas 1.04.
-- Tercios (net en fraccion): [0.392, 0.34, 0.146] (verdes: 3 de 3); mitades: +0.648 / +0.296.
-- Significacion: R medio 0.206, IC95 bootstrap [0.009, 0.438], t 1.70.
-- Coste cero: PF 1.51 / OOS PF 1.46 (net OOS +0.311). A coste doble: PF 1.25 / OOS PF 1.16.
-- Meses verdes: 0.477 de 86 (peor mes -8.4%). Apalancamiento implicito: mediana 0.45x, max 2.66x.
+- Ventana: 2019-09-08 a 2026-11-02 (62687 barras 1h); split OOS en la barra 43880.
+- IS: n 293, PF 1.41, net +81.2%. OOS: n 139, PF 1.25, net +15.4%, DD -21.4%, exceso vs B&H -20.8pp (B&H OOS +36.2%).
+- Concentracion: mejores 5 trades = 0.911 del PnL total; net sin ellas +0.011; PF sin ellas 1.03.
+- Tercios (net en fraccion): [0.392, 0.338, 0.126] (verdes: 3 de 3); mitades: +0.631 / +0.281.
+- Significacion: R medio 0.200, IC95 bootstrap [-0.005, 0.438], t 1.66.
+- Coste cero: PF 1.49 / OOS PF 1.41 (net OOS +0.271). A coste doble: PF 1.24 / OOS PF 1.12.
+- Meses verdes: 0.471 de 87 (peor mes -8.4%). Apalancamiento implicito: mediana 0.45x, max 2.66x.
 - Fills: 22 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 5 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
-- **Veredicto: CANDIDATE.**
+- **Veredicto: KILLED (significacion).**
 
-### #56 Donchian chandelier — JUPUSDT · run_id `0a50a498888f4e76`
+### #56 Donchian chandelier — JUPUSDT · run_id `40eace298df351e9`
 
 - Ventana: 2024-01-31 a 2026-10-29 (24053 barras 1h); split OOS en la barra 16837.
 - IS: n 210, PF 0.88, net -11.7%. OOS: n 89, PF 1.27, net +11.7%, DD -10.1%, exceso vs B&H -16.0pp (B&H OOS +27.7%).
@@ -122,49 +122,49 @@ Las otras ocho mueren con la razon medida en su artefacto.
 - Fills: 0 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 4 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: KILLED (gate completo).**
 
-### #95 Price-funding divergence — SUIUSDT · run_id `2238dab3387fa706`
+### #95 Price-funding divergence — SUIUSDT · run_id `d53c042fc53bc5e5`
 
-- Ventana: 2023-05-03 a 2026-10-27 (30557 barras 1h); split OOS en la barra 21389.
-- IS: n 117, PF 1.27, net +12.1%. OOS: n 36, PF 1.17, net +1.4%, DD -5.0%, exceso vs B&H +64.8pp (B&H OOS -63.4%).
-- Concentracion: mejores 5 trades = 1.220 del PnL total; net sin ellas -0.056; PF sin ellas 0.95.
-- Tercios (net en fraccion): [0.096, 0.021, 0.083] (verdes: 3 de 3); mitades: +0.067 / +0.133.
-- Significacion: R medio 0.137, IC95 bootstrap [-0.084, 0.340], t 1.08.
-- Coste cero: PF 1.33 / OOS PF 1.26 (net OOS +0.029). A coste doble: PF 1.17 / OOS PF 1.09.
-- Meses verdes: 0.524 de 42 (peor mes -4.8%). Apalancamiento implicito: mediana 0.32x, max 0.78x.
+- Ventana: 2023-05-03 a 2026-11-02 (30696 barras 1h); split OOS en la barra 21487.
+- IS: n 117, PF 1.27, net +17.5%. OOS: n 38, PF 1.11, net +1.9%, DD -5.0%, exceso vs B&H +70.5pp (B&H OOS -68.6%).
+- Concentracion: mejores 5 trades = 1.288 del PnL total; net sin ellas -0.067; PF sin ellas 0.93.
+- Tercios (net en fraccion): [0.096, 0.004, 0.088] (verdes: 3 de 3); mitades: +0.067 / +0.121.
+- Significacion: R medio 0.128, IC95 bootstrap [-0.082, 0.330], t 1.02.
+- Coste cero: PF 1.31 / OOS PF 1.19 (net OOS +0.034). A coste doble: PF 1.16 / OOS PF 1.03.
+- Meses verdes: 0.512 de 43 (peor mes -4.8%). Apalancamiento implicito: mediana 0.32x, max 0.78x.
 - Fills: 0 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 1 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
-- Funding (#95): settlements totales 3825, cobrados con posicion abierta 313, bars_after_last_settlement 0, funding_covers_bars true.
+- Funding (#95): settlements totales 3825, cobrados con posicion abierta 313, bars_after_last_settlement 95, funding_covers_bars false.
 - **Veredicto: KILLED (OOS PF bajo el gate).**
 
-### #26 EMA cross — ETHUSDT · run_id `a861c6d5259fe18f`
+### #26 EMA cross — ETHUSDT · run_id `6a221c1519023d0f`
 
-- Ventana: 2019-11-27 a 2026-10-27 (60638 barras 1h); split OOS en la barra 42446.
-- IS: n 749, PF 1.50, net +371.7%. OOS: n 385, PF 1.09, net +15.6%, DD -24.8%, exceso vs B&H +27.7pp (B&H OOS -12.1%).
-- Concentracion: mejores 5 trades = 0.706 del PnL total; net sin ellas +0.551; PF sin ellas 1.11.
-- Tercios (net en fraccion): [1.569, 0.793, 0.187] (verdes: 3 de 3); mitades: +2.674 / +0.480.
-- Significacion: R medio 0.184, IC95 bootstrap [0.052, 0.351], t 2.17.
-- Coste cero: PF 1.48 / OOS PF 1.19 (net OOS +0.377). A coste doble: PF 1.25 / OOS PF 1.00.
-- Meses verdes: 0.578 de 83 (peor mes -11.7%). Apalancamiento implicito: mediana 0.35x, max 3.02x.
+- Ventana: 2019-11-27 a 2026-11-02 (60777 barras 1h); split OOS en la barra 42543.
+- IS: n 749, PF 1.50, net +404.9%. OOS: n 387, PF 1.07, net +4.6%, DD -24.8%, exceso vs B&H +8.0pp (B&H OOS -3.3%).
+- Concentracion: mejores 5 trades = 0.716 del PnL total; net sin ellas +0.504; PF sin ellas 1.10.
+- Tercios (net en fraccion): [1.603, 0.776, 0.144] (verdes: 3 de 3); mitades: +2.682 / +0.433.
+- Significacion: R medio 0.181, IC95 bootstrap [0.049, 0.343], t 2.14.
+- Coste cero: PF 1.47 / OOS PF 1.17 (net OOS +0.248). A coste doble: PF 1.25 / OOS PF 0.99.
+- Meses verdes: 0.571 de 84 (peor mes -11.7%). Apalancamiento implicito: mediana 0.35x, max 3.02x.
 - Fills: 38 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 3 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: KILLED (OOS PF bajo el gate).**
 
-### #34 Regression slope — SOLUSDT · run_id `805f2d1edbbd61fc`
+### #34 Regression slope — SOLUSDT · run_id `ebb28d8d97d6168d`
 
-- Ventana: 2020-09-14 a 2026-10-27 (53630 barras 1h); split OOS en la barra 37541.
-- IS: n 764, PF 1.35, net +333.3%. OOS: n 332, PF 1.06, net +4.8%, DD -26.4%, exceso vs B&H +51.4pp (B&H OOS -46.5%).
-- Concentracion: mejores 5 trades = 0.478 del PnL total; net sin ellas +1.037; PF sin ellas 1.13.
-- Tercios (net en fraccion): [0.916, 1.011, 0.185] (verdes: 3 de 3); mitades: +2.214 / +0.418.
-- Significacion: R medio 0.167, IC95 bootstrap [0.027, 0.308], t 2.26.
-- Coste cero: PF 1.35 / OOS PF 1.16 (net OOS +0.275). A coste doble: PF 1.18 / OOS PF 0.98.
-- Meses verdes: 0.541 de 74 (peor mes -13.2%). Apalancamiento implicito: mediana 0.38x, max 1.77x.
+- Ventana: 2020-09-14 a 2026-11-02 (53769 barras 1h); split OOS en la barra 37638.
+- IS: n 765, PF 1.35, net +325.3%. OOS: n 335, PF 1.05, net +2.8%, DD -28.3%, exceso vs B&H +53.3pp (B&H OOS -50.5%).
+- Concentracion: mejores 5 trades = 0.489 del PnL total; net sin ellas +0.957; PF sin ellas 1.13.
+- Tercios (net en fraccion): [0.896, 1.067, 0.115] (verdes: 3 de 3); mitades: +2.249 / +0.342.
+- Significacion: R medio 0.162, IC95 bootstrap [0.024, 0.305], t 2.21.
+- Coste cero: PF 1.34 / OOS PF 1.15 (net OOS +0.253). A coste doble: PF 1.17 / OOS PF 0.97.
+- Meses verdes: 0.533 de 75 (peor mes -13.2%). Apalancamiento implicito: mediana 0.38x, max 1.77x.
 - Fills: 15 trades con senal de salida ejecutada en la apertura con stop tambien tocado esa barra (orden del motor fuente); 14 stop-outs en la propia barra de entrada; 0 salidas con apertura mas alla del stop.
 - **Veredicto: KILLED (OOS PF bajo el gate).**
 
-### #59 Range expansion — SOLUSDT · run_id `5f69e40e4c3f5674`
+### #59 Range expansion — SOLUSDT · run_id `a1f3a041c28bbe0e`
 
-- Ventana: 2020-09-14 a 2026-10-27 (53630 barras 1h); split OOS en la barra 37541.
-- IS: n 378, PF 1.35, net +39.7%. OOS: n 155, PF 1.03, net +0.9%, DD -8.3%, exceso vs B&H +47.4pp (B&H OOS -46.5%).
+- Ventana: 2020-09-14 a 2026-11-02 (53769 barras 1h); split OOS en la barra 37638.
+- IS: n 378, PF 1.35, net +39.7%. OOS: n 155, PF 1.03, net +0.9%, DD -8.3%, exceso vs B&H +51.4pp (B&H OOS -50.5%).
 - Concentracion: mejores 5 trades = 0.729 del PnL total; net sin ellas +0.085; PF sin ellas 1.07.
-- Tercios (net en fraccion): [0.335, 0.057, -0.001] (verdes: 2 de 3); mitades: +0.568 / -0.101.
+- Tercios (net en fraccion): [0.331, 0.046, 0.012] (verdes: 3 de 3); mitades: +0.568 / -0.101.
 - Significacion: R medio 0.069, IC95 bootstrap [-0.021, 0.163], t 1.64.
 - Coste cero: PF 1.41 / OOS PF 1.20 (net OOS +0.086). A coste doble: PF 1.11 / OOS PF 0.89.
 - Meses verdes: 0.534 de 73 (peor mes -4.6%). Apalancamiento implicito: mediana 0.30x, max 1.06x.

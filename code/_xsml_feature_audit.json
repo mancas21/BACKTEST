@@ -1,0 +1,53 @@
+{
+ "pass": true,
+ "checks": [
+  {
+   "name": "A bump-last-bar: every earlier feature is unchanged when only the last bar moves",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "B funding as-of: fund_last es el ultimo settlement <= la barra",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "C los tres momentes son cross-sectionalmente demeanados por fecha",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "D el fichero de features no contiene ninguna columna de futuro",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "E todas las features tienen >=90% de cobertura",
+   "pass": true,
+   "detail": "{}"
+  }
+ ],
+ "coverage_pct": {
+  "mom_24": 99.9,
+  "mom_72": 99.6,
+  "mom_1d": 97.3,
+  "vol_pct": 98.2,
+  "vol_ratio": 98.2,
+  "chop": 99.9,
+  "vol_z": 99.4,
+  "vwap_dist": 100.0,
+  "fund_last": 100.0,
+  "fund_avg3": 100.0
+ },
+ "rows": 139869,
+ "symbols": [
+  "ARBUSDT",
+  "BTCUSDT",
+  "ETHUSDT",
+  "HYPEUSDT",
+  "JUPUSDT",
+  "SOLUSDT",
+  "SUIUSDT",
+  "XRPUSDT"
+ ]
+}

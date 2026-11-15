@@ -72,6 +72,34 @@ def run(params: dict, tf: str, sym: str, label: str, log: list,
     return a
 
 
+def _gates_worker(job):
+    """One gate run in a worker process: the SAME make_artifact + save_artifact
+    path as run(), so a parallel fold writes the identical artifact bytes."""
+    label, strategy, tf, sym, params = job
+    t0 = time.time()
+    a = vrun.make_artifact(strategy, tf, sym, params)
+    vrun.save_artifact(a)
+    return (label, a, round(time.time() - t0, 1))
+
+
+def run_batch(jobs: list, log: list, workers: int = 4) -> dict:
+    """Run independent gate jobs (label, strategy, tf, sym, params) on a pool.
+    Returns {label: artifact}; the caller prints in its own fixed order, so the
+    report layout is identical to the sequential sweep."""
+    if workers <= 1 or len(jobs) <= 1:
+        return {j[0]: run(j[4], j[2], j[3], j[0], log, strategy=j[1]) for j in jobs}
+    from concurrent.futures import ProcessPoolExecutor
+    out = {}
+    with ProcessPoolExecutor(max_workers=min(workers, len(jobs))) as ex:
+        for label, a, secs in ex.map(_gates_worker, jobs):
+            out[label] = a
+            log.append({"label": label, "tf": a["timeframe"], "sym": a["symbol"],
+                        "params": a["params"], "strategy": a["strategy"],
+                        "run_id": a["run_id"], "seconds": secs})
+            print(f"    {label:<28} {a['run_id']}  {secs:6.1f}s", flush=True)
+    return out
+
+
 def row_of(a: dict, sid: str) -> dict | None:
     for r in (a.get("tables") or []):
         if r.get("id") == sid:
@@ -80,11 +108,18 @@ def row_of(a: dict, sid: str) -> dict | None:
 
 
 def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("cells", nargs="*", help="tf:symbol[:ids]")
+    ap.add_argument("--workers", type=int, default=4,
+                    help="parallel gate runs per cell (1 = sequential)")
+    args = ap.parse_args()
     cells = CELLS
-    if len(sys.argv) > 1:
+    if args.cells:
         cells = [{"tf": a.split(":")[0], "sym": a.split(":")[1],
                   "ids": a.split(":")[2].split(",") if len(a.split(":")) > 2 else []}
-                 for a in sys.argv[1:]]
+                 for a in args.cells]
+    workers = max(1, args.workers)
 
     log, report = [], []
     for cell in cells:
@@ -93,19 +128,40 @@ def main() -> int:
         print(f"\n=== {tf} {sym}  (ids: {','.join(ids) or 'all'}) ===", flush=True)
 
         base = vrun.make_artifact("cbpack", tf, sym, {})
+        vrun.save_artifact(base)
         i = base["inputs"][0]
         t0, t1 = pd.Timestamp(i["start"]), pd.Timestamp(i["end"])
         rec = {"tf": tf, "sym": sym, "base_run_id": base["run_id"], "ids": ids,
                "window": [str(t0), str(t1)], "bars": i["bars"], "gates": {}}
 
-        # ── gate 1: the pack's own walk-forward (parameters re-selected each fold),
-        # run at three window geometries. A verdict that flips when the window
-        # changes is window-picking, not edge, so the geometry itself is a gate.
+        # ── the eight independent gate runs (3 WF geometries, 3 period slices,
+        # repo costs, funding+concentration, repo costs + funding), fanned out.
+        # A verdict that flips when the window changes is window-picking, not
+        # edge, so the geometry itself is a gate (gate 1).
+        jobs = []
+        for tr_d, te_d in WF_CONFIGS:
+            tr, te = bars_for(tf, tr_d), bars_for(tf, te_d)
+            jobs.append((f"wf {tr_d}d/{te_d}d train={tr}", "cbpack", tf, sym,
+                         {"mode": "wf", "train_bars": tr, "test_bars": te,
+                          "ids": ",".join(ids)}))
+        span = (t1 - t0) / N_PERIODS
+        period_bounds = [(t0 + span * k, t0 + span * (k + 1)) for k in range(N_PERIODS)]
+        for k, (lo, hi) in enumerate(period_bounds):
+            jobs.append((f"period {k+1}/{N_PERIODS} {str(lo)[:10]}", "cbpack", tf, sym,
+                         {"slice_from": lo.isoformat(), "slice_to": hi.isoformat()}))
+        jobs.append((f"repo costs {REPO_FEE}+{REPO_SLIP}bps", "cbpack", tf, sym,
+                     {"fee_bps": REPO_FEE, "slippage_bps": REPO_SLIP}))
+        jobs.append(("funding charged + concentration", "cbpackf", tf, sym, {}))
+        jobs.append((f"repo costs + funding {REPO_FEE}+{REPO_SLIP}bps", "cbpackf", tf, sym,
+                     {"fee_bps": REPO_FEE, "slippage_bps": REPO_SLIP}))
+        gates = run_batch(jobs, log, workers=workers)
+
+        # ── gate 1: the pack's own walk-forward (parameters re-selected each
+        # fold), at three window geometries -- reported in fixed order
         rec["gates"]["walk_forward"] = []
         for tr_d, te_d in WF_CONFIGS:
             tr, te = bars_for(tf, tr_d), bars_for(tf, te_d)
-            wf = run({"mode": "wf", "train_bars": tr, "test_bars": te, "ids": ",".join(ids)},
-                     tf, sym, f"wf {tr_d}d/{te_d}d train={tr}", log)
+            wf = gates[f"wf {tr_d}d/{te_d}d train={tr}"]
             wf_rows = {r["id"]: r for r in wf["tables"] if r.get("kind") == "summary"}
             rec["gates"]["walk_forward"].append({
                 "run_id": wf["run_id"], "train_days": tr_d, "test_days": te_d,
@@ -121,12 +177,9 @@ def main() -> int:
                       f"(bh {wf['metrics']['oos_bh_mean_pct']:+.2f}%)", flush=True)
 
         # ── gate 2: period split (same fixed params, 3 equal slices)
-        span = (t1 - t0) / N_PERIODS
         pers = []
-        for k in range(N_PERIODS):
-            lo, hi = t0 + span * k, t0 + span * (k + 1)
-            sl = run({"slice_from": lo.isoformat(), "slice_to": hi.isoformat()},
-                     tf, sym, f"period {k+1}/{N_PERIODS} {str(lo)[:10]}", log)
+        for k, (lo, hi) in enumerate(period_bounds):
+            sl = gates[f"period {k+1}/{N_PERIODS} {str(lo)[:10]}"]
             pers.append({"slice": k + 1, "run_id": sl["run_id"],
                          "from": str(lo), "to": str(hi), "bars": sl["inputs"][0]["bars"],
                          "rows": {sid: row_of(sl, sid) for sid in ids}})
@@ -140,8 +193,7 @@ def main() -> int:
             print(f"      PERIODS {sid}: " + " | ".join(txt), flush=True)
 
         # ── gate 3: repo-standard costs (6 + 5 bps/side = 22 bp round trip vs 14)
-        cost = run({"fee_bps": REPO_FEE, "slippage_bps": REPO_SLIP},
-                   tf, sym, f"repo costs {REPO_FEE}+{REPO_SLIP}bps", log)
+        cost = gates[f"repo costs {REPO_FEE}+{REPO_SLIP}bps"]
         rec["gates"]["repo_costs"] = {
             "run_id": cost["run_id"], "fee_bps": REPO_FEE, "slippage_bps": REPO_SLIP,
             "cost_bp_roundtrip": cost["metrics"]["cost_bp_roundtrip"],
@@ -157,7 +209,7 @@ def main() -> int:
         #     and CONCENTRATION (best-5 share of PnL, net without the best 5).
         #     The cbpack-1 engine attaches the funding column but never debits it,
         #     so gate 3 above is measured WITHOUT a real cost of carry.
-        fund = run({}, tf, sym, "funding charged + concentration", log, strategy="cbpackf")
+        fund = gates["funding charged + concentration"]
         rec["gates"]["funding_and_concentration"] = {
             "run_id": fund["run_id"],
             "engine_version": fund["provenance"].get("engine_version"),
@@ -178,9 +230,7 @@ def main() -> int:
 
         # ── gate 5: the repo-standard costs WITH funding charged, which is the
         #     number that actually faces a trader holding a perpetual.
-        fund_repo = run({"fee_bps": REPO_FEE, "slippage_bps": REPO_SLIP},
-                        tf, sym, f"repo costs + funding {REPO_FEE}+{REPO_SLIP}bps", log,
-                        strategy="cbpackf")
+        fund_repo = gates[f"repo costs + funding {REPO_FEE}+{REPO_SLIP}bps"]
         rec["gates"]["repo_costs_with_funding"] = {
             "run_id": fund_repo["run_id"],
             "fee_bps": REPO_FEE, "slippage_bps": REPO_SLIP,

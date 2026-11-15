@@ -1,0 +1,167 @@
+{
+ "pass": true,
+ "checks": [
+  {
+   "name": "A/B LONG: fill price with slippage against the book",
+   "pass": true,
+   "detail": "got 100.00500000000001"
+  },
+  {
+   "name": "A/B LONG: trade PnL matches the hand computation",
+   "pass": true,
+   "detail": "got 44.722626 expected 44.722626"
+  },
+  {
+   "name": "A/B LONG: final cash matches the hand computation",
+   "pass": true,
+   "detail": "got 10044.722626 expected 10044.722626"
+  },
+  {
+   "name": "A/B LONG: the side on the trade is the side traded",
+   "pass": true,
+   "detail": "got 1"
+  },
+  {
+   "name": "A/B LONG: the exit is the target",
+   "pass": true,
+   "detail": "target"
+  },
+  {
+   "name": "A LONG: a rising price makes the long PROFIT",
+   "pass": true,
+   "detail": "pnl 44.722626"
+  },
+  {
+   "name": "A LONG: the fee is CHARGED, not credited",
+   "pass": true,
+   "detail": "fees 5.024873749999999"
+  },
+  {
+   "name": "A/B SHORT: fill price with slippage against the book",
+   "pass": true,
+   "detail": "got 99.995"
+  },
+  {
+   "name": "A/B SHORT: trade PnL matches the hand computation",
+   "pass": true,
+   "detail": "got 44.777376 expected 44.777376"
+  },
+  {
+   "name": "A/B SHORT: final cash matches the hand computation",
+   "pass": true,
+   "detail": "got 10044.777376 expected 10044.777376"
+  },
+  {
+   "name": "A/B SHORT: the side on the trade is the side traded",
+   "pass": true,
+   "detail": "got -1"
+  },
+  {
+   "name": "A/B SHORT: the exit is the target",
+   "pass": true,
+   "detail": "target"
+  },
+  {
+   "name": "B SHORT: a falling price makes the short PROFIT",
+   "pass": true,
+   "detail": "pnl 44.777376"
+  },
+  {
+   "name": "B SHORT: the fee is CHARGED, not credited",
+   "pass": true,
+   "detail": "fees 4.97512375"
+  },
+  {
+   "name": "C LONG: a bar touching stop AND target exits at the STOP",
+   "pass": true,
+   "detail": "['stop']"
+  },
+  {
+   "name": "C LONG: the stop fill price is the stop level",
+   "pass": true,
+   "detail": "got 98.9999997525 expected 98.9999997525"
+  },
+  {
+   "name": "C SHORT: a bar touching stop AND target exits at the STOP",
+   "pass": true,
+   "detail": "['stop']"
+  },
+  {
+   "name": "C SHORT: the stop fill price is the stop level",
+   "pass": true,
+   "detail": "got 100.99999974750001 expected 100.99999974750001"
+  },
+  {
+   "name": "D LONG: the gap-through stop fills AT THE OPEN",
+   "pass": true,
+   "detail": "got 97.9951 expected 97.9951"
+  },
+  {
+   "name": "D LONG: the exit is the stop",
+   "pass": true,
+   "detail": "stop"
+  },
+  {
+   "name": "D SHORT: the gap-through stop fills AT THE OPEN",
+   "pass": true,
+   "detail": "got 102.00510000000001 expected 102.00510000000001"
+  },
+  {
+   "name": "D SHORT: the exit is the stop",
+   "pass": true,
+   "detail": "stop"
+  },
+  {
+   "name": "E LONG: a positive funding rate has the RIGHT sign (pays)",
+   "pass": true,
+   "detail": "funding_paid 4.999750"
+  },
+  {
+   "name": "E SHORT: a positive funding rate has the RIGHT sign (receives)",
+   "pass": true,
+   "detail": "funding_paid -5.000250"
+  },
+  {
+   "name": "F: eq[-1]-INIT == sum(pnl) - funding on every synthetic case",
+   "pass": true,
+   "detail": "worst residual 7.034e-13 in clean short"
+  },
+  {
+   "name": "G: 'full' turnover closes and reopens the selected leg at the rebalance",
+   "pass": true,
+   "detail": "2 trades, 1 by rebalance"
+  },
+  {
+   "name": "G: 'keep' turnover does NOT close a leg that stays selected",
+   "pass": true,
+   "detail": "1 trades, 0 by rebalance"
+  },
+  {
+   "name": "G: the 'keep' reading trades less than the 'full' one (that is the whole cost difference)",
+   "pass": true,
+   "detail": "keep 1 vs full 2"
+  },
+  {
+   "name": "G: an unknown turnover mode is refused",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "H: the entry bar's own range is checked (a stop on the fill bar exits immediately)",
+   "pass": true,
+   "detail": "[('stop', 1704070800000)]"
+  },
+  {
+   "name": "I: an asymmetric stop/target (1x ATR stop, 3x ATR target) runs and fills the order",
+   "pass": true,
+   "detail": "1 trades"
+  },
+  {
+   "name": "I: the asymmetric TARGET level is the one used",
+   "pass": true,
+   "detail": "got 102.99999974250001 expected 102.99999974250001"
+  }
+ ],
+ "n_checks": 32,
+ "engine_version": "xsml-2"
+}
