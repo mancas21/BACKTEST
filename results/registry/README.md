@@ -15,5 +15,5 @@ Columnas clave:
   (NO certificable sin resolucion 1m / forward — leccion XRP 2026-10-31).
 - `verdict`: veredicto del pack o de la fila; nunca confundir retorno con validacion.
 
-Dimensiones: 44 pares, 11 timeframes, 29 familias,
-2041 estrategias.
+Dimensiones: 71 pares, 11 timeframes, 36 familias,
+2250 estrategias.

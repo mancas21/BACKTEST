@@ -196,6 +196,13 @@ def main():
             # Its return is a documented bug, not a measurement.
             continue
         for r in extract(adapter, d):
+            # A sub-10-trade artifact is not a tested strategy, and it must be
+            # dropped BEFORE the per-cell dedupe: a 0-trade run has return 0.0
+            # and would win the "highest return" tiebreak, shadowing the real
+            # cell and then being filtered away (measured on the ema921 BTC 1h
+            # pair, where the pre-fix 0-trade artifact hid the 2812-trade one).
+            if isinstance(r.get("n"), (int, float)) and r["n"] < 10:
+                continue
             out.append({
                 "run_id": rid, "adapter": adapter, "symbol": symbol, "tf": tf,
                 "label": r["label"], "ret": r["ret"], "pf": r["pf"], "n": r["n"],

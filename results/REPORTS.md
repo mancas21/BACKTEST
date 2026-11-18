@@ -213,3 +213,5 @@ hayan crecido después del corte.
 | `s101_report.md` | STRATEGIES 101-150 pack (37 celdas intradía: estructura/traps/sesiones/flujo/RV; 13 NO-DATA saltadas por la regla #19 del pack) | KILLED — cero de treinta y siete PASS; ruina por costes en intradía (37 artifacts verify OK) | **OK (strict)** |
 
 | `hmatrend_report_2026-11-14.md` | hmatrend (pack externo hermes HMA(34) Trend, 12 pares 1h 2026; reconstrucción declarada - el código fuente del pack NO sobrevivió) | KILLED — cero de once celdas pasa la batería (22 artifacts verify OK); el claim es irreproducible desde sus propios outputs; XAU NO DATA | **OK (strict)** |
+
+| `ema921_report_2026-11-17.md` | ema921 (9-21 EMA crossover, adjunto 2026-11-17; 101 celdas: ocho 1m, diez 5m, treinta y cinco 15m, treinta y siete 1h, once 1d) | KILLED — cero de ciento una celdas pasa la batería; las dos con PF>1.2 (LAB y ZEC 1h) mueren por IC bootstrap y por B&H; ruina por coste de giro en 1m-1h; 1d sin muestra | **OK (strict)** |

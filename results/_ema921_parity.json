@@ -1,0 +1,69 @@
+{
+ "cells": [
+  {
+   "symbol": "BTCUSDT",
+   "tf": "1h",
+   "bars": 62687,
+   "trades_source": 2813,
+   "trades_port": 2813,
+   "return_pct_source": -71.62308620192026,
+   "return_pct_port": -71.62308620192026,
+   "pf_source": 0.9089469826315938,
+   "pf_port": 0.9089469826315938,
+   "equity_identical": true,
+   "timestamps_identical": true,
+   "fields_identical": true,
+   "first_mismatched_field": null,
+   "pass": true
+  },
+  {
+   "symbol": "ETHUSDT",
+   "tf": "15m",
+   "bars": 244373,
+   "trades_source": 11449,
+   "trades_port": 11449,
+   "return_pct_source": -99.99964951579733,
+   "return_pct_port": -99.99964951579733,
+   "pf_source": 0.7600157234973037,
+   "pf_port": 0.7600157234973037,
+   "equity_identical": true,
+   "timestamps_identical": true,
+   "fields_identical": true,
+   "first_mismatched_field": null,
+   "pass": true
+  },
+  {
+   "symbol": "SUIUSDT",
+   "tf": "5m",
+   "bars": 369600,
+   "trades_source": 17738,
+   "trades_port": 17738,
+   "return_pct_source": -99.99999997424754,
+   "return_pct_port": -99.99999997424754,
+   "pf_source": 0.6477503271159354,
+   "pf_port": 0.6477503271159354,
+   "equity_identical": true,
+   "timestamps_identical": true,
+   "fields_identical": true,
+   "first_mismatched_field": null,
+   "pass": true
+  },
+  {
+   "symbol": "XRPUSDT",
+   "tf": "1d",
+   "bars": 317,
+   "trades_source": 14,
+   "trades_port": 14,
+   "return_pct_source": -3.0201389702865122,
+   "return_pct_port": -3.0201389702865122,
+   "pf_source": 0.33616982017774955,
+   "pf_port": 0.33616982017774955,
+   "equity_identical": true,
+   "timestamps_identical": true,
+   "fields_identical": true,
+   "first_mismatched_field": null,
+   "pass": true
+  }
+ ],
+ "failures": []
+}

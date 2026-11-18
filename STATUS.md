@@ -1,5 +1,69 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-17 - Adjunto "9-21 EMA crossover" (adapter `ema921`): KILLED - cero de 101 celdas pasa la bateria; las dos unicas con PF>1.2 mueren por IC bootstrap y por B&H
+
+El usuario trae `ema_9_21_backtest-claude.py` y pide "backtest this, all the
+pairs, all the tfs". Port completo con el protocolo de la casa.
+
+- **Fuente de registro** `code/ema921_source.py`, byte-identico al adjunto
+  (sha256 `8be0020d057a4ef73fbed9e4ab4f11b97d131f3d62b3094f47e6ded80a2189c4`),
+  hasheado en cada run_id. El puerto (`code/ema921_engine.py`) conserva las
+  reglas del adjunto tal cual: EMA 9/21 con semilla SMA, señal en cierre,
+  entrada en la apertura siguiente con slippage, stop = swing de 10 barras en
+  la barra de señal, TP = 2R, salida por cruce de la EMA lenta, filtro
+  min_sl_pct, riesgo 1% con tope 5x. Lo unico que añade es el regimen del repo:
+  11 bps RT inyectados, **funding cobrado en los settlements reales**,
+  ventana recortada al tramo financiado en ambos extremos, identidad contable
+  `eq[-1] - INIT == sum(pnl)` asertada dentro del artefacto, y los controles
+  sin funding y a coste cero medidos dentro de cada artefacto.
+- **Auditoria de conocidos** `code/_ema921_audit.py` 46/46 PASS, en las dos
+  direcciones (entrada, stop, TP, fees, sizing, empate SL-antes-que-TP, gap a
+  traves del stop, signo y momento del funding, causalidad, determinismo).
+  Cazo un defecto real antes de tocar mercado: pandas 3 devuelve el indice en
+  microsegundos, `asi8 // 1e6` producia SEGUNDOS y el recorte de funding se
+  comio 62,686 de 62,687 barras (cero trades). `_index_to_ms` es ahora
+  independiente de la unidad, con asercion y tests de regresion ns/us/s.
+- **Paridad con la fuente** `code/_ema921_parity.py` 4/4 celdas bit-identicas
+  (BTC 1h, ETH 15m, SUI 5m, XRP 1d) con el regimen de costes del propio
+  adjunto (4.0/1.0 bps por lado) y funding apagado: trades, importes, equity y
+  timestamps iguales al original.
+- **Grid**: 101 celdas (ocho 1m, diez 5m, treinta y cinco 15m, treinta y siete
+  1h, once 1d), 0 errores, `python code/vrun.py pverify` 101 OK. Universo =
+  union de la carpeta nativa y la cache taker por tf; 5m resuelve a
+  `data/binance_klines_5m` (la historia real) y nunca al stub de 30 dias de
+  `data/binance_klines`; solo ficheros `<SYM>_<tf>.csv`; solo USDT;
+  `SOLUSDC` excluido (spot sin funding). Funding completo en las 101:
+  `funding_covers_bars` true, mayor hueco interno PUMPUSDT 15m
+  `d1f3698c3c22f018` (504 h), mayor lastre AVAXUSDT 1h `24b242051b5957a7`
+  (`funding_drag_pp` -1.97, pago 246.45) y algunos cortos COBRAN (LABUSDT 1h
+  `dfab81a68433a1fd`, -11.99). Residuo de identidad maximo 7.094e-11.
+- **Veredicto: cero celdas pasan la bateria estandar.** Solo dos alcanzan
+  PF>1.2 con muestra suficiente, y ambas mueren en el IC bootstrap y en B&H:
+  LABUSDT 1h `dfab81a68433a1fd` net +28.44%, PF 1.270, OOS PF 1.558, 3/3
+  tercios, CI [-1.950, 18.696] (P(mean<=0) 0.059), B&H -83.22% (gana por
+  perder menos: el token se hundio); ZECUSDT 1h `d620f41a9ece082a` net
+  +33.06%, PF 1.262, OOS PF 1.324, CI [-1.297, 18.243] (0.047), B&H +2884.79%.
+  Ambas son listados de 2025: un solo regimen es toda su evidencia.
+- **Por que muere el resto.** A coste cero (control dentro del artefacto) 1m
+  tiene UNA de ocho celdas > 1.0 (SPXUSDT `67d8a9a9cd843510`, 1.022) y el 1m
+  se lleva la cuenta por delante con costes (ETHUSDT 1m `1e231a62c3ecc4d9`
+  PF 0.134 sobre 83475 trades); 5m seis de diez > 1.0 y ninguna llega a 1.2;
+  15m quince de treinta y cinco > 1.0 y ninguna a 1.2; 1h veinticinco de
+  treinta y siete > 1.0 y cinco a 1.2 — el filo bruto existe y es diminuto, y
+  el giro se lo come: BTCUSDT 1h `61da2863c36f44da` paga 14588.02 USDT de fees
+  sobre 2812 trades (PF 0.891 con costes vs 1.082 sin), SOLUSDT 15m
+  `abc036cc36e2849c` paga 39109.08. **1d NO ES VEREDICTO**: los ficheros
+  diarios empiezan en 2026 por construccion, ninguna celda llega a treinta
+  trades y van marcadas INSUFFICIENT_SAMPLE.
+- Reporte `results/ema921_report_2026-11-17.md` (guard OK strict, 101 run_ids
+  citados), indice en `results/REPORTS.md`, registro regenerado
+  (`strategy_registry.py`: familia `trend_ema_crossover`, veredicto KILLED;
+  noventa y siete filas porque la herramienta de ranking descarta por su
+  regla preexistente las celdas con menos de diez trades, que son cuatro de
+  las diarias). Matriz machine-readable en
+  `results/ema921_matrix_2026-11-17.json`; indice del harness en
+  `results/runs/_matrix_ema921.csv`.
+
 ## 2026-11-14 - pack externo "hermes" HMA(34) Trend (adapter `hmatrend`): KILLED - cero de once celdas pasa la bateria, y el claim externo es IRREPRODUCIBLE desde sus propios outputs
 
 El usuario trae `hma_backtest_oos_consolidado.json` (scratch de una sesion CLI
@@ -3951,3 +4015,61 @@ la familia de prompts de funding del pack, que es un tercer tipo de libro y
 de la campana. La familia de prompts 91-100 (los libros de funding del pack)
 es **un tercer tipo de libro** y **no se ha medido**: se declara como no
 medido, nunca se estima.
+
+## 2026-11-16 — Limpieza del VPS: fuera el bot de CVRMD y el de MP-18
+
+**Por que.** Los bots que vivian en el VPS (`vps-japan`) eran un enredo: un
+mirror paper de CVRMD (`~/paper`), dos paper trackers de MP-18 (`~/mp18`), un
+libro neutral de 5 parejas (`~/neutral-paper`, ya borrado antes) y un bot XRP de
+una pareja (retirado el 2026-11-04). Ademas el `AGENTS.md` de este repo
+describia como VIVOS dos de ellos que ya no existian, asi que el inventario
+decia falsehoods.
+
+**Que se ha borrado del VPS (2026-11-16):**
+
+| bot | que era | estado final |
+|---|---|---|
+| `~/paper` | el mirror forward de **CVRMD** (pierna `CVRMD-SUI-1H` con `code/cvrmd_backtest.py` + pierna `BOT-ETH-1H`), cron `*/5` | **borrado**. Su cron ya no existia: el ultimo ciclo fue el 2026-10-31T20:40Z, con la pierna CVRMD plana (equity 11608.54, forward −65.00 USDT = −0.557 %, PF 1.739) y la BOT-ETH en −187.87 USDT (−1.457 %) |
+| `~/mp18` | los dos paper trackers (`mp18_v2_paper.py` y `paper_s20_s8_s10.py`), cron horario | **borrado**, con sus dos lineas de cron. Los tres libros (S20/S8/S10) estaban en efectivo con 0.000 % de forward |
+| crontab del usuario | — | **queda VACIO** |
+
+**Sin perder nada.** Antes de borrar se archivaron `~/paper` y `~/mp18` mas la
+foto del crontab en `backups/vps_retired_paper_mp18_20261116T213657Z.tar.gz`
+(sha256 `3f959444a88f5070f0d4716e2f68283605619dea14b8b2ee3d292db5ecf28a56`),
+bajado al repo y **verificado byte a byte** contra el sha del VPS antes de
+borrar. El tar del VPS tambien se borro: la copia vive en el repo.
+
+**Segunda pasada: los snapshots de crontab.** Cinco ficheros del VPS citaban a
+los bots retired en su texto (`crontab.bak.20261031`,
+`crontab.bak.20261116-pre-wipe`, `backups/crontab_20261104T214737Z.txt`,
+`archive/crontab.snapshot-20261114-pre-halt`,
+`archive/crontab.snapshot-20261116-pre-retirement`). Tambien se archivaron y
+borraron, con el mismo protocolo: `backups/vps_crontab_snapshots_20261116T214808Z.tar.gz`
+(sha256 `3e27c05865911033db3a06ff35b1ae1f7c5422b7f925b375e1ea0613634195ed`),
+verificado byte a byte contra el VPS antes de borrar.
+
+**Verificacion tras la limpieza:** cero rastros de `cvrmd`, `mp18` o
+`paper_live` en todo `/home/ubuntu` (por nombre: 0; por contenido en ficheros
+de texto: 0), ningun cron de mp18/paper/neutral, crontab vacio. Las unicas
+coincidencias que quedan son en las cachés de npm/pip y en el binario
+`watchfiles`, donde la cadena aparece dentro de base64: falsos positivos, no se
+tocaron. **Lo que NO se ha tocado:** `~/scanner-engine` (scanner en el
+puerto 8090), `~/paper-monitor*` y `~/paper-monitors*` (monitores de otros
+libros, de septiembre, sin relacion con CVRMD ni con MP-18), `~/vps-reader*`,
+`~/data`, `~/logs`, `~/results`, `~/archive`, `~/backups`, `~/workspace`.
+
+**En el repo.** `code/paper_live.py`, `code/mp18_v2_paper.py`,
+`code/paper_s20_s8_s10.py`, `code/mp18_forward.py` y
+`code/xrp_bot_status_line.py` son el archivo de esos bots (este repo es
+append-only: no se borran) y cada uno lleva un banner `RETIRADO` en su
+docstring con que era, donde corria, que paso y donde esta el archivo.
+`AGENTS.md` cambio su seccion del VPS por una LAPIDA explicita. **La estrategia
+`cvrmd` como adapter de backtest NO se toca**: lo que se borro fue el bot que la
+corria en el VPS.
+
+**Y lo que corre en ESTA maquina** (repo distinto, `trading-engines`): el bot
+de TESTNET `execution/neutral_bot.py --execute` (VIVO, log: "EJECUTANDO EN
+TESTNET", `ALLOW_ORDERS=1`, `ALLOW_ALPACA_ORDERS=0`), mas el lector, el
+scanner y el puente de TradingView. Ese bot NO usa `cvrmd` ("No usa estrategias
+S02-S10") y no es de este repo. **Del recorder de este repo** (order-flow, no
+opera) hay 38 dias UTC consecutivos de datos y faltan 18 para el R_READY.

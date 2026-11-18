@@ -2571,6 +2571,43 @@ def run_hmatrend(paths, params):
     return E.dispatch(paths, dict(params))
 
 
+def _ema921_inputs(tf, sym):
+    """Kline file (native dir preferred, taker fallback) + funding file.
+
+    The 5m tf resolves to the REAL history dir data/binance_klines_5m: TF_DIR
+    maps "5m" to data/binance_klines, which is a 30-day stub (the same trap
+    SCALPWAVE_DIRS documents). A symbol is never read from the stub.
+    """
+    if tf == "5m":
+        cands = [os.path.join(DATA, "binance_klines_5m", f"{sym}_5m.csv"),
+                 os.path.join(TF_TAKER["5m"][0], f"{sym}_5m.csv")]
+    else:
+        d, suf = TF_DIR[tf]
+        dt, st = TF_TAKER[tf]
+        cands = [os.path.join(d, f"{sym}_{suf}.csv"),
+                 os.path.join(dt, f"{sym}_{st}.csv")]
+    kline = next((c for c in cands if os.path.exists(c)), None)
+    if kline is None:
+        raise FileNotFoundError(f"ema921 {sym} {tf}: no kline file in "
+                                + " or ".join(os.path.dirname(c) for c in cands))
+    files = [kline]
+    fp = os.path.join(DATA, "binance_funding", f"{sym}_funding.json")
+    if os.path.exists(fp):
+        files.append(fp)
+    return files
+
+
+def run_ema921(paths, params):
+    """9-21 EMA crossover (2026-11-17 attachment). Source of record
+    code/ema921_source.py (byte-identical to the attachment), port
+    code/ema921_engine.py: the source's rules verbatim, plus the repo's
+    requirements (injected 11 bps RT, funding at real settlements, trimmed to
+    the funded window, asserted accounting identity, funding/zero-cost
+    controls). Audit code/_ema921_audit.py, parity code/_ema921_parity.py."""
+    E = _load_module(os.path.join(CODE, "ema921_engine.py"), "ema921_engine")
+    return E.run_paths(paths, dict(params))
+
+
 def _prompts100_inputs(tf, sym):
     d, suf = TF_DIR[tf]
     native = os.path.join(d, f"{sym}_{suf}.csv")
@@ -3376,6 +3413,21 @@ ADAPTERS = {
             os.path.join(DATA, "binance_klines_1m", f"{FVGUP_CARDS[sym]}_1m.csv")],
         "run": run_fvgup, "matrix": False, "needs_tf": False,
         "card_from_symbol": True,
+    },
+    "ema921": {
+        # 9-21 EMA crossover (2026-11-17 attachment). Source of record
+        # code/ema921_source.py (sha256 8be0020d..., byte-identical to
+        # Downloads/ema_9_21_backtest-claude.py); port code/ema921_engine.py
+        # keeps the source's rules and adds the repo's regime: 11 bps RT,
+        # funding at the real settlements, window trimmed to the funded
+        # span, asserted eq[-1]-INIT == sum(pnl), funding and zero-cost
+        # controls inside every artifact. Audit code/_ema921_audit.py
+        # (43/43), parity code/_ema921_parity.py (4/4, bit-identical).
+        "sources": [os.path.join(CODE, "ema921_engine.py"),
+                    os.path.join(CODE, "ema921_source.py")],
+        "version": "ema921-1",
+        "inputs": _ema921_inputs,
+        "run": run_ema921, "matrix": True, "needs_tf": True,
     },
     "s101": {
         # STRATEGIES 101-150 pack (2026-11-13 attachment, source of record

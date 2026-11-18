@@ -92,124 +92,94 @@ Details: `VALIDATION_PROTOCOL.md`.
 | `top10` | `code/top10_engine.py` (**TOP10 shortlist of the prompts-100 screen**, frozen port; audits `code/_top10_audit.py` + `code/_top10_parity.py`) | symbol x tf (registry-bound ids) | `data/binance_klines_1h` (+ HYPE tail; `JUPUSDT_1h.csv` added 2026-11-01; SUI funding for #95) |
 | `hmatrend` | `code/hma_trend_engine.py` (**external "hermes" HMA(34) Trend pack, DECLARED reconstruction** — source code lost, outputs in `code/hma_trend_sources/`; audit `code/_hma_trend_audit.py` + parity `code/_hma_trend_parity.py`) | symbol (1h) | `data/binance_klines_1h` (PEPE via `_1h_taker`; funding where a file exists; XAUUSDT NO DATA) |
 
-### The neutral paper book (VPS) — a SEPARATE bot, registered as an adapter
+### Bots that USED to run on the VPS — ALL RETIRED (2026-11-16)
 
-`code/xrp_neutral_engine.py` is a DELTA-NEUTRAL two-sided grid. It backs a forward
-paper book, and it is a full `xrpneutral` adapter, so the book's numbers are
-reproducible rather than quoted from a VPS status file.
+**There is NO trading bot deployed on the VPS any more.** The VPS (`vps-japan`,
+52.195.120.63) keeps only the market-data readers and the scanner. Every
+trading bot that used to live there has been removed, and this section is a
+tombstone, not a description of anything running.
 
-**The single-pair XRP bot that hosted it is RETIRED AND DELETED (2026-11-04).**
-`/home/ubuntu/xrp-paper-bot/` is gone: archived at
-`/home/ubuntu/backups/xrp-paper-bot_retired_2026-11-04.tar.gz`, zero cron lines
-left. Anything that still references it is dead text. What runs now is
-`~/neutral-paper/` — five isolated pair directories (JUP, XRP, SOL, HYPE, SUI),
-each with its own data, logs, state and runners:
+| bot | que era | donde | que paso |
+|---|---|---|---|
+| `paper` | el mirror forward de **CVRMD** (pierna `CVRMD-SUI-1H` con `code/cvrmd_backtest.py` + pierna `BOT-ETH-1H`) | `/home/ubuntu/paper`, cron `*/5` | **borrado** el 2026-11-16; su cron ya no existia (el ultimo ciclo fue el 2026-10-31T20:40Z) |
+| `mp18` | los dos paper trackers de MP-18 (`mp18_v2_paper.py`) y de S20/S8/S10 (`paper_s20_s8_s10.py`) | `/home/ubuntu/mp18/backtest-system`, cron horario | **borrado** el 2026-11-16 (con sus dos lineas de cron) |
+| `neutral-paper` | el libro neutral de 5 parejas (JUP/XRP/SOL/HYPE/SUI) | `/home/ubuntu/neutral-paper/<PAR>/` | **borrado** antes del 2026-11-16 (el directorio y sus crons ya no estaban) |
+| `xrp-paper-bot` | el bot XRP de una sola pareja | `/home/ubuntu/xrp-paper-bot` | **retirado y borrado** el 2026-11-04; archivado en el VPS |
+| `grid-paper`, `cqb`, `freqtrade` | — | `/home/ubuntu/...` | ya no estan |
 
-    /home/ubuntu/neutral-paper/<PAR>/     <- JUP XRP SOL HYPE SUI, one dir each
-    1,16,31,46 * * * * <PAR>/run.sh       <- 15m cycle, staggered per pair
-    2,17,32,47 * * * * <PAR>/run_1m.sh    <- 1m accounting, one minute later
+**Material archivado (no se borro sin copia).** Lo borrado el 2026-11-16 esta
+en el repo, verificado por sha256:
+`backups/vps_retired_paper_mp18_20261116T213657Z.tar.gz`
+(sha256 `3f959444a88f5070f0d4716e2f68283605619dea14b8b2ee3d292db5ecf28a56`;
+la foto del crontab anterior a la limpieza va dentro). El tar del VPS tambien se
+borro: la copia vive en el repo.
 
-The two runners share ONE flock per pair, because they append to the SAME 15m
-kline CSV: concurrency there would interleave rows and corrupt the file both
-records are built from. The wait is bounded at 60s and a skipped cycle costs
-nothing — every cycle is a full replay.
+**Tambien se borraron los snapshots de crontab** que citaban a los bots
+(`crontab.bak.20261031`, `crontab.bak.20261116-pre-wipe`,
+`backups/crontab_20261104T214737Z.txt`,
+`archive/crontab.snapshot-20261114-pre-halt`,
+`archive/crontab.snapshot-20261116-pre-retirement`): archivados igual, en
+`backups/vps_crontab_snapshots_20261116T214808Z.tar.gz`
+(sha256 `3e27c05865911033db3a06ff35b1ae1f7c5422b7f925b375e1ea0613634195ed`).
+Verificacion final del VPS: **cero** rastros de `cvrmd`/`mp18`/`paper_live`
+por nombre y por contenido en ficheros de texto, crontab vacio. (Las caches de
+npm/pip y el binario `watchfiles` dan coincidencias en base64: son falsos
+positivos y no se tocaron.)
 
-It is deliberately SEPARATE from `~/paper`, `~/grid-paper`, `~/cqb`, `~/freqtrade`
-and `~/mp18`. Its engine is self-contained (no `cvrmd_port`, no `grid_audit`), so
-it cannot break if the repo moves on. PAPER ONLY: no orders, no keys, no account
-access, Binance public REST only.
+**Fuentes en el repo.** Los ficheros `code/paper_live.py`, `code/mp18_v2_paper.py`,
+`code/paper_s20_s8_s10.py`, `code/mp18_forward.py` y
+`code/xrp_bot_status_line.py` son el ARCHIVO de esos bots (el repo es
+append-only, no se borran), y cada uno lleva un banner `RETIRADO` en su
+docstring. **No hay ninguna tarea programada ni linea de cron que despliegue
+ninguno de ellos**, y no deben volver a desplegarse: el veredicto de una
+estrategia esta en sus artefactos (`results/runs/`), no en un bot desplegado.
 
-**THE 15m RECORD IS NOT FILL EVIDENCE (2026-11-04).** The 15m convention credits
-a cover whenever the SAME bar's high reaches the cover level. The 2026-10-31 audit
-measured that as a fabrication (100% of the retired XRP book's trades were same-bar
-round trips; 1m resolution cut the probe's PF 1.3019 -> 0.9326), so a forward book
-built on it records the convention, not fills. The live book therefore runs a
-second, separate record with 1m fill accounting:
+**Lo que SIGUE en el VPS:** `~/scanner-engine` (scanner en el puerto 8090),
+`~/paper-monitor*` y `~/paper-monitors*` (monitores de otros libros, de
+septiembre, sin relacion con CVRMD ni con MP-18), `~/vps-reader*`,
+`~/data`, `~/logs`, `~/results`, `~/archive`, `~/backups`, `~/workspace`. El
+crontab del usuario esta **vacio**.
 
-- `code/xrp_neutral_engine_paper_1m.py` — DUAL-MODE engine, GENERATED by
-  `code/_neutral_1m_build.py` from `code/xrp_neutral_engine_paper.py` (byte-identical
-  copy of the engine the VPS runs; the builder REFUSES a base whose sha differs).
-  Never edit the generated file; rebuild it.
-- A bar is resolved minute by minute ONLY when its 1m tape is COMPLETE (>= 15
-  distinct minutes). Every other bar keeps the ORIGINAL same-bar block byte for
-  byte, which is what makes the pre-tape history bit-identical — so the day-0
-  baseline cannot move, and the forward window is the only place the model changes.
-- A cover may fill only on a STRICTLY LATER minute than its own entry. A
-  same-minute touch is unresolvable from OHLC: it is COUNTED
-  (`same_minute_touched`) and BANNED, never assumed.
-- `code/_neutral_1m_audit.py` -> `code/_neutral_1m_audit.json` proves it in twelve
-  checks: no-tape run bit-identical to the 15m engine over the full 239,470-bar
-  history; a late tape leaves every earlier bar bit-identical; five hand-built
-  ordering cases (entry-then-cover, cover-before-entry, same-minute ban, no tape,
-  14/15 partial); and an EXACT reproduction of the published kill (PF 0.9326, n
-  3018, win 77.53, ret -74.2, DD 81.46, `same_minute_touched` 290) alongside the
-  15m baseline (1.3019, 3317, 86.95, 17031.11, 20.54). All PASS.
-- The live runner is `code/neutral_paper_1m.py`; it writes `_1m`-suffixed status,
-  events and artifact and reads the SAME day-0 file, so the difference between the
-  two records is the fill model alone. `day0_replay_matches` re-runs the pure 15m
-  path over `[0..day0]` and requires bit-for-bit equality with the frozen
-  `mtm_engine`; `tape_isolated` requires the tape to start after the day-0 bar;
-  `forward_coverage_ok` requires every forward bar to have carried a complete tape.
-  Any of them false = the number is not a 1m number, and the report says so.
-- `daily_summary_1m.py` (00:20, not 00:06: by then all five pairs have taken a
-  00:0x cycle and report the same `last_bar`) and the `1M FILL ACCOUNTING` section
-  of `weekly_report.py` carry the comparison as columns, not as recollection.
+**Y lo que corre en ESTA maquina** (Windows, `C:\Users\Lenovo\trading-engines`,
+un repo DISTINTO de este): el recorder de order-flow de ESTE repo
+(`recorder/recorder.py`, con su tarea `EDG_recorder_keepalive_15min`), y en
+`trading-engines`: `reader_supervisor.py` (lector), `scanner.py` (escaneo),
+`bridge_server.py` (puente de TradingView) y
+`execution/neutral_bot.py --execute --loop --interval 20`, que es un bot de
+**TESTNET** de Binance (su propio log lo dice: "EJECUTANDO EN TESTNET"), con
+`ALLOW_ORDERS=1` y `ALLOW_ALPACA_ORDERS=0`. Ese NO es un bot de este repo ni
+usa la estrategia `cvrmd`: su docstring dice "Opera TODOS los pares sin sesgo
+direccional. No usa estrategias S02-S10".
 
+### La estrategia `cvrmd` en ESTE repo (backtest, no bot)
 
-**NEUTRALITY IS A CLAIM THAT MUST BE MEASURED, NOT ASSERTED.** The status file
-carries `NEUTRALITY_avg_abs_delta_pct` and `NEUTRALITY_max_abs_delta_pct` on every
-cycle. The cap is a sizing parameter: v1 capped the net notional at 50% of equity
-(measured average 4.01%); v2 (25 USDT x 10x, 1x equity per level) caps it at
-200% of equity, because a 50% cap would refuse the first 25 USDT lot and the bot
-could never trade. v2's measured average is 16.11%, max 214.35%. The
-control that proves it is `code/xrp_neutrality_check.py`: the two-sided book is
-compared against a LONG-ONLY and a SHORT-ONLY book on the same path. If the
-two-sided result merely matched the long-only one, "neutral" would be a label,
-not a fact. The long-only control is also measured inside the artifact
-(`long_only_return_pct`), next to the neutral result it is supposed to falsify.
+`cvrmd` sigue siendo un adapter de backtest (`code/cvrmd_backtest.py`, la
+validacion CVRMD-v1.1: VWAP de sesion +1sd, pendiente de CVD por CLV,
+divergencia de pivotes MACD 12/26/9, SL 1.5x ATR congelado, TP1 = media VWAP,
+TP2 = 2R, cooldown 3, riesgo 1 % con tope 3x, 6 bps por lado). Su veredicto
+esta en los artefactos y en `STATUS.md`: **CVRMD-ETH 1h esta SUSPENDIDO**
+(historia completa PF 1.02, plano) y el edge de SUI/ETH es reciente y sensible
+a la muestra. **Lo que se borro el 2026-11-16 fue el BOT que la corria en el
+VPS, no la estrategia ni su adapter de backtest.**
 
-**The artifact is the source of truth.** `xrpneutral` is a full adapter, so the
-bot's numbers are reproducible rather than quoted from a VPS status file. The
-adapter's DEFAULTS are v1 (10,000 USDT, 0.25x per level, delta cap 0.50) so the
-v1 artifact still verifies; the deployed v2 passes its sizing explicitly:
+El grid del repo (`code/grid_core.py`, "ATR Long Grid") usa CVRMD como senal de
+brazo (`cvrmd_longonly.arm_series`); su bot paper era el mismo `paper_live.py`
+que se ha retirado.
 
-    python code/vrun.py run --strategy xrpneutral --tf 15m --symbol XRPUSDT --set init=25 --set equity_pct=1.0 --set delta_max_pct=2.0 --set leverage=10.0
-    python code/vrun.py verify 7737dd3dc499721f     # v2, reproduces bit-for-bit
-    python code/vrun.py verify 8bf3575619eda66f     # v1, still reproduces
-    python code/vrun.py guard --report results/xrp_neutral_25x10_report.md
-
-(The artifacts above reproduce fine — the kill is a FILL-MODEL kill, not a
-reproducibility one: the numbers ARE what the 15m engine computes; what the 15m
-engine computes is not what a maker book earns. See the Current-kills entry and
-`code/_xrp_1m_resolution.py`.)
-
-v2 is 25 USDT x 10x: 5 levels/side x 25 USDT = 250 USDT of gross CAPACITY. The
-grid rarely holds more than two lots, so actual gross peaks at 2.14x; the margin
-buffer stayed at 98.93%, and `bars_over_leverage` is 0. The runner normalises the
-reported account to 25 USDT at day-0 (`account_scale`), because the engine
-replays 2020+ and compounds; `engine_equity` preserves the raw scale. Its inputs
-are hashed; if the klines or the funding file change, `verify` says STALE instead
-of pretending otherwise.
-
-**THE FUNDING LESSON (read before touching any perp bot).** The `cbpack-1` engine
-attaches a `funding_rate` column and never debits it. `funding_attached: true`
-means the COLUMN was attached, not that the COST was charged. The neutral XRP bot
-pays **$265.62** of funding over the full window where the long-grid bot pays
-**$188,284.85** — that is the economic reason neutrality exists on a perp.
-
-The same class of bug bit the deployed bot once: its funding history covered only
-400 days, so the early bars were charged NOTHING and the equity was quietly wrong
-(funding_paid read -$49.96 instead of +$266.14). The bot now pulls the FULL
-funding history, and `funding_covers_bars` in the status file is the check that
-catches it. A partially-funded backtest is a different backtest.
-
-Adding a new engine = adding an adapter in `ADAPTERS`; the rest of the harness
-(hashing, render, verify, guard) applies automatically.
-
-**Copy the engine into `code/` first, then run.** `cbpack` ships its engine as
-`code/cbpack_engine.py`, byte-identical to the attached `strategy_pack.py`, because
-`Downloads/` is not durable: the SAX v3 engine was deleted from it and took 49
-artifacts' verifiability with it.
+**Dos lecciones que NO se van con los bots (leelas antes de tocar cualquier
+perp):**
+1. **EL FUNDING.** El engine `cbpack-1` adjunta una columna `funding_rate` y
+   nunca la debita. `funding_attached: true` significa que la COLUMNA se
+   adjunto, no que el COSTE se cobro. Un perp paga funding cada 8h sobre el
+   nocional abierto. La misma clase de bug ya bitó a un bot desplegado: su
+   historico de funding cubria solo 400 dias, asi que las barras iniciales no
+   cobraron NADA y el equity estaba silenciosamente mal (`funding_paid` leia
+   −49.96 en vez de +266.14). `funding_covers_bars` es el control que lo
+   caza. **Un backtest con funding a medias es otro backtest.**
+2. **COPIA EL ENGINE AL REPO ANTES DE CORRER.** `Downloads/` no es durable: el
+   engine del SAX v3 se borro de ahi y se llevo la verificabilidad de 49
+   artefactos. Todo engine que se vaya a ejecutar en este repo vive en
+   `code/`, con su sha en el `run_id`.
 
 ### `cbpack` does NOT charge funding. `cbpackf` does.
 
@@ -459,6 +429,8 @@ The proof chain that the repo expects, in order:
   veredicto individual.
 
 ## Current kills (from STATUS.md — read it for the full list)
+
+- **9-21 EMA crossover (2026-11-17 attachment; adapter `ema921`, 101 cells: 8 at 1m, 10 at 5m, 35 at 15m, 37 at 1h, 11 at 1d): KILLED — zero cells pass the battery, and the loss pattern is turnover, not a misplaced constant.** Source of record `code/ema921_source.py` byte-identical to the attachment (sha `8be0020d…`); port `code/ema921_engine.py` keeps the source's rules verbatim (EMA9/21 SMA-seeded, signal on close, next-open entry, 10-bar swing stop, 2R target, slow-EMA cross exit, 1% risk, 5x cap) and adds only the repo regime (11 bps RT, funding at real settlements, window trimmed to the funded span at both ends, `eq[-1]−INIT == sum(pnl)` asserted inside every artifact, zero-cost and no-funding controls measured inside each artifact). Audit `code/_ema921_audit.py` 46/46 PASS in both directions (it caught a real pandas-3 unit bug pre-market: the index came back in µs, `asi8 // 1e6` produced SECONDS, and the funding trim ate 62,686 of 62,687 bars); parity `code/_ema921_parity.py` 4/4 cells bit-identical (BTC 1h, ETH 15m, SUI 5m, XRP 1d) under the source's own 4/1 bps with funding off. Grid via `code/_ema921_matrix.py`; 101 artifacts verify bit-for-bit. **Only two cells reach full-window PF>1.2 with n ≥ 30 and both die on significance and on B&H:** LABUSDT 1h `dfab81a68433a1fd` net +28.44%, PF 1.270, OOS PF 1.558, thirds 3/3, bootstrap CI [−1.950, 18.696], B&H −83.22% (wins by losing less); ZECUSDT 1h `d620f41a9ece082a` net +33.06%, PF 1.262, OOS PF 1.324, CI [−1.297, 18.243], B&H +2884.79%. The zero-cost control shows the gross edge is real but tiny and the turnover eats it: at 1m ONE of eight cells is above 1.0 before costs (SPXUSDT `67d8a9a9cd843510`, 1.022) and ETHUSDT 1m `1e231a62c3ecc4d9` runs PF 0.134 on 83475 trades; 5m 6 of 10 above 1.0 and none at 1.2; 15m 15 of 35 above 1.0, none at 1.2; 1h 25 of 37 above 1.0 and 5 at 1.2. BTCUSDT 1h `61da2863c36f44da` pays 14588.02 USDT in fees on 2812 trades (PF 0.891 with costs vs 1.082 without); SOLUSDT 15m `abc036cc36e2849c` pays 39109.08. Funding is charged everywhere (`funding_covers_bars` true on all 101; largest drag AVAXUSDT 1h `24b242051b5957a7` −1.97 pp; some shorts RECEIVE, LABUSDT 1h −11.99) and never changes a verdict. **1d is NO VERDICT, not a win**: the daily files start in 2026 by construction, no cell reaches thirty trades. Report `results/ema921_report_2026-11-17.md` (guard OK strict, 101 run_ids cited), matrix `results/ema921_matrix_2026-11-17.json`, registry family `trend_ema_crossover`. Registry bookkeeping fix shipped with it: `code/_top100_rank.py` now drops sub-10-trade artifacts BEFORE the per-cell dedupe (a zero-trade pre-fix run had return 0.0 and shadowed the real 2812-trade BTC 1h cell).
 
 - **External "hermes" HMA(34) Trend pack (2026-11-14; adapter `hmatrend`, 12 pairs 1h from a foreign CLI session's scratch JSONs): KILLED — zero of 11 measurable cells pass the screen battery, AND the external claim is UNREPRODUCIBLE FROM ITS OWN OUTPUTS.** The source engine's code did NOT survive (only output JSONs, byte-identical in `code/hma_trend_sources/` with MANIFEST, all sha-bound into every run_id). MEASURED from its own trades: next-open fills (247/247), stop = entry − 3.0×ATR(14 Wilder @ signal bar) exact (18/18), ZERO fees, ZERO funding on perps, long-only, full-equity compounding, pct-weighted PF (money-weighted 2.1709 vs published 2.2533), one ~38-day OOS slice per pair (NVDA/SPCX shifted windows), 5 of 12 pairs already losing to B&H at zero cost. DECLARED (not recoverable): the exact exit predicate — no candidate family separates the 229 exit bars from the 2970 hold bars; frozen spec = entry HMA(34) rising, exit HMA falling, the pack's own label. On the pack's OWN bytes the declared book reproduces the trade count (292 vs 247) and hold profile (12.7 vs 12.9 bars) but NOT the return (+86.4% vs the claimed +890.5%, PF 1.18 vs 2.25). Repo battery (full history, 11 bps RT, funding at real settlements, zero-cost control inside each artifact): PF ex-cost 0.6883–1.0128, OOS PF 0.7470–1.1074, bootstrap CI negative on all eleven cells; JUPUSDT `30ef63651b4760db` net −69.26% PF 0.9056 (912 trades) with zero-cost −20.09% PF 0.9798 — the signal loses at zero cost too (antipredictive on the full window, not a cost kill); funding_paid is NEGATIVE −206.76 (the long book RECEIVES: JUP funding ran negative over 2026). XAUUSDT NO DATA (no file anywhere under data/). Report `results/hmatrend_report_2026-11-14.md` (guard OK strict, 22 artifacts verify bit-for-bit, `results/_hmatrend_verify.txt`); claim + parity numbers carried INSIDE the hermes artifacts (`claim_*`, `parity_*`) so the report cites only artifact-backed numbers. Engine audit `code/_hma_trend_audit.py` 16/16 PASS (caught two real engine defects pre-market: ATR-warmup self-stop, entry-fee pnl basis); parity `code/_hma_trend_parity.py` 12/12 PASS. Adapter registered with `card_from_symbol` (engine reads `card`), PEPE 1h resolved from the taker dir by `_hmatrend_input`.
 

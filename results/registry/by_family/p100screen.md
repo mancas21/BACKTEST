@@ -1,179 +1,92 @@
-# Por familia: p100screen — 174 estrategias
+# Por familia: p100screen — 87 estrategias
 
 
 | # | TF | Estrategia | Ret declarado | Ret costo cero | Ret 11bps RT | PF | n | maxDD | Ventana (años) | Veredicto | run_id |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 1h | p100screen #82 (DEV) | 2.4087454724320482e+58 | — | — | 0.398 | 517 | -2900442100.43 | — | SIN VEREDICTO | 97090e800d3ced76 |
-| 2 | 15m | p100screen #89 (DEV) | 1.480241606373412e+30 | — | — | 0.086 | 598 | -109006.5 | — | SIN VEREDICTO | a187ab4d1fa229d8 |
-| 3 | 15m | p100screen #89 (OOS) | 8041.61 | — | — | 6.988 | 109 | -1899.75 | — | SIN VEREDICTO | 18280a12e277717e |
-| 4 | 1h | p100screen #81 (DEV) | 6591.49 | — | — | 0.293 | 215 | -11.71 | — | SIN VEREDICTO | fcb141111a0da2bf |
-| 5 | 15m | p100screen #57 (DEV) | 1654.15 | — | — | 275.979 | 11 | -105.45 | — | SIN VEREDICTO | bc39cbc7d2e0b7c0 |
-| 6 | 1h | p100screen #59 (DEV) | 441.64 | — | — | 70.911 | 9 | -91.79 | — | SIN VEREDICTO | deec09f630646851 |
-| 7 | 1h | p100screen #85 (OOS) | 428.78 | — | — | 3.1 | 383 | -9.14 | — | SIN VEREDICTO | b4233a3404e57ac2 |
-| 8 | 15m | p100screen #52 (DEV) | 393.4 | — | — | 1.132 | 877 | -58.59 | — | SIN VEREDICTO | 8da75fc7e69ec37d |
-| 9 | 1h | p100screen #26 (DEV) | 319.04 | — | — | 1.262 | 942 | -29.79 | — | SIN VEREDICTO | ee0399ac5deab01b |
-| 10 | 1h | p100screen #45 (DEV) | 264.63 | — | — | 1.275 | 622 | -40.94 | — | SIN VEREDICTO | 5b96068f2ddf63ad |
-| 11 | 1h | p100screen #44 (DEV) | 253.96 | — | — | 2.293 | 136 | -16.55 | — | SIN VEREDICTO | 4947040db7e7fc05 |
-| 12 | 15m | p100screen #23 (DEV) | 252.68 | — | — | 6.529 | 69 | -83.47 | — | SIN VEREDICTO | feb32bbb8757155c |
-| 13 | 1h | p100screen #81 (OOS) | 186.78 | — | — | 0.916 | 44 | -10.73 | — | SIN VEREDICTO | b1f5ee2fa871d772 |
-| 14 | 1h | p100screen #34 (DEV) | 131.06 | — | — | 1.091 | 1561 | -36.26 | — | SIN VEREDICTO | 73c33f84f865dc89 |
-| 15 | 15m | p100screen #63 (DEV) | 102.24 | — | — | 6.766 | 32 | -67.73 | — | SIN VEREDICTO | 2a8c8b12fa640656 |
-| 16 | 1h | p100screen #28 (DEV) | 73.49 | — | — | 1.336 | 366 | -22.56 | — | SIN VEREDICTO | b976edc7e7b7bf82 |
-| 17 | 15m | p100screen #29 (OOS) | 63.87 | — | — | 3.2 | 36 | -32.58 | — | SIN VEREDICTO | ed926e08dae55f37 |
-| 18 | 1h | p100screen #68 (DEV) | 56.39 | — | — | 1.332 | 263 | -24.68 | — | SIN VEREDICTO | c9af57f1f46c2762 |
-| 19 | 5m | p100screen #41 (OOS) | 48.73 | — | — | 2.045 | 63 | -51.89 | — | SIN VEREDICTO | 4916290f898c9b89 |
-| 20 | 1h | p100screen #75 (OOS) | 45.61 | — | — | 7.029 | 9 | -19.08 | — | SIN VEREDICTO | fcb80b0801870319 |
-| 21 | 1h | p100screen #90 (DEV) | 39.59 | — | — | 1.143 | 124 | -38.87 | — | SIN VEREDICTO | a06acac819e6df09 |
-| 22 | 1h | p100screen #83 (OOS) | 37.52 | — | — | 1.442 | 53 | -19.8 | — | SIN VEREDICTO | 2f6b8fa6799d5b17 |
-| 23 | 1h | p100screen #73 (DEV) | 36.46 | — | — | 1.469 | 106 | -14.81 | — | SIN VEREDICTO | 2d777bbd78e9cb15 |
-| 24 | 1h | p100screen #72 (DEV) | 33.21 | — | — | 1.151 | 317 | -21.06 | — | SIN VEREDICTO | 973dad19d722b94d |
-| 25 | 1h | p100screen #64 (DEV) | 29.0 | — | — | 1.855 | 42 | -24.75 | — | SIN VEREDICTO | 3929717a18666011 |
-| 26 | 1h | p100screen #85 (DEV) | 28.1 | — | — | 2.607 | 127 | -3.04 | — | SIN VEREDICTO | 3112f5367ef0feae |
-| 27 | 1h | p100screen #83 (DEV) | 24.24 | — | — | 1.108 | 125 | -26.54 | — | SIN VEREDICTO | 6407e62cfa689fb0 |
-| 28 | 1h | p100screen #60 (OOS) | 23.54 | — | — | 1.356 | 141 | -13.16 | — | SIN VEREDICTO | 4f3860fa8949a7d0 |
-| 29 | 1h | p100screen #90 (OOS) | 20.04 | — | — | 1.335 | 53 | -12.95 | — | SIN VEREDICTO | 29db990d09290634 |
-| 30 | 1h | p100screen #35 (OOS) | 10.55 | — | — | 2.181 | 13 | -9.49 | — | SIN VEREDICTO | e8771ba8db735b74 |
-| 31 | 1h | p100screen #73 (OOS) | 8.6 | — | — | 2.057 | 19 | -3.27 | — | SIN VEREDICTO | 557212148c5707e0 |
-| 32 | 1h | p100screen #49 (OOS) | 7.71 | — | — | 2.667 | 6 | -21.0 | — | SIN VEREDICTO | d3c0b19b1dfb7445 |
-| 33 | 1h | p100screen #44 (OOS) | 5.94 | — | — | 1.382 | 22 | -15.73 | — | SIN VEREDICTO | 9d21ac54c8131fec |
-| 34 | 1h | p100screen #75 (DEV) | 5.31 | — | — | 7.487 | 2 | -9.11 | — | SIN VEREDICTO | 3a2a004f27bae5f2 |
-| 35 | 1h | p100screen #71 (OOS) | 3.74 | — | — | 1.112 | 43 | -15.61 | — | SIN VEREDICTO | 4fea108935d01ac5 |
-| 36 | 1h | p100screen #22 (DEV) | 3.48 | — | — | 1.378 | 28 | -2.7 | — | SIN VEREDICTO | 42135b01bbe63fa5 |
-| 37 | 1h | p100screen #26 (OOS) | 3.15 | — | — | 1.035 | 183 | -23.29 | — | SIN VEREDICTO | 970ffb629bc0700e |
-| 38 | 1h | p100screen #21 (OOS) | 2.73 | — | — | 1.53 | 8 | -5.32 | — | SIN VEREDICTO | 10d9af47f7e7068a |
-| 39 | 1h | p100screen #37 (OOS) | 2.67 | — | — | 1.01 | 805 | -23.44 | — | SIN VEREDICTO | 465dda7967fc51b4 |
-| 40 | 1h | p100screen #60 (DEV) | 1.59 | — | — | 1.096 | 50 | -8.49 | — | SIN VEREDICTO | 58e05a39bbc0be64 |
-| 41 | 1h | p100screen #56 (OOS) | 1.51 | — | — | 1.073 | 19 | -19.87 | — | SIN VEREDICTO | 96e4abae4b988a9f |
-| 42 | 1h | p100screen #45 (OOS) | 0.81 | — | — | 1.014 | 124 | -27.32 | — | SIN VEREDICTO | fae4b728372e0dcb |
-| 43 | 15m | p100screen #29 (DEV) | 0.76 | — | — | 1.525 | 7 | -22.68 | — | SIN VEREDICTO | d62aadbfe9c424be |
-| 44 | 1h | p100screen #86 (DEV) | 0.33 | — | — | 1.19 | 145 | -0.52 | — | SIN VEREDICTO | fd55df737acaa9fc |
-| 45 | 15m | p100screen #69 (DEV) | -0.13 | — | — | 0.996 | 61 | -12.98 | — | SIN VEREDICTO | b80b028166e2d68c |
-| 46 | 1h | p100screen #21 (DEV) | -0.25 | — | — | 0.999 | 27 | -7.28 | — | SIN VEREDICTO | 835440fe652b23ba |
-| 47 | 5m | p100screen #76 (DEV) | -0.45 | — | — | 0.964 | 23 | -5.78 | — | SIN VEREDICTO | 165050f55d6924a4 |
-| 48 | 1h | p100screen #4 (DEV) | -0.86 | — | — | 0.994 | 127 | -8.81 | — | SIN VEREDICTO | 2777954b58f1d8b1 |
-| 49 | 5m | p100screen #76 (OOS) | -0.94 | — | — | 0.943 | 18 | -11.73 | — | SIN VEREDICTO | 6b03336026e448b2 |
-| 50 | 15m | p100screen #52 (OOS) | -1.64 | — | — | 0.992 | 178 | -39.91 | — | SIN VEREDICTO | 65dc234931a50b92 |
-| 51 | 1h | p100screen #11 (OOS) | -2.23 | — | — | 0.917 | 79 | -8.89 | — | SIN VEREDICTO | 7e0548f325715542 |
-| 52 | 1h | p100screen #24 (OOS) | -3.24 | — | — | 0.959 | 174 | -12.82 | — | SIN VEREDICTO | 3be294ac051c291c |
-| 53 | 1h | p100screen #58 (DEV) | -3.37 | — | — | 0.0 | 3 | -5.47 | — | SIN VEREDICTO | 31d895d8bf640577 |
-| 54 | 1h | p100screen #35 (DEV) | -3.62 | — | — | 0.225 | 6 | -9.05 | — | SIN VEREDICTO | 27fbde5d5390ea35 |
-| 55 | 1h | p100screen #22 (OOS) | -4.3 | — | — | 0.9 | 95 | -8.51 | — | SIN VEREDICTO | a17fa6a583636341 |
-| 56 | 1h | p100screen #86 (OOS) | -4.46 | — | — | 0.082 | 106 | -4.46 | — | SIN VEREDICTO | 723309555bf6ca77 |
-| 57 | 1h | p100screen #30 (OOS) | -4.96 | — | — | 0.915 | 108 | -18.24 | — | SIN VEREDICTO | 53e11084ab2a2b12 |
-| 58 | 1h | p100screen #11 (DEV) | -5.38 | — | — | 0.91 | 171 | -10.14 | — | SIN VEREDICTO | 9ae2f8618eeaa70a |
-| 59 | 15m | p100screen #10 (DEV) | -5.72 | — | — | 0.911 | 213 | -11.92 | — | SIN VEREDICTO | 0596d02fbb031f9f |
-| 60 | 1h | p100screen #68 (OOS) | -6.76 | — | — | 0.79 | 52 | -12.71 | — | SIN VEREDICTO | 13d8172eae9f5212 |
-| 61 | 1h | p100screen #56 (DEV) | -7.19 | — | — | 0.283 | 12 | -23.77 | — | SIN VEREDICTO | 631306374b9a1bfa |
-| 62 | 1h | p100screen #6 (OOS) | -7.47 | — | — | 0.905 | 249 | -14.4 | — | SIN VEREDICTO | 0db38a388ea00342 |
-| 63 | 1h | p100screen #28 (OOS) | -8.2 | — | — | 0.788 | 63 | -21.08 | — | SIN VEREDICTO | 852548e0988456b0 |
-| 64 | 1h | p100screen #34 (OOS) | -8.49 | — | — | 0.96 | 335 | -40.06 | — | SIN VEREDICTO | b68c5d621aaf139e |
-| 65 | 15m | p100screen #46 (OOS) | -9.22 | — | — | 0.0 | 10 | -9.22 | — | SIN VEREDICTO | af2fe940eb71663b |
-| 66 | 1h | p100screen #1 (OOS) | -9.23 | — | — | 0.888 | 123 | -25.25 | — | SIN VEREDICTO | ef7a3db535ed7c8b |
-| 67 | 15m | p100screen #12 (OOS) | -9.3 | — | — | 0.9 | 173 | -17.39 | — | SIN VEREDICTO | f31f526646642b4e |
-| 68 | 15m | p100screen #63 (OOS) | -12.05 | — | — | 0.708 | 32 | -33.67 | — | SIN VEREDICTO | 40ab69b1617ed120 |
-| 69 | 1h | p100screen #88 (OOS) | -12.91 | — | — | 1.656 | 368 | -20.73 | — | SIN VEREDICTO | 64c727ce23ddafc7 |
-| 70 | 1h | p100screen #72 (OOS) | -13.18 | — | — | 0.627 | 53 | -17.04 | — | SIN VEREDICTO | dcb86ba2330178ed |
-| 71 | 1h | p100screen #49 (DEV) | -13.62 | — | — | 0.0 | 14 | -14.47 | — | SIN VEREDICTO | 67662dd7e1021a80 |
-| 72 | 1h | p100screen #71 (DEV) | -14.55 | — | — | 0.685 | 62 | -23.59 | — | SIN VEREDICTO | b13ec50660d0617b |
-| 73 | 1h | p100screen #64 (OOS) | -15.79 | — | — | 0.0 | 15 | -22.24 | — | SIN VEREDICTO | ec3431302a8f2a59 |
-| 74 | 1h | p100screen #14 (OOS) | -17.65 | — | — | 0.725 | 106 | -22.5 | — | SIN VEREDICTO | c228613cb039723e |
-| 75 | 1h | p100screen #59 (OOS) | -18.62 | — | — | 0.308 | 30 | -27.06 | — | SIN VEREDICTO | 6b31cf92de32e4a7 |
-| 76 | 15m | p100screen #55 (OOS) | -18.66 | — | — | 0.95 | 497 | -58.21 | — | SIN VEREDICTO | 35ab9885b28b7248 |
-| 77 | 15m | p100screen #12 (DEV) | -18.82 | — | — | 0.674 | 99 | -20.48 | — | SIN VEREDICTO | b8e821f49d1c9993 |
-| 78 | 1h | p100screen #7 (OOS) | -20.55 | — | — | 0.612 | 138 | -20.68 | — | SIN VEREDICTO | 00a264d8c615b947 |
-| 79 | 15m | p100screen #69 (OOS) | -21.7 | — | — | 0.768 | 151 | -23.75 | — | SIN VEREDICTO | 7a9b0fe93e52274b |
-| 80 | 1h | p100screen #30 (DEV) | -24.83 | — | — | 0.827 | 339 | -34.58 | — | SIN VEREDICTO | 88051b45581a47ef |
-| 81 | 15m | p100screen #10 (OOS) | -27.38 | — | — | 0.837 | 684 | -32.45 | — | SIN VEREDICTO | 28c517812ee48fa2 |
-| 82 | 1h | p100screen #6 (DEV) | -27.5 | — | — | 0.803 | 421 | -32.26 | — | SIN VEREDICTO | 172f800be7d34190 |
-| 83 | 15m | p100screen #46 (DEV) | -29.2 | — | — | 0.0 | 36 | -29.2 | — | SIN VEREDICTO | 0ff1a1df0213da10 |
-| 84 | 1h | p100screen #25 (OOS) | -31.07 | — | — | 0.586 | 208 | -31.94 | — | SIN VEREDICTO | b64aaeb2b49a7dbc |
-| 85 | 15m | p100screen #31 (DEV) | -33.72 | — | — | 0.296 | 59 | -69.11 | — | SIN VEREDICTO | 40e1fc4a98279513 |
-| 86 | 1h | p100screen #4 (OOS) | -33.95 | — | — | 0.777 | 386 | -35.81 | — | SIN VEREDICTO | 9881f6d92b3f88e3 |
-| 87 | 1h | p100screen #24 (DEV) | -37.36 | — | — | 0.771 | 349 | -39.89 | — | SIN VEREDICTO | d9b3dbcc8055ba51 |
-| 88 | 15m | p100screen #23 (OOS) | -38.48 | — | — | 0.278 | 68 | -52.96 | — | SIN VEREDICTO | 0b9d356bc09ec4de |
-| 89 | 5m | p100screen #54 (DEV) | -38.91 | — | — | 0.332 | 83 | -60.7 | — | SIN VEREDICTO | 98f19fe2ab792644 |
-| 90 | 15m | p100screen #65 (OOS) | -40.96 | — | — | 0.436 | 289 | -40.98 | — | SIN VEREDICTO | 9f18c95a5763824f |
-| 91 | 1h | p100screen #14 (DEV) | -41.56 | — | — | 0.883 | 742 | -44.44 | — | SIN VEREDICTO | b2437bdf32621ba5 |
-| 92 | 1h | p100screen #84 (OOS) | -43.59 | — | — | 0.85 | 463 | -52.15 | — | SIN VEREDICTO | f27908f1d59c26c1 |
-| 93 | 1h | p100screen #87 (OOS) | -43.85 | — | — | 0.479 | 53 | -58.1 | — | SIN VEREDICTO | 59a6b649ebd109f9 |
-| 94 | 1h | p100screen #7 (DEV) | -44.23 | — | — | 0.898 | 1083 | -48.6 | — | SIN VEREDICTO | 9fa3fda22cdaec96 |
-| 95 | 15m | p100screen #74 (OOS) | -47.41 | — | — | 0.672 | 369 | -49.91 | — | SIN VEREDICTO | 3d6b7d65029d22fd |
-| 96 | 5m | p100screen #41 (DEV) | -48.59 | — | — | 0.046 | 53 | -56.54 | — | SIN VEREDICTO | 95be1fba53db58e1 |
-| 97 | 1h | p100screen #37 (DEV) | -49.48 | — | — | 0.881 | 1374 | -52.08 | — | SIN VEREDICTO | 7bf0b77a14a37ec8 |
-| 98 | 5m | p100screen #16 (DEV) | -54.29 | — | — | 0.9 | 759 | -67.66 | — | SIN VEREDICTO | 8b83d9e71a8af604 |
-| 99 | 1h | p100screen #1 (DEV) | -54.72 | — | — | 0.819 | 514 | -61.25 | — | SIN VEREDICTO | f4b50eec86e4dbbd |
-| 100 | 5m | p100screen #54 (OOS) | -57.96 | — | — | 0.223 | 124 | -83.73 | — | SIN VEREDICTO | b68daa74bf095cd9 |
-| 101 | 15m | p100screen #31 (OOS) | -59.43 | — | — | 0.152 | 95 | -70.09 | — | SIN VEREDICTO | 985b452869330cbd |
-| 102 | 15m | p100screen #57 (OOS) | -65.25 | — | — | 0.0 | 73 | -69.45 | — | SIN VEREDICTO | a93b1c5855394e62 |
-| 103 | 15m | p100screen #70 (OOS) | -65.35 | — | — | 0.656 | 528 | -67.17 | — | SIN VEREDICTO | 74e7003dfba38dc1 |
-| 104 | 1h | p100screen #87 (DEV) | -71.25 | — | — | 0.57 | 126 | -79.2 | — | SIN VEREDICTO | 243b00fc6b5eb8f5 |
-| 105 | 5m | p100screen #80 (OOS) | -75.04 | — | — | 0.484 | 361 | -76.86 | — | SIN VEREDICTO | 5c32d4af2872c170 |
-| 106 | 1h | p100screen #84 (DEV) | -76.92 | — | — | 0.932 | 2134 | -89.51 | — | SIN VEREDICTO | e2282bf37091bf07 |
-| 107 | 15m | p100screen #55 (DEV) | -81.03 | — | — | 0.78 | 1339 | -85.79 | — | SIN VEREDICTO | 715bfb767d210c84 |
-| 108 | 15m | p100screen #74 (DEV) | -81.18 | — | — | 0.814 | 1836 | -83.16 | — | SIN VEREDICTO | 221314b41869a764 |
-| 109 | 5m | p100screen #17 (OOS) | -82.99 | — | — | 0.655 | 561 | -84.51 | — | SIN VEREDICTO | 1221fa145eaff115 |
-| 110 | 5m | p100screen #61 (OOS) | -84.05 | — | — | 0.462 | 354 | -84.3 | — | SIN VEREDICTO | c595f86c3806d36e |
-| 111 | 1h | p100screen #25 (DEV) | -84.36 | — | — | 0.631 | 1213 | -84.72 | — | SIN VEREDICTO | 0ef47f44ded6c080 |
-| 112 | 15m | p100screen #48 (DEV) | -85.54 | — | — | 0.744 | 1661 | -88.07 | — | SIN VEREDICTO | d8938f22a553dfea |
-| 113 | 15m | p100screen #5 (OOS) | -85.76 | — | — | 0.768 | 1274 | -86.51 | — | SIN VEREDICTO | 40f5e8f49f4bbfea |
-| 114 | 15m | p100screen #65 (DEV) | -86.06 | — | — | 0.65 | 1729 | -86.24 | — | SIN VEREDICTO | 48c6358d29dc701a |
-| 115 | 15m | p100screen #15 (OOS) | -89.33 | — | — | 0.738 | 1119 | -89.88 | — | SIN VEREDICTO | e1da8a67d1fcb4b2 |
-| 116 | 15m | p100screen #70 (DEV) | -89.97 | — | — | 0.66 | 1176 | -90.37 | — | SIN VEREDICTO | 0f3064e8cdd28eb7 |
-| 117 | 15m | p100screen #39 (OOS) | -90.55 | — | — | 0.637 | 996 | -91.25 | — | SIN VEREDICTO | 442ea6cb7b20ea18 |
-| 118 | 15m | p100screen #2 (OOS) | -90.59 | — | — | 0.62 | 791 | -91.36 | — | SIN VEREDICTO | 14118c901d3dbee5 |
-| 119 | 15m | p100screen #8 (OOS) | -91.13 | — | — | 0.649 | 1010 | -91.38 | — | SIN VEREDICTO | fd20c557440b2e5f |
-| 120 | 5m | p100screen #36 (DEV) | -93.08 | — | — | 0.764 | 2295 | -93.82 | — | SIN VEREDICTO | 3a6ff445510a51b2 |
-| 121 | 15m | p100screen #66 (OOS) | -93.65 | — | — | 0.467 | 595 | -93.73 | — | SIN VEREDICTO | 247efbe827acb925 |
-| 122 | 5m | p100screen #53 (OOS) | -95.4 | — | — | 0.56 | 711 | -95.46 | — | SIN VEREDICTO | 6d6d437705ed8ce4 |
-| 123 | 1h | p100screen #88 (DEV) | -95.9 | — | — | 1.244 | 2433 | -96.47 | — | SIN VEREDICTO | f9e39e4e8418e4a1 |
-| 124 | 15m | p100screen #33 (OOS) | -96.2 | — | — | 0.548 | 1202 | -96.24 | — | SIN VEREDICTO | 93f4ae801682d95c |
-| 125 | 5m | p100screen #36 (OOS) | -97.34 | — | — | 0.635 | 991 | -97.52 | — | SIN VEREDICTO | b38b7fa71c982ffc |
-| 126 | 5m | p100screen #16 (OOS) | -97.56 | — | — | 0.841 | 1991 | -97.95 | — | SIN VEREDICTO | 3341250838dff13e |
-| 127 | 5m | p100screen #13 (OOS) | -97.58 | — | — | 0.523 | 664 | -97.66 | — | SIN VEREDICTO | 9c1904035aa0fbe1 |
-| 128 | 5m | p100screen #17 (DEV) | -97.59 | — | — | 0.656 | 1603 | -97.73 | — | SIN VEREDICTO | 32fd912c8108b032 |
-| 129 | 5m | p100screen #61 (DEV) | -97.59 | — | — | 0.532 | 870 | -97.76 | — | SIN VEREDICTO | 18d08fb4692be862 |
-| 130 | 15m | p100screen #5 (DEV) | -98.75 | — | — | 0.784 | 3194 | -98.81 | — | SIN VEREDICTO | d6a174c2c6ef15bb |
-| 131 | 5m | p100screen #80 (DEV) | -98.87 | — | — | 0.804 | 1829 | -99.16 | — | SIN VEREDICTO | 6e32ad102e2c0011 |
-| 132 | 15m | p100screen #42 (OOS) | -99.12 | — | — | 0.526 | 3304 | -99.14 | — | SIN VEREDICTO | e1b567f969047b10 |
-| 133 | 5m | p100screen #53 (DEV) | -99.42 | — | — | 0.955 | 3322 | -99.85 | — | SIN VEREDICTO | 1b6c239e6befdd35 |
-| 134 | 15m | p100screen #42 (DEV) | -99.8 | — | — | 0.607 | 7526 | -99.81 | — | SIN VEREDICTO | df33b9049cf5c767 |
-| 135 | 5m | p100screen #20 (OOS) | -99.87 | — | — | 0.599 | 1677 | -99.88 | — | SIN VEREDICTO | 2cee743e99603124 |
-| 136 | 5m | p100screen #9 (OOS) | -99.96 | — | — | 0.616 | 2036 | -99.96 | — | SIN VEREDICTO | 3c6c210d60f8476d |
-| 137 | 15m | p100screen #15 (DEV) | -99.98 | — | — | 0.804 | 5566 | -99.98 | — | SIN VEREDICTO | c7fbf91860dfeacb |
-| 138 | 5m | p100screen #47 (OOS) | -99.98 | — | — | 0.603 | 1627 | -99.98 | — | SIN VEREDICTO | 7338e30ad8f6b0d0 |
-| 139 | 15m | p100screen #48 (OOS) | -99.98 | — | — | 0.672 | 5082 | -99.98 | — | SIN VEREDICTO | 8e674c161218fc93 |
-| 140 | 15m | p100screen #39 (DEV) | -99.99 | — | — | 0.832 | 5735 | -99.99 | — | SIN VEREDICTO | e50a311d34774044 |
-| 141 | 5m | p100screen #51 (OOS) | -99.99 | — | — | 0.467 | 2022 | -100.0 | — | SIN VEREDICTO | 0ec1567d913c1ebf |
-| 142 | 15m | p100screen #2 (DEV) | -100.0 | — | — | 0.523 | 4393 | -100.0 | — | SIN VEREDICTO | 94f79f2083e187b8 |
-| 143 | 5m | p100screen #3 (DEV) | -100.0 | — | — | 0.351 | 14303 | -100.0 | — | SIN VEREDICTO | 89dfee7a9844fa3a |
-| 144 | 5m | p100screen #3 (OOS) | -100.0 | — | — | 0.288 | 2548 | -100.0 | — | SIN VEREDICTO | 6b2d41157bc43176 |
-| 145 | 15m | p100screen #8 (DEV) | -100.0 | — | — | 0.727 | 5474 | -100.0 | — | SIN VEREDICTO | 3758bbef93b67016 |
-| 146 | 5m | p100screen #9 (DEV) | -100.0 | — | — | 0.73 | 9420 | -100.0 | — | SIN VEREDICTO | d61de8205093e3e4 |
-| 147 | 5m | p100screen #13 (DEV) | -100.0 | — | — | 0.522 | 3220 | -100.0 | — | SIN VEREDICTO | 666650f93248258d |
-| 148 | 15m | p100screen #19 (DEV) | -100.0 | — | — | 0.146 | 57561 | -100.0 | — | SIN VEREDICTO | 9b006d99a3ae1750 |
-| 149 | 15m | p100screen #19 (OOS) | -100.0 | — | — | 0.212 | 9366 | -100.0 | — | SIN VEREDICTO | a263b65777d79f1f |
-| 150 | 5m | p100screen #20 (DEV) | -100.0 | — | — | 0.656 | 8856 | -100.0 | — | SIN VEREDICTO | 871cd231308c8be4 |
-| 151 | 15m | p100screen #27 (DEV) | -100.0 | — | — | 0.27 | 11167 | -100.0 | — | SIN VEREDICTO | d7ee41fa4fe2598c |
-| 152 | 15m | p100screen #27 (OOS) | -100.0 | — | — | 0.176 | 2199 | -100.0 | — | SIN VEREDICTO | d2a253520b206ac3 |
-| 153 | 5m | p100screen #32 (DEV) | -100.0 | — | — | 0.413 | 29824 | -100.0 | — | SIN VEREDICTO | b1a4b1d35af57cbb |
-| 154 | 5m | p100screen #32 (OOS) | -100.0 | — | — | 0.463 | 5163 | -100.0 | — | SIN VEREDICTO | 9430a647d1694b93 |
-| 155 | 15m | p100screen #33 (DEV) | -100.0 | — | — | 0.832 | 7246 | -100.0 | — | SIN VEREDICTO | dd4cdf5e013b8fa8 |
-| 156 | 5m | p100screen #38 (DEV) | -100.0 | — | — | 0.514 | 12049 | -100.0 | — | SIN VEREDICTO | 26614d938de1401c |
-| 157 | 5m | p100screen #38 (OOS) | -100.0 | — | — | 0.261 | 1951 | -100.0 | — | SIN VEREDICTO | efc06deb61da4598 |
-| 158 | 5m | p100screen #40 (DEV) | -100.0 | — | — | 0.901 | 26449 | -100.0 | — | SIN VEREDICTO | 4946c25181aab140 |
-| 159 | 5m | p100screen #40 (OOS) | -100.0 | — | — | 0.665 | 5739 | -100.0 | — | SIN VEREDICTO | e03ff02daaea8ecd |
-| 160 | 5m | p100screen #47 (DEV) | -100.0 | — | — | 0.966 | 7900 | -100.0 | — | SIN VEREDICTO | 2c4f2c2433078034 |
-| 161 | 15m | p100screen #50 (DEV) | -100.0 | — | — | 0.807 | 12452 | -100.0 | — | SIN VEREDICTO | bcadd170937dcde9 |
-| 162 | 15m | p100screen #50 (OOS) | -100.0 | — | — | 0.652 | 7260 | -100.0 | — | SIN VEREDICTO | a42d7c4a757804f1 |
-| 163 | 5m | p100screen #51 (DEV) | -100.0 | — | — | 0.564 | 11986 | -100.0 | — | SIN VEREDICTO | 2986bdde62c4b61b |
-| 164 | 15m | p100screen #66 (DEV) | -100.0 | — | — | 0.532 | 3736 | -100.0 | — | SIN VEREDICTO | 284fbfad7c5eb5f8 |
-| 165 | 15m | p100screen #67 (DEV) | -100.0 | — | — | 0.199 | 28247 | -100.0 | — | SIN VEREDICTO | 4a6c867ea8fc0701 |
-| 166 | 15m | p100screen #67 (OOS) | -100.0 | — | — | 0.265 | 5309 | -100.0 | — | SIN VEREDICTO | e771e95b757127e3 |
-| 167 | 5m | p100screen #78 (DEV) | -100.0 | — | — | 0.476 | 39181 | -100.0 | — | SIN VEREDICTO | 2b8fa87c82f213ee |
-| 168 | 5m | p100screen #78 (OOS) | -100.0 | — | — | 0.54 | 6481 | -100.0 | — | SIN VEREDICTO | eb27d0f6e908b8e7 |
-| 169 | 5m | p100screen #79 (DEV) | -100.0 | — | — | 0.584 | 13845 | -100.0 | — | SIN VEREDICTO | b728abf9567af3b9 |
-| 170 | 5m | p100screen #79 (OOS) | -100.0 | — | — | 0.413 | 2355 | -100.0 | — | SIN VEREDICTO | f794375b5eab4068 |
-| 171 | 1h | p100screen #82 (OOS) | -1.2138233962544182e+16 | — | — | 0.194 | 103 | -682350.08 | — | SIN VEREDICTO | 294f80721bbe5c61 |
-| 172 | 1h | p100screen #58 (OOS) | 0.0 | — | — | 0.0 | 0 | 0.0 | — | SIN VEREDICTO | 64f5893b48c0164e |
-| 173 | 15m | p100screen #77 (DEV) | 0.0 | — | — | 0.0 | 0 | 0.0 | — | SIN VEREDICTO | 609afdf0216c944e |
-| 174 | 15m | p100screen #77 (OOS) | 0.0 | — | — | 0.0 | 0 | 0.0 | — | SIN VEREDICTO | 38069cf8ade8acd6 |
+| 1 | 1h | id=82 | 2.4087454724320482e+58 | — | — | 0.398 | 517 | -2900442100.43 | — | SIN VEREDICTO | 6718dc5f3074b9a9 |
+| 2 | 15m | id=89 | 1.480241606373412e+30 | — | — | 0.086 | 598 | -109006.5 | — | SIN VEREDICTO | 4f87a2f3002a21a4 |
+| 3 | 1h | id=81 | 6591.49 | — | — | 0.293 | 215 | -11.71 | — | SIN VEREDICTO | 4abe370464eddaf8 |
+| 4 | 15m | id=57 | 1654.15 | — | — | 275.979 | 11 | -105.45 | — | SIN VEREDICTO | a97871f4c281e91c |
+| 5 | 1h | id=85 | 428.78 | — | — | 3.1 | 383 | -9.14 | — | SIN VEREDICTO | 19beff14b233b73c |
+| 6 | 15m | id=52 | 393.4 | — | — | 1.132 | 877 | -58.59 | — | SIN VEREDICTO | 0c1de1f912899dbe |
+| 7 | 1h | id=26 | 319.04 | — | — | 1.262 | 942 | -29.79 | — | SIN VEREDICTO | 38fa4c994dc47dea |
+| 8 | 1h | id=45 | 264.63 | — | — | 1.275 | 622 | -40.94 | — | SIN VEREDICTO | 5b96068f2ddf63ad |
+| 9 | 1h | id=44 | 253.96 | — | — | 2.293 | 136 | -16.55 | — | SIN VEREDICTO | 4947040db7e7fc05 |
+| 10 | 15m | id=23 | 252.68 | — | — | 6.529 | 69 | -83.47 | — | SIN VEREDICTO | 4cdf5f9bae2dad1d |
+| 11 | 1h | id=34 | 131.06 | — | — | 1.091 | 1561 | -36.26 | — | SIN VEREDICTO | 5fa8647b916fd666 |
+| 12 | 15m | id=63 | 102.24 | — | — | 6.766 | 32 | -67.73 | — | SIN VEREDICTO | 2a8c8b12fa640656 |
+| 13 | 1h | id=28 | 73.49 | — | — | 1.336 | 366 | -22.56 | — | SIN VEREDICTO | 95c3625a14207899 |
+| 14 | 15m | id=29 | 63.87 | — | — | 3.2 | 36 | -32.58 | — | SIN VEREDICTO | 4523a435fd351437 |
+| 15 | 1h | id=68 | 56.39 | — | — | 1.332 | 263 | -24.68 | — | SIN VEREDICTO | 13805dd896567c19 |
+| 16 | 1h | id=90 | 48.8 | — | — | 1.114 | 237 | -38.87 | — | SIN VEREDICTO | 5816c11227979b19 |
+| 17 | 5m | id=41 | 48.73 | — | — | 2.045 | 63 | -51.89 | — | SIN VEREDICTO | 1acccde3e4946e14 |
+| 18 | 1h | id=83 | 37.52 | — | — | 1.442 | 53 | -19.8 | — | SIN VEREDICTO | 2061e3002e14d883 |
+| 19 | 1h | id=73 | 36.46 | — | — | 1.469 | 106 | -14.81 | — | SIN VEREDICTO | 2d777bbd78e9cb15 |
+| 20 | 1h | id=72 | 33.21 | — | — | 1.151 | 317 | -21.06 | — | SIN VEREDICTO | 2e2dbc874cbfd341 |
+| 21 | 1h | id=64 | 29.0 | — | — | 1.855 | 42 | -24.75 | — | SIN VEREDICTO | 3929717a18666011 |
+| 22 | 1h | id=60 | 23.54 | — | — | 1.356 | 141 | -13.16 | — | SIN VEREDICTO | 4f3860fa8949a7d0 |
+| 23 | 1h | id=35 | 10.55 | — | — | 2.181 | 13 | -9.49 | — | SIN VEREDICTO | 399323ed142e073c |
+| 24 | 1h | id=71 | 3.74 | — | — | 1.112 | 43 | -15.61 | — | SIN VEREDICTO | 4fea108935d01ac5 |
+| 25 | 1h | id=22 | 3.48 | — | — | 1.378 | 28 | -2.7 | — | SIN VEREDICTO | 42135b01bbe63fa5 |
+| 26 | 1h | id=37 | 2.67 | — | — | 1.01 | 805 | -23.44 | — | SIN VEREDICTO | 465dda7967fc51b4 |
+| 27 | 1h | id=56 | 1.51 | — | — | 1.073 | 19 | -19.87 | — | SIN VEREDICTO | 3a6e65613cd090bb |
+| 28 | 1h | id=86 | 0.33 | — | — | 1.19 | 145 | -0.52 | — | SIN VEREDICTO | 1dbfe0e463de9b3f |
+| 29 | 15m | id=69 | -0.13 | — | — | 0.996 | 61 | -12.98 | — | SIN VEREDICTO | b80b028166e2d68c |
+| 30 | 1h | id=21 | -0.25 | — | — | 0.999 | 27 | -7.28 | — | SIN VEREDICTO | 835440fe652b23ba |
+| 31 | 5m | id=76 | -0.45 | — | — | 0.964 | 23 | -5.78 | — | SIN VEREDICTO | 165050f55d6924a4 |
+| 32 | 1h | id=4 | -0.86 | — | — | 0.994 | 127 | -8.81 | — | SIN VEREDICTO | 2777954b58f1d8b1 |
+| 33 | 1h | id=11 | -2.23 | — | — | 0.917 | 79 | -8.89 | — | SIN VEREDICTO | 01a71aae0ce85899 |
+| 34 | 1h | id=24 | -3.24 | — | — | 0.959 | 174 | -12.82 | — | SIN VEREDICTO | 3be294ac051c291c |
+| 35 | 1h | id=30 | -4.96 | — | — | 0.915 | 108 | -18.24 | — | SIN VEREDICTO | 53e11084ab2a2b12 |
+| 36 | 15m | id=10 | -5.72 | — | — | 0.911 | 213 | -11.92 | — | SIN VEREDICTO | 022e4b6c4de14dbf |
+| 37 | 1h | id=6 | -7.47 | — | — | 0.905 | 249 | -14.4 | — | SIN VEREDICTO | 0db38a388ea00342 |
+| 38 | 15m | id=46 | -9.22 | — | — | 0.0 | 10 | -9.22 | — | SIN VEREDICTO | 1849874694dddaec |
+| 39 | 1h | id=1 | -9.23 | — | — | 0.888 | 123 | -25.25 | — | SIN VEREDICTO | 79315723b2628d91 |
+| 40 | 15m | id=12 | -9.3 | — | — | 0.9 | 173 | -17.39 | — | SIN VEREDICTO | 42dfb7fc16c255f9 |
+| 41 | 1h | id=88 | -12.91 | — | — | 1.656 | 368 | -20.73 | — | SIN VEREDICTO | 02381b748dee9ec8 |
+| 42 | 1h | id=49 | -13.62 | — | — | 0.0 | 14 | -14.47 | — | SIN VEREDICTO | 3e9adee4ff90f040 |
+| 43 | 1h | id=14 | -17.65 | — | — | 0.725 | 106 | -22.5 | — | SIN VEREDICTO | c228613cb039723e |
+| 44 | 1h | id=59 | -18.62 | — | — | 0.308 | 30 | -27.06 | — | SIN VEREDICTO | 325c9437625033c1 |
+| 45 | 15m | id=55 | -18.66 | — | — | 0.95 | 497 | -58.21 | — | SIN VEREDICTO | 1a314c89fa92e47b |
+| 46 | 1h | id=7 | -20.55 | — | — | 0.612 | 138 | -20.68 | — | SIN VEREDICTO | 00a264d8c615b947 |
+| 47 | 1h | id=25 | -31.07 | — | — | 0.586 | 208 | -31.94 | — | SIN VEREDICTO | 1fcd46224e0a96b3 |
+| 48 | 15m | id=31 | -33.72 | — | — | 0.296 | 59 | -69.11 | — | SIN VEREDICTO | 35e1747bbf548f96 |
+| 49 | 5m | id=54 | -38.91 | — | — | 0.332 | 83 | -60.7 | — | SIN VEREDICTO | 0c7f14dcaba800fc |
+| 50 | 15m | id=65 | -40.96 | — | — | 0.436 | 289 | -40.98 | — | SIN VEREDICTO | 773c7dc49504eac5 |
+| 51 | 1h | id=84 | -43.59 | — | — | 0.85 | 463 | -52.15 | — | SIN VEREDICTO | f27908f1d59c26c1 |
+| 52 | 1h | id=87 | -43.85 | — | — | 0.479 | 53 | -58.1 | — | SIN VEREDICTO | 59a6b649ebd109f9 |
+| 53 | 15m | id=74 | -47.41 | — | — | 0.672 | 369 | -49.91 | — | SIN VEREDICTO | 3d6b7d65029d22fd |
+| 54 | 5m | id=16 | -54.29 | — | — | 0.9 | 759 | -67.66 | — | SIN VEREDICTO | 8b83d9e71a8af604 |
+| 55 | 15m | id=70 | -65.35 | — | — | 0.656 | 528 | -67.17 | — | SIN VEREDICTO | 3db94f74e98f7a0c |
+| 56 | 5m | id=80 | -75.04 | — | — | 0.484 | 361 | -76.86 | — | SIN VEREDICTO | 307d67e1085220ea |
+| 57 | 5m | id=17 | -82.99 | — | — | 0.655 | 561 | -84.51 | — | SIN VEREDICTO | 1221fa145eaff115 |
+| 58 | 5m | id=61 | -84.05 | — | — | 0.462 | 354 | -84.3 | — | SIN VEREDICTO | c595f86c3806d36e |
+| 59 | 15m | id=48 | -85.54 | — | — | 0.744 | 1661 | -88.07 | — | SIN VEREDICTO | 570bb1221d8e6c68 |
+| 60 | 15m | id=5 | -85.76 | — | — | 0.768 | 1274 | -86.51 | — | SIN VEREDICTO | 1430c4473bf08152 |
+| 61 | 15m | id=15 | -89.33 | — | — | 0.738 | 1119 | -89.88 | — | SIN VEREDICTO | 029e907ec108c179 |
+| 62 | 15m | id=39 | -90.55 | — | — | 0.637 | 996 | -91.25 | — | SIN VEREDICTO | 442ea6cb7b20ea18 |
+| 63 | 15m | id=2 | -90.59 | — | — | 0.62 | 791 | -91.36 | — | SIN VEREDICTO | 14118c901d3dbee5 |
+| 64 | 15m | id=8 | -91.13 | — | — | 0.649 | 1010 | -91.38 | — | SIN VEREDICTO | 4bf1d296583d8daa |
+| 65 | 5m | id=36 | -93.08 | — | — | 0.764 | 2295 | -93.82 | — | SIN VEREDICTO | 3a6ff445510a51b2 |
+| 66 | 15m | id=66 | -93.65 | — | — | 0.467 | 595 | -93.73 | — | SIN VEREDICTO | 19ecea25eefa1755 |
+| 67 | 5m | id=53 | -95.4 | — | — | 0.56 | 711 | -95.46 | — | SIN VEREDICTO | 6d6d437705ed8ce4 |
+| 68 | 5m | id=62 | -95.86 | — | — | 0.657 | 1117 | -95.93 | — | SIN VEREDICTO | f640fb76452e29df |
+| 69 | 15m | id=33 | -96.2 | — | — | 0.548 | 1202 | -96.24 | — | SIN VEREDICTO | 93f4ae801682d95c |
+| 70 | 5m | id=13 | -97.58 | — | — | 0.523 | 664 | -97.66 | — | SIN VEREDICTO | 02b07c16b784b401 |
+| 71 | 5m | id=18 | -98.15 | — | — | 0.766 | 2143 | -98.23 | — | SIN VEREDICTO | 3b77d9c2959163f3 |
+| 72 | 15m | id=42 | -99.12 | — | — | 0.526 | 3304 | -99.14 | — | SIN VEREDICTO | 6dd24926754727d2 |
+| 73 | 5m | id=20 | -99.87 | — | — | 0.599 | 1677 | -99.88 | — | SIN VEREDICTO | 2cee743e99603124 |
+| 74 | 5m | id=43 | -99.96 | — | — | 0.424 | 3005 | -99.96 | — | SIN VEREDICTO | 4e3e6881ffb0bc9b |
+| 75 | 5m | id=9 | -99.96 | — | — | 0.616 | 2036 | -99.96 | — | SIN VEREDICTO | 01929ad3119c3cea |
+| 76 | 5m | id=47 | -99.98 | — | — | 0.603 | 1627 | -99.98 | — | SIN VEREDICTO | 3d9b10c52219b39c |
+| 77 | 5m | id=51 | -99.99 | — | — | 0.467 | 2022 | -100.0 | — | SIN VEREDICTO | 0ec1567d913c1ebf |
+| 78 | 5m | id=38 | -100.0 | — | — | 0.261 | 1951 | -100.0 | — | SIN VEREDICTO | 17a249e88a1a1f51 |
+| 79 | 15m | id=50 | -100.0 | — | — | 0.652 | 7260 | -100.0 | — | SIN VEREDICTO | 29fc99abbad58bc6 |
+| 80 | 5m | id=3 | -100.0 | — | — | 0.288 | 2548 | -100.0 | — | SIN VEREDICTO | 25dae9adebc30fee |
+| 81 | 15m | id=27 | -100.0 | — | — | 0.176 | 2199 | -100.0 | — | SIN VEREDICTO | 368b80f1970cdd1d |
+| 82 | 15m | id=67 | -100.0 | — | — | 0.265 | 5309 | -100.0 | — | SIN VEREDICTO | b95561572a8c1061 |
+| 83 | 5m | id=40 | -100.0 | — | — | 0.665 | 5739 | -100.0 | — | SIN VEREDICTO | 45985e7f4f24dcf6 |
+| 84 | 5m | id=32 | -100.0 | — | — | 0.463 | 5163 | -100.0 | — | SIN VEREDICTO | 14db7cdd4a550f2d |
+| 85 | 5m | id=79 | -100.0 | — | — | 0.413 | 2355 | -100.0 | — | SIN VEREDICTO | 61053c1202516dd3 |
+| 86 | 15m | id=19 | -100.0 | — | — | 0.212 | 9366 | -100.0 | — | SIN VEREDICTO | 005b306295eb0567 |
+| 87 | 5m | id=78 | -100.0 | — | — | 0.54 | 6481 | -100.0 | — | SIN VEREDICTO | 16abd1f058d7ba2f |

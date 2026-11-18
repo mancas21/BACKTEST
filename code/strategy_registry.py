@@ -58,6 +58,7 @@ FAMILY = {
     "q10": ("qwen_cards", "portfolio_rebalance"),
     "mpv3": ("portfolio_momentum", "portfolio_rebalance"),
     "emaadx": ("trend_ema_adx", "taker_next_open"),
+    "ema921": ("trend_ema_crossover", "taker_next_open"),
     "fingrad": ("trend_hma_ao_adx", "taker_next_open"),
     "smqe": ("smc_composite", "taker_next_open"),
     "cvrmd": ("vwap_cvd_divergence", "taker_next_open"),
@@ -95,6 +96,7 @@ VERDICT = {
     "q10": "REJECTED pack (diagnostic artifacts only)",
     "mpv3": "KILLED (concentracion: top-5 > 100% del PnL)",
     "emaadx": "KILLED",
+    "ema921": "KILLED 0/101 (ninguna celda pasa la bateria; las 2 con PF>1.2 mueren por CI bootstrap y por B&H; ruina por coste de giro en 1m-1h; 1d sin muestra)",
     "fingrad": "KILLED (y sin funding en perps: SUI 17.3%->1.6% con funding)",
     "smqe": "SUSPENDED (sin OOS posible)",
     "cvrmd": "FRAGILE/SUSPENDED (PF ~1.02 historia completa)",
@@ -166,7 +168,19 @@ def load_rows():
         m = d.get("metrics", {})
         adapter = r["adapter"]
         fam, fill = FAMILY.get(adapter, (adapter, "taker_next_open"))
-        ret_zero = m.get("zero_cost_ret_pct") or m.get("ret_zero_pct")
+        ret_zero = m.get("zero_cost_ret_pct")
+        if ret_zero is None:
+            ret_zero = m.get("ret_zero_pct")
+        if ret_zero is None:
+            # ema921 / newer engines publish the zero-cost control as
+            # `zero_cost_return_pct` (measured inside the artifact)
+            ret_zero = m.get("zero_cost_return_pct")
+        # `funding_charged` is the legacy boolean; engines that publish the
+        # measured `funding_model` string are just as explicit, and reading it
+        # keeps a perp book from looking unfunded when it does charge.
+        fund_flag = m.get("funding_charged")
+        if fund_flag is None and isinstance(m.get("funding_model"), str):
+            fund_flag = m["funding_model"].startswith("charged")
         ret_repo = None
         run_repo = None
         if adapter == "dspack":
@@ -196,7 +210,7 @@ def load_rows():
             "n_trades": int(r["n"]) if isinstance(r["n"], (int, float)) else None,
             "max_dd_pct": round(r["dd"], 2) if isinstance(r["dd"], (int, float)) else None,
             "cost_rt_bps": r.get("fee") or m.get("cost_bp_roundtrip") or m.get("costs_primary"),
-            "funding_charged": m.get("funding_charged") if adapter != "fingrad" else False,
+            "funding_charged": fund_flag if adapter != "fingrad" else False,
             "window_years": window_years(m.get("bars"), r["tf"]),
             "verdict": verd or "SIN VEREDICTO",
             "run_id": r["run_id"],
