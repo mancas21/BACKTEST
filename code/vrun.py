@@ -1055,6 +1055,30 @@ def run_scalpwave(paths, params):
     return metrics, prov, tables
 
 
+def run_scalpma20(paths, params):
+    """Twenty DECLARED MA-family scalp strategies (code/scalpma20_engine.py),
+    selected with `--set id=1..20`, executed by the repo's own Book
+    (code/p100_screen_engine.py, unchanged).
+
+    The signal set is an invention of the engine (no external source): every
+    constant is declared before any market run and never tuned. Judged per id
+    on its own artifacts (REGLA 1); twenty ids on one dataset is a
+    multiple-testing family and the report must say so.
+
+    Conventions (engine docstring): signal on the closed bar -> next-open fill,
+    ATR SL/TP frozen at the signal bar, stop-first, gap fills at the open, time
+    stop, repo costs 5 + 0.5 bps per side, funding at real settlements when
+    the funding file is served, declared cost gate (TP >= cost_gate_mult x 11
+    bps), zero-cost control and the accounting invariant INSIDE the artifact,
+    frozen 70/30 OOS / thirds / best-5 / seeded bootstrap in-artifact.
+
+    Known answers: python code/scalpma20_engine.py (REQUIRED before a real run).
+    """
+    m = _load_module(os.path.join(CODE, "scalpma20_engine.py"), "scalpma20_engine")
+    metrics, prov, tables = m.run_symbol(paths, dict(params))
+    return metrics, prov, tables
+
+
 def _xsml_inputs(tf, sym, params):
     """The eight universe klines plus the prediction file the run asks for.
 
@@ -3040,6 +3064,20 @@ ADAPTERS = {
         "inputs": lambda tf, sym: [
             os.path.join(SCALPWAVE_DIRS[tf][0], f"{sym}_{SCALPWAVE_DIRS[tf][1]}.csv")],
         "run": run_scalpwave, "matrix": True, "needs_tf": True,
+    },
+    # 20 declared MA-family scalp strategies (id 1..20 via --set id=N) on the
+    # repo's Book. Same input dirs as scalpwave (5m = the REAL history, not the
+    # 30-day stub). Funding is an input only when the file exists: no file ->
+    # not charged, and the artifact says so (funding_charged / funding_model).
+    "scalpma20": {
+        "sources": [os.path.join(CODE, "scalpma20_engine.py"),
+                    os.path.join(CODE, "p100_screen_engine.py")],
+        "version": "scalpma20-1",
+        "inputs": lambda tf, sym: (
+            [os.path.join(SCALPWAVE_DIRS[tf][0], f"{sym}_{SCALPWAVE_DIRS[tf][1]}.csv")]
+            + [fp for fp in [os.path.join(DATA, "binance_funding", f"{sym}_funding.json")]
+               if os.path.exists(fp)]),
+        "run": run_scalpma20, "matrix": True, "needs_tf": True,
     },
     "botstrat": {
         "sources": [os.path.join(CODE, "botstrat_backtest.py")],

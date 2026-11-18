@@ -81,6 +81,7 @@ Details: `VALIDATION_PROTOCOL.md`.
 | `cvrmd` | `code/cvrmd_backtest.py` | symbol (1h) | `data/binance_klines_1h` |
 | `botstrat` | `code/botstrat_backtest.py` | symbol (1h) | `data/binance_klines_1h` |
 | `scalpwave` | `code/scalp_wave_engine.py` (**WAVE_1 scalp pack ported from `Downloads/scalp_wave1_v1.1.0`**; IND-04/06/07a signals; parity vs the original pack in `code/_scalp_wave_parity.py`) | symbol x tf (1m/5m/15m) | `data/binance_klines_1m` + `data/binance_klines_5m` + `data/binance_klines_15m` |
+| `scalpma20` | `code/scalpma20_engine.py` (**20 DECLARED MA-family scalp strategies, `--set id=1..20`**; EMA/TEMA/DEMA/HMA/ZLEMA/KAMA, ribbon, VWAP, Supertrend, MACD, BB squeeze, Keltner, Donchian, RSI/StochRSI, volume momentum; executed by the repo's own `Book` from `code/p100_screen_engine.py`; known answers: `python code/scalpma20_engine.py`; plan: `code/_scalpma20_build_plan.py`) | symbol x tf (1m/5m) | `data/binance_klines_1m` + `data/binance_klines_5m` + `data/binance_funding` |
 | `xsml` | `code/xsml_engine.py` (**cross-sectional ML book, pre-registered before its first market run**; features from pybroker's indicator engine in `code/xsml_features.py`, fixed-hyperparameter model in `code/xsml_model.py`, repo execution: next-open, stop-first, gap-at-open, funding at real settlements) | bundle (8 perps) | `data/binance_klines_1h` (8 symbols) + `data/xsml_preds.csv` |
 | `ffs` | `code/ffs_engine2.py` | symbol (5m) | `data/binance_klines` |
 | `mp20` | `code/mp20_report_ports.py` | portfolio (5 names) | `data/binance_klines_1h` |
