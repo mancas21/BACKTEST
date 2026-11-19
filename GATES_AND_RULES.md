@@ -42,6 +42,15 @@ implementation, self-test `code/_gates_v2_selftest.py`) carries the same
 policy values and the auxiliary tooling. A candidate must pass **all
 applicable gates**.
 
+**ENFORCEMENT (2026-11-19 audit fix F1).** The v2 battery is now the **promotion
+gate**, not advisory. `bt.py` filters every screen survivor through
+`vrun.compute_gates_v2(artifact)`, which reads the artifact's `gates_v2` block (or
+builds it from a `trades_v2` fixed-size schema via `_gates_v2.evaluate_gates_v2`)
+and **FAILS CLOSED** when neither is present: a v1 screen pass alone is NOT
+promotable. Adapters must emit `gates_v2` / `trades_v2` to be promotable; the
+per-adapter v1 booleans remain a cheap screen only. Self-test of the fixes:
+`code/_audit_fixes_selftest.py`.
+
 | Gate | Name | Rule | Where implemented |
 |---|---|---|---|
 | **G1** | Expectancy (primary) / profit factor (secondary) | Block-bootstrap **95% lower bound of per-trade expectancy > 0 bps**, with PF > 1.2 kept as a secondary condition. Expectancy and PF are defined on **per-trade percentage returns at fixed size** (see §7). | `gate2.expectancy_lb_bps`, `gate2.profit_factor_pct` |

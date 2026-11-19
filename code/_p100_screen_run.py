@@ -75,7 +75,7 @@ def main():
             key = f"{sid}/{seg}"
             if key in cells:
                 continue
-            cmd = ["python", "-X", "utf8", "code/vrun.py", "run",
+            cmd = [sys.executable, "-X", "utf8", "code/vrun.py", "run",
                    "--strategy", "p100screen", "--tf", tf, "--symbol", symbol,
                    "--set", f"id={sid}", "--set", f"segment={seg}"]
             p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True,

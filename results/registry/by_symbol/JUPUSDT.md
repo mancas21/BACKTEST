@@ -27,15 +27,15 @@
 | 22 | 1h | QS-001 Moving-average trend continuation | 6.25 | — | — | 1.151 | 64 | -13.59 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 88038882d1e60422 |
 | 23 | 1h | QS-039 Multi-timeframe structural alignment | 5.41 | — | — | 1.127 | 94 | -13.8 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 952ac17fa1317658 |
 | 24 | 1h | QS-093 VWAP plus trade-flow confluence | 5.29 | — | — | 1.245 | 89 | -6.3 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 3630fe2670e70f15 |
-| 25 | 1h | id=71 | 3.74 | — | — | 1.112 | 43 | -15.61 | — | SIN VEREDICTO | 4fea108935d01ac5 |
+| 25 | 1h | id=71 | 3.74 | — | — | 1.112 | 43 | -15.61 | — | SIN VEREDICTO | 72fa28cb56e84d04 |
 | 26 | 1h | QS-040 Price displacement with continuation | 3.67 | — | — | 1.187 | 45 | -12.56 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 543c494de5456a23 |
 | 27 | 1h | QS-016 Displacement-candle fade | 3.1 | — | — | 1.064 | 81 | -9.93 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 664875f434390562 |
-| 28 | 1h | id=37 | 2.67 | — | — | 1.01 | 805 | -23.44 | — | SIN VEREDICTO | 465dda7967fc51b4 |
+| 28 | 1h | id=37 | 2.67 | — | — | 1.01 | 805 | -23.44 | — | SIN VEREDICTO | a280349ccab4bd18 |
 | 29 | 15m | QS-038 Momentum exhaustion reversal | 2.62 | — | — | 1.44 | 11 | -3.79 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | be7f215afc8f36ae |
 | 30 | 1h | smqe | 2.2 | 3.52 | — | 1.204 | 24 | 4.96 | 2.0 | SUSPENDED (sin OOS posible) | 6ea16247450d058b |
 | 31 | 15m | QS-048 Trade-flow exhaustion | 2.0 | — | — | 1.259 | 24 | -5.88 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 2fc72235cd262dc2 |
 | 32 | 5m | smqe | 1.54 | 29.02 | — | 1.019 | 130 | 14.42 | 2.0 | SUSPENDED (sin OOS posible) | 7e034fb9f6b89883 |
-| 33 | 1h | id=56 | 1.51 | — | — | 1.073 | 19 | -19.87 | — | SIN VEREDICTO | 3a6e65613cd090bb |
+| 33 | 1h | id=56 | 1.51 | — | — | 1.073 | 19 | -19.87 | — | SIN VEREDICTO | 4e845152c0fa680e |
 | 34 | 15m | QS-005 Time-series momentum | 1.07 | — | — | 1.006 | 302 | -21.06 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 16fbce7fc47a55a8 |
 | 35 | 15m | card=JUPUSDT | 0.97 | 25.24 | — | 1.006 | 239 | -16.84 | — | SIN VEREDICTO | d7cf9f2832cbb19c |
 | 36 | 1h | QS-020 Liquidity-dislocation wick fade | 0.17 | — | — | 1.026 | 20 | -2.78 | 2.0 | fila INCONCLUSIVE (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 592f7b2af52a8f20 |
@@ -55,7 +55,7 @@
 | 50 | 15m | QS-010 Breakout continuation after consolidation | -2.16 | — | — | 0.276 | 13 | -2.8 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 14d1585bf6549533 |
 | 51 | 15m | QS-028 Failed breakout reversal | -2.18 | — | — | 0.99 | 493 | -25.18 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 69124c28e763fe25 |
 | 52 | 1h | QS-050 Trade-flow and price-displacement divergence | -2.62 | — | — | 0.733 | 30 | -6.28 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 8e6332cfaa98c911 |
-| 53 | 1h | id=24 | -3.24 | — | — | 0.959 | 174 | -12.82 | — | SIN VEREDICTO | 3be294ac051c291c |
+| 53 | 1h | id=24 | -3.24 | — | — | 0.959 | 174 | -12.82 | — | SIN VEREDICTO | 1964d601453eaffd |
 | 54 | 1h | QS-014 Anchored VWAP reversion (day anchor) | -3.24 | — | — | 0.932 | 178 | -6.65 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 9b2a81a2a8315bd3 |
 | 55 | 5m | QS-027 Chandelier stop-and-reverse | -3.28 | — | — | 0.905 | 73 | -25.02 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | c3e96b4958878464 |
 | 56 | 1h | QS-008 Trend pullback continuation | -4.85 | — | — | 0.925 | 224 | -15.71 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 6bbd6efa6bd9be36 |
@@ -67,7 +67,7 @@
 | 62 | 1h | card=JUPUSDT | -6.98 | -3.11 | — | 0.849 | 158 | -16.31 | — | SIN VEREDICTO | 58d3c47abbc41ee5 |
 | 63 | 1h | B22-1h Ichimoku cloud breakout (long) | -7.23 | — | — | — | 591 | 54.4 | 2.0 | KILLED 0/100 | 6d9a39555891b582 |
 | 64 | 1h | QS-053 Price impact versus signed trade volume | -7.29 | — | — | 0.875 | 297 | -16.49 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 8d67117abb86af27 |
-| 65 | 1h | id=6 | -7.47 | — | — | 0.905 | 249 | -14.4 | — | SIN VEREDICTO | 0db38a388ea00342 |
+| 65 | 1h | id=6 | -7.47 | — | — | 0.905 | 249 | -14.4 | — | SIN VEREDICTO | 02602b7f1647fa17 |
 | 66 | 5m | QS-031 Confirmed swing-high/swing-low breakout | -7.87 | — | — | 0.913 | 270 | -25.05 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | d8f9abc4114aecd8 |
 | 67 | 5m | QS-040 Price displacement with continuation | -7.89 | — | — | 0.864 | 178 | -25.18 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 27ee794f6f9c1fca |
 | 68 | 15m | QS-040 Price displacement with continuation | -8.13 | — | — | 0.788 | 87 | -15.6 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | f0c40ce7b9c25d84 |
@@ -81,7 +81,7 @@
 | 76 | 5m | QS-058 Trade-flow reversal after aggressive execution | -9.12 | — | — | 0.67 | 59 | -10.62 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 78b6a3f17eb30011 |
 | 77 | 15m | QS-004 Donchian channel breakout | -9.23 | — | — | 0.941 | 484 | -23.52 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | df8ca0d407499ac1 |
 | 78 | 5m | QS-003 Supertrend continuation | -9.24 | — | — | 0.915 | 321 | -25.03 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 04ce17fbc43b0ada |
-| 79 | 15m | id=12 | -9.3 | — | — | 0.9 | 173 | -17.39 | — | SIN VEREDICTO | 42dfb7fc16c255f9 |
+| 79 | 15m | id=12 | -9.3 | — | — | 0.9 | 173 | -17.39 | — | SIN VEREDICTO | 29244882e230c89f |
 | 80 | 1h | QS-034 Support/resistance rejection | -9.68 | — | — | 0.881 | 184 | -20.69 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 71fbce40b659d8c9 |
 | 81 | 5m | QS-038 Momentum exhaustion reversal | -10.37 | — | — | 0.368 | 23 | -14.08 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | ec36029a145d7f00 |
 | 82 | 1h | QS-012 Bollinger Band reversion | -10.42 | — | — | 0.815 | 197 | -15.52 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 24efd0f15b7fdedf |
@@ -96,7 +96,7 @@
 | 91 | 5m | QS-018 Volatility-expansion fade | -12.33 | — | — | 0.578 | 69 | -14.49 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 80f2d86689d25b54 |
 | 92 | 1h | QS-037 Compression inside a prior range | -12.43 | — | — | 0.551 | 73 | -15.27 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 0b9424fd35100643 |
 | 93 | 1h | QS-030 Breakout filtered by higher-timeframe regime | -12.62 | — | — | 0.676 | 62 | -19.97 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 554aedc3db1ab6ce |
-| 94 | 15m | id=138 | -12.65 | — | — | 0.868 | 297 | -16.48 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | 46a8ce34bf84ad03 |
+| 94 | 15m | id=138 | -12.65 | — | — | 0.868 | 297 | -16.48 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | 33524fc6a2712752 |
 | 95 | 5m | qs096 | -13.0 | -1.83 | — | 0.905 | 510 | -25.03 | — | SIN VEREDICTO | 23da5d4b40a3ddc9 |
 | 96 | 5m | QS-023 Realized-volatility regime breakout | -13.27 | — | — | 0.751 | 86 | -25.18 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | dabefc3ea39f6ebc |
 | 97 | 5m | QS-039 Multi-timeframe structural alignment | -13.63 | — | — | 0.814 | 262 | -25.04 | 2.0 | fila REJECT (pack 0/10 + 0/8 + 0/12 + 0/10 + 0/10) | 103b99a209eebf2c |
@@ -175,7 +175,7 @@
 | 170 | 1d | weekend-gap fade | -26.89 | -23.76 | — | 0.757 | 34 | 47.91 | 0.87 | KILLED 0/48 | 8cd88065bc7dd49f |
 | 171 | 1h | A14-1h RSI(7) 20-bar-low reversal (long) | -30.52 | — | — | — | 256 | 57.41 | 2.0 | KILLED 0/100 | 044fc515c49cbf62 |
 | 172 | 1h | A02-1h RSI2 Connors pullback (long) | -31.04 | — | — | — | 308 | 54.92 | 2.0 | KILLED 0/100 | 2c47d21aa0fd4fbf |
-| 173 | 15m | id=31 | -33.72 | — | — | 0.296 | 59 | -69.11 | — | SIN VEREDICTO | 35e1747bbf548f96 |
+| 173 | 15m | id=31 | -33.72 | — | — | 0.296 | 59 | -69.11 | — | SIN VEREDICTO | 45d5bb8a46e8175e |
 | 174 | 1h | S09 Liquidity Sweep Reversal | -36.0 | — | — | 0.696 | 217 | -41.76 | 2.05 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | de5e832e962d8d9f |
 | 175 | 1h | S06 Session Range Breakout (UTC) | -36.02 | — | — | 0.832 | 530 | -40.63 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 0b1e2730fa8c12b8 |
 | 176 | 1h | S01 Taker-Flow Drift Bands | -36.97 | — | — | 0.795 | 305 | -42.67 | 2.05 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | de5e832e962d8d9f |
@@ -203,7 +203,7 @@
 | 198 | 15m | H86-15m ADX regime-switching | -82.8 | — | — | — | 1867 | 86.84 | 2.0 | KILLED 0/100 | b847886b7d787c18 |
 | 199 | 15m | F70-15m pin-bar at EMA(50) (long) | -84.86 | — | — | — | 1362 | 85.42 | 2.0 | KILLED 0/100 | 6808d6fab9997e71 |
 | 200 | 15m | C38-15m 20-bar high breakout + volume (long) | -85.7 | — | — | — | 718 | 89.69 | 2.0 | KILLED 0/100 | 1068346f51a960b9 |
-| 201 | 5m | id=140 | -88.43 | — | — | 0.543 | 909 | -88.68 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | 828aa491492a52ab |
+| 201 | 5m | id=140 | -88.43 | — | — | 0.543 | 909 | -88.68 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | 03fa751843aa17c6 |
 | 202 | 1h | A05-1h price z-score reversion | -89.68 | — | — | — | 584 | 94.23 | 2.0 | KILLED 0/100 | 4a377012be8fadfc |
 | 203 | 15m | D54-15m MACD histogram acceleration (long) | -90.47 | — | — | — | 2279 | 93.23 | 2.0 | KILLED 0/100 | 091856f2528c3303 |
 | 204 | 15m | D24 stochastic cross + EMA200 | -91.04 | -13.93 | — | 0.811 | 1614 | 92.26 | 2.0 | KILLED 0/46 | 9abed151a864b54a |
@@ -211,19 +211,19 @@
 | 206 | 15m | A05-15m price z-score reversion | -92.4 | — | — | — | 2380 | 94.95 | 2.0 | KILLED 0/100 | 5c24af8c3288df21 |
 | 207 | 15m | ema921 | -93.95 | -33.23 | — | 0.793 | 3423 | -94.55 | 2.1 | KILLED 0/101 (ninguna celda pasa la bateria; las 2 con PF>1.2 mueren por CI bootstrap y por B&H; ruina por coste de giro en 1m-1h; 1d sin muestra) | 6411822f01aa9023 |
 | 208 | 5m | S04 VWAP Fade (range regime only) | -95.84 | — | — | 0.807 | 2676 | -96.34 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 4e6904a6677fd614 |
-| 209 | 5m | id=62 | -95.86 | — | — | 0.657 | 1117 | -95.93 | — | SIN VEREDICTO | f640fb76452e29df |
+| 209 | 5m | id=62 | -95.86 | — | — | 0.657 | 1117 | -95.93 | — | SIN VEREDICTO | b142f223cb9c50fa |
 | 210 | 15m | B22-15m Ichimoku cloud breakout (long) | -96.11 | — | — | — | 2388 | 96.64 | 2.0 | KILLED 0/100 | 01bb14ad9ac58a1a |
 | 211 | 1m | S06 Session Range Breakout (UTC) | -96.11 | — | — | 0.578 | 803 | -96.19 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 47ec6dfbdad8396c |
 | 212 | 5m | C38-5m 20-bar high breakout + volume (long) | -97.16 | — | — | — | 2116 | 97.7 | 2.0 | KILLED 0/100 | 1dd4954f779ce0ef |
 | 213 | 1h | liquidity grab of the 24h low | -97.66 | -70.08 | — | 0.788 | 1272 | 97.91 | 2.0 | KILLED 0/48 | 64a2b41447e941a1 |
 | 214 | 5m | A02-5m RSI2 Connors pullback (long) | -97.67 | — | — | — | 4310 | 97.78 | 2.0 | KILLED 0/100 | 2e5273452b74ccf1 |
 | 215 | 15m | D46-15m ROC(24) momentum (long) | -97.84 | — | — | — | 3046 | 98.4 | 2.0 | KILLED 0/100 | 5c0b634fdaede0e4 |
-| 216 | 5m | id=18 | -98.15 | — | — | 0.766 | 2143 | -98.23 | — | SIN VEREDICTO | 3b77d9c2959163f3 |
+| 216 | 5m | id=18 | -98.15 | — | — | 0.766 | 2143 | -98.23 | — | SIN VEREDICTO | 981b2c244c44691b |
 | 217 | 5m | S03 Squeeze Release | -98.27 | — | — | 0.741 | 1615 | -98.6 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 4e6904a6677fd614 |
 | 218 | 5m | S02 Donchian + Flow Breakout | -98.64 | — | — | 0.749 | 1779 | -98.8 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 4e6904a6677fd614 |
 | 219 | 1h | E62-1h VWMA vs SMA volume trend | -98.91 | — | — | — | 1117 | 99.24 | 2.0 | KILLED 0/100 | 17d9859226356959 |
 | 220 | 5m | F70-5m pin-bar at EMA(50) (long) | -99.21 | — | — | — | 4167 | 99.21 | 2.0 | KILLED 0/100 | 57381f998edc5e82 |
-| 221 | range | id=135 | -99.51 | — | — | 0.516 | 3447 | -99.52 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | d82c834934c0bdf0 |
+| 221 | range | id=135 | -99.51 | — | — | 0.516 | 3447 | -99.52 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | 151761273aa0140a |
 | 222 | 5m | B30-5m Turtle 55/20 breakout | -99.72 | — | — | — | 3642 | 99.81 | 2.0 | KILLED 0/100 | 2864a3260847fa66 |
 | 223 | 5m | P15 z-score reversion | -99.75 | — | — | — | 4683 | 99.77 | 2.0 | KILLED 0/48 | 4ccc79929bcbe1b8 |
 | 224 | 5m | S09 Liquidity Sweep Reversal | -99.81 | — | — | 0.631 | 2022 | -99.82 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 4e6904a6677fd614 |
@@ -232,8 +232,8 @@
 | 227 | 5m | S05 HTF Trend Pullback (RSI-2) | -99.91 | — | — | 0.551 | 4470 | -99.92 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 4e6904a6677fd614 |
 | 228 | 5m | H86-5m ADX regime-switching | -99.93 | — | — | — | 5899 | 99.93 | 2.0 | KILLED 0/100 | 183cf35f452d0ab6 |
 | 229 | 5m | D54-5m MACD histogram acceleration (long) | -99.96 | — | — | — | 7093 | 99.96 | 2.0 | KILLED 0/100 | 4c9ff1f87bdfa415 |
-| 230 | 5m | id=43 | -99.96 | — | — | 0.424 | 3005 | -99.96 | — | SIN VEREDICTO | 4e3e6881ffb0bc9b |
-| 231 | 3m | id=139 | -99.97 | — | — | 0.523 | 3014 | -99.97 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | 659b5fe9c4f617d4 |
+| 230 | 5m | id=43 | -99.96 | — | — | 0.424 | 3005 | -99.96 | — | SIN VEREDICTO | fcf43165788f1df3 |
+| 231 | 3m | id=139 | -99.97 | — | — | 0.523 | 3014 | -99.97 | — | KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar) | cf7c69d460ca6333 |
 | 232 | 5m | B22-5m Ichimoku cloud breakout (long) | -99.98 | — | — | — | 7370 | 99.98 | 2.0 | KILLED 0/100 | 60c4116f3be4c0cc |
 | 233 | 15m | Q15 stochastic cross | -99.99 | — | — | — | 8346 | 99.99 | 2.0 | KILLED 0/42 | 70f97efc14907117 |
 | 234 | 30m | Q34 VWAP bounce | -99.99 | — | — | — | 7701 | 99.99 | 2.0 | KILLED 0/42 | 6d76955e0ecf5f01 |
@@ -241,7 +241,7 @@
 | 236 | 1m | tick-rule momentum scalp | -100.0 | -25.12 | — | 0.007 | 5037 | 100.0 | 2.0 | KILLED 0/48 | 6c0abd480bab5b7d |
 | 237 | 5m | S01 Taker-Flow Drift Bands | -100.0 | — | — | 0.81 | 4582 | -100.0 | 2.0 | KILLED (<1h por costos; 1h cae por concentracion con funding cobrado) | 4e6904a6677fd614 |
 | 238 | 5m | D46-5m ROC(24) momentum (long) | -100.0 | — | — | — | 8903 | 100.0 | 2.0 | KILLED 0/100 | 441d46feebbf4741 |
-| 239 | 15m | id=50 | -100.0 | — | — | 0.652 | 7260 | -100.0 | — | SIN VEREDICTO | 29fc99abbad58bc6 |
+| 239 | 15m | id=50 | -100.0 | — | — | 0.652 | 7260 | -100.0 | — | SIN VEREDICTO | f4033e773395c85b |
 | 240 | 5m | ema921 | -100.0 | -68.54 | — | 0.644 | 10456 | -100.0 | 2.1 | KILLED 0/101 (ninguna celda pasa la bateria; las 2 con PF>1.2 mueren por CI bootstrap y por B&H; ruina por coste de giro en 1m-1h; 1d sin muestra) | 3271a038629bcbde |
 | 241 | 5m | E62-5m VWMA vs SMA volume trend | -100.0 | — | — | — | 13278 | 100.0 | 2.0 | KILLED 0/100 | 0049a29649ae349c |
 | 242 | 3m | S14 EMA ribbon + RSI(7) | -100.0 | -0.35 | — | 0.626 | 13238 | 100.0 | — | KILLED 0/46 | 074d282d7cadaff6 |

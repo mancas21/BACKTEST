@@ -1,5 +1,177 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-19 - Validación G1-G11 completa de las candidatas robustas (top-100 / OOS)
+
+Tras los catálogos `TOP100_ESTRATEGIAS.md` (ranking IS) y `TOP_OOS_ROBUST.md`
+(ranking OOS + filtro ligero, 6 candidatas), se corrió la **batería G1-G11 REAL**
+(`_gates_v2.evaluate_gates_v2`, policy_hash `0c8bf92d19d30fac`, n_trials=1486 del
+TrialLedger). Los artefactos solo guardan métricas agregadas (sin esquema por-trade),
+así que hubo que re-correr con los engines del repo y reconstruir el esquema v2
+(gross_ret/cost_ret/funding_ret/mae), con **paridad DEV bit-a-bit** verificada.
+
+- **3 family-A** (`code/_validate_candidates_v2.py`, Book del repo sin modificar):
+  **0/3 pasan**. TRIX(15) BTC 15m pasa G1/G2/G8/G11 pero cae G3/G4/G5/G6/G7/G9
+  (DSR 0.089, concentración ex-top54 neto −6.2, no bate B&H, 4 liquidaciones).
+  triple EMA e impulse-bar ETH 1h caen además G1 (bootstrap expectancy LB negativo)
+  y G9 (137/60 trades liquidables a 20x). Paridad OK en las 3.
+- **SPREAD id=85** mid-day-lull HYPE/SOL (`code/_validate_spread_v2.py`, SpreadBook
+  instrumentado en memoria, book neutral benchmark cash): **pasa 9/10, solo falla G8**.
+  G1 PF neto 1.64, G3 OOS PF 1.97 (folds 5/5), G5 alfa t=3.90, **G7 DSR=1.0**,
+  G6 concentración OK, G9 DD 9.1% (0 liquidaciones), G11 WR 60.6%. **G8 falla**:
+  cost_share 54%, PF@2×coste 0.997 (breakeven ~2×). Paridad DEV OK (PF 2.6073).
+  ⚠️ Leverage de exchange 36.2x > cap 20x (tradeability cuestionable).
+- **F23 (fix nuevo):** `alpha_beta_hac` devolvía (0,0,0) con benchmark de varianza
+  cero (cash, book neutral) → G5 false-fallaba. Corregido (alfa=mean(y), t NW sobre
+  la media). Selftest de gates sin regresión.
+- **2 pack20** (atr vol breakout, vwap fade): engine distinto, pendientes de
+  instrumentación propia.
+- **Conclusión honesta:** NINGUNA candidata es superviviente validada. El spread
+  id=85 es la más fuerte estadísticamente (DSR 1.0, alfa t 3.9, OOS sólido) pero su
+  filo no sobrevive el doblado de costes (G8) y está sobre-apalancado en notional
+  de exchange. El filtro ligero (n≥100+OOS PF>1+CI>0) NO sustituye a la batería.
+  Informes: `CANDIDATES_V2_VALIDATION.md`, `CANDIDATE_SPREAD_V2.md` (indexados en
+  `results/REPORTS.md`).
+
+## 2026-11-19 - Auditoría del repo + aplicación de fixes (F1-F21) y re-verificación
+
+Auditoría read-only completa (entregable `AUDIT_REPO_2026-11-19.md`, 20 hallazgos)
+seguida de la aplicación de TODOS los fixes y re-verificación. Nada de la auditoría
+se aplicó antes de entregar el informe; los fixes vinieron después, por fases.
+
+- **Fixes de harness (sin invalidar artefactos):** F4 `pverify --strategy` ahora
+  salta artefactos corruptos en vez de abortar (probado: salta los 4 `fvgup`
+  truncados y continúa); F5 `guard --strict` ata cada número al run_id citado EN
+  ESA LÍNEA (no a un pool global) + strips de fechas/timeframes para no false-refuse
+  (probado: rechaza una fila que cita A e imprime el PF de B); F11 `make_artifact`
+  falla ruidoso si falta un engine source (no fallback al hash constante SAX);
+  F18 guard también escanea `core`.
+- **Fixes de la capa de gates `_gates_v2.py`:** F8 G4 escala el worst-bucket por
+  notional; F9 G9 bootstrapea también la serie MTM para libros con inventario
+  (lectura estricta gana); F13 eje del split G3 consistente (entry); F14 `_safe_reps`
+  con tope de memoria vinculante; F16 G11 incluido en la calibración null.
+  **Self-test `_gates_v2_selftest.py`: todos PASS** (null joint FP=0.017, planted
+  edge power=0.90, ahora con G11).
+- **Fixes de engine:** F2 `p100.funding_events` ACUMULA settlements por barra
+  (antes `rate[j]=r` pisaba y sub-cobraba funding ~2-5x en 1d; intradía sin cambio);
+  F3 `scalpma20` funding_covers_bars ahora chequea huecos INTERNOS (no solo
+  extremos); F12 bootstrap vectorizado y acotado en memoria; F17 limitación de
+  liquidación intra-bar declarada; F20 flag `oos_pf_degenerate` para PF inf con n<30.
+  **Self-test scalpma20: 40/40 PASS.** **`_audit_fixes_selftest.py`: 12/12 PASS**
+  (F2 acumulación, F5 binding, F1 fail-closed, F12 bootstrap).
+- **F1 (gobernanza):** `bt.py` ahora exige la batería v2 para PROMOVER (filtra
+  supervivientes del screen por `vrun.compute_gates_v2`, fail-closed si el artefacto
+  no emite `gates_v2`/`trades_v2`). Documentado en `GATES_AND_RULES.md`. F19
+  (gates heterogéneos) mitigado: la promoción tiene una única puerta v2.
+- **Datos:** F6 `datacheck_klines` re-escaneado COMPLETO (12 dirs, 180 ficheros,
+  ~25M filas; antes el manifest solo cubría 1d). F21 (hallazgo NUEVO del escaneo):
+  `datacheck_klines` contaba la columna string `timestamp` como NaN numérico
+  (nan_values==row_count, false-positive en 8 ficheros limpios) -> corregido para
+  auditar solo columnas genuinamente numéricas; **files_with_issues=0** tras el fix.
+  F7 `datacheck_funding` tolera jitter ±1s: ADA cadence_deviations 4622->0, BTC
+  4691->5 (huecos reales preservados), PUMP missing=126 sigue flaggeado.
+- **Docs:** F10 `RUNBOOK.md` sección neutral-paper marcada RETIRED (2026-11-16).
+- **Re-verificación de la campaña scalpma20 (representativa):** re-corrida con los
+  engines arreglados -> **120 artefactos NUEVOS** (engine_sha256 `cbe3954b…`),
+  **0/120 pasan** (veredicto KILLED robusto a los fixes; PF 0.321-0.937 idéntico,
+  intradía no afectado por F2). **F3 visible:** funding_covers_bars corregido
+  120->40 (HYPE 0/40, SOL/SUI 20/40), internal_hole en 80. `guard --strict` OK sobre
+  el reporte regenerado. Los 120 artefactos PRE-fix quedan orphaned por engine-drift
+  (append-only, no borrados); supersesión registrada en `_engine_lock.json`
+  (`known_superseded.scalpma20_engine.py`, orphaned `7ded8133…` -> current `cbe3954b…`).
+  Manifest del registry actualizado a los 120 run_ids nuevos; registry regenerado
+  (familia `scalp_ma_suite`, 120 filas).
+- **Re-runs de p100screen y s101 COMPLETADOS (2026-11-19, tras el fix F2 en p100):**
+  ambos adapters hashean `p100_screen_engine.py`, así que sus artefactos quedaron
+  orphaned por engine-drift y se re-corrieron con el engine arreglado.
+  - `p100screen`: re-run completo va `_p100_screen_run.py` (cache movido aside para
+    forzar; runner ahora usa `sys.executable`), **174 celdas** (87 prompts × DEV/OOS)
+    en 1691s, **EXIT=0**. `pverify --ids` nuevos: **174 OK / 0 REFUSED, bit-a-bit**.
+    ~531 artefactos pre-fix (10 generaciones históricas) orphaned por diseño.
+  - `s101`: re-run va `bt.py --plan results/bt_plans/s101.json --workers 4`,
+    **37 celdas**, screen 529.6s, **0 supervivientes (KILLED)**, EXIT=0.
+    `pverify --strategy s101`: **37 OK (= los nuevos) / 96 REFUSED (orphaned)**.
+  - Manifest del registry actualizado por identidad de celda (id/segment/symbol/tf):
+    **123/123 entradas** apuntan a run_ids fixed-engine con inputs correctos.
+    Registry regenerado: familias `p100screen` 87 filas (todas current), `s101` 36.
+  - **F22 (hallazgo nuevo al reparar JUP):** el harness `TF_DIR["5m"]` apuntaba al
+    stub `binance_klines` (30 días) mientras `p100_screen_engine.load_klines` lee
+    `binance_klines_5m` (historia real) e ignora los paths del harness → el artefacto
+    hasheaba el fichero EQUIVOCADO (provenance mismatch) y crasheaba para símbolos
+    ausentes del stub (JUP 5m ids 18/43/62). `_p100screen_inputs` ahora espeja los
+    dirs del engine. Re-run de las **46 celdas 5m** con inputs correctos (ETH
+    bars=730563 desde 2019, no el stub); **JUP 18/43/62 ahora corren** (KILLED, PF<1).
+    Métricas idénticas (el engine siempre leyó la data real; F22 es solo provenance).
+    `pverify --ids` 46 celdas: bit-a-bit. Supersesión F22 en `_engine_lock.json`
+    (engine sha sin cambio `8250db6c…`, drift por input-path; 40 artefactos stub-input
+    orphaned). Las 3 JUP antes unmatched quedaron resueltas.
+  - Supersesiones registradas en `_engine_lock.json` (`known_superseded`
+    `p100_screen_engine.py (p100screen adapter)` y `(s101 adapter)`).
+  - Veredictos sin cambio (packs intradía/1h; F2 solo afecta funding 1d). Con esto,
+    las tres campañas afectadas por el fix de engine (scalpma20, p100screen, s101)
+    están re-corridas y re-verificadas bit-a-bit en sus artefactos current.
+
+## 2026-11-18 - Adjunto "scalp_ma_suite-20 STATEGIES-CLAUDE.py" (adapter `scalpma20`): KILLED - cero de 120 celdas pasa la batería; no hay filo bruto sobre el gate y el turnover se lo come
+
+El usuario trae `scalp_ma_suite-20 STATEGIES-CLAUDE.py` (20 estrategias MA de
+scalping 1m-5m: EMA/TEMA/DEMA/HMA/ZLEMA/KAMA, ribbon, pullback, VWAP, Supertrend,
+MACD, BB squeeze, Keltner, Donchian, RSI/StochRSI, volume momentum) y pide
+"backtest this strategies". El adapter `scalpma20` ya existía DECLARADO en el repo
+(engine `code/scalpma20_engine.py` sobre el `Book` auditado de
+`code/p100_screen_engine.py`); al llegar la fuente real se ejecutó la cadena de
+prueba de la casa contra ella.
+
+- **Fuente de registro** `code/scalp_ma_source.py`, byte-idéntico al adjunto
+  (sha256 `a1a72fa279ddade4609c7b9bc4bd1832242ba6327007d61677eb947c6a4b5cb4`).
+- **Paridad de SEÑAL** `code/_scalpma20_parity.py`: **100/100 PASS** (20 ids × 5
+  celdas reales: SUI/SOL/HYPE 5m + SUI/BTC 1m). Arrays long/short/exit_long/exit_short
+  y geometría por-estrategia idénticos entre la fuente adjunta y el engine del repo.
+  La señal es la misma; lo que cambia es el régimen de ejecución, DECLARADO.
+- **Self-test del engine** `python code/scalpma20_engine.py`: **40/40 PASS** (20
+  known answers de ejecución en ambas direcciones + 20 tests de causalidad por
+  truncamiento). Identidad contable `(cash-INIT)==sum(pnl)-funding` asertada dentro
+  de cada artefacto; residuo máximo de la familia 1.2e-10 USDT.
+- **Régimen declarado (casa):** 11 bps RT (5 fee + 0.5 slip por lado), funding en
+  los settlements reales (cubre las 120 celdas, `funding_covers_bars` true),
+  sizing 1% riesgo / tope 20x, cost gate TP>=3xRT, warmup 300, OOS 70/30 congelado,
+  control zero-cost medido DENTRO de cada artefacto. Diferencias vs el engine
+  adjunto DECLARADAS (no son bugs de porte): la fuente usa 10 bps (4+1), sin
+  funding, 0.5% riesgo / 5x, cooldown 2 barras, gate min_sl_pct sobre el SL, y
+  TP como límite sin slip.
+- **Grid** (plan pre-registrado `results/bt_plans/scalpma20.json`): SOL/SUI/HYPE ×
+  {5m, 1m} × 20 ids = **120 celdas screen**, 4 workers, 551.5 s. **0 supervivientes**
+  → early stop, no se corren neighborhood ni stats. 1m recortado al window declarado
+  `slice_from=2026-05-01` (ride en params → run_id).
+- **Veredicto: cero celdas pasan.** PF neto entre 0.32 y 0.94 (el más alto
+  `57da63e348fcec50` SOL 5m id16, 0.9372, net −100%); net entre −100% y −4.53%
+  (la menos mala `94bf64ef6f3a2c16` SOL 1m id18, −4.53%, PF 0.431, **16 trades** —
+  bajo el piso de 30). OOS PF < 1 en todas salvo esa misma celda degenerada que
+  imprime `inf` porque su subset OOS no tiene trades perdedores en 16 trades: no es
+  evidencia, falla el piso y todos los demás gates.
+- **Por qué muere.** El control zero-cost (mismas señales, fee/slip apagados,
+  funding aún cobrado) supera PF 1 en 50 de 120 celdas pero **nunca llega a 1.2**:
+  el máximo zero-cost de la familia es **1.1195** (`091f86efeb056385` SUI 1m id12).
+  No hay filo bruto sobre el gate de la casa; el régimen de 11 bps + turnover lo
+  sepulta. Fees totales de la familia ~1.165 M USDT sobre equity inicial de 10 k por
+  celda (la más cargada `57da63e348fcec50`, SOL 5m id16, paga 38435.59 USDT en
+  27882 trades, net −100%; el PF más bajo 0.3214 es `e84fe81293691c2b` SOL 1m id12).
+  El cost gate removió 705 259 de 2 051 215 señales crudas (en 1m la
+  mayoría): el target típico no cubre el muro de coste. Agregados en
+  `results/scalpma20_matrix.json`.
+- **Pasivo (contexto, calculado de los CSV, no es artefacto de run):** buy-and-hold
+  positivo en cinco de las seis ventanas symbol×tf (la excepción SUI 5m). Los
+  libros pierden en ABSOLUTO, así que el veredicto no depende del pasivo.
+- **Reporte** `results/scalpma20_report_2026-11-18.md` (**guard OK strict**, 120
+  run_ids citados), matriz `results/scalpma20_matrix.json`, verify
+  `results/_scalpma20_verify.txt` (**120 OK bit-a-bit, 0 STALE/ORPHANED/REFUSED**).
+  Registro regenerado (`strategy_registry.py`).
+- **Nota de harness:** `pverify --strategy scalpma20` aborta por **4 artefactos
+  `fvgup` preexistentes truncados** (~7300 bytes, campaña 2026-11-13) que no
+  parsean; se verificó por `--ids` con los 120 run_ids de scalpma20. Los 4 ficheros
+  dañados NO se tocaron (append-only). No son de esta campaña.
+- **No re-correr expecting otro veredicto:** el fallo es coste + filo bruto bajo el
+  gate, no un parámetro. Trigger de revisita: una señal cuyo PF ZERO-COST supere
+  1.2 en su propio artefacto — ninguna lo hace.
+
 ## 2026-11-17 - Adjunto "9-21 EMA crossover" (adapter `ema921`): KILLED - cero de 101 celdas pasa la bateria; las dos unicas con PF>1.2 mueren por IC bootstrap y por B&H
 
 El usuario trae `ema_9_21_backtest-claude.py` y pide "backtest this, all the

@@ -1113,10 +1113,20 @@ def _p100screen_inputs(tf, sym, params):
     p = params or {}
     symbol = str(p.get("symbol", "") or sym)
     tfr = str(p.get("tf", "") or tf)
-    entry = TF_DIR.get(tfr)
-    if entry is None:
+    # F22 FIX: the p100screen ENGINE (p100_screen_engine.load_klines) reads its
+    # OWN TF_DIRS -- 5m -> data/binance_klines_5m (the real full history) -- and
+    # IGNORES the harness paths. The harness TF_DIR["5m"] points at
+    # data/binance_klines (a 30-day stub), so the declared inputs hashed the
+    # WRONG file (provenance mismatch) and crashed for symbols absent from the
+    # stub (JUPUSDT 5m, ids 18/43/62). Mirror the engine's dirs so the artifact
+    # binds the data that actually produced the metrics.
+    # MUST match p100_screen_engine.TF_DIRS.
+    _ENGINE_DIRS = {"1h": "binance_klines_1h", "15m": "binance_klines_15m",
+                    "5m": "binance_klines_5m"}
+    if tfr not in _ENGINE_DIRS:
         raise ValueError(f"p100screen: sin directorio de klines para tf={tfr}")
-    d, suffix = entry            # TF_DIR maps tf -> (directorio, sufijo)
+    d = os.path.join(DATA, _ENGINE_DIRS[tfr])
+    suffix = tfr
     try:
         sid = int(p.get("id"))
     except (TypeError, ValueError):
@@ -2567,6 +2577,21 @@ def run_s101(paths, params):
     return E.dispatch(paths, dict(params))
 
 
+def run_qwen50(paths, params):
+    """STRATEGIES 51-100 pack (2026-11-19 Qwen attachment, source of record
+    code/prompts_51_100.txt). 48 cells runnable, 2 NO-DATA refusals declared
+    (93: no NVDA 1m; 98: no SPCX 1m). Engine code/qwen50_engine.py over the
+    audited p100_screen_engine.Book: signal close / enter next open,
+    stop-first, author-declared costs (10 bps RT BTC/ETH/SOL, 14 bps RT
+    HYPE/SUI/JUP, repo 11 bps RT on the NVDA/SPCX perp tape), 0.5% risk,
+    no daily caps (prompts silent), trailing via live-stop ratchet,
+    funding at real settlements for all eight symbols, 70/30 chronological
+    split. --set id=<N> selects the prompt; known answers
+    results/qwen50_audit_known_answers.txt (14/14)."""
+    E = _load_fresh(os.path.join(CODE, "qwen50_engine.py"), "qwen50_engine_run")
+    return E.dispatch(paths, dict(params))
+
+
 def _hmatrend_input(sym):
     """hmatrend inputs: 1h klines + funding when a file exists. 1000PEPEUSDT
     carries 1h only in the taker cache; XAUUSDT has no file anywhere (the
@@ -2812,6 +2837,49 @@ def _s101_input(sym):
             out.append(os.path.join(DATA, "binance_funding", f))
             continue
         dirs = (("binance_klines_1m_taker", "binance_klines_1m")
+                if f.endswith("_1m.csv") else
+                ("binance_klines_5m", "binance_klines_15m",
+                 "binance_klines_1h"))
+        for dd in dirs:
+            p = os.path.join(DATA, dd, f)
+            if os.path.exists(p):
+                out.append(p)
+                break
+    return out
+
+
+QWEN50_FILES = {
+    "BTCUSDT": ["BTCUSDT_1m.csv", "BTCUSDT_5m.csv", "BTCUSDT_15m.csv",
+                "BTCUSDT_funding.json"],
+    "ETHUSDT": ["ETHUSDT_1m.csv", "ETHUSDT_5m.csv", "ETHUSDT_15m.csv",
+                "ETHUSDT_1h.csv", "ETHUSDT_funding.json", "BTCUSDT_5m.csv"],
+    "SOLUSDT": ["SOLUSDT_1m.csv", "SOLUSDT_5m.csv", "SOLUSDT_15m.csv",
+                "SOLUSDT_funding.json"],
+    "HYPEUSDT": ["HYPEUSDT_1m.csv", "HYPEUSDT_5m.csv", "HYPEUSDT_15m.csv",
+                 "HYPEUSDT_funding.json"],
+    "SUIUSDT": ["SUIUSDT_1m.csv", "SUIUSDT_5m.csv", "SUIUSDT_15m.csv",
+                "SUIUSDT_1h.csv", "SUIUSDT_funding.json"],
+    "JUPUSDT": ["JUPUSDT_1m.csv", "JUPUSDT_5m.csv", "JUPUSDT_15m.csv",
+                "JUPUSDT_funding.json"],
+    "NVDAUSDT": ["NVDAUSDT_5m.csv", "NVDAUSDT_15m.csv",
+                 "NVDAUSDT_funding.json"],
+    "SPCXUSDT": ["SPCXUSDT_5m.csv", "SPCXUSDT_15m.csv",
+                 "SPCXUSDT_funding.json"],
+}
+
+
+def _qwen50_input(sym):
+    """Per-symbol input superset for the 51-100 pack, one file per role.
+    1m resolves to the NATIVE dir first (the deep 1m store: 2023-01.. for
+    BTC/ETH/SOL vs the taker copy's 2024-10; only JUPUSDT 1m exists solely
+    in the taker dir). One file per role, so the gen-2 basename temp dir
+    cannot collide."""
+    out = []
+    for f in QWEN50_FILES[sym]:
+        if "funding" in f:
+            out.append(os.path.join(DATA, "binance_funding", f))
+            continue
+        dirs = (("binance_klines_1m", "binance_klines_1m_taker")
                 if f.endswith("_1m.csv") else
                 ("binance_klines_5m", "binance_klines_15m",
                  "binance_klines_1h"))
@@ -3483,6 +3551,23 @@ ADAPTERS = {
         "inputs": lambda tf, sym: _s101_input(sym),
         "run": run_s101, "matrix": False, "needs_tf": False,
     },
+    "qwen50": {
+        # STRATEGIES 51-100 pack (2026-11-19 attachment, source of record
+        # code/prompts_51_100.txt). 48 cells runnable, 2 NO-DATA refusals
+        # declared (93: no NVDA 1m; 98: no SPCX 1m). Engine:
+        # code/qwen50_engine.py over the audited p100_screen_engine.Book.
+        # --set id=<N> selects the prompt. Equity-style cells (91-100 minus
+        # the refusals) run on the NVDAUSDT/SPCXUSDT perp tape with NY RTH
+        # masks (s101 precedent). Costs: author-declared per prompt
+        # (10/14 bps RT crypto), repo 11 bps RT on the equity perp tape
+        # ($/share undefined on perps; declared). Known answers 14/14.
+        "sources": [os.path.join(CODE, "qwen50_engine.py"),
+                    os.path.join(CODE, "p100_screen_engine.py"),
+                    os.path.join(CODE, "prompts_51_100.txt")],
+        "version": "qwen50-1",
+        "inputs": lambda tf, sym: _qwen50_input(sym),
+        "run": run_qwen50, "matrix": False, "needs_tf": False,
+    },
     "hmatrend": {
         # External "hermes" HMA(34) Trend pack (2026-11-14): DECLARED
         # reconstruction — the source engine's code did NOT survive, only its
@@ -3587,10 +3672,18 @@ def make_artifact(strategy: str, tf: str, symbol: str, params: dict,
 
     prov = dict(prov)
     prov["engine_files"] = [os.path.basename(s) for s in a["sources"]]
-    if os.path.exists(a["sources"][0]) and all(os.path.exists(s) for s in a["sources"]):
-        prov["engine_sha256"] = _sha256_engine(a["sources"])
-    else:
-        prov["engine_sha256"] = SAX_ENGINE_SHA
+    # F11 fix: a missing declared engine source is a hard error, not a silent
+    # fallback to a constant hash (which could collide two orphaned strategies
+    # on one run_id and bind an artifact to a non-identifying engine sha).
+    # The ORPHANED path for ALREADY-STORED legacy artifacts lives in cmd_verify
+    # (it checks os.path.exists before calling make_artifact), so this only
+    # blocks NEW runs of an unrunnable strategy -- which must fail loudly.
+    missing_src = [s for s in a["sources"] if not os.path.exists(s)]
+    if missing_src:
+        raise FileNotFoundError(
+            f"engine source(s) missing from disk: {[os.path.basename(s) for s in missing_src]}. "
+            f"Strategy '{strategy}' is unrunnable; cannot bind an artifact to a constant hash.")
+    prov["engine_sha256"] = _sha256_engine(a["sources"])
     prov["engine_version"] = prov.get("engine_version") or a["version"]
     prov["harness_sha256"] = _sha256_file(os.path.abspath(__file__))
 
@@ -3638,6 +3731,52 @@ def load_artifact(run_id: str) -> dict:
             f"REFUSED: no artifact {p}. A number without an artifact is not a result.")
     with open(p, encoding="utf-8") as f:
         return json.load(f)
+
+
+def compute_gates_v2(art: dict) -> dict:
+    """F1 FIX: the v2 statistical battery (G1-G11, GATES_AND_RULES.md) is the
+    PROMOTION gate, not the v1 screen floor. An artifact must carry a `gates_v2`
+    block (computed by its adapter via _gates_v2 / gate2) or a `trades_v2` table
+    in the documented fixed-size schema. Absent either, this FAILS CLOSED: a
+    v1-only screen pass is NOT a promotable verdict. Returns a dict with at least
+    {available, pass, backtest_pass}."""
+    gv2 = art.get("gates_v2")
+    if isinstance(gv2, dict) and "backtest_pass" in gv2:
+        out = dict(gv2)
+        out["available"] = True
+        out["pass"] = bool(gv2.get("backtest_pass"))
+        return out
+    tv2 = art.get("trades_v2")
+    if tv2 is None:
+        for t in art.get("tables", []) or []:
+            if isinstance(t, dict) and t.get("kind") == "trades_v2":
+                tv2 = t.get("rows")
+                break
+    if tv2:
+        try:
+            spec = importlib.util.spec_from_file_location(
+                "_gates_v2_for_art", os.path.join(CODE, "_gates_v2.py"))
+            g = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(g)
+            df = pd.DataFrame(tv2)
+            m = art.get("metrics", {})
+            ctx = g.GateContext(
+                book_type=m.get("book_type", "directional"),
+                inventory_book=bool(m.get("inventory_book", False)),
+                notional_per_equity=float(m.get("notional_per_equity", 1.0)),
+                max_leverage=m.get("max_leverage"),
+                n_trials=m.get("n_trials"),
+            )
+            res = g.evaluate_gates_v2(df, ctx)
+            res["available"] = True
+            res["pass"] = bool(res.get("backtest_pass"))
+            return res
+        except Exception as e:
+            return {"available": False, "pass": False, "backtest_pass": False,
+                    "reason": f"v2 evaluation error: {type(e).__name__}: {e}"}
+    return {"available": False, "pass": False, "backtest_pass": False,
+            "reason": "adapter emits no gates_v2 block / trades_v2 schema; "
+                      "v1 screen pass is NOT promotable (fail closed)"}
 
 
 def _fmt(a: dict) -> str:
@@ -3992,13 +4131,25 @@ def cmd_pverify(args):
         run_ids = [x.strip() for x in args.ids.split(",") if x.strip()]
     elif args.strategy:
         run_ids = []
+        n_corrupt = 0
         for p in sorted(glob.glob(os.path.join(RUNS, "*.json"))):
             if os.path.basename(p).startswith("_"):
                 continue
-            with open(p, encoding="utf-8") as f:
-                art = json.load(f)
+            try:
+                with open(p, encoding="utf-8") as f:
+                    art = json.load(f)
+            except (json.JSONDecodeError, OSError, UnicodeDecodeError) as e:
+                # F4 fix: a pre-existing corrupt/truncated artifact of ANY
+                # strategy must not abort verification of the requested one.
+                n_corrupt += 1
+                print(f"pverify: skipping unparseable artifact {os.path.basename(p)} "
+                      f"({type(e).__name__})", flush=True)
+                continue
             if art.get("strategy") == args.strategy:
                 run_ids.append(art["run_id"])
+        if n_corrupt:
+            print(f"pverify: {n_corrupt} unparseable artifact(s) skipped (unrelated damage; "
+                  f"append-only, not deleted)", flush=True)
     else:
         print("pverify: give --strategy <name> or --ids <id1,id2,...>")
         return 2
@@ -4123,36 +4274,57 @@ def cmd_guard(args):
                               f"line cites '{s}' but run_id {rid} is for '{art_sym}'.")
                         return 2
 
+    # F18 fix: also scan `core` (cut_ts / slice dates are quotable provenance).
+    # F5 fix: in --strict, bind each line's numbers to the run_id(s) cited ON
+    # THAT LINE, not to a global pool. A table row citing cell A can no longer
+    # pass by printing cell B's metric just because B is cited elsewhere.
+    per_rid = {}
     values = []
-    for a in backers:
-        _collect_numbers(a.get("metrics"), values)
-        _collect_numbers(a.get("tables"), values)
-        _collect_numbers(a.get("inputs"), values)
-        # `params` records what the run WAS ASKED for -- a slice report necessarily
-        # quotes its slice dates, and those live here ("2025-06-14"). Not scanned:
-        # `cmd` and `created_utc`, which are provenance metadata, not measurements;
-        # scanning `cmd` would let a report quote any number by embedding it in a
-        # command line.
-        _collect_numbers(a.get("params"), values)
+    for rid, a in zip(cited, backers):
+        rv = []
+        for key in ("metrics", "tables", "inputs", "params", "core"):
+            _collect_numbers(a.get(key), rv)
+        per_rid[rid] = rv
+        values.extend(rv)
 
-    scan = HEXWORD_RE.sub(" ", text)          # run_ids / hashes are ids, not metrics
+    def _backed(val, dps, pool):
+        # primary: exact round match; secondary: rounding tolerance <= 0.01%
+        if any(abs(round(v, dps) - val) < 1e-9 for v in pool):
+            return True
+        tol = max(abs(val) * 1e-4, 1e-6)
+        return any(abs(v - val) <= tol for v in pool)
+
+    strict = getattr(args, "strict", False)
     unbacked, seen = [], set()
-    for tok in NUMBER_RE.findall(scan):
-        try:
-            val = float(tok)
-        except ValueError:
-            continue
-        dps = len(tok.split(".")[1]) if "." in tok else 0
-        # FIX4: primary — exact round match; secondary — rounding tolerance <=0.01%
-        if any(abs(round(v, dps) - val) < 1e-9 for v in values):
-            continue
-        tol = max(abs(val) * 1e-4, 1e-6)  # 0.01% relative floor 1e-6
-        if any(abs(v - val) <= tol for v in values):
-            continue
-        if tok in seen:
-            continue
-        seen.add(tok)
-        unbacked.append(tok)
+    for line_no, line in enumerate(lines, 1):
+        scan_line = HEXWORD_RE.sub(" ", line)   # run_ids / hashes are ids, not metrics
+        # F5 refinement: strip context tokens that are NOT metrics -- ISO dates and
+        # timeframe labels (5m/1h/1d) -- so per-line binding does not false-refuse
+        # on the "5" in "5m" or a slice date. Genuine metric numerals remain.
+        scan_line = re.sub(r"\b\d{4}-\d{2}-\d{2}\b", " ", scan_line)
+        scan_line = re.sub(r"\b\d+\s?(?:m|h|d|w)\b", " ", scan_line)
+        line_rids = [m for m in RUNID_RE.findall(line) if m in per_rid]
+        # strict + this line cites ids -> bind to those artifacts only;
+        # otherwise (prose lines, or non-strict) fall back to the global pool.
+        if strict and line_rids:
+            pool = []
+            for r in line_rids:
+                pool.extend(per_rid[r])
+        else:
+            pool = values
+        for tok in NUMBER_RE.findall(scan_line):
+            try:
+                val = float(tok)
+            except ValueError:
+                continue
+            dps = len(tok.split(".")[1]) if "." in tok else 0
+            if _backed(val, dps, pool):
+                continue
+            key = (tok, line_no) if strict else tok
+            if key in seen:
+                continue
+            seen.add(key)
+            unbacked.append(f"{tok} (line {line_no})" if strict else tok)
 
     if unbacked:
         print("GUARD: REFUSED — report contains numbers with no artifact behind them:")

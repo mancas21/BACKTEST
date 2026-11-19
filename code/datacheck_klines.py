@@ -99,9 +99,20 @@ def check_csv(path: Path) -> dict:
         return {"file": str(path), "sha256": digest, "size_bytes": size,
                 "error": "no open_ts column", "issues": ["schema"]}
 
-    numeric_cols = [c for c in df.columns if c != "open_ts"]
-    for c in numeric_cols:
-        df[c] = pd.to_numeric(df[c], errors="coerce")
+    # F21 FIX: audit only genuinely numeric columns. The string `timestamp`
+    # column (and any other non-numeric field) coerces to all-NaN and was being
+    # counted as nan_values == row_count, falsely flagging clean files. A column
+    # that is entirely non-numeric after coercion (but had non-null text) is a
+    # label field, not a numeric kline field -> exclude it from the NaN audit.
+    numeric_cols = []
+    for c in df.columns:
+        if c == "open_ts":
+            continue
+        conv = pd.to_numeric(df[c], errors="coerce")
+        if bool(conv.isna().all()) and bool(df[c].notna().any()):
+            continue   # non-numeric label column (e.g. timestamp) -> skip
+        df[c] = conv
+        numeric_cols.append(c)
 
     ts = df["open_ts"].to_numpy(dtype="float64", na_value=np.nan)
     n = len(df)

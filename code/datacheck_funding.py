@@ -78,7 +78,7 @@ def check_funding(path: Path) -> dict:
     cadence_deviations = interval_switches = missing_settlements = 0
     max_dev_mult = 1.0
     if step_ms > 0 and len(diffs):
-        odd = diffs[diffs != step_ms]
+        odd = diffs[np.abs(diffs - step_ms) > 1000]   # F7: tolerate +/-1s timestamp jitter
         cadence_deviations = int(len(odd))
         short = diffs[diffs < step_ms * 0.75]
         long_ = diffs[diffs > step_ms * 1.5]

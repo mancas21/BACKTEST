@@ -452,6 +452,23 @@ def main() -> int:
             n_err = sum(1 for r in res if r.get("error"))
             print(f"  -> {len(surv)} survivor(s)"
                   + (f", {n_err} error(s)" if n_err else ""))
+            # F1 FIX: the v2 battery (G1-G11) is the promotion gate. A v1 screen
+            # pass alone is NOT promotable; fail closed when v2 is absent/failing.
+            if surv:
+                v2_keep = []
+                for lbl in surv:
+                    r = results[lbl]
+                    try:
+                        gv2 = vrun.compute_gates_v2(vrun.load_artifact(r["run_id"]))
+                    except Exception as e:
+                        gv2 = {"pass": False, "reason": f"{type(e).__name__}: {e}"}
+                    if gv2.get("pass"):
+                        v2_keep.append(lbl)
+                        print(f"  v2 {lbl:<14} PASS")
+                    else:
+                        print(f"  v2 {lbl:<14} BLOCKED ({gv2.get('reason', 'v2 fail')})")
+                print(f"  -> {len(v2_keep)} v2-certifiable survivor(s) of {len(surv)} screen")
+                surv = v2_keep
             report_lines += ["## screen", "",
                              "| label | run_id | strategy | market | PF | n | net % |",
                              "|---|---|---|---|---|---|---|"]

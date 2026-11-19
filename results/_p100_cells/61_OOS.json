@@ -1,5 +1,5 @@
 {
- "run_id": "c595f86c3806d36e",
+ "run_id": "12c7f69e69cc2c98",
  "id": 61,
  "segment": "OOS",
  "symbol": "SUIUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 140,
   "n_periods_green": 0,
-  "n_settlements": 3825,
+  "n_settlements": 3849,
   "n_signals": 357,
   "n_skipped_gap_entries": 0,
   "n_trades": 354,

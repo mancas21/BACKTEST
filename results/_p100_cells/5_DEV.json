@@ -1,5 +1,5 @@
 {
- "run_id": "d6a174c2c6ef15bb",
+ "run_id": "57fc13c608b6c9f5",
  "id": 5,
  "segment": "DEV",
  "symbol": "SUIUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 3825,
+  "n_settlements": 3872,
   "n_signals": 32263,
   "n_skipped_gap_entries": 0,
   "n_trades": 3194,

@@ -1,5 +1,5 @@
 {
- "run_id": "d62aadbfe9c424be",
+ "run_id": "43b8148ce5aae331",
  "id": 29,
  "segment": "DEV",
  "symbol": "HYPEUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 0,
   "n_periods_green": 2,
-  "n_settlements": 3100,
+  "n_settlements": 3195,
   "n_signals": 237,
   "n_skipped_gap_entries": 0,
   "n_trades": 7,

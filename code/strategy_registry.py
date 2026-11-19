@@ -64,6 +64,7 @@ FAMILY = {
     "cvrmd": ("vwap_cvd_divergence", "taker_next_open"),
     "xsml": ("ml_cross_sectional", "taker_next_open"),
     "scalpwave": ("scalp_wave", "taker_next_open"),
+    "scalpma20": ("scalp_ma_suite", "taker_next_open"),
     "botstrat": ("pivot_box_breakout", "taker_next_open"),
     "xsf": ("xs_factor", "taker_next_open"),
     "xsb": ("xs_relative_value", "taker_next_open"),
@@ -112,6 +113,7 @@ VERDICT = {
     "s101": "KILLED 0/37 (ruina por costes en intradia; ninguna celda pasa la bateria estandar)",
     "hmatrend": "KILLED 0/11 (PF ex-cost 0.69-1.01, OOS PF < 1.11, CI bootstrap negativo x11; el claim externo es irreproducible desde sus propios outputs)",
     "ffs": "KILLED (window-pick)",
+    "scalpma20": "KILLED 0/120 (PF neto 0.32-0.94, net -100% a -4.5%, OOS PF<1 salvo 1 celda degenerada inf/16 trades; zero-cost PF max 1.1195 < gate 1.2: sin filo bruto sobre el gate + ruina por turnover a 11 bps; paridad de senal 100/100 vs fuente adjunta, self-test 40/40, 120 artefactos verify bit-a-bit)",
 }
 
 # dspack cells re-measured at repo6x5 (11 bps RT) on 2026-10-31

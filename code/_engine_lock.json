@@ -26,6 +26,30 @@
       "current_sha": "6e403bd8b102584db55e8f4416eae114aabb10b61287b64725002d9af5757f21",
       "n_orphaned_artifacts": 48,
       "note": "smqe-1 engine upgraded 2026-10-25 after the methodology audit: flip sizing corrected to the declared PRE-flip equity convention (the old code computed it and never used it), F11 metric fixes, and the next-open / exposure / in-market-B&H methodology views added. The 47 campaign artifacts plus the f3261c37 smoke artifact were produced with the old bytes and verify REFUSED (engine drift) by design; kept append-only. Current artifacts are cited by results/smqe_report.md. current_sha is the ADAPTER-SOURCES concatenation (engine + pine source of record), the quantity artifacts actually hash."
+    },
+    "scalpma20_engine.py": {
+      "orphaned_sha": "7ded8133d21010c9a431273ffcdea880c816bcc8ee8a0186de407900e53ee14b",
+      "current_sha": "cbe3954bd6ab8626eb39fff0b214b94e63e4f2d96d1a919fb13df4a01728d817",
+      "n_orphaned_artifacts": 120,
+      "note": "2026-11-19 audit fixes F2/F3/F12/F17/F20: p100 funding_events accumulates settlements per bar (F2); scalpma20 funding coverage checks internal holes (F3); vectorized memory-bounded bootstrap (F12); liquidation limitation declared (F17); degenerate inf-PF flag (F20). The 120 pre-fix scalpma20 artifacts verify REFUSED (engine drift) by design; kept append-only. Re-run 2026-11-19 produced 120 current artifacts (verdict unchanged 0/120 pass; funding_covers_bars corrected 120->40, internal_hole flagged on 80). current_sha is the ADAPTER-SOURCES concatenation (scalpma20_engine.py + p100_screen_engine.py). p100_screen_engine.py also changed: p100screen and s101 artifacts are likewise orphaned pending re-run."
+    },
+    "p100_screen_engine.py (p100screen adapter)": {
+      "orphaned_sha": "ed93f105dd7b0847de84190ef96371be31f33c3854fa9249f3b8a35651f3e5a3",
+      "current_sha": "8250db6cca5413b6c79ae0266206a67ac27b3a115ecdff8c1592daeebc817050",
+      "n_orphaned_artifacts": 531,
+      "note": "2026-11-19 audit fix F2/F17 changed p100_screen_engine.py. p100screen re-run 2026-11-19: 174 cells (87 prompts x DEV/OOS), all verify bit-for-bit (174 OK / 0 REFUSED). ~531 pre-fix artifacts across 10 historical engine generations orphaned by design (append-only). 3 JUPUSDT 5m OOS cells (ids 18/43/62) could NOT be re-run: pre-existing data binding to the missing stub data/binance_klines/JUPUSDT_5m.csv (not caused by the fix); their manifest entries keep old orphaned run_ids. Verdicts unchanged (intraday/1h, F2 only affects 1d funding)."
+    },
+    "p100_screen_engine.py (s101 adapter)": {
+      "orphaned_sha": "853c712f43e5c7327d0dd6c9ba5ec8f22b111c70541347f5930c8f0c4844bb9a",
+      "current_sha": "c6f8cd3fc521f5c1874801537677b8263d2d533dba935c961a7046ae2e8742c4",
+      "n_orphaned_artifacts": 96,
+      "note": "2026-11-19 audit fix F2/F17 changed p100_screen_engine.py (s101 hashes it). s101 re-run via bt plan 2026-11-19: 37 cells, all verify bit-for-bit (37 OK). 96 pre-fix artifacts across 4 historical generations orphaned by design. Verdict unchanged: 0 survivors (KILLED)."
+    },
+    "vrun.py _p100screen_inputs (F22, p100screen 5m)": {
+      "orphaned_sha": "8250db6cca5413b6c79ae0266206a67ac27b3a115ecdff8c1592daeebc817050",
+      "current_sha": "8250db6cca5413b6c79ae0266206a67ac27b3a115ecdff8c1592daeebc817050",
+      "n_orphaned_artifacts": 40,
+      "note": "2026-11-19 audit fix F22: harness TF_DIR[5m] pointed at the 30-day stub binance_klines while p100_screen_engine.load_klines reads binance_klines_5m (full history) and ignores harness paths. The 40 p100screen 5m artifacts from the F2 re-run hashed the WRONG stub input (provenance mismatch); JUP 5m (ids 18/43/62) crashed (stub file absent). _p100screen_inputs now mirrors the engine TF_DIRS. Engine sha UNCHANGED (8250db6c); supersession is by INPUT-path/run_id drift. 46 5m cells re-run with correct full-history inputs (40 corrected + 6 JUP DEV/OOS newly runnable), all verify bit-for-bit. Metrics identical (engine always read real data). Registry manifest 23/23 p100screen 5m entries repointed; 123/123 p100screen entries now current."
     }
   }
 }

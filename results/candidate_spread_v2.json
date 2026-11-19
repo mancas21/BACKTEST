@@ -1,0 +1,161 @@
+{
+ "strategy": "mid-day-lull mean-reversion",
+ "sid": 85,
+ "legs": [
+  "HYPEUSDT",
+  "SOLUSDT"
+ ],
+ "symbol": "HYPEUSDT",
+ "tf": "1h",
+ "run_id": "b6ebfc6ec584042f",
+ "parity": {
+  "n": 127,
+  "pf": 2.6072582628357934,
+  "net": 28.09923962226053,
+  "art_n": 127.0,
+  "art_pf": 2.6072582628357934,
+  "art_ret": 28.09923962226053,
+  "parity": true
+ },
+ "n_full": 540,
+ "notional_per_equity": 36.23288357453259,
+ "median_exchange_leverage": 36.23288357453259,
+ "max_leverage_cap": 20.0,
+ "n_trials": 1486,
+ "policy_hash": "0c8bf92d19d30fac",
+ "backtest_pass": false,
+ "failure_modes": [
+  "COST_FAILURE (gross edge exists, net does not clear)"
+ ],
+ "gates": {
+  "G1": {
+   "pass": true,
+   "pf_net": 1.6414829201853849,
+   "pf_gross": 2.6635898168102585,
+   "expectancy_bps": 0.28246849524706774,
+   "boot_lb_bps": 0.15245686961771218,
+   "zero_losers": false
+  },
+  "G2": {
+   "pass": true,
+   "n": 540,
+   "thin_symbols": {},
+   "n_eff": 540.0,
+   "rho1": 0.0,
+   "rho_cross": 0.0
+  },
+  "G3": {
+   "pass": true,
+   "pf_is": 1.6146322093914303,
+   "pf_oos": 1.9686349642295984,
+   "n_is": 384,
+   "n_oos": 156,
+   "purged_at_split": 0,
+   "folds_pass": 5,
+   "folds_needed": 4,
+   "folds": [
+    {
+     "n": 106,
+     "purged": 0,
+     "pf": 1.533873933222672,
+     "pass": true
+    },
+    {
+     "n": 103,
+     "purged": 0,
+     "pf": 1.2010879201768447,
+     "pass": true
+    },
+    {
+     "n": 109,
+     "purged": 0,
+     "pf": 2.5648566944480433,
+     "pass": true
+    },
+    {
+     "n": 115,
+     "purged": 0,
+     "pf": 1.9262152231516652,
+     "pass": true
+    },
+    {
+     "n": 107,
+     "purged": 0,
+     "pf": 1.403908983182977,
+     "pass": true
+    }
+   ]
+  },
+  "G4": {
+   "pass": true,
+   "frac_positive": 0.8823529411764706,
+   "worst_bucket": -0.04325378918193381,
+   "scored": 17,
+   "buckets": 17,
+   "notional_scale": 36.23288357453259
+  },
+  "G5": {
+   "pass": true,
+   "alpha_ann": 1.678423421670707,
+   "beta": 0.0,
+   "alpha_t_hac": 3.8996532293941923,
+   "strategy_return": 0.7163295064905268,
+   "bh_return": 0.0,
+   "beats_raw_bh": true,
+   "book_type": "neutral",
+   "mtm_series": true,
+   "days": 521
+  },
+  "G6": {
+   "pass": true,
+   "k_removed": 27,
+   "net_ex_top": 0.0020499517621999485,
+   "net_ex_best_month": 0.011663674157141299,
+   "net_ex_best_week": 0.013229447237947339,
+   "net_total": 0.015253298743341658
+  },
+  "G7": {
+   "pass": true,
+   "pbo": null,
+   "pbo_evaluated": false,
+   "dsr": 0.9999999999379289,
+   "sr": 0.16281254475876983,
+   "sr0": 0.05592131801975706,
+   "T": 521,
+   "n_eff_trials": 1486.0
+  },
+  "G8": {
+   "pf_at_mult": 0.9968188868627147,
+   "mean_bps_at_mult": -0.0017984365013162965,
+   "cost_share": 0.5421187987694787,
+   "breakeven_mult_pf": 1.9936734234606361,
+   "breakeven_rt_bps_pf": 0.5667354269954519,
+   "mean_rt_cost_bps": 0.2842669317483841,
+   "pf_size_aware": 0.0,
+   "pass": false
+  },
+  "G9": {
+   "boot_maxdd_p95_mtm": 0.10501203826482622,
+   "boot_maxdd_p95": 0.12602970549942083,
+   "ruin_frac": 0.0,
+   "mtm_maxdd": 0.09140748882075656,
+   "liquidation_threshold_move": 0.045000000000000005,
+   "liquidated_trades": 0,
+   "pass": true
+  },
+  "G11": {
+   "pass": true,
+   "gated": false,
+   "win_rate": 0.6055555555555555,
+   "payoff": 1.0692228195702966,
+   "breakeven_wr": 0.48327323212473755,
+   "wr_margin_pp": 12.228232343081796
+  },
+  "G10": {
+   "pass": null,
+   "status": "PENDING (needs forward run + prereg)"
+  }
+ },
+ "is_pf": 2.6073,
+ "oos_pf": 3.0997
+}

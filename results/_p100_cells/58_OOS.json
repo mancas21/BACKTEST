@@ -1,5 +1,5 @@
 {
- "run_id": "64f5893b48c0164e",
+ "run_id": "47bf8a0473b5feda",
  "id": 58,
  "segment": "OOS",
  "symbol": "BTCUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 7815,
+  "n_settlements": 7826,
   "n_signals": 0,
   "n_skipped_gap_entries": 0,
   "n_trades": 0,

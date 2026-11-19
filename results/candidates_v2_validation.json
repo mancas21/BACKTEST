@@ -1,0 +1,493 @@
+[
+ {
+  "strategy": "mid-day-lull mean-reversion",
+  "family": "p100screen",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "sid": 85,
+  "run_id": "b6ebfc6ec584042f",
+  "status": "SKIPPED (pair/basket rebalance book: esquema por-periodo requiere instrumentación propia)"
+ },
+ {
+  "strategy": "atr vol breakout",
+  "family": "pack20",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "status": "SKIPPED (pack20 engine needs separate instrumentation)",
+  "run_id": "3aaf8d34f49f1187"
+ },
+ {
+  "strategy": "vwap fade",
+  "family": "pack20",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "status": "SKIPPED (pack20 engine needs separate instrumentation)",
+  "run_id": "44a23ab194b621be"
+ },
+ {
+  "strategy": "TRIX(15) zero-cross",
+  "family": "p100screen",
+  "symbol": "BTCUSDT",
+  "tf": "15m",
+  "sid": 52,
+  "run_id": "9e93753caa755c27",
+  "parity": {
+   "n": 877,
+   "pf": 1.1319877572494246,
+   "net": 393.39507203263196,
+   "art_n": 877.0,
+   "art_pf": 1.1319877572494246,
+   "art_ret": 393.39507203263196,
+   "parity": true
+  },
+  "n_full": 1067,
+  "notional_per_equity": 1.3151408377329366,
+  "n_trials": 1486,
+  "policy_hash": "0c8bf92d19d30fac",
+  "backtest_pass": false,
+  "failure_modes": [],
+  "gates": {
+   "G1": {
+    "pass": true,
+    "pf_net": 1.2146889994880197,
+    "pf_gross": 1.4546953103702918,
+    "expectancy_bps": 17.272099216392704,
+    "boot_lb_bps": 0.8511140959204354,
+    "zero_losers": false
+   },
+   "G2": {
+    "pass": true,
+    "n": 1067,
+    "thin_symbols": {},
+    "n_eff": 1067.0,
+    "rho1": 0.0,
+    "rho_cross": 0.0
+   },
+   "G3": {
+    "pass": false,
+    "pf_is": 1.339359797262318,
+    "pf_oos": 0.9023977635334818,
+    "n_is": 696,
+    "n_oos": 371,
+    "purged_at_split": 0,
+    "folds_pass": 4,
+    "folds_needed": 4,
+    "folds": [
+     {
+      "n": 169,
+      "purged": 1,
+      "pf": 1.8653537167925762,
+      "pass": true
+     },
+     {
+      "n": 211,
+      "purged": 0,
+      "pf": 1.1174906292225677,
+      "pass": true
+     },
+     {
+      "n": 214,
+      "purged": 0,
+      "pf": 0.9472410720831047,
+      "pass": false
+     },
+     {
+      "n": 220,
+      "purged": 0,
+      "pf": 1.0702620164730428,
+      "pass": true
+     },
+     {
+      "n": 252,
+      "purged": 0,
+      "pf": 1.0252145260520291,
+      "pass": true
+     }
+    ]
+   },
+   "G4": {
+    "pass": false,
+    "frac_positive": 0.5,
+    "worst_bucket": -0.2215692057994457,
+    "scored": 86,
+    "buckets": 87,
+    "notional_scale": 1.3151408377329366
+   },
+   "G5": {
+    "pass": false,
+    "alpha_ann": 0.3725068592119625,
+    "beta": 0.10210795410916475,
+    "alpha_t_hac": 1.6537724123781394,
+    "strategy_return": 2.1642758196751792,
+    "bh_return": 5.51031,
+    "beats_raw_bh": false,
+    "book_type": "directional",
+    "mtm_series": true,
+    "days": 2625
+   },
+   "G6": {
+    "pass": false,
+    "k_removed": 54,
+    "net_ex_top": -6.202007372327639,
+    "net_ex_best_month": 1.406690994380648,
+    "net_ex_best_week": 1.4723785849494977,
+    "net_total": 1.8429329863891013
+   },
+   "G7": {
+    "pass": false,
+    "pbo": null,
+    "pbo_evaluated": false,
+    "dsr": 0.08918997743351559,
+    "sr": 0.037962751115543876,
+    "sr0": 0.06324980993299224,
+    "T": 2625,
+    "n_eff_trials": 1486.0
+   },
+   "G8": {
+    "pf_at_mult": 1.0695306569240617,
+    "mean_bps_at_mult": 6.252895123278351,
+    "cost_share": 0.34355974426428026,
+    "breakeven_mult_pf": 2.567454334309465,
+    "breakeven_rt_bps_pf": 28.291303309507043,
+    "mean_rt_cost_bps": 11.019204093114352,
+    "pf_size_aware": 1.1728719041717361,
+    "pass": true
+   },
+   "G9": {
+    "boot_maxdd_p95_mtm": 0.7891616289297309,
+    "boot_maxdd_p95": 0.852177964872522,
+    "ruin_frac": 0.0,
+    "mtm_maxdd": 0.5859275705883693,
+    "liquidation_threshold_move": 0.045000000000000005,
+    "liquidated_trades": 4,
+    "pass": false
+   },
+   "G11": {
+    "pass": true,
+    "gated": false,
+    "win_rate": 0.14058106841611998,
+    "payoff": 7.425798750203427,
+    "breakeven_wr": 0.11868311001088848,
+    "wr_margin_pp": 2.1897958405231495
+   },
+   "G10": {
+    "pass": null,
+    "status": "PENDING (needs forward run + prereg)"
+   }
+  },
+  "is_pf": 1.132,
+  "oos_pf": 1.0705
+ },
+ {
+  "strategy": "triple EMA (8/21/55) pullback",
+  "family": "p100screen",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "sid": 26,
+  "run_id": "2f8f3ce69d850de1",
+  "parity": {
+   "n": 942,
+   "pf": 1.2621765384956332,
+   "net": 319.03982881405454,
+   "art_n": 942.0,
+   "art_pf": 1.2621765384956332,
+   "art_ret": 319.03982881405454,
+   "parity": true
+  },
+  "n_full": 1136,
+  "notional_per_equity": 0.3544266014209021,
+  "n_trials": 1486,
+  "policy_hash": "0c8bf92d19d30fac",
+  "backtest_pass": false,
+  "failure_modes": [
+   "COST_FAILURE (gross edge exists, net does not clear)"
+  ],
+  "gates": {
+   "G1": {
+    "pass": false,
+    "pf_net": 1.1312962600995708,
+    "pf_gross": 1.2481472370208364,
+    "expectancy_bps": 20.281353403730716,
+    "boot_lb_bps": -4.501765077156559,
+    "zero_losers": false
+   },
+   "G2": {
+    "pass": true,
+    "n": 1136,
+    "thin_symbols": {},
+    "n_eff": 1136.0,
+    "rho1": 0.0,
+    "rho_cross": 0.0
+   },
+   "G3": {
+    "pass": false,
+    "pf_is": 1.2549969853604472,
+    "pf_oos": 0.8696408841238734,
+    "n_is": 748,
+    "n_oos": 387,
+    "purged_at_split": 1,
+    "folds_pass": 3,
+    "folds_needed": 4,
+    "folds": [
+     {
+      "n": 198,
+      "purged": 1,
+      "pf": 1.6938440417685217,
+      "pass": true
+     },
+     {
+      "n": 206,
+      "purged": 1,
+      "pf": 1.0381040660052612,
+      "pass": true
+     },
+     {
+      "n": 230,
+      "purged": 1,
+      "pf": 1.088896459594335,
+      "pass": true
+     },
+     {
+      "n": 241,
+      "purged": 1,
+      "pf": 0.9916575422430407,
+      "pass": false
+     },
+     {
+      "n": 257,
+      "purged": 0,
+      "pf": 0.9163406570430205,
+      "pass": false
+     }
+    ]
+   },
+   "G4": {
+    "pass": false,
+    "frac_positive": 0.5060240963855421,
+    "worst_bucket": -0.09830886845370186,
+    "scored": 83,
+    "buckets": 84,
+    "notional_scale": 0.3544266014209021
+   },
+   "G5": {
+    "pass": false,
+    "alpha_ann": 0.24058096207005952,
+    "beta": 0.015673795587529942,
+    "alpha_t_hac": 2.275401107796796,
+    "strategy_return": 0.7962768235752837,
+    "bh_return": 14.563904109589041,
+    "beats_raw_bh": false,
+    "book_type": "directional",
+    "mtm_series": true,
+    "days": 2532
+   },
+   "G6": {
+    "pass": false,
+    "k_removed": 57,
+    "net_ex_top": -8.987526414269585,
+    "net_ex_best_month": 1.4487974633517462,
+    "net_ex_best_week": 1.7331101769593564,
+    "net_total": 2.3039617466638096
+   },
+   "G7": {
+    "pass": false,
+    "pbo": null,
+    "pbo_evaluated": false,
+    "dsr": 0.1868824599734208,
+    "sr": 0.04769909317777,
+    "sr0": 0.06482921765716051,
+    "T": 2532,
+    "n_eff_trials": 1486.0
+   },
+   "G8": {
+    "pf_at_mult": 1.0569111133439035,
+    "mean_bps_at_mult": 9.253655834747159,
+    "cost_share": 0.30426323223133994,
+    "breakeven_mult_pf": 2.8391285467216587,
+    "breakeven_rt_bps_pf": 31.309050972714264,
+    "mean_rt_cost_bps": 11.02769756898356,
+    "pf_size_aware": 1.1293097399677474,
+    "pass": true
+   },
+   "G9": {
+    "boot_maxdd_p95_mtm": 0.5146717173842908,
+    "boot_maxdd_p95": 0.5900896810349354,
+    "ruin_frac": 0.0,
+    "mtm_maxdd": 0.29788280665611955,
+    "liquidation_threshold_move": 0.045000000000000005,
+    "liquidated_trades": 137,
+    "pass": false
+   },
+   "G11": {
+    "pass": true,
+    "gated": false,
+    "win_rate": 0.2649647887323944,
+    "payoff": 3.1383135454589426,
+    "breakeven_wr": 0.24164432902802177,
+    "wr_margin_pp": 2.3320459704372603
+   },
+   "G10": {
+    "pass": null,
+    "status": "PENDING (needs forward run + prereg)"
+   }
+  },
+  "is_pf": 1.2622,
+  "oos_pf": 1.0348
+ },
+ {
+  "strategy": "impulse-bar continuation",
+  "family": "p100screen",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "sid": 45,
+  "run_id": "df3d84f2bad4b17b",
+  "parity": {
+   "n": 622,
+   "pf": 1.2747938111630186,
+   "net": 264.6295563399547,
+   "art_n": 622.0,
+   "art_pf": 1.2747938111630186,
+   "art_ret": 264.6295563399547,
+   "parity": true
+  },
+  "n_full": 755,
+  "notional_per_equity": 0.5247987421362268,
+  "n_trials": 1486,
+  "policy_hash": "0c8bf92d19d30fac",
+  "backtest_pass": false,
+  "failure_modes": [
+   "COST_FAILURE (gross edge exists, net does not clear)"
+  ],
+  "gates": {
+   "G1": {
+    "pass": false,
+    "pf_net": 1.1909497107649976,
+    "pf_gross": 1.3275310682599326,
+    "expectancy_bps": 31.596734297824877,
+    "boot_lb_bps": -2.5318819543010727,
+    "zero_losers": false
+   },
+   "G2": {
+    "pass": true,
+    "n": 755,
+    "thin_symbols": {},
+    "n_eff": 755.0,
+    "rho1": 0.0,
+    "rho_cross": 0.0
+   },
+   "G3": {
+    "pass": false,
+    "pf_is": 1.2568510386841654,
+    "pf_oos": 1.007716893053371,
+    "n_is": 510,
+    "n_oos": 244,
+    "purged_at_split": 1,
+    "folds_pass": 3,
+    "folds_needed": 4,
+    "folds": [
+     {
+      "n": 150,
+      "purged": 0,
+      "pf": 1.1253675791039177,
+      "pass": true
+     },
+     {
+      "n": 127,
+      "purged": 1,
+      "pf": 1.4629226539180848,
+      "pass": true
+     },
+     {
+      "n": 167,
+      "purged": 1,
+      "pf": 0.9368332271508202,
+      "pass": false
+     },
+     {
+      "n": 147,
+      "purged": 1,
+      "pf": 1.3691177308052243,
+      "pass": true
+     },
+     {
+      "n": 161,
+      "purged": 0,
+      "pf": 0.9915480353701065,
+      "pass": false
+     }
+    ]
+   },
+   "G4": {
+    "pass": false,
+    "frac_positive": 0.41333333333333333,
+    "worst_bucket": -0.18361081531538326,
+    "scored": 75,
+    "buckets": 84,
+    "notional_scale": 0.5247987421362268
+   },
+   "G5": {
+    "pass": false,
+    "alpha_ann": 0.22455567747947228,
+    "beta": 0.038634426067589246,
+    "alpha_t_hac": 1.664559102612637,
+    "strategy_return": 1.1820065123406165,
+    "bh_return": 14.563904109589041,
+    "beats_raw_bh": false,
+    "book_type": "directional",
+    "mtm_series": true,
+    "days": 2532
+   },
+   "G6": {
+    "pass": false,
+    "k_removed": 38,
+    "net_ex_top": -7.235920585086508,
+    "net_ex_best_month": 1.712878850734356,
+    "net_ex_best_week": 1.790968583674701,
+    "net_total": 2.3855534394857782
+   },
+   "G7": {
+    "pass": false,
+    "pbo": null,
+    "pbo_evaluated": false,
+    "dsr": 0.06977026948243126,
+    "sr": 0.03640706355449641,
+    "sr0": 0.06488920923674679,
+    "T": 2532,
+    "n_eff_trials": 1486.0
+   },
+   "G8": {
+    "pf_at_mult": 1.1182497141034524,
+    "mean_bps_at_mult": 20.56804805147912,
+    "cost_share": 0.21606466150579512,
+    "breakeven_mult_pf": 3.8649590342906084,
+    "breakeven_rt_bps_pf": 42.62542054417063,
+    "mean_rt_cost_bps": 11.028686246345762,
+    "pf_size_aware": 1.1854773882304646,
+    "pass": true
+   },
+   "G9": {
+    "boot_maxdd_p95_mtm": 0.6838533143862863,
+    "boot_maxdd_p95": 0.7013735457599467,
+    "ruin_frac": 0.0,
+    "mtm_maxdd": 0.409400458789428,
+    "liquidation_threshold_move": 0.045000000000000005,
+    "liquidated_trades": 60,
+    "pass": false
+   },
+   "G11": {
+    "pass": true,
+    "gated": false,
+    "win_rate": 0.23178807947019867,
+    "payoff": 3.9471476128211345,
+    "breakeven_wr": 0.20213668122786116,
+    "wr_margin_pp": 2.9651398242337508
+   },
+   "G10": {
+    "pass": null,
+    "status": "PENDING (needs forward run + prereg)"
+   }
+  },
+  "is_pf": 1.2748,
+  "oos_pf": 1.0137
+ }
+]

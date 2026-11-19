@@ -1,5 +1,5 @@
 {
- "run_id": "9fa3fda22cdaec96",
+ "run_id": "a6141dae07d0a0ec",
  "id": 7,
  "segment": "DEV",
  "symbol": "BTCUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 231,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 7815,
+  "n_settlements": 7826,
   "n_signals": 7029,
   "n_skipped_gap_entries": 0,
   "n_trades": 1083,

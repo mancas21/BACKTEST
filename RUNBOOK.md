@@ -2,6 +2,14 @@
 
 ## Paper forward de 5 pares (VPS) — `~/neutral-paper`
 
+> **⚠️ RETIRED (2026-11-16) — SECCIÓN HISTÓRICA, NO OPERATIVA.**
+> Todos los bots de trading del VPS fueron borrados; el crontab del usuario está
+> vacío. Ver el tombstone en `AGENTS.md` ("Bots that USED to run on the VPS — ALL
+> RETIRED") y los backups `backups/vps_retired_paper_mp18_*.tar.gz` /
+> `backups/vps_crontab_snapshots_*.tar.gz`. Lo que sigue en el VPS son solo los
+> lectores de datos y el scanner. **No re-desplegar ni operar nada de esta sección.**
+> El layout/cron de abajo se conserva como registro de lo que existió.
+
 Bot independiente: grid DELTA-NEUTRAL sobre cinco perpetuos (JUP, XRP, SOL, HYPE,
 SUI de Binance USDT-M), 15m, paper only. Un directorio por par, con su propio
 estado, logs y datos. **No toca** `~/paper`, `~/grid-paper`, `~/cqb`,

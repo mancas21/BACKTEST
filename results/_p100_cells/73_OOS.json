@@ -1,5 +1,5 @@
 {
- "run_id": "557212148c5707e0",
+ "run_id": "69b93e7b4ca9ad7f",
  "id": 73,
  "segment": "OOS",
  "symbol": "ETHUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 12,
   "n_periods_green": 2,
-  "n_settlements": 7582,
+  "n_settlements": 7593,
   "n_signals": 19,
   "n_skipped_gap_entries": 0,
   "n_trades": 19,

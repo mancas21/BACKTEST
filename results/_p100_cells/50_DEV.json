@@ -1,5 +1,5 @@
 {
- "run_id": "bcadd170937dcde9",
+ "run_id": "47f07ddd7698b3d5",
  "id": 50,
  "segment": "DEV",
  "symbol": "JUPUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 4574,
+  "n_settlements": 4601,
   "n_signals": 23655,
   "n_skipped_gap_entries": 0,
   "n_trades": 12452,

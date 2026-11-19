@@ -6,12 +6,23 @@ contiene números sin artefacto detrás: **no citar sus números**; leerlo solo
 como narrativa o historia. Estado de guard puede cambiar cuando los datos
 subyacentes cambian — regenerar este índice re-corriendo los comandos.
 
+## Catálogos / rankings (referencia, no veredictos de kill)
+
+| Informe | Contenido | Nota |
+|---|---|---|
+| `TOP100_ESTRATEGIAS.md` | Top-100 estrategias distintas por PF neto IS (artefacto verificado), con descripción, familia, símbolo/TF, métricas IS/OOS, costes, funding, ventana, veredicto y run_id. Datos: `top100_catalog.json` / `.csv`. Builder: `code/_top100_catalog.py`. | Ranking RELATIVO dentro de un corpus con 0 supervivientes; solo 68/100 con PF neto>1. Números por estrategia citan run_id (fichas); los conteos del resumen son agregaciones (no guard-certificado). |
+| `TOP_OOS_ROBUST.md` | Vista alternativa: ranking por PF neto OOS + filtro de robustez (IS n≥100, PF IS>1, OOS PF>1, OOS n≥30, boot CI>0). 6 pasan el filtro ligero; 29 sostienen OOS. Datos: `top_oos_robust.json`. | El filtro es SUBCONJUNTO de G1-G11 (faltan 2× coste, DSR, concentración, P95 DD, B&H); las 6 NO son supervivientes validadas (mayoría SIN VEREDICTO). Priorización de investigación. |
+| `CANDIDATES_V2_VALIDATION.md` | Batería G1-G11 COMPLETA sobre las candidatas robustas. 3 family-A re-corridas con el Book del repo, paridad DEV bit-a-bit, esquema v2 reconstruido (gross/cost/funding/MAE). **0/3 pasan**. Datos: `candidates_v2_validation.json`. Validator: `code/_validate_candidates_v2.py`. | TRIX BTC 15m pasa G1/G2/G8/G11 pero cae G3/G4/G5/G6/G7/G9 (DSR 0.089, concentración, no bate B&H, liquidaciones). id=85 spread + 2 pack20 pendientes de instrumentación de su book. |
+| `CANDIDATE_SPREAD_V2.md` | Batería G1-G11 sobre el SPREAD id=85 (mid-day-lull HYPE/SOL, beta Kalman). SpreadBook instrumentado en memoria, paridad DEV OK, esquema v2 en fracciones del notional de exchange, book neutral (benchmark cash). **Pasa 9/10, solo falla G8**. Datos: `candidate_spread_v2.json`. Validator: `code/_validate_spread_v2.py`. | DSR=1.0, alfa t=3.90, OOS PF 1.97, DD 9.1%; G8 falla (cost_share 54%, PF@2×coste 0.997). Leverage de exchange 36x > cap 20x (tradeability). F23 corregido (G5 benchmark neutral singular). NO es superviviente validada. |
+| `TOP100_RERUN_2026-11-19.md` | Corrida fresca del top-100 completo (in-process, `make_artifact` con cut auto, ocho procesos): 25 REPRODUCED (mismo run_id, reproducción bit a bit), 74 REFRESHED (datos crecidos desde la creación del artefacto citado → run_id nuevo), 1 ORPHANED (sax, engine borrado). 23 celdas OOS hermanas de p100screen re-corridas. `pverify`: 122/122 OK. Mapa: `_top100_rerun_20261119_map.json`; ids frescos: `_top100_fresh_ids_20261119.txt`. Runner: `code/_top100_rerun_20261119.py`. Builder: `code/_top100_rerun_report_20261119.py`. | Medición, no veredictos (REGLA 1): re-correr no cambia ningún veredicto ni crea supervivientes. Guard --strict OK hoy. Mayores movimientos: r91 scalpwave PF 0.950→0.776 (SOL 5m), r4 qs096 OOS PF 6.41→7.99. Único flip OOS: r30 qs097 SUI. |
+
 ## Campañas de packs (veredictos de kill)
 
 | Informe | Familia | Veredicto | Guard hoy |
 |---|---|---|---|
 | `pack50_report.md` | llm_pack (48 prompts) | KILLED 0/48 | **OK** |
 | `pack50b_report.md` | llm_pack claude2 | KILLED 0/46 | OK |
+| `QWEN50_REPORT_2026-11-19.md` | qwen50 (50 prompts 51-100, Qwen; 48 corridas, 2 NO-DATA declarados: 93 sin NVDA 1m, 98 sin SPCX 1m) | KILLED 0/48 (screen: mejor PF 0.99, ninguno llega a 1.0; 1m arrasado por costes, PF 0.02-0.38) | **OK** |
 | `pack50c_report.md` | llm_pack Qwen-50 | KILLED 0/42 | OK |
 | `pack50d_report.md` | llm_pack DeepSeek | KILLED 0/48 | OK |
 | `pack100_report.md` | llm_pack Sonnet-100 | KILLED 0/100 | **OK** |
@@ -215,3 +226,5 @@ hayan crecido después del corte.
 | `hmatrend_report_2026-11-14.md` | hmatrend (pack externo hermes HMA(34) Trend, 12 pares 1h 2026; reconstrucción declarada - el código fuente del pack NO sobrevivió) | KILLED — cero de once celdas pasa la batería (22 artifacts verify OK); el claim es irreproducible desde sus propios outputs; XAU NO DATA | **OK (strict)** |
 
 | `ema921_report_2026-11-17.md` | ema921 (9-21 EMA crossover, adjunto 2026-11-17; 101 celdas: ocho 1m, diez 5m, treinta y cinco 15m, treinta y siete 1h, once 1d) | KILLED — cero de ciento una celdas pasa la batería; las dos con PF>1.2 (LAB y ZEC 1h) mueren por IC bootstrap y por B&H; ruina por coste de giro en 1m-1h; 1d sin muestra | **OK (strict)** |
+
+| `scalpma20_report_2026-11-18.md` | scalpma20 (20 estrategias MA de scalping 1m-5m del adjunto `scalp_ma_suite-20 STATEGIES-CLAUDE.py`; SOL/SUI/HYPE × {5m,1m} × 20 = 120 celdas screen) | KILLED — cero de ciento veinte celdas pasa la batería; PF neto 0.32-0.94, net −100% a −4.5%, OOS PF<1 salvo una celda degenerada (inf/16 trades); zero-cost PF máx 1.1195 < gate 1.2 → sin filo bruto sobre el gate + ruina por turnover a 11 bps; paridad de señal 100/100 vs fuente adjunta, self-test 40/40, 120 artifacts verify bit-a-bit | **OK (strict)** |

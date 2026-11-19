@@ -1,5 +1,5 @@
 {
- "run_id": "38069cf8ade8acd6",
+ "run_id": "15394e390924edd7",
  "id": 77,
  "segment": "OOS",
  "symbol": "JUPUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 4574,
+  "n_settlements": 4601,
   "n_signals": 0,
   "n_skipped_gap_entries": 0,
   "n_trades": 0,

@@ -1,5 +1,5 @@
 {
- "run_id": "48c6358d29dc701a",
+ "run_id": "88cf07aae3f2595c",
  "id": 65,
  "segment": "DEV",
  "symbol": "SOLUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 1332,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 6785,
+  "n_settlements": 6832,
   "n_signals": 1804,
   "n_skipped_gap_entries": 0,
   "n_trades": 1729,

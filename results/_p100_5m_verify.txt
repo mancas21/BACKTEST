@@ -1,0 +1,50 @@
+pverify 46 artifact(s), workers=4
+OK       0bf32611ec7fadba  OK: 0bf32611ec7fadba reproduces bit-for-bit.
+OK       12c7f69e69cc2c98  OK: 12c7f69e69cc2c98 reproduces bit-for-bit.
+OK       0ecb01b79dd527c7  OK: 0ecb01b79dd527c7 reproduces bit-for-bit.
+OK       0613c5fc743ad71d  OK: 0613c5fc743ad71d reproduces bit-for-bit.
+OK       13bbb3a90862356f  OK: 13bbb3a90862356f reproduces bit-for-bit.
+OK       1556a5cbf321f839  OK: 1556a5cbf321f839 reproduces bit-for-bit.
+OK       224bdd64f0ad3609  OK: 224bdd64f0ad3609 reproduces bit-for-bit.
+OK       1796aee54b0d4352  OK: 1796aee54b0d4352 reproduces bit-for-bit.
+OK       1e2e095201dcee87  OK: 1e2e095201dcee87 reproduces bit-for-bit.
+OK       265b7ffd1419b1ed  OK: 265b7ffd1419b1ed reproduces bit-for-bit.
+OK       235918373a749bc2  OK: 235918373a749bc2 reproduces bit-for-bit.
+OK       277d0d4248b32891  OK: 277d0d4248b32891 reproduces bit-for-bit.
+OK       49cdc85e4dc406ae  OK: 49cdc85e4dc406ae reproduces bit-for-bit.
+OK       55dd179955d363cc  OK: 55dd179955d363cc reproduces bit-for-bit.
+OK       591f632e567c34de  OK: 591f632e567c34de reproduces bit-for-bit.
+OK       60f6877432f72aca  OK: 60f6877432f72aca reproduces bit-for-bit.
+OK       435748f6c3b5df7e  OK: 435748f6c3b5df7e reproduces bit-for-bit.
+OK       845450c3b7eed08b  OK: 845450c3b7eed08b reproduces bit-for-bit.
+OK       5bc673c0d475f18e  OK: 5bc673c0d475f18e reproduces bit-for-bit.
+OK       8d8c301179bcdb75  OK: 8d8c301179bcdb75 reproduces bit-for-bit.
+OK       981b2c244c44691b  OK: 981b2c244c44691b reproduces bit-for-bit.
+OK       474eb2b7cde668ae  OK: 474eb2b7cde668ae reproduces bit-for-bit.
+OK       7778d17f029fb213  OK: 7778d17f029fb213 reproduces bit-for-bit.
+OK       9d753e7ef21c9539  OK: 9d753e7ef21c9539 reproduces bit-for-bit.
+OK       a27e87bf0078ce59  OK: a27e87bf0078ce59 reproduces bit-for-bit.
+OK       abd30a685fb17ff5  OK: abd30a685fb17ff5 reproduces bit-for-bit.
+OK       b0000c8fc03ee7d1  OK: b0000c8fc03ee7d1 reproduces bit-for-bit.
+OK       b142f223cb9c50fa  OK: b142f223cb9c50fa reproduces bit-for-bit.
+OK       a490502c2746732e  OK: a490502c2746732e reproduces bit-for-bit.
+OK       b42fed4de29e0d40  OK: b42fed4de29e0d40 reproduces bit-for-bit.
+OK       d61829fb3e0e6ee2  OK: d61829fb3e0e6ee2 reproduces bit-for-bit.
+OK       aec34170e3efd169  OK: aec34170e3efd169 reproduces bit-for-bit.
+OK       b47c2eefdac58a26  OK: b47c2eefdac58a26 reproduces bit-for-bit.
+OK       db4cc1b874b1f993  OK: db4cc1b874b1f993 reproduces bit-for-bit.
+OK       c8d13a1bdfc25adf  OK: c8d13a1bdfc25adf reproduces bit-for-bit.
+OK       d921399bc614bd45  OK: d921399bc614bd45 reproduces bit-for-bit.
+OK       eb5b5f27cc144996  OK: eb5b5f27cc144996 reproduces bit-for-bit.
+OK       e5d24e3f7a597c9e  OK: e5d24e3f7a597c9e reproduces bit-for-bit.
+OK       f2deec11580a4b19  OK: f2deec11580a4b19 reproduces bit-for-bit.
+OK       f12cf690ecb64636  OK: f12cf690ecb64636 reproduces bit-for-bit.
+OK       db0ca975d8c92121  OK: db0ca975d8c92121 reproduces bit-for-bit.
+OK       fcf43165788f1df3  OK: fcf43165788f1df3 reproduces bit-for-bit.
+OK       fdc4dcd83038e58f  OK: fdc4dcd83038e58f reproduces bit-for-bit.
+OK       fe327e6cecf89a2c  OK: fe327e6cecf89a2c reproduces bit-for-bit.
+OK       fe14cd45503d6956  OK: fe14cd45503d6956 reproduces bit-for-bit.
+OK       ff2870b7c63a83e0  OK: ff2870b7c63a83e0 reproduces bit-for-bit.
+---
+pverify: 46 OK, 0 STALE, 0 ORPHANED, 0 REFUSED (of 46); exit code reports the worst case
+EXIT=0

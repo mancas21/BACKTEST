@@ -177,7 +177,10 @@ def stationary_bootstrap_indices(n: int, reps: int, mean_block: float,
 
 
 def _safe_reps(n: int, reps: int) -> int:
-    return int(max(200, min(reps, 6_000_000 // max(n, 1))))
+    # F14: the memory cap is binding (the old max(200, ...) overrode it and could
+    # allocate a 200 x n matrix ~1.6 GB at n=1e6). For very large n, reps is
+    # memory-bound; chunking is a future improvement.
+    return int(max(1, min(reps, 6_000_000 // max(n, 1))))
 
 
 def _block_len(n: int) -> float:
@@ -214,6 +217,19 @@ def alpha_beta_hac(y: np.ndarray, x: np.ndarray) -> Tuple[float, float, float]:
     y = np.asarray(y, float)
     x = np.asarray(x, float)
     T = len(y)
+    # F23: a zero-variance benchmark (cash for a market-neutral book) makes
+    # X=[1,x] singular and inv() returned (0,0,0), falsely failing G5. The alpha
+    # vs a constant benchmark is mean(y) with a Newey-West t-stat on the mean
+    # (beta=0, unidentified). Handle it without the singular inverse.
+    if float(np.std(x)) <= 1e-12:
+        m = float(y.mean()); e = y - m
+        L = int(np.floor(4 * (T / 100.0) ** (2.0 / 9.0)))
+        S00 = float(e @ e)
+        for l in range(1, L + 1):
+            w = 1 - l / (L + 1.0)
+            S00 += 2 * w * float(e[l:] @ e[:-l])
+        se = math.sqrt(max(S00, 0.0)) / T
+        return m, 0.0, float(m / se if se > 0 else 0.0)
     X = np.column_stack([np.ones(T), x])
     try:
         XtX_inv = np.linalg.inv(X.T @ X)
@@ -406,7 +422,7 @@ def _pf_slice(t, lo, hi, purge_hi=True):
 
 
 def gate_g3(t, ctx, P, rng):
-    t0, t1 = t["entry_time"].min(), t["exit_time"].max()
+    t0, t1 = t["entry_time"].min(), t["entry_time"].max()   # F13: consistent entry axis
     split = t0 + (t1 - t0) * P["g3_split"]
     is_, p_is = _pf_slice(t, t0, split)
     oos = t[t["entry_time"] >= split]
@@ -436,10 +452,13 @@ def gate_g4(t, ctx, P, rng):
         return {"pass": False, "reason": "insufficient scored buckets",
                 "scored": int(len(scored)), "buckets": int(len(b))}
     frac = float((scored["sum"] > 0).mean())
-    worst = float(scored["sum"].min())
+    # F8: bucket sums are fixed-size per-trade fractions; scale by the sizing
+    # multiple so the -15% bound is a true equity-capital fraction, not a
+    # size/count-dependent sum.
+    worst = float(scored["sum"].min()) * ctx.notional_per_equity
     return {"pass": bool(frac >= P["g4_pos_frac_min"] and worst >= P["g4_worst_bucket_min"]),
             "frac_positive": frac, "worst_bucket": worst, "scored": int(len(scored)),
-            "buckets": int(len(b))}
+            "buckets": int(len(b)), "notional_scale": ctx.notional_per_equity}
 
 
 def gate_g5(t, ctx, P, rng):
@@ -546,9 +565,22 @@ def gate_g9(t, ctx, P, rng):
     ok = True
     r = t["net"].to_numpy()
     bs = bootstrap_max_dd(r, ctx.notional_per_equity, P["boot_reps"], rng)
-    out["boot_maxdd_p95"] = bs["p95"]
+    p95 = bs["p95"]
+    # F9: for books with a mark-to-market equity series, the tail gate must also
+    # consider the MTM bar-return drawdown -- open inventory underwater between
+    # closes is invisible to the closed-trade sequence. Stricter reading wins.
+    if ctx.equity_mtm is not None:
+        e = ctx.equity_mtm.to_numpy(float)
+        if len(e) > 3:
+            mr = np.diff(e) / e[:-1]
+            mr = mr[np.isfinite(mr)]
+            if len(mr) > 3:
+                bs_mtm = bootstrap_max_dd(mr, 1.0, P["boot_reps"], rng)
+                out["boot_maxdd_p95_mtm"] = bs_mtm["p95"]
+                p95 = max(p95, bs_mtm["p95"])
+    out["boot_maxdd_p95"] = p95
     out["ruin_frac"] = bs["ruin_frac"]
-    ok &= bs["p95"] <= P["g9_dd_max"] and bs["ruin_frac"] == 0.0
+    ok &= p95 <= P["g9_dd_max"] and bs["ruin_frac"] == 0.0
     if ctx.equity_mtm is not None:
         e = ctx.equity_mtm.to_numpy(float)
         dd = float((1 - e / np.maximum.accumulate(e)).max())
@@ -748,7 +780,7 @@ def null_calibration(df: pd.DataFrame, n_trades: int, hold_bars: Sequence[int],
     the empirical false-positive rate P0; with edge_bps>0 it is power at that edge."""
     rng = np.random.default_rng(seed)
     pol = _calib_policy(policy, reps)
-    names = ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9"]
+    names = ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G11"]   # F16: include G11
     per = {g: 0 for g in names}
     joint = joint_no_g7 = 0
     for _ in range(n_sims):

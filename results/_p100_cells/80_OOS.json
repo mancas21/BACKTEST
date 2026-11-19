@@ -1,5 +1,5 @@
 {
- "run_id": "5c32d4af2872c170",
+ "run_id": "49cdc85e4dc406ae",
  "id": 80,
  "segment": "OOS",
  "symbol": "SOLUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 0,
   "n_exits_time": 183,
   "n_periods_green": 0,
-  "n_settlements": 6785,
+  "n_settlements": 6809,
   "n_signals": 361,
   "n_skipped_gap_entries": 0,
   "n_trades": 361,

@@ -141,6 +141,21 @@ seleccionada se cierra y se reabre. Las dos lecturas se declaran, se corren y se
 reportan; el veredicto es robusto a la ambigüedad (las doce celdas tienen
 profit factor out-of-sample por debajo de uno).
 
+### 3g. Ficheros de bot RETIRADOS (no desplegan nada)
+
+| file | que era |
+|---|---|
+| `code/paper_live.py` | el bot paper de CVRMD (VPS `~/paper`, cron `*/5`) — **borrado del VPS el 2026-11-16** |
+| `code/mp18_v2_paper.py` | el paper tracker de MP-18 v2 (VPS `~/mp18`) — **borrado el 2026-11-16** |
+| `code/paper_s20_s8_s10.py` | el paper tracker de S20/S8/S10 (VPS `~/mp18`) — **borrado el 2026-11-16** |
+| `code/mp18_forward.py` | el paper tracker de MP-18 previo al v2 — **borrado el 2026-11-16** |
+| `code/xrp_bot_status_line.py` | el lector de estado del bot XRP de una pareja (VPS `~/xrp-paper-bot`, retirado el 2026-11-04) |
+
+Cada uno lleva un banner `RETIRADO` en su docstring. **Ninguno despliega ni
+corre nada**: no hay cron ni tarea programada que los lance, y no deben volver a
+desplegarse. El material borrado del VPS esta archivado y verificado en
+`backups/vps_retired_paper_mp18_20261116T213657Z.tar.gz`.
+
 ## 3f. El re-screen de los 100 prompts del pack (2026-11-12)
 
 | file | qué es |

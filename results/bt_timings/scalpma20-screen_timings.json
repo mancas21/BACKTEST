@@ -1,0 +1,12 @@
+{
+  "name": "scalpma20-screen",
+  "report": "results\\bt_scalpma20_screen_report.md",
+  "stages": {
+    "screen": {
+      "jobs": 120,
+      "seconds": 396.3,
+      "survivors": []
+    }
+  },
+  "started_utc": "2026-11-19T14:18:56+00:00"
+}

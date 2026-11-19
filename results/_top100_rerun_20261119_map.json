@@ -1,0 +1,3411 @@
+[
+ {
+  "rank": 3,
+  "family": "pivot_box_breakout",
+  "name": "botstrat",
+  "symbol": "SPXUSDT",
+  "tf": "1h",
+  "strategy": "botstrat",
+  "params": {},
+  "old_run_id": "f2aa1050b118e54f",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "61a076cb752e96c3",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 3.079308656540484,
+   "return_pct": 38.71984289728423,
+   "n_trades": 31,
+   "max_dd_pct": -4.168038738086368
+  },
+  "created_utc": "2026-11-19T18:50:50+00:00"
+ },
+ {
+  "rank": 2,
+  "family": "p100screen",
+  "name": "id=23",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 23,
+   "segment": "OOS"
+  },
+  "old_run_id": "91e35e573981b27a",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "91e35e573981b27a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.1326493799666749,
+   "return_pct": -46.102939886153834,
+   "n_trades": 68,
+   "max_dd_pct": -52.962367321487335,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -1.0769682112334942
+  },
+  "created_utc": "2026-11-19T18:50:51+00:00"
+ },
+ {
+  "rank": 6,
+  "family": "p100screen",
+  "name": "id=44",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 44,
+   "segment": "DEV"
+  },
+  "old_run_id": "ad95c2e4834a2eda",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "ad95c2e4834a2eda",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 2.2928518068557278,
+   "return_pct": 253.95591014642815,
+   "n_trades": 136,
+   "max_dd_pct": -16.55281374282527,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.4225254704642527
+  },
+  "created_utc": "2026-11-19T18:50:51+00:00"
+ },
+ {
+  "rank": 2,
+  "family": "p100screen",
+  "name": "id=23",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 23,
+   "segment": "DEV"
+  },
+  "old_run_id": "c097e05342b5ad9e",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "c097e05342b5ad9e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 6.5289230837999614,
+   "return_pct": 252.67816462779766,
+   "n_trades": 69,
+   "max_dd_pct": -83.47028933304365,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -1.1044198822963698
+  },
+  "created_utc": "2026-11-19T18:50:51+00:00"
+ },
+ {
+  "rank": 6,
+  "family": "p100screen",
+  "name": "id=44",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 44,
+   "segment": "OOS"
+  },
+  "old_run_id": "eff6fc49fffef67e",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "eff6fc49fffef67e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3815643002202567,
+   "return_pct": 5.939939116218196,
+   "n_trades": 22,
+   "max_dd_pct": -15.730919071768357,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.7681563403015101
+  },
+  "created_utc": "2026-11-19T18:50:52+00:00"
+ },
+ {
+  "rank": 5,
+  "family": "p100screen",
+  "name": "id=85",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 85,
+   "segment": "DEV"
+  },
+  "old_run_id": "b6ebfc6ec584042f",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "b6ebfc6ec584042f",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 2.6072582628357934,
+   "return_pct": 28.09923962226053,
+   "n_trades": 127,
+   "max_dd_pct": -3.0385047299832824,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.08943751523595299
+  },
+  "created_utc": "2026-11-19T18:50:52+00:00"
+ },
+ {
+  "rank": 5,
+  "family": "p100screen",
+  "name": "id=85",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 85,
+   "segment": "OOS"
+  },
+  "old_run_id": "a9132880ca5b7c22",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "a9132880ca5b7c22",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 3.0997419665865964,
+   "return_pct": 428.7771106528254,
+   "n_trades": 383,
+   "max_dd_pct": -9.1407488820757,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.11516236010759272
+  },
+  "created_utc": "2026-11-19T18:50:52+00:00"
+ },
+ {
+  "rank": 10,
+  "family": "llm_pack",
+  "name": "weekend-gap fade",
+  "symbol": "1000PEPEUSDT",
+  "tf": "1d",
+  "strategy": "pack50",
+  "params": {
+   "data_dir": "data/binance_klines_1d",
+   "strat": 46
+  },
+  "old_run_id": "3586a215c95d6d87",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "faf969652e65bc8b",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.764664721979396,
+   "return_pct": 53.63140895934442,
+   "n_trades": 34,
+   "max_dd_pct": 29.173809193404193,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:50:52+00:00"
+ },
+ {
+  "rank": 1,
+  "family": "p100screen",
+  "name": "id=63",
+  "symbol": "BTCUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 63,
+   "segment": "OOS"
+  },
+  "old_run_id": "75259db4a563b545",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "75259db4a563b545",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.2781832087773178,
+   "return_pct": -25.0540157936013,
+   "n_trades": 32,
+   "max_dd_pct": -34.85700518165133,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -1.1336544299572389
+  },
+  "created_utc": "2026-11-19T18:50:53+00:00"
+ },
+ {
+  "rank": 9,
+  "family": "vwap_cvd_divergence",
+  "name": "cvrmd",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "cvrmd",
+  "params": {},
+  "old_run_id": "00c8c19179ea05ba",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "57cbeb8c6c5c54ab",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.7398436244241244,
+   "return_pct": 16.090508216022737,
+   "n_trades": 50,
+   "max_dd_pct": -5.069755970175271
+  },
+  "created_utc": "2026-11-19T18:50:53+00:00"
+ },
+ {
+  "rank": 7,
+  "family": "p100screen",
+  "name": "id=64",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 64,
+   "segment": "OOS"
+  },
+  "old_run_id": "a1942ed91b364852",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "a1942ed91b364852",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.0,
+   "return_pct": -15.791195618920394,
+   "n_trades": 15,
+   "max_dd_pct": -22.235847049037993,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -1.1193698239976242
+  },
+  "created_utc": "2026-11-19T18:50:53+00:00"
+ },
+ {
+  "rank": 7,
+  "family": "p100screen",
+  "name": "id=64",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 64,
+   "segment": "DEV"
+  },
+  "old_run_id": "446487b2c7163b48",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "446487b2c7163b48",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.8550646931096488,
+   "return_pct": 28.997451137856324,
+   "n_trades": 42,
+   "max_dd_pct": -24.75210013985172,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.027261129095727313
+  },
+  "created_utc": "2026-11-19T18:50:53+00:00"
+ },
+ {
+  "rank": 4,
+  "family": "qs096",
+  "name": "qs096",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "qs096",
+  "params": {},
+  "old_run_id": "5cdb10b47424023f",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "7065be2b7cd21d41",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 2.483525043672415,
+   "return_pct": 32.446599244125764,
+   "n_trades": 72,
+   "max_dd_pct": -10.965466725911956,
+   "oos_profit_factor": 7.987654516932195,
+   "oos_return_pct": 30.09841808145095,
+   "oos_n_trades": 22,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 1.3087463077301176
+  },
+  "created_utc": "2026-11-19T18:50:54+00:00"
+ },
+ {
+  "rank": 1,
+  "family": "p100screen",
+  "name": "id=63",
+  "symbol": "BTCUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 63,
+   "segment": "DEV"
+  },
+  "old_run_id": "9d5e52a5ed84972f",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "9d5e52a5ed84972f",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 6.766010033093411,
+   "return_pct": 102.23506848492731,
+   "n_trades": 32,
+   "max_dd_pct": -67.72813066431891,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -1.1766502055461758
+  },
+  "created_utc": "2026-11-19T18:50:54+00:00"
+ },
+ {
+  "rank": 15,
+  "family": "p100screen",
+  "name": "id=73",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 73,
+   "segment": "DEV"
+  },
+  "old_run_id": "fe1f0f9405591a09",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "fe1f0f9405591a09",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.469166149952164,
+   "return_pct": 36.45589664522222,
+   "n_trades": 106,
+   "max_dd_pct": -14.809123539498515,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.09095022553548346
+  },
+  "created_utc": "2026-11-19T18:50:54+00:00"
+ },
+ {
+  "rank": 15,
+  "family": "p100screen",
+  "name": "id=73",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 73,
+   "segment": "OOS"
+  },
+  "old_run_id": "69b93e7b4ca9ad7f",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "69b93e7b4ca9ad7f",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 2.056662800313037,
+   "return_pct": 8.602155433827075,
+   "n_trades": 19,
+   "max_dd_pct": -3.2714594557265775,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.5798822161025047
+  },
+  "created_utc": "2026-11-19T18:50:55+00:00"
+ },
+ {
+  "rank": 17,
+  "family": "p100screen",
+  "name": "id=28",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 28,
+   "segment": "OOS"
+  },
+  "old_run_id": "11194ed66e46ba9a",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "11194ed66e46ba9a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.7882317752374189,
+   "return_pct": -8.221475238737074,
+   "n_trades": 63,
+   "max_dd_pct": -21.07532965473785,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.5116844507200473
+  },
+  "created_utc": "2026-11-19T18:50:55+00:00"
+ },
+ {
+  "rank": 16,
+  "family": "trend_hma_simple",
+  "name": "card=HYPEUSDT",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "HYPEUSDT",
+   "mode": "hermes"
+  },
+  "old_run_id": "0c7aebcfe691bdaa",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "42112ba7c8fb645a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.378405122008906,
+   "return_pct": 58.64388855312539,
+   "n_trades": 113,
+   "max_dd_pct": 27.049532190519177,
+   "oos_profit_factor": 2.3652566794054555,
+   "oos_return_pct": 34.97150000358503,
+   "oos_n_trades": 30,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 0.0,
+   "boot_ci_lo": -40.719379298752884
+  },
+  "created_utc": "2026-11-19T18:50:55+00:00"
+ },
+ {
+  "rank": 11,
+  "family": "smqe11",
+  "name": "smqe11",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "smqe11",
+  "params": {
+   "cost_mode": "repo",
+   "funding": "real",
+   "tp2_r": 2.5
+  },
+  "old_run_id": "37ea1992569b77bb",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "c1f6440b3483b78c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.6608333560473272,
+   "return_pct": 15.060848460143617,
+   "n_trades": 53,
+   "max_dd_pct": 5.519882117008644,
+   "oos_profit_factor": 1.1914790236216577,
+   "oos_return_pct": 1.6825737193696844,
+   "oos_n_trades": 18,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -5.3864699901350255
+  },
+  "created_utc": "2026-11-19T18:50:56+00:00"
+ },
+ {
+  "rank": 8,
+  "family": "smc_composite",
+  "name": "smqe",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "smqe",
+  "params": {},
+  "old_run_id": "3a6053c52d7639f5",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "96cc7fdce828b799",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.7675,
+   "return_pct": 15.3963,
+   "n_trades": 50,
+   "max_dd_pct": 5.0755,
+   "cost_bp_roundtrip": 11.0
+  },
+  "created_utc": "2026-11-19T18:50:56+00:00"
+ },
+ {
+  "rank": 17,
+  "family": "p100screen",
+  "name": "id=28",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 28,
+   "segment": "DEV"
+  },
+  "old_run_id": "8483586c072d5cec",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "8483586c072d5cec",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3359189945724972,
+   "return_pct": 73.49329974234891,
+   "n_trades": 366,
+   "max_dd_pct": -22.55916412172534,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.01668757316435179
+  },
+  "created_utc": "2026-11-19T18:50:56+00:00"
+ },
+ {
+  "rank": 18,
+  "family": "p100screen",
+  "name": "id=68",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 68,
+   "segment": "OOS"
+  },
+  "old_run_id": "b77e815e2c1e35c6",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "b77e815e2c1e35c6",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.7898393121344061,
+   "return_pct": -6.766528765522395,
+   "n_trades": 52,
+   "max_dd_pct": -12.71075505773711,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.5101086702895802
+  },
+  "created_utc": "2026-11-19T18:50:57+00:00"
+ },
+ {
+  "rank": 20,
+  "family": "trend_hma_ao_adx",
+  "name": "fingrad",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "fingrad",
+  "params": {
+   "adx_mode": "literal"
+  },
+  "old_run_id": "2288aa01825d36ca",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "7a0ee282a6c7369d",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3325,
+   "return_pct": 9.7223,
+   "n_trades": 148,
+   "max_dd_pct": 4.2138,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 10.0
+  },
+  "created_utc": "2026-11-19T18:50:57+00:00"
+ },
+ {
+  "rank": 18,
+  "family": "p100screen",
+  "name": "id=68",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 68,
+   "segment": "DEV"
+  },
+  "old_run_id": "3ed8943d9f8d69ab",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "3ed8943d9f8d69ab",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3323015660833173,
+   "return_pct": 56.39249931457706,
+   "n_trades": 263,
+   "max_dd_pct": -24.676243105718644,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.00685619409539543
+  },
+  "created_utc": "2026-11-19T18:50:57+00:00"
+ },
+ {
+  "rank": 21,
+  "family": "deepseek_ds1-ds5",
+  "name": "ds1",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "dspack",
+  "params": {
+   "costs": "author",
+   "strat": "ds1",
+   "window": "full"
+  },
+  "old_run_id": "bfe50d8919258f06",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "4f0256716eb571e9",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.299823187224842,
+   "return_pct": 333.70461390901625,
+   "n_trades": 1765,
+   "max_dd_pct": -19.139927496631202
+  },
+  "created_utc": "2026-11-19T18:50:57+00:00"
+ },
+ {
+  "rank": 14,
+  "family": "prespecified_candidates",
+  "name": "cand7",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "cand7",
+  "params": {
+   "cand": 7
+  },
+  "old_run_id": "ad79893b81cd0690",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "fa68b7d0c3f60e6b",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.4770498114375168,
+   "return_pct": 2.4760926320621435,
+   "n_trades": 33,
+   "max_dd_pct": 1.7971520769658984
+  },
+  "created_utc": "2026-11-19T18:50:57+00:00"
+ },
+ {
+  "rank": 22,
+  "family": "p100screen",
+  "name": "id=45",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 45,
+   "segment": "DEV"
+  },
+  "old_run_id": "df3d84f2bad4b17b",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "df3d84f2bad4b17b",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2747938111630186,
+   "return_pct": 264.6295563399547,
+   "n_trades": 622,
+   "max_dd_pct": -40.9400458789428,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.012692451891606655
+  },
+  "created_utc": "2026-11-19T18:50:58+00:00"
+ },
+ {
+  "rank": 22,
+  "family": "p100screen",
+  "name": "id=45",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 45,
+   "segment": "OOS"
+  },
+  "old_run_id": "1e3d6b343c76ebfa",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "1e3d6b343c76ebfa",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.013701878859836,
+   "return_pct": 0.7848411831633095,
+   "n_trades": 124,
+   "max_dd_pct": -27.324858622514782,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.6379670593643119
+  },
+  "created_utc": "2026-11-19T18:50:58+00:00"
+ },
+ {
+  "rank": 23,
+  "family": "trend_ema_crossover",
+  "name": "ema921",
+  "symbol": "LABUSDT",
+  "tf": "1h",
+  "strategy": "ema921",
+  "params": {},
+  "old_run_id": "dfab81a68433a1fd",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "0fdc5964fede7b90",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2701363748758525,
+   "return_pct": 28.440273613851552,
+   "n_trades": 345,
+   "max_dd_pct": -14.988035944138689,
+   "oos_profit_factor": 1.5580865572931555,
+   "oos_return_pct": 13.214251028296564,
+   "oos_n_trades": 88,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -1.9495022234923962
+  },
+  "created_utc": "2026-11-19T18:50:58+00:00"
+ },
+ {
+  "rank": 24,
+  "family": "p100screen",
+  "name": "id=26",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 26,
+   "segment": "DEV"
+  },
+  "old_run_id": "2f8f3ce69d850de1",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "2f8f3ce69d850de1",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2621765384956332,
+   "return_pct": 319.03982881405454,
+   "n_trades": 942,
+   "max_dd_pct": -29.788280665611953,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.04711325091909369
+  },
+  "created_utc": "2026-11-19T18:50:58+00:00"
+ },
+ {
+  "rank": 27,
+  "family": "trend_hma_simple",
+  "name": "card=XRPUSDT",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "XRPUSDT",
+   "mode": "hermes"
+  },
+  "old_run_id": "25f2aeb618b8c6ee",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "210cbba80b469256",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.226465179378113,
+   "return_pct": 19.632912624295763,
+   "n_trades": 104,
+   "max_dd_pct": 15.872303613003721,
+   "oos_profit_factor": 1.2804279830771685,
+   "oos_return_pct": 5.019743064546656,
+   "oos_n_trades": 34,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 0.0,
+   "boot_ci_lo": -33.75283845808735
+  },
+  "created_utc": "2026-11-19T18:50:59+00:00"
+ },
+ {
+  "rank": 24,
+  "family": "p100screen",
+  "name": "id=26",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 26,
+   "segment": "OOS"
+  },
+  "old_run_id": "9877e176ece9fc42",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "9877e176ece9fc42",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0348128445404832,
+   "return_pct": 3.15435924467522,
+   "n_trades": 183,
+   "max_dd_pct": -23.288085532283564,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.2648942472285683
+  },
+  "created_utc": "2026-11-19T18:51:00+00:00"
+ },
+ {
+  "rank": 28,
+  "family": "rsi_mean_reversion",
+  "name": "rsimr",
+  "symbol": "SOLUSDC",
+  "tf": "1h",
+  "strategy": "rsimr",
+  "params": {},
+  "old_run_id": "dcf66a3eb320e7a7",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "c7924f261e96914c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2172,
+   "return_pct": 7.5615,
+   "n_trades": 60,
+   "max_dd_pct": -14.8827,
+   "cost_bp_roundtrip": 11.0
+  },
+  "created_utc": "2026-11-19T18:51:00+00:00"
+ },
+ {
+  "rank": 29,
+  "family": "trend_hma_simple",
+  "name": "card=JUPUSDT",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "JUPUSDT",
+   "mode": "hermes"
+  },
+  "old_run_id": "2411025b023d0bbf",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1a6bb9db8dd667cf",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2109949781951326,
+   "return_pct": 28.86078337532596,
+   "n_trades": 111,
+   "max_dd_pct": 25.23395532270053,
+   "oos_profit_factor": 1.6260304744938008,
+   "oos_return_pct": 25.653404539042896,
+   "oos_n_trades": 36,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 0.0,
+   "boot_ci_lo": -40.373680465542805
+  },
+  "created_utc": "2026-11-19T18:51:01+00:00"
+ },
+ {
+  "rank": 12,
+  "family": "pack20",
+  "name": "17_atr_vol_breakout",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 17
+  },
+  "old_run_id": "3aaf8d34f49f1187",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "0ca2a5d7e3b371ce",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.5855491361907,
+   "return_pct": 882.1364248028462,
+   "n_trades": 388,
+   "max_dd_pct": -25.14400932879447,
+   "oos_profit_factor": 1.624975113933145,
+   "oos_return_pct": 159.11135945925423,
+   "oos_n_trades": 118,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 24.620866885782675
+  },
+  "created_utc": "2026-11-19T18:51:01+00:00"
+ },
+ {
+  "rank": 25,
+  "family": "p100screen",
+  "name": "id=88",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 88,
+   "segment": "OOS"
+  },
+  "old_run_id": "bd1f90049333f2a7",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "bd1f90049333f2a7",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.655978232262861,
+   "return_pct": -13.126660496959774,
+   "n_trades": 368,
+   "max_dd_pct": -20.725674045153774,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.007638074553059998
+  },
+  "created_utc": "2026-11-19T18:51:02+00:00"
+ },
+ {
+  "rank": 25,
+  "family": "p100screen",
+  "name": "id=88",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 88,
+   "segment": "DEV"
+  },
+  "old_run_id": "5636a3a9936646fc",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "5636a3a9936646fc",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2442186522025152,
+   "return_pct": -95.9012773168795,
+   "n_trades": 2433,
+   "max_dd_pct": -96.47191639423602,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.007694173379535892
+  },
+  "created_utc": "2026-11-19T18:51:02+00:00"
+ },
+ {
+  "rank": 33,
+  "family": "deepseek_ds1-ds5",
+  "name": "ds3",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "dspack",
+  "params": {
+   "costs": "author",
+   "strat": "ds3",
+   "window": "full"
+  },
+  "old_run_id": "55cbf103e822ae30",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "8f3aba9c5a74d8d4",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1686899084518363,
+   "return_pct": 8483.281273272887,
+   "n_trades": 286,
+   "max_dd_pct": -67.2935137175975
+  },
+  "created_utc": "2026-11-19T18:51:02+00:00"
+ },
+ {
+  "rank": 34,
+  "family": "p100screen",
+  "name": "id=72",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 72,
+   "segment": "DEV"
+  },
+  "old_run_id": "521fd0a0a8dcfd03",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "521fd0a0a8dcfd03",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.151073427903233,
+   "return_pct": 33.20561612454662,
+   "n_trades": 317,
+   "max_dd_pct": -21.0649726618406,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.033173642615015125
+  },
+  "created_utc": "2026-11-19T18:51:04+00:00"
+ },
+ {
+  "rank": 34,
+  "family": "p100screen",
+  "name": "id=72",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 72,
+   "segment": "OOS"
+  },
+  "old_run_id": "f6641655551672c7",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "f6641655551672c7",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.6265299339052485,
+   "return_pct": -13.187129516500196,
+   "n_trades": 53,
+   "max_dd_pct": -17.041031842316468,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.48902201303334886
+  },
+  "created_utc": "2026-11-19T18:51:05+00:00"
+ },
+ {
+  "rank": 32,
+  "family": "qs097",
+  "name": "card=HYPEUSDT",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "qs097",
+  "params": {
+   "card": "HYPEUSDT",
+   "variant": "long"
+  },
+  "old_run_id": "6f5ec1d20c40a815",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "cd6fa87b0345c807",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1805188511444735,
+   "return_pct": 10.54777386687389,
+   "n_trades": 162,
+   "max_dd_pct": -12.027893579150762,
+   "oos_profit_factor": 1.3622379144932872,
+   "oos_return_pct": 7.553516018031403,
+   "oos_n_trades": 54,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -16.50858805922933
+  },
+  "created_utc": "2026-11-19T18:51:07+00:00"
+ },
+ {
+  "rank": 36,
+  "family": "llm_pack",
+  "name": "Donchian-55 breakout",
+  "symbol": "BTCUSDT",
+  "tf": "4h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 1
+  },
+  "old_run_id": "245680f774f9975e",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1d3cfe7c2a7b79c0",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1180019602258182,
+   "return_pct": 11.8329669162889,
+   "n_trades": 53,
+   "max_dd_pct": 23.482171286832973,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:51:07+00:00"
+ },
+ {
+  "rank": 31,
+  "family": "p100screen",
+  "name": "id=86",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 86,
+   "segment": "DEV"
+  },
+  "old_run_id": "c74cd2f8ba7cbc03",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "c74cd2f8ba7cbc03",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1896415095196449,
+   "return_pct": 0.3267359562708849,
+   "n_trades": 145,
+   "max_dd_pct": -0.5188860303286136,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.005555959804546128
+  },
+  "created_utc": "2026-11-19T18:51:10+00:00"
+ },
+ {
+  "rank": 30,
+  "family": "qs097",
+  "name": "card=SUIUSDT",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "qs097",
+  "params": {
+   "card": "SUIUSDT",
+   "variant": "two_side"
+  },
+  "old_run_id": "0be0854a2f52fe2e",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "68f3e197a902138c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.192127777598374,
+   "return_pct": 26.07904785634838,
+   "n_trades": 295,
+   "max_dd_pct": -16.229229819650985,
+   "oos_profit_factor": 0.8521839651937179,
+   "oos_return_pct": -5.204884699207302,
+   "oos_n_trades": 86,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -12.140184039945174
+  },
+  "created_utc": "2026-11-19T18:51:11+00:00"
+ },
+ {
+  "rank": 37,
+  "family": "p100screen",
+  "name": "id=90",
+  "symbol": "BASKET6",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 90,
+   "segment": "DEV"
+  },
+  "old_run_id": "f7fe875c09b5c786",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "f7fe875c09b5c786",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1430039851861626,
+   "return_pct": 39.587601269841684,
+   "n_trades": 124,
+   "max_dd_pct": -38.86619419291378,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.00429791814004718
+  },
+  "created_utc": "2026-11-19T18:51:13+00:00"
+ },
+ {
+  "rank": 35,
+  "family": "xs_factor",
+  "name": "LOWVOL",
+  "symbol": "LOWVOL",
+  "tf": "1h",
+  "strategy": "xsf",
+  "params": {
+   "card": "LOWVOL"
+  },
+  "old_run_id": "5c5cbbe6443fb391",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "b853f75ad11d1bb4",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1505248328564759,
+   "return_pct": -45.937349875141194,
+   "n_trades": 65,
+   "max_dd_pct": -84.4140947950116,
+   "oos_return_pct": -39.75355856755577,
+   "funding_charged": false
+  },
+  "created_utc": "2026-11-19T18:51:14+00:00"
+ },
+ {
+  "rank": 37,
+  "family": "p100screen",
+  "name": "id=90",
+  "symbol": "BASKET6",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 90,
+   "segment": "OOS"
+  },
+  "old_run_id": "221d95e0a56fca3f",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "221d95e0a56fca3f",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3357839549777657,
+   "return_pct": 20.073928897992666,
+   "n_trades": 53,
+   "max_dd_pct": -12.939769431859538,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -5.575269291973234e-05
+  },
+  "created_utc": "2026-11-19T18:51:15+00:00"
+ },
+ {
+  "rank": 31,
+  "family": "p100screen",
+  "name": "id=86",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 86,
+   "segment": "OOS"
+  },
+  "old_run_id": "bde67820024e1ddd",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "bde67820024e1ddd",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.08179894508397387,
+   "return_pct": -4.4604357595133255,
+   "n_trades": 106,
+   "max_dd_pct": -4.4604357595133255,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.1327065868922503
+  },
+  "created_utc": "2026-11-19T18:51:15+00:00"
+ },
+ {
+  "rank": 40,
+  "family": "deepseek_ds1-ds5",
+  "name": "ds5",
+  "symbol": "LINKUSDT",
+  "tf": "1h",
+  "strategy": "dspack",
+  "params": {
+   "costs": "author",
+   "strat": "ds5",
+   "window": "full"
+  },
+  "old_run_id": "365bef751f370f6c",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1d9116531e90ddce",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1044380905466995,
+   "return_pct": 52.61820887895847,
+   "n_trades": 1250,
+   "max_dd_pct": -62.82372239091857
+  },
+  "created_utc": "2026-11-19T18:51:16+00:00"
+ },
+ {
+  "rank": 26,
+  "family": "qs097",
+  "name": "card=ETHUSDT",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "qs097",
+  "params": {
+   "card": "ETHUSDT",
+   "variant": "two_side"
+  },
+  "old_run_id": "50b60069f86c09ec",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "0013a2210cb79d18",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.2336366602027775,
+   "return_pct": 25.97950484844307,
+   "n_trades": 306,
+   "max_dd_pct": -16.03175369133088,
+   "oos_profit_factor": 1.4065596340300555,
+   "oos_return_pct": 9.000088130977545,
+   "oos_n_trades": 93,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -7.140508655312439
+  },
+  "created_utc": "2026-11-19T18:51:16+00:00"
+ },
+ {
+  "rank": 38,
+  "family": "p100screen",
+  "name": "id=52",
+  "symbol": "BTCUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 52,
+   "segment": "OOS"
+  },
+  "old_run_id": "8cc4a65ef793aa69",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "8cc4a65ef793aa69",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0704902810963242,
+   "return_pct": 13.895256383975664,
+   "n_trades": 179,
+   "max_dd_pct": -39.91399039956246,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.6054843451077504
+  },
+  "created_utc": "2026-11-19T18:51:18+00:00"
+ },
+ {
+  "rank": 42,
+  "family": "deepseek_ds6-ds10",
+  "name": "ds7",
+  "symbol": "SPXUSDT",
+  "tf": "1h",
+  "strategy": "dspack2",
+  "params": {
+   "costs": "repo6x5",
+   "strat": "ds7",
+   "window": "full"
+  },
+  "old_run_id": "b898dfed4e6f2395",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "f56ce207fcb6e6bd",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1078076403424875,
+   "return_pct": 44.96852586435456,
+   "n_trades": 296,
+   "max_dd_pct": -45.981931425005754
+  },
+  "created_utc": "2026-11-19T18:51:19+00:00"
+ },
+ {
+  "rank": 44,
+  "family": "p100screen",
+  "name": "id=60",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 60,
+   "segment": "DEV"
+  },
+  "old_run_id": "78649953dd61f9b1",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "78649953dd61f9b1",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.09642690011419,
+   "return_pct": 1.5914522201291303,
+   "n_trades": 50,
+   "max_dd_pct": -8.491958693950853,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.1635730070419695
+  },
+  "created_utc": "2026-11-19T18:51:20+00:00"
+ },
+ {
+  "rank": 41,
+  "family": "p100screen",
+  "name": "id=83",
+  "symbol": "BASKET6",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 83,
+   "segment": "OOS"
+  },
+  "old_run_id": "cb42dc88341a07aa",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "cb42dc88341a07aa",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.4418979610903662,
+   "return_pct": 37.48224189150917,
+   "n_trades": 53,
+   "max_dd_pct": -19.818633266000553,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.0026700097673135366
+  },
+  "created_utc": "2026-11-19T18:51:20+00:00"
+ },
+ {
+  "rank": 44,
+  "family": "p100screen",
+  "name": "id=60",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 60,
+   "segment": "OOS"
+  },
+  "old_run_id": "8b3e47991d26bf9c",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "8b3e47991d26bf9c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3555456152604228,
+   "return_pct": 23.538429975477037,
+   "n_trades": 141,
+   "max_dd_pct": -13.163134495965867,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.05341742695619026
+  },
+  "created_utc": "2026-11-19T18:51:20+00:00"
+ },
+ {
+  "rank": 45,
+  "family": "llm_pack",
+  "name": "ATR-expansion breakout",
+  "symbol": "SOLUSDT",
+  "tf": "4h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 21
+  },
+  "old_run_id": "a7393f703e992b6b",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "36581f107346f80f",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.09274804156256,
+   "return_pct": 64.90841129995009,
+   "n_trades": 94,
+   "max_dd_pct": 56.21528286858377,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:51:21+00:00"
+ },
+ {
+  "rank": 38,
+  "family": "p100screen",
+  "name": "id=52",
+  "symbol": "BTCUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 52,
+   "segment": "DEV"
+  },
+  "old_run_id": "9e93753caa755c27",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "9e93753caa755c27",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1319877572494246,
+   "return_pct": 393.39507203263196,
+   "n_trades": 877,
+   "max_dd_pct": -58.59275705883693,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.013928161431719988
+  },
+  "created_utc": "2026-11-19T18:51:21+00:00"
+ },
+ {
+  "rank": 46,
+  "family": "p100screen",
+  "name": "id=34",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 34,
+   "segment": "DEV"
+  },
+  "old_run_id": "91efe2579f12890a",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "91efe2579f12890a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0909773781819179,
+   "return_pct": 131.06468645038495,
+   "n_trades": 1561,
+   "max_dd_pct": -36.26160566629763,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.023412889504010978
+  },
+  "created_utc": "2026-11-19T18:51:22+00:00"
+ },
+ {
+  "rank": 43,
+  "family": "llm_pack",
+  "name": "D13 Fibonacci pullback",
+  "symbol": "SUIUSDT",
+  "tf": "30m",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 38
+  },
+  "old_run_id": "0010a45b99243376",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "fb71ab5a1cad3e9b",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0993116930610995,
+   "return_pct": 13.1084681426203,
+   "n_trades": 113,
+   "max_dd_pct": 18.987674329803784,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:51:22+00:00"
+ },
+ {
+  "rank": 46,
+  "family": "p100screen",
+  "name": "id=34",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 34,
+   "segment": "OOS"
+  },
+  "old_run_id": "8adb2b21186d165e",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "8adb2b21186d165e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9595683460523257,
+   "return_pct": -8.458154168871989,
+   "n_trades": 335,
+   "max_dd_pct": -40.06451581858648,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.23842773735030004
+  },
+  "created_utc": "2026-11-19T18:51:22+00:00"
+ },
+ {
+  "rank": 13,
+  "family": "grid_neutral",
+  "name": "XRP delta-neutral grid v1 (10k, 0.25x/lvl)",
+  "symbol": "XRPUSDT",
+  "tf": "15m",
+  "strategy": "xrpneutral",
+  "params": {},
+  "old_run_id": "295c21687960fadd",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "bca91e3734a024d5",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.4852067365291268,
+   "return_pct": 1591.4468256681082,
+   "n_trades": 5929,
+   "max_dd_pct": 10.180376124865594,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0,
+   "boot_ci_lo": 20.494921890492204
+  },
+  "created_utc": "2026-11-19T18:51:22+00:00"
+ },
+ {
+  "rank": 41,
+  "family": "p100screen",
+  "name": "id=83",
+  "symbol": "BASKET6",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 83,
+   "segment": "DEV"
+  },
+  "old_run_id": "8fb60fa563d679ae",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "8fb60fa563d679ae",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1079728147592567,
+   "return_pct": 24.243094923795773,
+   "n_trades": 125,
+   "max_dd_pct": -26.538566970376742,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.0024392886695967664
+  },
+  "created_utc": "2026-11-19T18:51:22+00:00"
+ },
+ {
+  "rank": 50,
+  "family": "llm_pack",
+  "name": "Heikin-Ashi trend",
+  "symbol": "SUIUSDT",
+  "tf": "4h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 5
+  },
+  "old_run_id": "8321c904af22c0ad",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "768c930e278dd5e8",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0772983473122852,
+   "return_pct": 16.088759778498908,
+   "n_trades": 110,
+   "max_dd_pct": 52.530903329135505,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 20.0
+  },
+  "created_utc": "2026-11-19T18:51:22+00:00"
+ },
+ {
+  "rank": 48,
+  "family": "trend_hma_simple",
+  "name": "card=BTCUSDT",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "BTCUSDT",
+   "mode": "hermes"
+  },
+  "old_run_id": "6246c97f560abc0b",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "f0aa6c981e127f01",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0831439645281122,
+   "return_pct": 5.099566716003401,
+   "n_trades": 112,
+   "max_dd_pct": 19.163439399623982,
+   "oos_profit_factor": 1.7694238775170348,
+   "oos_return_pct": 10.299653400853877,
+   "oos_n_trades": 36,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 0.0,
+   "boot_ci_lo": -22.640605347265787
+  },
+  "created_utc": "2026-11-19T18:51:23+00:00"
+ },
+ {
+  "rank": 52,
+  "family": "llm_pack",
+  "name": "D05 TTM squeeze release",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 30
+  },
+  "old_run_id": "6b6ba8b42fce4efe",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "84ce9708a08ba88c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0727742872585126,
+   "return_pct": 39.750431280001905,
+   "n_trades": 328,
+   "max_dd_pct": 48.66849082437395,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:51:23+00:00"
+ },
+ {
+  "rank": 53,
+  "family": "llm_pack",
+  "name": "D23 daily pivot bounce",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 48
+  },
+  "old_run_id": "1791e653a68abc30",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "6cd6359d97a3f6ea",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.06522488216871,
+   "return_pct": 4.750460668047607,
+   "n_trades": 87,
+   "max_dd_pct": 21.235491518308088,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:51:24+00:00"
+ },
+ {
+  "rank": 55,
+  "family": "llm_pack",
+  "name": "D04 Ichimoku cloud breakout",
+  "symbol": "HYPEUSDT",
+  "tf": "30m",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 29
+  },
+  "old_run_id": "a40038eeccf8b222",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "fcd9d45747711567",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0379436860201097,
+   "return_pct": 82.92918897203106,
+   "n_trades": 1512,
+   "max_dd_pct": 58.72601900740272,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:51:25+00:00"
+ },
+ {
+  "rank": 47,
+  "family": "deepseek_ds1-ds5",
+  "name": "ds4",
+  "symbol": "PORTFOLIO",
+  "tf": "1h",
+  "strategy": "dspack",
+  "params": {
+   "costs": "author",
+   "strat": "ds4",
+   "window": "full"
+  },
+  "old_run_id": "6a8b1adbc1447e81",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "aecf489b2b6380a5",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.083923398385865,
+   "return_pct": 5.6787615500838,
+   "n_trades": 202,
+   "max_dd_pct": -72.60546822034085
+  },
+  "created_utc": "2026-11-19T18:51:27+00:00"
+ },
+ {
+  "rank": 51,
+  "family": "pack20",
+  "name": "15_squeeze_rank_breakout",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 15
+  },
+  "old_run_id": "bd9100c8bd70d366",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "22e79f14c85cf270",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.075881938158012,
+   "return_pct": 89.97716203214394,
+   "n_trades": 684,
+   "max_dd_pct": -33.71038066029569,
+   "oos_profit_factor": 1.0650193368957328,
+   "oos_return_pct": 14.641223190879217,
+   "oos_n_trades": 204,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -8.462042890769053
+  },
+  "created_utc": "2026-11-19T18:51:28+00:00"
+ },
+ {
+  "rank": 59,
+  "family": "deepseek_ds1-ds5",
+  "name": "ds2",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "dspack",
+  "params": {
+   "costs": "author",
+   "strat": "ds2",
+   "window": "full"
+  },
+  "old_run_id": "dd870096ddf9dd22",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "25ea2dc5f5317792",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0163333500854983,
+   "return_pct": 7.253747531613697,
+   "n_trades": 733,
+   "max_dd_pct": -37.223022043669985
+  },
+  "created_utc": "2026-11-19T18:51:29+00:00"
+ },
+ {
+  "rank": 54,
+  "family": "pack20",
+  "name": "16_ttm_squeeze",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 16
+  },
+  "old_run_id": "ea426bb3fb821132",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "9406b8db586b5a2e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0483097132600214,
+   "return_pct": 488.29602516331903,
+   "n_trades": 3396,
+   "max_dd_pct": -74.32790657052153,
+   "oos_profit_factor": 1.1162844171739341,
+   "oos_return_pct": 142.18497810059966,
+   "oos_n_trades": 874,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.9676496296498128
+  },
+  "created_utc": "2026-11-19T18:51:29+00:00"
+ },
+ {
+  "rank": 61,
+  "family": "htffvg",
+  "name": "card=HYPEUSDT",
+  "symbol": "HYPEUSDT",
+  "tf": "15m",
+  "strategy": "htffvg",
+  "params": {
+   "card": "HYPEUSDT",
+   "entry_mode": "market"
+  },
+  "old_run_id": "f955da402137a517",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1b53e756cb68e215",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9991784745705057,
+   "return_pct": -0.1228285918371097,
+   "n_trades": 206,
+   "max_dd_pct": -15.5927856370158,
+   "oos_profit_factor": 0.7586827687943084,
+   "oos_return_pct": -10.87162916648905,
+   "oos_n_trades": 60,
+   "cost_bp_roundtrip": 8.964369387738282,
+   "boot_ci_lo": -20.719710805362205
+  },
+  "created_utc": "2026-11-19T18:51:31+00:00"
+ },
+ {
+  "rank": 19,
+  "family": "pack20",
+  "name": "01_liq_fvg",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "strategy": "pack20",
+  "params": {
+   "id": 1
+  },
+  "old_run_id": "280e88028bd44e31",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "82dd828b0388c7c5",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.3319135197008305,
+   "return_pct": 29.66646643255362,
+   "n_trades": 61,
+   "max_dd_pct": -13.765859244115797,
+   "oos_return_pct": 0.0,
+   "oos_n_trades": 0,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -39.48790827368022
+  },
+  "created_utc": "2026-11-19T18:51:31+00:00"
+ },
+ {
+  "rank": 56,
+  "family": "xs_factor",
+  "name": "SKEW",
+  "symbol": "SKEW",
+  "tf": "1h",
+  "strategy": "xsf",
+  "params": {
+   "card": "SKEW",
+   "lb": 960
+  },
+  "old_run_id": "08fa3e92ed79df46",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "e16e629bed05c39f",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0403313424084297,
+   "return_pct": -26.085725643855362,
+   "n_trades": 209,
+   "max_dd_pct": -100.24737066116154,
+   "oos_return_pct": 75.41590927426962,
+   "funding_charged": false
+  },
+  "created_utc": "2026-11-19T18:51:32+00:00"
+ },
+ {
+  "rank": 60,
+  "family": "htffvg",
+  "name": "card=ETHUSDT",
+  "symbol": "ETHUSDT",
+  "tf": "15m",
+  "strategy": "htffvg",
+  "params": {
+   "card": "ETHUSDT",
+   "entry_mode": "limit"
+  },
+  "old_run_id": "96cffffa95971b6c",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "44321bc0c6359928",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0196002440674605,
+   "return_pct": 10.911313551549995,
+   "n_trades": 631,
+   "max_dd_pct": -34.36386976872702,
+   "oos_profit_factor": 0.9183633265639931,
+   "oos_return_pct": -10.014276388041631,
+   "oos_n_trades": 175,
+   "cost_bp_roundtrip": 5.826403398903064,
+   "boot_ci_lo": -12.706641206813293
+  },
+  "created_utc": "2026-11-19T18:51:34+00:00"
+ },
+ {
+  "rank": 62,
+  "family": "pack20",
+  "name": "10_rsi2_connors",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 10
+  },
+  "old_run_id": "aa6c9d276a9a0c03",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "c7702f1815d73f7c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0137006705517424,
+   "return_pct": 64.31600082950214,
+   "n_trades": 2374,
+   "max_dd_pct": -69.29136597541681,
+   "oos_profit_factor": 0.775823345764866,
+   "oos_return_pct": -62.943749043279304,
+   "oos_n_trades": 716,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -4.318725524997648
+  },
+  "created_utc": "2026-11-19T18:51:37+00:00"
+ },
+ {
+  "rank": 57,
+  "family": "xs_relative_value",
+  "name": "VOLCOMP",
+  "symbol": "VOLCOMP",
+  "tf": "1h",
+  "strategy": "xsb",
+  "params": {
+   "card": "VOLCOMP",
+   "lb": 480
+  },
+  "old_run_id": "bbd4ed10c0aa6f43",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "855b8024a9afff6c",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0316341975428036,
+   "return_pct": -23.985349044915317,
+   "n_trades": 240,
+   "max_dd_pct": -82.5563843790326,
+   "oos_return_pct": -55.61527676076173,
+   "funding_charged": false
+  },
+  "created_utc": "2026-11-19T18:51:39+00:00"
+ },
+ {
+  "rank": 63,
+  "family": "trend_hma_simple",
+  "name": "card=SOLUSDT",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "SOLUSDT"
+  },
+  "old_run_id": "4b3728cfb4f054c3",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "11e4de79af6387e7",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0128333581607076,
+   "return_pct": 119.15409919387213,
+   "n_trades": 2011,
+   "max_dd_pct": 78.92716089040522,
+   "oos_profit_factor": 0.9242952802331098,
+   "oos_return_pct": -164.46550007395874,
+   "oos_n_trades": 600,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -59.91736821286299
+  },
+  "created_utc": "2026-11-19T18:51:42+00:00"
+ },
+ {
+  "rank": 67,
+  "family": "htffvg",
+  "name": "card=JUPUSDT",
+  "symbol": "JUPUSDT",
+  "tf": "15m",
+  "strategy": "htffvg",
+  "params": {
+   "card": "JUPUSDT",
+   "entry_mode": "limit"
+  },
+  "old_run_id": "d7cf9f2832cbb19c",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "9088049ac73854f7",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0055026168368955,
+   "return_pct": 0.9658060321172446,
+   "n_trades": 239,
+   "max_dd_pct": -16.835462108732205,
+   "oos_profit_factor": 1.0794505592329957,
+   "oos_return_pct": 4.197200432450354,
+   "oos_n_trades": 72,
+   "cost_bp_roundtrip": 5.90072495684144,
+   "boot_ci_lo": -18.836246851202063
+  },
+  "created_utc": "2026-11-19T18:51:42+00:00"
+ },
+ {
+  "rank": 69,
+  "family": "llm_pack",
+  "name": "Hull MA trend",
+  "symbol": "JUPUSDT",
+  "tf": "4h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 8
+  },
+  "old_run_id": "0f725fc3a817c61a",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "c3f8aa01e2990667",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9934223622038765,
+   "return_pct": -3.1717569665118517,
+   "n_trades": 143,
+   "max_dd_pct": 65.31792499396276,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 20.0
+  },
+  "created_utc": "2026-11-19T18:51:43+00:00"
+ },
+ {
+  "rank": 65,
+  "family": "trend_hma_simple",
+  "name": "card=ETHUSDT",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "ETHUSDT"
+  },
+  "old_run_id": "13330a919c10aa61",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "9029dbae5fe95d92",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0103223158657815,
+   "return_pct": 48.32733935592199,
+   "n_trades": 2298,
+   "max_dd_pct": 69.28470692733914,
+   "oos_profit_factor": 0.982881072486203,
+   "oos_return_pct": -20.57401876284808,
+   "oos_n_trades": 707,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -23.97521551236372
+  },
+  "created_utc": "2026-11-19T18:51:47+00:00"
+ },
+ {
+  "rank": 70,
+  "family": "pack20",
+  "name": "09_macd_momentum",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 9
+  },
+  "old_run_id": "757d37d023ee71b4",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "5ace3bfa0286fe88",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9987802783329464,
+   "return_pct": -6.861878183244485,
+   "n_trades": 2554,
+   "max_dd_pct": -85.56613056194115,
+   "oos_profit_factor": 0.9760922985389507,
+   "oos_return_pct": -21.86363237610539,
+   "oos_n_trades": 777,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -8.299566701927265
+  },
+  "created_utc": "2026-11-19T18:51:48+00:00"
+ },
+ {
+  "rank": 71,
+  "family": "p100screen",
+  "name": "id=69",
+  "symbol": "HYPEUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 69,
+   "segment": "DEV"
+  },
+  "old_run_id": "ee29eaea4d603b96",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "ee29eaea4d603b96",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9962136336765578,
+   "return_pct": -0.13295611938654028,
+   "n_trades": 61,
+   "max_dd_pct": -12.982317194181014,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.5033379747743693
+  },
+  "created_utc": "2026-11-19T18:51:49+00:00"
+ },
+ {
+  "rank": 72,
+  "family": "p100screen",
+  "name": "id=4",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 4,
+   "segment": "DEV"
+  },
+  "old_run_id": "04b25ff8a046a387",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "04b25ff8a046a387",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.994341661902215,
+   "return_pct": -0.8592129472478671,
+   "n_trades": 127,
+   "max_dd_pct": -8.811312923981983,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.13952308514173545
+  },
+  "created_utc": "2026-11-19T18:51:49+00:00"
+ },
+ {
+  "rank": 72,
+  "family": "p100screen",
+  "name": "id=4",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 4,
+   "segment": "OOS"
+  },
+  "old_run_id": "2826d37560a6343b",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "2826d37560a6343b",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.7774991962275756,
+   "return_pct": -33.984496789479564,
+   "n_trades": 386,
+   "max_dd_pct": -35.81480330406055,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.174404975042189
+  },
+  "created_utc": "2026-11-19T18:51:50+00:00"
+ },
+ {
+  "rank": 71,
+  "family": "p100screen",
+  "name": "id=69",
+  "symbol": "HYPEUSDT",
+  "tf": "15m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 69,
+   "segment": "OOS"
+  },
+  "old_run_id": "bb775191aaeae9fd",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "bb775191aaeae9fd",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.7675429965110192,
+   "return_pct": -21.698622827578205,
+   "n_trades": 151,
+   "max_dd_pct": -23.746473086079035,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.37124792176141763
+  },
+  "created_utc": "2026-11-19T18:51:50+00:00"
+ },
+ {
+  "rank": 58,
+  "family": "strategies_101_150",
+  "name": "id=134",
+  "symbol": "SUIUSDT",
+  "tf": "renko",
+  "strategy": "s101",
+  "params": {
+   "id": 134
+  },
+  "old_run_id": "1d6f571e60870ccb",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1d6f571e60870ccb",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0248615322106311,
+   "return_pct": 227.37607930020317,
+   "n_trades": 6089,
+   "max_dd_pct": -75.93031478525143,
+   "oos_profit_factor": 0.811006800380865,
+   "oos_return_pct": -67.18880349897434,
+   "oos_n_trades": 2357,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 0.006908089623197822
+  },
+  "created_utc": "2026-11-19T18:51:51+00:00"
+ },
+ {
+  "rank": 74,
+  "family": "llm_pack",
+  "name": "D14 Chandelier trend follower",
+  "symbol": "JUPUSDT",
+  "tf": "1h",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 39
+  },
+  "old_run_id": "454bdfe185339e88",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1b1a5858164b4159",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9851008173215671,
+   "return_pct": -14.176876696788765,
+   "n_trades": 394,
+   "max_dd_pct": 64.07978240918706,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:51:52+00:00"
+ },
+ {
+  "rank": 76,
+  "family": "llm_pack",
+  "name": "daily-level bounce",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 45
+  },
+  "old_run_id": "93e523512bba996c",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "f387962f48781b00",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9875822987770632,
+   "return_pct": -1.53815826069309,
+   "n_trades": 114,
+   "max_dd_pct": 33.085816100357135,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:51:52+00:00"
+ },
+ {
+  "rank": 75,
+  "family": "llm_pack",
+  "name": "D02 Donchian 55 breakout",
+  "symbol": "ETHUSDT",
+  "tf": "30m",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 27
+  },
+  "old_run_id": "579192b36954b8a7",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "026ee3bf46e77ad5",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9901546520284958,
+   "return_pct": -9.11931876041142,
+   "n_trades": 832,
+   "max_dd_pct": 44.07352239869354,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:51:53+00:00"
+ },
+ {
+  "rank": 78,
+  "family": "sax_scalper",
+  "name": "sax",
+  "symbol": "AVAXUSDT",
+  "tf": "1h",
+  "strategy": "sax",
+  "params": {},
+  "old_run_id": "4e09efe2c3d70396",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": null,
+  "rc": -1,
+  "err": "FileNotFoundError: C:\\Users\\Lenovo\\Downloads\\sax_engine-claude.py is missing. SAX v3 cannot be re-run, so its artifacts cannot verify. Recover the engine or drop the adapter (AGENTS.md, Current kills).",
+  "metrics": {}
+ },
+ {
+  "rank": 79,
+  "family": "llm_pack",
+  "name": "dual EMA 21/55 trend",
+  "symbol": "ETHUSDT",
+  "tf": "4h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 2
+  },
+  "old_run_id": "2741a7d46b9482f1",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "378f8739b9f6cc71",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9814078571380518,
+   "return_pct": -2.4507465370591675,
+   "n_trades": 45,
+   "max_dd_pct": 38.75775349310962,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:51:53+00:00"
+ },
+ {
+  "rank": 77,
+  "family": "htffvg",
+  "name": "card=SOLUSDT",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "strategy": "htffvg",
+  "params": {
+   "card": "SOLUSDT",
+   "entry_mode": "market"
+  },
+  "old_run_id": "45ffecd2da31bb02",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "fd9ff01e8a1ed64e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9869917112423928,
+   "return_pct": -11.300169736528964,
+   "n_trades": 898,
+   "max_dd_pct": -57.89973490916944,
+   "oos_profit_factor": 0.8048432227437081,
+   "oos_return_pct": -31.28293368204136,
+   "oos_n_trades": 261,
+   "cost_bp_roundtrip": 8.943013021573439,
+   "boot_ci_lo": -14.614384901794413
+  },
+  "created_utc": "2026-11-19T18:51:56+00:00"
+ },
+ {
+  "rank": 81,
+  "family": "deepseek_ds6-ds10",
+  "name": "ds8",
+  "symbol": "PAIRS_BTC_ETH",
+  "tf": "1h",
+  "strategy": "dspack2",
+  "params": {
+   "costs": "author",
+   "strat": "ds8",
+   "window": "full"
+  },
+  "old_run_id": "bccaa612918c561b",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "63140d45392db788",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9646883321291941,
+   "return_pct": -61.51571006867469,
+   "n_trades": 10644,
+   "max_dd_pct": -77.39170300453281
+  },
+  "created_utc": "2026-11-19T18:51:56+00:00"
+ },
+ {
+  "rank": 80,
+  "family": "pack20",
+  "name": "08_donchian_turtle",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 8
+  },
+  "old_run_id": "c864a85d90a4bd41",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "9921dd925f262c74",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9814865939374477,
+   "return_pct": -45.31059445618855,
+   "n_trades": 1559,
+   "max_dd_pct": -83.43599122205421,
+   "oos_profit_factor": 0.9061477715992667,
+   "oos_return_pct": -34.842212290615926,
+   "oos_n_trades": 483,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -15.352979475273308
+  },
+  "created_utc": "2026-11-19T18:52:03+00:00"
+ },
+ {
+  "rank": 64,
+  "family": "pack20",
+  "name": "06_ema_pullback",
+  "symbol": "BTCUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 6
+  },
+  "old_run_id": "5e9fca474627e82d",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "beeab406d9c000e5",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0119467802744855,
+   "return_pct": 13.508305305191382,
+   "n_trades": 1070,
+   "max_dd_pct": -48.225319165084116,
+   "oos_profit_factor": 0.9521655512421658,
+   "oos_return_pct": -10.32681942433632,
+   "oos_n_trades": 330,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -9.583878644166852
+  },
+  "created_utc": "2026-11-19T18:52:04+00:00"
+ },
+ {
+  "rank": 66,
+  "family": "pack20",
+  "name": "02_order_block",
+  "symbol": "XRPUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 2
+  },
+  "old_run_id": "b40c0d432705fc83",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "ac61810d94b4b3e1",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0066840645434096,
+   "return_pct": 27.767829205658035,
+   "n_trades": 1062,
+   "max_dd_pct": -81.13384468218142,
+   "oos_profit_factor": 0.906844080834334,
+   "oos_return_pct": -53.614119568393406,
+   "oos_n_trades": 332,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -16.254068878651125
+  },
+  "created_utc": "2026-11-19T18:52:06+00:00"
+ },
+ {
+  "rank": 83,
+  "family": "p100screen",
+  "name": "id=47",
+  "symbol": "BTCUSDT",
+  "tf": "5m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 47,
+   "segment": "OOS"
+  },
+  "old_run_id": "5bc673c0d475f18e",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "5bc673c0d475f18e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.6030710456385795,
+   "return_pct": -99.98153033122871,
+   "n_trades": 1627,
+   "max_dd_pct": -99.98491804387253,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.6321419417273386
+  },
+  "created_utc": "2026-11-19T18:52:37+00:00"
+ },
+ {
+  "rank": 85,
+  "family": "trend_hma_simple",
+  "name": "card=SUIUSDT",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "SUIUSDT",
+   "mode": "hermes"
+  },
+  "old_run_id": "58bbf6c26905b33c",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "d179919671c3c795",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9621921575332856,
+   "return_pct": -4.074250017964964,
+   "n_trades": 113,
+   "max_dd_pct": 39.633529550058256,
+   "oos_profit_factor": 1.6793615524826,
+   "oos_return_pct": 12.319308637780432,
+   "oos_n_trades": 35,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 0.0,
+   "boot_ci_lo": -52.45135577539415
+  },
+  "created_utc": "2026-11-19T18:52:37+00:00"
+ },
+ {
+  "rank": 86,
+  "family": "llm_pack",
+  "name": "Parabolic SAR trend",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 9
+  },
+  "old_run_id": "6e2c370ad9a43c21",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "62a79649484d5a7a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.961779695411643,
+   "return_pct": -13.040308431878845,
+   "n_trades": 360,
+   "max_dd_pct": 42.93425061352168,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:52:38+00:00"
+ },
+ {
+  "rank": 87,
+  "family": "trend_hma_simple",
+  "name": "card=NVDAUSDT",
+  "symbol": "NVDAUSDT",
+  "tf": "1h",
+  "strategy": "hmatrend",
+  "params": {
+   "card": "NVDAUSDT",
+   "mode": "hermes"
+  },
+  "old_run_id": "992a0531585148e0",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "ccf61acf9dc2f912",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9598213834096201,
+   "return_pct": -2.619355527500644,
+   "n_trades": 125,
+   "max_dd_pct": 23.444249353680434,
+   "oos_profit_factor": 0.7342191597789619,
+   "oos_return_pct": -4.575715057111301,
+   "oos_n_trades": 35,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 0.0,
+   "boot_ci_lo": -27.791707273672422
+  },
+  "created_utc": "2026-11-19T18:52:39+00:00"
+ },
+ {
+  "rank": 68,
+  "family": "ffs",
+  "name": "ffs",
+  "symbol": "HYPEUSDT",
+  "tf": "15m",
+  "strategy": "ffs",
+  "params": {},
+  "old_run_id": "7a0dcdd7a146e941",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "152b6249c5370871",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.943252425270858,
+   "return_pct": -22.727748924675993,
+   "n_trades": 326,
+   "max_dd_pct": -32.39333158631518
+  },
+  "created_utc": "2026-11-19T18:52:40+00:00"
+ },
+ {
+  "rank": 88,
+  "family": "llm_pack",
+  "name": "D07 previous-day high/low breakout",
+  "symbol": "SPXUSDT",
+  "tf": "1h",
+  "strategy": "pack50b",
+  "params": {
+   "strat": 32
+  },
+  "old_run_id": "009abf69321e2e2c",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "b8e39d4bd67b0ead",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9571341776387985,
+   "return_pct": -42.85478549863807,
+   "n_trades": 477,
+   "max_dd_pct": 73.28000882565145,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0
+  },
+  "created_utc": "2026-11-19T18:52:40+00:00"
+ },
+ {
+  "rank": 83,
+  "family": "p100screen",
+  "name": "id=47",
+  "symbol": "BTCUSDT",
+  "tf": "5m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 47,
+   "segment": "DEV"
+  },
+  "old_run_id": "a490502c2746732e",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "a490502c2746732e",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.965637788920265,
+   "return_pct": -99.99999912245843,
+   "n_trades": 7900,
+   "max_dd_pct": -99.99999963141374,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.2546192800132707
+  },
+  "created_utc": "2026-11-19T18:52:40+00:00"
+ },
+ {
+  "rank": 90,
+  "family": "trend_hma_ao_adx",
+  "name": "hmaaoadx",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "hmaaoadx",
+  "params": {
+   "costs": "repo6x5",
+   "window": "full"
+  },
+  "old_run_id": "b618c6e7552052d2",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "a57889fda85981d3",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9570284969697913,
+   "return_pct": -4.29671227139623,
+   "n_trades": 433,
+   "max_dd_pct": -11.468902971553662
+  },
+  "created_utc": "2026-11-19T18:52:44+00:00"
+ },
+ {
+  "rank": 49,
+  "family": "pack20",
+  "name": "13_vwap_fade",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "strategy": "pack20",
+  "params": {
+   "id": 13
+  },
+  "old_run_id": "44a23ab194b621be",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "a476deaab7cb77bc",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.0791556391011916,
+   "return_pct": 420868.95202960185,
+   "n_trades": 17914,
+   "max_dd_pct": -76.33795084458346,
+   "oos_profit_factor": 1.0809365677482945,
+   "oos_return_pct": 475.66569042968024,
+   "oos_n_trades": 5592,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": 3.561444841708679
+  },
+  "created_utc": "2026-11-19T18:52:53+00:00"
+ },
+ {
+  "rank": 92,
+  "family": "llm_pack",
+  "name": "intraday trend-day pullback",
+  "symbol": "SUIUSDT",
+  "tf": "15m",
+  "strategy": "pack50",
+  "params": {
+   "strat": 47
+  },
+  "old_run_id": "961a4618185a5149",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "315ea69b4979ab91",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.94808271259701,
+   "return_pct": -56.72426851061755,
+   "n_trades": 2313,
+   "max_dd_pct": 88.16148290582547,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 20.0
+  },
+  "created_utc": "2026-11-19T18:52:55+00:00"
+ },
+ {
+  "rank": 93,
+  "family": "pack20",
+  "name": "11_bb_mean_revert",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 11
+  },
+  "old_run_id": "ee47f05c4e8ea3e4",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "2ccd2a8923bc0ab4",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9418359334120047,
+   "return_pct": -98.8947593643173,
+   "n_trades": 2960,
+   "max_dd_pct": -99.710064897567,
+   "oos_profit_factor": 0.8333167701645303,
+   "oos_return_pct": -67.17000548541637,
+   "oos_n_trades": 869,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -21.100471011066407
+  },
+  "created_utc": "2026-11-19T18:52:59+00:00"
+ },
+ {
+  "rank": 89,
+  "family": "p100screen",
+  "name": "id=53",
+  "symbol": "SOLUSDT",
+  "tf": "5m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 53,
+   "segment": "OOS"
+  },
+  "old_run_id": "591f632e567c34de",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "591f632e567c34de",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.5602982717731779,
+   "return_pct": -95.40397546359029,
+   "n_trades": 711,
+   "max_dd_pct": -95.46498961067299,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.6165451229843095
+  },
+  "created_utc": "2026-11-19T18:53:09+00:00"
+ },
+ {
+  "rank": 95,
+  "family": "llm_pack",
+  "name": "Chandelier breakout",
+  "symbol": "ETHUSDT",
+  "tf": "4h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 25
+  },
+  "old_run_id": "56051a9835e556da",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "bdcbcbbc2c546f2a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9359219489705812,
+   "return_pct": -22.48014815188435,
+   "n_trades": 181,
+   "max_dd_pct": 68.27507365518596,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 12.0
+  },
+  "created_utc": "2026-11-19T18:53:10+00:00"
+ },
+ {
+  "rank": 89,
+  "family": "p100screen",
+  "name": "id=53",
+  "symbol": "SOLUSDT",
+  "tf": "5m",
+  "strategy": "p100screen",
+  "params": {
+   "id": 53,
+   "segment": "DEV"
+  },
+  "old_run_id": "1e2e095201dcee87",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "1e2e095201dcee87",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9552617565408579,
+   "return_pct": -99.41650321369364,
+   "n_trades": 3322,
+   "max_dd_pct": -99.85005456034378,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.2152351906122005
+  },
+  "created_utc": "2026-11-19T18:53:19+00:00"
+ },
+ {
+  "rank": 97,
+  "family": "llm_pack",
+  "name": "RSI-2 snap-back",
+  "symbol": "SUIUSDT",
+  "tf": "1h",
+  "strategy": "pack50",
+  "params": {
+   "strat": 14
+  },
+  "old_run_id": "80e8e4eab0cc90c8",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "00a550c059cf5fd4",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9325375504739353,
+   "return_pct": -7.926585032659639,
+   "n_trades": 134,
+   "max_dd_pct": 29.595679170503953,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 20.0
+  },
+  "created_utc": "2026-11-19T18:53:20+00:00"
+ },
+ {
+  "rank": 98,
+  "family": "p100screen",
+  "name": "id=84",
+  "symbol": "BASKET6",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 84,
+   "segment": "DEV"
+  },
+  "old_run_id": "06b1877cda503628",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "06b1877cda503628",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9322923472501665,
+   "return_pct": -76.91757339364756,
+   "n_trades": 2134,
+   "max_dd_pct": -89.51156310711441,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.0013606928079075908
+  },
+  "created_utc": "2026-11-19T18:53:29+00:00"
+ },
+ {
+  "rank": 98,
+  "family": "p100screen",
+  "name": "id=84",
+  "symbol": "BASKET6",
+  "tf": "1h",
+  "strategy": "p100screen",
+  "params": {
+   "id": 84,
+   "segment": "OOS"
+  },
+  "old_run_id": "0346f92b2307b514",
+  "kind": "oos_sibling",
+  "ranks_extra": [],
+  "new_run_id": "0346f92b2307b514",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.8498274936549777,
+   "return_pct": -43.60107639122881,
+   "n_trades": 463,
+   "max_dd_pct": -52.14889909177363,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.002707216590166951
+  },
+  "created_utc": "2026-11-19T18:53:35+00:00"
+ },
+ {
+  "rank": 91,
+  "family": "scalp_wave",
+  "name": "scalpwave",
+  "symbol": "SOLUSDT",
+  "tf": "5m",
+  "strategy": "scalpwave",
+  "params": {},
+  "old_run_id": "4c4cf4db8894f510",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "e836840337e02883",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.775745731490138,
+   "return_pct": -99.99999999438892,
+   "n_trades": 18590,
+   "max_dd_pct": -99.99999999814685,
+   "cost_bp_roundtrip": 11.0
+  },
+  "created_utc": "2026-11-19T18:53:41+00:00"
+ },
+ {
+  "rank": 39,
+  "family": "portfolio_momentum",
+  "name": "Pure Equal Weight Momentum",
+  "symbol": "PORTFOLIO",
+  "tf": "1h",
+  "strategy": "mpv3",
+  "params": {
+   "costs": "repo",
+   "strat": "MP-V3-S10",
+   "window": "full"
+  },
+  "old_run_id": "00d2a8549e6c898d",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "88789ff64d7f6ef5",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 1.1192,
+   "return_pct": 1098.3671,
+   "n_trades": 317,
+   "max_dd_pct": -80.2118,
+   "boot_ci_lo": -10157.5119
+  },
+  "created_utc": "2026-11-19T18:53:43+00:00"
+ },
+ {
+  "rank": 100,
+  "family": "pack20",
+  "name": "07_adx_di_trend",
+  "symbol": "ETHUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 7
+  },
+  "old_run_id": "89ea8eceb1b1e7c4",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "02552a673cacdc71",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9215689357338713,
+   "return_pct": -81.82782320607663,
+   "n_trades": 1517,
+   "max_dd_pct": -91.57288971543616,
+   "oos_profit_factor": 0.7606379832405409,
+   "oos_return_pct": -55.01514987895035,
+   "oos_n_trades": 433,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -22.023336637624872
+  },
+  "created_utc": "2026-11-19T18:53:47+00:00"
+ },
+ {
+  "rank": 99,
+  "family": "pack20",
+  "name": "12_zscore_fade",
+  "symbol": "SOLUSDT",
+  "tf": "15m",
+  "strategy": "pack20",
+  "params": {
+   "id": 12
+  },
+  "old_run_id": "36c1914c7c52d88e",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "acad5cb3483f0df8",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9256302932189514,
+   "return_pct": -99.90577039068977,
+   "n_trades": 3969,
+   "max_dd_pct": -99.95867461958173,
+   "oos_profit_factor": 0.8164598120893518,
+   "oos_return_pct": -78.59614730630025,
+   "oos_n_trades": 1179,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -22.2298982326546
+  },
+  "created_utc": "2026-11-19T18:53:47+00:00"
+ },
+ {
+  "rank": 94,
+  "family": "scalp_ma_suite",
+  "name": "16_keltner_break_hma",
+  "symbol": "SOLUSDT",
+  "tf": "5m",
+  "strategy": "scalpma20",
+  "params": {
+   "id": 16
+  },
+  "old_run_id": "0e65bca180992c19",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "0e65bca180992c19",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.937230189793816,
+   "return_pct": -100.0,
+   "n_trades": 27882,
+   "max_dd_pct": -100.0,
+   "oos_profit_factor": 0.6572343908550478,
+   "oos_return_pct": -99.99999998147618,
+   "oos_n_trades": 7510,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -0.7283483288912685
+  },
+  "created_utc": "2026-11-19T18:53:48+00:00"
+ },
+ {
+  "rank": 96,
+  "family": "grid_neutral",
+  "name": "xrpneutral1m",
+  "symbol": "XRPUSDT",
+  "tf": "15m",
+  "strategy": "xrpneutral1m",
+  "params": {
+   "delta_max_pct": 2.0,
+   "equity_pct": 1.0,
+   "init": 25,
+   "leverage": 10.0,
+   "slice_from": "2023-01-01",
+   "slice_to": "2026-10-01T13:45:00"
+  },
+  "old_run_id": "18d686932bf06f78",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "ef3891a73cad606a",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9325703133404812,
+   "return_pct": -74.19608159605755,
+   "n_trades": 3018,
+   "max_dd_pct": 81.46167641350515,
+   "funding_charged": true,
+   "cost_bp_roundtrip": 14.0,
+   "boot_ci_lo": -0.01615598457229716
+  },
+  "created_utc": "2026-11-19T18:53:59+00:00"
+ },
+ {
+  "rank": 82,
+  "family": "pack20",
+  "name": "04_pdh_sweep",
+  "symbol": "ETHUSDT",
+  "tf": "15m",
+  "strategy": "pack20",
+  "params": {
+   "id": 4
+  },
+  "old_run_id": "0d42eef92b4d8e32",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "2d86a3f032eca8ba",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9655297871761586,
+   "return_pct": -80.2767612874745,
+   "n_trades": 3139,
+   "max_dd_pct": -92.03800869709538,
+   "oos_profit_factor": 0.8281759135804846,
+   "oos_return_pct": -70.42792658154215,
+   "oos_n_trades": 979,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -11.225415983836251
+  },
+  "created_utc": "2026-11-19T18:54:06+00:00"
+ },
+ {
+  "rank": 73,
+  "family": "pack20",
+  "name": "18_logreg_walkforward",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 18
+  },
+  "old_run_id": "2977c4fd05502f38",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "189104d2e1548020",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9929425768665032,
+   "return_pct": -64.89805366109334,
+   "n_trades": 4520,
+   "max_dd_pct": -96.74895255837308,
+   "oos_profit_factor": 0.972475934574485,
+   "oos_return_pct": -23.39539377993798,
+   "oos_n_trades": 1376,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -6.638822157127494
+  },
+  "created_utc": "2026-11-19T18:54:42+00:00"
+ },
+ {
+  "rank": 84,
+  "family": "pack20",
+  "name": "20_gbm_walkforward",
+  "symbol": "SOLUSDT",
+  "tf": "1h",
+  "strategy": "pack20",
+  "params": {
+   "id": 20
+  },
+  "old_run_id": "4fd912b238550e7d",
+  "kind": "cited",
+  "ranks_extra": [],
+  "new_run_id": "8df20534eb2b2b7d",
+  "rc": 0,
+  "err": "",
+  "metrics": {
+   "profit_factor": 0.9646434530729178,
+   "return_pct": -99.99872781600757,
+   "n_trades": 9699,
+   "max_dd_pct": -99.99958016345506,
+   "oos_profit_factor": 0.8006710477817085,
+   "oos_return_pct": -97.85941597330674,
+   "oos_n_trades": 2973,
+   "funding_charged": false,
+   "cost_bp_roundtrip": 11.0,
+   "boot_ci_lo": -13.596304887299825
+  },
+  "created_utc": "2026-11-19T18:59:05+00:00"
+ }
+]

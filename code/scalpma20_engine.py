@@ -631,6 +631,7 @@ def book_summary(book, warm: int, split_i: int) -> dict:
         oos_return_pct=oos_ret,
         oos_n_trades=int(oos_mask.sum()) if n else 0,
         oos_profit_factor=_pf(opn),
+        oos_pf_degenerate=bool(len(opn) < 30 and not np.isfinite(_pf(opn))),
         best5_share_pct=(100.0 * best5 / pnl_sum) if pnl_sum > 0 else float("nan"),
         fees_paid_usdt=float(book.fees_paid),
         funding_paid_usdt=float(book.funding_paid),
@@ -642,12 +643,23 @@ def book_summary(book, warm: int, split_i: int) -> dict:
         avg_bars_held=float(np.mean([t["exit_idx"] - t["entry_idx"] for t in tr])) if n else 0.0,
     )
     if n > 1:
+        # F12 FIX: vectorized, memory-bounded i.i.d. bootstrap (was a 20000-iter
+        # Python loop: ~1.2e9 samples / ~60s on the busiest cell). Same estimator
+        # and seed; chunks bound the (b x n) index matrix to ~2M elements.
         rng = np.random.default_rng(7)
-        boot = np.array([rng.choice(pnls, n, replace=True).mean() for _ in range(20000)])
-        out["boot_ci_lo"] = float(np.percentile(boot, 2.5))
-        out["boot_ci_hi"] = float(np.percentile(boot, 97.5))
-        out["boot_p_le_zero"] = float((boot <= 0).mean())
-        out["boot_draws"] = 20000
+        B = 20000
+        means = np.empty(B)
+        chunk = max(1, min(B, 2_000_000 // n))
+        done = 0
+        while done < B:
+            b = min(chunk, B - done)
+            idx = rng.integers(0, n, size=(b, n))
+            means[done:done + b] = pnls[idx].mean(axis=1)
+            done += b
+        out["boot_ci_lo"] = float(np.percentile(means, 2.5))
+        out["boot_ci_hi"] = float(np.percentile(means, 97.5))
+        out["boot_p_le_zero"] = float((means <= 0).mean())
+        out["boot_draws"] = B
         out["boot_seed"] = 7
     return out, pnls
 
@@ -717,8 +729,25 @@ def run_symbol(paths, params):
     f_arr, f_first, f_last = None, None, None
     if use_funding and fund_path:
         f_arr, f_first, f_last = funding_arrays_from_file(fund_path, bar_ms)
+    # F3 FIX: coverage must also check INTERNAL settlement holes, not just the
+    # endpoints. A funding file can span the window yet miss prints in the middle
+    # (e.g. PUMP's ~21-day hole); those bars were charged zero while the old
+    # endpoint-only test reported covered=True. Threshold matches the manifest's
+    # missing-settlement definition (gap > 1.5x the modal spacing).
+    internal_hole = False
+    funding_max_gap_days = 0.0
+    if f_arr is not None:
+        sidx = np.where(f_arr[1])[0]
+        sidx = sidx[(sidx >= WARM) & (sidx <= d.n - 1)]
+        if len(sidx) >= 3:
+            gaps = np.diff(bar_ms[sidx])
+            modal = float(np.median(gaps))
+            if modal > 0:
+                funding_max_gap_days = float(gaps.max() / 86_400_000.0)
+                internal_hole = bool(gaps.max() > 1.5 * modal)
     funding_covers = bool(f_arr is not None and f_first is not None
-                          and f_first <= bar_ms[WARM] and f_last >= bar_ms[-1] - 8 * 3600 * 1000)
+                          and f_first <= bar_ms[WARM] and f_last >= bar_ms[-1] - 8 * 3600 * 1000
+                          and not internal_hole)
 
     split_i = WARM + int((d.n - WARM) * (1.0 - OOS_FRAC))
     fee, slip = FEE_BPS / 1e4, SLIP_BPS / 1e4
@@ -737,6 +766,7 @@ def run_symbol(paths, params):
         ret_zero_pct=zm["return_pct"], pf_zero=zm["profit_factor"], n_zero=zm["n_trades"],
         drag_pp=zm["return_pct"] - m["return_pct"],
         funding_charged=bool(f_arr is not None), funding_covers_bars=funding_covers,
+        funding_internal_hole=internal_hole, funding_max_gap_days=funding_max_gap_days,
         funding_model=("real settlements" if f_arr is not None else "off (no funding file served)"),
         n_bars=int(d.n), warm_bars=WARM, oos_frac=OOS_FRAC,
         geometry=geo_eff,

@@ -1,5 +1,20 @@
-#!/usr/bin/env python
-"""mp18_v2_paper.py — paper trading tracker for MP-18 v2 (market-neutral, vectorized)."""
+"""
+RETIRADO (2026-11-16) — este fichero ya NO despliega ni corre nada.
+
+  Que era      : la fuente del bot paper de MP-18 v2 (forward paper tracker)
+  Donde corria : /home/ubuntu/mp18/backtest-system en el VPS (vps-japan), por cron horario
+  Que paso     : el bot se borro del VPS (directorios y lineas de cron) el
+                  2026-11-16. El material borro esta archivado en el repo,
+                  verificado por sha256, en
+                  `backups/vps_retired_paper_mp18_20261116T213657Z.tar.gz`
+                  (sha256 3f959444a88f5070f0d4716e2f68283605619dea14b8b2ee3d292db5ecf28a56).
+  Como queda   : esto es el archivo del repo (append-only, no se borra). No
+                  hay ninguna tarea programada ni cron que lo despliegue, y
+                  no debe volver a desplegarse: el veredicto de la estrategia
+                  que implementa esta en este repo esta en los artefactos, no
+                  en un bot desplegado.
+
+mp18_v2_paper.py — paper trading tracker for MP-18 v2 (market-neutral, vectorized)."""
 from __future__ import annotations
 import argparse, csv, json, os, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone

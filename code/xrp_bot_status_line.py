@@ -1,5 +1,20 @@
-#!/usr/bin/env python3
-"""Print the XRP paper bot status in one line. Used on the VPS and locally."""
+"""
+RETIRADO (2026-11-16) — este fichero ya NO despliega ni corre nada.
+
+  Que era      : la fuente del bot el lector de estado del bot XRP de una sola pareja
+  Donde corria : /home/ubuntu/xrp-paper-bot en el VPS (vps-japan), ya retirado el 2026-11-04
+  Que paso     : el bot se borro del VPS (directorios y lineas de cron) el
+                  2026-11-16. El material borro esta archivado en el repo,
+                  verificado por sha256, en
+                  `backups/vps_retired_paper_mp18_20261116T213657Z.tar.gz`
+                  (sha256 3f959444a88f5070f0d4716e2f68283605619dea14b8b2ee3d292db5ecf28a56).
+  Como queda   : esto es el archivo del repo (append-only, no se borra). No
+                  hay ninguna tarea programada ni cron que lo despliegue, y
+                  no debe volver a desplegarse: el veredicto de la estrategia
+                  que implementa esta en este repo esta en los artefactos, no
+                  en un bot desplegado.
+
+Print the XRP paper bot status in one line. Used on the VPS and locally."""
 import json
 import os
 import sys

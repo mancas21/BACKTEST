@@ -1,5 +1,5 @@
 {
- "run_id": "4a6c867ea8fc0701",
+ "run_id": "003328b3c1a46d97",
  "id": 67,
  "segment": "DEV",
  "symbol": "ETHUSDT",
@@ -28,7 +28,7 @@
   "n_exits_target": 3910,
   "n_exits_time": 0,
   "n_periods_green": 0,
-  "n_settlements": 7582,
+  "n_settlements": 7629,
   "n_signals": 99830,
   "n_skipped_gap_entries": 0,
   "n_trades": 28247,

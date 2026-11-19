@@ -573,7 +573,13 @@ def load_klines(symbol: str, tf: str):
 
 def funding_events(symbol: str, bar_ms: np.ndarray):
     """(rate, is_event) per bar, repo convention: a settlement at t maps to
-    the first bar whose OPEN is at or after t."""
+    the first bar whose OPEN is at or after t.
+
+    F2 FIX: rates ACCUMULATE on a bar. When the bar interval exceeds the funding
+    interval (e.g. 1d bars vs 8h/4h funding) several settlements map to the same
+    bar; the old `rate[j] = r` kept only the LAST and under-charged funding by
+    ~2-5x on coarse timeframes. Intraday bars (interval < funding interval) have
+    no collision, so their results are unchanged."""
     p = os.path.join(ROOT, "data", "binance_funding", f"{symbol}_funding.json")
     rate = np.zeros(len(bar_ms))
     ev = np.zeros(len(bar_ms), bool)
@@ -586,14 +592,21 @@ def funding_events(symbol: str, bar_ms: np.ndarray):
         j = int(np.searchsorted(bar_ms, t, side="left"))
         if j < len(bar_ms):
             ev[j] = True
-            rate[j] = float(x["r"])
+            rate[j] += float(x["r"])   # F2: accumulate, do not overwrite
             n += 1
     return rate, ev, n
 
 
 # ───────────────────────── the repo's execution ───────────────────────────
 class Book:
-    """One position at a time, with the repo's conventions."""
+    """One position at a time, with the repo's conventions.
+
+    F17 DECLARED LIMITATION: cash accounting is fully-funded synthetic (entry
+    debits qty*fill, so cash can go negative for a levered long while MTM nets
+    out). There is NO intra-bar margin-call / liquidation simulation; a real
+    perp can liquidate on a gap before the stop fills. Liquidation is guarded
+    only post-hoc by gate G9 (per-trade MAE vs 1/leverage - mmr). Any levered
+    verdict must state this limitation."""
 
     def __init__(self, symbol, tf, df, *, init=INIT, fee=FEE, slip=SLIP,
                  risk_pct=RISK_PCT, max_leverage=MAX_LEVERAGE,
