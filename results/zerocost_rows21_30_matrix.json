@@ -1,0 +1,640 @@
+{
+ "campaign": "zerocost-rows21-30-2026-11-20",
+ "cells": {
+  "pack100-HYPE-1h-B17": {
+   "tag": "pack100-HYPE-1h-B17",
+   "adapter": "pack100",
+   "symbol": "HYPEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "63fbbc00ea9d7166",
+    "params": {
+     "strat": "B17-1h",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/63fbbc00ea9d7166.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "aad389671aaf3115",
+    "params": {
+     "strat": "B17-1h",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/aad389671aaf3115.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "pack100-SUI-1h-F75": {
+   "tag": "pack100-SUI-1h-F75",
+   "adapter": "pack100",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "4797da9e4c7a5b96",
+    "params": {
+     "strat": "F75-1h",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/4797da9e4c7a5b96.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "d6c388d65446d6f2",
+    "params": {
+     "strat": "F75-1h",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/d6c388d65446d6f2.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-SUI-1h-QS004": {
+   "tag": "qs-SUI-1h-QS004",
+   "adapter": "qs",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "5096daf5413eaf84",
+    "params": {
+     "strat": "QS-004",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/5096daf5413eaf84.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "f6605276d0aa686f",
+    "params": {
+     "strat": "QS-004",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/f6605276d0aa686f.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "pack50-BTC-1h-S46": {
+   "tag": "pack50-BTC-1h-S46",
+   "adapter": "pack50",
+   "symbol": "BTCUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "557abfbc4c160f45",
+    "params": {
+     "strat": 46,
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/557abfbc4c160f45.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "BTCUSDT_1h.csv",
+     "BTCUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "34903e14ed65eec3",
+    "params": {
+     "strat": 46,
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/34903e14ed65eec3.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "BTCUSDT_1h.csv",
+     "BTCUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-HYPE-1h-QS007": {
+   "tag": "qs-HYPE-1h-QS007",
+   "adapter": "qs",
+   "symbol": "HYPEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "5b700837602aca31",
+    "params": {
+     "strat": "QS-007",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/5b700837602aca31.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "1eef58cfca0b933f",
+    "params": {
+     "strat": "QS-007",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/1eef58cfca0b933f.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-SUI-1h-QS005": {
+   "tag": "qs-SUI-1h-QS005",
+   "adapter": "qs",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "1cf1fe02511ea3cb",
+    "params": {
+     "strat": "QS-005",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/1cf1fe02511ea3cb.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "014002cdf20e2aa1",
+    "params": {
+     "strat": "QS-005",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/014002cdf20e2aa1.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "dspack-XRP-1h-ds1": {
+   "tag": "dspack-XRP-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "XRPUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "53e8e605331e875e",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/53e8e605331e875e.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "53e8e605331e875e",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/53e8e605331e875e.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_1h.csv"
+    ]
+   },
+   "costed": {
+    "run_id": "02c320f022499a4a",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/02c320f022499a4a.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_1h.csv"
+    ]
+   }
+  },
+  "qs-ETH-1h-QS004": {
+   "tag": "qs-ETH-1h-QS004",
+   "adapter": "qs",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "8654067601659418",
+    "params": {
+     "strat": "QS-004",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/8654067601659418.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "d504de1ef687ba01",
+    "params": {
+     "strat": "QS-004",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/d504de1ef687ba01.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-SOL-1h-QS006": {
+   "tag": "qs-SOL-1h-QS006",
+   "adapter": "qs",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "7b036f61b1193cb5",
+    "params": {
+     "strat": "QS-006",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/7b036f61b1193cb5.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "88b366e2e7b1add9",
+    "params": {
+     "strat": "QS-006",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/88b366e2e7b1add9.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   }
+  },
+  "qsf-JUP-1h-QS093": {
+   "tag": "qsf-JUP-1h-QS093",
+   "adapter": "qsf",
+   "symbol": "JUPUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "d571f378484bb7d2",
+    "params": {
+     "strat": "QS-093",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/d571f378484bb7d2.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "JUPUSDT_1h.csv",
+     "JUPUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "3329b4466ab7b15b",
+    "params": {
+     "strat": "QS-093",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/3329b4466ab7b15b.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "JUPUSDT_1h.csv",
+     "JUPUSDT_funding.json"
+    ]
+   }
+  }
+ },
+ "books": [
+  {
+   "row": 21,
+   "book": "B17-1h EMA 20/50 trend + EMA200 filter (long)",
+   "market": "HYPEUSDT 1h",
+   "tag": "pack100-HYPE-1h-B17",
+   "where": "metrics",
+   "base": {
+    "run_id": "63fbbc00ea9d7166",
+    "net_pct": 53.725699562835615,
+    "pf": 1.3813,
+    "n_trades": 77,
+    "max_dd_pct": 37.46,
+    "funding_paid": -515.9555081091445,
+    "bh_pct": 134.89681612603707
+   },
+   "zero": {
+    "run_id": "aad389671aaf3115",
+    "net_pct": 74.1521471970358,
+    "pf": 1.473,
+    "n_trades": 77,
+    "max_dd_pct": 36.74,
+    "funding_paid": 0.0,
+    "bh_pct": 134.89681612603707
+   },
+   "delta_pct": 20.426447634200187
+  },
+  {
+   "row": 22,
+   "book": "F75-1h equal-highs liquidity grab (short)",
+   "market": "SUIUSDT 1h",
+   "tag": "pack100-SUI-1h-F75",
+   "where": "metrics",
+   "base": {
+    "run_id": "4797da9e4c7a5b96",
+    "net_pct": 11.656304028545206,
+    "pf": 1.3524,
+    "n_trades": 50,
+    "max_dd_pct": 8.25,
+    "funding_paid": 9.001154605643308,
+    "bh_pct": -59.0819525302284
+   },
+   "zero": {
+    "run_id": "d6c388d65446d6f2",
+    "net_pct": 17.850003847064432,
+    "pf": 1.558,
+    "n_trades": 50,
+    "max_dd_pct": 7.93,
+    "funding_paid": 0.0,
+    "bh_pct": -59.0819525302284
+   },
+   "delta_pct": 6.193699818519226
+  },
+  {
+   "row": 23,
+   "book": "QS-004 Donchian channel breakout",
+   "market": "SUIUSDT 1h",
+   "tag": "qs-SUI-1h-QS004",
+   "where": "metrics",
+   "base": {
+    "run_id": "5096daf5413eaf84",
+    "net_pct": 23.08,
+    "pf": 1.3353003097304228,
+    "n_trades": 197,
+    "max_dd_pct": -16.2,
+    "funding_paid": 45.52,
+    "bh_pct": -80.7
+   },
+   "zero": {
+    "run_id": "f6605276d0aa686f",
+    "net_pct": 32.79,
+    "pf": 1.4524393982415045,
+    "n_trades": 197,
+    "max_dd_pct": -15.96,
+    "funding_paid": 0.0,
+    "bh_pct": -80.7
+   },
+   "delta_pct": 9.71
+  },
+  {
+   "row": 24,
+   "book": "S46 weekend-gap fade",
+   "market": "BTCUSDT 1h",
+   "tag": "pack50-BTC-1h-S46",
+   "where": "metrics",
+   "base": {
+    "run_id": "557abfbc4c160f45",
+    "net_pct": 26.684686686623316,
+    "pf": 1.3028117853662207,
+    "n_trades": 60,
+    "max_dd_pct": 30.157729526821736,
+    "funding_paid": -0.36818243550450697,
+    "bh_pct": 24.296178920267852
+   },
+   "zero": {
+    "run_id": "34903e14ed65eec3",
+    "net_pct": 36.13419292767068,
+    "pf": 1.4110772754028407,
+    "n_trades": 60,
+    "max_dd_pct": 28.333253441912255,
+    "funding_paid": 0.0,
+    "bh_pct": 24.296178920267852
+   },
+   "delta_pct": 9.449506241047366
+  },
+  {
+   "row": 25,
+   "book": "QS-007 Higher-timeframe trend, lower-timeframe entries",
+   "market": "HYPEUSDT 1h",
+   "tag": "qs-HYPE-1h-QS007",
+   "where": "metrics",
+   "base": {
+    "run_id": "5b700837602aca31",
+    "net_pct": 14.02,
+    "pf": 1.291962859711283,
+    "n_trades": 74,
+    "max_dd_pct": -11.14,
+    "funding_paid": 67.39,
+    "bh_pct": 90.85
+   },
+   "zero": {
+    "run_id": "1eef58cfca0b933f",
+    "net_pct": 20.09,
+    "pf": 1.3880081728538907,
+    "n_trades": 75,
+    "max_dd_pct": -10.67,
+    "funding_paid": 0.0,
+    "bh_pct": 90.85
+   },
+   "delta_pct": 6.07
+  },
+  {
+   "row": 26,
+   "book": "QS-005 Time-series momentum",
+   "market": "SUIUSDT 1h",
+   "tag": "qs-SUI-1h-QS005",
+   "where": "metrics",
+   "base": {
+    "run_id": "1cf1fe02511ea3cb",
+    "net_pct": 15.77,
+    "pf": 1.274059957941424,
+    "n_trades": 143,
+    "max_dd_pct": -18.74,
+    "funding_paid": 33.37,
+    "bh_pct": -80.7
+   },
+   "zero": {
+    "run_id": "014002cdf20e2aa1",
+    "net_pct": 22.29,
+    "pf": 1.3672064532729367,
+    "n_trades": 143,
+    "max_dd_pct": -18.86,
+    "funding_paid": 0.0,
+    "bh_pct": -80.7
+   },
+   "delta_pct": 6.52
+  },
+  {
+   "row": 27,
+   "book": "ds1",
+   "market": "XRPUSDT 1h",
+   "tag": "dspack-XRP-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "53e8e605331e875e",
+    "net_pct": 401.66871699663017,
+    "pf": 1.2671180160461861,
+    "n_trades": 2046,
+    "max_dd_pct": -29.833086003759323,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "53e8e605331e875e",
+    "net_pct": 401.66871699663017,
+    "pf": 1.2671180160461861,
+    "n_trades": 2046,
+    "max_dd_pct": -29.833086003759323,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "costed": {
+    "run_id": "02c320f022499a4a",
+    "net_pct": 8.043260467407553,
+    "pf": 1.0062488971689076,
+    "n_trades": 2046,
+    "max_dd_pct": -48.47545883360821,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 0.0
+  },
+  {
+   "row": 28,
+   "book": "QS-004 Donchian channel breakout",
+   "market": "ETHUSDT 1h",
+   "tag": "qs-ETH-1h-QS004",
+   "where": "metrics",
+   "base": {
+    "run_id": "8654067601659418",
+    "net_pct": 34.65,
+    "pf": 1.2620136651495193,
+    "n_trades": 199,
+    "max_dd_pct": -18.31,
+    "funding_paid": 113.83,
+    "bh_pct": -38.74
+   },
+   "zero": {
+    "run_id": "d504de1ef687ba01",
+    "net_pct": 56.31,
+    "pf": 1.37281682582186,
+    "n_trades": 199,
+    "max_dd_pct": -17.16,
+    "funding_paid": 0.0,
+    "bh_pct": -38.74
+   },
+   "delta_pct": 21.660000000000004
+  },
+  {
+   "row": 29,
+   "book": "QS-006 ADX-filtered directional continuation",
+   "market": "SOLUSDT 1h",
+   "tag": "qs-SOL-1h-QS006",
+   "where": "metrics",
+   "base": {
+    "run_id": "7b036f61b1193cb5",
+    "net_pct": 30.7,
+    "pf": 1.24759214532806,
+    "n_trades": 279,
+    "max_dd_pct": -16.48,
+    "funding_paid": 176.18,
+    "bh_pct": -53.44
+   },
+   "zero": {
+    "run_id": "88b366e2e7b1add9",
+    "net_pct": 60.21,
+    "pf": 1.3792922890609192,
+    "n_trades": 279,
+    "max_dd_pct": -16.11,
+    "funding_paid": 0.0,
+    "bh_pct": -53.44
+   },
+   "delta_pct": 29.51
+  },
+  {
+   "row": 30,
+   "book": "QS-093 VWAP plus trade-flow confluence",
+   "market": "JUPUSDT 1h",
+   "tag": "qsf-JUP-1h-QS093",
+   "where": "metrics",
+   "base": {
+    "run_id": "d571f378484bb7d2",
+    "net_pct": 5.82,
+    "pf": 1.2517610282181948,
+    "n_trades": 95,
+    "max_dd_pct": -6.3,
+    "funding_paid": 8.3,
+    "bh_pct": -75.78
+   },
+   "zero": {
+    "run_id": "3329b4466ab7b15b",
+    "net_pct": 12.64,
+    "pf": 1.5914371741905549,
+    "n_trades": 95,
+    "max_dd_pct": -5.39,
+    "funding_paid": 0.0,
+    "bh_pct": -75.78
+   },
+   "delta_pct": 6.82
+  }
+ ],
+ "note": "control, not a verdict: no gate is evaluated and no row is evidence of alpha (results/zerocost_rows21_30_pre_registration.md)"
+}

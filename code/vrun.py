@@ -1370,11 +1370,38 @@ def run_pack50(paths, params):
     One numbered prompt per artifact. The engine measures both the pack's own
     cost block and the repo gate cost inside the same artifact, charges funding
     at the settlement instants, and reports the 70/30 split the prompt asks for.
-    S34 and S49 need NVDA data that is not on disk and are never estimated."""
+    S34 and S49 need NVDA data that is not on disk and are never estimated.
+
+    `costs` ("repo" | "zero") and `funding` (bool) are the control switches
+    added for the 2026-11-20 rows 21-30 zero-cost control. "zero" replaces
+    the pack's per-symbol cost table (`S.costs_for`) with (0.0, 0.0) on the
+    module object (restored in a finally); the engine's own internal
+    zero-fee control (`zero_cost_*`) keeps real funding in BASE. `funding=
+    False` withholds the funding JSON from the engine, which flips the
+    ENGINE'S OWN `funding_charged` flag and routes it through the engine's
+    empty-funding path. The engine files are byte-untouched; absent the keys
+    every call is identical to before and every stored pack50 artifact
+    re-verifies."""
     sys.path.insert(0, CODE)
     import importlib
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    use_funding = bool(p.pop("funding", True))
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"pack50 costs: use 'repo' or 'zero', got {costs!r}")
     m = importlib.import_module("pack50_engine")
-    return m.run_one(paths, dict(params))
+    saved = m.S.costs_for
+    try:
+        if costs == "zero":
+            m.S.costs_for = lambda sym, tf: (0.0, 0.0)
+        run_paths = [x for x in paths
+                     if use_funding or not str(x).endswith(".json")]
+        metrics, prov, tables = m.run_one(run_paths, p)
+    finally:
+        m.S.costs_for = saved
+    if "costs" in params:
+        metrics["costs"] = costs
+    return metrics, prov, tables
 
 
 def run_pack50b(paths, params):
@@ -1642,12 +1669,45 @@ def run_qsf(paths, params):
     058/093, the eight PARTIAL TK strategies) under the same G1-G7 contract
     as family A. Bar-level taker flow from the kline taker fields (imbalance,
     CVD delta, sell share) — the catalog's own PARTIAL approximation, labeled
-    as such. The catalog's calibration grids remain unswept (fixed rules)."""
+    as such. The catalog's calibration grids remain unswept (fixed rules).
+
+    `costs` ("repo" | "zero") and `funding` (bool) are the control switches
+    added for the 2026-11-20 rows 21-30 zero-cost control — identical in
+    every respect to the `qs` switches: "zero" replaces the module's COSTS
+    ladder with four zero blocks ON THE MODULE OBJECT (restored in a
+    finally), `funding=False` withholds the funding JSON from the engine.
+    The engine files are byte-untouched; absent the keys every call is
+    identical to before and every stored qsf artifact re-verifies."""
     sys.path.insert(0, CODE)
     import importlib
     import qs_flow_strats          # registers into qs_strats.SPECS
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    use_funding = bool(p.pop("funding", True))
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"qsf costs: use 'repo' or 'zero', got {costs!r}")
     m = importlib.import_module("qs_run")
-    return m.run_one(paths, dict(params))
+    saved = {ck: dict(c) for ck, c in m.E.COSTS.items()}
+    fee_bps = 0.0 if costs == "zero" else float(saved["base"]["fee"]) * 1e4
+    slip_bps = 0.0 if costs == "zero" else float(saved["base"]["slip"]) * 1e4
+    try:
+        if costs == "zero":
+            m.E.COSTS = {ck: {"fee": 0.0, "slip": 0.0,
+                              "stop_slip_mult": c["stop_slip_mult"]}
+                         for ck, c in saved.items()}
+        run_paths = [x for x in paths
+                     if use_funding or not str(x).endswith(".json")]
+        metrics, prov, tables = m.run_one(run_paths, p)
+    finally:
+        m.E.COSTS = saved
+    if "costs" in params:
+        metrics["costs"] = costs
+        metrics["fee_bps_per_side"] = fee_bps
+        metrics["slippage_bps_per_side"] = slip_bps
+        metrics["funding_charged"] = use_funding
+        if costs == "zero":
+            metrics["costs_primary"] = "zero(0bps RT)"
+    return metrics, prov, tables
 
 
 def _qsf_inputs(tf, sym):

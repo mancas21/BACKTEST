@@ -240,3 +240,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_rows11_20_report_2026-11-20.md` | las filas 11-20 de `top100_2026-10-31.md` (QS-001, botstrat AVAX/ETH/SOL/BTC, C7, S01+S05 QQQ, smqe, cvrmd SOL) re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; dieciocho artefactos verify bit a bit (dos compartidos con la tanda de filas 1-10); pre-registro `zerocost_rows11_20_pre_registration.md` (con adenda fechada), matriz `zerocost_rows11_20_matrix.json`, auditoría `code/_zerocost_rows11_20_audit.py` (45/45) | **OK (strict)** |
+
+## Control de coste cero sobre las filas 21-30 del top-100 (2026-11-20) — experimento, sin veredicto
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `zerocost_rows21_30_report_2026-11-20.md` | las filas 21-30 de `top100_2026-10-31.md` (B17-1h, F75-1h, QS-004 x2, S46, QS-007, QS-005, ds1, QS-006, QS-093) re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; ds1 se publicó a coste cero (régimen `author`), así que su BASE y ZERO son el mismo artefacto y su corrida informativa es la COSTADA (`repo6x5`); veinte artefactos verify bit a bit; pre-registro `zerocost_rows21_30_pre_registration.md` (con addenda fechada sobre la semántica de reproducción), matriz `zerocost_rows21_30_matrix.json`, auditoría `code/_zerocost_rows21_30_audit.py` (45/45) | **OK (strict)** |

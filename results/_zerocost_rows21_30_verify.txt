@@ -1,0 +1,39 @@
+pverify 20 artifact(s), workers=4
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:247: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:307: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:247: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:307: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:247: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:307: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:247: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:307: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       aad389671aaf3115  pack100_strats: part 1 loaded
+OK       63fbbc00ea9d7166  pack100_strats: part 1 loaded
+OK       4797da9e4c7a5b96  pack100_strats: part 1 loaded
+OK       d6c388d65446d6f2  pack100_strats: part 1 loaded
+OK       557abfbc4c160f45  OK: 557abfbc4c160f45 reproduces bit-for-bit.
+OK       34903e14ed65eec3  OK: 34903e14ed65eec3 reproduces bit-for-bit.
+OK       5096daf5413eaf84  OK: 5096daf5413eaf84 reproduces bit-for-bit.
+OK       f6605276d0aa686f  OK: f6605276d0aa686f reproduces bit-for-bit.
+OK       5b700837602aca31  OK: 5b700837602aca31 reproduces bit-for-bit.
+OK       1eef58cfca0b933f  OK: 1eef58cfca0b933f reproduces bit-for-bit.
+OK       53e8e605331e875e  OK: 53e8e605331e875e reproduces bit-for-bit.
+OK       02c320f022499a4a  OK: 02c320f022499a4a reproduces bit-for-bit.
+OK       014002cdf20e2aa1  OK: 014002cdf20e2aa1 reproduces bit-for-bit.
+OK       1cf1fe02511ea3cb  OK: 1cf1fe02511ea3cb reproduces bit-for-bit.
+OK       d504de1ef687ba01  OK: d504de1ef687ba01 reproduces bit-for-bit.
+OK       8654067601659418  OK: 8654067601659418 reproduces bit-for-bit.
+OK       d571f378484bb7d2  OK: d571f378484bb7d2 reproduces bit-for-bit.
+OK       3329b4466ab7b15b  OK: 3329b4466ab7b15b reproduces bit-for-bit.
+OK       7b036f61b1193cb5  OK: 7b036f61b1193cb5 reproduces bit-for-bit.
+OK       88b366e2e7b1add9  OK: 88b366e2e7b1add9 reproduces bit-for-bit.
+---
+pverify: 20 OK, 0 STALE, 0 ORPHANED, 0 REFUSED (of 20); exit code reports the worst case

@@ -1,5 +1,53 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-20 - Control de coste cero, filas 21-30 del top-100 (experimento, sin veredicto)
+
+La tercera tanda del mismo control: las **filas 21 a 30 de
+`results/top100_2026-10-31.md`** (B17-1h HYPE, F75-1h SUI, QS-004 SUI/ETH,
+S46 BTC, QS-007 HYPE, QS-005 SUI, ds1 XRP, QS-006 SOL, QS-093 JUP). Diez
+libros, veinte artefactos BASE+ZERO, todos `verify` bit a bit
+(`_zerocost_rows21_30_verify.txt`).
+
+- **Switches nuevos, aditivos y en el harness:** la switch de `qs` de la
+  tanda 2 replicada en `qsf` (misma escalera de cuatro puntos a cero, null
+  incluido) y una switch `costs`/`funding` nueva en `pack50` (la tabla de
+  costes por símbolo del pack, `S.costs_for`, a (0, 0) por el objeto módulo;
+  `funding=False` retira el JSON y el ENGINE propio declara
+  `funding_charged=false`). `pack100` conservó sus switches de la tanda 1 y
+  `dspack` ya exponía `costs` nativamente. Engines byte-idénticos; el
+  artefacto SPX de la tanda 1 se re-verificó tras cada edición.
+- **ds1 es el caso espejo de toda la campaña:** ese pack DECLARA que no
+  tiene costes (`costs=author`, sin funding), así que su número publicado
+  se midió a coste cero desde el día uno — su BASE y su ZERO son el mismo
+  artefacto por construcción. La corrida informativa es la COSTADA bajo el
+  preset `repo6x5` del propio engine: mismas señales, mismos 2046 trades,
+  198500.76 USDT de fees, 8.04 por ciento neto a PF 1.006, drag medido
+  dentro del artefacto 393.6255 puntos, y su re-score a coste cero
+  (`ret_zero_pct`) clava el headline del autor al dígito. El fantasma de
+  coste cero quedó cuantificado dentro de un artefacto.
+- **Ocho de las diez BASE reproducen la cifra publicada con precisión
+  completa** aunque sus ficheros de funding crecieron por la cola: la
+  igualdad bit-exacta de toda la curva de equity ES la prueba de que esos
+  registros añadidos nunca tocan una posición abierta. Solo ds1 (klines XRP
+  crecieron) y QS-093 (JUP klines + funding) son re-mediciones. La lógica
+  de reproducción quedó declarada en la addenda del pre-registro ANTES de
+  publicar números: igualdad = reproducción exacta; desigualdad exige un
+  fichero crecido.
+- **Auditoría `code/_zerocost_rows21_30_audit.py` 45/45** (una primera
+  pasada con la rama de reproducción mal escrita se corrigió antes de
+  publicar): cada adaptador contra carga fresca del engine con constantes a
+  mano; referencias propias de los engines (`zero_cost_pf` de
+  pack100/pack50, `ret_zero_pct` de dspack).
+- **Resultado del control (sin veredicto):** los diez libros suben a coste
+  cero (o son idénticos por construcción); el arrastre más pesado de la
+  tanda es la escalera del catálogo (QS-006 SOL 30.70 → 60.21, QS-004 ETH
+  34.65 → 56.31), y el signo del funding NO transfiere entre libros (B17
+  pagó una factura grande; F75 cobró).
+- Informe `results/zerocost_rows21_30_report_2026-11-20.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows21_30_pre_registration.md`; matriz
+  `results/zerocost_rows21_30_matrix.json`.
+
 ## 2026-11-20 - Control de coste cero, filas 11-20 del top-100 (experimento, sin veredicto)
 
 La segunda tanda del mismo control (`results/zerocost_report_2026-11-20.md`):
