@@ -1,0 +1,29 @@
+pverify 18 artifact(s), workers=4
+OK       1eaf1e4e01bb54ce  OK: 1eaf1e4e01bb54ce reproduces bit-for-bit.
+OK       d669e0c0ba73f283  OK: d669e0c0ba73f283 reproduces bit-for-bit.
+OK       1b8a119240535015  OK: 1b8a119240535015 reproduces bit-for-bit.
+OK       c38d452ed032ae45  OK: c38d452ed032ae45 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:247: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+OK       97077f5edabb98b6  OK: 97077f5edabb98b6 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:247: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  key = e.to_period("M")
+OK       80259a12249596a9  OK: 80259a12249596a9 reproduces bit-for-bit.
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:307: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+C:\Users\Lenovo\Documents\backtest-system\code\gate2.py:307: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  s = pd.Series(np.asarray(pnl_pct, float) / 100.0 * init, index=e.to_period("M"))
+OK       2d4793e174cfaf5b  OK: 2d4793e174cfaf5b reproduces bit-for-bit.
+OK       d58e61d3ec1d702c  OK: d58e61d3ec1d702c reproduces bit-for-bit.
+OK       dd585aa5134c7de4  OK: dd585aa5134c7de4 reproduces bit-for-bit.
+OK       7a080ed866c97b16  OK: 7a080ed866c97b16 reproduces bit-for-bit.
+OK       e83fd53a66b52fd2  OK: e83fd53a66b52fd2 reproduces bit-for-bit.
+OK       ac49d9c266a49e83  OK: ac49d9c266a49e83 reproduces bit-for-bit.
+OK       dc4bd31dc75d6a56  OK: dc4bd31dc75d6a56 reproduces bit-for-bit.
+OK       73010b20871fce71  OK: 73010b20871fce71 reproduces bit-for-bit.
+OK       2df3b1e3ea29f99d  OK: 2df3b1e3ea29f99d reproduces bit-for-bit.
+OK       0d1c4cf446c06ae7  OK: 0d1c4cf446c06ae7 reproduces bit-for-bit.
+OK       b00902544413ce0c  OK: b00902544413ce0c reproduces bit-for-bit.
+OK       ced9488099cac1ed  OK: ced9488099cac1ed reproduces bit-for-bit.
+---
+pverify: 18 OK, 0 STALE, 0 ORPHANED, 0 REFUSED (of 18); exit code reports the worst case

@@ -1590,11 +1590,46 @@ def run_qs(paths, params):
     gate point), realized funding at settlement instants, five walk-forward
     folds plus a once-opened 20% holdout with embargo and purge, truncation
     causality, PSR, a seeded random-entry null per cell, and G7 gate
-    verdicts. Variants: two-sided and long-only, separate hypotheses."""
+    verdicts. Variants: two-sided and long-only, separate hypotheses.
+
+    `costs` ("repo" | "zero") and `funding` (bool) are the control switches
+    added for the 2026-11-20 rows 11-20 zero-cost control. "zero" replaces
+    the module's COSTS ladder with four zero blocks ON THE MODULE OBJECT
+    (restored in a finally), so the primary, the adverse/stress/gate views
+    and the random-entry null all run in the same regime. `funding=False`
+    withholds the funding JSON from the engine (load_funding(None) is the
+    engine's own empty-funding path); the file stays in the hashed inputs in
+    both regimes. The engine files are byte-untouched; absent the keys every
+    call is identical to before and every stored qs artifact re-verifies."""
     sys.path.insert(0, CODE)
     import importlib
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    use_funding = bool(p.pop("funding", True))
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"qs costs: use 'repo' or 'zero', got {costs!r}")
     m = importlib.import_module("qs_run")
-    return m.run_one(paths, dict(params))
+    saved = {ck: dict(c) for ck, c in m.E.COSTS.items()}
+    fee_bps = 0.0 if costs == "zero" else float(saved["base"]["fee"]) * 1e4
+    slip_bps = 0.0 if costs == "zero" else float(saved["base"]["slip"]) * 1e4
+    try:
+        if costs == "zero":
+            m.E.COSTS = {ck: {"fee": 0.0, "slip": 0.0,
+                              "stop_slip_mult": c["stop_slip_mult"]}
+                         for ck, c in saved.items()}
+        run_paths = [x for x in paths
+                     if use_funding or not str(x).endswith(".json")]
+        metrics, prov, tables = m.run_one(run_paths, p)
+    finally:
+        m.E.COSTS = saved
+    if "costs" in params:
+        metrics["costs"] = costs
+        metrics["fee_bps_per_side"] = fee_bps
+        metrics["slippage_bps_per_side"] = slip_bps
+        metrics["funding_charged"] = use_funding
+        if costs == "zero":
+            metrics["costs_primary"] = "zero(0bps RT)"
+    return metrics, prov, tables
 
 
 def _qs_inputs(tf, sym):
@@ -1722,11 +1757,64 @@ def run_cand7(paths, params):
     (2026-10-27).  One artifact per candidate; the declared cost block drives
     the headline, and the repo cost, the old 22 bps preset, a zero-cost control,
     full-equity sizing (directional books), the v1 gates and the v2 statistical
-    layer are measured inside the same artifact."""
+    layer are measured inside the same artifact.
+
+    `costs` ("repo" | "zero") and `funding` (bool) are the control switches
+    added for the 2026-11-20 rows 11-20 zero-cost control. "zero" replaces the
+    module's BASE block with Costs(0.0, 0.0) on the module object (restored in
+    a finally). `funding=False` zeroes the funding RATES the simulator bills:
+    C7's signal still reads the real funding file (its entries are
+    funding-driven), only the money changes. Any cost block that charges zero
+    fees is routed with zero funding rates too, so the engine's own internal
+    zero-fee control matches the ZERO regime while the repo/stress controls
+    keep real funding. The engine files are byte-untouched; absent the keys
+    every call is identical to before and every stored cand7 artifact
+    re-verifies."""
     sys.path.insert(0, CODE)
     import importlib
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    use_funding = bool(p.pop("funding", True))
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"cand7 costs: use 'repo' or 'zero', got {costs!r}")
     m = importlib.import_module("cand7_engine")
-    return m.run_one(paths, dict(params))
+    saved_base, saved_run = m.BASE, m._run
+    base_fee = 0.0 if costs == "zero" else float(saved_base.fee_bps)
+    base_slip = 0.0 if costs == "zero" else float(saved_base.slip_bps)
+    try:
+        if costs == "zero":
+            m.BASE = m.C.Costs(0.0, 0.0)
+        if not use_funding:
+            import numpy as np
+            orig = saved_run
+
+            def _zf(f):
+                if f is None:
+                    return None
+                if isinstance(f, list):
+                    return [_zf(x) for x in f]
+                a, b = f
+                if isinstance(a, tuple) and isinstance(b, tuple):
+                    return (_zf(a), _zf(b))
+                return (a, b * 0.0)
+
+            def _run_zf(plan, c, funding, **kw):
+                zero_block = (float(getattr(c, "fee_bps", 1.0)) == 0.0
+                              and float(getattr(c, "slip_bps", 1.0)) == 0.0)
+                return orig(plan, c, _zf(funding) if zero_block else funding,
+                            **kw)
+
+            m._run = _run_zf
+        metrics, prov, tables = m.run_one(paths, p)
+    finally:
+        m.BASE, m._run = saved_base, saved_run
+    if "costs" in params:
+        metrics["costs"] = costs
+        metrics["fee_bps_per_side"] = base_fee
+        metrics["slippage_bps_per_side"] = base_slip
+        metrics["funding_charged"] = use_funding
+        metrics["funding_signal_input"] = True
+    return metrics, prov, tables
 
 
 def run_rsimr(paths, params):
@@ -2857,12 +2945,32 @@ def run_smqe(paths, params):
     daily breaker, equity-DD killswitch. Params: cost_mode (repo|pine|zero),
     sim_start, sim_end. The Pine's confluence gates ship OFF, so the SMC and
     MA-OB engines are display-only and are not ported (declared in the engine
-    docstring)."""
+    docstring).
+
+    `funding` (bool, default True) is the control switch added for the
+    2026-11-20 rows 11-20 zero-cost control: False zeroes the engine's
+    constant funding rate (`fund_rate_8h_pct` in the PINE block) on the
+    module object, restored in a finally. `cost_mode` passes through
+    unchanged (repo | pine | zero). The engine file is byte-untouched;
+    absent the key every call is identical to before and every stored smqe
+    artifact re-verifies."""
     sys.path.insert(0, CODE)
     import importlib
+    p = dict(params)
+    use_funding = bool(p.pop("funding", True))
     m = importlib.import_module("smqe_engine")
-    out = m.run_symbol(paths, dict(params))
-    return (out["metrics"],
+    saved_rate = m.PINE.get("fund_rate_8h_pct")
+    try:
+        if not use_funding:
+            m.PINE["fund_rate_8h_pct"] = 0.0
+        out = m.run_symbol(paths, p)
+    finally:
+        if saved_rate is not None:
+            m.PINE["fund_rate_8h_pct"] = saved_rate
+    metrics = out["metrics"]
+    if "funding" in params:
+        metrics["funding_charged"] = use_funding
+    return (metrics,
             {"adapter": "smqe", "engine_version": "smqe-1"},
             out["tables"])
 

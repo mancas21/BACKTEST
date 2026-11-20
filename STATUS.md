@@ -1,5 +1,49 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-20 - Control de coste cero, filas 11-20 del top-100 (experimento, sin veredicto)
+
+La segunda tanda del mismo control (`results/zerocost_report_2026-11-20.md`):
+las **filas 11 a 20 de `results/top100_2026-10-31.md`**, sin selección por
+resultado (QS-001 HYPE 1h, botstrat AVAX/ETH/SOL/BTC 1h, C7 SOL 1h, S01+S05
+QQQ 1d, smqe SOL 1h, cvrmd SOL 1h). Diez libros, nueve corridas de adaptador
+(S01 y S05 viven en el mismo artefacto `eqpack` QQQ que ya mintió la tanda 1),
+dieciocho artefactos BASE+ZERO, todos `verify` bit a bit
+(`_zerocost_rows11_20_verify.txt`).
+
+- **Switches nuevos, aditivos y en el harness (no en los engines):** `costs` +
+  `funding` en `qs` (la escalera de cuatro puntos de coste del catálogo se
+  pone a cero entera, null incluido) y en `cand7` (BASE→Costs(0,0); el funding
+  del SIMULADOR se pone a cero pero la SEÑAL de C7 sigue leyendo el funding
+  real, porque sus entradas son funding-driven — declarado antes de correr);
+  `funding` en `smqe` (el `fund_rate_8h_pct` del bloque PINE, a cero por el
+  objeto módulo). Los engines quedan byte-idénticos; sin las claves cada
+  runner es idéntico a antes (el artefacto SPX de la tanda 1 se re-verificó
+  tras la edición).
+- **Auditoría `code/_zerocost_rows11_20_audit.py` 45/45:** cada adaptador
+  contrastado contra una carga fresca del engine con constantes a mano; los
+  controles propios de los engines (`pf_zero` de smqe, `profit_factor_zero`
+  de cand7, `drag_pp` de eqpack) clavan el régimen ZERO. Reproducción exacta
+  del número publicado donde los bytes no cambiaron: QS-001 (20.17/1.5211),
+  C7 (2.48/1.4770), botstrat AVAX (50.20) y SOL (37.39), y las dos filas QQQ.
+  Re-medición declarada donde crecieron: botstrat ETH/BTC, smqe, cvrmd SOL.
+- **Resultado del control (sin veredicto):** los diez libros suben a coste
+  cero y casi ninguno estaba ligado al coste — las filas QQQ apenas se mueven
+  (24.18→24.44 y 11.43→11.86) y los mayores movers relativos son smqe
+  (15.53→21.40) y cvrmd SOL (17.12→22.16), los dos libros cuyo BASE cuesta
+  por encima del régimen actual de 11 bps. El funding de QS-001 fue RECEBIDO
+  (signo contrario al de F74-1h en la tanda 1): la conclusión de coste no se
+  transfiere entre libros.
+- **Particularidad cand7:** ese engine lee sus datos por ruta de repo y no
+  desde los ficheros servidos, así que sus dos artefactos van con
+  `cut_ts=full` (hash de fichero completo = exactamente lo que el engine
+  leyó); appends futuros los marcarán STALE, que es la etiqueta honesta para
+  ese engine.
+- Informe `results/zerocost_rows11_20_report_2026-11-20.md` (`guard --strict`
+  OK); pre-registro `results/zerocost_rows11_20_pre_registration.md` (con
+  addenda fechada: la igualdad interna de cand7 es `pf_pct ==
+  profit_factor_zero`, no el PF headline); matriz
+  `results/zerocost_rows11_20_matrix.json`.
+
 ## 2026-11-20 - Control de coste cero sobre el top-10 (experimento, sin veredicto)
 
 Petición del usuario: tomar diez estrategias del top-100 ya identificado,

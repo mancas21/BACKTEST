@@ -234,3 +234,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_report_2026-11-20.md` | las diez primeras filas de `top100_2026-10-31.md` re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; dieciocho artefactos verify bit a bit; pre-registro `zerocost_pre_registration.md`, matriz `zerocost_matrix_2026-11-20.json`, auditoría `code/_zerocost_audit.py` (23/23) | **OK (strict)** |
+
+## Control de coste cero sobre las filas 11-20 del top-100 (2026-11-20) — experimento, sin veredicto
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `zerocost_rows11_20_report_2026-11-20.md` | las filas 11-20 de `top100_2026-10-31.md` (QS-001, botstrat AVAX/ETH/SOL/BTC, C7, S01+S05 QQQ, smqe, cvrmd SOL) re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; dieciocho artefactos verify bit a bit (dos compartidos con la tanda de filas 1-10); pre-registro `zerocost_rows11_20_pre_registration.md` (con adenda fechada), matriz `zerocost_rows11_20_matrix.json`, auditoría `code/_zerocost_rows11_20_audit.py` (45/45) | **OK (strict)** |
