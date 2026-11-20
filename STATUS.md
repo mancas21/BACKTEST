@@ -1,5 +1,42 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-20 - Control de coste cero sobre el top-10 (experimento, sin veredicto)
+
+Petición del usuario: tomar diez estrategias del top-100 ya identificado,
+quitarles los costes y las reglas, re-correrlas y entregar un informe. Las diez
+son las **diez primeras filas de `results/top100_2026-10-31.md`**, sin selección
+por resultado; diez libros salen de nueve corridas de adaptador (dos filas son
+dos estrategias dentro del mismo artefacto `cbpackf` XRP 1h).
+
+- **Dos regímenes por libro, mismo corte congelado y mismos bytes de engine:**
+  BASE (el régimen publicado: 5+0.5 bps en `cbpackf`/`pack100`, 2 maker/5 taker
+  +2 slip en `xrpneutral`, 6 comisión + 5 slip en `botstrat`/`cvrmd`, 0.1+0.5 en
+  `eqpack`, funding real donde existe) y ZERO (0/0 y funding NO cobrado).
+- **Las reglas que se quitaron son las de screening** (batería de gates); la
+  ejecución del motor (next-open, stop-first, gap-through, sizing, leverage cap)
+  queda intacta: es la estrategia, no una regla encima.
+- **Dieciocho artefactos, todos `verify` bit a bit** (`_zerocost_verify.txt`);
+  `guard --strict` OK en el informe. Auditoría `code/_zerocost_audit.py` 23/23:
+  el régimen ZERO se contrasta contra una carga independiente del engine con sus
+  constantes a cero y contra los controles que los propios engines publican
+  (`pack100.zero_cost_pf`, `eqpack.drag_pp`).
+- **Las diez filas suben al quitar coste**, pero el tamaño no es uniforme: el
+  libro de equities QQQ apenas se mueve (25.24 → 25.40) y el grid XRP se
+  duplica con creces (1704.40 → 3544.64). El libro F74-1h pasa de 1.01 a 18.15
+  porque el funding era su coste vinculante, no las fees.
+- **No es un veredicto ni evidencia de alpha.** No se aplicó ningún gate y el
+  libro XRP sigue siendo el libro 15m que el audit de fills 1m mató; el número a
+  coste cero es un techo, no un resultado operable. Los artefactos del ranking
+  tenían cuatro semanas y cinco entradas crecieron, así que BASE es una
+  re-medición sobre los bytes de hoy, no una copia del número publicado.
+- Informe `results/zerocost_report_2026-11-20.md`; pre-registro
+  `results/zerocost_pre_registration.md` (con addendum fechado sobre el régimen
+  6+5 de `botstrat`/`cvrmd`); matriz
+  `results/zerocost_matrix_2026-11-20.json`. Switches nuevos en `code/vrun.py`
+  (`costs` en `botstrat`, `cvrmd`, `pack100`; `funding` en `pack100`/`cbpackf`),
+  aditivos: sin la clave, cada runner se comporta exactamente como antes y los
+  artefactos guardados siguen verificando.
+
 ## 2026-11-19 - Validación G1-G11 completa de las candidatas robustas (top-100 / OOS)
 
 Tras los catálogos `TOP100_ESTRATEGIAS.md` (ranking IS) y `TOP_OOS_ROBUST.md`

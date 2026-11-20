@@ -992,7 +992,12 @@ def run_cbpackf(paths, params):
         "n_net_positive": sum(1 for r in ok if r["net_%"] > 0),
         "n_pf_gt_1p2_n30": sum(1 for r in ok if r["PF"] > 1.2 and r["trades"] >= 30),
         "funding_attached": bool(use_funding and funding_path),
-        "funding_charged": True, "n_settlements": n_settlements,
+        # `funding` in params means the caller is choosing the regime explicitly
+        # (the 2026-11-20 zero-cost control); without it the historical label
+        # stays exactly as every stored artifact recorded it.
+        "funding_charged": (bool(use_funding and funding_path)
+                            if "funding" in params else True),
+        "n_settlements": n_settlements,
         # the two new gates
         "n_conc_pass": sum(1 for r in ok if r.get("conc_passes") is True),
         "n_pass_all_gates": sum(1 for r in ok
@@ -1016,9 +1021,26 @@ def run_sax(paths, params):
 
 
 def run_cvrmd(paths, params):
-    C = _load_module(os.path.join(CODE, "cvrmd_backtest.py"), "cvrmd_backtest")
+    """CVRMD v1.1 (code/cvrmd_backtest.py) as an adapter.
+
+    `costs` (optional, "repo" | "zero") is the zero-cost CONTROL switch added
+    for the 2026-11-20 experiment: it sets the engine's own COST/SLIP constants
+    to 0.0 on a FRESH module, so the engine file is untouched and the override
+    is local to one artifact. Absent the key the runner is unchanged and every
+    stored cvrmd artifact re-verifies bit-for-bit.
+    """
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    if p:
+        raise ValueError(f"unknown cvrmd params: {sorted(p)}")
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"cvrmd costs: use 'repo' or 'zero', got {costs!r}")
+    C = _load_fresh(os.path.join(CODE, "cvrmd_backtest.py"), "cvrmd_backtest")
     base = os.path.basename(paths[0])
     sym, tf = base.split("_")[0], base.rsplit("_", 1)[1][:-4]
+    if costs == "zero":
+        C.COST = 0.0
+        C.SLIP = 0.0
     eq, tr_, w_, gp, gl, mdd, logs = C.run(sym, C.load(sym, os.path.dirname(paths[0]), tf))
     eq = float(eq)
     metrics = {
@@ -1028,6 +1050,11 @@ def run_cvrmd(paths, params):
         "gross_profit": float(gp), "gross_loss": float(gl),
         "max_dd_pct": -float(mdd) * 100.0, "flag": _flag(tr_),
     }
+    if "costs" in params:
+        metrics["costs"] = costs
+        metrics["fee_bps_per_side"] = float(C.COST) * 1e4
+        metrics["slippage_bps_per_side"] = float(C.SLIP) * 1e4
+        metrics["funding_charged"] = False
     return metrics, {"adapter": "cvrmd", "engine_version": "cvrmd"}, None
 
 
@@ -1182,7 +1209,28 @@ def run_xsml(paths, params):
 
 
 def run_botstrat(paths, params):
-    B = _load_module(os.path.join(CODE, "botstrat_backtest.py"), "botstrat_backtest")
+    """The "botstrat" early port (code/botstrat_backtest.py).
+
+    `costs` (optional, "repo" | "zero") is the zero-cost CONTROL switch added
+    for the 2026-11-20 experiment: "zero" sets the engine's own COST/SLIP
+    constants to 0.0 on a FRESH module object, so the engine file stays
+    byte-identical and the override cannot leak into another run in the same
+    process. When the key is absent the runner behaves exactly as before --
+    every stored botstrat artifact re-verifies unchanged.
+
+    D1H is repointed at the directory of the SERVED input. The engine's own
+    load() hardcodes data/binance_klines_1h, which is fine when the served file
+    IS that file but silently reads the un-sliced original under a generation-2
+    data cut (the artifact would then hash a slice it never read). The change is
+    a no-op for a non-sliced run.
+    """
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    if p:
+        raise ValueError(f"unknown botstrat params: {sorted(p)}")
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"botstrat costs: use 'repo' or 'zero', got {costs!r}")
+    B = _load_fresh(os.path.join(CODE, "botstrat_backtest.py"), "botstrat_backtest")
     sym = os.path.basename(paths[0]).split("_")[0]
     if not paths[0].endswith("_1h.csv"):
         # the engine hardcodes the 1h file (D1H) and never reads any other
@@ -1192,6 +1240,10 @@ def run_botstrat(paths, params):
         raise ValueError(
             f"botstrat only runs the 1h file; got {os.path.basename(paths[0])} "
             "(the engine hardcodes data/binance_klines_1h)")
+    B.D1H = os.path.dirname(paths[0])
+    if costs == "zero":
+        B.COST = 0.0
+        B.SLIP = 0.0
     r = B.run(sym, B.load(sym))
     eq, tr_, w_, gp, gl, mdd = (float(r[0]), int(r[1]), int(r[2]),
                                 float(r[3]), float(r[4]), float(r[5]))
@@ -1201,6 +1253,11 @@ def run_botstrat(paths, params):
         "profit_factor": gp / gl if gl > 0 else (float("inf") if gp > 0 else 0.0),
         "gross_profit": gp, "gross_loss": gl, "max_dd_pct": -mdd * 100.0, "flag": _flag(tr_),
     }
+    if "costs" in params:
+        metrics["costs"] = costs
+        metrics["fee_bps_per_side"] = float(B.COST) * 1e4
+        metrics["slippage_bps_per_side"] = float(B.SLIP) * 1e4
+        metrics["funding_charged"] = False
     return metrics, {"adapter": "botstrat", "engine_version": "botstrat"}, None
 
 
@@ -1471,11 +1528,41 @@ def run_pack100(paths, params):
     pack50d v2 statistical gate definitions inside every artifact. NVDA legs,
     open interest, the long/short ratio and JUP funding have no history on
     disk: those prompts are NO DATA, never estimated. Multi-leg prompts (51,
-    89: BTC aux leg; 99, 100: ratio pairs) hash every leg into the inputs."""
+    89: BTC aux leg; 99, 100: ratio pairs) hash every leg into the inputs.
+
+    `costs` ("repo" | "zero") and `funding` (bool) are the control switches
+    added on 2026-11-20. The engine keeps its own module-level REPO constant and
+    reads funding from the paths it is handed, so the adapter swaps REPO for a
+    zero Costs on the module object (restoring it afterwards) and withholds the
+    funding files. With no `costs` key in params the call is identical to before
+    and every stored pack100 artifact re-verifies bit-for-bit."""
     sys.path.insert(0, CODE)
     import importlib
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    use_funding = bool(p.pop("funding", True))
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"pack100 costs: use 'repo' or 'zero', got {costs!r}")
     m = importlib.import_module("pack100_engine")
-    return m.run_one(paths, dict(params))
+    if not use_funding:
+        paths = [x for x in paths if not x.endswith(".json")]
+    saved = m.REPO
+    try:
+        if costs == "zero":
+            m.REPO = m.Costs(fee_bps=0.0, slip_bps=0.0)
+        metrics, prov, tables = m.run_one(paths, p)
+    finally:
+        m.REPO = saved
+    if "costs" in params:
+        metrics = dict(metrics)
+        metrics["costs"] = costs
+        metrics["funding_charged"] = bool(use_funding)
+        if costs == "zero":
+            # pack100_engine hardcodes this LABEL at 5.5 (its declared pack
+            # cost); on a zero run the label would describe something the run
+            # did not pay, so the adapter states the regime it actually set.
+            metrics["cost_bps_per_side"] = 0.0
+    return metrics, prov, tables
 
 
 def _pack100_inputs(tf, sym):

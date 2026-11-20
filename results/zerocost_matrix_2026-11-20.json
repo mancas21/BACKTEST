@@ -1,0 +1,554 @@
+{
+ "campaign": "zerocost-2026-11-20",
+ "cells": {
+  "xrpneutral-XRP-15m": {
+   "tag": "xrpneutral-XRP-15m",
+   "adapter": "xrpneutral",
+   "symbol": "XRPUSDT",
+   "tf": "15m",
+   "base": {
+    "run_id": "e1b961d1a26c353d",
+    "params": {
+     "fee_bps": 2.0,
+     "flat_fee_bps": 5.0,
+     "slip_bps": 2.0,
+     "funding": true,
+     "control_long_only": false
+    },
+    "artifact": "results/runs/e1b961d1a26c353d.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_15m.csv",
+     "XRPUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "69099eb77c4d288c",
+    "params": {
+     "fee_bps": 0.0,
+     "flat_fee_bps": 0.0,
+     "slip_bps": 0.0,
+     "funding": false,
+     "control_long_only": false
+    },
+    "artifact": "results/runs/69099eb77c4d288c.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_15m.csv",
+     "XRPUSDT_funding.json"
+    ]
+   }
+  },
+  "pack100-HYPE-15m-F74": {
+   "tag": "pack100-HYPE-15m-F74",
+   "adapter": "pack100",
+   "symbol": "HYPEUSDT",
+   "tf": "15m",
+   "base": {
+    "run_id": "71e9bf25dc5581e3",
+    "params": {
+     "strat": "F74-15m",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/71e9bf25dc5581e3.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_15m.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "6d0076ef99310982",
+    "params": {
+     "strat": "F74-15m",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/6d0076ef99310982.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_15m.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "botstrat-SPX-1h": {
+   "tag": "botstrat-SPX-1h",
+   "adapter": "botstrat",
+   "symbol": "SPXUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "632e2d2260ca2836",
+    "params": {
+     "costs": "repo"
+    },
+    "artifact": "results/runs/632e2d2260ca2836.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SPXUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "69c9ed8891988006",
+    "params": {
+     "costs": "zero"
+    },
+    "artifact": "results/runs/69c9ed8891988006.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SPXUSDT_1h.csv"
+    ]
+   }
+  },
+  "eqpack-QQQ-1d": {
+   "tag": "eqpack-QQQ-1d",
+   "adapter": "eqpack",
+   "symbol": "QQQ",
+   "tf": "1d",
+   "base": {
+    "run_id": "e83fd53a66b52fd2",
+    "params": {
+     "costs": "eq"
+    },
+    "artifact": "results/runs/e83fd53a66b52fd2.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "QQQ_1d.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "ac49d9c266a49e83",
+    "params": {
+     "costs": "zero"
+    },
+    "artifact": "results/runs/ac49d9c266a49e83.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "QQQ_1d.csv"
+    ]
+   }
+  },
+  "pack100-HYPE-1h-F74": {
+   "tag": "pack100-HYPE-1h-F74",
+   "adapter": "pack100",
+   "symbol": "HYPEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "9b3267194422d882",
+    "params": {
+     "strat": "F74-1h",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/9b3267194422d882.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "711122410123d4f9",
+    "params": {
+     "strat": "F74-1h",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/711122410123d4f9.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "botstrat-BNB-1h": {
+   "tag": "botstrat-BNB-1h",
+   "adapter": "botstrat",
+   "symbol": "BNBUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "62d010ae1d316673",
+    "params": {
+     "costs": "repo"
+    },
+    "artifact": "results/runs/62d010ae1d316673.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "BNBUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "d4811a881d4f0aae",
+    "params": {
+     "costs": "zero"
+    },
+    "artifact": "results/runs/d4811a881d4f0aae.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "BNBUSDT_1h.csv"
+    ]
+   }
+  },
+  "cvrmd-SUI-1h": {
+   "tag": "cvrmd-SUI-1h",
+   "adapter": "cvrmd",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "75bfb5c62d246861",
+    "params": {
+     "costs": "repo"
+    },
+    "artifact": "results/runs/75bfb5c62d246861.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "abb85af41ab820b5",
+    "params": {
+     "costs": "zero"
+    },
+    "artifact": "results/runs/abb85af41ab820b5.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv"
+    ]
+   }
+  },
+  "cbpackf-XRP-1h": {
+   "tag": "cbpackf-XRP-1h",
+   "adapter": "cbpackf",
+   "symbol": "XRPUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "e3c4ce7d5ce1d2ce",
+    "params": {
+     "fee_bps": 5.0,
+     "slippage_bps": 0.5,
+     "funding": true
+    },
+    "artifact": "results/runs/e3c4ce7d5ce1d2ce.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_1h.csv",
+     "XRPUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "cc201b88f8e83306",
+    "params": {
+     "fee_bps": 0.0,
+     "slippage_bps": 0.0,
+     "funding": false
+    },
+    "artifact": "results/runs/cc201b88f8e83306.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "XRPUSDT_1h.csv",
+     "XRPUSDT_funding.json"
+    ]
+   }
+  },
+  "cbpackf-SOL-1h": {
+   "tag": "cbpackf-SOL-1h",
+   "adapter": "cbpackf",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "f7c6306c2a52cca6",
+    "params": {
+     "fee_bps": 5.0,
+     "slippage_bps": 0.5,
+     "funding": true
+    },
+    "artifact": "results/runs/f7c6306c2a52cca6.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "323d4f818d073a61",
+    "params": {
+     "fee_bps": 0.0,
+     "slippage_bps": 0.0,
+     "funding": false
+    },
+    "artifact": "results/runs/323d4f818d073a61.json",
+    "cut_ts": "2026-11-20T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   }
+  }
+ },
+ "books": [
+  {
+   "row": 1,
+   "book": "XRP delta-neutral grid v1",
+   "market": "XRPUSDT 15m",
+   "tag": "xrpneutral-XRP-15m",
+   "where": "metrics",
+   "base": {
+    "run_id": "e1b961d1a26c353d",
+    "net_pct": 1704.400064154763,
+    "pf": 1.50480851550252,
+    "n_trades": 5929,
+    "max_dd_pct": 10.01089814355497,
+    "funding_paid": 208.20538585772744,
+    "bh_pct": 387.4111675126904
+   },
+   "zero": {
+    "run_id": "69099eb77c4d288c",
+    "net_pct": 3544.6430774509117,
+    "pf": 1.6632591156093333,
+    "n_trades": 5930,
+    "max_dd_pct": 8.935204246880398,
+    "funding_paid": 0.0,
+    "bh_pct": 387.4111675126904
+   },
+   "delta_pct": 1840.2430132961488
+  },
+  {
+   "row": 2,
+   "book": "F74-15m market-structure HH/HL trend",
+   "market": "HYPEUSDT 15m",
+   "tag": "pack100-HYPE-15m-F74",
+   "where": "metrics",
+   "base": {
+    "run_id": "71e9bf25dc5581e3",
+    "net_pct": 57.39170029809575,
+    "pf": 3.2057,
+    "n_trades": 38,
+    "max_dd_pct": 70.84,
+    "funding_paid": -1214.6789606406346,
+    "bh_pct": 135.56174558960078
+   },
+   "zero": {
+    "run_id": "6d0076ef99310982",
+    "net_pct": 87.23292499549282,
+    "pf": 4.0216,
+    "n_trades": 38,
+    "max_dd_pct": 66.9,
+    "funding_paid": 0.0,
+    "bh_pct": 135.56174558960078
+   },
+   "delta_pct": 29.841224697397074
+  },
+  {
+   "row": 3,
+   "book": "botstrat",
+   "market": "SPXUSDT 1h",
+   "tag": "botstrat-SPX-1h",
+   "where": "metrics",
+   "base": {
+    "run_id": "632e2d2260ca2836",
+    "net_pct": 38.71984289728423,
+    "pf": 3.079308656540484,
+    "n_trades": 31,
+    "max_dd_pct": -4.168038738086368,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "69c9ed8891988006",
+    "net_pct": 39.050691842009556,
+    "pf": 3.110016670033295,
+    "n_trades": 31,
+    "max_dd_pct": -4.131001001802376,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 0.3308489447253251
+  },
+  {
+   "row": 4,
+   "book": "S02 Donchian + Flow Breakout",
+   "market": "QQQ 1d",
+   "tag": "eqpack-QQQ-1d",
+   "where": "S02",
+   "base": {
+    "run_id": "e83fd53a66b52fd2",
+    "net_pct": 25.238609603001795,
+    "pf": 2.1923578197812312,
+    "n_trades": 39.0,
+    "max_dd_pct": -9.774526886926804,
+    "funding_paid": null,
+    "bh_pct": 607.0673124444005
+   },
+   "zero": {
+    "run_id": "ac49d9c266a49e83",
+    "net_pct": 25.403603839995714,
+    "pf": 2.2032233486052877,
+    "n_trades": 39.0,
+    "max_dd_pct": -9.758405870765385,
+    "funding_paid": null,
+    "bh_pct": 607.0673124444005
+   },
+   "delta_pct": 0.16499423699391969
+  },
+  {
+   "row": 5,
+   "book": "F74-1h market-structure HH/HL trend",
+   "market": "HYPEUSDT 1h",
+   "tag": "pack100-HYPE-1h-F74",
+   "where": "metrics",
+   "base": {
+    "run_id": "9b3267194422d882",
+    "net_pct": 1.0078575273555268,
+    "pf": 2.0289,
+    "n_trades": 37,
+    "max_dd_pct": 75.6,
+    "funding_paid": -884.1466654802562,
+    "bh_pct": 134.89681612603707
+   },
+   "zero": {
+    "run_id": "711122410123d4f9",
+    "net_pct": 18.150709075623084,
+    "pf": 2.3556,
+    "n_trades": 37,
+    "max_dd_pct": 72.39,
+    "funding_paid": 0.0,
+    "bh_pct": 134.89681612603707
+   },
+   "delta_pct": 17.142851548267558
+  },
+  {
+   "row": 6,
+   "book": "botstrat",
+   "market": "BNBUSDT 1h",
+   "tag": "botstrat-BNB-1h",
+   "where": "metrics",
+   "base": {
+    "run_id": "62d010ae1d316673",
+    "net_pct": 50.054648442606144,
+    "pf": 1.8226538257957252,
+    "n_trades": 150,
+    "max_dd_pct": -16.932412490105467,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "d4811a881d4f0aae",
+    "net_pct": 52.00642717691923,
+    "pf": 1.8594746055285973,
+    "n_trades": 150,
+    "max_dd_pct": -16.398467401980344,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 1.9517787343130877
+  },
+  {
+   "row": 7,
+   "book": "cvrmd",
+   "market": "SUIUSDT 1h",
+   "tag": "cvrmd-SUI-1h",
+   "where": "metrics",
+   "base": {
+    "run_id": "75bfb5c62d246861",
+    "net_pct": 16.090508216022737,
+    "pf": 1.7398436244241244,
+    "n_trades": 50,
+    "max_dd_pct": -5.069755970175271,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "abb85af41ab820b5",
+    "net_pct": 18.594913693435934,
+    "pf": 1.8865518070539933,
+    "n_trades": 50,
+    "max_dd_pct": -4.877205520341224,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 2.504405477413197
+  },
+  {
+   "row": 8,
+   "book": "S10 Vol-Targeted Time-Series Momentum",
+   "market": "XRPUSDT 1h",
+   "tag": "cbpackf-XRP-1h",
+   "where": "S10",
+   "base": {
+    "run_id": "e3c4ce7d5ce1d2ce",
+    "net_pct": 174.39082069540098,
+    "pf": 1.7551049970235086,
+    "n_trades": 173.0,
+    "max_dd_pct": -20.71279653239847,
+    "funding_paid": 4.772832335460631,
+    "bh_pct": 135.78449217327994
+   },
+   "zero": {
+    "run_id": "cc201b88f8e83306",
+    "net_pct": 201.23212869713007,
+    "pf": 1.8745905446578717,
+    "n_trades": 173.0,
+    "max_dd_pct": -18.67660318198353,
+    "funding_paid": 0.0,
+    "bh_pct": 135.78449217327994
+   },
+   "delta_pct": 26.84130800172909
+  },
+  {
+   "row": 9,
+   "book": "S10 Vol-Targeted Time-Series Momentum",
+   "market": "SOLUSDT 1h",
+   "tag": "cbpackf-SOL-1h",
+   "where": "S10",
+   "base": {
+    "run_id": "f7c6306c2a52cca6",
+    "net_pct": 70.79388060833382,
+    "pf": 1.5897805070289364,
+    "n_trades": 176.0,
+    "max_dd_pct": -21.444095525523043,
+    "funding_paid": 2.4318124814074493,
+    "bh_pct": -35.87665421389224
+   },
+   "zero": {
+    "run_id": "323d4f818d073a61",
+    "net_pct": 86.2487528098654,
+    "pf": 1.7252311786229941,
+    "n_trades": 176.0,
+    "max_dd_pct": -20.43201195294875,
+    "funding_paid": 0.0,
+    "bh_pct": -35.87665421389224
+   },
+   "delta_pct": 15.454872201531572
+  },
+  {
+   "row": 10,
+   "book": "S02 Donchian + Flow Breakout",
+   "market": "XRPUSDT 1h",
+   "tag": "cbpackf-XRP-1h",
+   "where": "S02",
+   "base": {
+    "run_id": "e3c4ce7d5ce1d2ce",
+    "net_pct": 180.87129158567356,
+    "pf": 1.5835803925482832,
+    "n_trades": 227.0,
+    "max_dd_pct": -26.708006744090586,
+    "funding_paid": 4.456068199966303,
+    "bh_pct": 135.78449217327994
+   },
+   "zero": {
+    "run_id": "cc201b88f8e83306",
+    "net_pct": 245.1087406152014,
+    "pf": 1.7830213603331087,
+    "n_trades": 225.0,
+    "max_dd_pct": -20.994921359830233,
+    "funding_paid": 0.0,
+    "bh_pct": 135.78449217327994
+   },
+   "delta_pct": 64.23744902952785
+  }
+ ],
+ "note": "control, not a verdict: no gate is evaluated and no row is evidence of alpha (results/zerocost_pre_registration.md)"
+}

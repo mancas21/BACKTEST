@@ -228,3 +228,9 @@ hayan crecido después del corte.
 | `ema921_report_2026-11-17.md` | ema921 (9-21 EMA crossover, adjunto 2026-11-17; 101 celdas: ocho 1m, diez 5m, treinta y cinco 15m, treinta y siete 1h, once 1d) | KILLED — cero de ciento una celdas pasa la batería; las dos con PF>1.2 (LAB y ZEC 1h) mueren por IC bootstrap y por B&H; ruina por coste de giro en 1m-1h; 1d sin muestra | **OK (strict)** |
 
 | `scalpma20_report_2026-11-18.md` | scalpma20 (20 estrategias MA de scalping 1m-5m del adjunto `scalp_ma_suite-20 STATEGIES-CLAUDE.py`; SOL/SUI/HYPE × {5m,1m} × 20 = 120 celdas screen) | KILLED — cero de ciento veinte celdas pasa la batería; PF neto 0.32-0.94, net −100% a −4.5%, OOS PF<1 salvo una celda degenerada (inf/16 trades); zero-cost PF máx 1.1195 < gate 1.2 → sin filo bruto sobre el gate + ruina por turnover a 11 bps; paridad de señal 100/100 vs fuente adjunta, self-test 40/40, 120 artifacts verify bit-a-bit | **OK (strict)** |
+
+## Control de coste cero sobre el top-10 (2026-11-20) — experimento, sin veredicto
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `zerocost_report_2026-11-20.md` | las diez primeras filas de `top100_2026-10-31.md` re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; dieciocho artefactos verify bit a bit; pre-registro `zerocost_pre_registration.md`, matriz `zerocost_matrix_2026-11-20.json`, auditoría `code/_zerocost_audit.py` (23/23) | **OK (strict)** |
