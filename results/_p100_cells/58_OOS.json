@@ -1,5 +1,5 @@
 {
- "run_id": "47bf8a0473b5feda",
+ "run_id": "bf377b8d6c6db9a0",
  "id": 58,
  "segment": "OOS",
  "symbol": "BTCUSDT",
@@ -10,9 +10,17 @@
   "boot_ci_lo": 0.0,
   "boot_mean_r": 0.0,
   "boot_n": 2000,
+  "boot_small_sample": true,
   "boot_t_stat": 0.0,
+  "boot_trades_n": 0,
+  "conc_top5_share_pct": null,
   "cost_bp_roundtrip": 11.0,
+  "cost_source": "repo default",
+  "cost_symbols_resolved": [
+   "BTCUSDT"
+  ],
   "excess_pct": 29.09450631106654,
+  "fee_bps_per_side": 5.0,
   "fees_paid_usdt": 0.0,
   "final_equity": 10000.0,
   "funding_charged": true,
@@ -45,6 +53,7 @@
   "profit_factor": 0.0,
   "return_pct": 0.0,
   "segment": "OOS",
+  "slippage_bps_per_side": 0.5,
   "strategy_id": 58,
   "symbol": "BTCUSDT",
   "timeframe": "1h",

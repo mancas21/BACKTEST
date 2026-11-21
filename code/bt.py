@@ -12,19 +12,26 @@ costs for every strategy -- and judges it ONLY on its own artifact. No
 sibling context, no family history, no cross-strategy comparison: another
 strategy's failure (however similar) is never evidence about this one. The
 verdict prints the rules and costs it applied; each gate reads PASS / FAIL /
-N-A (metric the artifact does not carry -- listed, never silently dropped).
-Report lands in results/bt_one/ and must pass `guard --strict`.
+N-A. FAIL-CLOSED (2026-11-21, N2 fix): N-A gates FAIL the verdict (an
+incomplete battery is a refusal, never a pass); a null profit_factor (a
+no-loser book) FAILS the pf gate; the v2 battery G1-G11 is evaluated on the
+artifact and its pass is REQUIRED. Report lands in results/bt_one/ and must
+pass `guard --strict`.
 
 STANDARD BATTERY (identical for every strategy, measured inside the artifact):
-  pf        > 1.2     profit factor ex-cost
+  pf        > 1.2     profit factor ex-cost (null pf = no-loser book = FAIL)
   n         >= 30     closed trades
   net       > 0       net return at the declared costs
   thirds    >= 2/3    green equal thirds
   oos_pf    > 1.2     frozen 70/30 out-of-sample PF
   oos_net   > 0       out-of-sample net
-  conc      <= 100%   best-5 trades share of PnL
+  conc      <= 100%   best-5 trades share of PnL (CANONICAL percent keys only;
+                      ambiguous-unit keys are REFUSED, never guessed)
+  g6conc    > 0       net without the five best trades (concentration spirit)
   boot_ci   > 0       per-trade bootstrap CI low bound (the strategy's OWN
                       uncertainty; N-A when the adapter does not carry it)
+  v2        PASS      the G1-G11 statistical battery via vrun.compute_gates_v2
+Any N-A gate FAILS the verdict (fail-closed battery, N2 fix).
 
 CAMPAIGN (multi-job, only when a staged campaign is explicitly wanted):
 
@@ -165,6 +172,26 @@ _OPS = {
 }
 
 
+def _metric_has_null(art: dict, aliases: str) -> bool:
+    """True when a metric path EXISTS in the artifact but is explicitly null
+    (e.g. profit_factor stored as None for a no-loser book) -- distinct from
+    the metric not being carried at all (N2 fix: null pf FAILS, not N-A)."""
+    m = art.get("metrics", {})
+    for a in aliases.split("|"):
+        a = a.strip()
+        cur = m
+        exists = True
+        for part in a.split("."):
+            if isinstance(cur, dict) and part in cur:
+                cur = cur[part]
+            else:
+                exists = False
+                break
+        if exists and cur is None:
+            return True
+    return False
+
+
 def _eval_gate(res: dict, rules: list) -> tuple:
     """(passed, reasons). A rule with no alias present in the metrics FAILS."""
     ok, why = True, []
@@ -212,16 +239,43 @@ def _run_jobs(jobs: list, workers: int) -> list:
             return out
 
 
+def _coerce_set_items(items):
+    """--set key=value items to a params dict, with the same value coercion
+    as vrun.parse_params (N10 fix: neighborhood jobs must keep the parent's
+    --set params, or a multi-strategy adapter sweeps its DEFAULT id)."""
+    d = {}
+    for kv in (items or []):
+        k, _, v = str(kv).partition("=")
+        if not v:
+            raise ValueError(f"set item expects key=value, got {kv!r}")
+        if v.lower() in ("true", "false"):
+            d[k] = v.lower() == "true"
+        else:
+            try:
+                d[k] = int(v)
+            except ValueError:
+                try:
+                    d[k] = float(v)
+                except ValueError:
+                    d[k] = v
+    return d
+
+
 def _neighborhood_jobs(job, workers):
     """One neighborhood plan job -> one artifact per value (same coercion and
     verdict rule as vrun.cmd_neighborhood)."""
     vals = [v.strip() for v in str(job["values"]).split(",") if v.strip()]
     results = []
     payload = []
+    # N10 FIX: the parent job's --set params travel with every sweep value.
+    # Previously they were DISCARDED, so a neighborhood on a multi-strategy
+    # adapter (top10 --set id=28) ran the adapter's DEFAULT id -- the sweep
+    # measured the stability of a DIFFERENT strategy than the survivor.
+    base_params = _coerce_set_items(job.get("set"))
     for v in vals:
         val = float(v) if "." in str(v) else int(v)
         payload.append((f"{job['label']}[{v}]", job["strategy"], job["tf"],
-                        job["symbol"], {job["param"]: val}))
+                        job["symbol"], {**base_params, job["param"]: val}))
     if workers <= 1 or len(payload) <= 1:
         outs = []
         for p in payload:
@@ -244,6 +298,22 @@ def _neighborhood_jobs(job, workers):
                         "stable": bool(pf is not None and pf > 1.2)})
     pfs = [r["pf"] for r in results if isinstance(r["pf"], (int, float))]
     stable = bool(pfs) and min(pfs) >= 1.0 and (max(pfs) - min(pfs)) < 0.5
+    # N10 FIX: the declared neighborhood rule is now the CONJUNCTION of the
+    # two rules that used to live in different layers ("stricter wins" made
+    # arithmetic, not a sentence):
+    #   - the old plan rule: every neighbor PF >= 1.0 and spread < 0.5
+    #   - the _gates_v2.POLICY rule (nb_pass_frac 0.70 / nb_pf_ratio_min 0.75):
+    #     >= 70% of neighbors above PF 1.2 (the G1 screen reading) and the
+    #     median neighbor PF within 75% of the center's PF
+    frac_ok = (sum(1 for r in results if isinstance(r["pf"], (int, float))
+                   and r["pf"] > 1.2) / max(len(results), 1)) >= 0.70
+    center_pf = pfs[len(pfs) // 2] if pfs else None
+    spfs = sorted(pfs)
+    med = (spfs[len(spfs) // 2] if len(spfs) % 2
+           else 0.5 * (spfs[len(spfs) // 2 - 1] + spfs[len(spfs) // 2])) if pfs else None
+    ratio_ok = (med is not None and center_pf and center_pf > 0
+                and med / center_pf >= 0.75)
+    stable = bool(stable and frac_ok and ratio_ok)
     return {"label": job["label"], "param": job["param"], "values": results,
             "verdict": "STABLE" if stable else "CLIFF / SENSITIVE"}
 
@@ -265,12 +335,21 @@ ONE_GATES = [
     ("thirds",  "n_periods_green|thirds_green",             ">=", 2),
     ("oos_pf",  "oos_profit_factor|oos.pf|oos_pf",          ">",  1.2),
     ("oos_net", "oos_return_pct|oos.net|oos_pct.net_pct",   ">",  0.0),
-    ("conc",    "best5_share_pct|conc_top5_share_pct|top5_pnl_share", "<=", 100.0),
+    # N1 FIX: conc reads ONLY canonical percent keys. The old alias list
+    # included top5_pnl_share, whose unit VARIES BY ADAPTER (p100screen and
+    # s101 store percent; prompts100/top10 store a fraction) and was scaled
+    # x100 here -- a 5%-concentration book read as 500 and failed. An engine
+    # that still emits only the ambiguous key gets an explicit refusal, never
+    # a guessed comparison.
+    ("conc",    "best5_share_pct|conc_top5_share_pct",      "<=", 100.0),
+    # the concentration companion gate (G6's spirit): the book must still be
+    # green with its five best trades removed
+    ("g6conc",  "net_without_top5_pct|conc_net_without_pct", ">", 0.0),
     ("boot_ci", "boot_ci_lo|bootstrap.ci_low",                     ">",  0.0),
 ]
-# aliases whose value is a FRACTION (0-1) rather than a percent -- normalized
-# before the comparison so one battery can read every adapter's dialect
-_ONE_FRACTION_ALIASES = {"top5_pnl_share"}
+# N1 FIX: keys whose unit is NOT determined by their name (adapters disagree).
+# The battery refuses them outright instead of normalizing by a guess.
+_AMBIGUOUS_METRIC_KEYS = {"top5_pnl_share"}
 
 
 def main_one(argv) -> int:
@@ -320,24 +399,30 @@ def main_one(argv) -> int:
         v = _metric(art, aliases)
         raw_v = v
         if gname == "conc":
-            # fraction dialects (top5_pnl_share) normalize to percent
-            for al in aliases.split("|"):
-                al = al.strip()
-                cur = m
-                ok = True
-                for part in al.split("."):
-                    if isinstance(cur, dict) and part in cur:
-                        cur = cur[part]
-                    else:
-                        ok = False
-                        break
-                if ok and isinstance(cur, (int, float)) and not isinstance(cur, bool):
-                    raw_v = cur
-                    v = cur * 100.0 if al in _ONE_FRACTION_ALIASES else cur
-                    break
+            # N1 FIX: if the artifact carries ONLY an ambiguous-unit key, the
+            # gate refuses it explicitly instead of normalizing by a guess.
+            canon = _metric(art, aliases)
+            if canon is None and any(
+                    _metric(art, k) is not None for k in _AMBIGUOUS_METRIC_KEYS):
+                rows.append((gname, "N-A",
+                             "ambiguous unit key "
+                             f"{sorted(_AMBIGUOUS_METRIC_KEYS)} present but no canonical "
+                             "percent key (conc_top5_share_pct / best5_share_pct) - "
+                             "REFUSED, not guessed (N1 fix)", None))
+                n_na += 1
+                print(f"  [{rows[-1][1]:^4}] {gname:<8} {rows[-1][2]}")
+                continue
         if v is None or not isinstance(v, (int, float)) or isinstance(v, bool):
-            status, detail = "N-A", "metric not carried by this artifact"
-            n_na += 1
+            # N2 FIX: a pf that is PRESENT but null means "no losing trades" --
+            # a no-loser book is the classic negative-skew signature, and its
+            # PF gate must FAIL, not be skipped as N-A.
+            if gname == "pf" and _metric_has_null(art, aliases):
+                status, detail = "FAIL", ("profit_factor is null (no losing "
+                                          "trades) - PF gate cannot be met")
+                n_fail += 1
+            else:
+                status, detail = "N-A", "metric not carried by this artifact"
+                n_na += 1
         else:
             ok = _OPS[op](float(v), float(val))
             status = "PASS" if ok else "FAIL"
@@ -349,7 +434,34 @@ def main_one(argv) -> int:
         rows.append((gname, status, detail, raw_v))
         print(f"  [{status:^4}] {gname:<8} {detail}")
 
-    verdict = "FAIL" if n_fail else "PASS"
+    # N2 FIX: the v2 statistical battery (G1-G11) is part of the standard
+    # battery now -- a v1-only pass is NOT promotable (F1 fix applied to
+    # `one`, which never called compute_gates_v2).
+    try:
+        gv2 = vrun.compute_gates_v2(art)
+    except Exception as e:
+        gv2 = {"available": False, "pass": False,
+               "reason": f"{type(e).__name__}: {e}"}
+    if not gv2.get("available"):
+        v2_status, v2_detail = "FAIL", (
+            "gates_v2 block / trades_v2 schema absent - fail closed "
+            f"({gv2.get('reason', 'v2 unavailable')})")
+        n_fail += 1
+    else:
+        v2_ok = bool(gv2.get("pass"))
+        v2_status = "PASS" if v2_ok else "FAIL"
+        v2_detail = f"v2 battery G1-G11 backtest_pass={v2_ok}"
+        if not v2_ok:
+            n_fail += 1
+        else:
+            n_pass += 1
+    rows.append(("v2", v2_status, v2_detail, None))
+    print(f"  [{v2_status:^4}] {'v2':<8} {v2_detail}")
+
+    # N2 FIX: N-A gates no longer permit a verdict PASS -- the battery is
+    # fail-closed on absence ("absence is never a pass" is now arithmetic,
+    # not just the docstring).
+    verdict = "PASS" if (n_fail == 0 and n_na == 0) else "FAIL"
     print("-" * 72)
     print(f"VERDICT: {verdict}  ({n_pass} gates PASS, {n_fail} FAIL, {n_na} N-A)")
     print("  Judged on this strategy's own artifact only - no sibling context,")
@@ -379,7 +491,9 @@ def main_one(argv) -> int:
         f.write("\n".join(lines))
     print(f"report: {report}")
     rc = vrun.cmd_guard(argparse.Namespace(report=report, strict=True))
-    return 0 if (rc == 0 and not n_fail) else (2 if n_fail else rc)
+    # N2 FIX: N-A gates now fail the verdict, so they also fail the exit code
+    # (an incomplete battery is a refusal, not a pass).
+    return 0 if (rc == 0 and n_fail == 0 and n_na == 0) else (2 if (n_fail or n_na) else rc)
 
 
 # ── main ─────────────────────────────────────────────────────────────────

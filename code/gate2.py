@@ -413,32 +413,25 @@ def deflated_sharpe(sr, sr_trials_var, n_trials, n_obs, skew=0.0, kurt=3.0):
 def pbo_cscv(returns_matrix, n_partitions=16):
     """Probability of backtest overfitting via CSCV (Bailey et al.).
 
+    N4 FIX (2026-11-21): this implementation was WRONG and always ~passed.
+    Two defects, measured on pure noise (true PBO ~= 0.5): a candidate RANK
+    was divided by the TIME-ROW count (dimensionally wrong), and the function
+    returned the MEAN omega instead of the fraction of CSCV combinations with
+    logit(omega) <= 0 -- on a T x N noise matrix with N << T it returned ~0,
+    so G7's PBO alternative auto-passed. The reference implementation
+    (_gates_v2.pbo_cscv, the same estimator with the correct rank
+    normalisation and the logit fraction) is now the single source of truth;
+    this wrapper keeps the historical float-returning signature.
+
     `returns_matrix` is (T x N_candidates) of per-bar returns. Returns the
-    distribution-free lambda estimate: the relative rank of the selected
-    candidate out-of-sample, averaged over all symmetric combinations."""
-    R = np.asarray(returns_matrix, float)
-    T, N = R.shape
-    if T < n_partitions * 2 or N < 2:
+    fraction of CSCV combinations in which the IS-best candidate lands
+    below-median OOS (~0.5 on pure noise; higher = more overfit)."""
+    import _gates_v2 as _GV
+    res = _GV.pbo_cscv(returns_matrix, S=n_partitions)
+    pbo = res.get("pbo") if isinstance(res, dict) else None
+    if pbo is None or (isinstance(pbo, float) and math.isnan(pbo)):
         return float("nan")
-    base = T % n_partitions
-    if base:
-        R = R[base:]
-        T = R.shape[0]
-    sub = np.array_split(np.arange(T), n_partitions)
-    lambdas = []
-    combos = _cscv_combos(n_partitions)
-    for train_mask in combos:
-        is_set = np.concatenate([sub[i] for i in range(n_partitions) if train_mask[i]])
-        oos_set = np.concatenate([sub[i] for i in range(n_partitions) if not train_mask[i]])
-        mu_is = R[is_set].mean(axis=0)
-        best_is = int(np.argmax(mu_is))
-        mu_oos = R[oos_set].mean(axis=0)
-        order = pd.Series(mu_oos).rank(ascending=False).to_numpy()
-        n_oos = len(oos_set)
-        omega = (order[best_is] - 0.5) / n_oos
-        lambdas.append(omega)
-    lambdas = np.asarray(lambdas)
-    return float(lambdas.mean())
+    return float(pbo)
 
 
 def _cscv_combos(s):

@@ -81,8 +81,13 @@ class SpreadBook:
     * N units of leg A in the spread's direction and N*beta units of leg B in
       the opposite one; N is sized so that a move of `dist` in the spread
       risks 1% of the equity.
-    * the stop lives on the SPREAD and is detected on the spread's CLOSE,
-      filled at the next open.
+    * the stop lives on the SPREAD. REPO CONVENTION (N5 fix, 2026-11-21):
+      detected INTRABAR on the spread's envelope range built from the two
+      legs' own high/low (conservative over every leg combination),
+      stop-first, gap-through filled at the open -- the same rules as every
+      directional book. PACK PARITY MODE (pack_conventions=True) keeps the
+      pack's close-detection / next-open-fill semantics, declared as the
+      optimistic reading it is.
     * the PnL is the pack's linearised spread PnL: N*side*(spread_exit -
       spread_entry). It is a linearisation: the two legs' exact dollar PnL
       differs from it in the second order.
@@ -90,7 +95,9 @@ class SpreadBook:
       notional, which is N*price_A + N*beta*price_B. The report therefore
       publishes BOTH: the cost charged here and the implied exchange notional
       (in multiples of equity), because that second number decides whether
-      the book is tradeable at all.
+      the book is tradeable at all. The beta used for BOTH side fees is the
+      one frozen at entry (N5 fix): a time-varying Kalman beta never bills a
+      notional that was not held.
 
     WHAT THE REPO ADDS
     ------------------
@@ -107,6 +114,13 @@ class SpreadBook:
         self.tf = sig["tf"]
         self.s = np.asarray(sig["s"], float)
         self.s_open = np.asarray(sig["s_open"], float)
+        # N5 FIX (2026-11-21): the spread's INTRABAR range, built by
+        # run_pair from the legs' own high/low (conservative envelope over
+        # every leg combination). Used by the repo stop convention; absent
+        # (pack parity mode) it degrades to the open, which keeps the old
+        # close-only behaviour impossible to re-enter accidentally.
+        self.s_high = np.asarray(sig.get("s_high", sig["s_open"]), float)
+        self.s_low = np.asarray(sig.get("s_low", sig["s_open"]), float)
         self.side_target = np.asarray(sig["side"], float)
         self.stop_s = np.asarray(sig["stop_s"], float)
         self.beta = sig["beta"]
@@ -197,24 +211,49 @@ class SpreadBook:
             if trade_to is not None and j > trade_to:
                 tradable = False
 
-            # 1. the stop lives on the spread's close and fills at the next open
-            stopped = False
-            if self.pos is not None and j > self.pos["entry_idx"]:
-                hit = ((self.pos["side"] == 1 and self.s[j] <= self.pos["stop_s"])
-                       or (self.pos["side"] == -1
-                           and self.s[j] >= self.pos["stop_s"]))
-                if hit:
-                    k = j + 1 if j + 1 < self.n else j
-                    px = self.s_open[k] if j + 1 < self.n else self.s[j]
-                    self._close(k, px, "stop")
-                    stopped = True
-
-            # 2. funding on the settlement bar, on BOTH legs
+            # 1. funding on the settlement bar, on BOTH legs (N11 FIX: a
+            #    settlement happens at the bar's OPEN instant, BEFORE any
+            #    intrabar action -- a stop-out later in the same bar still
+            #    owes the funding for the period to that settlement)
             if self.charge_funding and self.pos is not None:
                 cost = self._funding_cost(j)
                 if cost:
                     self.cash -= cost
                     self.funding_paid += cost
+
+            # 2. the stop on the spread (N5 FIX): under the REPO convention
+            #    the stop is detected INTRABAR on the spread's envelope range
+            #    (built from the legs' own high/low), stop-first, with a gap
+            #    through filled at the open -- the same rules as every
+            #    directional book. Under pack_conventions the pack's own
+            #    close-detection / next-open-fill semantics are kept.
+            stopped = False
+            if self.pos is not None and j > self.pos["entry_idx"]:
+                if self.pack_conventions:
+                    hit = ((self.pos["side"] == 1 and self.s[j] <= self.pos["stop_s"])
+                           or (self.pos["side"] == -1
+                               and self.s[j] >= self.pos["stop_s"]))
+                    if hit:
+                        k = j + 1 if j + 1 < self.n else j
+                        px = self.s_open[k] if j + 1 < self.n else self.s[j]
+                        self._close(k, px, "stop")
+                        stopped = True
+                else:
+                    side, stop = self.pos["side"], self.pos["stop_s"]
+                    if side == 1:
+                        if self.s_open[j] <= stop:
+                            self._close(j, self.s_open[j], "stop_gap")
+                            stopped = True
+                        elif self.s_low[j] <= stop:
+                            self._close(j, stop, "stop")
+                            stopped = True
+                    else:
+                        if self.s_open[j] >= stop:
+                            self._close(j, self.s_open[j], "stop_gap")
+                            stopped = True
+                        elif self.s_high[j] >= stop:
+                            self._close(j, stop, "stop")
+                            stopped = True
 
             # 3. mark to market
             if self.pos is not None:
@@ -269,7 +308,11 @@ class SpreadBook:
             return None
         p = self.pos
         gross = p["N"] * p["side"] * (exit_s - p["entry_s"])
-        fee_exit = p["N"] * (1 + self._beta_at(idx)) * self._cost_per_side()
+        # N5 FIX (2026-11-21): the exit fee uses the beta FROZEN AT ENTRY
+        # (p["beta"]), the beta the position's legs were actually sized with.
+        # The old code charged the beta AT THE EXIT BAR -- with a time-varying
+        # Kalman beta that is a notional that was never held.
+        fee_exit = p["N"] * (1 + p["beta"]) * self._cost_per_side()
         self.cash += gross - fee_exit
         self.fees_paid += fee_exit
         pnl = gross - fee_exit - p["fees_entry"]
@@ -314,6 +357,38 @@ def run_pair(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
     df = pd.DataFrame({"timestamp": ts, "open": sig["s_open"],
                        "high": sig["s_open"], "low": sig["s_open"],
                        "close": sig["s"]})
+    # N5 FIX (2026-11-21): the spread's INTRABAR range, built from the legs'
+    # own high/low. s = log(A) - beta*log(B); the envelope takes the extremes
+    # over the four leg-combination candidates, conservative for ANY beta
+    # sign. These keys decorate the signal dict ENGINE-SIDE -- the pack's
+    # module is untouched (pinned by manifest).
+    try:
+        ka = load_klines(sig["legs"][0], tf).set_index("timestamp")
+        kb = load_klines(sig["legs"][1], tf).set_index("timestamp")
+        ts_idx = pd.DatetimeIndex(pd.to_datetime(pd.Series(list(sig["ts"])), utc=True))
+        ha = ka["high"].reindex(ts_idx).to_numpy(float)
+        la_ = ka["low"].reindex(ts_idx).to_numpy(float)
+        hb = kb["high"].reindex(ts_idx).to_numpy(float)
+        lb_ = kb["low"].reindex(ts_idx).to_numpy(float)
+        beta = np.asarray(sig["beta"], float)
+        loga_h, loga_l = np.log(ha), np.log(la_)
+        logb_h, logb_l = np.log(hb), np.log(lb_)
+        cands = np.stack([
+            loga_h - beta * logb_l, loga_h - beta * logb_h,
+            loga_l - beta * logb_l, loga_l - beta * logb_h,
+        ])
+        env_hi = np.nanmax(cands, axis=0)
+        env_lo = np.nanmin(cands, axis=0)
+        s_open = np.asarray(sig["s_open"], float)
+        sig = dict(sig)
+        sig["s_high"] = np.where(np.isfinite(env_hi), env_hi, s_open)
+        sig["s_low"] = np.where(np.isfinite(env_lo), env_lo, s_open)
+        df["high"] = sig["s_high"]
+        df["low"] = sig["s_low"]
+    except Exception:
+        # envelope unavailable: degrade to the pack's zero-range frame
+        # (declared; the stop model then equals the pack parity mode)
+        pass
     book = SpreadBook(sig["legs"], sig, init=init, fee=fee, slip=slip,
                       charge_funding=charge_funding,
                       pack_conventions=pack_conventions)
@@ -561,8 +636,27 @@ def pack_strategy_map():
 
 
 # ───────────────────────────── data ───────────────────────────────────────
+# N6 FIX (2026-11-21): the harness serves the CUT SLICE of every declared
+# input from a temp directory (same basenames). This engine used to resolve
+# its own paths and read the LIVE file while the artifact hashed the slice --
+# the cut protected nothing. run_symbol registers the served paths below and
+# load_klines / funding_events consult them first, so the engine reads
+# exactly the bytes the artifact hashes.
+_SERVED_INPUTS = {}
+
+
+def _register_served(paths):
+    _SERVED_INPUTS.clear()
+    for x in (paths or []):
+        try:
+            _SERVED_INPUTS[os.path.basename(str(x))] = os.path.abspath(str(x))
+        except Exception:
+            pass
+
+
 def load_klines(symbol: str, tf: str):
     p = os.path.join(ROOT, "data", TF_DIRS[tf], f"{symbol}_{tf}.csv")
+    p = _SERVED_INPUTS.get(os.path.basename(p), p)
     df = pd.read_csv(p)
     df.columns = [c.strip().lower() for c in df.columns]
     ts_col = "timestamp" if "timestamp" in df.columns else "open_ts"
@@ -581,6 +675,7 @@ def funding_events(symbol: str, bar_ms: np.ndarray):
     ~2-5x on coarse timeframes. Intraday bars (interval < funding interval) have
     no collision, so their results are unchanged."""
     p = os.path.join(ROOT, "data", "binance_funding", f"{symbol}_funding.json")
+    p = _SERVED_INPUTS.get(os.path.basename(p), p)
     rate = np.zeros(len(bar_ms))
     ev = np.zeros(len(bar_ms), bool)
     if not os.path.exists(p):
@@ -770,12 +865,24 @@ class Book:
             if trade_to is not None and j > trade_to:
                 tradable = False
 
-            # 1. time stop
+            # 1. funding on the settlement bar (N11 FIX, 2026-11-21: a
+            #    settlement happens at the bar's OPEN instant, BEFORE any
+            #    intrabar action -- a stop-out later in the same bar still
+            #    owes the funding for the period to that settlement. The old
+            #    order let ~1/8 of 1h stop-outs escape their settlement.)
+            if self.charge_funding and self.pos is not None \
+                    and self.is_fund[j] and self.rate[j] != 0:
+                mark = self.close[j]
+                cost = self.pos["side"] * self.pos["qty"] * mark * self.rate[j]
+                self.cash -= cost
+                self.funding_paid += cost
+
+            # 2. time stop
             if self.pos is not None and self.pos["max_hold"] is not None:
                 if j - self.pos["entry_idx"] >= self.pos["max_hold"]:
                     self.close_position(j, self.open[j], "time")
 
-            # 2. stop / target intrabar (STOP FIRST), gap fills at the open
+            # 3. stop / target intrabar (STOP FIRST), gap fills at the open
             if self.pos is not None:
                 p = self.pos
                 hi, lo, op = self.high[j], self.low[j], self.open[j]
@@ -793,14 +900,6 @@ class Book:
                         self.close_position(j, p["stop"], "stop")
                     elif p["tp"] is not None and lo <= p["tp"]:
                         self.close_position(j, p["tp"], "tp")
-
-            # 3. funding on the settlement bar, against the position held
-            if self.charge_funding and self.pos is not None \
-                    and self.is_fund[j] and self.rate[j] != 0:
-                mark = self.close[j]
-                cost = self.pos["side"] * self.pos["qty"] * mark * self.rate[j]
-                self.cash -= cost
-                self.funding_paid += cost
 
             # 4. equity at the close of the bar
             self.equity = self.mark_to_market(j)
@@ -893,15 +992,28 @@ def run_family_a(strategy_id, symbol, tf, segment, *, init=INIT, fee=FEE,
 
 
 # ───────────────────────── metrics ─────────────────────────────────────────
-def bootstrap_r(rs, block=10, n_boot=2000, seed=20261101):
-    """Block bootstrap of the mean R per trade (the repo's recipe)."""
+def bootstrap_r(rs, block=None, n_boot=2000, seed=20261101, min_n=30):
+    """Block bootstrap of the mean R per trade (the repo's recipe).
+
+    N7 FIX (2026-11-21): the block length used to be the FIXED constant 10,
+    so for n <= 10 the start range collapsed to {0}, one block covered the
+    whole sample and the CI was zero-width -- `ci_low > 0` then passed
+    deterministically for any all-positive small sample. The block now
+    scales with n (n**(1/3), the repo's own _gates_v2._block_len recipe) and
+    the result FAILS CLOSED below the n floor: ci_low is reported as -inf
+    (never passable) with a flag, instead of a degenerate interval."""
     rs = np.asarray(rs, float)
     rs = rs[np.isfinite(rs)]
     if len(rs) == 0:
-        return dict(ci_low=0.0, ci_high=0.0, t_stat=0.0, mean_r=0.0, n_boot=n_boot)
+        return dict(ci_low=0.0, ci_high=0.0, t_stat=0.0, mean_r=0.0, n_boot=n_boot,
+                    n=0, small_sample=True)
     rng = np.random.default_rng(seed)
     mean_r = float(rs.mean())
     n = len(rs)
+    small = bool(n < min_n)
+    if block is None:
+        block = int(max(1, round(n ** (1.0 / 3.0))))
+    block = int(min(max(1, block), n))
     means = []
     for _ in range(n_boot):
         starts = rng.integers(0, max(1, n - block + 1), size=max(1, n // block))
@@ -912,8 +1024,12 @@ def bootstrap_r(rs, block=10, n_boot=2000, seed=20261101):
     hi = float(np.percentile(means, 97.5))
     t_stat = (mean_r / (float(rs.std(ddof=1)) / np.sqrt(n))
               if n > 1 and rs.std(ddof=1) > 0 else 0.0)
-    return dict(ci_low=lo, ci_high=hi, t_stat=float(t_stat), mean_r=mean_r,
-                n_boot=n_boot)
+    # N7: fail closed on a thin sample -- a degenerate CI must never pass.
+    # Finite sentinel (-1.0, JSON-safe) so the boot_ci gate fails arithmetically.
+    return dict(ci_low=(-1.0 if small else lo),
+                ci_high=(1.0 if small else hi),
+                t_stat=float(t_stat), mean_r=mean_r, n_boot=n_boot,
+                n=int(n), small_sample=small)
 
 
 def book_metrics(book, *, bh_return_pct=None):
@@ -994,7 +1110,12 @@ def book_metrics(book, *, bh_return_pct=None):
         "funding_charged": bool(getattr(book, "charge_funding", False)),
         "gross_profit_usdt": gp,
         "gross_loss_usdt": gl,
+        # N1 FIX: the CANONICAL unit-named key (percent). The old
+        # top5_pnl_share name is AMBIGUOUS across adapters (some store a
+        # fraction) and bt one now refuses it; this engine emits both, with
+        # the canonical key carrying the same percent value.
         "top5_pnl_share": top5_share,
+        "conc_top5_share_pct": top5_share,
         "net_without_top5_pct": net_wo5,
         "pf_without_top5": pf_wo5,
         "period1_pct": thirds[0],
@@ -1006,6 +1127,10 @@ def book_metrics(book, *, bh_return_pct=None):
         "boot_t_stat": float(boot["t_stat"]),
         "boot_mean_r": float(boot["mean_r"]),
         "boot_n": int(boot["n_boot"]),
+        # N7: the thin-sample flag travels with the CI so a sentinel-failed
+        # gate is explainable from the artifact alone
+        "boot_small_sample": bool(boot.get("small_sample", False)),
+        "boot_trades_n": int(boot.get("n", 0)),
         "n_signals": int(getattr(book, "n_signals", 0)),
         "n_skipped_gap_entries": int(getattr(book, "skipped_gap_entries", 0)),
         "n_exits_stop": int(sum(1 for t in book.trades
@@ -1048,13 +1173,79 @@ def buy_and_hold_pct(df, segment):
 
 
 # ───────────────────────── adapter entry point ─────────────────────────────
+# ─────────────────────── N9: per-symbol gate cost ─────────────────────────
+def _resolve_gate_cost(symbols):
+    """(fee_bps, slip_bps, rt_bps, source): the repo rule -- gate cost is the
+    MAX of the repo default round trip and the symbol's MEASURED round trip
+    (results/cost_model_2026-10-25.json), fee 5 bps, slip = rt/2 - fee.
+    Mirrors _gates_v2.resolve_gate_cost; for a multi-leg book the MAX leg
+    cost is charged on every leg (conservative)."""
+    import importlib.util
+    rt = 11.0
+    src = "repo default"
+    model = None
+    cm = os.path.join(ROOT, "results", "cost_model_2026-10-25.json")
+    if os.path.exists(cm):
+        try:
+            # load _gates_v2 from THIS file's directory (the harness may run
+            # the engine with an isolated sys.path; a bare import would fail).
+            # The module MUST be registered in sys.modules before exec --
+            # dataclass resolution inside _gates_v2 looks its own module up.
+            name = "_gates_v2_for_cost"
+            spec = importlib.util.spec_from_file_location(
+                name,
+                os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "_gates_v2.py"))
+            GV = importlib.util.module_from_spec(spec)
+            sys.modules[name] = GV
+            spec.loader.exec_module(GV)
+            model = GV.load_cost_model(cm)
+        except Exception:
+            model = None
+    for s in (symbols or []):
+        m = (model or {}).get(s.upper())
+        if m is not None and m > rt:
+            rt = m
+            src = f"measured ({s})"
+    fee = 5.0
+    slip = rt / 2.0 - fee
+    return fee, slip, rt, src
+
+
+def _symbols_from_paths(paths):
+    """The symbols the book touches, from the served inputs' basenames."""
+    import re
+    syms = set()
+    for x in (paths or []):
+        b = os.path.basename(str(x))
+        m = re.match(r"([A-Z0-9]{3,12}USDT)_", b)
+        if m:
+            syms.add(m.group(1))
+    return sorted(syms)
+
+
 def run_symbol(paths, params):
     """Harness contract: (metrics, prov, tables)."""
     p = dict(params)
     sid = int(p.pop("id"))
     segment = str(p.pop("segment", "DEV"))
-    fee = float(p.pop("fee_bps", FEE_BPS)) / 1e4
-    slip = float(p.pop("slip_bps", SLIP_BPS)) / 1e4
+    # N6 FIX (2026-11-21): consume the SERVED inputs (the cut slice the
+    # artifact hashes), not the live files this engine used to re-resolve.
+    _register_served(paths)
+    # N9 FIX (2026-11-21): the gate cost for a thin name is its MEASURED
+    # round trip (results/cost_model_2026-10-25.json via the repo resolver),
+    # not the flat 11 bps default -- SPX was being backtested at 36% of its
+    # real cost. Explicit fee/slip params still win (parity probes, zero-cost
+    # controls); the resolved values are measured inside the artifact.
+    fee_bps, slip_bps, rt_bps, cost_src = _resolve_gate_cost(
+        _symbols_from_paths(paths))
+    if "fee_bps" in p:
+        fee_bps = float(p.pop("fee_bps"))
+        cost_src = "declared by caller"
+    if "slip_bps" in p:
+        slip_bps = float(p.pop("slip_bps"))
+    fee = fee_bps / 1e4
+    slip = slip_bps / 1e4
     charge_funding = bool(p.pop("funding", True))
     pack_conventions = bool(p.pop("pack_conventions", False))
     symbol = str(p.pop("symbol", "") or "")
@@ -1105,6 +1296,13 @@ def run_symbol(paths, params):
     metrics["timeframe"] = tf
     metrics["segment"] = segment
     metrics["pack_conventions"] = pack_conventions
+    # N9: the RESOLVED gate cost is measured inside the artifact (guard can
+    # back it; the flat-11 constant is only a fallback)
+    metrics["fee_bps_per_side"] = float(fee_bps)
+    metrics["slippage_bps_per_side"] = float(slip_bps)
+    metrics["cost_bp_roundtrip"] = float(rt_bps)
+    metrics["cost_source"] = cost_src
+    metrics["cost_symbols_resolved"] = _symbols_from_paths(paths)
 
     prov = {
         "adapter": "p100screen",

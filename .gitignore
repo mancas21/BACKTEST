@@ -34,3 +34,6 @@ pybroker/
 venv/
 __pycache__/
 *.pyc
+
+# Local security-scanner state
+.mimosa/

@@ -34,16 +34,22 @@
       "note": "2026-11-19 audit fixes F2/F3/F12/F17/F20: p100 funding_events accumulates settlements per bar (F2); scalpma20 funding coverage checks internal holes (F3); vectorized memory-bounded bootstrap (F12); liquidation limitation declared (F17); degenerate inf-PF flag (F20). The 120 pre-fix scalpma20 artifacts verify REFUSED (engine drift) by design; kept append-only. Re-run 2026-11-19 produced 120 current artifacts (verdict unchanged 0/120 pass; funding_covers_bars corrected 120->40, internal_hole flagged on 80). current_sha is the ADAPTER-SOURCES concatenation (scalpma20_engine.py + p100_screen_engine.py). p100_screen_engine.py also changed: p100screen and s101 artifacts are likewise orphaned pending re-run."
     },
     "p100_screen_engine.py (p100screen adapter)": {
-      "orphaned_sha": "ed93f105dd7b0847de84190ef96371be31f33c3854fa9249f3b8a35651f3e5a3",
-      "current_sha": "8250db6cca5413b6c79ae0266206a67ac27b3a115ecdff8c1592daeebc817050",
-      "n_orphaned_artifacts": 531,
-      "note": "2026-11-19 audit fix F2/F17 changed p100_screen_engine.py. p100screen re-run 2026-11-19: 174 cells (87 prompts x DEV/OOS), all verify bit-for-bit (174 OK / 0 REFUSED). ~531 pre-fix artifacts across 10 historical engine generations orphaned by design (append-only). 3 JUPUSDT 5m OOS cells (ids 18/43/62) could NOT be re-run: pre-existing data binding to the missing stub data/binance_klines/JUPUSDT_5m.csv (not caused by the fix); their manifest entries keep old orphaned run_ids. Verdicts unchanged (intraday/1h, F2 only affects 1d funding)."
+      "orphaned_sha": "8250db6cca5413b6c79ae0266206a67ac27b3a115ecdff8c1592daeebc817050",
+      "current_sha": "f55ba63d9a73f35be6700894b65a1663761f8d229551296211b629978a3993c8",
+      "n_orphaned_artifacts": 174,
+      "note": "2026-11-21 audit fixes N5/N7/N9/N11/N6 changed p100_screen_engine.py (spread books: intrabar stop on the leg-envelope spread + entry-beta exit fee; bootstrap_r block scaling + n<30 fail-closed; per-symbol measured gate cost wired via the repo resolver with the cost model as a hashed input; funding charged BEFORE intrabar stops in both books; the engine now consumes the SERVED cut slice instead of re-resolving live files, and funding JSONs + the cost model joined the artifact inputs). The 174 cells of the 2026-11-19 F22 generation (87 prompts x DEV/OOS) verify REFUSED (engine drift) by design; kept append-only. The full rescreen was re-run 2026-11-21 (see results/auditfix_report_2026-11-21.md). Note 1: the delta-neutral-cancels funding of the pair books now nets per-leg rates; note 2: spread id=85's numbers move as predicted by the intrabar-stop fix. Prior generations (ed93f105, 531 artifacts, F2/F17 era) remain orphaned."
     },
     "p100_screen_engine.py (s101 adapter)": {
-      "orphaned_sha": "853c712f43e5c7327d0dd6c9ba5ec8f22b111c70541347f5930c8f0c4844bb9a",
-      "current_sha": "c6f8cd3fc521f5c1874801537677b8263d2d533dba935c961a7046ae2e8742c4",
-      "n_orphaned_artifacts": 96,
-      "note": "2026-11-19 audit fix F2/F17 changed p100_screen_engine.py (s101 hashes it). s101 re-run via bt plan 2026-11-19: 37 cells, all verify bit-for-bit (37 OK). 96 pre-fix artifacts across 4 historical generations orphaned by design. Verdict unchanged: 0 survivors (KILLED)."
+      "orphaned_sha": "c6f8cd3fc521f5c1874801537677b8263d2d533dba935c961a7046ae2e8742c4",
+      "current_sha": "35929ba4378a7e7fd7800e04e8b8d8210aa30760191598d4c3044e8e05741953",
+      "n_orphaned_artifacts": 37,
+      "note": "2026-11-21 audit fixes changed p100_screen_engine.py (s101 hashes it). The 37 cells of the 2026-11-19 s101 re-run verify REFUSED (engine drift) by design; kept append-only. s101 was NOT re-run in the 2026-11-21 campaign: its verdict (0 survivors, KILLED) was produced by the bt plan pipeline and the campaign's gates -- re-running under the fail-closed v2 promotion row cannot produce a different verdict. Prior generations (853c712f, 96 artifacts) remain orphaned."
+    },
+    "gatecal_engine.py (gatecal adapter)": {
+      "orphaned_sha": "7e193db6c37fe6f41ae17d89d7ae9fc24cccec95a61054e839a7e9cc433dbd28",
+      "current_sha": "f642326528960bc2d58aa42bedacd257bc5f0777c374875d74b18ab7bd2e427f",
+      "n_orphaned_artifacts": 1,
+      "note": "2026-11-21 A2 fix: the planted-edge drift is now rebuilt per trade (_apply_drift) so it COMPOUNDS through the equity chain. The old inline adjustment derived eqb from the ORIGINAL chain, so every trade's drift was lost at each step and only the LAST trade's ~delta reached ret_pct -- G5 measured an effectively un-drifted book while the pnl-based gates saw the edge. The original calibration artifact bdb602a549eeecbe (sha 7e193db6) verifies REFUSED by design. New calibration 1d938af1df8dbfc0: G5 monotone in the planted edge (n300: 0.0150/0.0375/0.0925/0.4875 at 0/5/10/20 bps), v1 conjunction at n300 d20 = 0.3100 (old 0.0175, ~18x); G1/G3/G6 unchanged (within trial noise); v2 rates bit-identical to the old report (v2 never read the equity chain) -- v2's 9.5% joint power at +20bps/n300 is genuine. gate2.py and _gates_v2.py also changed in this campaign (N4/N3); their bytes are part of the gatecal concat, which is why the whole generation moved."
     },
     "vrun.py _p100screen_inputs (F22, p100screen 5m)": {
       "orphaned_sha": "8250db6cca5413b6c79ae0266206a67ac27b3a115ecdff8c1592daeebc817050",

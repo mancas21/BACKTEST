@@ -429,6 +429,55 @@ The proof chain that the repo expects, in order:
   program-level de trials se puede registrar como dato, pero no modifica el
   veredicto individual.
 
+### La campaña audit-fix del harness (2026-11-21) — reglas que cambian para todo agente
+
+Una auditoría externa del propio harness (Qwen) se verificó contra el código
+y lo confirmado está arreglado; reporte `results/auditfix_report_2026-11-21.md`
+(guard OK strict), selftest `code/_auditfix_selftest_20261121.py` (44/44),
+supresiones en `code/_engine_lock.json`. **Reglas nuevas que vinculan a
+cualquier agente:**
+
+- **`bt one` es fail-closed.** N-A falla el veredicto; un `profit_factor`
+  nulo (libro sin perdedoras) FALLA; la batería v2 (G1-G11) es fila
+  obligatoria; la clave de concentración tiene que ser CANÓNICA
+  (`conc_top5_share_pct` / `best5_share_pct`, en porcentaje) — la clave
+  ambigua `top5_pnl_share` (que era porcentaje en unos adapters y fracción
+  en otros, y que `bt one` multiplicaba ×100) se RECHAZA, nunca se adivina.
+  Un engine nuevo debe emitir esas claves canónicas.
+- **Un bloque `gates_v2` guardado es CACHE, no certificado.** Con
+  `trades_v2` presente la batería se RECALCULA y un veredicto guardado que
+  discrepe, o un `policy_hash` ajeno, se rechaza (N8). CERO artefactos del
+  corpus llevan gates_v2/trades_v2 hoy: todo artefacto existente falla
+  `bt one` por diseño — emitir el esquema v2 es la campaña siguiente.
+- **El bootstrap nunca recorta réplicas.** El cap de memoria es el CHUNK,
+  no el conteo; un estimador de cola con menos de `boot_reps_floor`
+  (500) réplicas falla cerrado (N3). `bootstrap_r` escala su bloque con n y
+  falla cerrado bajo el piso de muestra (N7).
+- **El coste de gate es POR SÍMBOLO, medido y cableado** (N9): máximo entre
+  los 11 bps RT por defecto y el RT medido (`results/cost_model_2026-10-25.json`),
+  fee 5 bps, slip rt/2−5; los libros multi-pierna cobran el máximo de sus
+  piernas; los valores resueltos van MEDIDOS dentro del artefacto
+  (`cost_source`, `cost_bp_roundtrip`) y el cost model es input del run_id.
+- **El funding se cobra ANTES de los stops intrabar** (N11: el settlement es
+  el instante de apertura de la barra); el stop de los libros de pares se
+  detecta INTRABAR sobre el rango envolvente de las piernas y la fee de
+  salida usa la beta DE ENTRADA (N5). La convención close-only del pack
+  sigue disponible como `pack_conventions=True`, declarada como la lectura
+  optimista.
+- **El engine consume el slice SERVIDO** (N6): resolver paths propios
+  invalida la protección del corte; un adapter que no pueda consumir el
+  slice servido debe declarar `cut_enforced: False` en ADAPTERS y el
+  artefacto lo registra.
+- **La potencia de los gates, corregida (A2).** El drift plantado de la
+  calibración no componía (solo el último trade llegaba a ret_pct) y G5
+  estaba ciego. Recalibración `1d938af1df8dbfc0` (verify OK): la conjunción
+  v1 a n300/d20 sube 0.0175 -> 0.31 (~18×) — las kills v1-juzgadas por G5
+  eran sospechosas de falso negativo y ya no lo están. **La potencia
+  conjunta de v2 sigue siendo 0.095 a n300 con un filo fuerte de +20 bps**
+  (bit-idéntico a lo publicado; v2 nunca leyó la cadena de equity): esa es
+  la potencia honesta del detector de promoción, y cualquier inferencia
+  corpus-level se apoya en ELLA.
+
 ## Current kills (from STATUS.md — read it for the full list)
 
 - **9-21 EMA crossover (2026-11-17 attachment; adapter `ema921`, 101 cells: 8 at 1m, 10 at 5m, 35 at 15m, 37 at 1h, 11 at 1d): KILLED — zero cells pass the battery, and the loss pattern is turnover, not a misplaced constant.** Source of record `code/ema921_source.py` byte-identical to the attachment (sha `8be0020d…`); port `code/ema921_engine.py` keeps the source's rules verbatim (EMA9/21 SMA-seeded, signal on close, next-open entry, 10-bar swing stop, 2R target, slow-EMA cross exit, 1% risk, 5x cap) and adds only the repo regime (11 bps RT, funding at real settlements, window trimmed to the funded span at both ends, `eq[-1]−INIT == sum(pnl)` asserted inside every artifact, zero-cost and no-funding controls measured inside each artifact). Audit `code/_ema921_audit.py` 46/46 PASS in both directions (it caught a real pandas-3 unit bug pre-market: the index came back in µs, `asi8 // 1e6` produced SECONDS, and the funding trim ate 62,686 of 62,687 bars); parity `code/_ema921_parity.py` 4/4 cells bit-identical (BTC 1h, ETH 15m, SUI 5m, XRP 1d) under the source's own 4/1 bps with funding off. Grid via `code/_ema921_matrix.py`; 101 artifacts verify bit-for-bit. **Only two cells reach full-window PF>1.2 with n ≥ 30 and both die on significance and on B&H:** LABUSDT 1h `dfab81a68433a1fd` net +28.44%, PF 1.270, OOS PF 1.558, thirds 3/3, bootstrap CI [−1.950, 18.696], B&H −83.22% (wins by losing less); ZECUSDT 1h `d620f41a9ece082a` net +33.06%, PF 1.262, OOS PF 1.324, CI [−1.297, 18.243], B&H +2884.79%. The zero-cost control shows the gross edge is real but tiny and the turnover eats it: at 1m ONE of eight cells is above 1.0 before costs (SPXUSDT `67d8a9a9cd843510`, 1.022) and ETHUSDT 1m `1e231a62c3ecc4d9` runs PF 0.134 on 83475 trades; 5m 6 of 10 above 1.0 and none at 1.2; 15m 15 of 35 above 1.0, none at 1.2; 1h 25 of 37 above 1.0 and 5 at 1.2. BTCUSDT 1h `61da2863c36f44da` pays 14588.02 USDT in fees on 2812 trades (PF 0.891 with costs vs 1.082 without); SOLUSDT 15m `abc036cc36e2849c` pays 39109.08. Funding is charged everywhere (`funding_covers_bars` true on all 101; largest drag AVAXUSDT 1h `24b242051b5957a7` −1.97 pp; some shorts RECEIVE, LABUSDT 1h −11.99) and never changes a verdict. **1d is NO VERDICT, not a win**: the daily files start in 2026 by construction, no cell reaches thirty trades. Report `results/ema921_report_2026-11-17.md` (guard OK strict, 101 run_ids cited), matrix `results/ema921_matrix_2026-11-17.json`, registry family `trend_ema_crossover`. Registry bookkeeping fix shipped with it: `code/_top100_rank.py` now drops sub-10-trade artifacts BEFORE the per-cell dedupe (a zero-trade pre-fix run had return 0.0 and shadowed the real 2812-trade BTC 1h cell).

@@ -112,7 +112,26 @@ Newey-West alpha while this repo's uses bar-level block-bootstrap alpha; its
 G8 breakeven is algebraic on the cost column while this repo's re-runs the
 engine (exact slippage-in-price); its G9 bootstraps the trade sequence while
 this repo's uses the mark-to-market bar series. Where the two layers
-disagree, the stricter reading wins.
+disagree, the stricter reading wins — **implemented, not just stated
+(2026-11-21, N8/N10 audit fixes)**: `vrun.compute_gates_v2` recomputes the
+battery from `trades_v2` whenever it exists and REFUSES a stored verdict that
+disagrees or carries a stale `policy_hash`; `bt one` runs the v2 battery as a
+required row; the neighborhood rule is the CONJUNCTION of the plan rule and
+the `POLICY` rule (`nb_pass_frac` 0.70 / `nb_pf_ratio_min` 0.75); and the
+cut-hash serving is now consumed by every engine (an adapter that cannot
+consume the served slice must declare `cut_enforced: False`, which the
+artifact records). The two layers publish DIFFERENT `policy_hash` values
+(gate2 vs `_gates_v2.POLICY`); a stored block is acceptable when it matches
+either layer's policy in force. `gate2.pbo_cscv` is DELEGATED to the
+reference implementation (the old local one divided a candidate rank by a
+time-row count and returned mean omega — it read ~0 on pure noise where the
+true PBO is ~0.5, so G7's PBO alternative auto-passed; N4). The bootstrap
+under both layers is CHUNKED at a fixed cell budget and never shrinks the
+replicate count (the F14 shrink made G9's tail a 2–6-rep coin flip on 1m
+books; N3), and a tail estimate from fewer than `boot_reps_floor` (500)
+replicates fails closed. The `G9` doc constant is 35% (`POLICY["g9_dd_max"]
+= 0.35`) and `G8`'s is 35% (`POLICY["g8_cost_share_max"] = 0.35`); where an
+older sentence here says 30%, **`POLICY` is the number of record**.
 
 ---
 
@@ -159,7 +178,13 @@ disagree, the stricter reading wins.
   twice the gate cost and measures its own breakeven; (2) for **thin names the
   measured per-symbol round trip (10.0–30.5 bps, `results/cost_model_2026-10-25.json`)
   is binding, not advisory** — a thin-name artifact that declares only the
-  default cost is incomplete; (3) the cost snapshot is a single regime
+  default cost is incomplete — **and since 2026-11-21 (N9 audit fix) it is
+  wired into the engines, not just declared**: `p100_screen_engine` resolves
+  every book's cost through the repo resolver (max of the default and the
+  measured per-symbol RT, fee 5 bps, slip = rt/2 − 5) and measures the
+  resolved values inside the artifact (`fee_bps_per_side`,
+  `slippage_bps_per_side`, `cost_bp_roundtrip`, `cost_source`); the cost
+  model file itself is a hashed input of those artifacts; (3) the cost snapshot is a single regime
   (2026-10-25) applied across years with different fee and liquidity regimes,
   and stop exits are the stress fills — engines that live by stops must declare
   a stop slippage assumption. Size-dependent impact under compounding is a

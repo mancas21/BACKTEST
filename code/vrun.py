@@ -222,7 +222,15 @@ def _read_input(p: str) -> dict:
             data = json.load(f)
         recs = [x for x in data if isinstance(x, dict) and "t" in x]
         if not recs:
-            raise ValueError(f"{os.path.basename(p)}: expected a JSON list of records with a 't' key")
+            # N6 (2026-11-21): not every JSON input is a funding history.
+            # A STATIC config (cost model, manifest) is recorded as one
+            # document with no time span -- bars 0 is the honest "not a time
+            # series" marker, and the full-file sha still binds the bytes.
+            if isinstance(data, list):
+                raise ValueError(
+                    f"{os.path.basename(p)}: expected a JSON list of records with a 't' key")
+            return {"path": os.path.abspath(p), "sha256": _sha256_file(p),
+                    "bars": 0, "start": "", "end": ""}
         times = pd.to_datetime([x["t"] for x in recs], unit="ms", utc=True)
         return {"path": os.path.abspath(p), "sha256": _sha256_file(p), "bars": len(recs),
                 "start": str(times[0]), "end": str(times[-1])}
@@ -452,10 +460,23 @@ def _slice_serve(p: str, cut_iso: str) -> tuple:
     served = os.path.join(subdir, base)
 
     if ext == ".json":
-        # funding history: keep records with t < cut, canonical serialization
-        # (sorted keys, tight separators) so the hash is re-fetch-order-proof
         with open(p, encoding="utf-8") as f:
             data = json.load(f)
+        # N6 support (2026-11-21): not every JSON input is a funding history.
+        # A funding file is a LIST of records carrying "t"; anything else
+        # (a cost model, a manifest, a config) is a STATIC input -- static
+        # configs do not grow, so they are hashed and served as their
+        # ORIGINAL path (same convention as the parquet branch above), which
+        # keeps hash-bytes == engine-read-bytes without any rewrite.
+        is_funding = (isinstance(data, list)
+                      and bool(data)
+                      and all(isinstance(x, dict) and "t" in x for x in data[:5]))
+        if not is_funding:
+            rec = _read_input(p)
+            _SLICE_CACHE[key] = (rec, p)
+            return rec, p
+        # funding history: keep records with t < cut, canonical serialization
+        # (sorted keys, tight separators) so the hash is re-fetch-order-proof
         kept = [x for x in data if isinstance(x, dict) and "t" in x
                 and int(x["t"]) < cut_ms]
         canon = json.dumps(kept, sort_keys=True, separators=(",", ":")).encode("utf-8")
@@ -1164,7 +1185,22 @@ def _p100screen_inputs(tf, sym, params):
         syms = P100_BASKET_SYMBOLS
     else:
         syms = [symbol]
-    return [os.path.join(d, f"{s}_{suffix}.csv") for s in syms]
+    # N6/N9 (2026-11-21): the engine charges funding (data/binance_funding,
+    # read through the SAME names this lambda declares) and resolves the
+    # per-symbol cost from the measured cost model. Both files are INPUTS
+    # now: their bytes join the run_id, so a funding extension or a cost
+    # re-measurement changes the artifact id instead of silently changing
+    # the metrics.
+    out = [os.path.join(d, f"{s}_{suffix}.csv") for s in syms]
+    fund_dir = os.path.join(DATA, "binance_funding")
+    for s in syms:
+        fp = os.path.join(fund_dir, f"{s}_funding.json")
+        if os.path.exists(fp):
+            out.append(fp)
+    cm = os.path.join(ROOT, "results", "cost_model_2026-10-25.json")
+    if os.path.exists(cm):
+        out.append(cm)
+    return out
 
 
 def run_prompts100(paths, params):
@@ -3951,6 +3987,12 @@ def make_artifact(strategy: str, tf: str, symbol: str, params: dict,
     }
     if cut_iso is not None:
         core["cut_ts"] = cut_iso
+        # N6 (2026-11-21): an adapter that resolves its own input paths
+        # (ignoring the served slice) does not get cut protection. It must
+        # DECLARE that with "cut_enforced": False in ADAPTERS, and the
+        # artifact records the honesty instead of silently claiming a cut.
+        if a.get("cut_enforced") is False:
+            core["cut_enforced"] = False
     run_id = hashlib.sha256(
         json.dumps(core, sort_keys=True, separators=(",", ":")).encode()).hexdigest()[:16]
     cmd = f"python code/vrun.py run --strategy {strategy} --tf {tf} --symbol {symbol}"
@@ -3993,13 +4035,87 @@ def compute_gates_v2(art: dict) -> dict:
     PROMOTION gate, not the v1 screen floor. An artifact must carry a `gates_v2`
     block (computed by its adapter via _gates_v2 / gate2) or a `trades_v2` table
     in the documented fixed-size schema. Absent either, this FAILS CLOSED: a
-    v1-only screen pass is NOT a promotable verdict. Returns a dict with at least
-    {available, pass, backtest_pass}."""
+    v1-only screen pass is NOT promotable. Returns a dict with at least
+    {available, pass, backtest_pass}.
+
+    N8 FIX (2026-11-21): a stored gates_v2 block is now treated as a CACHE,
+    not a certificate. When `trades_v2` is present the gates are ALWAYS
+    recomputed from it and compared with the stored verdict; a mismatch, or a
+    stored policy_hash that does not match the current _gates_v2.POLICY, is
+    REFUSED instead of trusted. The stored block alone no longer
+    self-certifies an adapter."""
+    import _gates_v2 as _GV2
+    import gate2 as _G2
+    # the two battery layers publish different policy hashes (N10); a stored
+    # block is acceptable when it matches EITHER layer's policy in force
+    cur_hashes = {_GV2.policy_hash(), _G2.policy_hash()}
+    cur_hash = _GV2.policy_hash()
     gv2 = art.get("gates_v2")
+
+    def _stored_acceptable(g):
+        # a stored block is acceptable only when its policy hash matches the
+        # battery actually in force (either layer)
+        ph = g.get("policy_hash")
+        return (ph is None) or (ph in cur_hashes)
+
+    # trades_v2 present -> recompute is the source of truth (N8)
+    tv2 = art.get("trades_v2")
+    if tv2 is None:
+        for t in art.get("tables", []) or []:
+            if isinstance(t, dict) and t.get("kind") == "trades_v2":
+                tv2 = t.get("rows")
+                break
+    if tv2:
+        try:
+            spec = importlib.util.spec_from_file_location(
+                "_gates_v2_for_art", os.path.join(CODE, "_gates_v2.py"))
+            g = importlib.util.module_from_spec(spec)
+            # register before exec: dataclass resolution inside _gates_v2
+            # looks its own module up in sys.modules (same fix as _load_module)
+            sys.modules["_gates_v2_for_art"] = g
+            spec.loader.exec_module(g)
+            df = pd.DataFrame(tv2)
+            m = art.get("metrics", {})
+            ctx = g.GateContext(
+                book_type=m.get("book_type", "directional"),
+                inventory_book=bool(m.get("inventory_book", False)),
+                notional_per_equity=float(m.get("notional_per_equity", 1.0)),
+                max_leverage=m.get("max_leverage"),
+                n_trials=m.get("n_trials"),
+            )
+            res = g.evaluate_gates_v2(df, ctx)
+            res["available"] = True
+            res["pass"] = bool(res.get("backtest_pass"))
+            res["recomputed"] = True
+            if isinstance(gv2, dict) and "backtest_pass" in gv2:
+                if bool(gv2.get("backtest_pass")) != bool(res["backtest_pass"]):
+                    res["pass"] = False
+                    res["backtest_pass"] = False
+                    res["reason"] = ("N8: stored gates_v2 verdict disagrees with "
+                                     "the recomputed battery - refused")
+                elif not _stored_acceptable(gv2):
+                    res["pass"] = False
+                    res["backtest_pass"] = False
+                    res["reason"] = (f"N8: stored policy_hash {str(gv2.get('policy_hash'))[:12]} "
+                                     f"!= current {cur_hash[:12]} - refused")
+            return res
+        except Exception as e:
+            return {"available": False, "pass": False, "backtest_pass": False,
+                    "reason": f"v2 evaluation error: {type(e).__name__}: {e}"}
+
+    # no trades_v2: a stored block is accepted only when its policy hash
+    # matches the battery in force; otherwise it is flagged stale (N8)
     if isinstance(gv2, dict) and "backtest_pass" in gv2:
         out = dict(gv2)
         out["available"] = True
         out["pass"] = bool(gv2.get("backtest_pass"))
+        out["recomputed"] = False
+        if not _stored_acceptable(gv2):
+            out["pass"] = False
+            out["backtest_pass"] = False
+            out["stale_policy"] = True
+            out["reason"] = (f"N8: stored policy_hash {str(gv2.get('policy_hash'))[:12]} "
+                             f"!= current battery {cur_hash[:12]} - stale, refused")
         return out
     tv2 = art.get("trades_v2")
     if tv2 is None:
@@ -4012,6 +4128,9 @@ def compute_gates_v2(art: dict) -> dict:
             spec = importlib.util.spec_from_file_location(
                 "_gates_v2_for_art", os.path.join(CODE, "_gates_v2.py"))
             g = importlib.util.module_from_spec(spec)
+            # register before exec: dataclass resolution inside _gates_v2
+            # looks its own module up in sys.modules (same fix as _load_module)
+            sys.modules["_gates_v2_for_art"] = g
             spec.loader.exec_module(g)
             df = pd.DataFrame(tv2)
             m = art.get("metrics", {})

@@ -114,6 +114,7 @@ POLICY: Dict[str, Any] = {
     "data_wick_z": 25.0,
     # bootstrap
     "boot_reps": 2000,
+    "boot_reps_floor": 500,       # N3: a tail estimate from fewer reps fails closed
     "boot_seed": 20261027,
     # costs
     "slip_stop_mult": 3.0,          # PLACEHOLDER: calibrate on stress windows
@@ -180,7 +181,44 @@ def _safe_reps(n: int, reps: int) -> int:
     # F14: the memory cap is binding (the old max(200, ...) overrode it and could
     # allocate a 200 x n matrix ~1.6 GB at n=1e6). For very large n, reps is
     # memory-bound; chunking is a future improvement.
+    # DEPRECATED (N3 fix, 2026-11-21): no longer used to SHRINK the replicate
+    # count -- shrinking made G9's tail gate a seed-dependent coin flip on 1m
+    # books (6e6/n gives 2-6 reps at n=1e6-3e6). The cap below survives as the
+    # CHUNK size (_boot_chunk_rows): memory stays bounded while reps stays at
+    # the requested value. Kept only for backward imports.
     return int(max(1, min(reps, 6_000_000 // max(n, 1))))
+
+
+# ── N3 fix (2026-11-21): chunked stationary bootstrap ────────────────────
+# The F14 memory cap converted into a CHUNK size: the replicate count is
+# never reduced, each chunk materialises at most ~6e6 cells (~48 MB per
+# array). The per-chunk draw order is fixed, so the result is deterministic
+# for a given seed; for n small enough that one chunk covers every replicate
+# the draws are bit-identical to the original unchunked matrix.
+_BOOT_CHUNK_CELLS = 6_000_000
+BOOT_REPS_FLOOR = 500          # N3: a tail estimate from fewer reps is noise
+_BOOT_INFO: Dict[str, Any] = {"reps_actual": None}
+
+
+def boot_reps_actual() -> Optional[int]:
+    """Replicates actually used by the last bootstrap_* call (the floor gate
+    reads this; the artifact should record it)."""
+    return _BOOT_INFO.get("reps_actual")
+
+
+def _boot_chunk_rows(n: int, reps: int) -> int:
+    return int(max(1, min(reps, _BOOT_CHUNK_CELLS // max(n, 1))))
+
+
+def _stationary_bootstrap_chunk(rng: np.random.Generator, n: int,
+                                p_block: float, rows: int) -> np.ndarray:
+    idx = np.empty((rows, n), dtype=np.int64)
+    idx[:, 0] = rng.integers(0, n, rows)
+    jump = rng.random((rows, n)) < p_block
+    starts = rng.integers(0, n, (rows, n))
+    for t in range(1, n):
+        idx[:, t] = np.where(jump[:, t], starts[:, t], (idx[:, t - 1] + 1) % n)
+    return idx
 
 
 def _block_len(n: int) -> float:
@@ -189,27 +227,55 @@ def _block_len(n: int) -> float:
 
 def bootstrap_mean_lb(r: np.ndarray, alpha: float, reps: int,
                       rng: np.random.Generator) -> Tuple[float, float]:
+    """N3 fix: the full requested `reps` are always used (chunked); the F14
+    shrink that turned the tail gates into coin flips on long series is gone.
+    For n small enough that a single chunk covers all replicates the draws are
+    bit-identical to the original unchunked matrix."""
+    r = np.asarray(r, float)
     n = len(r)
-    reps = _safe_reps(n, reps)
-    idx = stationary_bootstrap_indices(n, reps, _block_len(n), rng)
-    means = r[idx].mean(axis=1)
+    rows = _boot_chunk_rows(n, reps)
+    _BOOT_INFO["reps_actual"] = int(reps)
+    p_block = 1.0 / _block_len(n)
+    means = []
+    done = 0
+    while done < reps:
+        rows_c = min(rows, reps - done)
+        idx = _stationary_bootstrap_chunk(rng, n, p_block, rows_c)
+        means.append(r[idx].mean(axis=1))
+        done += rows_c
+    means = np.concatenate(means)
     return float(np.quantile(means, alpha)), float(means.mean())
 
 
 def bootstrap_max_dd(r: np.ndarray, size: float, reps: int,
                      rng: np.random.Generator) -> Dict[str, float]:
-    """Max drawdown distribution of the trade sequence under full-equity compounding."""
+    """Max drawdown distribution of the trade sequence under full-equity
+    compounding. N3 fix: chunked, full `reps` always; `reps_actual` travels
+    with the result so the gate can fail closed below BOOT_REPS_FLOOR."""
+    r = np.asarray(r, float)
     n = len(r)
-    reps = _safe_reps(n, reps)
-    idx = stationary_bootstrap_indices(n, reps, _block_len(n), rng)
-    rets = np.maximum(1.0 + size * r[idx], 0.0)
-    eq = np.cumprod(rets, axis=1)
-    eq = np.concatenate([np.ones((reps, 1)), eq], axis=1)
-    peak = np.maximum.accumulate(eq, axis=1)
-    dd = 1.0 - eq / peak
-    mdd = dd.max(axis=1)
+    rows = _boot_chunk_rows(n, reps)
+    _BOOT_INFO["reps_actual"] = int(reps)
+    p_block = 1.0 / _block_len(n)
+    mdd_parts = []
+    ruin_ends = []
+    done = 0
+    while done < reps:
+        rows_c = min(rows, reps - done)
+        idx = _stationary_bootstrap_chunk(rng, n, p_block, rows_c)
+        rets = np.maximum(1.0 + size * r[idx], 0.0)
+        eq = np.cumprod(rets, axis=1)
+        eq = np.concatenate([np.ones((rows_c, 1)), eq], axis=1)
+        peak = np.maximum.accumulate(eq, axis=1)
+        dd = 1.0 - eq / peak
+        mdd_parts.append(dd.max(axis=1))
+        ruin_ends.append(eq[:, -1] <= 0)
+        done += rows_c
+    mdd = np.concatenate(mdd_parts)
+    ruin_end = np.concatenate(ruin_ends)
     return {"p50": float(np.quantile(mdd, 0.5)), "p95": float(np.quantile(mdd, 0.95)),
-            "ruin_frac": float((eq[:, -1] <= 0).mean())}
+            "ruin_frac": float(ruin_end.mean()),
+            "reps_actual": int(reps)}
 
 
 def alpha_beta_hac(y: np.ndarray, x: np.ndarray) -> Tuple[float, float, float]:
@@ -395,9 +461,19 @@ def gate_g1(t, ctx, P, rng):
     n_loss = int((r < 0).sum())
     lb, bmean = bootstrap_mean_lb(r, P["g1_boot_alpha"], P["boot_reps"], rng)
     pf_gross = profit_factor(t["gross_ret"].to_numpy())
-    ok_pf = (pf > P["g1_pf_min"]) if n_loss else (float(r.sum()) > 0)
-    return {"pass": bool(ok_pf and lb > 0), "pf_net": pf, "pf_gross": pf_gross,
+    # N11 fix (2026-11-21): the no-loser branch bypassed the PF threshold
+    # exactly in the negative-skew signature case. A no-loser book has
+    # pf = inf (profit_factor), which passes `pf > g1_pf_min` arithmetically;
+    # the explicit bypass is gone. The tail gates (G9/G11) still bind it.
+    ok_pf = pf > P["g1_pf_min"]
+    # N3 fix: the tail estimate is fail-closed below the replicate floor
+    ra = boot_reps_actual()
+    reps_ok = (ra is None) or (ra >= P.get("boot_reps_floor", BOOT_REPS_FLOOR))
+    return {"pass": bool(ok_pf and lb > 0 and reps_ok), "pf_net": pf,
+            "pf_gross": pf_gross,
             "expectancy_bps": float(r.mean() * 1e4), "boot_lb_bps": lb * 1e4,
+            "boot_reps_actual": ra,
+            **({} if reps_ok else {"reason_reps": f"bootstrap reps {ra} < floor"}),
             "zero_losers": n_loss == 0}
 
 
@@ -580,7 +656,14 @@ def gate_g9(t, ctx, P, rng):
                 p95 = max(p95, bs_mtm["p95"])
     out["boot_maxdd_p95"] = p95
     out["ruin_frac"] = bs["ruin_frac"]
+    out["boot_reps_actual"] = bs.get("reps_actual")
     ok &= p95 <= P["g9_dd_max"] and bs["ruin_frac"] == 0.0
+    # N3 fix: the MTM drawdown P95 from fewer than the replicate floor is
+    # noise, not a measurement (the F14 shrink made it 2-6 reps on 1m books)
+    ra = bs.get("reps_actual")
+    if ra is not None and ra < P.get("boot_reps_floor", BOOT_REPS_FLOOR):
+        out["reason_reps"] = f"bootstrap reps {ra} < floor"
+        ok = False
     if ctx.equity_mtm is not None:
         e = ctx.equity_mtm.to_numpy(float)
         dd = float((1 - e / np.maximum.accumulate(e)).max())

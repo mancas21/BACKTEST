@@ -246,3 +246,10 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_rows21_30_report_2026-11-20.md` | las filas 21-30 de `top100_2026-10-31.md` (B17-1h, F75-1h, QS-004 x2, S46, QS-007, QS-005, ds1, QS-006, QS-093) re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; ds1 se publicó a coste cero (régimen `author`), así que su BASE y ZERO son el mismo artefacto y su corrida informativa es la COSTADA (`repo6x5`); veinte artefactos verify bit a bit; pre-registro `zerocost_rows21_30_pre_registration.md` (con addenda fechada sobre la semántica de reproducción), matriz `zerocost_rows21_30_matrix.json`, auditoría `code/_zerocost_rows21_30_audit.py` (45/45) | **OK (strict)** |
+
+## Campana audit-fix del harness (2026-11-21) — fixes N1-N11 + A2/A3, re-medidos
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `auditfix_report_2026-11-21.md` | la auditoria externa del harness (Qwen) verificada contra el codigo y arreglada: batería `bt one` fail-closed (N1 conc canónica, N2 N-A/pf-null/v2), bootstrap por chunks + piso de réplicas (N3), PBO delegado a la referencia (N4), stops intrabar de pares + fee-beta de entrada + funding-antes-de-stops (N5/N11), consumo del slice servido + funding/cost-model como inputs (N6), bootstrap_r con bloque escalado (N7), gates_v2 recalculado + policy_hash (N8), coste medido por símbolo cableado (N9), vecindario con `--set` + conjunción estricta (N10), cadena de drift que compone (A2) + recalibración `1d938af1df8dbfc0` verify OK (G5 monotono, conjunción v1 n300/d20 0.0175 -> 0.31, v2 0.095 genuino); selftest 44/44; re-screen regenerado y ciento ochenta y una artefactos verify OK | **OK (strict)** |
+| `prompts100_rescreen_report.md` (regenerado 2026-11-21) | el mismo re-screen sobre la generación actual del engine (coste resuelto por símbolo, funding antes de stops, stops intrabar de pares): cuatro prompts pasan la criba DEV y CERO el veredicto OOS — veredicto sin cambios, todos los movimientos en dirección conservadora | **OK (strict)** |

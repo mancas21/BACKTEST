@@ -1,5 +1,82 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-21 - Campana audit-fix del harness (auditoria externa Qwen): fixes N1-N11 + A2, recalibracion y re-screen
+
+El operador trajo una auditoria externa DEL PROPIO harness (Qwen; texto
+extraido en `Downloads/_audit_6e3a35c1.md`). Cada alegacion a nivel de codigo
+se verifico contra el repo antes de arreglarla: diez confirmadas, una
+dividida (A2), dos de escala. Todo lo confirmado esta ARREGLADO, con
+selftest de respuestas conocidas (`code/_auditfix_selftest_20261121.py`,
+44/44 PASS) y re-medidas con artefactos:
+`results/auditfix_report_2026-11-21.md` (guard OK strict).
+
+**Lo que cambio en el harness** (seis ficheros; generaciones viejas verify
+REFUSED por diseno, registradas en `code/_engine_lock.json`):
+- `bt one` es fail-closed: N-A falla el veredicto, pf nulo (libro sin
+  perdedoras) FALLA, la batería v2 G1-G11 es fila obligatoria, la clave conc
+  ambigua `top5_pnl_share` se RECHAZA (el x100 que leia 5% como 500 ya no
+  existe). Consecuencia honesta: CERO artefactos del corpus llevan
+  gates_v2/trades_v2, asi que todo artefacto existente falla `bt one` —
+  emitir el esquema v2 es la campana siguiente.
+- Bootstrap por chunks: las replicas NUNCA se recortan (el cap de F14 era el
+  tamano de chunk, no el conteo); piso de 500 replicas fail-closed en G1/G9.
+- `gate2.pbo_cscv` delega a `_gates_v2.pbo_cscv` (el viejo devolvia ~cero
+  sobre ruido pura donde el PBO real es ~medio -> el alternativo de G7
+  pasaba siempre).
+- Pares: stop intrabar sobre el rango envolvente de las piernas, fee de
+  salida con la beta DE ENTRADA, funding ANTES de los stops intrabar en los
+  dos libros. `p100screen` consume el slice SERVIDO (probe con corte
+  2026-01-01: solo barras pre-corte); funding + cost model son inputs del
+  run_id. Coste por simbolo MEDIDO cableado (JUP 22.57 RT medido en su
+  artefacto `4444d607d5f06057`).
+- `compute_gates_v2` recalcula desde trades_v2 y RECHAZA veredictos
+  guardados que discrepen o lleven policy_hash ajeno (N8: un bloque guardado
+  es cache, no certificado).
+
+**A2 re-medido — y una correccion sobre el registro de la sesion.** El bug
+era real: el drift plantado no componia (solo el ultimo trade llegaba a
+ret_pct) y G5 estaba ciego. Recalibracion `1d938af1df8dbfc0` (verify OK):
+G5 monotono (n300: 0.0150/0.0375/0.0925/0.4875 a 0/5/10/20 bps) y la
+conjuncion v1 a n300/d20 sube **0.0175 -> 0.31** (~18x). La prediccion de la
+auditoria era correcta; la correccion de la sesion de verificacion ("G5 es
+inpasable por diseno contra el BH de ventana completa") estaba EQUIVOCADA —
+la ventana de calibracion es de dos anos, donde el BH es +24.3%, no el ~10x
+de la historia completa. **El titular de la auditoria sobrevive en forma
+estrecha y medida: la potencia conjunta de v2 a un filo fuerte sigue siendo
+0.095 a n300** (v2 nunca leyo la cadena de equity; sus tasas son
+bit-identicas a las publicadas). La inferencia corpus-level "cero
+supervivientes" descansa sobre ESE numero, no sobre el 0.0175 roto.
+
+**Re-screen regenerado** sobre la generacion actual (180 celdas, ciento
+ochenta y una artefactos verify OK): cuatro prompts pasan la criba DEV,
+CERO el veredicto OOS — veredicto sin cambios; los 150 movimientos van en
+direccion conservadora. `prompts100_rescreen_report.md` guard OK strict.
+
+## 2026-11-20 - Generador de estrategias v2 auditado y archivado (solo documentacion)
+
+El operador audito el super-prompt generador v1 contra el registro medido y
+escribio v2 (`STRATEGY_GENERATOR_PROMPT_v2.md`, sha `8a1d0536...`, copiado
+byte-idéntico desde Downloads; el v1 queda intacto con su sha). La auditoria
+externa acerto en lo grande y el repo ya habia medido tres de sus hallazgos:
+potencia de gates 34.5% a +51 bps plantados (2026-10-30), el unico pass
+historico muerto por re-resolucion de fills 1m (OOS PF 0.93), y SPXUSDT como
+perp cripto (corr 0.31 con SPY). Dato duro nuevo de la auditoria: en las
+cuatro packs de 50 prompts, 162 de 184 libros son neto-negativos con sus
+propios costes declarados y la concentracion mata 21 de los 22 rentables —
+la restriccion vinculante es la SENAL, no los gates.
+
+Auditoria del v2 archivada en `STRATEGY_GENERATOR_PROMPT_v2_audit_2026-11-20.md`
+con seis hallazgos (F1: demover el "CREDIBLE-1" de MP-18 — sin artefacto y su
+primo medido murio por concentracion; F2: anadir los gates de calibracion
+nula y G11; F3: capacidades de engine medidas — refit ML walk-forward y gate
+de portafolio NO existen; F4: inventario de datos real — 1h taker 33 simbolos
+pero solo los mayores desde 2024-10, el resto desde 2025-09; funding 37
+ficheros y mas largo que los klines; F5: la fecha de estres 2025-10-10/11 no
+es la peor por simbolo — ETH peor 2025-02-02, SOL 2025-03-03, BTC
+2026-02-04; F6: anclar la tabla de potencia al 34.5% medido). v2 queda como
+generador de record CON la condicion de aplicar las tres ediciones antes de
+pegarlo.
+
 ## 2026-11-20 - Control de coste cero, filas 21-30 del top-100 (experimento, sin veredicto)
 
 La tercera tanda del mismo control: las **filas 21 a 30 de

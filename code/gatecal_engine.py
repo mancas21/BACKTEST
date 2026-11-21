@@ -68,6 +68,27 @@ def _null_plan(df, rng, p, a):
                 stop_long=c - 2 * a, stop_short=c + 2 * a, time_stop=hold)
 
 
+def _apply_drift(tr, delta, init):
+    """A2 FIX (2026-11-21): apply a fixed per-trade drift delta (in bps) so it
+    COMPOUNDS through the equity chain: eqb_d[0]=init, eqb_d[k]=eqa_d[k-1],
+    eqa_d[k]=eqb_d[k]*(1+adj[k]), adj[k]=(1+ret[k])*(1+delta)-1. Returns the
+    reassigned trades frame. The old inline adjustment derived eqb from the
+    ORIGINAL chain, so every trade's drift was lost at each step and only the
+    LAST trade's ~delta ever reached ret_pct (G5 measured an effectively
+    un-drifted book while the pnl-based gates saw the edge)."""
+    adj = ((1.0 + tr["ret_pct"].to_numpy(float) / 100.0)
+           * (1.0 + delta / 1e4) - 1.0)
+    eqb_d = np.empty(len(adj))
+    eqa_d = np.empty(len(adj))
+    eqb_d[0] = init
+    eqa_d[0] = init * (1.0 + adj[0])
+    for k in range(1, len(adj)):
+        eqb_d[k] = eqa_d[k - 1]
+        eqa_d[k] = eqb_d[k] * (1.0 + adj[k])
+    pnl2 = eqa_d - eqb_d
+    return tr.assign(pnl=pnl2, ret_pct=adj * 100.0, equity_after=eqa_d)
+
+
 def _v1_gate_booleans(tr, split_ts, bh_ret):
     """The pack50 `_gates` semantics, on the trades of one trial."""
     n = len(tr)
@@ -168,11 +189,9 @@ def run_one(paths, params):
                 if len(tr) == 0:
                     continue
                 if delta > 0.0:
-                    eqb = (tr["equity_after"] - tr["pnl"]).to_numpy(float)
-                    adj = (1.0 + tr["ret_pct"].to_numpy(float) / 100.0) * (1.0 + delta / 1e4) - 1.0
-                    pnl2 = eqb * adj
-                    tr = tr.assign(pnl=pnl2, ret_pct=adj * 100.0,
-                                   equity_after=eqb + pnl2)
+                    # A2 FIX (2026-11-21): the planted edge must COMPOUND
+                    # through the equity chain -- see _apply_drift.
+                    tr = _apply_drift(tr, delta, INIT)
                 g1 = _v1_gate_booleans(tr, split_ts, bh)
                 for k, v in g1.items():
                     rates_v1[k] += int(v)
@@ -244,6 +263,15 @@ def run_one(paths, params):
         "deltas_bps": DELTAS_BPS,
         "bars": int(n),
         "bh_return_pct": bh,
+        "g5_design_note": (
+            "A2 fix 2026-11-21: the drift chain is rebuilt per trade, so the "
+            "planted edge now compounds into ret_pct (the old chain kept only "
+            "the last trade's drift and G5 measured an effectively un-drifted "
+            "book). DESIGN LIMITATION that no code fix removes: G5 compares "
+            "the FULL-WINDOW buy & hold; on a window where BTC rose ~10x, a "
+            "random-entry book at any realistic per-trade edge cannot pass G5 "
+            "by design. Read the G5 column as that design property (and the "
+            "conjunction's ceiling), not as a residual bug."),
         "cells": cells,
         "g9v2_null_p95_dd_median": float(np.median(dd95)),
         "g9v2_null_p95_dd_p90": float(np.percentile(dd95, 90)),

@@ -195,10 +195,14 @@ def main():
     L.append("- paridad: `code/_prompts100_parity.py` (trades y metricas "
              "identicos al motor del pack); respuestas conocidas: "
              "`code/_prompts100_audit.py` (ambas direcciones)")
-    L.append("- costes: **11 bps round trip por pierna** (5 de comision + 0.5 "
-             "de slip por lado) y **funding cobrado en los settlements "
-             "reales**; el invariante contable se aserta dentro de cada "
-             "artefacto")
+    L.append("- costes: **el coste resuelto por simbolo** (maximo entre los "
+             "11 bps RT por defecto y el RT MEDIDO del cost model "
+             "`results/cost_model_2026-10-25.json`: fee 5 bps, slip rt/2-5; "
+             "los libros multi-pierna cobran el maximo de sus piernas) y "
+             "**funding cobrado en los settlements reales ANTES de los "
+             "stops intrabar** (fix N11 2026-11-21); el invariante contable "
+             "se aserta dentro de cada artefacto; el coste resuelto viaja "
+             "MEDIDO en cada artefacto (`cost_bp_roundtrip`, `cost_source`)")
     L.append("")
     # el veredicto se CALCULA, no se escribe: si los datos contradijesen la
     # frase, la frase cambia
@@ -291,7 +295,7 @@ def main():
         L.append(f"| {r['id']} | {r['symbol']} {r['tf']} | "
                  f"`{d['run_id']}` | {f(dm['n_trades'], 0)} | "
                  f"{f(dm['profit_factor'], 4)} | {f(dm['return_pct'])} | "
-                 f"{r['n_dev_pass']} de {len(dev_gates(dm))} | "
+                 f"{words(r['n_dev_pass'])} de {words(len(dev_gates(dm)))} | "
                  f"`{o['run_id'] if o else '-'}` | "
                  f"{f(om['n_trades'], 0) if om else '-'} | "
                  f"{f(om['profit_factor'], 4) if om else '-'} | "
