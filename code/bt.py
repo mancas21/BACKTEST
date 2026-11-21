@@ -307,7 +307,31 @@ def _neighborhood_jobs(job, workers):
     #     median neighbor PF within 75% of the center's PF
     frac_ok = (sum(1 for r in results if isinstance(r["pf"], (int, float))
                    and r["pf"] > 1.2) / max(len(results), 1)) >= 0.70
-    center_pf = pfs[len(pfs) // 2] if pfs else None
+    # NEW-5 fix (second audit 2026-11-21): the "centre" is the PF of the
+    # MEDIAN SWEPT VALUE, not the middle of the declared-value list -- for
+    # an even count or unordered values the positional middle was an
+    # arbitrary neighbour. The job may also declare `centre` (the base
+    # parameter value); that PF wins when present.
+    center_pf = None
+    centre_decl = job.get("centre")
+    if centre_decl is not None:
+        for r in results:
+            lbl_val = str(r["label"]).rsplit("[", 1)[-1].rstrip("]")
+            if lbl_val == str(centre_decl):
+                center_pf = r.get("pf")
+                break
+    by_val = []
+    for r in results:
+        if not isinstance(r.get("pf"), (int, float)):
+            continue
+        try:
+            v = float(str(r["label"]).rsplit("[", 1)[-1].rstrip("]"))
+        except ValueError:
+            v = None
+        by_val.append((v, r["pf"]))
+    if center_pf is None and by_val:
+        by_val.sort(key=lambda t: (t[0] is None, t[0]))
+        center_pf = by_val[len(by_val) // 2][1]
     spfs = sorted(pfs)
     med = (spfs[len(spfs) // 2] if len(spfs) % 2
            else 0.5 * (spfs[len(spfs) // 2 - 1] + spfs[len(spfs) // 2])) if pfs else None
@@ -315,6 +339,7 @@ def _neighborhood_jobs(job, workers):
                 and med / center_pf >= 0.75)
     stable = bool(stable and frac_ok and ratio_ok)
     return {"label": job["label"], "param": job["param"], "values": results,
+            "center_pf": center_pf,
             "verdict": "STABLE" if stable else "CLIFF / SENSITIVE"}
 
 

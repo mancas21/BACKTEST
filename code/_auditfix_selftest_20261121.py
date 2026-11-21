@@ -71,13 +71,17 @@ def t_n3():
     rs = np.sin(np.arange(400) * 0.1) * 0.01
     n, reps = len(rs), 800
     rng1 = np.random.default_rng(7)
-    lb1, m1 = G.bootstrap_mean_lb(rs, 0.05, reps, rng1)
+    lb1, m1, ra1 = G.bootstrap_mean_lb(rs, 0.05, reps, rng1)
     rng2 = np.random.default_rng(7)
     idx = G.stationary_bootstrap_indices(n, reps, G._block_len(n), rng2)
     means2 = rs[idx].mean(axis=1)
     check("N3 single-chunk draws bit-identical to the unchunked matrix",
           lb1 == float(np.quantile(means2, 0.05))
           and m1 == float(means2.mean()))
+    check("N3 mean-lb returns the ACHIEVED reps (NEW-2)", ra1 == reps,
+          f"got {ra1}")
+    check("N3 no module-global reps record (NEW-2)",
+          not hasattr(G, "boot_reps_actual") and not hasattr(G, "_BOOT_INFO"))
     big = np.random.default_rng(1).normal(0.0, 0.01, 60_000)
     bs = G.bootstrap_max_dd(big, 1.0, 2000, np.random.default_rng(3))
     check("N3 full reps used on a long series (no 6e6/n shrink)",
@@ -85,7 +89,6 @@ def t_n3():
     bs2 = G.bootstrap_max_dd(big, 1.0, 2000, np.random.default_rng(3))
     check("N3 deterministic for a fixed seed", bs == bs2)
     check("N3 reps floor declared in POLICY", G.POLICY["boot_reps_floor"] == 500)
-    check("N3 boot_reps_actual() reports the last run", G.boot_reps_actual() == 2000)
     # determinism across two independent runs at the same seed (chunked path)
     a = G.bootstrap_mean_lb(big, 0.05, 600, np.random.default_rng(11))
     b = G.bootstrap_mean_lb(big, 0.05, 600, np.random.default_rng(11))
@@ -256,11 +259,15 @@ def t_n5_funding_order(monkeypatch_load_leg):
 def t_n7():
     import p100_screen_engine as E
     small = E.bootstrap_r([0.1, 0.2, 0.15, 0.12, 0.3, 0.11, 0.2, 0.1])
-    check("N7 n<30 fails closed (ci_low sentinel -1.0, flag set)",
-          small["small_sample"] and small["ci_low"] == -1.0, str(small))
+    check("N7 n<30 fails closed (both bounds None, flag set)",
+          small["small_sample"] and small["ci_low"] is None
+          and small["ci_high"] is None, str(small))
+    check("N7-NEW1 no fabricated constant in a thin-sample CI",
+          small["ci_low"] != -1.0 and small["ci_high"] != 1.0)
     big = E.bootstrap_r(np.random.default_rng(4).normal(0.01, 0.05, 120))
-    check("N7 n>=30 keeps a real CI (no sentinel)",
-          not big["small_sample"] and big["ci_low"] != -1.0, str(big["ci_low"]))
+    check("N7 n>=30 keeps a real CI (numeric bounds)",
+          not big["small_sample"] and isinstance(big["ci_low"], float)
+          and isinstance(big["ci_high"], float), str(big["ci_low"]))
     # the old block=10 degenerate CI is gone: n=10 gives a nonzero-width CI
     ten = E.bootstrap_r(np.full(10, 0.05) + np.linspace(0, 0.01, 10))
     check("N7 n=10 no longer zero-width", ten["small_sample"])
@@ -383,6 +390,77 @@ def t_n10():
     check("N10 a cliff neighbor fails the conjunction", nb2["verdict"] != "STABLE")
 
 
+# ─────────────── NEW-1/NEW-3: book_metrics null CI + resolved cost ────────
+def t_new1_new3():
+    import p100_screen_engine as E
+    from types import SimpleNamespace
+    import json as _json
+    # a tiny synthetic book: three trades, one small-sample (n < 30)
+    trades = [dict(pnl=10.0, r=0.01, reason="stop"),
+              dict(pnl=-5.0, r=-0.005, reason="tp"),
+              dict(pnl=7.0, r=0.007, reason="signal")]
+    book = SimpleNamespace(
+        trades=trades, equity_curve=[10000.0, 10010.0, 10005.0, 10012.0],
+        cash=10012.0, init=10000.0, funding_paid=0.0, fees_paid=1.0,
+        entry_fees_total=0.5, pack_conventions=False,
+        pnl_includes_funding=False, charge_funding=True, n_settlements=0,
+        implied_notional_x=[1.5], n_signals=3, skipped_gap_entries=0)
+    m = E.book_metrics(book, rt_bps=22.57)
+    check("NEW-3 book_metrics honors the resolved rt for cost_bp_roundtrip",
+          m["cost_bp_roundtrip"] == 22.57, str(m["cost_bp_roundtrip"]))
+    check("NEW-3 cost_on_real_notional uses the resolved rt (not the constant)",
+          abs(m["cost_on_real_notional_usdt"]
+              - 1.5 * 22.57 / 1e4 * 10000.0) < 1e-9,
+          str(m["cost_on_real_notional_usdt"]))
+    check("NEW-3 default (no rt_bps) keeps the module constant",
+          E.book_metrics(book)["cost_bp_roundtrip"] == E.COST_RT_BPS)
+    check("NEW-1 thin-sample CI is None in the metrics (no fabricated bound)",
+          m["boot_ci_lo"] is None and m["boot_ci_hi"] is None
+          and m["boot_small_sample"] is True)
+    check("NEW-1 None serializes as JSON null",
+          _json.dumps({"a": m["boot_ci_lo"]}) == '{"a": null}')
+
+
+# ───────────────────────── NEW-4: served-map collision ────────────────────
+def t_new4():
+    import p100_screen_engine as E
+    E._register_served(["/tmp/a/BTCUSDT_1h.csv"])
+    check("NEW-4 single served path registers",
+          E._SERVED_INPUTS.get("BTCUSDT_1h.csv") == os.path.abspath("/tmp/a/BTCUSDT_1h.csv"))
+    try:
+        E._register_served(["/tmp/a/BTCUSDT_1h.csv", "/tmp/b/BTCUSDT_1h.csv"])
+        raised = False
+    except ValueError:
+        raised = True
+    check("NEW-4 same-basename served inputs from two dirs FAIL LOUD", raised)
+
+
+# ───────────────────────── NEW-5: neighbourhood centre ────────────────────
+def t_new5():
+    import bt
+    job = {"label": "nb", "strategy": "top10", "tf": "1h", "symbol": "BTCUSDT",
+           "param": "lb", "values": "3,1,2", "set": ["id=28"]}
+    pfs = {"3": 1.49, "1": 1.0, "2": 1.3}   # positional middle = 1.0 (wrong)
+
+    def fake_worker(p):
+        v = p[4]["lb"]
+        return {"label": p[0], "run_id": "x" * 16,
+                "metrics": {"profit_factor": pfs[str(v)], "return_pct": 5.0,
+                            "n_trades": 50}, "tables": []}
+    orig = bt._bt_worker
+    bt._bt_worker = fake_worker
+    try:
+        nb = bt._neighborhood_jobs(job, 1)
+        job2 = dict(job, centre="3")
+        nb2 = bt._neighborhood_jobs(job2, 1)
+    finally:
+        bt._bt_worker = orig
+    check("NEW-5 centre is the PF of the MEDIAN SWEPT VALUE (1.3, not the "
+          "positional 1.0)", nb.get("center_pf") == 1.3, str(nb.get("center_pf")))
+    check("NEW-5 a declared job centre overrides the median",
+          nb2.get("center_pf") == 1.49, str(nb2.get("center_pf")))
+
+
 # ───────────────────────────── main ───────────────────────────────────────
 def main():
     import tempfile
@@ -407,6 +485,9 @@ def main():
     t_a2()
     with tempfile.TemporaryDirectory() as td:
         t_n6(td)
+    t_new1_new3()
+    t_new4()
+    t_new5()
     t_n10()
     E.load_leg = orig_load_leg
     print(f"== {PASS} PASS, {FAIL} FAIL ==")

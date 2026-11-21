@@ -1,5 +1,5 @@
 {
- "run_id": "6695aa5b5a751e97",
+ "run_id": "06774c0e8e6fcc26",
  "id": 85,
  "segment": "OOS",
  "symbol": "HYPEUSDT",
@@ -15,7 +15,7 @@
   "boot_trades_n": 383,
   "conc_top5_share_pct": 75.42176469368256,
   "cost_bp_roundtrip": 11.99,
-  "cost_on_real_notional_usdt": 1273.6221874122175,
+  "cost_on_real_notional_usdt": 1388.248184279317,
   "cost_source": "measured (SOLUSDT)",
   "cost_symbols_resolved": [
    "HYPEUSDT",

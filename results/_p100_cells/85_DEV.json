@@ -1,5 +1,5 @@
 {
- "run_id": "5d6948a96488bd1e",
+ "run_id": "dff8be579b3e6a87",
  "id": 85,
  "segment": "DEV",
  "symbol": "HYPEUSDT",
@@ -15,7 +15,7 @@
   "boot_trades_n": 127,
   "conc_top5_share_pct": 81.70710338213202,
   "cost_bp_roundtrip": 11.99,
-  "cost_on_real_notional_usdt": 319.8009601861496,
+  "cost_on_real_notional_usdt": 348.58304660290315,
   "cost_source": "measured (SOLUSDT)",
   "cost_symbols_resolved": [
    "HYPEUSDT",

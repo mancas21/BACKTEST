@@ -1,5 +1,36 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-21 (ronda 2) - NEW-1..6 de la re-auditoria al commit 7b1b27a: arreglados, gen-3 re-run
+
+La re-auditoria externa (pinnada al SHA del commit; su aviso: el CDN de
+GitHub sirvio un blob VIEJO de main — verificar por SHA o bytes locales,
+nunca por main cacheado) confirmo nueve de once fixes en bytes y encontro
+seis defectos nuevos de la ronda 1. Los seis verificados contra el codigo
+local y arreglados; selftest 55/55; `code/_gates_v2_selftest.py` all-pass
+(su check de potencia iba a 300 replicas < piso 500 — el piso trabajando
+como corresponde; reprovisionado a 600):
+`results/auditfix2_report_2026-11-21.md` (guard OK strict).
+
+- NEW-1 (REGLA 0): el CI de muestra fina ya no lleva un `ci_high` fabricado
+  — ambas cotas None + flag; 24 celdas de la gen-3 lo llevan asi.
+- NEW-2: el piso de replicas lee el conteo LOGRADO (3-tuple), sin global.
+- NEW-3: el coste sobre nocional real usa el rt RESUELTO (antes decia 22.57
+  y priciaba a 11 — subestimaba ~2x en los nombres delgados).
+- NEW-4: colision de basenames en el mapa del slice servido FALLA ALTO.
+- NEW-5: centro del vecindario = PF del valor mediano barrido (no
+  posicional); `centre=` declarable; `center_pf` en el resultado.
+- NEW-6: la nota de procedencia declara el coste resuelto.
+
+Gen-3 (los bytes del engine cambiaron de nuevo; gen-2 REFUSED por diseno):
+180 celdas re-run (veredicto sin cambios: cuatro DEV / cero OOS), gatecal
+`d590af40751a6002` con metricas BIT-IDENTICAS a la gen-2 — los fixes de
+ronda 2 son plomeria, no computo; la calibracion publicada sigue en pie.
+
+Sigue abierto (ahora la restriccion vinculante): potencia v2 0.095 a
+n300/d20; NINGUN engine emite trades_v2 (bt one falla la fila v2 en todo
+artefacto existente); la campana siguiente es trades_v2 + tabla de potencia
+v2 POR GATE, no estrategias.
+
 ## 2026-11-21 - Campana audit-fix del harness (auditoria externa Qwen): fixes N1-N11 + A2, recalibracion y re-screen
 
 El operador trajo una auditoria externa DEL PROPIO harness (Qwen; texto

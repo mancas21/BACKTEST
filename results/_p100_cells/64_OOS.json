@@ -1,13 +1,13 @@
 {
- "run_id": "e8943952c10101e5",
+ "run_id": "fcdabb90dc3f911d",
  "id": 64,
  "segment": "OOS",
  "symbol": "ETHUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": -40.66868586647171,
-  "boot_ci_hi": 1.0,
-  "boot_ci_lo": -1.0,
+  "boot_ci_hi": null,
+  "boot_ci_lo": null,
   "boot_mean_r": -1.1070315107694102,
   "boot_n": 2000,
   "boot_small_sample": true,

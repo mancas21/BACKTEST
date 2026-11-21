@@ -253,3 +253,9 @@ hayan crecido después del corte.
 |---|---|---|
 | `auditfix_report_2026-11-21.md` | la auditoria externa del harness (Qwen) verificada contra el codigo y arreglada: batería `bt one` fail-closed (N1 conc canónica, N2 N-A/pf-null/v2), bootstrap por chunks + piso de réplicas (N3), PBO delegado a la referencia (N4), stops intrabar de pares + fee-beta de entrada + funding-antes-de-stops (N5/N11), consumo del slice servido + funding/cost-model como inputs (N6), bootstrap_r con bloque escalado (N7), gates_v2 recalculado + policy_hash (N8), coste medido por símbolo cableado (N9), vecindario con `--set` + conjunción estricta (N10), cadena de drift que compone (A2) + recalibración `1d938af1df8dbfc0` verify OK (G5 monotono, conjunción v1 n300/d20 0.0175 -> 0.31, v2 0.095 genuino); selftest 44/44; re-screen regenerado y ciento ochenta y una artefactos verify OK | **OK (strict)** |
 | `prompts100_rescreen_report.md` (regenerado 2026-11-21) | el mismo re-screen sobre la generación actual del engine (coste resuelto por símbolo, funding antes de stops, stops intrabar de pares): cuatro prompts pasan la criba DEV y CERO el veredicto OOS — veredicto sin cambios, todos los movimientos en dirección conservadora | **OK (strict)** |
+
+## Campana audit-fix ronda 2 (2026-11-21) — NEW-1..6 de la re-auditoria sobre el commit 7b1b27a
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `auditfix2_report_2026-11-21.md` | los seis defectos que la re-auditoria (pinnada al SHA) encontro en la ronda 1, todos arreglados: CI de muestra fina None en vez de `ci_high` fabricado (NEW-1, REGLA 0), piso de replicas lee el conteo logrado sin global (NEW-2), coste sobre nocional real al rt resuelto (NEW-3), colision de basenames del slice servido falla alto (NEW-4), centro del vecindario por valor mediano (NEW-5), nota de procedencia con el coste resuelto (NEW-6); selftest 55/55; generacion 3: 180 celdas + gatecal `d590af40751a6002` (metricas bit-identicas a la gen-2) | **OK (strict)** |

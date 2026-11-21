@@ -1,13 +1,13 @@
 {
- "run_id": "977c7910aecfca88",
+ "run_id": "635f4c5c939e7163",
  "id": 49,
  "segment": "OOS",
  "symbol": "SUIUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": -61.92504625446409,
-  "boot_ci_hi": 1.0,
-  "boot_ci_lo": -1.0,
+  "boot_ci_hi": null,
+  "boot_ci_lo": null,
   "boot_mean_r": 1.4961680114081124,
   "boot_n": 2000,
   "boot_small_sample": true,

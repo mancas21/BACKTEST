@@ -649,7 +649,22 @@ def _register_served(paths):
     _SERVED_INPUTS.clear()
     for x in (paths or []):
         try:
-            _SERVED_INPUTS[os.path.basename(str(x))] = os.path.abspath(str(x))
+            base = os.path.basename(str(x))
+            absx = os.path.abspath(str(x))
+            # NEW-4 fix: the map is keyed by BASENAME, and two declared
+            # inputs can share one (binance_klines_1h/X_1h.csv vs
+            # binance_klines_1h_taker/X_1h.csv). Last-write-wins would
+            # silently read the wrong series -- the exact class of bug F22
+            # was. A collision FAILS LOUD instead.
+            prev = _SERVED_INPUTS.get(base)
+            if prev is not None and prev != absx:
+                raise ValueError(
+                    f"served-input basename collision: {base} maps to both "
+                    f"{prev} and {absx}; the engine cannot know which series "
+                    "to read -- declare unambiguous inputs")
+            _SERVED_INPUTS[base] = absx
+        except ValueError:
+            raise
         except Exception:
             pass
 
@@ -1000,13 +1015,17 @@ def bootstrap_r(rs, block=None, n_boot=2000, seed=20261101, min_n=30):
     whole sample and the CI was zero-width -- `ci_low > 0` then passed
     deterministically for any all-positive small sample. The block now
     scales with n (n**(1/3), the repo's own _gates_v2._block_len recipe) and
-    the result FAILS CLOSED below the n floor: ci_low is reported as -inf
-    (never passable) with a flag, instead of a degenerate interval."""
+    the result FAILS CLOSED below the n floor: BOTH bounds are None (JSON
+    null) with the `small_sample` flag set -- never a plausible constant.
+    (NEW-1 fix, 2026-11-21 second audit: the first version of this fix
+    emitted a fabricated ci_high = 1.0 next to real numbers, which guard
+    would happily back -- a declared sentinel must not impersonate a
+    measurement.)"""
     rs = np.asarray(rs, float)
     rs = rs[np.isfinite(rs)]
     if len(rs) == 0:
-        return dict(ci_low=0.0, ci_high=0.0, t_stat=0.0, mean_r=0.0, n_boot=n_boot,
-                    n=0, small_sample=True)
+        return dict(ci_low=None, ci_high=None, t_stat=0.0, mean_r=0.0,
+                    n_boot=n_boot, n=0, small_sample=True)
     rng = np.random.default_rng(seed)
     mean_r = float(rs.mean())
     n = len(rs)
@@ -1024,15 +1043,17 @@ def bootstrap_r(rs, block=None, n_boot=2000, seed=20261101, min_n=30):
     hi = float(np.percentile(means, 97.5))
     t_stat = (mean_r / (float(rs.std(ddof=1)) / np.sqrt(n))
               if n > 1 and rs.std(ddof=1) > 0 else 0.0)
-    # N7: fail closed on a thin sample -- a degenerate CI must never pass.
-    # Finite sentinel (-1.0, JSON-safe) so the boot_ci gate fails arithmetically.
-    return dict(ci_low=(-1.0 if small else lo),
-                ci_high=(1.0 if small else hi),
-                t_stat=float(t_stat), mean_r=mean_r, n_boot=n_boot,
-                n=int(n), small_sample=small)
+    # N7 + NEW-1: fail closed on a thin sample -- BOTH bounds are None (a
+    # gate on a None reads N-A and fails; no invented constant sits in the
+    # artifact next to real numbers).
+    if small:
+        return dict(ci_low=None, ci_high=None, t_stat=float(t_stat),
+                    mean_r=mean_r, n_boot=n_boot, n=int(n), small_sample=True)
+    return dict(ci_low=lo, ci_high=hi, t_stat=float(t_stat), mean_r=mean_r,
+                n_boot=n_boot, n=int(n), small_sample=small)
 
 
-def book_metrics(book, *, bh_return_pct=None):
+def book_metrics(book, *, bh_return_pct=None, rt_bps=None):
     """The repo's metrics, computed FROM the book's ledger."""
     pnls = np.array([t["pnl"] for t in book.trades], float)
     n = len(pnls)
@@ -1090,6 +1111,11 @@ def book_metrics(book, *, bh_return_pct=None):
 
     boot = bootstrap_r([t["r"] for t in book.trades])
 
+    # NEW-3 fix: the REAL-notional cost line uses the RESOLVED round trip,
+    # not the module constant -- on a thin name the artifact must not say
+    # "charged 22.57 bps" while pricing the real-notional cost at 11.
+    rt = float(COST_RT_BPS if rt_bps is None else rt_bps)
+
     metrics = {
         "return_pct": 100 * net,
         "profit_factor": pf,
@@ -1098,7 +1124,7 @@ def book_metrics(book, *, bh_return_pct=None):
         "max_dd_pct": 100 * mdd,
         "final_equity": float(book.cash),
         "init_equity": book.init,
-        "cost_bp_roundtrip": COST_RT_BPS,
+        "cost_bp_roundtrip": rt,
         # the pack's OWN cost constant, measured here so the report can cite
         # it with a run_id instead of asserting it in prose
         "pack_cost_per_side_bps": PACK_COST_PER_SIDE * 1e4,
@@ -1122,12 +1148,13 @@ def book_metrics(book, *, bh_return_pct=None):
         "period2_pct": thirds[1],
         "period3_pct": thirds[2],
         "n_periods_green": int(sum(1 for t in thirds if t > 0)),
-        "boot_ci_lo": float(boot["ci_low"]),
-        "boot_ci_hi": float(boot["ci_high"]),
+        # NEW-1 fix: thin-sample CIs are None (JSON null), never a constant
+        "boot_ci_lo": (None if boot["ci_low"] is None else float(boot["ci_low"])),
+        "boot_ci_hi": (None if boot["ci_high"] is None else float(boot["ci_high"])),
         "boot_t_stat": float(boot["t_stat"]),
         "boot_mean_r": float(boot["mean_r"]),
         "boot_n": int(boot["n_boot"]),
-        # N7: the thin-sample flag travels with the CI so a sentinel-failed
+        # N7: the thin-sample flag travels with the CI so a null-failed
         # gate is explainable from the artifact alone
         "boot_small_sample": bool(boot.get("small_sample", False)),
         "boot_trades_n": int(boot.get("n", 0)),
@@ -1154,7 +1181,7 @@ def book_metrics(book, *, bh_return_pct=None):
         # what the repo's cost regime would charge on the REAL exchange
         # notional (the pack charges on its own, much smaller, definition)
         metrics["cost_on_real_notional_usdt"] = float(
-            arr.mean() * COST_RT_BPS / 1e4 * book.init)
+            arr.mean() * rt / 1e4 * book.init)
     if bh_return_pct is not None:
         metrics["bh_return_pct"] = float(bh_return_pct)
         metrics["excess_pct"] = float(100 * net - bh_return_pct)
@@ -1290,7 +1317,7 @@ def run_symbol(paths, params):
                                  pack_conventions=pack_conventions)
     df = load_klines(symbol, tf)
     bh = buy_and_hold_pct(df, segment)
-    metrics = book_metrics(book, bh_return_pct=bh)
+    metrics = book_metrics(book, bh_return_pct=bh, rt_bps=rt_bps)
     metrics["strategy_id"] = sid
     metrics["symbol"] = symbol
     metrics["timeframe"] = tf
@@ -1309,9 +1336,12 @@ def run_symbol(paths, params):
         "engine_version": ENGINE_VERSION,
         "fill_model": "taker_next_open",
         "signal_source": "code/prompts100/backtest100_strategies.py (verbatim)",
-        "note": "the pack's signal, the repo's execution (next open, stop "
-                "first, gap fills at the open, 11 bps RT per leg, funding at "
-                "the real settlements); the accounting invariant is asserted "
-                "inside the artifact",
+        # NEW-6 fix: the provenance note states the RESOLVED cost of THIS
+        # artifact, not a fixed 11 bps claim that contradicts the metrics
+        "note": ("the pack's signal, the repo's execution (next open, stop "
+                 f"first, gap fills at the open; resolved gate cost "
+                 f"{rt_bps:.2f} bps RT per leg -- {cost_src}; funding at the "
+                 "real settlements, charged before intrabar stops); the "
+                 "accounting invariant is asserted inside the artifact"),
     }
     return metrics, prov, []

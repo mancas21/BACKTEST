@@ -1,13 +1,13 @@
 {
- "run_id": "41e823f190bfcf93",
+ "run_id": "6f986c79f799b9a3",
  "id": 21,
  "segment": "DEV",
  "symbol": "SOLUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": 6096.162300243569,
-  "boot_ci_hi": 1.0,
-  "boot_ci_lo": -1.0,
+  "boot_ci_hi": null,
+  "boot_ci_lo": null,
   "boot_mean_r": 0.0111582684830262,
   "boot_n": 2000,
   "boot_small_sample": true,

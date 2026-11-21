@@ -197,13 +197,9 @@ def _safe_reps(n: int, reps: int) -> int:
 # the draws are bit-identical to the original unchunked matrix.
 _BOOT_CHUNK_CELLS = 6_000_000
 BOOT_REPS_FLOOR = 500          # N3: a tail estimate from fewer reps is noise
-_BOOT_INFO: Dict[str, Any] = {"reps_actual": None}
-
-
-def boot_reps_actual() -> Optional[int]:
-    """Replicates actually used by the last bootstrap_* call (the floor gate
-    reads this; the artifact should record it)."""
-    return _BOOT_INFO.get("reps_actual")
+# NEW-2 fix: the module-global reps record (_BOOT_INFO / boot_reps_actual)
+# is GONE -- both bootstrap functions return the achieved count and the
+# gates read it locally.
 
 
 def _boot_chunk_rows(n: int, reps: int) -> int:
@@ -226,15 +222,18 @@ def _block_len(n: int) -> float:
 
 
 def bootstrap_mean_lb(r: np.ndarray, alpha: float, reps: int,
-                      rng: np.random.Generator) -> Tuple[float, float]:
+                      rng: np.random.Generator) -> Tuple[float, float, int]:
     """N3 fix: the full requested `reps` are always used (chunked); the F14
     shrink that turned the tail gates into coin flips on long series is gone.
     For n small enough that a single chunk covers all replicates the draws are
-    bit-identical to the original unchunked matrix."""
+    bit-identical to the original unchunked matrix.
+    NEW-2 fix (second audit 2026-11-21): returns (lb, mean, reps_actual) --
+    the ACHIEVED replicate count travels with the result instead of a
+    mutable module global that interleaved callers overwrite, so the floor
+    gate reads what actually ran, not a tautology."""
     r = np.asarray(r, float)
     n = len(r)
     rows = _boot_chunk_rows(n, reps)
-    _BOOT_INFO["reps_actual"] = int(reps)
     p_block = 1.0 / _block_len(n)
     means = []
     done = 0
@@ -244,7 +243,7 @@ def bootstrap_mean_lb(r: np.ndarray, alpha: float, reps: int,
         means.append(r[idx].mean(axis=1))
         done += rows_c
     means = np.concatenate(means)
-    return float(np.quantile(means, alpha)), float(means.mean())
+    return float(np.quantile(means, alpha)), float(means.mean()), int(reps)
 
 
 def bootstrap_max_dd(r: np.ndarray, size: float, reps: int,
@@ -255,7 +254,6 @@ def bootstrap_max_dd(r: np.ndarray, size: float, reps: int,
     r = np.asarray(r, float)
     n = len(r)
     rows = _boot_chunk_rows(n, reps)
-    _BOOT_INFO["reps_actual"] = int(reps)
     p_block = 1.0 / _block_len(n)
     mdd_parts = []
     ruin_ends = []
@@ -459,15 +457,15 @@ def gate_g1(t, ctx, P, rng):
     r = t["net"].to_numpy()
     pf = profit_factor(r)
     n_loss = int((r < 0).sum())
-    lb, bmean = bootstrap_mean_lb(r, P["g1_boot_alpha"], P["boot_reps"], rng)
+    lb, bmean, ra = bootstrap_mean_lb(r, P["g1_boot_alpha"], P["boot_reps"], rng)
     pf_gross = profit_factor(t["gross_ret"].to_numpy())
     # N11 fix (2026-11-21): the no-loser branch bypassed the PF threshold
     # exactly in the negative-skew signature case. A no-loser book has
     # pf = inf (profit_factor), which passes `pf > g1_pf_min` arithmetically;
     # the explicit bypass is gone. The tail gates (G9/G11) still bind it.
     ok_pf = pf > P["g1_pf_min"]
-    # N3 fix: the tail estimate is fail-closed below the replicate floor
-    ra = boot_reps_actual()
+    # N3 + NEW-2 fix: the tail estimate is fail-closed below the replicate
+    # floor -- the ACHIEVED count read from the return value, not a global
     reps_ok = (ra is None) or (ra >= P.get("boot_reps_floor", BOOT_REPS_FLOOR))
     return {"pass": bool(ok_pf and lb > 0 and reps_ok), "pf_net": pf,
             "pf_gross": pf_gross,

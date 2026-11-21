@@ -1,5 +1,5 @@
 {
- "run_id": "6a68261f066ccefb",
+ "run_id": "0adc4cbb5ea1caf9",
  "id": 86,
  "segment": "DEV",
  "symbol": "SUIUSDT",
@@ -15,7 +15,7 @@
   "boot_trades_n": 145,
   "conc_top5_share_pct": null,
   "cost_bp_roundtrip": 22.57,
-  "cost_on_real_notional_usdt": 0.4219307200118539,
+  "cost_on_real_notional_usdt": 0.8657251227879583,
   "cost_source": "measured (JUPUSDT)",
   "cost_symbols_resolved": [
    "JUPUSDT",

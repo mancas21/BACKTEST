@@ -46,8 +46,8 @@ check("profit_factor no losers", G.profit_factor([1, 2]) == float("inf"))
 rng = np.random.default_rng(1)
 pos = rng.normal(0.004, 0.02, 300)
 zero = rng.normal(0.0, 0.02, 300)
-lb_pos, _ = G.bootstrap_mean_lb(pos, 0.05, 800, np.random.default_rng(2))
-lb_zero, _ = G.bootstrap_mean_lb(zero, 0.05, 800, np.random.default_rng(2))
+lb_pos, _, _ra_pos = G.bootstrap_mean_lb(pos, 0.05, 800, np.random.default_rng(2))
+lb_zero, _, _ra_zero = G.bootstrap_mean_lb(zero, 0.05, 800, np.random.default_rng(2))
 check("bootstrap LB > 0 for a real edge", lb_pos > 0, f"lb={lb_pos:.5f}")
 check("bootstrap LB <= 0 for zero-mean noise", lb_zero <= 0, f"lb={lb_zero:.5f}")
 
@@ -153,16 +153,18 @@ check("adverse-first path for a long visits the low first",
 px = synth_ohlc(26280, seed=21)
 ctx = G.GateContext(benchmark_close=px["close"], max_leverage=5.0, n_trials=1)
 holds = list(range(4, 25))
-null1 = G.null_calibration(px, 150, holds, ctx, n_sims=60, seed=31, reps=300)
+null1 = G.null_calibration(px, 150, holds, ctx, n_sims=60, seed=31, reps=600)
 check("null books almost never clear G1-G9 (no multiple-testing penalty)",
       null1["pass_rate_joint"] <= 0.10, f"joint={null1['pass_rate_joint']:.3f} upper95={null1['upper95_joint']:.3f}")
 
-strong = G.null_calibration(px, 150, holds, ctx, n_sims=40, seed=32, reps=300, edge_bps=100.0)
+# reps >= the boot_reps_floor (500): the planted-edge POWER check must be a
+# correctly-provisioned tail estimate, or the N3 floor fails G1/G9 closed
+strong = G.null_calibration(px, 150, holds, ctx, n_sims=40, seed=32, reps=600, edge_bps=100.0)
 check("a large planted edge clears G1-G9 most of the time", strong["pass_rate_joint"] >= 0.70,
       f"joint={strong['pass_rate_joint']:.2f} by gate={strong['pass_rate_by_gate']}")
 
 ctx150 = G.GateContext(benchmark_close=px["close"], max_leverage=5.0, n_trials=150)
-null150 = G.null_calibration(px, 150, holds, ctx150, n_sims=40, seed=33, reps=300, k_candidates=150)
+null150 = G.null_calibration(px, 150, holds, ctx150, n_sims=40, seed=33, reps=600, k_candidates=150)
 check("with 150 trials the null joint pass-rate stays near zero", null150["pass_rate_joint"] <= 0.05,
       f"joint={null150['pass_rate_joint']:.3f}")
 

@@ -1,5 +1,5 @@
 {
- "run_id": "b549c9d4ff675fec",
+ "run_id": "1ff6102761175a7c",
  "id": 81,
  "segment": "OOS",
  "symbol": "SOLUSDT",
@@ -15,7 +15,7 @@
   "boot_trades_n": 44,
   "conc_top5_share_pct": null,
   "cost_bp_roundtrip": 11.99,
-  "cost_on_real_notional_usdt": 49512.77206737456,
+  "cost_on_real_notional_usdt": 53968.92155343827,
   "cost_source": "measured (SOLUSDT)",
   "cost_symbols_resolved": [
    "ETHUSDT",

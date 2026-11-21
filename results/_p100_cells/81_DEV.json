@@ -1,5 +1,5 @@
 {
- "run_id": "0c0f2732c2926336",
+ "run_id": "11c4baf3008b3e40",
  "id": 81,
  "segment": "DEV",
  "symbol": "SOLUSDT",
@@ -15,7 +15,7 @@
   "boot_trades_n": 215,
   "conc_top5_share_pct": null,
   "cost_bp_roundtrip": 11.99,
-  "cost_on_real_notional_usdt": 13885.770866602601,
+  "cost_on_real_notional_usdt": 15135.490244596836,
   "cost_source": "measured (SOLUSDT)",
   "cost_symbols_resolved": [
    "ETHUSDT",
