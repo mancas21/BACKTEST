@@ -422,6 +422,21 @@ def main():
     for sid, sym, tf in NO_DATA:
         L.append(f"| {sid} | {sym} | {tf} | sin klines de ese simbolo y "
                  f"timeframe en el repo: NO DATA, y no se estima nada |")
+    # R1 (2026-11-21): a spread whose envelope cannot be built is REFUSED,
+    # never degraded -- declare the refusal explicitly (pair 88: synthetic
+    # ALT-BASKET leg, no intrabar range exists). The pairs/baskets live in
+    # the RUNNER's own maps, not in the pack's map.
+    no_data_ids = {sid for sid, _sym, _tf in NO_DATA}
+    _pair_extra = {81: ("SOLUSDT", "1h"), 82: ("BTCUSDT", "1h"),
+                   85: ("HYPEUSDT", "1h"), 86: ("SUIUSDT", "1h"),
+                   88: ("BASKET6", "1h"), 89: ("ETHUSDT", "15m")}
+    for _sid, (_sym, _tf) in sorted(_pair_extra.items()):
+        if _sid not in no_data_ids and _sid not in dev:
+            L.append(f"| {_sid} | {_sym} | {_tf} | el sobre intrabar de la "
+                     "puesta no puede construirse (pierna sintetica sin "
+                     "klines, ALT-BASKET) y el engine la RECHAZA en lugar de "
+                     "degradarla: no certificable bajo la convencion del "
+                     "repo, no se estima nada |")
     L.append("")
     L.append("La familia de prompts de funding del pack (los de funding) es un "
              "tercer tipo de libro: su ejecucion necesita el own funding "

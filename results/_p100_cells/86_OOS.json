@@ -1,5 +1,5 @@
 {
- "run_id": "f2deefe910c842c5",
+ "run_id": "7cea0abe97805aef",
  "id": 86,
  "segment": "OOS",
  "symbol": "SUIUSDT",
@@ -58,6 +58,9 @@
   "return_pct": -5.172325365764974,
   "segment": "OOS",
   "slippage_bps_per_side": 6.285,
+  "spread_env_range_bars": 24053,
+  "spread_envelope_built": true,
+  "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
   "strategy_id": 86,
   "symbol": "SUIUSDT",
   "timeframe": "1h",

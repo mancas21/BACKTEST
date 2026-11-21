@@ -1,5 +1,28 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-21 (ronda 3) - R1/R2/R3/R7 de la re-auditoria a fad193a + bonus del benchmark de cestas
+
+La tercera re-auditoria (pinnada al SHA) confirmo los seis fixes de ronda 2
+en bytes y trajo R1-R7. R1 (el sobre intrabar se degradaba SILENTIOSAMENTE
+a un modelo de stop solo-open, mas debil que la paridad del pack que decia
+igualar — el par ochenta y ocho lo golpeaba por construccion via su pierna
+sintetica ALT-BASKET): ahora FALLA ALTO y la celda se declara no medible;
+el modelo de stop viaja en el artefacto. R2 (prefer-served ->
+REQUIRE-served: una lectura no declarada levanta "undeclared input"). R3
+(el sobre se prueba a la beta DE ENTRADA, no a la por-barra). R5 limpio por
+grep; R6 reconocida (el mensaje del commit de ronda 2 sobre-alcanzo el
+alcance de "bit-identical"); R7 centinela. BONUS encontrado verificando R2:
+el benchmark de las cestas era el B&H de BTC (symbol inferido del primer
+input) — ahora igual-ponderado de las propias piernas, medido en el
+artefacto. R4 (ledger linealizado re-cobrado de las puestas) APLAZADA a la
+campana trades_v2, declarada abierta.
+`results/auditfix3_report_2026-11-21.md` (guard OK strict), selftest 60/60.
+
+Gen-4: ciento setenta y ocho celdas re-run (par ochenta y ocho declarado no
+certificable — sin sobre posible), sweep todo OK + gatecal intacto
+(`d590af40751a6002`, fuentes sin cambio esta ronda). El rescreen
+regenerado sigue: cuatro DEV / cero OOS, guard OK strict.
+
 ## 2026-11-21 (ronda 2) - NEW-1..6 de la re-auditoria al commit 7b1b27a: arreglados, gen-3 re-run
 
 La re-auditoria externa (pinnada al SHA del commit; su aviso: el CDN de

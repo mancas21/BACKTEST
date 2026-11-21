@@ -8,7 +8,7 @@
 
 ## Veredicto
 
-De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero** superan el veredicto completo sobre OOS (uno de los supervisivientes es pares y no es certificables: su nocional implicito no es sostenible). La razon principal no es el modelo: es el coste. El pack original corria a 2.2 bps round trip (su constante es 0.000055, o sea 0.55 bps por lado, diez veces menos de lo que documenta) y sin funding; el repo cobra 11 bps y el funding real. Ese salto es lo que separa las dos cribas.
+De los ochenta y nueve prompts medidos, **cuatro** limpian la criba sobre DEV y **cero** superan el veredicto completo sobre OOS (uno de los supervisivientes es pares y no es certificables: su nocional implicito no es sostenible). La razon principal no es el modelo: es el coste. El pack original corria a 2.2 bps round trip (su constante es 0.000055, o sea 0.55 bps por lado, diez veces menos de lo que documenta) y sin funding; el repo cobra 11 bps y el funding real. Ese salto es lo que separa las dos cribas.
 
 
 ## Lo que la criba del pack dejo fuera y esta no
@@ -25,92 +25,92 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 
 | # | prompt | par | run_id DEV | n DEV | PF DEV | net DEV % | criba | run_id OOS | n OOS | PF OOS | net OOS % | veredicto |
 |---|---|---|---|---:|---:|---:|---|---|---:|---:|---:|---|
-| 57 | ETHUSDT 15m | `09dba2448aa6364a` | 11 | 275.9425 | 1653.51 | tres de seis | `5bc8aa86fb01a043` | 73 | 0 | -65.29 | INSUFICIENTE MUESTRA |
-| 59 | SOLUSDT 1h | `4b2997dec4de2e98` | 9 | 70.7753 | 441.53 | tres de seis | `ee535011b54378a3` | 30 | 0.3062 | -18.75 | INSUFICIENTE MUESTRA |
-| 75 | HYPEUSDT 1h | `7ae64d5e5d712558` | 2 | 7.4782 | 5.31 | tres de seis | `3673978700359fbe` | 9 | 7.0177 | 45.36 | INSUFICIENTE MUESTRA |
-| 63 | BTCUSDT 15m | `a0e8c84b28e06c90` | 32 | 6.7655 | 102.21 | cuatro de seis | `363c3376e632b0f0` | 32 | 0.2782 | -25.06 | no pasa la criba |
-| 23 | SUIUSDT 15m | `1c7ac8d6e322c38d` | 69 | 6.3560 | 247.69 | cuatro de seis | `25ad121edf718b6a` | 68 | 0.1294 | -46.74 | no pasa la criba |
-| 44 | BTCUSDT 1h | `15ef339d9e9f803e` | 136 | 2.2929 | 253.78 | seis de seis | `983185447057c499` | 22 | 1.3816 | 5.94 | KILLED (veredicto OOS) |
-| 64 | ETHUSDT 1h | `f0493749c111c075` | 42 | 1.8551 | 28.87 | cuatro de seis | `fcdabb90dc3f911d` | 15 | 0 | -15.78 | no pasa la criba |
-| 29 | HYPEUSDT 15m | `61b0dfefd990f613` | 7 | 1.5191 | 0.73 | tres de seis | `700f9617c8162f11` | 36 | 2.8990 | 53.91 | INSUFICIENTE MUESTRA |
-| 73 | ETHUSDT 1h | `52e030247c720ace` | 106 | 1.4695 | 36.15 | cuatro de seis | `6c3849301aef820a` | 19 | 2.0567 | 8.60 | no pasa la criba |
-| 22 | HYPEUSDT 1h | `b4e258a9abe4bd8c` | 28 | 1.3719 | 3.41 | tres de seis | `5b5f32a282129ec1` | 95 | 0.8959 | -4.51 | INSUFICIENTE MUESTRA |
-| 28 | BTCUSDT 1h | `ba1affc9cac66742` | 366 | 1.3360 | 73.28 | seis de seis | `62756db11ecaa1c4` | 63 | 0.7882 | -8.22 | KILLED (veredicto OOS) |
-| 68 | SOLUSDT 1h | `566f7704702e9e22` | 263 | 1.3253 | 55.03 | cinco de seis | `71c8065dbfb6a3b4` | 52 | 0.7832 | -7 | no pasa la criba |
-| 45 | ETHUSDT 1h | `5f0226e37a53895b` | 622 | 1.2748 | 264.49 | cinco de seis | `3ccffb3f905bb7ca` | 124 | 1.0137 | 0.77 | no pasa la criba |
-| 26 | ETHUSDT 1h | `e70997443c6b0aad` | 942 | 1.2622 | 319.09 | seis de seis | `ec1d39c4f5668d89` | 183 | 1.0348 | 3.17 | KILLED (veredicto OOS) |
-| 72 | BTCUSDT 1h | `37795d51bc86d487` | 317 | 1.1512 | 32.78 | cuatro de seis | `31e5e93181d8e7d0` | 53 | 0.6265 | -13.18 | no pasa la criba |
-| 52 | BTCUSDT 15m | `abf1a9abbb9c4a1f` | 877 | 1.1320 | 393.33 | cuatro de seis | `5c4543b428385e5d` | 179 | 1.0705 | 13.86 | no pasa la criba |
-| 60 | HYPEUSDT 1h | `36a4e7b74b1dc085` | 50 | 1.0918 | 1.48 | tres de seis | `b831d2a3b7002fc9` | 141 | 1.3490 | 23.10 | no pasa la criba |
-| 34 | SOLUSDT 1h | `12813752a75dcbaf` | 1561 | 1.0849 | 118.68 | tres de seis | `b1d8a6af75ce5aa2` | 335 | 0.9492 | -10.27 | no pasa la criba |
-| 21 | SOLUSDT 1h | `6f986c79f799b9a3` | 27 | 0.9948 | -0.34 | cero de seis | `a5d5858e5e8ce097` | 8 | 1.5191 | 2.69 | INSUFICIENTE MUESTRA |
-| 4 | HYPEUSDT 1h | `575b85a5301d6639` | 127 | 0.9900 | -1.12 | dos de seis | `6e328eb82f23c667` | 386 | 0.7735 | -34.57 | no pasa la criba |
-| 69 | HYPEUSDT 15m | `fc1d5bce9348e063` | 61 | 0.9834 | -0.59 | dos de seis | `ecdabe0aa4f1156a` | 151 | 0.7569 | -22.75 | no pasa la criba |
-| 47 | BTCUSDT 5m | `6eb0e0cc00cf0eae` | 7900 | 0.9657 | -100 | uno de seis | `54c6c4bbd1911b71` | 1627 | 0.6031 | -99.98 | no pasa la criba |
-| 53 | SOLUSDT 5m | `072ba6d768eb336e` | 3322 | 0.9501 | -99.69 | uno de seis | `9b8e989633e443fd` | 711 | 0.5416 | -96.30 | no pasa la criba |
-| 7 | BTCUSDT 1h | `6df7114f7d898a5b` | 1083 | 0.8985 | -44.65 | uno de seis | `eab139ce5ace9dc1` | 138 | 0.6115 | -20.54 | no pasa la criba |
-| 10 | HYPEUSDT 15m | `83a7c58fa72ca3c9` | 213 | 0.8981 | -6.49 | uno de seis | `9a0a3058677d9f4e` | 699 | 0.8207 | -30.81 | no pasa la criba |
-| 11 | SUIUSDT 1h | `4fa92a8551348db1` | 171 | 0.8957 | -6.23 | uno de seis | `17e864953254a2b8` | 79 | 0.8983 | -2.77 | no pasa la criba |
-| 16 | HYPEUSDT 5m | `a5b60ca894df4326` | 759 | 0.8915 | -57.43 | uno de seis | `b21af23441961815` | 1991 | 0.8328 | -98.04 | no pasa la criba |
-| 76 | SUIUSDT 5m | `ab96ed1346424043` | 23 | 0.8911 | -1.43 | cero de seis | `97f176794d8e37ea` | 18 | 0.8933 | -1.83 | INSUFICIENTE MUESTRA |
-| 14 | ETHUSDT 1h | `fb72e98843a5e555` | 742 | 0.8831 | -41.69 | uno de seis | `4cb9d4f6762e6f84` | 106 | 0.7247 | -17.63 | no pasa la criba |
-| 40 | SOLUSDT 5m | `e9c22c8fd0fa1dca` | 26449 | 0.8794 | -100 | uno de seis | `f0d5f3019a94dc39` | 5739 | 0.6457 | -100 | no pasa la criba |
-| 33 | BTCUSDT 15m | `bf0f74972cb99700` | 7246 | 0.8318 | -100 | uno de seis | `8f899b4b6b9c047b` | 1211 | 0.5479 | -96.36 | no pasa la criba |
-| 39 | ETHUSDT 15m | `f620a232f1d0c50f` | 5735 | 0.8315 | -99.99 | uno de seis | `db5400853d380640` | 1019 | 0.6361 | -91.49 | no pasa la criba |
-| 1 | SOLUSDT 1h | `ea63999ed1267af3` | 514 | 0.8165 | -55.42 | uno de seis | `fec5fd4f181d6088` | 123 | 0.8822 | -9.76 | no pasa la criba |
-| 30 | SUIUSDT 1h | `46b4da603f7ca813` | 339 | 0.8142 | -26.56 | uno de seis | `d4812366d7ef9f02` | 108 | 0.8996 | -5.87 | no pasa la criba |
-| 37 | JUPUSDT 1h | `50ce6b0733e2aacd` | 1374 | 0.8098 | -68.62 | uno de seis | `f5c181994fd36a39` | 805 | 0.9064 | -27.07 | no pasa la criba |
-| 74 | SOLUSDT 15m | `709bf3d6de6963f8` | 1836 | 0.7985 | -84.14 | uno de seis | `465171d521bd295b` | 373 | 0.6550 | -49.98 | no pasa la criba |
-| 15 | SOLUSDT 15m | `feb89fc2e1c76a1e` | 5566 | 0.7955 | -99.99 | uno de seis | `6278674106505488` | 1143 | 0.7207 | -91.74 | no pasa la criba |
-| 80 | SOLUSDT 5m | `8b84cc5685d45fc9` | 1829 | 0.7940 | -99.19 | uno de seis | `64bd611cf40a8d31` | 361 | 0.4574 | -77.85 | no pasa la criba |
-| 55 | SUIUSDT 15m | `27b27d57fea0a8dc` | 1339 | 0.7581 | -84.54 | uno de seis | `411224339f1852d3` | 503 | 0.9361 | -23.26 | no pasa la criba |
-| 5 | SUIUSDT 15m | `2d3dd4fa6aa9087e` | 3194 | 0.7446 | -99.45 | uno de seis | `fb549f8ea36697bd` | 1297 | 0.7271 | -91.55 | no pasa la criba |
-| 6 | JUPUSDT 1h | `7825884de791227c` | 421 | 0.7419 | -35.28 | uno de seis | `5e996f953ab20795` | 249 | 0.8168 | -14.81 | no pasa la criba |
-| 48 | HYPEUSDT 15m | `d2fbf9a0bd6044a4` | 1661 | 0.7356 | -86.74 | uno de seis | `d9b3f21a987e7e9b` | 5152 | 0.6636 | -99.99 | no pasa la criba |
-| 8 | ETHUSDT 15m | `ef0144f2d97a6a04` | 5474 | 0.7269 | -100 | uno de seis | `935abd3e7e9254d0` | 1034 | 0.6487 | -91.76 | no pasa la criba |
-| 24 | JUPUSDT 1h | `33fe4bc3a4061ff8` | 349 | 0.7243 | -44.19 | uno de seis | `4d8e0599a310e93d` | 174 | 0.8818 | -10 | no pasa la criba |
-| 9 | SOLUSDT 5m | `d10808af5439d584` | 9420 | 0.7149 | -100 | uno de seis | `aa632c55d3a2a495` | 2036 | 0.5960 | -99.98 | no pasa la criba |
-| 36 | SUIUSDT 5m | `19a0bb498cf34317` | 2295 | 0.6884 | -97.56 | uno de seis | `dbcfe94f21fd687d` | 991 | 0.5995 | -98.57 | no pasa la criba |
-| 20 | ETHUSDT 5m | `4d526dfb0726888f` | 8856 | 0.6556 | -100 | uno de seis | `5e5d274a6022ea7e` | 1677 | 0.5990 | -99.87 | no pasa la criba |
-| 71 | JUPUSDT 1h | `12eb4fa44ec0279c` | 62 | 0.6538 | -16.36 | uno de seis | `71cc0d8be82dd799` | 43 | 1.0598 | 2.01 | no pasa la criba |
-| 43 | JUPUSDT 5m | `d8976b3462186fc1` | 4708 | 0.6348 | -100 | uno de seis | `fe0a897389c4148d` | 3005 | 0.2704 | -100 | no pasa la criba |
-| 50 | JUPUSDT 15m | `68addd4c7d9989c9` | 12452 | 0.6347 | -100 | uno de seis | `69d410568bc6b282` | 7260 | 0.4684 | -100 | no pasa la criba |
-| 25 | BTCUSDT 1h | `646edbbcb486cc0e` | 1213 | 0.6308 | -84.50 | uno de seis | `f56705d535cd11d1` | 208 | 0.5856 | -31.11 | no pasa la criba |
-| 65 | SOLUSDT 15m | `21b1d3795b5045fc` | 1729 | 0.6295 | -88.09 | uno de seis | `dbc52903345e1420` | 291 | 0.4012 | -44.10 | no pasa la criba |
-| 18 | JUPUSDT 5m | `c8e235e82ae1c67f` | 3029 | 0.6153 | -100 | uno de seis | `5983a250f5d96ecf` | 2143 | 0.5954 | -99.98 | no pasa la criba |
-| 17 | SUIUSDT 5m | `74d466ff245e16ad` | 1603 | 0.6084 | -98.87 | uno de seis | `305294cbaf10b62d` | 561 | 0.6112 | -88.06 | no pasa la criba |
-| 70 | SUIUSDT 15m | `1b3cefff7cb4c809` | 1176 | 0.6081 | -93.61 | uno de seis | `c21ce61a731d4f47` | 536 | 0.5904 | -75.13 | no pasa la criba |
-| 79 | ETHUSDT 5m | `60f16dbba248bbb2` | 13845 | 0.5842 | -100 | uno de seis | `75b686713b2dbb21` | 2355 | 0.4130 | -100 | no pasa la criba |
-| 51 | ETHUSDT 5m | `aff8f919c665ff3b` | 11986 | 0.5634 | -100 | uno de seis | `87ff347a7a302d3f` | 2022 | 0.4673 | -99.99 | no pasa la criba |
-| 12 | JUPUSDT 15m | `29263d3ae884845d` | 99 | 0.5467 | -27.27 | uno de seis | `54d3d38a11a2731f` | 173 | 0.6802 | -29.86 | no pasa la criba |
-| 42 | SUIUSDT 15m | `645dd5048c50d456` | 7526 | 0.5423 | -99.96 | uno de seis | `7e9ebb3cc3242e72` | 3335 | 0.4810 | -99.65 | no pasa la criba |
-| 66 | BTCUSDT 15m | `8dcf3c24d7dddc99` | 3736 | 0.5317 | -100 | uno de seis | `bbaa090ebe0de9c4` | 600 | 0.4690 | -93.35 | no pasa la criba |
-| 2 | BTCUSDT 15m | `5d07dd9aa753d5c5` | 4393 | 0.5223 | -100 | uno de seis | `d6893d70a583f23a` | 814 | 0.6174 | -91.89 | no pasa la criba |
-| 13 | BTCUSDT 5m | `1b205a6408b8dda6` | 3220 | 0.5217 | -100 | uno de seis | `df041eead68e0302` | 664 | 0.5230 | -97.58 | no pasa la criba |
-| 38 | BTCUSDT 5m | `f44b56aaa41bc32d` | 12049 | 0.5140 | -100 | uno de seis | `71a177501d96e7f7` | 1951 | 0.2611 | -100 | no pasa la criba |
-| 61 | SUIUSDT 5m | `1be9c285c1accea3` | 870 | 0.4799 | -98.83 | uno de seis | `47235e37e77e92f3` | 354 | 0.4005 | -89.37 | no pasa la criba |
-| 62 | JUPUSDT 5m | `fc446e4362a4064d` | 1425 | 0.4788 | -99.86 | uno de seis | `38b48753918d45ae` | 1117 | 0.4490 | -99.78 | no pasa la criba |
-| 78 | BTCUSDT 5m | `fe1991e4c9939328` | 39181 | 0.4762 | -100 | uno de seis | `846ec917074427de` | 6481 | 0.5403 | -100 | no pasa la criba |
-| 32 | ETHUSDT 5m | `ff4acbea11bda896` | 29824 | 0.4132 | -100 | uno de seis | `fae3a88cf24722f2` | 5163 | 0.4634 | -100 | no pasa la criba |
-| 3 | ETHUSDT 5m | `5e630abf454ed2f7` | 14303 | 0.3514 | -100 | uno de seis | `47a18000b3ba6d76` | 2548 | 0.2879 | -100 | no pasa la criba |
-| 54 | HYPEUSDT 5m | `cd6f53908add8a5d` | 83 | 0.3284 | -39.37 | uno de seis | `61148c0a672b601c` | 124 | 0.2198 | -58.22 | no pasa la criba |
-| 56 | JUPUSDT 1h | `3839e9cc0cb1f4f6` | 12 | 0.2761 | -7.39 | cero de seis | `6795f899df5fcf4f` | 19 | 1.0437 | 1.02 | INSUFICIENTE MUESTRA |
-| 27 | SOLUSDT 15m | `5cf50291da671435` | 11167 | 0.2508 | -100 | uno de seis | `49a4e9af6d854f2a` | 2220 | 0.1621 | -100 | no pasa la criba |
-| 31 | JUPUSDT 15m | `ca275dafa85238ec` | 59 | 0.2266 | -42.59 | uno de seis | `53b3bda2d237373d` | 95 | 0.1002 | -70.14 | no pasa la criba |
-| 35 | HYPEUSDT 1h | `dd48ef121acf4bb9` | 6 | 0.2235 | -3.62 | cero de seis | `39f41fbc6421d47f` | 13 | 2.1778 | 10.51 | INSUFICIENTE MUESTRA |
-| 67 | ETHUSDT 15m | `89e56211b6dff829` | 28247 | 0.1986 | -100 | uno de seis | `cb0cb05a464a71a6` | 5381 | 0.2649 | -100 | no pasa la criba |
-| 19 | BTCUSDT 15m | `c49ea73e2acffa35` | 57561 | 0.1462 | -100 | uno de seis | `8f470e635fc0c3f0` | 9478 | 0.2123 | -100 | no pasa la criba |
-| 41 | HYPEUSDT 5m | `90b1f4fecd0a4992` | 53 | 0.0453 | -48.86 | uno de seis | `b8f46ca9905c94c5` | 63 | 2.0252 | 47.56 | no pasa la criba |
-| 46 | SOLUSDT 15m | `e087e07cd10190b1` | 36 | 0 | -29.50 | uno de seis | `b0430f253a4fb123` | 10 | 0 | -9.40 | no pasa la criba |
-| 49 | SUIUSDT 1h | `1baac276fc3d52f5` | 14 | 0 | -13.70 | cero de seis | `635f4c5c939e7163` | 6 | 2.6441 | 7.61 | INSUFICIENTE MUESTRA |
-| 58 | BTCUSDT 1h | `18699632bac52a3a` | 3 | 0 | -3.37 | cero de seis | `973e2579b36da0eb` | 0 | 0 | 0 | INSUFICIENTE MUESTRA |
-| 77 | JUPUSDT 15m | `921350a6d5fc59b2` | 0 | 0 | 0 | cero de seis | `43b7ffd26ef53120` | 0 | 0 | 0 | INSUFICIENTE MUESTRA |
+| 57 | ETHUSDT 15m | `ef00c4c2df464b4c` | 11 | 275.9425 | 1653.51 | tres de seis | `9729dd6345cc83f8` | 73 | 0 | -65.29 | INSUFICIENTE MUESTRA |
+| 59 | SOLUSDT 1h | `d53a15547a357c4e` | 9 | 70.7753 | 441.53 | tres de seis | `5cf99975a48b8b8b` | 30 | 0.3062 | -18.75 | INSUFICIENTE MUESTRA |
+| 75 | HYPEUSDT 1h | `a0c7037ea1a62b9b` | 2 | 7.4782 | 5.31 | tres de seis | `8f57ab21aa69afeb` | 9 | 7.0177 | 45.36 | INSUFICIENTE MUESTRA |
+| 63 | BTCUSDT 15m | `3638eb52122b0f7a` | 32 | 6.7655 | 102.21 | cuatro de seis | `655c6b936203d3a0` | 32 | 0.2782 | -25.06 | no pasa la criba |
+| 23 | SUIUSDT 15m | `3acedeafa634cbbb` | 69 | 6.3560 | 247.69 | cuatro de seis | `2b33f0d26a39a611` | 68 | 0.1294 | -46.74 | no pasa la criba |
+| 44 | BTCUSDT 1h | `376cc96d5aeeb48b` | 136 | 2.2929 | 253.78 | seis de seis | `c0fddf3e7f1fb11a` | 22 | 1.3816 | 5.94 | KILLED (veredicto OOS) |
+| 64 | ETHUSDT 1h | `a2c6b62bfd23600b` | 42 | 1.8551 | 28.87 | cuatro de seis | `2f558ab2e28aa107` | 15 | 0 | -15.78 | no pasa la criba |
+| 29 | HYPEUSDT 15m | `e7f2a967dbf8eb70` | 7 | 1.5191 | 0.73 | tres de seis | `e86601720112fd9c` | 36 | 2.8990 | 53.91 | INSUFICIENTE MUESTRA |
+| 73 | ETHUSDT 1h | `9ab125d08e484078` | 106 | 1.4695 | 36.15 | cuatro de seis | `892eb8bc31040685` | 19 | 2.0567 | 8.60 | no pasa la criba |
+| 22 | HYPEUSDT 1h | `3d570bbb9eaac0d2` | 28 | 1.3719 | 3.41 | tres de seis | `81460863bb09f458` | 95 | 0.8959 | -4.51 | INSUFICIENTE MUESTRA |
+| 28 | BTCUSDT 1h | `1da6ac8e8bf1f438` | 366 | 1.3360 | 73.28 | seis de seis | `530884a115e2cbbe` | 63 | 0.7882 | -8.22 | KILLED (veredicto OOS) |
+| 68 | SOLUSDT 1h | `2428c17be7478c76` | 263 | 1.3253 | 55.03 | cinco de seis | `946f9b7dc04ef1c8` | 52 | 0.7832 | -7 | no pasa la criba |
+| 45 | ETHUSDT 1h | `f737ff7fdb6a8340` | 622 | 1.2748 | 264.49 | cinco de seis | `c2e0cd006a185e97` | 124 | 1.0137 | 0.77 | no pasa la criba |
+| 26 | ETHUSDT 1h | `303dfa1f72416ea7` | 942 | 1.2622 | 319.09 | seis de seis | `66a26ac611612a9e` | 183 | 1.0348 | 3.17 | KILLED (veredicto OOS) |
+| 72 | BTCUSDT 1h | `91ad34d9ffabc027` | 317 | 1.1512 | 32.78 | cuatro de seis | `17d530b5abdd5ecd` | 53 | 0.6265 | -13.18 | no pasa la criba |
+| 52 | BTCUSDT 15m | `35ddc52c2cf46351` | 877 | 1.1320 | 393.33 | cuatro de seis | `8aadc0e4d5731ce1` | 179 | 1.0705 | 13.86 | no pasa la criba |
+| 60 | HYPEUSDT 1h | `86673bef8de06743` | 50 | 1.0918 | 1.48 | tres de seis | `eacfb04978181aba` | 141 | 1.3490 | 23.10 | no pasa la criba |
+| 34 | SOLUSDT 1h | `73e834f27d451919` | 1561 | 1.0849 | 118.68 | tres de seis | `751e10dffa3f61e3` | 335 | 0.9492 | -10.27 | no pasa la criba |
+| 21 | SOLUSDT 1h | `891ddb0a2e6c3ca0` | 27 | 0.9948 | -0.34 | cero de seis | `4c8d8d8cfb65aa5e` | 8 | 1.5191 | 2.69 | INSUFICIENTE MUESTRA |
+| 4 | HYPEUSDT 1h | `10d9966e10fa7e69` | 127 | 0.9900 | -1.12 | dos de seis | `9dd103c8cfad496f` | 386 | 0.7735 | -34.57 | no pasa la criba |
+| 69 | HYPEUSDT 15m | `a91e48cb6df6b2b1` | 61 | 0.9834 | -0.59 | dos de seis | `1269e8c1e575cfdb` | 151 | 0.7569 | -22.75 | no pasa la criba |
+| 47 | BTCUSDT 5m | `33304dbaf16d24ce` | 7900 | 0.9657 | -100 | uno de seis | `fc6da1e0de55ceaa` | 1627 | 0.6031 | -99.98 | no pasa la criba |
+| 53 | SOLUSDT 5m | `95fba4f6acb0af58` | 3322 | 0.9501 | -99.69 | uno de seis | `4f83f778395b8a6a` | 711 | 0.5416 | -96.30 | no pasa la criba |
+| 7 | BTCUSDT 1h | `174d14b46dc3541b` | 1083 | 0.8985 | -44.65 | uno de seis | `441de34691b06819` | 138 | 0.6115 | -20.54 | no pasa la criba |
+| 10 | HYPEUSDT 15m | `d0ca23b66f334404` | 213 | 0.8981 | -6.49 | uno de seis | `e28400c2e746d66a` | 699 | 0.8207 | -30.81 | no pasa la criba |
+| 11 | SUIUSDT 1h | `12df56a8e59dc9e0` | 171 | 0.8957 | -6.23 | uno de seis | `0d5240ce4c99b714` | 79 | 0.8983 | -2.77 | no pasa la criba |
+| 16 | HYPEUSDT 5m | `341ccabc373540ba` | 759 | 0.8915 | -57.43 | uno de seis | `9a287f714ca81ed6` | 1991 | 0.8328 | -98.04 | no pasa la criba |
+| 76 | SUIUSDT 5m | `3c3a8e24c3b2c5e6` | 23 | 0.8911 | -1.43 | cero de seis | `5265b28f560b2c97` | 18 | 0.8933 | -1.83 | INSUFICIENTE MUESTRA |
+| 14 | ETHUSDT 1h | `3a56991213b8a8fa` | 742 | 0.8831 | -41.69 | uno de seis | `87c74be67c110d3e` | 106 | 0.7247 | -17.63 | no pasa la criba |
+| 40 | SOLUSDT 5m | `af4c711880aeb31c` | 26449 | 0.8794 | -100 | uno de seis | `76a9fbab96909ab6` | 5739 | 0.6457 | -100 | no pasa la criba |
+| 33 | BTCUSDT 15m | `961b60b90b238a97` | 7246 | 0.8318 | -100 | uno de seis | `d5a1a9e43a2f7d85` | 1211 | 0.5479 | -96.36 | no pasa la criba |
+| 39 | ETHUSDT 15m | `8b2c0034d7591b32` | 5735 | 0.8315 | -99.99 | uno de seis | `1ac035f1da4f60c8` | 1019 | 0.6361 | -91.49 | no pasa la criba |
+| 1 | SOLUSDT 1h | `5198b101ab7dc1bd` | 514 | 0.8165 | -55.42 | uno de seis | `67c5d1fe3df2893a` | 123 | 0.8822 | -9.76 | no pasa la criba |
+| 30 | SUIUSDT 1h | `21f5f0b87bea5b02` | 339 | 0.8142 | -26.56 | uno de seis | `595a943d9a2e9cf9` | 108 | 0.8996 | -5.87 | no pasa la criba |
+| 37 | JUPUSDT 1h | `45a1e31228dbe603` | 1374 | 0.8098 | -68.62 | uno de seis | `2c62b1b69860797c` | 805 | 0.9064 | -27.07 | no pasa la criba |
+| 74 | SOLUSDT 15m | `264aac8c2f613a53` | 1836 | 0.7985 | -84.14 | uno de seis | `ce0385293f3e501d` | 373 | 0.6550 | -49.98 | no pasa la criba |
+| 15 | SOLUSDT 15m | `c6710058231befc6` | 5566 | 0.7955 | -99.99 | uno de seis | `5bb79408a6cffe3b` | 1143 | 0.7207 | -91.74 | no pasa la criba |
+| 80 | SOLUSDT 5m | `ee28913096f65635` | 1829 | 0.7940 | -99.19 | uno de seis | `3c354bd200d38724` | 361 | 0.4574 | -77.85 | no pasa la criba |
+| 55 | SUIUSDT 15m | `650645f9e7e157a5` | 1339 | 0.7581 | -84.54 | uno de seis | `bde5cdc5ef2f7679` | 503 | 0.9361 | -23.26 | no pasa la criba |
+| 5 | SUIUSDT 15m | `fc04bab97ae5a438` | 3194 | 0.7446 | -99.45 | uno de seis | `11066742dcb4f784` | 1297 | 0.7271 | -91.55 | no pasa la criba |
+| 6 | JUPUSDT 1h | `421e3214ae43ba41` | 421 | 0.7419 | -35.28 | uno de seis | `4739e2a5904f163e` | 249 | 0.8168 | -14.81 | no pasa la criba |
+| 48 | HYPEUSDT 15m | `f2916208699afea4` | 1661 | 0.7356 | -86.74 | uno de seis | `bda2c8641a43e70d` | 5152 | 0.6636 | -99.99 | no pasa la criba |
+| 8 | ETHUSDT 15m | `d26bfa9649cd53c3` | 5474 | 0.7269 | -100 | uno de seis | `f54a53863970a090` | 1034 | 0.6487 | -91.76 | no pasa la criba |
+| 24 | JUPUSDT 1h | `16b125d6f61c947a` | 349 | 0.7243 | -44.19 | uno de seis | `78051eb5fc1388ac` | 174 | 0.8818 | -10 | no pasa la criba |
+| 9 | SOLUSDT 5m | `4a0b7655ac3548e2` | 9420 | 0.7149 | -100 | uno de seis | `370c97803005bbb6` | 2036 | 0.5960 | -99.98 | no pasa la criba |
+| 36 | SUIUSDT 5m | `d73c500f6342a342` | 2295 | 0.6884 | -97.56 | uno de seis | `d1dcf3c8d91ab289` | 991 | 0.5995 | -98.57 | no pasa la criba |
+| 20 | ETHUSDT 5m | `389a19a01e455e16` | 8856 | 0.6556 | -100 | uno de seis | `27b291c493eeee98` | 1677 | 0.5990 | -99.87 | no pasa la criba |
+| 71 | JUPUSDT 1h | `0df31966cb9b0fb4` | 62 | 0.6538 | -16.36 | uno de seis | `81af1ef8eaccd80d` | 43 | 1.0598 | 2.01 | no pasa la criba |
+| 43 | JUPUSDT 5m | `6755ab194dd7425d` | 4708 | 0.6348 | -100 | uno de seis | `dd42720ef03762c4` | 3005 | 0.2704 | -100 | no pasa la criba |
+| 50 | JUPUSDT 15m | `7be809adc5f37d4e` | 12452 | 0.6347 | -100 | uno de seis | `14abdee558f74e34` | 7260 | 0.4684 | -100 | no pasa la criba |
+| 25 | BTCUSDT 1h | `a8bfab5bf9e9d66f` | 1213 | 0.6308 | -84.50 | uno de seis | `59964c7676ccce9a` | 208 | 0.5856 | -31.11 | no pasa la criba |
+| 65 | SOLUSDT 15m | `8e2784634a001d8d` | 1729 | 0.6295 | -88.09 | uno de seis | `f6208513f3b8d24e` | 291 | 0.4012 | -44.10 | no pasa la criba |
+| 18 | JUPUSDT 5m | `60d104451ecd88a4` | 3029 | 0.6153 | -100 | uno de seis | `be467dc1e0299839` | 2143 | 0.5954 | -99.98 | no pasa la criba |
+| 17 | SUIUSDT 5m | `96a023fff66c6336` | 1603 | 0.6084 | -98.87 | uno de seis | `9752935a8ad6d5da` | 561 | 0.6112 | -88.06 | no pasa la criba |
+| 70 | SUIUSDT 15m | `73f2443547391054` | 1176 | 0.6081 | -93.61 | uno de seis | `8efb05bef4951f72` | 536 | 0.5904 | -75.13 | no pasa la criba |
+| 79 | ETHUSDT 5m | `1c1fb7c29d7b46fa` | 13845 | 0.5842 | -100 | uno de seis | `907fb04f9bb17441` | 2355 | 0.4130 | -100 | no pasa la criba |
+| 51 | ETHUSDT 5m | `6e4ce6acaf477f9a` | 11986 | 0.5634 | -100 | uno de seis | `d26ffc510a3a11d2` | 2022 | 0.4673 | -99.99 | no pasa la criba |
+| 12 | JUPUSDT 15m | `35ea135108dfc672` | 99 | 0.5467 | -27.27 | uno de seis | `fcffe26600088cac` | 173 | 0.6802 | -29.86 | no pasa la criba |
+| 42 | SUIUSDT 15m | `648d1a3ccfaed620` | 7526 | 0.5423 | -99.96 | uno de seis | `3b43b86c6f5efd98` | 3335 | 0.4810 | -99.65 | no pasa la criba |
+| 66 | BTCUSDT 15m | `32f54d8b0785a341` | 3736 | 0.5317 | -100 | uno de seis | `c45a86f71b315063` | 600 | 0.4690 | -93.35 | no pasa la criba |
+| 2 | BTCUSDT 15m | `7167a06f4c82edca` | 4393 | 0.5223 | -100 | uno de seis | `35d8ac214fc8d69f` | 814 | 0.6174 | -91.89 | no pasa la criba |
+| 13 | BTCUSDT 5m | `666353255cef9d31` | 3220 | 0.5217 | -100 | uno de seis | `64cd8f3f7989f292` | 664 | 0.5230 | -97.58 | no pasa la criba |
+| 38 | BTCUSDT 5m | `a6a8d76c8d88b641` | 12049 | 0.5140 | -100 | uno de seis | `89d20d6c1190dc77` | 1951 | 0.2611 | -100 | no pasa la criba |
+| 61 | SUIUSDT 5m | `3e1a70424158d1aa` | 870 | 0.4799 | -98.83 | uno de seis | `0639f94c8e9d3758` | 354 | 0.4005 | -89.37 | no pasa la criba |
+| 62 | JUPUSDT 5m | `571264423c32759b` | 1425 | 0.4788 | -99.86 | uno de seis | `a641c98df5d8c5ea` | 1117 | 0.4490 | -99.78 | no pasa la criba |
+| 78 | BTCUSDT 5m | `c3de81cfc00c3315` | 39181 | 0.4762 | -100 | uno de seis | `185cb48c08e99e3c` | 6481 | 0.5403 | -100 | no pasa la criba |
+| 32 | ETHUSDT 5m | `800bb81a8d57b10c` | 29824 | 0.4132 | -100 | uno de seis | `7385a27141b74af2` | 5163 | 0.4634 | -100 | no pasa la criba |
+| 3 | ETHUSDT 5m | `c02229ea5d987868` | 14303 | 0.3514 | -100 | uno de seis | `1f73ed947f49ccf0` | 2548 | 0.2879 | -100 | no pasa la criba |
+| 54 | HYPEUSDT 5m | `ac488b0403f784c2` | 83 | 0.3284 | -39.37 | uno de seis | `1ee9b2d9a975d84a` | 124 | 0.2198 | -58.22 | no pasa la criba |
+| 56 | JUPUSDT 1h | `397fb3308c64423c` | 12 | 0.2761 | -7.39 | cero de seis | `673a070e75cd0769` | 19 | 1.0437 | 1.02 | INSUFICIENTE MUESTRA |
+| 27 | SOLUSDT 15m | `218495308db88f2d` | 11167 | 0.2508 | -100 | uno de seis | `fef5cb069406a572` | 2220 | 0.1621 | -100 | no pasa la criba |
+| 31 | JUPUSDT 15m | `dd0121099e768eb2` | 59 | 0.2266 | -42.59 | uno de seis | `4e235c6b3dcf855f` | 95 | 0.1002 | -70.14 | no pasa la criba |
+| 35 | HYPEUSDT 1h | `3f999488d7120f43` | 6 | 0.2235 | -3.62 | cero de seis | `72d1047b873ca90b` | 13 | 2.1778 | 10.51 | INSUFICIENTE MUESTRA |
+| 67 | ETHUSDT 15m | `6b38c4a024650fec` | 28247 | 0.1986 | -100 | uno de seis | `e8c65ce81d171043` | 5381 | 0.2649 | -100 | no pasa la criba |
+| 19 | BTCUSDT 15m | `9d910545b96de921` | 57561 | 0.1462 | -100 | uno de seis | `a576ce6c57c806d0` | 9478 | 0.2123 | -100 | no pasa la criba |
+| 41 | HYPEUSDT 5m | `c17edd87b8a88eb6` | 53 | 0.0453 | -48.86 | uno de seis | `4e7bb6b8e6a2b4a0` | 63 | 2.0252 | 47.56 | no pasa la criba |
+| 46 | SOLUSDT 15m | `16a3faed33ce37b2` | 36 | 0 | -29.50 | uno de seis | `61cc2a3759464054` | 10 | 0 | -9.40 | no pasa la criba |
+| 49 | SUIUSDT 1h | `85d0d2ccf39e1b2f` | 14 | 0 | -13.70 | cero de seis | `a975ef86f5f7c5a5` | 6 | 2.6441 | 7.61 | INSUFICIENTE MUESTRA |
+| 58 | BTCUSDT 1h | `b579428b63b1cb50` | 3 | 0 | -3.37 | cero de seis | `2b17f06a300b0382` | 0 | 0 | 0 | INSUFICIENTE MUESTRA |
+| 77 | JUPUSDT 15m | `4bb537adc5385733` | 0 | 0 | 0 | cero de seis | `59c343f107924e0d` | 0 | 0 | 0 | INSUFICIENTE MUESTRA |
 
 ## Gates, prompt por prompt (los que pasan la criba)
 
 ### #85 HYPEUSDT 1h
 
-- DEV: artefacto `results/runs/dff8be579b3e6a87` (run_id `dff8be579b3e6a87`)
+- DEV: artefacto `results/runs/c3a368b728987ca3` (run_id `c3a368b728987ca3`)
 
 | gate (DEV) | resultado | medido |
 |---|---|---|
@@ -121,7 +121,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 | the five best trades at most one hundred per cent of the PnL | PASS | best five = 81.71 % of PnL |
 | the bootstrap interval above zero | PASS | CI low = 0.0721 |
 
-- OOS: artefacto `results/runs/06774c0e8e6fcc26` (run_id `06774c0e8e6fcc26`)
+- OOS: artefacto `results/runs/0dfe18bd3555cd21` (run_id `0dfe18bd3555cd21`)
 
 | gate (OOS) | resultado | medido |
 |---|---|---|
@@ -138,7 +138,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 
 ### #44 BTCUSDT 1h
 
-- DEV: artefacto `results/runs/15ef339d9e9f803e` (run_id `15ef339d9e9f803e`)
+- DEV: artefacto `results/runs/376cc96d5aeeb48b` (run_id `376cc96d5aeeb48b`)
 
 | gate (DEV) | resultado | medido |
 |---|---|---|
@@ -149,7 +149,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 | the five best trades at most one hundred per cent of the PnL | PASS | best five = 81.86 % of PnL |
 | the bootstrap interval above zero | PASS | CI low = 0.4387 |
 
-- OOS: artefacto `results/runs/983185447057c499` (run_id `983185447057c499`)
+- OOS: artefacto `results/runs/c0fddf3e7f1fb11a` (run_id `c0fddf3e7f1fb11a`)
 
 | gate (OOS) | resultado | medido |
 |---|---|---|
@@ -165,7 +165,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 
 ### #28 BTCUSDT 1h
 
-- DEV: artefacto `results/runs/ba1affc9cac66742` (run_id `ba1affc9cac66742`)
+- DEV: artefacto `results/runs/1da6ac8e8bf1f438` (run_id `1da6ac8e8bf1f438`)
 
 | gate (DEV) | resultado | medido |
 |---|---|---|
@@ -176,7 +176,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 | the five best trades at most one hundred per cent of the PnL | PASS | best five = 80.09 % of PnL |
 | the bootstrap interval above zero | PASS | CI low = 0.0076 |
 
-- OOS: artefacto `results/runs/62756db11ecaa1c4` (run_id `62756db11ecaa1c4`)
+- OOS: artefacto `results/runs/530884a115e2cbbe` (run_id `530884a115e2cbbe`)
 
 | gate (OOS) | resultado | medido |
 |---|---|---|
@@ -192,7 +192,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 
 ### #26 ETHUSDT 1h
 
-- DEV: artefacto `results/runs/e70997443c6b0aad` (run_id `e70997443c6b0aad`)
+- DEV: artefacto `results/runs/303dfa1f72416ea7` (run_id `303dfa1f72416ea7`)
 
 | gate (DEV) | resultado | medido |
 |---|---|---|
@@ -203,7 +203,7 @@ De los noventa prompts medidos, **cuatro** limpian la criba sobre DEV y **cero**
 | the five best trades at most one hundred per cent of the PnL | PASS | best five = 75 % of PnL |
 | the bootstrap interval above zero | PASS | CI low = 0.0471 |
 
-- OOS: artefacto `results/runs/ec1d39c4f5668d89` (run_id `ec1d39c4f5668d89`)
+- OOS: artefacto `results/runs/66a26ac611612a9e` (run_id `66a26ac611612a9e`)
 
 | gate (OOS) | resultado | medido |
 |---|---|---|
@@ -223,16 +223,15 @@ Estas filas son **NO CERTIFICABLES**: el nocional implicito de su dimensionamien
 
 | # | prompt | legs | run_id DEV | n DEV | PF DEV | run_id OOS | n OOS | PF OOS | nocional implicito (x equity) | veredicto |
 |---|---|---|---|---:|---:|---|---:|---:|---:|---|
-| 85 | HYPEUSDT 1h | `dff8be579b3e6a87` | 127 | 2.4884 | `06774c0e8e6fcc26` | 383 | 2.9236 | 52.4 | NO CERTIFICABLE (nocional) |
-| 88 | BTCUSDT 1h | `2afdfe080f5f207b` | 2433 | 1.1656 | `13cc7795bda9884b` | 368 | 1.5177 | - | no supera el veredicto |
-| 90 | BASKET6 1h | `d0a5df752caf9509` | 124 | 1.1175 | `ff9398fac6aa06db` | 53 | 1.2766 | - | no supera el veredicto |
-| 83 | BASKET6 1h | `46206c65ced080b8` | 125 | 1.0649 | `7fab571089dcc638` | 53 | 1.3800 | - | no supera el veredicto |
-| 84 | BASKET6 1h | `a7320b9489ef4a93` | 2134 | 0.8698 | `e898ad4b562703a7` | 463 | 0.7721 | - | no supera el veredicto |
-| 86 | SUIUSDT 1h | `0adc4cbb5ea1caf9` | 145 | 0.7546 | `f2deefe910c842c5` | 106 | 0.0536 | 0 | no supera el veredicto |
-| 87 | BASKET6 1h | `795217d38f237c10` | 126 | 0.5675 | `257ef1cf1b118bce` | 53 | 0.4713 | - | no supera el veredicto |
-| 82 | BTCUSDT 1h | `43303bde7ccc05af` | 517 | 0.3982 | `f2f0628024b793b1` | 103 | 0.1942 | 236795.5 | NO CERTIFICABLE (nocional) |
-| 81 | SOLUSDT 1h | `11c4baf3008b3e40` | 215 | 0.2683 | `1ff6102761175a7c` | 44 | 0.8290 | 2940.9 | NO CERTIFICABLE (nocional) |
-| 89 | ETHUSDT 15m | `c7f723c1d289476d` | 598 | 0.0855 | `d3e3ce91bbfe1f80` | 111 | 6.7333 | 1350557.5 | NO CERTIFICABLE (nocional) |
+| 85 | HYPEUSDT 1h | `c3a368b728987ca3` | 127 | 2.4884 | `0dfe18bd3555cd21` | 383 | 2.9236 | 52.4 | NO CERTIFICABLE (nocional) |
+| 90 | BASKET6 1h | `b8dd7d827929db21` | 124 | 1.1175 | `08b80be3a6385175` | 53 | 1.2766 | - | no supera el veredicto |
+| 83 | BASKET6 1h | `67f08389b3e805e9` | 125 | 1.0649 | `ccab198ae43531f1` | 53 | 1.3800 | - | no supera el veredicto |
+| 84 | BASKET6 1h | `2ea6364db738dd68` | 2134 | 0.8698 | `d5388afc96e39f2c` | 463 | 0.7721 | - | no supera el veredicto |
+| 86 | SUIUSDT 1h | `c15c5b0f69129a96` | 145 | 0.7546 | `7cea0abe97805aef` | 106 | 0.0536 | 0 | no supera el veredicto |
+| 87 | BASKET6 1h | `fea8e996725bd8e2` | 126 | 0.5675 | `f12c97821473a0b9` | 53 | 0.4713 | - | no supera el veredicto |
+| 82 | BTCUSDT 1h | `e3f2517cae691160` | 517 | 0.3982 | `5d526ed860ee6fe4` | 103 | 0.1942 | 236795.5 | NO CERTIFICABLE (nocional) |
+| 81 | SOLUSDT 1h | `97fbf434d93d0cdf` | 215 | 0.2683 | `c974863bb48a278b` | 44 | 0.8290 | 2940.9 | NO CERTIFICABLE (nocional) |
+| 89 | ETHUSDT 15m | `48a06b7850a15c31` | 598 | 0.0855 | `87dc0fe82393f371` | 111 | 6.7333 | 1350557.5 | NO CERTIFICABLE (nocional) |
 
 ## El control de multiplicidad
 
@@ -244,7 +243,6 @@ Con cien prompts cribados, la metrica OOS del ganador esta sesgada al alza: hay 
 | 85 | 2.9236 |
 | 73 | 2.0567 |
 | 41 | 2.0252 |
-| 88 | 1.5177 |
 | 44 | 1.3816 |
 | 83 | 1.3800 |
 | 60 | 1.3490 |
@@ -331,7 +329,6 @@ Los prompts de par (los seis de spread) no son un libro que se pueda sostener: e
 | 82 | BTCUSDT 1h | 236795.5 | 8472759 | 1167073912888322816 |
 | 85 | HYPEUSDT 1h | 52.4 | 1388 | -14846 |
 | 86 | SUIUSDT 1h | 0 | 2 | 0 |
-| 88 | BTCUSDT 1h | - | - | 1682 |
 | 89 | ETHUSDT 15m | 1350557.5 | 13059676 | 2535770 |
 | 83 | BASKET6 1h | - | - | 21 |
 | 84 | BASKET6 1h | - | - | 8 |
@@ -345,6 +342,12 @@ Los prompts de par (los seis de spread) no son un libro que se pueda sostener: e
 | 18 | JUPUSDT | 5m | sin klines de ese simbolo y timeframe en el repo: NO DATA, y no se estima nada |
 | 43 | JUPUSDT | 5m | sin klines de ese simbolo y timeframe en el repo: NO DATA, y no se estima nada |
 | 62 | JUPUSDT | 5m | sin klines de ese simbolo y timeframe en el repo: NO DATA, y no se estima nada |
+| 81 | SOLUSDT | 1h | el sobre intrabar de la puesta no puede construirse (pierna sintetica sin klines, ALT-BASKET) y el engine la RECHAZA en lugar de degradarla: no certificable bajo la convencion del repo, no se estima nada |
+| 82 | BTCUSDT | 1h | el sobre intrabar de la puesta no puede construirse (pierna sintetica sin klines, ALT-BASKET) y el engine la RECHAZA en lugar de degradarla: no certificable bajo la convencion del repo, no se estima nada |
+| 85 | HYPEUSDT | 1h | el sobre intrabar de la puesta no puede construirse (pierna sintetica sin klines, ALT-BASKET) y el engine la RECHAZA en lugar de degradarla: no certificable bajo la convencion del repo, no se estima nada |
+| 86 | SUIUSDT | 1h | el sobre intrabar de la puesta no puede construirse (pierna sintetica sin klines, ALT-BASKET) y el engine la RECHAZA en lugar de degradarla: no certificable bajo la convencion del repo, no se estima nada |
+| 88 | BASKET6 | 1h | el sobre intrabar de la puesta no puede construirse (pierna sintetica sin klines, ALT-BASKET) y el engine la RECHAZA en lugar de degradarla: no certificable bajo la convencion del repo, no se estima nada |
+| 89 | ETHUSDT | 15m | el sobre intrabar de la puesta no puede construirse (pierna sintetica sin klines, ALT-BASKET) y el engine la RECHAZA en lugar de degradarla: no certificable bajo la convencion del repo, no se estima nada |
 
 La familia de prompts de funding del pack (los de funding) es un tercer tipo de libro: su ejecucion necesita el own funding alineado con las klines y una logica de senal distinta. **No se han medido** y no se afirma nada sobre ellos.
 

@@ -1,6 +1,77 @@
 {
+ "85/DEV": {
+  "run_id": "c3a368b728987ca3",
+  "id": 85,
+  "segment": "DEV",
+  "symbol": "HYPEUSDT",
+  "tf": "1h",
+  "metrics": {
+   "bh_return_pct": 35.30415008527572,
+   "boot_ci_hi": 0.41447580156292907,
+   "boot_ci_lo": 0.07208898809526268,
+   "boot_mean_r": 0.22204360765512657,
+   "boot_n": 2000,
+   "boot_small_sample": false,
+   "boot_t_stat": 2.2444028610738265,
+   "boot_trades_n": 127,
+   "conc_top5_share_pct": 81.70710338213202,
+   "cost_bp_roundtrip": 11.99,
+   "cost_on_real_notional_usdt": 348.58304660290315,
+   "cost_source": "measured (SOLUSDT)",
+   "cost_symbols_resolved": [
+    "HYPEUSDT",
+    "SOLUSDT"
+   ],
+   "excess_pct": -8.94705887574776,
+   "fee_bps_per_side": 5.0,
+   "fees_paid_usdt": 1922.1162374295432,
+   "final_equity": 12635.709120952797,
+   "funding_charged": true,
+   "funding_paid_usdt": 433.6994642379553,
+   "gross_loss_usdt": 2062.218405259277,
+   "gross_profit_usdt": 5131.6269904500405,
+   "implied_notional_x_max": 267.2416886546258,
+   "implied_notional_x_median": 23.591081702726633,
+   "init_equity": 10000.0,
+   "max_dd_pct": -3.1068859794395,
+   "n_exits_end": 0,
+   "n_exits_reverse": 0,
+   "n_exits_signal": 127,
+   "n_exits_stop": 0,
+   "n_exits_target": 0,
+   "n_exits_time": 0,
+   "n_periods_green": 3,
+   "n_settlements": 0,
+   "n_signals": 2965,
+   "n_skipped_gap_entries": 0,
+   "n_trades": 127,
+   "net_without_top5_pct": 5.614837392689106,
+   "pack_conventions": false,
+   "pack_cost_constant": 5.5e-05,
+   "pack_cost_per_side_bps": 0.55,
+   "pack_cost_roundtrip_bps": 2.2,
+   "period1_pct": 7.5705830849702505,
+   "period2_pct": 14.959750857371956,
+   "period3_pct": 2.178678859156502,
+   "pf_without_top5": 1.2722717137219595,
+   "pnl_identity_resid": -1.0913936421275139e-11,
+   "profit_factor": 2.488401314508128,
+   "return_pct": 26.35709120952796,
+   "segment": "DEV",
+   "slippage_bps_per_side": 0.9950000000000001,
+   "spread_env_range_bars": 12510,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
+   "strategy_id": 85,
+   "symbol": "HYPEUSDT",
+   "timeframe": "1h",
+   "top5_pnl_share": 81.70710338213202,
+   "win_rate": 56.69291338582677
+  },
+  "key": "85/DEV"
+ },
  "1/DEV": {
-  "run_id": "ea63999ed1267af3",
+  "run_id": "5198b101ab7dc1bd",
   "id": 1,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -64,7 +135,7 @@
   "key": "1/DEV"
  },
  "1/OOS": {
-  "run_id": "fec5fd4f181d6088",
+  "run_id": "67c5d1fe3df2893a",
   "id": 1,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -128,7 +199,7 @@
   "key": "1/OOS"
  },
  "2/DEV": {
-  "run_id": "5d07dd9aa753d5c5",
+  "run_id": "7167a06f4c82edca",
   "id": 2,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -192,7 +263,7 @@
   "key": "2/DEV"
  },
  "2/OOS": {
-  "run_id": "d6893d70a583f23a",
+  "run_id": "35d8ac214fc8d69f",
   "id": 2,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -256,7 +327,7 @@
   "key": "2/OOS"
  },
  "3/DEV": {
-  "run_id": "5e630abf454ed2f7",
+  "run_id": "c02229ea5d987868",
   "id": 3,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -320,7 +391,7 @@
   "key": "3/DEV"
  },
  "3/OOS": {
-  "run_id": "47a18000b3ba6d76",
+  "run_id": "1f73ed947f49ccf0",
   "id": 3,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -384,7 +455,7 @@
   "key": "3/OOS"
  },
  "4/DEV": {
-  "run_id": "575b85a5301d6639",
+  "run_id": "10d9966e10fa7e69",
   "id": 4,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -448,7 +519,7 @@
   "key": "4/DEV"
  },
  "4/OOS": {
-  "run_id": "6e328eb82f23c667",
+  "run_id": "9dd103c8cfad496f",
   "id": 4,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -512,7 +583,7 @@
   "key": "4/OOS"
  },
  "5/DEV": {
-  "run_id": "2d3dd4fa6aa9087e",
+  "run_id": "fc04bab97ae5a438",
   "id": 5,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -576,7 +647,7 @@
   "key": "5/DEV"
  },
  "5/OOS": {
-  "run_id": "fb549f8ea36697bd",
+  "run_id": "11066742dcb4f784",
   "id": 5,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -640,7 +711,7 @@
   "key": "5/OOS"
  },
  "6/DEV": {
-  "run_id": "7825884de791227c",
+  "run_id": "421e3214ae43ba41",
   "id": 6,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -704,7 +775,7 @@
   "key": "6/DEV"
  },
  "6/OOS": {
-  "run_id": "5e996f953ab20795",
+  "run_id": "4739e2a5904f163e",
   "id": 6,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -768,7 +839,7 @@
   "key": "6/OOS"
  },
  "7/DEV": {
-  "run_id": "6df7114f7d898a5b",
+  "run_id": "174d14b46dc3541b",
   "id": 7,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -832,7 +903,7 @@
   "key": "7/DEV"
  },
  "7/OOS": {
-  "run_id": "eab139ce5ace9dc1",
+  "run_id": "441de34691b06819",
   "id": 7,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -896,7 +967,7 @@
   "key": "7/OOS"
  },
  "8/DEV": {
-  "run_id": "ef0144f2d97a6a04",
+  "run_id": "d26bfa9649cd53c3",
   "id": 8,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -960,7 +1031,7 @@
   "key": "8/DEV"
  },
  "8/OOS": {
-  "run_id": "935abd3e7e9254d0",
+  "run_id": "f54a53863970a090",
   "id": 8,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -1024,7 +1095,7 @@
   "key": "8/OOS"
  },
  "9/DEV": {
-  "run_id": "d10808af5439d584",
+  "run_id": "4a0b7655ac3548e2",
   "id": 9,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -1088,7 +1159,7 @@
   "key": "9/DEV"
  },
  "9/OOS": {
-  "run_id": "aa632c55d3a2a495",
+  "run_id": "370c97803005bbb6",
   "id": 9,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -1152,7 +1223,7 @@
   "key": "9/OOS"
  },
  "10/DEV": {
-  "run_id": "83a7c58fa72ca3c9",
+  "run_id": "d0ca23b66f334404",
   "id": 10,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -1216,7 +1287,7 @@
   "key": "10/DEV"
  },
  "10/OOS": {
-  "run_id": "9a0a3058677d9f4e",
+  "run_id": "e28400c2e746d66a",
   "id": 10,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -1280,7 +1351,7 @@
   "key": "10/OOS"
  },
  "11/DEV": {
-  "run_id": "4fa92a8551348db1",
+  "run_id": "12df56a8e59dc9e0",
   "id": 11,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -1344,7 +1415,7 @@
   "key": "11/DEV"
  },
  "11/OOS": {
-  "run_id": "17e864953254a2b8",
+  "run_id": "0d5240ce4c99b714",
   "id": 11,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -1408,7 +1479,7 @@
   "key": "11/OOS"
  },
  "12/DEV": {
-  "run_id": "29263d3ae884845d",
+  "run_id": "35ea135108dfc672",
   "id": 12,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -1472,7 +1543,7 @@
   "key": "12/DEV"
  },
  "12/OOS": {
-  "run_id": "54d3d38a11a2731f",
+  "run_id": "fcffe26600088cac",
   "id": 12,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -1536,7 +1607,7 @@
   "key": "12/OOS"
  },
  "13/DEV": {
-  "run_id": "1b205a6408b8dda6",
+  "run_id": "666353255cef9d31",
   "id": 13,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -1600,7 +1671,7 @@
   "key": "13/DEV"
  },
  "13/OOS": {
-  "run_id": "df041eead68e0302",
+  "run_id": "64cd8f3f7989f292",
   "id": 13,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -1664,7 +1735,7 @@
   "key": "13/OOS"
  },
  "14/DEV": {
-  "run_id": "fb72e98843a5e555",
+  "run_id": "3a56991213b8a8fa",
   "id": 14,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -1728,7 +1799,7 @@
   "key": "14/DEV"
  },
  "14/OOS": {
-  "run_id": "4cb9d4f6762e6f84",
+  "run_id": "87c74be67c110d3e",
   "id": 14,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -1792,7 +1863,7 @@
   "key": "14/OOS"
  },
  "15/DEV": {
-  "run_id": "feb89fc2e1c76a1e",
+  "run_id": "c6710058231befc6",
   "id": 15,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -1856,7 +1927,7 @@
   "key": "15/DEV"
  },
  "15/OOS": {
-  "run_id": "6278674106505488",
+  "run_id": "5bb79408a6cffe3b",
   "id": 15,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -1920,7 +1991,7 @@
   "key": "15/OOS"
  },
  "16/DEV": {
-  "run_id": "a5b60ca894df4326",
+  "run_id": "341ccabc373540ba",
   "id": 16,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -1984,7 +2055,7 @@
   "key": "16/DEV"
  },
  "16/OOS": {
-  "run_id": "b21af23441961815",
+  "run_id": "9a287f714ca81ed6",
   "id": 16,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -2048,7 +2119,7 @@
   "key": "16/OOS"
  },
  "17/DEV": {
-  "run_id": "74d466ff245e16ad",
+  "run_id": "96a023fff66c6336",
   "id": 17,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -2112,7 +2183,7 @@
   "key": "17/DEV"
  },
  "17/OOS": {
-  "run_id": "305294cbaf10b62d",
+  "run_id": "9752935a8ad6d5da",
   "id": 17,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -2176,7 +2247,7 @@
   "key": "17/OOS"
  },
  "18/DEV": {
-  "run_id": "c8e235e82ae1c67f",
+  "run_id": "60d104451ecd88a4",
   "id": 18,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -2240,7 +2311,7 @@
   "key": "18/DEV"
  },
  "18/OOS": {
-  "run_id": "5983a250f5d96ecf",
+  "run_id": "be467dc1e0299839",
   "id": 18,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -2304,7 +2375,7 @@
   "key": "18/OOS"
  },
  "19/DEV": {
-  "run_id": "c49ea73e2acffa35",
+  "run_id": "9d910545b96de921",
   "id": 19,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -2368,7 +2439,7 @@
   "key": "19/DEV"
  },
  "19/OOS": {
-  "run_id": "8f470e635fc0c3f0",
+  "run_id": "a576ce6c57c806d0",
   "id": 19,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -2432,7 +2503,7 @@
   "key": "19/OOS"
  },
  "20/DEV": {
-  "run_id": "4d526dfb0726888f",
+  "run_id": "389a19a01e455e16",
   "id": 20,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -2496,7 +2567,7 @@
   "key": "20/DEV"
  },
  "20/OOS": {
-  "run_id": "5e5d274a6022ea7e",
+  "run_id": "27b291c493eeee98",
   "id": 20,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -2560,7 +2631,7 @@
   "key": "20/OOS"
  },
  "21/DEV": {
-  "run_id": "6f986c79f799b9a3",
+  "run_id": "891ddb0a2e6c3ca0",
   "id": 21,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -2624,7 +2695,7 @@
   "key": "21/DEV"
  },
  "21/OOS": {
-  "run_id": "a5d5858e5e8ce097",
+  "run_id": "4c8d8d8cfb65aa5e",
   "id": 21,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -2688,7 +2759,7 @@
   "key": "21/OOS"
  },
  "22/DEV": {
-  "run_id": "b4e258a9abe4bd8c",
+  "run_id": "3d570bbb9eaac0d2",
   "id": 22,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -2752,7 +2823,7 @@
   "key": "22/DEV"
  },
  "22/OOS": {
-  "run_id": "5b5f32a282129ec1",
+  "run_id": "81460863bb09f458",
   "id": 22,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -2816,7 +2887,7 @@
   "key": "22/OOS"
  },
  "23/DEV": {
-  "run_id": "1c7ac8d6e322c38d",
+  "run_id": "3acedeafa634cbbb",
   "id": 23,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -2880,7 +2951,7 @@
   "key": "23/DEV"
  },
  "23/OOS": {
-  "run_id": "25ad121edf718b6a",
+  "run_id": "2b33f0d26a39a611",
   "id": 23,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -2944,7 +3015,7 @@
   "key": "23/OOS"
  },
  "24/DEV": {
-  "run_id": "33fe4bc3a4061ff8",
+  "run_id": "16b125d6f61c947a",
   "id": 24,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -3008,7 +3079,7 @@
   "key": "24/DEV"
  },
  "24/OOS": {
-  "run_id": "4d8e0599a310e93d",
+  "run_id": "78051eb5fc1388ac",
   "id": 24,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -3072,7 +3143,7 @@
   "key": "24/OOS"
  },
  "25/DEV": {
-  "run_id": "646edbbcb486cc0e",
+  "run_id": "a8bfab5bf9e9d66f",
   "id": 25,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -3136,7 +3207,7 @@
   "key": "25/DEV"
  },
  "25/OOS": {
-  "run_id": "f56705d535cd11d1",
+  "run_id": "59964c7676ccce9a",
   "id": 25,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -3200,7 +3271,7 @@
   "key": "25/OOS"
  },
  "26/DEV": {
-  "run_id": "e70997443c6b0aad",
+  "run_id": "303dfa1f72416ea7",
   "id": 26,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -3264,7 +3335,7 @@
   "key": "26/DEV"
  },
  "26/OOS": {
-  "run_id": "ec1d39c4f5668d89",
+  "run_id": "66a26ac611612a9e",
   "id": 26,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -3328,7 +3399,7 @@
   "key": "26/OOS"
  },
  "27/DEV": {
-  "run_id": "5cf50291da671435",
+  "run_id": "218495308db88f2d",
   "id": 27,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -3392,7 +3463,7 @@
   "key": "27/DEV"
  },
  "27/OOS": {
-  "run_id": "49a4e9af6d854f2a",
+  "run_id": "fef5cb069406a572",
   "id": 27,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -3456,7 +3527,7 @@
   "key": "27/OOS"
  },
  "28/DEV": {
-  "run_id": "ba1affc9cac66742",
+  "run_id": "1da6ac8e8bf1f438",
   "id": 28,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -3520,7 +3591,7 @@
   "key": "28/DEV"
  },
  "28/OOS": {
-  "run_id": "62756db11ecaa1c4",
+  "run_id": "530884a115e2cbbe",
   "id": 28,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -3584,7 +3655,7 @@
   "key": "28/OOS"
  },
  "29/DEV": {
-  "run_id": "61b0dfefd990f613",
+  "run_id": "e7f2a967dbf8eb70",
   "id": 29,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -3648,7 +3719,7 @@
   "key": "29/DEV"
  },
  "29/OOS": {
-  "run_id": "700f9617c8162f11",
+  "run_id": "e86601720112fd9c",
   "id": 29,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -3712,7 +3783,7 @@
   "key": "29/OOS"
  },
  "30/DEV": {
-  "run_id": "46b4da603f7ca813",
+  "run_id": "21f5f0b87bea5b02",
   "id": 30,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -3776,7 +3847,7 @@
   "key": "30/DEV"
  },
  "30/OOS": {
-  "run_id": "d4812366d7ef9f02",
+  "run_id": "595a943d9a2e9cf9",
   "id": 30,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -3840,7 +3911,7 @@
   "key": "30/OOS"
  },
  "31/DEV": {
-  "run_id": "ca275dafa85238ec",
+  "run_id": "dd0121099e768eb2",
   "id": 31,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -3904,7 +3975,7 @@
   "key": "31/DEV"
  },
  "31/OOS": {
-  "run_id": "53b3bda2d237373d",
+  "run_id": "4e235c6b3dcf855f",
   "id": 31,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -3968,7 +4039,7 @@
   "key": "31/OOS"
  },
  "32/DEV": {
-  "run_id": "ff4acbea11bda896",
+  "run_id": "800bb81a8d57b10c",
   "id": 32,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -4032,7 +4103,7 @@
   "key": "32/DEV"
  },
  "32/OOS": {
-  "run_id": "fae3a88cf24722f2",
+  "run_id": "7385a27141b74af2",
   "id": 32,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -4096,7 +4167,7 @@
   "key": "32/OOS"
  },
  "33/DEV": {
-  "run_id": "bf0f74972cb99700",
+  "run_id": "961b60b90b238a97",
   "id": 33,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -4160,7 +4231,7 @@
   "key": "33/DEV"
  },
  "33/OOS": {
-  "run_id": "8f899b4b6b9c047b",
+  "run_id": "d5a1a9e43a2f7d85",
   "id": 33,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -4224,7 +4295,7 @@
   "key": "33/OOS"
  },
  "34/DEV": {
-  "run_id": "12813752a75dcbaf",
+  "run_id": "73e834f27d451919",
   "id": 34,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -4288,7 +4359,7 @@
   "key": "34/DEV"
  },
  "34/OOS": {
-  "run_id": "b1d8a6af75ce5aa2",
+  "run_id": "751e10dffa3f61e3",
   "id": 34,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -4352,7 +4423,7 @@
   "key": "34/OOS"
  },
  "35/DEV": {
-  "run_id": "dd48ef121acf4bb9",
+  "run_id": "3f999488d7120f43",
   "id": 35,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -4416,7 +4487,7 @@
   "key": "35/DEV"
  },
  "35/OOS": {
-  "run_id": "39f41fbc6421d47f",
+  "run_id": "72d1047b873ca90b",
   "id": 35,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -4480,7 +4551,7 @@
   "key": "35/OOS"
  },
  "36/DEV": {
-  "run_id": "19a0bb498cf34317",
+  "run_id": "d73c500f6342a342",
   "id": 36,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -4544,7 +4615,7 @@
   "key": "36/DEV"
  },
  "36/OOS": {
-  "run_id": "dbcfe94f21fd687d",
+  "run_id": "d1dcf3c8d91ab289",
   "id": 36,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -4608,7 +4679,7 @@
   "key": "36/OOS"
  },
  "37/DEV": {
-  "run_id": "50ce6b0733e2aacd",
+  "run_id": "45a1e31228dbe603",
   "id": 37,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -4672,7 +4743,7 @@
   "key": "37/DEV"
  },
  "37/OOS": {
-  "run_id": "f5c181994fd36a39",
+  "run_id": "2c62b1b69860797c",
   "id": 37,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -4736,7 +4807,7 @@
   "key": "37/OOS"
  },
  "38/DEV": {
-  "run_id": "f44b56aaa41bc32d",
+  "run_id": "a6a8d76c8d88b641",
   "id": 38,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -4800,7 +4871,7 @@
   "key": "38/DEV"
  },
  "38/OOS": {
-  "run_id": "71a177501d96e7f7",
+  "run_id": "89d20d6c1190dc77",
   "id": 38,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -4864,7 +4935,7 @@
   "key": "38/OOS"
  },
  "39/DEV": {
-  "run_id": "f620a232f1d0c50f",
+  "run_id": "8b2c0034d7591b32",
   "id": 39,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -4928,7 +4999,7 @@
   "key": "39/DEV"
  },
  "39/OOS": {
-  "run_id": "db5400853d380640",
+  "run_id": "1ac035f1da4f60c8",
   "id": 39,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -4992,7 +5063,7 @@
   "key": "39/OOS"
  },
  "40/DEV": {
-  "run_id": "e9c22c8fd0fa1dca",
+  "run_id": "af4c711880aeb31c",
   "id": 40,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -5056,7 +5127,7 @@
   "key": "40/DEV"
  },
  "40/OOS": {
-  "run_id": "f0d5f3019a94dc39",
+  "run_id": "76a9fbab96909ab6",
   "id": 40,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -5120,7 +5191,7 @@
   "key": "40/OOS"
  },
  "41/DEV": {
-  "run_id": "90b1f4fecd0a4992",
+  "run_id": "c17edd87b8a88eb6",
   "id": 41,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -5184,7 +5255,7 @@
   "key": "41/DEV"
  },
  "41/OOS": {
-  "run_id": "b8f46ca9905c94c5",
+  "run_id": "4e7bb6b8e6a2b4a0",
   "id": 41,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -5248,7 +5319,7 @@
   "key": "41/OOS"
  },
  "42/DEV": {
-  "run_id": "645dd5048c50d456",
+  "run_id": "648d1a3ccfaed620",
   "id": 42,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -5312,7 +5383,7 @@
   "key": "42/DEV"
  },
  "42/OOS": {
-  "run_id": "7e9ebb3cc3242e72",
+  "run_id": "3b43b86c6f5efd98",
   "id": 42,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -5376,7 +5447,7 @@
   "key": "42/OOS"
  },
  "43/DEV": {
-  "run_id": "d8976b3462186fc1",
+  "run_id": "6755ab194dd7425d",
   "id": 43,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -5440,7 +5511,7 @@
   "key": "43/DEV"
  },
  "43/OOS": {
-  "run_id": "fe0a897389c4148d",
+  "run_id": "dd42720ef03762c4",
   "id": 43,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -5504,7 +5575,7 @@
   "key": "43/OOS"
  },
  "44/DEV": {
-  "run_id": "15ef339d9e9f803e",
+  "run_id": "376cc96d5aeeb48b",
   "id": 44,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -5568,7 +5639,7 @@
   "key": "44/DEV"
  },
  "44/OOS": {
-  "run_id": "983185447057c499",
+  "run_id": "c0fddf3e7f1fb11a",
   "id": 44,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -5632,7 +5703,7 @@
   "key": "44/OOS"
  },
  "45/DEV": {
-  "run_id": "5f0226e37a53895b",
+  "run_id": "f737ff7fdb6a8340",
   "id": 45,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -5696,7 +5767,7 @@
   "key": "45/DEV"
  },
  "45/OOS": {
-  "run_id": "3ccffb3f905bb7ca",
+  "run_id": "c2e0cd006a185e97",
   "id": 45,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -5760,7 +5831,7 @@
   "key": "45/OOS"
  },
  "46/DEV": {
-  "run_id": "e087e07cd10190b1",
+  "run_id": "16a3faed33ce37b2",
   "id": 46,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -5824,7 +5895,7 @@
   "key": "46/DEV"
  },
  "46/OOS": {
-  "run_id": "b0430f253a4fb123",
+  "run_id": "61cc2a3759464054",
   "id": 46,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -5888,7 +5959,7 @@
   "key": "46/OOS"
  },
  "47/DEV": {
-  "run_id": "6eb0e0cc00cf0eae",
+  "run_id": "33304dbaf16d24ce",
   "id": 47,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -5952,7 +6023,7 @@
   "key": "47/DEV"
  },
  "47/OOS": {
-  "run_id": "54c6c4bbd1911b71",
+  "run_id": "fc6da1e0de55ceaa",
   "id": 47,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -6016,7 +6087,7 @@
   "key": "47/OOS"
  },
  "48/DEV": {
-  "run_id": "d2fbf9a0bd6044a4",
+  "run_id": "f2916208699afea4",
   "id": 48,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -6080,7 +6151,7 @@
   "key": "48/DEV"
  },
  "48/OOS": {
-  "run_id": "d9b3f21a987e7e9b",
+  "run_id": "bda2c8641a43e70d",
   "id": 48,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -6144,7 +6215,7 @@
   "key": "48/OOS"
  },
  "49/DEV": {
-  "run_id": "1baac276fc3d52f5",
+  "run_id": "85d0d2ccf39e1b2f",
   "id": 49,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -6208,7 +6279,7 @@
   "key": "49/DEV"
  },
  "49/OOS": {
-  "run_id": "635f4c5c939e7163",
+  "run_id": "a975ef86f5f7c5a5",
   "id": 49,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -6272,7 +6343,7 @@
   "key": "49/OOS"
  },
  "50/DEV": {
-  "run_id": "68addd4c7d9989c9",
+  "run_id": "7be809adc5f37d4e",
   "id": 50,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -6336,7 +6407,7 @@
   "key": "50/DEV"
  },
  "50/OOS": {
-  "run_id": "69d410568bc6b282",
+  "run_id": "14abdee558f74e34",
   "id": 50,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -6400,7 +6471,7 @@
   "key": "50/OOS"
  },
  "51/DEV": {
-  "run_id": "aff8f919c665ff3b",
+  "run_id": "6e4ce6acaf477f9a",
   "id": 51,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -6464,7 +6535,7 @@
   "key": "51/DEV"
  },
  "51/OOS": {
-  "run_id": "87ff347a7a302d3f",
+  "run_id": "d26ffc510a3a11d2",
   "id": 51,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -6528,7 +6599,7 @@
   "key": "51/OOS"
  },
  "52/DEV": {
-  "run_id": "abf1a9abbb9c4a1f",
+  "run_id": "35ddc52c2cf46351",
   "id": 52,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -6592,7 +6663,7 @@
   "key": "52/DEV"
  },
  "52/OOS": {
-  "run_id": "5c4543b428385e5d",
+  "run_id": "8aadc0e4d5731ce1",
   "id": 52,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -6656,7 +6727,7 @@
   "key": "52/OOS"
  },
  "53/DEV": {
-  "run_id": "072ba6d768eb336e",
+  "run_id": "95fba4f6acb0af58",
   "id": 53,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -6720,7 +6791,7 @@
   "key": "53/DEV"
  },
  "53/OOS": {
-  "run_id": "9b8e989633e443fd",
+  "run_id": "4f83f778395b8a6a",
   "id": 53,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -6784,7 +6855,7 @@
   "key": "53/OOS"
  },
  "54/DEV": {
-  "run_id": "cd6f53908add8a5d",
+  "run_id": "ac488b0403f784c2",
   "id": 54,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -6848,7 +6919,7 @@
   "key": "54/DEV"
  },
  "54/OOS": {
-  "run_id": "61148c0a672b601c",
+  "run_id": "1ee9b2d9a975d84a",
   "id": 54,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -6912,7 +6983,7 @@
   "key": "54/OOS"
  },
  "55/DEV": {
-  "run_id": "27b27d57fea0a8dc",
+  "run_id": "650645f9e7e157a5",
   "id": 55,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -6976,7 +7047,7 @@
   "key": "55/DEV"
  },
  "55/OOS": {
-  "run_id": "411224339f1852d3",
+  "run_id": "bde5cdc5ef2f7679",
   "id": 55,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -7040,7 +7111,7 @@
   "key": "55/OOS"
  },
  "56/DEV": {
-  "run_id": "3839e9cc0cb1f4f6",
+  "run_id": "397fb3308c64423c",
   "id": 56,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -7104,7 +7175,7 @@
   "key": "56/DEV"
  },
  "56/OOS": {
-  "run_id": "6795f899df5fcf4f",
+  "run_id": "673a070e75cd0769",
   "id": 56,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -7168,7 +7239,7 @@
   "key": "56/OOS"
  },
  "57/DEV": {
-  "run_id": "09dba2448aa6364a",
+  "run_id": "ef00c4c2df464b4c",
   "id": 57,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -7232,7 +7303,7 @@
   "key": "57/DEV"
  },
  "57/OOS": {
-  "run_id": "5bc8aa86fb01a043",
+  "run_id": "9729dd6345cc83f8",
   "id": 57,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -7296,7 +7367,7 @@
   "key": "57/OOS"
  },
  "58/DEV": {
-  "run_id": "18699632bac52a3a",
+  "run_id": "b579428b63b1cb50",
   "id": 58,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -7360,7 +7431,7 @@
   "key": "58/DEV"
  },
  "58/OOS": {
-  "run_id": "973e2579b36da0eb",
+  "run_id": "2b17f06a300b0382",
   "id": 58,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -7424,7 +7495,7 @@
   "key": "58/OOS"
  },
  "59/DEV": {
-  "run_id": "4b2997dec4de2e98",
+  "run_id": "d53a15547a357c4e",
   "id": 59,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -7488,7 +7559,7 @@
   "key": "59/DEV"
  },
  "59/OOS": {
-  "run_id": "ee535011b54378a3",
+  "run_id": "5cf99975a48b8b8b",
   "id": 59,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -7552,7 +7623,7 @@
   "key": "59/OOS"
  },
  "60/DEV": {
-  "run_id": "36a4e7b74b1dc085",
+  "run_id": "86673bef8de06743",
   "id": 60,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -7616,7 +7687,7 @@
   "key": "60/DEV"
  },
  "60/OOS": {
-  "run_id": "b831d2a3b7002fc9",
+  "run_id": "eacfb04978181aba",
   "id": 60,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -7680,7 +7751,7 @@
   "key": "60/OOS"
  },
  "61/DEV": {
-  "run_id": "1be9c285c1accea3",
+  "run_id": "3e1a70424158d1aa",
   "id": 61,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -7744,7 +7815,7 @@
   "key": "61/DEV"
  },
  "61/OOS": {
-  "run_id": "47235e37e77e92f3",
+  "run_id": "0639f94c8e9d3758",
   "id": 61,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -7808,7 +7879,7 @@
   "key": "61/OOS"
  },
  "62/DEV": {
-  "run_id": "fc446e4362a4064d",
+  "run_id": "571264423c32759b",
   "id": 62,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -7872,7 +7943,7 @@
   "key": "62/DEV"
  },
  "62/OOS": {
-  "run_id": "38b48753918d45ae",
+  "run_id": "a641c98df5d8c5ea",
   "id": 62,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -7936,7 +8007,7 @@
   "key": "62/OOS"
  },
  "63/DEV": {
-  "run_id": "a0e8c84b28e06c90",
+  "run_id": "3638eb52122b0f7a",
   "id": 63,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -8000,7 +8071,7 @@
   "key": "63/DEV"
  },
  "63/OOS": {
-  "run_id": "363c3376e632b0f0",
+  "run_id": "655c6b936203d3a0",
   "id": 63,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -8064,7 +8135,7 @@
   "key": "63/OOS"
  },
  "64/DEV": {
-  "run_id": "f0493749c111c075",
+  "run_id": "a2c6b62bfd23600b",
   "id": 64,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -8128,7 +8199,7 @@
   "key": "64/DEV"
  },
  "64/OOS": {
-  "run_id": "fcdabb90dc3f911d",
+  "run_id": "2f558ab2e28aa107",
   "id": 64,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -8192,7 +8263,7 @@
   "key": "64/OOS"
  },
  "65/DEV": {
-  "run_id": "21b1d3795b5045fc",
+  "run_id": "8e2784634a001d8d",
   "id": 65,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -8256,7 +8327,7 @@
   "key": "65/DEV"
  },
  "65/OOS": {
-  "run_id": "dbc52903345e1420",
+  "run_id": "f6208513f3b8d24e",
   "id": 65,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -8320,7 +8391,7 @@
   "key": "65/OOS"
  },
  "66/DEV": {
-  "run_id": "8dcf3c24d7dddc99",
+  "run_id": "32f54d8b0785a341",
   "id": 66,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -8384,7 +8455,7 @@
   "key": "66/DEV"
  },
  "66/OOS": {
-  "run_id": "bbaa090ebe0de9c4",
+  "run_id": "c45a86f71b315063",
   "id": 66,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -8448,7 +8519,7 @@
   "key": "66/OOS"
  },
  "67/DEV": {
-  "run_id": "89e56211b6dff829",
+  "run_id": "6b38c4a024650fec",
   "id": 67,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -8512,7 +8583,7 @@
   "key": "67/DEV"
  },
  "67/OOS": {
-  "run_id": "cb0cb05a464a71a6",
+  "run_id": "e8c65ce81d171043",
   "id": 67,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -8576,7 +8647,7 @@
   "key": "67/OOS"
  },
  "68/DEV": {
-  "run_id": "566f7704702e9e22",
+  "run_id": "2428c17be7478c76",
   "id": 68,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -8640,7 +8711,7 @@
   "key": "68/DEV"
  },
  "68/OOS": {
-  "run_id": "71c8065dbfb6a3b4",
+  "run_id": "946f9b7dc04ef1c8",
   "id": 68,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -8704,7 +8775,7 @@
   "key": "68/OOS"
  },
  "69/DEV": {
-  "run_id": "fc1d5bce9348e063",
+  "run_id": "a91e48cb6df6b2b1",
   "id": 69,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -8768,7 +8839,7 @@
   "key": "69/DEV"
  },
  "69/OOS": {
-  "run_id": "ecdabe0aa4f1156a",
+  "run_id": "1269e8c1e575cfdb",
   "id": 69,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -8832,7 +8903,7 @@
   "key": "69/OOS"
  },
  "70/DEV": {
-  "run_id": "1b3cefff7cb4c809",
+  "run_id": "73f2443547391054",
   "id": 70,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -8896,7 +8967,7 @@
   "key": "70/DEV"
  },
  "70/OOS": {
-  "run_id": "c21ce61a731d4f47",
+  "run_id": "8efb05bef4951f72",
   "id": 70,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -8960,7 +9031,7 @@
   "key": "70/OOS"
  },
  "71/DEV": {
-  "run_id": "12eb4fa44ec0279c",
+  "run_id": "0df31966cb9b0fb4",
   "id": 71,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -9024,7 +9095,7 @@
   "key": "71/DEV"
  },
  "71/OOS": {
-  "run_id": "71cc0d8be82dd799",
+  "run_id": "81af1ef8eaccd80d",
   "id": 71,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -9088,7 +9159,7 @@
   "key": "71/OOS"
  },
  "72/DEV": {
-  "run_id": "37795d51bc86d487",
+  "run_id": "91ad34d9ffabc027",
   "id": 72,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -9152,7 +9223,7 @@
   "key": "72/DEV"
  },
  "72/OOS": {
-  "run_id": "31e5e93181d8e7d0",
+  "run_id": "17d530b5abdd5ecd",
   "id": 72,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -9216,7 +9287,7 @@
   "key": "72/OOS"
  },
  "73/DEV": {
-  "run_id": "52e030247c720ace",
+  "run_id": "9ab125d08e484078",
   "id": 73,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -9280,7 +9351,7 @@
   "key": "73/DEV"
  },
  "73/OOS": {
-  "run_id": "6c3849301aef820a",
+  "run_id": "892eb8bc31040685",
   "id": 73,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -9344,7 +9415,7 @@
   "key": "73/OOS"
  },
  "74/DEV": {
-  "run_id": "709bf3d6de6963f8",
+  "run_id": "264aac8c2f613a53",
   "id": 74,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -9408,7 +9479,7 @@
   "key": "74/DEV"
  },
  "74/OOS": {
-  "run_id": "465171d521bd295b",
+  "run_id": "ce0385293f3e501d",
   "id": 74,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -9472,7 +9543,7 @@
   "key": "74/OOS"
  },
  "75/DEV": {
-  "run_id": "7ae64d5e5d712558",
+  "run_id": "a0c7037ea1a62b9b",
   "id": 75,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
@@ -9536,7 +9607,7 @@
   "key": "75/DEV"
  },
  "75/OOS": {
-  "run_id": "3673978700359fbe",
+  "run_id": "8f57ab21aa69afeb",
   "id": 75,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -9600,7 +9671,7 @@
   "key": "75/OOS"
  },
  "76/DEV": {
-  "run_id": "ab96ed1346424043",
+  "run_id": "3c3a8e24c3b2c5e6",
   "id": 76,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -9664,7 +9735,7 @@
   "key": "76/DEV"
  },
  "76/OOS": {
-  "run_id": "97f176794d8e37ea",
+  "run_id": "5265b28f560b2c97",
   "id": 76,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -9728,7 +9799,7 @@
   "key": "76/OOS"
  },
  "77/DEV": {
-  "run_id": "921350a6d5fc59b2",
+  "run_id": "4bb537adc5385733",
   "id": 77,
   "segment": "DEV",
   "symbol": "JUPUSDT",
@@ -9792,7 +9863,7 @@
   "key": "77/DEV"
  },
  "77/OOS": {
-  "run_id": "43b7ffd26ef53120",
+  "run_id": "59c343f107924e0d",
   "id": 77,
   "segment": "OOS",
   "symbol": "JUPUSDT",
@@ -9856,7 +9927,7 @@
   "key": "77/OOS"
  },
  "78/DEV": {
-  "run_id": "fe1991e4c9939328",
+  "run_id": "c3de81cfc00c3315",
   "id": 78,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -9920,7 +9991,7 @@
   "key": "78/DEV"
  },
  "78/OOS": {
-  "run_id": "846ec917074427de",
+  "run_id": "185cb48c08e99e3c",
   "id": 78,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -9984,7 +10055,7 @@
   "key": "78/OOS"
  },
  "79/DEV": {
-  "run_id": "60f16dbba248bbb2",
+  "run_id": "1c1fb7c29d7b46fa",
   "id": 79,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -10048,7 +10119,7 @@
   "key": "79/DEV"
  },
  "79/OOS": {
-  "run_id": "75b686713b2dbb21",
+  "run_id": "907fb04f9bb17441",
   "id": 79,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -10112,7 +10183,7 @@
   "key": "79/OOS"
  },
  "80/DEV": {
-  "run_id": "8b84cc5685d45fc9",
+  "run_id": "ee28913096f65635",
   "id": 80,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -10176,7 +10247,7 @@
   "key": "80/DEV"
  },
  "80/OOS": {
-  "run_id": "64bd611cf40a8d31",
+  "run_id": "3c354bd200d38724",
   "id": 80,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -10240,7 +10311,7 @@
   "key": "80/OOS"
  },
  "81/DEV": {
-  "run_id": "11c4baf3008b3e40",
+  "run_id": "97fbf434d93d0cdf",
   "id": 81,
   "segment": "DEV",
   "symbol": "SOLUSDT",
@@ -10299,6 +10370,9 @@
    "return_pct": 6440.564270218053,
    "segment": "DEV",
    "slippage_bps_per_side": 0.9950000000000001,
+   "spread_env_range_bars": 53769,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 81,
    "symbol": "SOLUSDT",
    "timeframe": "1h",
@@ -10308,7 +10382,7 @@
   "key": "81/DEV"
  },
  "81/OOS": {
-  "run_id": "1ff6102761175a7c",
+  "run_id": "c974863bb48a278b",
   "id": 81,
   "segment": "OOS",
   "symbol": "SOLUSDT",
@@ -10367,6 +10441,9 @@
    "return_pct": 183.10441670565453,
    "segment": "OOS",
    "slippage_bps_per_side": 0.9950000000000001,
+   "spread_env_range_bars": 53769,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 81,
    "symbol": "SOLUSDT",
    "timeframe": "1h",
@@ -10376,7 +10453,7 @@
   "key": "81/OOS"
  },
  "82/DEV": {
-  "run_id": "43303bde7ccc05af",
+  "run_id": "e3f2517cae691160",
   "id": 82,
   "segment": "DEV",
   "symbol": "BTCUSDT",
@@ -10435,6 +10512,9 @@
    "return_pct": 2.4087454724320482e+58,
    "segment": "DEV",
    "slippage_bps_per_side": 0.5,
+   "spread_env_range_bars": 60777,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 82,
    "symbol": "BTCUSDT",
    "timeframe": "1h",
@@ -10444,7 +10524,7 @@
   "key": "82/DEV"
  },
  "82/OOS": {
-  "run_id": "f2f0628024b793b1",
+  "run_id": "5d526ed860ee6fe4",
   "id": 82,
   "segment": "OOS",
   "symbol": "BTCUSDT",
@@ -10503,6 +10583,9 @@
    "return_pct": -1.2138233962544182e+16,
    "segment": "OOS",
    "slippage_bps_per_side": 0.5,
+   "spread_env_range_bars": 60777,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 82,
    "symbol": "BTCUSDT",
    "timeframe": "1h",
@@ -10512,13 +10595,14 @@
   "key": "82/OOS"
  },
  "83/DEV": {
-  "run_id": "46206c65ced080b8",
+  "run_id": "67f08389b3e805e9",
   "id": 83,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": 1039.888,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": 1668.2796026892327,
    "boot_ci_hi": 0.009953070254730332,
    "boot_ci_lo": -0.004218847523153226,
    "boot_mean_r": 0.0020034784492750056,
@@ -10537,7 +10621,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": -1025.520759434307,
+   "excess_pct": -1653.9123621235397,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 1867.6615982229391,
    "final_equity": 11436.7240565693,
@@ -10573,7 +10657,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 83,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": 405.0909092645282,
    "win_rate": 46.400000000000006
@@ -10581,13 +10665,14 @@
   "key": "83/DEV"
  },
  "83/OOS": {
-  "run_id": "7fab571089dcc638",
+  "run_id": "ccab198ae43531f1",
   "id": 83,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": -29.09450631106654,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": -24.38305492633471,
    "boot_ci_hi": 0.016781434159453636,
    "boot_ci_lo": -0.004258552030165182,
    "boot_mean_r": 0.005983997363186321,
@@ -10606,7 +10691,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": 61.53561987058916,
+   "excess_pct": 56.82416848585733,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 984.7353833482895,
    "final_equity": 13244.111355952262,
@@ -10642,7 +10727,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 83,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": 157.8873457498941,
    "win_rate": 50.943396226415096
@@ -10650,13 +10735,14 @@
   "key": "83/OOS"
  },
  "84/DEV": {
-  "run_id": "a7320b9489ef4a93",
+  "run_id": "2ea6364db738dd68",
   "id": 84,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": 1039.888,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": 1668.2796026892327,
    "boot_ci_hi": -0.00015926621231244248,
    "boot_ci_lo": -0.002129730128333806,
    "boot_mean_r": -0.0011634955799257032,
@@ -10675,7 +10761,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": -1135.6659185558233,
+   "excess_pct": -1764.057521245056,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 10887.499149833922,
    "final_equity": 422.2081444176602,
@@ -10711,7 +10797,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 84,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": null,
    "win_rate": 44.42361761949391
@@ -10719,13 +10805,14 @@
   "key": "84/DEV"
  },
  "84/OOS": {
-  "run_id": "e898ad4b562703a7",
+  "run_id": "d5388afc96e39f2c",
   "id": 84,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": -29.09450631106654,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": -24.38305492633471,
    "boot_ci_hi": -0.00025378979204765905,
    "boot_ci_lo": -0.0034869223543185553,
    "boot_mean_r": -0.001769864768351399,
@@ -10744,7 +10831,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": -30.462788582664622,
+   "excess_pct": -35.174239967396446,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 5196.544951104655,
    "final_equity": 4044.2705106268836,
@@ -10780,83 +10867,15 @@
    "segment": "OOS",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 84,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": null,
    "win_rate": 36.285097192224626
   },
   "key": "84/OOS"
  },
- "85/DEV": {
-  "run_id": "dff8be579b3e6a87",
-  "id": 85,
-  "segment": "DEV",
-  "symbol": "HYPEUSDT",
-  "tf": "1h",
-  "metrics": {
-   "bh_return_pct": 35.30415008527572,
-   "boot_ci_hi": 0.41447580156292907,
-   "boot_ci_lo": 0.07208898809526268,
-   "boot_mean_r": 0.22204360765512657,
-   "boot_n": 2000,
-   "boot_small_sample": false,
-   "boot_t_stat": 2.2444028610738265,
-   "boot_trades_n": 127,
-   "conc_top5_share_pct": 81.70710338213202,
-   "cost_bp_roundtrip": 11.99,
-   "cost_on_real_notional_usdt": 348.58304660290315,
-   "cost_source": "measured (SOLUSDT)",
-   "cost_symbols_resolved": [
-    "HYPEUSDT",
-    "SOLUSDT"
-   ],
-   "excess_pct": -8.94705887574776,
-   "fee_bps_per_side": 5.0,
-   "fees_paid_usdt": 1922.1162374295432,
-   "final_equity": 12635.709120952797,
-   "funding_charged": true,
-   "funding_paid_usdt": 433.6994642379553,
-   "gross_loss_usdt": 2062.218405259277,
-   "gross_profit_usdt": 5131.6269904500405,
-   "implied_notional_x_max": 267.2416886546258,
-   "implied_notional_x_median": 23.591081702726633,
-   "init_equity": 10000.0,
-   "max_dd_pct": -3.1068859794395,
-   "n_exits_end": 0,
-   "n_exits_reverse": 0,
-   "n_exits_signal": 127,
-   "n_exits_stop": 0,
-   "n_exits_target": 0,
-   "n_exits_time": 0,
-   "n_periods_green": 3,
-   "n_settlements": 0,
-   "n_signals": 2965,
-   "n_skipped_gap_entries": 0,
-   "n_trades": 127,
-   "net_without_top5_pct": 5.614837392689106,
-   "pack_conventions": false,
-   "pack_cost_constant": 5.5e-05,
-   "pack_cost_per_side_bps": 0.55,
-   "pack_cost_roundtrip_bps": 2.2,
-   "period1_pct": 7.5705830849702505,
-   "period2_pct": 14.959750857371956,
-   "period3_pct": 2.178678859156502,
-   "pf_without_top5": 1.2722717137219595,
-   "pnl_identity_resid": -1.0913936421275139e-11,
-   "profit_factor": 2.488401314508128,
-   "return_pct": 26.35709120952796,
-   "segment": "DEV",
-   "slippage_bps_per_side": 0.9950000000000001,
-   "strategy_id": 85,
-   "symbol": "HYPEUSDT",
-   "timeframe": "1h",
-   "top5_pnl_share": 81.70710338213202,
-   "win_rate": 56.69291338582677
-  },
-  "key": "85/DEV"
- },
  "85/OOS": {
-  "run_id": "06774c0e8e6fcc26",
+  "run_id": "0dfe18bd3555cd21",
   "id": 85,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
@@ -10915,6 +10934,9 @@
    "return_pct": 401.14893016495216,
    "segment": "OOS",
    "slippage_bps_per_side": 0.9950000000000001,
+   "spread_env_range_bars": 12510,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 85,
    "symbol": "HYPEUSDT",
    "timeframe": "1h",
@@ -10924,7 +10946,7 @@
   "key": "85/OOS"
  },
  "86/DEV": {
-  "run_id": "0adc4cbb5ea1caf9",
+  "run_id": "c15c5b0f69129a96",
   "id": 86,
   "segment": "DEV",
   "symbol": "SUIUSDT",
@@ -10983,6 +11005,9 @@
    "return_pct": -0.5155420721851267,
    "segment": "DEV",
    "slippage_bps_per_side": 6.285,
+   "spread_env_range_bars": 24053,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 86,
    "symbol": "SUIUSDT",
    "timeframe": "1h",
@@ -10992,7 +11017,7 @@
   "key": "86/DEV"
  },
  "86/OOS": {
-  "run_id": "f2deefe910c842c5",
+  "run_id": "7cea0abe97805aef",
   "id": 86,
   "segment": "OOS",
   "symbol": "SUIUSDT",
@@ -11051,6 +11076,9 @@
    "return_pct": -5.172325365764974,
    "segment": "OOS",
    "slippage_bps_per_side": 6.285,
+   "spread_env_range_bars": 24053,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 86,
    "symbol": "SUIUSDT",
    "timeframe": "1h",
@@ -11060,13 +11088,14 @@
   "key": "86/OOS"
  },
  "87/DEV": {
-  "run_id": "795217d38f237c10",
+  "run_id": "fea8e996725bd8e2",
   "id": 87,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": 1039.888,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": 1668.2796026892327,
    "boot_ci_hi": -0.0021375174927350535,
    "boot_ci_lo": -0.01786998170429052,
    "boot_mean_r": -0.009025293488851649,
@@ -11085,7 +11114,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": -1111.5202692219198,
+   "excess_pct": -1739.9118719111525,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 103.68421208112457,
    "final_equity": 2836.7730778080113,
@@ -11121,7 +11150,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 87,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": null,
    "win_rate": 41.269841269841265
@@ -11129,13 +11158,14 @@
   "key": "87/DEV"
  },
  "87/OOS": {
-  "run_id": "257ef1cf1b118bce",
+  "run_id": "f12c97821473a0b9",
   "id": 87,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": -29.09450631106654,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": -24.38305492633471,
    "boot_ci_hi": 0.0005285510544139438,
    "boot_ci_lo": -0.025786229240165284,
    "boot_mean_r": -0.010155721285002193,
@@ -11154,7 +11184,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": -15.331131286382401,
+   "excess_pct": -20.04258267111423,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 168.75700476230688,
    "final_equity": 5557.436240255106,
@@ -11190,153 +11220,15 @@
    "segment": "OOS",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 87,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": null,
    "win_rate": 47.16981132075472
   },
   "key": "87/OOS"
  },
- "88/DEV": {
-  "run_id": "2afdfe080f5f207b",
-  "id": 88,
-  "segment": "DEV",
-  "symbol": "BTCUSDT",
-  "tf": "1h",
-  "metrics": {
-   "bh_return_pct": 2737.5,
-   "boot_ci_hi": 0.002962279567457196,
-   "boot_ci_lo": -0.009235207484148064,
-   "boot_mean_r": -0.003113073248721828,
-   "boot_n": 2000,
-   "boot_small_sample": false,
-   "boot_t_stat": -1.016266338669013,
-   "boot_trades_n": 2433,
-   "conc_top5_share_pct": 210.1375669871692,
-   "cost_bp_roundtrip": 22.57,
-   "cost_source": "measured (JUPUSDT)",
-   "cost_symbols_resolved": [
-    "BTCUSDT",
-    "ETHUSDT",
-    "HYPEUSDT",
-    "JUPUSDT",
-    "SOLUSDT",
-    "SUIUSDT"
-   ],
-   "excess_pct": -2833.535823646558,
-   "fee_bps_per_side": 5.0,
-   "fees_paid_usdt": 178.81149868855815,
-   "final_equity": 396.4176353441756,
-   "funding_charged": true,
-   "funding_paid_usdt": 9817.478161926902,
-   "gross_loss_usdt": 1291.721948221395,
-   "gross_profit_usdt": 1505.6177454924405,
-   "init_equity": 10000.0,
-   "max_dd_pct": -96.57784299462642,
-   "n_exits_end": 0,
-   "n_exits_reverse": 0,
-   "n_exits_signal": 2433,
-   "n_exits_stop": 0,
-   "n_exits_target": 0,
-   "n_exits_time": 0,
-   "n_periods_green": 0,
-   "n_settlements": 0,
-   "n_signals": 53142,
-   "n_skipped_gap_entries": 0,
-   "n_trades": 2433,
-   "net_without_top5_pct": -2.355796270021369,
-   "pack_conventions": false,
-   "pack_cost_constant": 5.5e-05,
-   "pack_cost_per_side_bps": 0.55,
-   "pack_cost_roundtrip_bps": 2.2,
-   "period1_pct": -75.97074211175018,
-   "period2_pct": -72.01560883605829,
-   "period3_pct": -41.04824406725353,
-   "pf_without_top5": 0.8176235781032346,
-   "pnl_identity_resid": 3.2741809263825417e-11,
-   "profit_factor": 1.1655896592649557,
-   "return_pct": -96.03582364655824,
-   "segment": "DEV",
-   "slippage_bps_per_side": 6.285,
-   "strategy_id": 88,
-   "symbol": "ETHUSDT",
-   "timeframe": "1h",
-   "top5_pnl_share": 210.1375669871692,
-   "win_rate": 41.84134812988081
-  },
-  "key": "88/DEV"
- },
- "88/OOS": {
-  "run_id": "13cc7795bda9884b",
-  "id": 88,
-  "segment": "OOS",
-  "symbol": "BTCUSDT",
-  "tf": "1h",
-  "metrics": {
-   "bh_return_pct": -40.66868586647171,
-   "boot_ci_hi": 0.04196229324689155,
-   "boot_ci_lo": -0.009500714352535303,
-   "boot_mean_r": 0.009576294876229942,
-   "boot_n": 2000,
-   "boot_small_sample": false,
-   "boot_t_stat": 0.6900598133078537,
-   "boot_trades_n": 368,
-   "conc_top5_share_pct": 173.28829857937984,
-   "cost_bp_roundtrip": 22.57,
-   "cost_source": "measured (JUPUSDT)",
-   "cost_symbols_resolved": [
-    "BTCUSDT",
-    "ETHUSDT",
-    "HYPEUSDT",
-    "JUPUSDT",
-    "SOLUSDT",
-    "SUIUSDT"
-   ],
-   "excess_pct": 27.004939642543416,
-   "fee_bps_per_side": 5.0,
-   "fees_paid_usdt": 115.50429208023697,
-   "final_equity": 8633.62537760717,
-   "funding_charged": true,
-   "funding_paid_usdt": 1681.8385237638965,
-   "gross_loss_usdt": 609.3209508006688,
-   "gross_profit_usdt": 924.7848521717133,
-   "init_equity": 10000.0,
-   "max_dd_pct": -21.018879337412177,
-   "n_exits_end": 0,
-   "n_exits_reverse": 0,
-   "n_exits_signal": 368,
-   "n_exits_stop": 0,
-   "n_exits_target": 0,
-   "n_exits_time": 0,
-   "n_periods_green": 1,
-   "n_settlements": 0,
-   "n_signals": 8799,
-   "n_skipped_gap_entries": 0,
-   "n_trades": 368,
-   "net_without_top5_pct": -2.3119812594697136,
-   "pack_conventions": false,
-   "pack_cost_constant": 5.5e-05,
-   "pack_cost_per_side_bps": 0.55,
-   "pack_cost_roundtrip_bps": 2.2,
-   "period1_pct": 6.361492752747777,
-   "period2_pct": -13.268268739822343,
-   "period3_pct": -6.409716925778364,
-   "pf_without_top5": 0.6205642926881655,
-   "pnl_identity_resid": 2.205524651799351e-11,
-   "profit_factor": 1.5177302716351933,
-   "return_pct": -13.663746223928296,
-   "segment": "OOS",
-   "slippage_bps_per_side": 6.285,
-   "strategy_id": 88,
-   "symbol": "ETHUSDT",
-   "timeframe": "1h",
-   "top5_pnl_share": 173.28829857937984,
-   "win_rate": 37.22826086956522
-  },
-  "key": "88/OOS"
- },
  "89/DEV": {
-  "run_id": "c7f723c1d289476d",
+  "run_id": "48a06b7850a15c31",
   "id": 89,
   "segment": "DEV",
   "symbol": "ETHUSDT",
@@ -11395,6 +11287,9 @@
    "return_pct": 1.480241606373412e+30,
    "segment": "DEV",
    "slippage_bps_per_side": 0.5,
+   "spread_env_range_bars": 244367,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 89,
    "symbol": "ETHUSDT",
    "timeframe": "15m",
@@ -11404,7 +11299,7 @@
   "key": "89/DEV"
  },
  "89/OOS": {
-  "run_id": "d3e3ce91bbfe1f80",
+  "run_id": "87dc0fe82393f371",
   "id": 89,
   "segment": "OOS",
   "symbol": "ETHUSDT",
@@ -11463,6 +11358,9 @@
    "return_pct": 7831.0517168373935,
    "segment": "OOS",
    "slippage_bps_per_side": 0.5,
+   "spread_env_range_bars": 244367,
+   "spread_envelope_built": true,
+   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
    "strategy_id": 89,
    "symbol": "ETHUSDT",
    "timeframe": "15m",
@@ -11472,13 +11370,14 @@
   "key": "89/OOS"
  },
  "90/DEV": {
-  "run_id": "d0a5df752caf9509",
+  "run_id": "b8dd7d827929db21",
   "id": 90,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": 1039.888,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": 1668.2796026892327,
    "boot_ci_hi": 0.010722561045816455,
    "boot_ci_lo": -0.005428938909448042,
    "boot_mean_r": 0.0033273729599939852,
@@ -11497,7 +11396,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": -1007.8099218966153,
+   "excess_pct": -1636.2015245858481,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 1368.9035880693436,
    "final_equity": 13207.807810338461,
@@ -11533,7 +11432,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 90,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": 201.22143651686332,
    "win_rate": 56.451612903225815
@@ -11541,13 +11440,14 @@
   "key": "90/DEV"
  },
  "90/OOS": {
-  "run_id": "ff9398fac6aa06db",
+  "run_id": "08b80be3a6385175",
   "id": 90,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
-   "bh_return_pct": -29.09450631106654,
+   "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+   "bh_return_pct": -24.38305492633471,
    "boot_ci_hi": 0.012381106976255635,
    "boot_ci_lo": -0.002337220114200822,
    "boot_mean_r": 0.0033576685616479407,
@@ -11566,7 +11466,7 @@
     "SOLUSDT",
     "SUIUSDT"
    ],
-   "excess_pct": 45.77546015895729,
+   "excess_pct": 41.06400877422546,
    "fee_bps_per_side": 5.0,
    "fees_paid_usdt": 636.542573733498,
    "final_equity": 11668.095384789074,
@@ -11602,7 +11502,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 6.285,
    "strategy_id": 90,
-   "symbol": "BTCUSDT",
+   "symbol": "BASKET6",
    "timeframe": "1h",
    "top5_pnl_share": 226.3289998448041,
    "win_rate": 58.490566037735846

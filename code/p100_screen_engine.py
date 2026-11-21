@@ -114,13 +114,29 @@ class SpreadBook:
         self.tf = sig["tf"]
         self.s = np.asarray(sig["s"], float)
         self.s_open = np.asarray(sig["s_open"], float)
-        # N5 FIX (2026-11-21): the spread's INTRABAR range, built by
-        # run_pair from the legs' own high/low (conservative envelope over
-        # every leg combination). Used by the repo stop convention; absent
-        # (pack parity mode) it degrades to the open, which keeps the old
-        # close-only behaviour impossible to re-enter accidentally.
-        self.s_high = np.asarray(sig.get("s_high", sig["s_open"]), float)
-        self.s_low = np.asarray(sig.get("s_low", sig["s_open"]), float)
+        # N5 FIX + R3 (2026-11-21): the intrabar envelope is computed PER BAR
+        # AT THE HELD ENTRY BETA inside run() from the legs' own log high/low
+        # arrays -- the book holds beta at entry, so the stop must test the
+        # range of the portfolio it actually carries, not the per-bar-beta
+        # portfolio of a re-hedged spread. Repo mode REQUIRES the leg arrays
+        # (run_pair refuses a spread it cannot build them for); pack parity
+        # mode keeps the pack's close-only detection and needs none.
+        self.pack_conventions = bool(pack_conventions)
+        if not self.pack_conventions:
+            for k in ("leg_a_log_hi", "leg_a_log_lo",
+                      "leg_b_log_hi", "leg_b_log_lo"):
+                if k not in sig:
+                    raise ValueError(
+                        "SpreadBook repo mode requires the leg log high/low "
+                        f"arrays ({k} missing) -- run_pair refuses a spread "
+                        "it cannot build an envelope for (R1 fix)")
+            self.leg_a_log_hi = np.asarray(sig["leg_a_log_hi"], float)
+            self.leg_a_log_lo = np.asarray(sig["leg_a_log_lo"], float)
+            self.leg_b_log_hi = np.asarray(sig["leg_b_log_hi"], float)
+            self.leg_b_log_lo = np.asarray(sig["leg_b_log_lo"], float)
+        # R1: the stop model travels with the artifact
+        self.envelope_built = not self.pack_conventions
+        self.env_range_bars = int(sig.get("env_range_bars", 0) or 0)
         self.side_target = np.asarray(sig["side"], float)
         self.stop_s = np.asarray(sig["stop_s"], float)
         self.beta = sig["beta"]
@@ -221,12 +237,14 @@ class SpreadBook:
                     self.cash -= cost
                     self.funding_paid += cost
 
-            # 2. the stop on the spread (N5 FIX): under the REPO convention
-            #    the stop is detected INTRABAR on the spread's envelope range
-            #    (built from the legs' own high/low), stop-first, with a gap
-            #    through filled at the open -- the same rules as every
-            #    directional book. Under pack_conventions the pack's own
-            #    close-detection / next-open-fill semantics are kept.
+            # 2. the stop on the spread (N5 + R3 fix): under the REPO
+            #    convention the stop is detected INTRABAR on the spread's
+            #    envelope AT THE HELD ENTRY BETA (the four leg-combination
+            #    corners of log(A) - beta_entry*log(B), conservative for any
+            #    beta sign), stop-first, gap-through filled at the open --
+            #    the same rules as every directional book. Under
+            #    pack_conventions the pack's own close-detection /
+            #    next-open-fill semantics are kept (declared optimistic).
             stopped = False
             if self.pos is not None and j > self.pos["entry_idx"]:
                 if self.pack_conventions:
@@ -240,18 +258,25 @@ class SpreadBook:
                         stopped = True
                 else:
                     side, stop = self.pos["side"], self.pos["stop_s"]
+                    b = self.pos["beta"]
+                    la_h, la_l = self.leg_a_log_hi[j], self.leg_a_log_lo[j]
+                    lb_h, lb_l = self.leg_b_log_hi[j], self.leg_b_log_lo[j]
+                    c_hi = max(la_h - b * lb_l, la_h - b * lb_h,
+                               la_l - b * lb_l, la_l - b * lb_h)
+                    c_lo = min(la_h - b * lb_l, la_h - b * lb_h,
+                               la_l - b * lb_l, la_l - b * lb_h)
                     if side == 1:
                         if self.s_open[j] <= stop:
                             self._close(j, self.s_open[j], "stop_gap")
                             stopped = True
-                        elif self.s_low[j] <= stop:
+                        elif c_lo <= stop:
                             self._close(j, stop, "stop")
                             stopped = True
                     else:
                         if self.s_open[j] >= stop:
                             self._close(j, self.s_open[j], "stop_gap")
                             stopped = True
-                        elif self.s_high[j] >= stop:
+                        elif c_hi >= stop:
                             self._close(j, stop, "stop")
                             stopped = True
 
@@ -357,12 +382,25 @@ def run_pair(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
     df = pd.DataFrame({"timestamp": ts, "open": sig["s_open"],
                        "high": sig["s_open"], "low": sig["s_open"],
                        "close": sig["s"]})
-    # N5 FIX (2026-11-21): the spread's INTRABAR range, built from the legs'
-    # own high/low. s = log(A) - beta*log(B); the envelope takes the extremes
-    # over the four leg-combination candidates, conservative for ANY beta
-    # sign. These keys decorate the signal dict ENGINE-SIDE -- the pack's
-    # module is untouched (pinned by manifest).
-    try:
+    # N5 FIX (2026-11-21) + R1/R3 (second re-audit): the spread's INTRABAR
+    # envelope is built from the legs' own high/low and applied AT THE HELD
+    # ENTRY BETA inside SpreadBook (the book does not hold the per-bar
+    # Kalman/rolling beta, so a per-bar-beta envelope tests a portfolio the
+    # book is not carrying). The builder FAILS LOUD: no bare-except fallback
+    # -- the old silent degrade landed on an open-only stop model that was
+    # WEAKER than the pack parity mode it claimed to equal, and pair 88 hit
+    # it by construction (its synthetic ALT-BASKET leg has no kline file).
+    # A spread cell that cannot build an envelope is refused, not degraded.
+    if not pack_conventions:
+        for leg in sig["legs"]:
+            _p = os.path.join(ROOT, "data", TF_DIRS[tf], f"{leg}_{tf}.csv")
+            if not os.path.exists(_p):
+                raise ValueError(
+                    f"run_pair sid {sid}: leg {leg} has no kline file "
+                    f"({_p}; synthetic legs like ALT-BASKET have no intrabar "
+                    "range) -- the repo intrabar stop convention cannot be "
+                    "applied to this spread; the cell is refused (fail "
+                    "loud, R1 fix)")
         ka = load_klines(sig["legs"][0], tf).set_index("timestamp")
         kb = load_klines(sig["legs"][1], tf).set_index("timestamp")
         ts_idx = pd.DatetimeIndex(pd.to_datetime(pd.Series(list(sig["ts"])), utc=True))
@@ -370,25 +408,16 @@ def run_pair(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
         la_ = ka["low"].reindex(ts_idx).to_numpy(float)
         hb = kb["high"].reindex(ts_idx).to_numpy(float)
         lb_ = kb["low"].reindex(ts_idx).to_numpy(float)
-        beta = np.asarray(sig["beta"], float)
-        loga_h, loga_l = np.log(ha), np.log(la_)
-        logb_h, logb_l = np.log(hb), np.log(lb_)
-        cands = np.stack([
-            loga_h - beta * logb_l, loga_h - beta * logb_h,
-            loga_l - beta * logb_l, loga_l - beta * logb_h,
-        ])
-        env_hi = np.nanmax(cands, axis=0)
-        env_lo = np.nanmin(cands, axis=0)
-        s_open = np.asarray(sig["s_open"], float)
         sig = dict(sig)
-        sig["s_high"] = np.where(np.isfinite(env_hi), env_hi, s_open)
-        sig["s_low"] = np.where(np.isfinite(env_lo), env_lo, s_open)
-        df["high"] = sig["s_high"]
-        df["low"] = sig["s_low"]
-    except Exception:
-        # envelope unavailable: degrade to the pack's zero-range frame
-        # (declared; the stop model then equals the pack parity mode)
-        pass
+        sig["leg_a_log_hi"] = np.log(ha)
+        sig["leg_a_log_lo"] = np.log(la_)
+        sig["leg_b_log_hi"] = np.log(hb)
+        sig["leg_b_log_lo"] = np.log(lb_)
+        sig["envelope_built"] = True
+        # R1: how many bars carry a real intrabar range at all (data quality)
+        sig["env_range_bars"] = int(((ha > la_) | (hb > lb_)).sum())
+        df["high"] = sig["s_open"]
+        df["low"] = sig["s_open"]
     book = SpreadBook(sig["legs"], sig, init=init, fee=fee, slip=slip,
                       charge_funding=charge_funding,
                       pack_conventions=pack_conventions)
@@ -554,6 +583,17 @@ def run_basket(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
     b.n_settlements = 0
     b.n_signals = len(trades)
     b.skipped_gap_entries = 0
+    # R2-adjacent fix (2026-11-21, third re-audit round): the BASKET's
+    # benchmark is the EQUAL-WEIGHT buy & hold of its own legs -- the old
+    # code let run_symbol infer the symbol from the first served input
+    # (BTCUSDT) and benchmarked the basket against BTC's buy & hold
+    # (1039.888 on the full window), which is not the basket's passive
+    # alternative. The legs are all declared inputs, so this reads the
+    # served slice under strict mode.
+    b.bh_equal_weight = float(np.mean([
+        buy_and_hold_pct(load_klines(s, sig["tf"]), segment)
+        for s in symbols]))
+    b.bh_benchmark_note = "equal-weight buy & hold of the basket's own legs"
     return b, sig
 
 
@@ -643,9 +683,11 @@ def pack_strategy_map():
 # load_klines / funding_events consult them first, so the engine reads
 # exactly the bytes the artifact hashes.
 _SERVED_INPUTS = {}
+_SERVED_MODE = False      # R2 fix: True once run_symbol registers the slice
 
 
 def _register_served(paths):
+    global _SERVED_MODE
     _SERVED_INPUTS.clear()
     for x in (paths or []):
         try:
@@ -667,11 +709,31 @@ def _register_served(paths):
             raise
         except Exception:
             pass
+    # R2 fix (second re-audit 2026-11-21): once the harness has registered
+    # the slice, the engine is in STRICT mode -- a read that is not in the
+    # map raises instead of silently falling back to the LIVE file. The old
+    # prefer-served fallback left undeclared reads (a second leg, a label
+    # file) outside the cut and outside the run_id. Standalone / selftest
+    # calls that never register keep the live-file behaviour.
+    _SERVED_MODE = bool(paths)
+
+
+def _served_or_fail(p: str) -> str:
+    if _SERVED_MODE:
+        base = os.path.basename(p)
+        served = _SERVED_INPUTS.get(base)
+        if served is None:
+            raise ValueError(
+                f"undeclared input {base}: the engine tried to read a LIVE "
+                "file outside the data cut while serving a run -- declare "
+                "it in the adapter's inputs (R2 fix, strict served mode)")
+        return served
+    return p
 
 
 def load_klines(symbol: str, tf: str):
     p = os.path.join(ROOT, "data", TF_DIRS[tf], f"{symbol}_{tf}.csv")
-    p = _SERVED_INPUTS.get(os.path.basename(p), p)
+    p = _served_or_fail(p)
     df = pd.read_csv(p)
     df.columns = [c.strip().lower() for c in df.columns]
     ts_col = "timestamp" if "timestamp" in df.columns else "open_ts"
@@ -690,7 +752,7 @@ def funding_events(symbol: str, bar_ms: np.ndarray):
     ~2-5x on coarse timeframes. Intraday bars (interval < funding interval) have
     no collision, so their results are unchanged."""
     p = os.path.join(ROOT, "data", "binance_funding", f"{symbol}_funding.json")
-    p = _SERVED_INPUTS.get(os.path.basename(p), p)
+    p = _served_or_fail(p)
     rate = np.zeros(len(bar_ms))
     ev = np.zeros(len(bar_ms), bool)
     if not os.path.exists(p):
@@ -1315,14 +1377,33 @@ def run_symbol(paths, params):
         book, ctx = run_family_a(sid, symbol, tf, segment, fee=fee, slip=slip,
                                  charge_funding=charge_funding,
                                  pack_conventions=pack_conventions)
-    df = load_klines(symbol, tf)
-    bh = buy_and_hold_pct(df, segment)
-    metrics = book_metrics(book, bh_return_pct=bh, rt_bps=rt_bps)
+    if sid in BASKET_IDS:
+        # R2-adjacent fix: the basket's benchmark is its own legs'
+        # equal-weight buy & hold (computed in run_basket from declared
+        # inputs), NOT the first served input's symbol (BTC); the artifact
+        # is labeled BASKET6, the runner's declared binding, not the
+        # inferred first input
+        bh = getattr(book, "bh_equal_weight", None)
+        metrics = book_metrics(book, bh_return_pct=bh, rt_bps=rt_bps)
+        metrics["bh_benchmark"] = getattr(book, "bh_benchmark_note",
+                                          "equal-weight basket legs")
+        symbol = "BASKET6"
+    else:
+        df = load_klines(symbol, tf)
+        bh = buy_and_hold_pct(df, segment)
+        metrics = book_metrics(book, bh_return_pct=bh, rt_bps=rt_bps)
     metrics["strategy_id"] = sid
     metrics["symbol"] = symbol
     metrics["timeframe"] = tf
     metrics["segment"] = segment
     metrics["pack_conventions"] = pack_conventions
+    if sid in SPREAD_IDS:
+        # R1: the stop model and its coverage travel with the artifact
+        metrics["spread_envelope_built"] = bool(getattr(book, "envelope_built", False))
+        metrics["spread_env_range_bars"] = int(getattr(book, "env_range_bars", 0) or 0)
+        metrics["spread_stop_model"] = (
+            "intrabar_leg_envelope_at_entry_beta" if not pack_conventions
+            else "pack_close_only")
     # N9: the RESOLVED gate cost is measured inside the artifact (guard can
     # back it; the flat-11 constant is only a fallback)
     metrics["fee_bps_per_side"] = float(fee_bps)

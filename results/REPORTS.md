@@ -259,3 +259,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `auditfix2_report_2026-11-21.md` | los seis defectos que la re-auditoria (pinnada al SHA) encontro en la ronda 1, todos arreglados: CI de muestra fina None en vez de `ci_high` fabricado (NEW-1, REGLA 0), piso de replicas lee el conteo logrado sin global (NEW-2), coste sobre nocional real al rt resuelto (NEW-3), colision de basenames del slice servido falla alto (NEW-4), centro del vecindario por valor mediano (NEW-5), nota de procedencia con el coste resuelto (NEW-6); selftest 55/55; generacion 3: 180 celdas + gatecal `d590af40751a6002` (metricas bit-identicas a la gen-2) | **OK (strict)** |
+
+## Campana audit-fix ronda 3 (2026-11-21) — R1/R2/R3/R7 de la re-auditoria a fad193a + bonus (B&H de cestas)
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `auditfix3_report_2026-11-21.md` | R1: el sobre intrabar de las puestas FALLA ALTO (la pierna sintetica ALT-BASKET del par ochenta y ocho se RECHAZA, no se degrada; modelo de stop y barras con rango viajan en el artefacto); R2: modo servido ESTRICTO (una lectura no declarada levanta error); R3: el sobre se prueba a la beta DE ENTRADA mantenida; R5 limpio por grep; R6 reconocida; R7 centinela de orden; BONUS encontrado verificando R2: el benchmark de las cestas era el B&H de BTC — ahora igual-ponderado de sus propias piernas (`bh_equal_weight`, artefactos BASKET6); R4 (ledger linealizado re-cobrado) APLAZADA a la campana trades_v2, declarada abierta. Gen-4: ciento setenta y ocho celdas (par ochenta y ocho declarado no medible) + gatecal intacto, sweep todo OK | **OK (strict)** |

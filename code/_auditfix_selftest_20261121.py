@@ -135,45 +135,72 @@ def t_n4():
 
 
 # ───────────────────────────── N5: spread book ────────────────────────────
+def _mk_spread_sig(n, *, s0=0.05, pierce_bar=None, pierce_to=0.02,
+                   gap_bar=None, gap_to=None, beta=1.0):
+    """Log-space synthetic spread: s = log(100) - beta*log(B), base s0.
+    Leg A is flat at 100; leg B's HIGH spikes on pierce_bar so the
+    ENVELOPE (not the close) pierces the given level."""
+    import math
+    ts = [pd.Timestamp("2024-01-01", tz="UTC") + pd.Timedelta(hours=i)
+          for i in range(n)]
+    la_h = np.full(n, math.log(100.0))
+    la_l = np.full(n, math.log(100.0))
+    lb_h = np.full(n, math.log(100.0 * math.exp(-s0)))
+    lb_l = np.full(n, math.log(100.0 * math.exp(-s0)))
+    s = np.full(n, s0)
+    s_open = np.full(n, s0)
+    if pierce_bar is not None:
+        # leg A is flat at log(100) and the test beta is 1 at that bar, so
+        # the envelope low is EXACTLY pierce_to
+        lb_h[pierce_bar] = math.log(100.0) - pierce_to
+    if gap_bar is not None:
+        s_open[gap_bar] = gap_to
+        s[gap_bar] = gap_to
+    side = np.zeros(n)
+    if n > 2:
+        side[1] = 1.0
+        side[2:] = 1.0
+    stop_s = np.full(n, np.nan)
+    if n > 1:
+        stop_s[1] = 0.03
+    beta_arr = (beta if isinstance(beta, np.ndarray) else np.full(n, beta))
+    return dict(s=s, s_open=s_open, side=side, stop_s=stop_s,
+                beta=beta_arr, ts=ts, tf="1h",
+                legs=("AAAUSDT", "BBBUSDT"),
+                leg_a_log_hi=la_h, leg_a_log_lo=la_l,
+                leg_b_log_hi=lb_h, leg_b_log_lo=lb_l,
+                env_range_bars=(1 if pierce_bar is not None else 0))
+
+
 def t_n5(monkeypatch_load_leg):
     import p100_screen_engine as E
     n = 12
-    ts = [pd.Timestamp("2024-01-01", tz="UTC") + pd.Timedelta(hours=i)
-          for i in range(n)]
-    beta = np.full(n, 1.0)
-    s_open = np.full(n, 100.0)
-    s = np.full(n, 100.0)
-    s[3] = 101.0                     # close recovers; the LOW pierced the stop
-    s_high = s.copy()
-    s_low = s.copy()
-    s_low[3] = 90.0                  # intrabar pierce of the stop at 95
-    side = np.zeros(n)
-    side[1] = 1.0                    # long spread decided at bar 1 -> enters bar 2
-    side[2:] = 1.0
-    stop_s = np.full(n, np.nan)
-    stop_s[1] = 95.0
-    sig = dict(s=s, s_open=s_open, s_high=s_high, s_low=s_low, side=side,
-               stop_s=stop_s, beta=beta, ts=ts, tf="1h",
-               legs=("AAAUSDT", "BBBUSDT"))
     zero = dict(bar_ms=np.zeros(1, "int64"), close=np.zeros(1),
                 rate=np.zeros(1), is_fund=np.zeros(1, bool), idx={})
     monkeypatch_load_leg(lambda leg, tf: zero)
+    # intrabar pierce: leg B's HIGH spikes at bar 3 (the CLOSE recovers) --
+    # the envelope must stop where the close-only pack mode would not
+    sig = _mk_spread_sig(n, pierce_bar=3, pierce_to=0.02)
     book = E.SpreadBook(sig["legs"], sig, charge_funding=False)
     book.run(start_idx=0, end_idx=n - 1)
     reasons = [t["reason"] for t in book.trades]
-    check("N5 intrabar stop pierce closes same bar as 'stop' (old code: none)",
+    check("N5 intrabar stop pierce closes same bar as 'stop' (close recovers)",
           "stop" in reasons, str(reasons))
     if any(r == "stop" for r in reasons):
         tstop = next(t for t in book.trades if t["reason"] == "stop")
-        check("N5 intrabar stop fills AT the stop level (95.0)",
-              abs(tstop["exit_s"] - 95.0) < 1e-9, str(tstop["exit_s"]))
+        check("N5 intrabar stop fills AT the stop level (0.03)",
+              abs(tstop["exit_s"] - 0.03) < 1e-9, str(tstop["exit_s"]))
+    check("N5-R1 the stop model travels with the book",
+          book.envelope_built and book.env_range_bars == 1,
+          f"built={book.envelope_built} range_bars={book.env_range_bars}")
     # exit-fee beta: a book with a TIME-VARYING beta must produce trades
     # identical to a book whose beta is constant at the DECISION-bar value --
     # the exit fee bills the notional actually held (entry beta), never the
     # beta at the exit bar.
     beta2 = np.linspace(1.0, 3.0, n)
-    sig2 = dict(sig, beta=beta2)
-    sig_ref = dict(sig, beta=np.full(n, beta2[1]))   # entry decided at bar 1
+    sig2 = _mk_spread_sig(n, pierce_bar=3, pierce_to=0.02, beta=beta2)
+    sig_ref = _mk_spread_sig(n, pierce_bar=3, pierce_to=0.02,
+                             beta=beta2[1])   # entry decided at bar 1
     b2 = E.SpreadBook(sig["legs"], sig2, charge_funding=False)
     b2.run(start_idx=0, end_idx=n - 1)
     br = E.SpreadBook(sig["legs"], sig_ref, charge_funding=False)
@@ -186,26 +213,34 @@ def t_n5(monkeypatch_load_leg):
           "the held notional)", key2 == keyr, f"{key2} vs {keyr}")
 
 
-def t_n5_gap(monkeypatch_load_leg):
+def t_r3_envelope_beta(monkeypatch_load_leg):
+    """R3: the stop tests the envelope AT THE HELD ENTRY BETA. A pierce that
+    exists only under the per-bar (re-hedged) beta must NOT stop the book."""
     import p100_screen_engine as E
-    n = 10
-    ts = [pd.Timestamp("2024-02-01", tz="UTC") + pd.Timedelta(hours=i)
-          for i in range(n)]
-    s_open = np.full(n, 100.0)
-    s = np.full(n, 100.0)
-    s_open[4] = 80.0                 # gap through the stop of 95 at the OPEN
-    s[4] = 80.0
-    s_high = np.maximum(s, s_open)
-    s_low = np.minimum(s, s_open)
-    side = np.ones(n)
-    stop_s = np.full(n, np.nan)
-    stop_s[1] = 95.0
-    sig = dict(s=s, s_open=s_open, s_high=s_high, s_low=s_low, side=side,
-               stop_s=stop_s, beta=np.full(n, 1.0), ts=ts, tf="1h",
-               legs=("AAAUSDT", "BBBUSDT"))
+    n = 12
     zero = dict(bar_ms=np.zeros(1, "int64"), close=np.zeros(1),
                 rate=np.zeros(1), is_fund=np.zeros(1, bool), idx={})
     monkeypatch_load_leg(lambda leg, tf: zero)
+    # held beta = 1.0 -> envelope low = 0.04 (no pierce of the 0.03 stop);
+    # a per-bar beta rising to 3.0 would push the envelope low far below
+    # the stop and fabricate a stop the book is not carrying
+    beta_arr = np.concatenate([np.full(2, 1.0), np.linspace(1.0, 3.0, 10)])
+    sig = _mk_spread_sig(n, pierce_bar=5, pierce_to=0.04, beta=beta_arr)
+    book = E.SpreadBook(sig["legs"], sig, charge_funding=False)
+    book.run(start_idx=0, end_idx=n - 1)
+    reasons = [t["reason"] for t in book.trades]
+    check("R3 the envelope stops at the HELD beta only (no per-bar-beta "
+          "fabricated stop)", "stop" not in reasons and "stop_gap" not in
+          reasons, str(reasons))
+
+
+def t_n5_gap(monkeypatch_load_leg):
+    import p100_screen_engine as E
+    n = 10
+    zero = dict(bar_ms=np.zeros(1, "int64"), close=np.zeros(1),
+                rate=np.zeros(1), is_fund=np.zeros(1, bool), idx={})
+    monkeypatch_load_leg(lambda leg, tf: zero)
+    sig = _mk_spread_sig(n, gap_bar=4, gap_to=0.01)
     book = E.SpreadBook(sig["legs"], sig, charge_funding=False)
     book.run(start_idx=0, end_idx=n - 1)
     reasons = [t["reason"] for t in book.trades]
@@ -217,23 +252,11 @@ def t_n5_funding_order(monkeypatch_load_leg):
     """N11: a stop-out on a settlement bar still pays that settlement's funding."""
     import p100_screen_engine as E
     n = 10
-    ts = [pd.Timestamp("2024-03-01", tz="UTC") + pd.Timedelta(hours=i)
-          for i in range(n)]
-    s_open = np.full(n, 100.0)
-    s = np.full(n, 100.0)
-    s[4] = 90.0                      # pierce the stop (95) intrabar at bar 4
-    s_low = np.minimum(s, s_open)
-    s_low[4] = 90.0
-    s_high = np.maximum(s, s_open)
-    side = np.ones(n)
-    stop_s = np.full(n, np.nan)
-    stop_s[1] = 95.0
-    sig = dict(s=s, s_open=s_open, s_high=s_high, s_low=s_low, side=side,
-               stop_s=stop_s, beta=np.full(n, 1.0), ts=ts, tf="1h",
-               legs=("AAAUSDT", "BBBUSDT"))
+    sig = _mk_spread_sig(n, pierce_bar=4, pierce_to=0.02)
     # bar 4 is a settlement bar; the legs carry DIFFERENT rates so the
     # delta-neutral book has a nonzero net funding (equal rates cancel to 0)
-    bar_ms = np.array([int(t.timestamp() * 1000) for t in ts], "int64")
+    bar_ms = np.array([int(t.timestamp() * 1000)
+                       for t in sig["ts"]], "int64")
     is_fund = np.zeros(n, bool)
     is_fund[4] = True
 
@@ -249,10 +272,52 @@ def t_n5_funding_order(monkeypatch_load_leg):
     book.run(start_idx=0, end_idx=n - 1)
     check("N11 stop-out on a settlement bar still pays funding",
           abs(book.funding_paid) > 0, f"funding_paid={book.funding_paid}")
-    expect = (20.0 * 100.0 * 0.0001) - (20.0 * 100.0 * 0.0002)
+    # N is sized from the spread stop distance: risk 1% of cash over
+    # |stop - entry| = 0.03 - 0.05 -> N = 5000 units per leg (beta 1)
+    n_units = min(10000.0 * 0.01 / 0.02, 10000.0 * 20.0)
+    expect = (n_units * 100.0 * 0.0001) - (n_units * 100.0 * 0.0002)
     check("N11 the charged funding is exactly the settlement amount",
           abs(book.funding_paid - expect) < 1e-9,
           f"got {book.funding_paid}, want {expect}")
+
+
+def t_r1_r2(monkeypatch_load_leg):
+    """R1: a spread whose leg has no kline file is REFUSED (fail loud, never
+    a silent degrade). R2: strict served mode -- an undeclared read raises."""
+    import p100_screen_engine as E
+    # R2: register a served input that points at a tiny readable CSV, then
+    # read a DECLARED and an UNDECLARED symbol
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        served = os.path.join(td, "BTCUSDT_1h.csv")
+        with open(served, "w", encoding="utf-8") as f:
+            f.write("open_ts,open,high,low,close,volume\n"
+                    "1700000000000,1,1,1,1,1\n")
+        E._register_served([served])
+        df2 = E.load_klines("BTCUSDT", "1h")        # resolves to the served path
+        check("R2 a declared read resolves to the served path",
+              df2 is not None and len(df2) == 1)
+        try:
+            E.load_klines("ETHUSDT", "1h")          # NOT in the map
+            raised = False
+        except ValueError as e:
+            raised = "undeclared input" in str(e)
+        check("R2 an undeclared read FAILS LOUD under strict served mode",
+              raised)
+    E._SERVED_MODE = False
+    E._SERVED_INPUTS.clear()
+    E._SERVED_MODE = False
+    E._SERVED_INPUTS.clear()
+    # R1: SpreadBook repo mode requires the leg arrays
+    n = 6
+    sig = _mk_spread_sig(n)
+    bad = {k: v for k, v in sig.items() if k != "leg_a_log_hi"}
+    try:
+        E.SpreadBook(sig["legs"], bad, charge_funding=False)
+        raised = False
+    except ValueError:
+        raised = True
+    check("R1 SpreadBook repo mode without leg arrays FAILS LOUD", raised)
 
 
 # ───────────────────────────── N7: bootstrap_r ────────────────────────────
@@ -478,8 +543,10 @@ def main():
     t_n3_gates()
     t_n4()
     t_n5(patch)
+    t_r3_envelope_beta(patch)
     t_n5_gap(patch)
     t_n5_funding_order(patch)
+    t_r1_r2(patch)
     t_n7()
     t_n8()
     t_a2()

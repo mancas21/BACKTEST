@@ -330,7 +330,10 @@ def _neighborhood_jobs(job, workers):
             v = None
         by_val.append((v, r["pf"]))
     if center_pf is None and by_val:
-        by_val.sort(key=lambda t: (t[0] is None, t[0]))
+        # R7 fix: a sentinel for unparsable labels -- (True, None) vs
+        # (True, None) raises TypeError on None < None
+        by_val.sort(key=lambda t: (t[0] is None,
+                                   t[0] if t[0] is not None else float("inf")))
         center_pf = by_val[len(by_val) // 2][1]
     spfs = sorted(pfs)
     med = (spfs[len(spfs) // 2] if len(spfs) % 2

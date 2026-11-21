@@ -1,11 +1,12 @@
 {
- "run_id": "e898ad4b562703a7",
+ "run_id": "d5388afc96e39f2c",
  "id": 84,
  "segment": "OOS",
  "symbol": "BASKET6",
  "tf": "1h",
  "metrics": {
-  "bh_return_pct": -29.09450631106654,
+  "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
+  "bh_return_pct": -24.38305492633471,
   "boot_ci_hi": -0.00025378979204765905,
   "boot_ci_lo": -0.0034869223543185553,
   "boot_mean_r": -0.001769864768351399,
@@ -24,7 +25,7 @@
    "SOLUSDT",
    "SUIUSDT"
   ],
-  "excess_pct": -30.462788582664622,
+  "excess_pct": -35.174239967396446,
   "fee_bps_per_side": 5.0,
   "fees_paid_usdt": 5196.544951104655,
   "final_equity": 4044.2705106268836,
@@ -60,7 +61,7 @@
   "segment": "OOS",
   "slippage_bps_per_side": 6.285,
   "strategy_id": 84,
-  "symbol": "BTCUSDT",
+  "symbol": "BASKET6",
   "timeframe": "1h",
   "top5_pnl_share": null,
   "win_rate": 36.285097192224626
