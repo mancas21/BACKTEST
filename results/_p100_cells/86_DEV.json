@@ -1,11 +1,12 @@
 {
- "run_id": "b584e3018e628540",
+ "run_id": "138634ea347404f9",
  "id": 86,
  "segment": "DEV",
  "symbol": "SUIUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": 137.31886696279037,
+  "book_type": "neutral",
   "boot_ci_hi": 0.004398297667896098,
   "boot_ci_lo": -0.01382216873529971,
   "boot_mean_r": -0.003547242524997282,
@@ -59,7 +60,7 @@
   "segment": "DEV",
   "slippage_bps_per_side": 6.285,
   "spread_env_finite_bars": 14598,
-  "spread_env_range_bars": 24053,
+  "spread_env_range_bars": 14598,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

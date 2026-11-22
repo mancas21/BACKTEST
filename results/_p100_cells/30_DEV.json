@@ -1,11 +1,12 @@
 {
- "run_id": "b63e93eb48bb8ced",
+ "run_id": "c064b32f250729c2",
  "id": 30,
  "segment": "DEV",
  "symbol": "SUIUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": 137.31886696279037,
+  "book_type": "directional",
   "boot_ci_hi": 0.07490249818262094,
   "boot_ci_lo": -0.2293844401179426,
   "boot_mean_r": -0.08035730136035697,

@@ -1,11 +1,12 @@
 {
- "run_id": "279f35b89b2edab4",
+ "run_id": "b27bc45b39fdba7a",
  "id": 69,
  "segment": "OOS",
  "symbol": "HYPEUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": 49.386496310166294,
+  "book_type": "directional",
   "boot_ci_hi": 0.12699013790502028,
   "boot_ci_lo": -0.38691873700437757,
   "boot_mean_r": -0.15902075713624966,

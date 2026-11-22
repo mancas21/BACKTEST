@@ -1,11 +1,12 @@
 {
- "run_id": "41708095b3e142fb",
+ "run_id": "10ef0d4c954012ff",
  "id": 19,
  "segment": "OOS",
  "symbol": "BTCUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": -40.062438891456495,
+  "book_type": "directional",
   "boot_ci_hi": -0.513347879365224,
   "boot_ci_lo": -0.5584570827146518,
   "boot_mean_r": -0.5356857503074479,

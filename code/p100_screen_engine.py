@@ -246,13 +246,31 @@ class SpreadBook:
                         f"[{lo_w}, {hi_w}] -- a NaN leg silently disables "
                         "the intrabar stop and -inf fabricates one; refuse, "
                         "never skip (D2 fix)")
-            if self.env_range_bars <= 0:
+            # E1 fix (fifth re-audit): the range count was measured over the
+            # FULL series while finiteness was over the traded window -- an
+            # OOS cell reported ~244k range bars over a ~33k window, and a
+            # traded window of ALL zero-range bars passed the guard because
+            # the full series had range elsewhere: the envelope degenerated
+            # to gap-only and the open-only model re-entered through the
+            # window mismatch. The range is now measured over the SAME
+            # window as the finiteness assertion, and zero REFUSES.
+            rng_bars = int(((self.leg_a_log_hi[lo_w:hi_w + 1] >
+                             self.leg_a_log_lo[lo_w:hi_w + 1]) |
+                            (self.leg_b_log_hi[lo_w:hi_w + 1] >
+                             self.leg_b_log_lo[lo_w:hi_w + 1])).sum())
+            if rng_bars <= 0:
                 raise ValueError(
-                    "spread envelope has zero range bars -- the loaders "
-                    "disagree or the data is degenerate; refuse (D2 fix)")
-            # D6 fix: the flag is a MEASUREMENT (finite bars over the traded
-            # window after the assertion above), not an inferred mode
+                    f"spread envelope has zero range bars in the traded "
+                    f"window [{lo_w}, {hi_w}] -- the loaders disagree or "
+                    "the data is degenerate; the intrabar stop would "
+                    "degenerate to the gap test; refuse (E1 fix)")
+            self.env_range_bars = rng_bars
             self.env_finite_bars = hi_w - lo_w + 1
+            if self.env_range_bars > self.env_finite_bars:
+                raise ValueError(
+                    f"envelope invariant broken: range bars "
+                    f"{self.env_range_bars} > finite bars "
+                    f"{self.env_finite_bars} -- window mismatch (E1 fix)")
             self.envelope_built = True
         for j in range(start_idx, end_idx + 1):
             tradable = True
@@ -1442,6 +1460,11 @@ def run_symbol(paths, params):
     metrics["timeframe"] = tf
     metrics["segment"] = segment
     metrics["pack_conventions"] = pack_conventions
+    # E3 (fifth re-audit): book_type travels with the artifact -- the
+    # spreads and the baskets are DOLLAR-NEUTRAL books (G5's raw buy & hold
+    # comparison is unfair to them; GateContext needs this anyway)
+    metrics["book_type"] = ("neutral" if (sid in SPREAD_IDS or sid in BASKET_IDS)
+                            else "directional")
     if sid in SPREAD_IDS:
         # R1: the stop model and its coverage travel with the artifact
         metrics["spread_envelope_built"] = bool(getattr(book, "envelope_built", False))

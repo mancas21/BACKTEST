@@ -1,11 +1,12 @@
 {
- "run_id": "ef91e57a1abf1712",
+ "run_id": "df9975c59c662bb4",
  "id": 39,
  "segment": "DEV",
  "symbol": "ETHUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": 2737.5,
+  "book_type": "directional",
   "boot_ci_hi": -0.11264260479898955,
   "boot_ci_lo": -0.18242571681688252,
   "boot_mean_r": -0.14722730394083097,

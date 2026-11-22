@@ -1,11 +1,12 @@
 {
- "run_id": "8ef6a8ddc4cc19e5",
+ "run_id": "075a0832f8e4ba29",
  "id": 82,
  "segment": "DEV",
  "symbol": "BTCUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": 1039.888,
+  "book_type": "neutral",
   "boot_ci_hi": -0.8593455923158384,
   "boot_ci_lo": -2.1154741835350768,
   "boot_mean_r": -1.4446148682267224,
@@ -59,7 +60,7 @@
   "segment": "DEV",
   "slippage_bps_per_side": 0.5,
   "spread_env_finite_bars": 51233,
-  "spread_env_range_bars": 60777,
+  "spread_env_range_bars": 51233,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

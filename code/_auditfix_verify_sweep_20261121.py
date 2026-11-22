@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 CELLS = os.path.join(ROOT, "results", "_p100_cells")
 CELLS_DIR = os.path.join(ROOT, "results", "_p100_cells")
-EXTRA = ["d590af40751a6002"]          # the current gatecal calibration (gen-3)
+EXTRA = ["9183c116b24003c3"]          # the current gatecal calibration (per-gate xref)
 
 
 def main():

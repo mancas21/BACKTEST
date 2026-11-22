@@ -1,11 +1,12 @@
 {
- "run_id": "b9d3eedd49de4c16",
+ "run_id": "4d6a6796cf29fa86",
  "id": 84,
  "segment": "OOS",
  "symbol": "BASKET6",
  "tf": "1h",
  "metrics": {
   "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+  "book_type": "neutral",
   "boot_ci_hi": -0.00025378979204765905,
   "boot_ci_lo": -0.0034869223543185553,
   "boot_mean_r": -0.001769864768351399,

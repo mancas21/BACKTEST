@@ -1,11 +1,12 @@
 {
- "run_id": "41c073e692470169",
+ "run_id": "a427e48da9d9cdaa",
  "id": 89,
  "segment": "OOS",
  "symbol": "ETHUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": -52.10222307367294,
+  "book_type": "neutral",
   "boot_ci_hi": -2.4034544238205275,
   "boot_ci_lo": -4.257287256863597,
   "boot_mean_r": -3.3074818602058795,
@@ -59,7 +60,7 @@
   "segment": "OOS",
   "slippage_bps_per_side": 0.5,
   "spread_env_finite_bars": 36468,
-  "spread_env_range_bars": 244367,
+  "spread_env_range_bars": 36468,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

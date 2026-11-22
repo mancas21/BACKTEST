@@ -304,7 +304,7 @@ def t_d2(monkeypatch_load_leg):
     sig_inf["leg_b_log_lo"][6] = -np.inf          # log(0)
     cases["-inf leg bar"] = sig_inf
     sig_zr = _mk_spread_sig(n)
-    sig_zr["env_range_bars"] = 0
+    sig_zr["leg_b_log_hi"] = sig_zr["leg_b_log_lo"].copy()   # zero range IN THE ARRAYS
     cases["zero range bars"] = sig_zr
     for name, sg in cases.items():
         book = E.SpreadBook(sg["legs"], sg, charge_funding=False)
@@ -314,6 +314,70 @@ def t_d2(monkeypatch_load_leg):
         except ValueError as e:
             raised = ("non-finite" in str(e)) or ("zero range bars" in str(e))
         check(f"D2 {name} refuses (fail loud, never skip)", raised)
+
+
+def t_e1_window(monkeypatch_load_leg):
+    """E1: range bars are measured over the TRADED window (the round-4 code
+    measured them over the full series -- an OOS cell reported ~244k range
+    bars over a ~33k window, and a zero-range traded window passed the
+    guard because the full series had range elsewhere)."""
+    import p100_screen_engine as E
+    n = 12
+    zero = dict(bar_ms=np.zeros(1, "int64"), close=np.zeros(1),
+                rate=np.zeros(1), is_fund=np.zeros(1, bool), idx={})
+    monkeypatch_load_leg(lambda leg, tf: zero)
+    # in-window run: the invariant range <= finite must hold and the
+    # traded-window count overwrites the full-series count
+    sig = _mk_spread_sig(n)
+    book = E.SpreadBook(sig["legs"], sig, charge_funding=False)
+    book.run(start_idx=2, end_idx=n - 1)
+    check("E1 range bars measured over the traded window",
+          book.env_range_bars == n - 2, f"got {book.env_range_bars}")
+    check("E1 invariant range <= finite",
+          book.env_range_bars <= book.env_finite_bars,
+          f"{book.env_range_bars} vs {book.env_finite_bars}")
+    # range ONLY outside the traded window: bar 0 spikes, the run starts at 2.
+    # Zero range means lb_h == lb_l EXACTLY (a recomputed log differs by ~1e-15
+    # and would count as range)
+    sig2 = _mk_spread_sig(n)
+    sig2["leg_b_log_hi"] = sig2["leg_b_log_lo"].copy()
+    sig2["leg_b_log_hi"][0] += 0.02                     # range at bar 0 ONLY
+    book2 = E.SpreadBook(sig2["legs"], sig2, charge_funding=False)
+    try:
+        book2.run(start_idx=2, end_idx=n - 1)
+        raised = False
+    except ValueError as e:
+        raised = "zero range bars in the traded window" in str(e)
+    check("E1 a zero-range TRADED window refuses even when the full series "
+          "has range elsewhere", raised)
+
+
+def t_reps_floor():
+    """E-round: null_calibration below the boot_reps_floor RAISES (the old
+    default 400 made the reference-layer cross-check floor-suppressed), and
+    a provisioned call returns the expectancy sanity field."""
+    import _gates_v2 as G
+    rng = np.random.default_rng(0)
+    n_bars = 2000
+    px = 100.0 * np.exp(np.cumsum(rng.normal(0, 0.01, n_bars)))
+    df = pd.DataFrame({"open": px, "close": px, "high": px * 1.001,
+                       "low": px * 0.999},
+                      index=pd.date_range("2024-01-01", periods=n_bars,
+                                          freq="h", tz="UTC"))
+    ctx = G.GateContext(benchmark_close=df["close"], max_leverage=1.0,
+                        n_trials=1)
+    try:
+        G.null_calibration(df, 100, list(range(2, 10)), ctx, n_sims=2,
+                           reps=400)
+        raised = False
+    except ValueError as e:
+        raised = "boot_reps_floor" in str(e)
+    check("null_calibration below the reps floor RAISES (the default-400 "
+          "trap is closed)", raised)
+    rr = G.null_calibration(df, 100, list(range(2, 10)), ctx, n_sims=2,
+                            reps=2000, seed=5)
+    check("null_calibration at provisioned reps returns expectancy_bps",
+          "expectancy_bps" in rr, str(sorted(rr.keys())))
 
 
 def t_r1_r2(monkeypatch_load_leg):
@@ -582,6 +646,8 @@ def main():
     t_n5_gap(patch)
     t_n5_funding_order(patch)
     t_d2(patch)
+    t_e1_window(patch)
+    t_reps_floor()
     t_r1_r2(patch)
     t_n7()
     t_n8()

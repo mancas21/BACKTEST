@@ -1,11 +1,12 @@
 {
- "run_id": "dfbafa07ca141c7d",
+ "run_id": "6ee5065cb893f5ea",
  "id": 50,
  "segment": "DEV",
  "symbol": "JUPUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": -36.83279268652315,
+  "book_type": "directional",
   "boot_ci_hi": -0.2515957728122557,
   "boot_ci_lo": -0.3050045098658473,
   "boot_mean_r": -0.27800945822032624,

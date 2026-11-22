@@ -1,11 +1,12 @@
 {
- "run_id": "b7980ec0b58cff5a",
+ "run_id": "9cacc17b59037b7b",
  "id": 86,
  "segment": "OOS",
  "symbol": "SUIUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": -61.92504625446409,
+  "book_type": "neutral",
   "boot_ci_hi": -0.0014609398119196143,
   "boot_ci_lo": -0.1431851857623179,
   "boot_mean_r": -0.04901481496145706,
@@ -59,7 +60,7 @@
   "segment": "OOS",
   "slippage_bps_per_side": 6.285,
   "spread_env_finite_bars": 8711,
-  "spread_env_range_bars": 24053,
+  "spread_env_range_bars": 8711,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

@@ -1,12 +1,13 @@
 {
  "1/DEV": {
-  "run_id": "f9a12e29ee878802",
+  "run_id": "9ef710c61857b23d",
   "id": 1,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 6096.162300243569,
+   "book_type": "directional",
    "boot_ci_hi": -0.004162652909216372,
    "boot_ci_lo": -0.27341510184151263,
    "boot_mean_r": -0.14207120397744372,
@@ -64,13 +65,14 @@
   "key": "1/DEV"
  },
  "1/OOS": {
-  "run_id": "c16908ff39e928a1",
+  "run_id": "3cc228209a901bfb",
   "id": 1,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -49.554896142433236,
+   "book_type": "directional",
    "boot_ci_hi": 0.2942792133450906,
    "boot_ci_lo": -0.3703370119648189,
    "boot_mean_r": -0.06889857490457689,
@@ -128,13 +130,14 @@
   "key": "1/OOS"
  },
  "2/DEV": {
-  "run_id": "394a4410935b1f36",
+  "run_id": "4741d676c48139c6",
   "id": 2,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.23643352905065648,
    "boot_ci_lo": -0.30430475028331927,
    "boot_mean_r": -0.2707238072850408,
@@ -192,13 +195,14 @@
   "key": "2/DEV"
  },
  "2/OOS": {
-  "run_id": "c0275cb2b493be4d",
+  "run_id": "9a40ec2494739476",
   "id": 2,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -40.062438891456495,
+   "book_type": "directional",
    "boot_ci_hi": -0.2205966473669291,
    "boot_ci_lo": -0.379380795223651,
    "boot_mean_r": -0.29902136664345313,
@@ -256,13 +260,14 @@
   "key": "2/OOS"
  },
  "3/DEV": {
-  "run_id": "5587d0c4e11b5a9d",
+  "run_id": "86bbb2a81e8b3922",
   "id": 3,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.4282078532114301,
    "boot_ci_lo": -0.4750071357094553,
    "boot_mean_r": -0.45224562295923126,
@@ -320,13 +325,14 @@
   "key": "3/DEV"
  },
  "3/OOS": {
-  "run_id": "56ba3e35486ef90f",
+  "run_id": "1a6c9b56b97e42fb",
   "id": 3,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -41.05816342658447,
+   "book_type": "directional",
    "boot_ci_hi": -0.4994966504114885,
    "boot_ci_lo": -0.6347601478452694,
    "boot_mean_r": -0.5614145877210679,
@@ -384,13 +390,14 @@
   "key": "3/OOS"
  },
  "4/DEV": {
-  "run_id": "0bab17b75a16021b",
+  "run_id": "81452f6f11963744",
   "id": 4,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 35.30415008527572,
+   "book_type": "directional",
    "boot_ci_hi": 0.14500040566817937,
    "boot_ci_lo": -0.14558043716991761,
    "boot_mean_r": -0.0006217572724369225,
@@ -448,13 +455,14 @@
   "key": "4/DEV"
  },
  "4/OOS": {
-  "run_id": "fd0266ece18b7fff",
+  "run_id": "c7e5639bab081df1",
   "id": 4,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 71.19449165468252,
+   "book_type": "directional",
    "boot_ci_hi": -0.006786479990836725,
    "boot_ci_lo": -0.18848573859628934,
    "boot_mean_r": -0.10384251197055026,
@@ -512,13 +520,14 @@
   "key": "4/OOS"
  },
  "5/DEV": {
-  "run_id": "7c1b9a4be8b46957",
+  "run_id": "51d4afd36943fa5a",
   "id": 5,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 144.34697855750485,
+   "book_type": "directional",
    "boot_ci_hi": -0.11532227073333684,
    "boot_ci_lo": -0.19702579131990508,
    "boot_mean_r": -0.15512912149469132,
@@ -576,13 +585,14 @@
   "key": "5/DEV"
  },
  "5/OOS": {
-  "run_id": "e5d25d909d8cdef6",
+  "run_id": "4bf8b432025a19e6",
   "id": 5,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -68.34194865557535,
+   "book_type": "directional",
    "boot_ci_hi": -0.12424909204137873,
    "boot_ci_lo": -0.24674643216434292,
    "boot_mean_r": -0.1829904482855911,
@@ -640,13 +650,14 @@
   "key": "5/OOS"
  },
  "6/DEV": {
-  "run_id": "44f9af65579d94a1",
+  "run_id": "757a80603f4b0c86",
   "id": 6,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.495701156240735,
+   "book_type": "directional",
    "boot_ci_hi": -0.021265126214734118,
    "boot_ci_lo": -0.1815083558224536,
    "boot_mean_r": -0.10106818776679716,
@@ -704,13 +715,14 @@
   "key": "6/DEV"
  },
  "6/OOS": {
-  "run_id": "f68fec3e4cbf9531",
+  "run_id": "373c436ae3ae4f99",
   "id": 6,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.2496866382552,
+   "book_type": "directional",
    "boot_ci_hi": 0.03836882645110208,
    "boot_ci_lo": -0.16050123791733512,
    "boot_mean_r": -0.06332922817106013,
@@ -768,13 +780,14 @@
   "key": "6/OOS"
  },
  "7/DEV": {
-  "run_id": "8e093a4c7a70b3e9",
+  "run_id": "4f9fbb099a4f23cf",
   "id": 7,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": 0.0071933425225612704,
    "boot_ci_lo": -0.09123632667930477,
    "boot_mean_r": -0.041794515582245576,
@@ -832,13 +845,14 @@
   "key": "7/DEV"
  },
  "7/OOS": {
-  "run_id": "54cfca33dc02a227",
+  "run_id": "bfcd3b12a2403f3c",
   "id": 7,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "directional",
    "boot_ci_hi": -0.020119510161405597,
    "boot_ci_lo": -0.28324136693455115,
    "boot_mean_r": -0.16112829529130288,
@@ -896,13 +910,14 @@
   "key": "7/OOS"
  },
  "8/DEV": {
-  "run_id": "e65a68b67a519679",
+  "run_id": "42a81896d05459a6",
   "id": 8,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.15867015227526052,
    "boot_ci_lo": -0.21719952020296684,
    "boot_mean_r": -0.18631168461070802,
@@ -960,13 +975,14 @@
   "key": "8/DEV"
  },
  "8/OOS": {
-  "run_id": "c0b9eea1f9480550",
+  "run_id": "d626f511c0de527a",
   "id": 8,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -52.10222307367294,
+   "book_type": "directional",
    "boot_ci_hi": -0.16934917415298964,
    "boot_ci_lo": -0.29812567992988265,
    "boot_mean_r": -0.233621627371029,
@@ -1024,13 +1040,14 @@
   "key": "8/OOS"
  },
  "9/DEV": {
-  "run_id": "40c8b2a181d6a7b8",
+  "run_id": "5869ba5b9148d292",
   "id": 9,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 6212.604024814646,
+   "book_type": "directional",
    "boot_ci_hi": -0.2236022241955919,
    "boot_ci_lo": -0.28498167946634945,
    "boot_mean_r": -0.2542000678355216,
@@ -1088,13 +1105,14 @@
   "key": "9/DEV"
  },
  "9/OOS": {
-  "run_id": "90cc0bae12773313",
+  "run_id": "561f30aa6474f8f3",
   "id": 9,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -51.10435773593098,
+   "book_type": "directional",
    "boot_ci_hi": -0.33828276444548167,
    "boot_ci_lo": -0.4763602480831744,
    "boot_mean_r": -0.40713090928089,
@@ -1152,13 +1170,14 @@
   "key": "9/OOS"
  },
  "10/DEV": {
-  "run_id": "ace327ea33d394c7",
+  "run_id": "07360ec7efda6377",
   "id": 10,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 34.78792214373006,
+   "book_type": "directional",
    "boot_ci_hi": 0.05168973439204038,
    "boot_ci_lo": -0.12394348478998791,
    "boot_mean_r": -0.02764599773432844,
@@ -1216,13 +1235,14 @@
   "key": "10/DEV"
  },
  "10/OOS": {
-  "run_id": "5f0f604b326fb786",
+  "run_id": "8fb65628cb32538d",
   "id": 10,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 49.386496310166294,
+   "book_type": "directional",
    "boot_ci_hi": -0.0010840153234014229,
    "boot_ci_lo": -0.09917637318292966,
    "boot_mean_r": -0.05016517599249605,
@@ -1280,13 +1300,14 @@
   "key": "10/OOS"
  },
  "11/DEV": {
-  "run_id": "85ecf2f398d01f47",
+  "run_id": "618ee62d1acacb1f",
   "id": 11,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 137.31886696279037,
+   "book_type": "directional",
    "boot_ci_hi": 0.09560249150482641,
    "boot_ci_lo": -0.14229140969857534,
    "boot_mean_r": -0.03435182953241891,
@@ -1344,13 +1365,14 @@
   "key": "11/DEV"
  },
  "11/OOS": {
-  "run_id": "fb2013dce3388ad1",
+  "run_id": "ac308664a6ce72ae",
   "id": 11,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -61.92504625446409,
+   "book_type": "directional",
    "boot_ci_hi": 0.17822380868140378,
    "boot_ci_lo": -0.19424549286356785,
    "boot_mean_r": -0.033175494667721586,
@@ -1408,13 +1430,14 @@
   "key": "11/OOS"
  },
  "12/DEV": {
-  "run_id": "f3eba9c07aca220f",
+  "run_id": "758edbd80068342b",
   "id": 12,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -36.83279268652315,
+   "book_type": "directional",
    "boot_ci_hi": -0.08902569755141228,
    "boot_ci_lo": -0.49441874239107936,
    "boot_mean_r": -0.31606485329292067,
@@ -1472,13 +1495,14 @@
   "key": "12/DEV"
  },
  "12/OOS": {
-  "run_id": "4aa24b48b06ba910",
+  "run_id": "ef692f09e195bee8",
   "id": 12,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -38.91118916206724,
+   "book_type": "directional",
    "boot_ci_hi": -0.050209578204256616,
    "boot_ci_lo": -0.35073039380267723,
    "boot_mean_r": -0.20016455216792428,
@@ -1536,13 +1560,14 @@
   "key": "12/OOS"
  },
  "13/DEV": {
-  "run_id": "277f1c3f10f6a493",
+  "run_id": "fdcbd403885f3c7f",
   "id": 13,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.31329954194397946,
    "boot_ci_lo": -0.41052066012255145,
    "boot_mean_r": -0.3618805430210845,
@@ -1600,13 +1625,14 @@
   "key": "13/DEV"
  },
  "13/OOS": {
-  "run_id": "7e1db99735c674e8",
+  "run_id": "a91497cd1a9619ce",
   "id": 13,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -30.04467132296692,
+   "book_type": "directional",
    "boot_ci_hi": -0.40824647272554226,
    "boot_ci_lo": -0.678579756725325,
    "boot_mean_r": -0.5447980130500186,
@@ -1664,13 +1690,14 @@
   "key": "13/OOS"
  },
  "14/DEV": {
-  "run_id": "c7dc42b47dc09bb7",
+  "run_id": "e00840c1205c0bec",
   "id": 14,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": 0.015586209285099413,
    "boot_ci_lo": -0.1363158516922478,
    "boot_mean_r": -0.06241392515810282,
@@ -1728,13 +1755,14 @@
   "key": "14/DEV"
  },
  "14/OOS": {
-  "run_id": "48432a3222469469",
+  "run_id": "f0616e29a9cec7f4",
   "id": 14,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -40.66868586647171,
+   "book_type": "directional",
    "boot_ci_hi": 0.05239326584371603,
    "boot_ci_lo": -0.38659371599890796,
    "boot_mean_r": -0.17534962061319131,
@@ -1792,13 +1820,14 @@
   "key": "14/OOS"
  },
  "15/DEV": {
-  "run_id": "fa1eac3649a9dc3f",
+  "run_id": "57d2226e91b6b75d",
   "id": 15,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 6146.81819543018,
+   "book_type": "directional",
    "boot_ci_hi": -0.12030258866602989,
    "boot_ci_lo": -0.19000875304674622,
    "boot_mean_r": -0.15330887341163468,
@@ -1856,13 +1885,14 @@
   "key": "15/DEV"
  },
  "15/OOS": {
-  "run_id": "f82bcf58a4c102e3",
+  "run_id": "939072b175a4e69b",
   "id": 15,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -61.089452025124544,
+   "book_type": "directional",
    "boot_ci_hi": -0.13390577025808972,
    "boot_ci_lo": -0.29034256433823696,
    "boot_mean_r": -0.20850577051593935,
@@ -1920,13 +1950,14 @@
   "key": "15/OOS"
  },
  "16/DEV": {
-  "run_id": "77f48975ff52d415",
+  "run_id": "1aec8d2f9648b8b5",
   "id": 16,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 34.407323742717864,
+   "book_type": "directional",
    "boot_ci_hi": 0.025146795896650243,
    "boot_ci_lo": -0.21074281497327013,
    "boot_mean_r": -0.09223455029890562,
@@ -1984,13 +2015,14 @@
   "key": "16/DEV"
  },
  "16/OOS": {
-  "run_id": "2ef5a75cdbbddf92",
+  "run_id": "c85f6e2235b25802",
   "id": 16,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 72.8592801196867,
+   "book_type": "directional",
    "boot_ci_hi": -0.09697306609823152,
    "boot_ci_lo": -0.2588422411693934,
    "boot_mean_r": -0.17952388592410332,
@@ -2048,13 +2080,14 @@
   "key": "16/OOS"
  },
  "17/DEV": {
-  "run_id": "691d48416cf31e15",
+  "run_id": "222731187f80d2a0",
   "id": 17,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 151.00893407270485,
+   "book_type": "directional",
    "boot_ci_hi": -0.10251758147625256,
    "boot_ci_lo": -0.3766169032204843,
    "boot_mean_r": -0.24628935708786234,
@@ -2112,13 +2145,14 @@
   "key": "17/DEV"
  },
  "17/OOS": {
-  "run_id": "e77fd92c7bd3cc9b",
+  "run_id": "e0a4ec926a73a1d2",
   "id": 17,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -62.08371524595173,
+   "book_type": "directional",
    "boot_ci_hi": -0.12575555934555968,
    "boot_ci_lo": -0.552141315729277,
    "boot_mean_r": -0.3474134288600136,
@@ -2176,13 +2210,14 @@
   "key": "17/OOS"
  },
  "18/DEV": {
-  "run_id": "b883f1f8c0d34764",
+  "run_id": "b35a9fafae142a41",
   "id": 18,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -36.617842876165106,
+   "book_type": "directional",
    "boot_ci_hi": -0.28164378617374347,
    "boot_ci_lo": -0.4135202497784368,
    "boot_mean_r": -0.3503768966605386,
@@ -2240,13 +2275,14 @@
   "key": "18/DEV"
  },
  "18/OOS": {
-  "run_id": "9224d8fd7ce0aae7",
+  "run_id": "ceefff19696975b9",
   "id": 18,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -38.8651770022596,
+   "book_type": "directional",
    "boot_ci_hi": -0.3106038490021978,
    "boot_ci_lo": -0.466891826688012,
    "boot_mean_r": -0.3912170382962171,
@@ -2304,13 +2340,14 @@
   "key": "18/OOS"
  },
  "19/DEV": {
-  "run_id": "91ccecaf5a80f34b",
+  "run_id": "323a5339918c8540",
   "id": 19,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.4320948299990117,
    "boot_ci_lo": -0.45226910723204633,
    "boot_mean_r": -0.44236840146913176,
@@ -2368,13 +2405,14 @@
   "key": "19/DEV"
  },
  "19/OOS": {
-  "run_id": "41708095b3e142fb",
+  "run_id": "10ef0d4c954012ff",
   "id": 19,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -40.062438891456495,
+   "book_type": "directional",
    "boot_ci_hi": -0.513347879365224,
    "boot_ci_lo": -0.5584570827146518,
    "boot_mean_r": -0.5356857503074479,
@@ -2432,13 +2470,14 @@
   "key": "19/OOS"
  },
  "20/DEV": {
-  "run_id": "f7ac3fca2ccfb397",
+  "run_id": "d483cdd526d87ddf",
   "id": 20,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.2679490253476068,
    "boot_ci_lo": -0.33452720846862943,
    "boot_mean_r": -0.3005472484261823,
@@ -2496,13 +2535,14 @@
   "key": "20/DEV"
  },
  "20/OOS": {
-  "run_id": "202e6a7880f1d021",
+  "run_id": "8e92f0dd46b332f2",
   "id": 20,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -41.05816342658447,
+   "book_type": "directional",
    "boot_ci_hi": -0.31305118107433694,
    "boot_ci_lo": -0.45627612729774,
    "boot_mean_r": -0.3829418511626832,
@@ -2560,13 +2600,14 @@
   "key": "20/OOS"
  },
  "21/DEV": {
-  "run_id": "b37703626c39081f",
+  "run_id": "d11e79a2cdd2c7e2",
   "id": 21,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 6096.162300243569,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.0111582684830262,
@@ -2624,13 +2665,14 @@
   "key": "21/DEV"
  },
  "21/OOS": {
-  "run_id": "608d452200af38de",
+  "run_id": "82f124080d96aaa7",
   "id": 21,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -49.554896142433236,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.35177136554519006,
@@ -2688,13 +2730,14 @@
   "key": "21/OOS"
  },
  "22/DEV": {
-  "run_id": "73cc25d50467812d",
+  "run_id": "d3a2405f5205ff5c",
   "id": 22,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 35.30415008527572,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.12949238219318046,
@@ -2752,13 +2795,14 @@
   "key": "22/DEV"
  },
  "22/OOS": {
-  "run_id": "82309b7290178a95",
+  "run_id": "3ca1233744fc4f0c",
   "id": 22,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 71.19449165468252,
+   "book_type": "directional",
    "boot_ci_hi": 0.14896606961093697,
    "boot_ci_lo": -0.2312932718783554,
    "boot_mean_r": -0.04286120766010059,
@@ -2816,13 +2860,14 @@
   "key": "22/OOS"
  },
  "23/DEV": {
-  "run_id": "58f83b77d5bc8a32",
+  "run_id": "cdf4e9f92a88d7a9",
   "id": 23,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 144.34697855750485,
+   "book_type": "directional",
    "boot_ci_hi": 9.688048376589665,
    "boot_ci_lo": -1.1189935579211425,
    "boot_mean_r": 9.251591253939603,
@@ -2880,13 +2925,14 @@
   "key": "23/DEV"
  },
  "23/OOS": {
-  "run_id": "f05abc1e06907f03",
+  "run_id": "bfdce3d2b84773f3",
   "id": 23,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -68.34194865557535,
+   "book_type": "directional",
    "boot_ci_hi": -0.6491833549934998,
    "boot_ci_lo": -1.0948050665935498,
    "boot_mean_r": -0.8628873183016967,
@@ -2944,13 +2990,14 @@
   "key": "23/OOS"
  },
  "24/DEV": {
-  "run_id": "eaf869dc90abac10",
+  "run_id": "521dc44037629cc6",
   "id": 24,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.495701156240735,
+   "book_type": "directional",
    "boot_ci_hi": -0.05080390185586449,
    "boot_ci_lo": -0.25029956253510777,
    "boot_mean_r": -0.162517664878415,
@@ -3008,13 +3055,14 @@
   "key": "24/DEV"
  },
  "24/OOS": {
-  "run_id": "6dab63747781c4ad",
+  "run_id": "5624786013632f4c",
   "id": 24,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.2496866382552,
+   "book_type": "directional",
    "boot_ci_hi": 0.0871792835283278,
    "boot_ci_lo": -0.20682943147983737,
    "boot_mean_r": -0.05666939548156487,
@@ -3072,13 +3120,14 @@
   "key": "24/OOS"
  },
  "25/DEV": {
-  "run_id": "f42e661218fa747a",
+  "run_id": "94adb0c6c6fd583a",
   "id": 25,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.1080256089206318,
    "boot_ci_lo": -0.18547031267545214,
    "boot_mean_r": -0.1463582227637752,
@@ -3136,13 +3185,14 @@
   "key": "25/DEV"
  },
  "25/OOS": {
-  "run_id": "6ca0b789df7a2201",
+  "run_id": "ecac97f17347958f",
   "id": 25,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "directional",
    "boot_ci_hi": -0.06232900655630401,
    "boot_ci_lo": -0.28175023478424144,
    "boot_mean_r": -0.17407582279258849,
@@ -3200,13 +3250,14 @@
   "key": "25/OOS"
  },
  "26/DEV": {
-  "run_id": "969b1eb235593734",
+  "run_id": "1ac7e39f8d9adde6",
   "id": 26,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": 0.37595036666825365,
    "boot_ci_lo": 0.0471132509190937,
    "boot_mean_r": 0.20564725844853998,
@@ -3264,13 +3315,14 @@
   "key": "26/DEV"
  },
  "26/OOS": {
-  "run_id": "9ce8e8bedb7349f3",
+  "run_id": "523271a06c54f3ac",
   "id": 26,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -40.66868586647171,
+   "book_type": "directional",
    "boot_ci_hi": 0.45747936511212944,
    "boot_ci_lo": -0.27823849493620884,
    "boot_mean_r": 0.05186851429913742,
@@ -3328,13 +3380,14 @@
   "key": "26/OOS"
  },
  "27/DEV": {
-  "run_id": "40624a1074ae1568",
+  "run_id": "fa9b28eefbb877b2",
   "id": 27,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 6146.81819543018,
+   "book_type": "directional",
    "boot_ci_hi": -0.5986323613393548,
    "boot_ci_lo": -0.659678170156257,
    "boot_mean_r": -0.6268431810275285,
@@ -3392,13 +3445,14 @@
   "key": "27/DEV"
  },
  "27/OOS": {
-  "run_id": "643fca46e3db4f4d",
+  "run_id": "867e639a1322ed51",
   "id": 27,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -61.089452025124544,
+   "book_type": "directional",
    "boot_ci_hi": -0.7932915036551794,
    "boot_ci_lo": -0.923768741313083,
    "boot_mean_r": -0.8566307077675872,
@@ -3456,13 +3510,14 @@
   "key": "27/OOS"
  },
  "28/DEV": {
-  "run_id": "32c3af6b649d5bf7",
+  "run_id": "5ff1cd1d65891dfd",
   "id": 28,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": 0.43461605588702945,
    "boot_ci_lo": 0.007571181201100162,
    "boot_mean_r": 0.21599170407256268,
@@ -3520,13 +3575,14 @@
   "key": "28/DEV"
  },
  "28/OOS": {
-  "run_id": "3d7826803b3810f3",
+  "run_id": "920d345f5ccfc610",
   "id": 28,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "directional",
    "boot_ci_hi": 0.8616662584966669,
    "boot_ci_lo": -0.5857132925787008,
    "boot_mean_r": -0.08084672306376023,
@@ -3584,13 +3640,14 @@
   "key": "28/OOS"
  },
  "29/DEV": {
-  "run_id": "8ed5f7f523d62061",
+  "run_id": "4e8fd491af180f52",
   "id": 29,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 34.78792214373006,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.5441907507583623,
@@ -3648,13 +3705,14 @@
   "key": "29/DEV"
  },
  "29/OOS": {
-  "run_id": "9734fbd841b17dd0",
+  "run_id": "fc9d430e717879c5",
   "id": 29,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 49.386496310166294,
+   "book_type": "directional",
    "boot_ci_hi": 6.384701062347365,
    "boot_ci_lo": -1.0786095731558845,
    "boot_mean_r": 2.6581116680661694,
@@ -3712,13 +3770,14 @@
   "key": "29/OOS"
  },
  "30/DEV": {
-  "run_id": "b63e93eb48bb8ced",
+  "run_id": "c064b32f250729c2",
   "id": 30,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 137.31886696279037,
+   "book_type": "directional",
    "boot_ci_hi": 0.07490249818262094,
    "boot_ci_lo": -0.2293844401179426,
    "boot_mean_r": -0.08035730136035697,
@@ -3776,13 +3835,14 @@
   "key": "30/DEV"
  },
  "30/OOS": {
-  "run_id": "b8cbd96290230106",
+  "run_id": "2b2c0a5873cd4795",
   "id": 30,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -61.92504625446409,
+   "book_type": "directional",
    "boot_ci_hi": 0.33153724254657985,
    "boot_ci_lo": -0.318463738542674,
    "boot_mean_r": -0.04181746256834775,
@@ -3840,13 +3900,14 @@
   "key": "30/OOS"
  },
  "31/DEV": {
-  "run_id": "2dd902f5d3400537",
+  "run_id": "4707dfb2b01b960f",
   "id": 31,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -36.83279268652315,
+   "book_type": "directional",
    "boot_ci_hi": -0.7060275743532934,
    "boot_ci_lo": -1.6079375859422742,
    "boot_mean_r": -0.936356884820195,
@@ -3904,13 +3965,14 @@
   "key": "31/DEV"
  },
  "31/OOS": {
-  "run_id": "117213b5ee076744",
+  "run_id": "9b50a59f3a8f646c",
   "id": 31,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -38.91118916206724,
+   "book_type": "directional",
    "boot_ci_hi": -1.036916644306713,
    "boot_ci_lo": -1.839185363393271,
    "boot_mean_r": -1.221945012274492,
@@ -3968,13 +4030,14 @@
   "key": "31/OOS"
  },
  "32/DEV": {
-  "run_id": "2aebbd74e1d663be",
+  "run_id": "12ea50f0d4f5a731",
   "id": 32,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.3066726569955929,
    "boot_ci_lo": -0.3559315609129268,
    "boot_mean_r": -0.3310473758822609,
@@ -4032,13 +4095,14 @@
   "key": "32/DEV"
  },
  "32/OOS": {
-  "run_id": "fa646a7369ec5202",
+  "run_id": "e01474bdd0a1be6c",
   "id": 32,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -41.05816342658447,
+   "book_type": "directional",
    "boot_ci_hi": -0.39216218270459546,
    "boot_ci_lo": -0.49751460409593057,
    "boot_mean_r": -0.4452573157624057,
@@ -4096,13 +4160,14 @@
   "key": "32/OOS"
  },
  "33/DEV": {
-  "run_id": "4e71bfa6515d8072",
+  "run_id": "9ab44c2f6f15b04e",
   "id": 33,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.10531898177019665,
    "boot_ci_lo": -0.18498891479580504,
    "boot_mean_r": -0.14680998084249608,
@@ -4160,13 +4225,14 @@
   "key": "33/DEV"
  },
  "33/OOS": {
-  "run_id": "925db4ee1d86e10f",
+  "run_id": "4ea8cdf12b687bf0",
   "id": 33,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -40.062438891456495,
+   "book_type": "directional",
    "boot_ci_hi": -0.16584450729811243,
    "boot_ci_lo": -0.3454065984401148,
    "boot_mean_r": -0.2589260125167417,
@@ -4224,13 +4290,14 @@
   "key": "33/OOS"
  },
  "34/DEV": {
-  "run_id": "db36eb5a133d9b6b",
+  "run_id": "75a0f540815c83a9",
   "id": 34,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 6096.162300243569,
+   "book_type": "directional",
    "boot_ci_hi": 0.17793875019814376,
    "boot_ci_lo": -0.02879825142078289,
    "boot_mean_r": 0.0763910691933935,
@@ -4288,13 +4355,14 @@
   "key": "34/DEV"
  },
  "34/OOS": {
-  "run_id": "4ceb35df57349ce4",
+  "run_id": "63b3bf3bb6ef8630",
   "id": 34,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -49.554896142433236,
+   "book_type": "directional",
    "boot_ci_hi": 0.26970750003722743,
    "boot_ci_lo": -0.240084062623965,
    "boot_mean_r": 9.841457988889219e-05,
@@ -4352,13 +4420,14 @@
   "key": "34/OOS"
  },
  "35/DEV": {
-  "run_id": "6e00daba689f79da",
+  "run_id": "3caa00a914d2ba56",
   "id": 35,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 35.30415008527572,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -0.5282155277591075,
@@ -4416,13 +4485,14 @@
   "key": "35/DEV"
  },
  "35/OOS": {
-  "run_id": "c87b2f6eacfe104c",
+  "run_id": "950fb36afb86612c",
   "id": 35,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 71.19449165468252,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.9118721194284666,
@@ -4480,13 +4550,14 @@
   "key": "35/OOS"
  },
  "36/DEV": {
-  "run_id": "7a1571af145c54fa",
+  "run_id": "77fcd240f332eb8e",
   "id": 36,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 151.00893407270485,
+   "book_type": "directional",
    "boot_ci_hi": -0.03303963324115276,
    "boot_ci_lo": -0.2255699318915556,
    "boot_mean_r": -0.1347290774571329,
@@ -4544,13 +4615,14 @@
   "key": "36/DEV"
  },
  "36/OOS": {
-  "run_id": "db6b5dd95e63b607",
+  "run_id": "3a952d5c85e6edca",
   "id": 36,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -62.08371524595173,
+   "book_type": "directional",
    "boot_ci_hi": -0.2645235974001792,
    "boot_ci_lo": -0.5342550430497782,
    "boot_mean_r": -0.4026733587828956,
@@ -4608,13 +4680,14 @@
   "key": "36/OOS"
  },
  "37/DEV": {
-  "run_id": "5656f9e9f3341cfe",
+  "run_id": "86bb4d7245accade",
   "id": 37,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.495701156240735,
+   "book_type": "directional",
    "boot_ci_hi": -0.030006411146612236,
    "boot_ci_lo": -0.12764012544428494,
    "boot_mean_r": -0.07865878669049844,
@@ -4672,13 +4745,14 @@
   "key": "37/DEV"
  },
  "37/OOS": {
-  "run_id": "15a51e3320c27ba2",
+  "run_id": "ef2c3da68f47ee5f",
   "id": 37,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.2496866382552,
+   "book_type": "directional",
    "boot_ci_hi": 0.042837522899655624,
    "boot_ci_lo": -0.10771699518240521,
    "boot_mean_r": -0.03254434013513367,
@@ -4736,13 +4810,14 @@
   "key": "37/OOS"
  },
  "38/DEV": {
-  "run_id": "910dc3601b785dec",
+  "run_id": "dc9974b33ed8b5a4",
   "id": 38,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.447444725528426,
    "boot_ci_lo": -0.5470986607183194,
    "boot_mean_r": -0.49841034261068706,
@@ -4800,13 +4875,14 @@
   "key": "38/DEV"
  },
  "38/OOS": {
-  "run_id": "783d21cb1910848a",
+  "run_id": "1a69191bebd1ec8d",
   "id": 38,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -30.04467132296692,
+   "book_type": "directional",
    "boot_ci_hi": -0.5483749587425034,
    "boot_ci_lo": -0.762646816825376,
    "boot_mean_r": -0.6609555238446594,
@@ -4864,13 +4940,14 @@
   "key": "38/OOS"
  },
  "39/DEV": {
-  "run_id": "ef91e57a1abf1712",
+  "run_id": "df9975c59c662bb4",
   "id": 39,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.11264260479898955,
    "boot_ci_lo": -0.18242571681688252,
    "boot_mean_r": -0.14722730394083097,
@@ -4928,13 +5005,14 @@
   "key": "39/DEV"
  },
  "39/OOS": {
-  "run_id": "97afde9836e8b6d0",
+  "run_id": "7c1395dad24f3fd1",
   "id": 39,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -52.10222307367294,
+   "book_type": "directional",
    "boot_ci_hi": -0.16714676923152394,
    "boot_ci_lo": -0.3107130197177893,
    "boot_mean_r": -0.23257482131163126,
@@ -4992,13 +5070,14 @@
   "key": "39/OOS"
  },
  "40/DEV": {
-  "run_id": "332bfa773f2e8f4f",
+  "run_id": "2c8b66f41bd38f1f",
   "id": 40,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 6212.604024814646,
+   "book_type": "directional",
    "boot_ci_hi": -0.19949032773638778,
    "boot_ci_lo": -0.2425855006407497,
    "boot_mean_r": -0.22029452283611473,
@@ -5056,13 +5135,14 @@
   "key": "40/DEV"
  },
  "40/OOS": {
-  "run_id": "1cc5301a749daa69",
+  "run_id": "aa8ae6e0dd6d7c60",
   "id": 40,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -51.10435773593098,
+   "book_type": "directional",
    "boot_ci_hi": -0.3170327484348173,
    "boot_ci_lo": -0.4268261967614931,
    "boot_mean_r": -0.3749540026608964,
@@ -5120,13 +5200,14 @@
   "key": "40/OOS"
  },
  "41/DEV": {
-  "run_id": "ca24bb51fb325340",
+  "run_id": "8effc9766eeb9eaf",
   "id": 41,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 34.407323742717864,
+   "book_type": "directional",
    "boot_ci_hi": -0.9991931810153951,
    "boot_ci_lo": -1.2295548771286195,
    "boot_mean_r": -1.0932960353098728,
@@ -5184,13 +5265,14 @@
   "key": "41/DEV"
  },
  "41/OOS": {
-  "run_id": "b04d246235481431",
+  "run_id": "f345468589eeeddf",
   "id": 41,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 72.8592801196867,
+   "book_type": "directional",
    "boot_ci_hi": 6.098436696293895,
    "boot_ci_lo": -1.1786596976774497,
    "boot_mean_r": 2.3066599732963877,
@@ -5248,13 +5330,14 @@
   "key": "41/OOS"
  },
  "42/DEV": {
-  "run_id": "8e9f46c829575335",
+  "run_id": "035c58c94aea267c",
   "id": 42,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 144.34697855750485,
+   "book_type": "directional",
    "boot_ci_hi": -0.07963820882736608,
    "boot_ci_lo": -0.11783064884323562,
    "boot_mean_r": -0.09842171957526023,
@@ -5312,13 +5395,14 @@
   "key": "42/DEV"
  },
  "42/OOS": {
-  "run_id": "3cc40128d682751b",
+  "run_id": "91b2a31d0556b537",
   "id": 42,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -68.34194865557535,
+   "book_type": "directional",
    "boot_ci_hi": -0.1344065426450304,
    "boot_ci_lo": -0.19535517874448516,
    "boot_mean_r": -0.16493758385708965,
@@ -5376,13 +5460,14 @@
   "key": "42/OOS"
  },
  "43/DEV": {
-  "run_id": "9773ab7b82af8feb",
+  "run_id": "90b9ce215a126152",
   "id": 43,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -36.617842876165106,
+   "book_type": "directional",
    "boot_ci_hi": -0.2724349545601352,
    "boot_ci_lo": -0.40214566080737973,
    "boot_mean_r": -0.33809189508040677,
@@ -5440,13 +5525,14 @@
   "key": "43/DEV"
  },
  "43/OOS": {
-  "run_id": "54c922fd8ae21a58",
+  "run_id": "399d0f16683d5274",
   "id": 43,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -38.8651770022596,
+   "book_type": "directional",
    "boot_ci_hi": -0.38783110821276745,
    "boot_ci_lo": -0.5649812768994245,
    "boot_mean_r": -0.4809777992057765,
@@ -5504,13 +5590,14 @@
   "key": "43/OOS"
  },
  "44/DEV": {
-  "run_id": "43b9379b2f5137bc",
+  "run_id": "fb21e28ee052a60d",
   "id": 44,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": 2.4867907210084317,
    "boot_ci_lo": 0.4387230244886145,
    "boot_mean_r": 1.2773079539544918,
@@ -5568,13 +5655,14 @@
   "key": "44/DEV"
  },
  "44/OOS": {
-  "run_id": "e9cb9732474b1930",
+  "run_id": "14b180ea4ff3c5d6",
   "id": 44,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.3958959608794619,
@@ -5632,13 +5720,14 @@
   "key": "44/OOS"
  },
  "45/DEV": {
-  "run_id": "7079875e7582fe49",
+  "run_id": "46a49c2b9d936fdb",
   "id": 45,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": 0.673175330304926,
    "boot_ci_lo": 0.018867411177657663,
    "boot_mean_r": 0.33230187699045105,
@@ -5696,13 +5785,14 @@
   "key": "45/DEV"
  },
  "45/OOS": {
-  "run_id": "5293bfe07e45edd2",
+  "run_id": "134dbd1a9c250ef6",
   "id": 45,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -40.66868586647171,
+   "book_type": "directional",
    "boot_ci_hi": 0.8701831336839165,
    "boot_ci_lo": -0.6315932196083742,
    "boot_mean_r": 0.08352033730531869,
@@ -5760,13 +5850,14 @@
   "key": "45/OOS"
  },
  "46/DEV": {
-  "run_id": "f25b51e5deb89843",
+  "run_id": "328908baf7776d9a",
   "id": 46,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 6146.81819543018,
+   "book_type": "directional",
    "boot_ci_hi": -0.9115164247133032,
    "boot_ci_lo": -1.0061840229823347,
    "boot_mean_r": -0.9660863714857398,
@@ -5824,13 +5915,14 @@
   "key": "46/DEV"
  },
  "46/OOS": {
-  "run_id": "ed5a64552c640e96",
+  "run_id": "cb10462d025e7f33",
   "id": 46,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -61.089452025124544,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -0.9822254254781468,
@@ -5888,13 +5980,14 @@
   "key": "46/OOS"
  },
  "47/DEV": {
-  "run_id": "cf16561fa29f95e7",
+  "run_id": "42ab3ea9d7889174",
   "id": 47,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.1159213910931261,
    "boot_ci_lo": -0.2562542809863571,
    "boot_mean_r": -0.18621247998670368,
@@ -5952,13 +6045,14 @@
   "key": "47/DEV"
  },
  "47/OOS": {
-  "run_id": "555275a344f83f67",
+  "run_id": "4fef58ba9498015d",
   "id": 47,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -30.04467132296692,
+   "book_type": "directional",
    "boot_ci_hi": -0.3390607476017203,
    "boot_ci_lo": -0.628476081648168,
    "boot_mean_r": -0.48692090482802197,
@@ -6016,13 +6110,14 @@
   "key": "47/OOS"
  },
  "48/DEV": {
-  "run_id": "ae7650ff6dc79289",
+  "run_id": "b1a0d4255a2200b9",
   "id": 48,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 34.78792214373006,
+   "book_type": "directional",
    "boot_ci_hi": -0.06164648267851729,
    "boot_ci_lo": -0.17161656503421086,
    "boot_mean_r": -0.11547344867169126,
@@ -6080,13 +6175,14 @@
   "key": "48/DEV"
  },
  "48/OOS": {
-  "run_id": "1537852de13cb863",
+  "run_id": "89a271983febb70c",
   "id": 48,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 49.386496310166294,
+   "book_type": "directional",
    "boot_ci_hi": -0.12969839088393623,
    "boot_ci_lo": -0.1959757249250109,
    "boot_mean_r": -0.1648495969991814,
@@ -6144,13 +6240,14 @@
   "key": "48/OOS"
  },
  "49/DEV": {
-  "run_id": "d9d7227c323894b9",
+  "run_id": "d675459012989a35",
   "id": 49,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 137.31886696279037,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -1.0244515502873843,
@@ -6208,13 +6305,14 @@
   "key": "49/DEV"
  },
  "49/OOS": {
-  "run_id": "fba0566c9a14f81c",
+  "run_id": "9f71e23623444089",
   "id": 49,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -61.92504625446409,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 1.4961680114081124,
@@ -6272,13 +6370,14 @@
   "key": "49/OOS"
  },
  "50/DEV": {
-  "run_id": "dfbafa07ca141c7d",
+  "run_id": "6ee5065cb893f5ea",
   "id": 50,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -36.83279268652315,
+   "book_type": "directional",
    "boot_ci_hi": -0.2515957728122557,
    "boot_ci_lo": -0.3050045098658473,
    "boot_mean_r": -0.27800945822032624,
@@ -6336,13 +6435,14 @@
   "key": "50/DEV"
  },
  "50/OOS": {
-  "run_id": "e059347aa1ecca71",
+  "run_id": "c9311d8dd7d4c485",
   "id": 50,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -38.91118916206724,
+   "book_type": "directional",
    "boot_ci_hi": -0.3338433352354286,
    "boot_ci_lo": -0.4039282735207486,
    "boot_mean_r": -0.3700290289075226,
@@ -6400,13 +6500,14 @@
   "key": "50/OOS"
  },
  "51/DEV": {
-  "run_id": "e29121d02ce6540b",
+  "run_id": "d62bb79a6dcd03fb",
   "id": 51,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.28655723118903514,
    "boot_ci_lo": -0.36405017086773084,
    "boot_mean_r": -0.32552097504528943,
@@ -6464,13 +6565,14 @@
   "key": "51/DEV"
  },
  "51/OOS": {
-  "run_id": "204a97127b7b35ff",
+  "run_id": "bc87de7b4c9c8cf3",
   "id": 51,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -41.05816342658447,
+   "book_type": "directional",
    "boot_ci_hi": -0.3784123070611893,
    "boot_ci_lo": -0.5518731863380208,
    "boot_mean_r": -0.4700761254551891,
@@ -6528,13 +6630,14 @@
   "key": "51/OOS"
  },
  "52/DEV": {
-  "run_id": "7d6996ef90e322f7",
+  "run_id": "3535d48e6aa464e6",
   "id": 52,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": 0.7052177974749148,
    "boot_ci_lo": 0.013928161431720067,
    "boot_mean_r": 0.36110344074711065,
@@ -6592,13 +6695,14 @@
   "key": "52/DEV"
  },
  "52/OOS": {
-  "run_id": "cdaccfe0d3cd8600",
+  "run_id": "ac30f4f0ab24afb1",
   "id": 52,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -40.062438891456495,
+   "book_type": "directional",
    "boot_ci_hi": 1.0138981810825145,
    "boot_ci_lo": -0.59251897292388,
    "boot_mean_r": 0.20848277024005574,
@@ -6656,13 +6760,14 @@
   "key": "52/OOS"
  },
  "53/DEV": {
-  "run_id": "e9cb13fd614aec5b",
+  "run_id": "8271cf66754a8be0",
   "id": 53,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 6212.604024814646,
+   "book_type": "directional",
    "boot_ci_hi": -0.0011967562760506006,
    "boot_ci_lo": -0.2337410690533501,
    "boot_mean_r": -0.11894383529030471,
@@ -6720,13 +6825,14 @@
   "key": "53/DEV"
  },
  "53/OOS": {
-  "run_id": "01f6b8749ed30c4f",
+  "run_id": "a53e5fd8df72a13d",
   "id": 53,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -51.10435773593098,
+   "book_type": "directional",
    "boot_ci_hi": -0.10528591586038687,
    "boot_ci_lo": -0.6416314806308892,
    "boot_mean_r": -0.4100039739983677,
@@ -6784,13 +6890,14 @@
   "key": "53/OOS"
  },
  "54/DEV": {
-  "run_id": "5d62fa2f36ed4b84",
+  "run_id": "8527f419b9093c12",
   "id": 54,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 34.407323742717864,
+   "book_type": "directional",
    "boot_ci_hi": -0.470037182110434,
    "boot_ci_lo": -1.2242666944231329,
    "boot_mean_r": -0.5294435010379498,
@@ -6848,13 +6955,14 @@
   "key": "54/DEV"
  },
  "54/OOS": {
-  "run_id": "ca78bd2e3c4ffbca",
+  "run_id": "eb915353a882e0b1",
   "id": 54,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 72.8592801196867,
+   "book_type": "directional",
    "boot_ci_hi": -0.5537301891882266,
    "boot_ci_lo": -1.204288633393578,
    "boot_mean_r": -0.5908161288485879,
@@ -6912,13 +7020,14 @@
   "key": "54/OOS"
  },
  "55/DEV": {
-  "run_id": "4eca5be6ca603f5f",
+  "run_id": "2ee3d21708b73e38",
   "id": 55,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 144.34697855750485,
+   "book_type": "directional",
    "boot_ci_hi": -0.0150127161188435,
    "boot_ci_lo": -0.22063516066852373,
    "boot_mean_r": -0.11901488552700572,
@@ -6976,13 +7085,14 @@
   "key": "55/DEV"
  },
  "55/OOS": {
-  "run_id": "a6315427c8d3a2cb",
+  "run_id": "b56aedda8198c0db",
   "id": 55,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -68.34194865557535,
+   "book_type": "directional",
    "boot_ci_hi": 0.2947476723391014,
    "boot_ci_lo": -0.25178212597521543,
    "boot_mean_r": -0.004671768148501795,
@@ -7040,13 +7150,14 @@
   "key": "55/OOS"
  },
  "56/DEV": {
-  "run_id": "fad42f38d4e2e7f8",
+  "run_id": "1b46607f9a49dd5a",
   "id": 56,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.495701156240735,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -0.6704343175374116,
@@ -7104,13 +7215,14 @@
   "key": "56/DEV"
  },
  "56/OOS": {
-  "run_id": "f392b8811f07aae0",
+  "run_id": "dbf07043fcf53bb7",
   "id": 56,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.2496866382552,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.1527254499643783,
@@ -7168,13 +7280,14 @@
   "key": "56/OOS"
  },
  "57/DEV": {
-  "run_id": "0ca6646abbe8e552",
+  "run_id": "122ab52094ab2798",
   "id": 57,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 412.21805970212574,
@@ -7232,13 +7345,14 @@
   "key": "57/DEV"
  },
  "57/OOS": {
-  "run_id": "f81e4c9a79456938",
+  "run_id": "a4253bfc4815f304",
   "id": 57,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -52.10222307367294,
+   "book_type": "directional",
    "boot_ci_hi": -1.3624577122283401,
    "boot_ci_lo": -1.4849754326481168,
    "boot_mean_r": -1.4232081135450074,
@@ -7296,13 +7410,14 @@
   "key": "57/OOS"
  },
  "58/DEV": {
-  "run_id": "d6c1b0bcdf124b94",
+  "run_id": "9d40a0f933e53a8c",
   "id": 58,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -1.1936631930742367,
@@ -7360,13 +7475,14 @@
   "key": "58/DEV"
  },
  "58/OOS": {
-  "run_id": "c0903d6ae215891f",
+  "run_id": "cfd5b15dcdc84fa6",
   "id": 58,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.0,
@@ -7424,13 +7540,14 @@
   "key": "58/OOS"
  },
  "59/DEV": {
-  "run_id": "cd5205dfff6ea00f",
+  "run_id": "a48b68dcb53e55dd",
   "id": 59,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 6096.162300243569,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 66.20972120763287,
@@ -7488,13 +7605,14 @@
   "key": "59/DEV"
  },
  "59/OOS": {
-  "run_id": "3c5de5b4ee821aa6",
+  "run_id": "9a549a354e01e216",
   "id": 59,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -49.554896142433236,
+   "book_type": "directional",
    "boot_ci_hi": -0.2458537353938883,
    "boot_ci_lo": -1.0565202557833895,
    "boot_mean_r": -0.6492048765914542,
@@ -7552,13 +7670,14 @@
   "key": "59/OOS"
  },
  "60/DEV": {
-  "run_id": "f5bfb9efffa58537",
+  "run_id": "cf5cbc2341e8f2b1",
   "id": 60,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 35.30415008527572,
+   "book_type": "directional",
    "boot_ci_hi": 0.4691349396075166,
    "boot_ci_lo": -0.28899541026016423,
    "boot_mean_r": 0.05420939135500917,
@@ -7616,13 +7735,14 @@
   "key": "60/DEV"
  },
  "60/OOS": {
-  "run_id": "c39bc7f935a9c266",
+  "run_id": "e3771ef33c43f477",
   "id": 60,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 71.19449165468252,
+   "book_type": "directional",
    "boot_ci_hi": 0.4704427700075108,
    "boot_ci_lo": -0.10444868625953464,
    "boot_mean_r": 0.16934275738172916,
@@ -7680,13 +7800,14 @@
   "key": "60/OOS"
  },
  "61/DEV": {
-  "run_id": "b47ca8ba0e190d39",
+  "run_id": "3ea95d576a60c978",
   "id": 61,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 151.00893407270485,
+   "book_type": "directional",
    "boot_ci_hi": -0.3617597599460029,
    "boot_ci_lo": -0.625152459034763,
    "boot_mean_r": -0.4926818516939335,
@@ -7744,13 +7865,14 @@
   "key": "61/DEV"
  },
  "61/OOS": {
-  "run_id": "5073c4bddceef10a",
+  "run_id": "d77ea050b996ff85",
   "id": 61,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -62.08371524595173,
+   "book_type": "directional",
    "boot_ci_hi": -0.3877323036541235,
    "boot_ci_lo": -0.831788743477628,
    "boot_mean_r": -0.6111285473928815,
@@ -7808,13 +7930,14 @@
   "key": "61/OOS"
  },
  "62/DEV": {
-  "run_id": "4da7714a40aabcbf",
+  "run_id": "dd9c063cb1941e2b",
   "id": 62,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -36.617842876165106,
+   "book_type": "directional",
    "boot_ci_hi": -0.3713603934358261,
    "boot_ci_lo": -0.5262081079929,
    "boot_mean_r": -0.4513991422276673,
@@ -7872,13 +7995,14 @@
   "key": "62/DEV"
  },
  "62/OOS": {
-  "run_id": "95b061ec8b25a4a4",
+  "run_id": "f0b5fcd711bc50c8",
   "id": 62,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -38.8651770022596,
+   "book_type": "directional",
    "boot_ci_hi": -0.45544835874346234,
    "boot_ci_lo": -0.6189918099244563,
    "boot_mean_r": -0.5364099444663756,
@@ -7936,13 +8060,14 @@
   "key": "62/OOS"
  },
  "63/DEV": {
-  "run_id": "438254c760cdb4f0",
+  "run_id": "40f113d0ac541cd4",
   "id": 63,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": 19.938577827734626,
    "boot_ci_lo": -1.1834465014911182,
    "boot_mean_r": 8.734973402210452,
@@ -8000,13 +8125,14 @@
   "key": "63/DEV"
  },
  "63/OOS": {
-  "run_id": "d79ec573f5287706",
+  "run_id": "3c73af4ae2b3c3e8",
   "id": 63,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -40.062438891456495,
+   "book_type": "directional",
    "boot_ci_hi": -0.2651879412352697,
    "boot_ci_lo": -1.1371103596133578,
    "boot_mean_r": -0.7221985701827803,
@@ -8064,13 +8190,14 @@
   "key": "63/OOS"
  },
  "64/DEV": {
-  "run_id": "413914851ce459f7",
+  "run_id": "89e16b84484306d4",
   "id": 64,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": 3.2470245295306435,
    "boot_ci_lo": -0.562510517954409,
    "boot_mean_r": 1.064781094707807,
@@ -8128,13 +8255,14 @@
   "key": "64/DEV"
  },
  "64/OOS": {
-  "run_id": "628df55b091da704",
+  "run_id": "f45df1982a529850",
   "id": 64,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -40.66868586647171,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -1.1070315107694102,
@@ -8192,13 +8320,14 @@
   "key": "64/OOS"
  },
  "65/DEV": {
-  "run_id": "50bbc7982df9be8c",
+  "run_id": "06e76f8d9a1c9a2b",
   "id": 65,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 6146.81819543018,
+   "book_type": "directional",
    "boot_ci_hi": -0.09297283804030827,
    "boot_ci_lo": -0.14979683297616594,
    "boot_mean_r": -0.12152751198647004,
@@ -8256,13 +8385,14 @@
   "key": "65/DEV"
  },
  "65/OOS": {
-  "run_id": "1a1075dabcbf7d21",
+  "run_id": "99e1801ffc9bbfeb",
   "id": 65,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -61.089452025124544,
+   "book_type": "directional",
    "boot_ci_hi": -0.12676404746062686,
    "boot_ci_lo": -0.25965120366471606,
    "boot_mean_r": -0.19823043031228835,
@@ -8320,13 +8450,14 @@
   "key": "65/OOS"
  },
  "66/DEV": {
-  "run_id": "8fc5fde3c1f84a0c",
+  "run_id": "fb9cc9422c1e9db0",
   "id": 66,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.35694866626714666,
    "boot_ci_lo": -0.4909068485271841,
    "boot_mean_r": -0.425727658793034,
@@ -8384,13 +8515,14 @@
   "key": "66/DEV"
  },
  "66/OOS": {
-  "run_id": "5a5394fb69325afb",
+  "run_id": "eae7e0b3126a7340",
   "id": 66,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -40.062438891456495,
+   "book_type": "directional",
    "boot_ci_hi": -0.28557254223444106,
    "boot_ci_lo": -0.5748209520386783,
    "boot_mean_r": -0.4334195646011634,
@@ -8448,13 +8580,14 @@
   "key": "66/OOS"
  },
  "67/DEV": {
-  "run_id": "c028b830478d567d",
+  "run_id": "28395b2cf255c689",
   "id": 67,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.3198182874303713,
    "boot_ci_lo": -0.3675582684055201,
    "boot_mean_r": -0.3439099917076687,
@@ -8512,13 +8645,14 @@
   "key": "67/DEV"
  },
  "67/OOS": {
-  "run_id": "7a63481ecd525cd8",
+  "run_id": "4b2b56b79eb912bf",
   "id": 67,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -52.10222307367294,
+   "book_type": "directional",
    "boot_ci_hi": -0.3038751624731076,
    "boot_ci_lo": -0.402168548181513,
    "boot_mean_r": -0.3538763272117746,
@@ -8576,13 +8710,14 @@
   "key": "67/OOS"
  },
  "68/DEV": {
-  "run_id": "ecadf4ef35d982ec",
+  "run_id": "92a8c3fc84a2efaa",
   "id": 68,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 6096.162300243569,
+   "book_type": "directional",
    "boot_ci_hi": 0.4352997503183092,
    "boot_ci_lo": -0.013016162920095572,
    "boot_mean_r": 0.19172195112207072,
@@ -8640,13 +8775,14 @@
   "key": "68/DEV"
  },
  "68/OOS": {
-  "run_id": "4a5566ed7b8a963d",
+  "run_id": "8910b0ecd2bcd4b5",
   "id": 68,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -49.554896142433236,
+   "book_type": "directional",
    "boot_ci_hi": 0.30433699175321427,
    "boot_ci_lo": -0.4648346997291047,
    "boot_mean_r": -0.12851315912555325,
@@ -8704,13 +8840,14 @@
   "key": "68/OOS"
  },
  "69/DEV": {
-  "run_id": "f25ced480e436bd2",
+  "run_id": "02a334d34caf0421",
   "id": 69,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 34.78792214373006,
+   "book_type": "directional",
    "boot_ci_hi": 0.343776271614041,
    "boot_ci_lo": -0.41491394674549925,
    "boot_mean_r": -0.0006125144929572926,
@@ -8768,13 +8905,14 @@
   "key": "69/DEV"
  },
  "69/OOS": {
-  "run_id": "279f35b89b2edab4",
+  "run_id": "b27bc45b39fdba7a",
   "id": 69,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 49.386496310166294,
+   "book_type": "directional",
    "boot_ci_hi": 0.12699013790502028,
    "boot_ci_lo": -0.38691873700437757,
    "boot_mean_r": -0.15902075713624966,
@@ -8832,13 +8970,14 @@
   "key": "69/OOS"
  },
  "70/DEV": {
-  "run_id": "b4b841cb342c597e",
+  "run_id": "18a39cef1ee36287",
   "id": 70,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 144.34697855750485,
+   "book_type": "directional",
    "boot_ci_hi": -0.16678062043566377,
    "boot_ci_lo": -0.2798513629437969,
    "boot_mean_r": -0.22603067959006765,
@@ -8896,13 +9035,14 @@
   "key": "70/DEV"
  },
  "70/OOS": {
-  "run_id": "7c959c2c0de93fcf",
+  "run_id": "2a8b3f0c62224300",
   "id": 70,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -68.34194865557535,
+   "book_type": "directional",
    "boot_ci_hi": -0.14443978786776362,
    "boot_ci_lo": -0.347850876172155,
    "boot_mean_r": -0.2526194987947398,
@@ -8960,13 +9100,14 @@
   "key": "70/OOS"
  },
  "71/DEV": {
-  "run_id": "db054487536c2939",
+  "run_id": "3987a9728ed10c2c",
   "id": 71,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.495701156240735,
+   "book_type": "directional",
    "boot_ci_hi": 0.2666983573383724,
    "boot_ci_lo": -0.7891577388756945,
    "boot_mean_r": -0.2608795867075581,
@@ -9024,13 +9165,14 @@
   "key": "71/DEV"
  },
  "71/OOS": {
-  "run_id": "c472c8215cddebbe",
+  "run_id": "6c530d1bbca5d0a0",
   "id": 71,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -36.2496866382552,
+   "book_type": "directional",
    "boot_ci_hi": 0.9453007846343219,
    "boot_ci_lo": -0.5265803476377561,
    "boot_mean_r": 0.08927913452924664,
@@ -9088,13 +9230,14 @@
   "key": "71/OOS"
  },
  "72/DEV": {
-  "run_id": "658a7b7eb02d90c6",
+  "run_id": "5cb9aff4d869d615",
   "id": 72,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": 0.2683393252295461,
    "boot_ci_lo": -0.04419264338189444,
    "boot_mean_r": 0.10351469488642372,
@@ -9152,13 +9295,14 @@
   "key": "72/DEV"
  },
  "72/OOS": {
-  "run_id": "c84a5355cf84d03b",
+  "run_id": "8fdec47744ca841f",
   "id": 72,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "directional",
    "boot_ci_hi": 0.15274350319937569,
    "boot_ci_lo": -0.610615191039273,
    "boot_mean_r": -0.2544063284214621,
@@ -9216,13 +9360,14 @@
   "key": "72/OOS"
  },
  "73/DEV": {
-  "run_id": "fe727c54dbedd480",
+  "run_id": "a33800aa4dae0f35",
   "id": 73,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": 0.785645149203338,
    "boot_ci_lo": -0.06252190334046255,
    "boot_mean_r": 0.33017349028197784,
@@ -9280,13 +9425,14 @@
   "key": "73/DEV"
  },
  "73/OOS": {
-  "run_id": "2daf7c98323f68d7",
+  "run_id": "3bfcf46085ed955e",
   "id": 73,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -40.66868586647171,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.4530192534494198,
@@ -9344,13 +9490,14 @@
   "key": "73/OOS"
  },
  "74/DEV": {
-  "run_id": "5be50fee97cc2a2b",
+  "run_id": "44aa590c1f6f3534",
   "id": 74,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 6146.81819543018,
+   "book_type": "directional",
    "boot_ci_hi": -0.045079958925236044,
    "boot_ci_lo": -0.14312753126733838,
    "boot_mean_r": -0.09447015182755791,
@@ -9408,13 +9555,14 @@
   "key": "74/DEV"
  },
  "74/OOS": {
-  "run_id": "7267547e0d23aba0",
+  "run_id": "d96ba952a4682d88",
   "id": 74,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -61.089452025124544,
+   "book_type": "directional",
    "boot_ci_hi": -0.060703989618517785,
    "boot_ci_lo": -0.29837891722335846,
    "boot_mean_r": -0.17795853900543895,
@@ -9472,13 +9620,14 @@
   "key": "74/OOS"
  },
  "75/DEV": {
-  "run_id": "97a051efa8a842b6",
+  "run_id": "a0bdd4f7df3b588c",
   "id": 75,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 35.30415008527572,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 3.3461968755165037,
@@ -9536,13 +9685,14 @@
   "key": "75/DEV"
  },
  "75/OOS": {
-  "run_id": "c03470f106f040a5",
+  "run_id": "2b910c56812485ec",
   "id": 75,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 71.19449165468252,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 5.829939841909592,
@@ -9600,13 +9750,14 @@
   "key": "75/OOS"
  },
  "76/DEV": {
-  "run_id": "5861c47bc58942d0",
+  "run_id": "5d3d133372166af2",
   "id": 76,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 151.00893407270485,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -0.05370745751286197,
@@ -9664,13 +9815,14 @@
   "key": "76/DEV"
  },
  "76/OOS": {
-  "run_id": "b815179c5e3b9f57",
+  "run_id": "8a7191589e4e6a62",
   "id": 76,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -62.08371524595173,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": -0.07868526592784421,
@@ -9728,13 +9880,14 @@
   "key": "76/OOS"
  },
  "77/DEV": {
-  "run_id": "a9607d5677066bef",
+  "run_id": "bbfdbc4a77a05fa5",
   "id": 77,
   "segment": "DEV",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -36.83279268652315,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.0,
@@ -9792,13 +9945,14 @@
   "key": "77/DEV"
  },
  "77/OOS": {
-  "run_id": "84bcf7886b9ea726",
+  "run_id": "cc8ba4b24360d1fe",
   "id": 77,
   "segment": "OOS",
   "symbol": "JUPUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -38.91118916206724,
+   "book_type": "directional",
    "boot_ci_hi": null,
    "boot_ci_lo": null,
    "boot_mean_r": 0.0,
@@ -9856,13 +10010,14 @@
   "key": "77/OOS"
  },
  "78/DEV": {
-  "run_id": "3900fe7a4c67cfec",
+  "run_id": "a13bd78a892a7c71",
   "id": 78,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "directional",
    "boot_ci_hi": -0.43371163048092976,
    "boot_ci_lo": -0.46988621109970236,
    "boot_mean_r": -0.4527016333950016,
@@ -9920,13 +10075,14 @@
   "key": "78/DEV"
  },
  "78/OOS": {
-  "run_id": "897c3ccc9bab5b95",
+  "run_id": "c9cd48a34d5ac76a",
   "id": 78,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -30.04467132296692,
+   "book_type": "directional",
    "boot_ci_hi": -0.5582678632165647,
    "boot_ci_lo": -0.6490316420419061,
    "boot_mean_r": -0.602516175920384,
@@ -9984,13 +10140,14 @@
   "key": "78/OOS"
  },
  "79/DEV": {
-  "run_id": "ce300d535abd27ef",
+  "run_id": "826afd344e566cdb",
   "id": 79,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "directional",
    "boot_ci_hi": -0.9292092062636953,
    "boot_ci_lo": -1.1781357963348744,
    "boot_mean_r": -1.0602520891005782,
@@ -10048,13 +10205,14 @@
   "key": "79/DEV"
  },
  "79/OOS": {
-  "run_id": "dfbcb98d42714835",
+  "run_id": "dca37a942efb0e3f",
   "id": 79,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -41.05816342658447,
+   "book_type": "directional",
    "boot_ci_hi": -0.8357492044355007,
    "boot_ci_lo": -1.3259283652352285,
    "boot_mean_r": -1.1072752478800345,
@@ -10112,13 +10270,14 @@
   "key": "79/OOS"
  },
  "80/DEV": {
-  "run_id": "8c0d96e292edeb10",
+  "run_id": "ac6166b650ef0267",
   "id": 80,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": 6212.604024814646,
+   "book_type": "directional",
    "boot_ci_hi": -0.18445308992480336,
    "boot_ci_lo": -0.32402450336950905,
    "boot_mean_r": -0.25323185146193333,
@@ -10176,13 +10335,14 @@
   "key": "80/DEV"
  },
  "80/OOS": {
-  "run_id": "9375505189071af2",
+  "run_id": "40839e8fb189420e",
   "id": 80,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "5m",
   "metrics": {
    "bh_return_pct": -51.10435773593098,
+   "book_type": "directional",
    "boot_ci_hi": -0.2703296715726087,
    "boot_ci_lo": -0.5492494673509404,
    "boot_mean_r": -0.4078520399293803,
@@ -10240,13 +10400,14 @@
   "key": "80/OOS"
  },
  "81/DEV": {
-  "run_id": "1a2037bd346bb097",
+  "run_id": "34c24f1a3799d8ba",
   "id": 81,
   "segment": "DEV",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 6096.162300243569,
+   "book_type": "neutral",
    "boot_ci_hi": -0.07945925501334937,
    "boot_ci_lo": -0.22425510245267066,
    "boot_mean_r": -0.14312568373756476,
@@ -10300,7 +10461,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 0.9950000000000001,
    "spread_env_finite_bars": 44225,
-   "spread_env_range_bars": 53769,
+   "spread_env_range_bars": 44225,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -10313,13 +10474,14 @@
   "key": "81/DEV"
  },
  "81/OOS": {
-  "run_id": "28d04c210974d3bf",
+  "run_id": "a5d8ada20f7595ba",
   "id": 81,
   "segment": "OOS",
   "symbol": "SOLUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -49.554896142433236,
+   "book_type": "neutral",
    "boot_ci_hi": -0.027669930684196667,
    "boot_ci_lo": -0.3966603717434182,
    "boot_mean_r": -0.14908979520828,
@@ -10373,7 +10535,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 0.9950000000000001,
    "spread_env_finite_bars": 8800,
-   "spread_env_range_bars": 53769,
+   "spread_env_range_bars": 8800,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -10386,13 +10548,14 @@
   "key": "81/OOS"
  },
  "82/DEV": {
-  "run_id": "8ef6a8ddc4cc19e5",
+  "run_id": "075a0832f8e4ba29",
   "id": 82,
   "segment": "DEV",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 1039.888,
+   "book_type": "neutral",
    "boot_ci_hi": -0.8593455923158384,
    "boot_ci_lo": -2.1154741835350768,
    "boot_mean_r": -1.4446148682267224,
@@ -10446,7 +10609,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 0.5,
    "spread_env_finite_bars": 51233,
-   "spread_env_range_bars": 60777,
+   "spread_env_range_bars": 51233,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -10459,13 +10622,14 @@
   "key": "82/DEV"
  },
  "82/OOS": {
-  "run_id": "0cb9667f8ed648be",
+  "run_id": "b37cd958d94adba5",
   "id": 82,
   "segment": "OOS",
   "symbol": "BTCUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -29.09450631106654,
+   "book_type": "neutral",
    "boot_ci_hi": -1.0953650825222228,
    "boot_ci_lo": -3.5002130315277427,
    "boot_mean_r": -2.262730136132115,
@@ -10519,7 +10683,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 0.5,
    "spread_env_finite_bars": 8800,
-   "spread_env_range_bars": 60777,
+   "spread_env_range_bars": 8800,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -10532,13 +10696,14 @@
   "key": "82/OOS"
  },
  "83/DEV": {
-  "run_id": "d0de81e995439758",
+  "run_id": "13b22ea26cc6b2a4",
   "id": 83,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": 0.009953070254730332,
    "boot_ci_lo": -0.004218847523153226,
    "boot_mean_r": 0.0020034784492750056,
@@ -10600,13 +10765,14 @@
   "key": "83/DEV"
  },
  "83/OOS": {
-  "run_id": "b20742134f8d6bc2",
+  "run_id": "af7b2f27256a274c",
   "id": 83,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": 0.016781434159453636,
    "boot_ci_lo": -0.004258552030165182,
    "boot_mean_r": 0.005983997363186321,
@@ -10668,13 +10834,14 @@
   "key": "83/OOS"
  },
  "84/DEV": {
-  "run_id": "7e331c29ba1cf6e8",
+  "run_id": "d806c60c58cccdb6",
   "id": 84,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": -0.00015926621231244248,
    "boot_ci_lo": -0.002129730128333806,
    "boot_mean_r": -0.0011634955799257032,
@@ -10736,13 +10903,14 @@
   "key": "84/DEV"
  },
  "84/OOS": {
-  "run_id": "b9d3eedd49de4c16",
+  "run_id": "4d6a6796cf29fa86",
   "id": 84,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": -0.00025378979204765905,
    "boot_ci_lo": -0.0034869223543185553,
    "boot_mean_r": -0.001769864768351399,
@@ -10804,13 +10972,14 @@
   "key": "84/OOS"
  },
  "85/DEV": {
-  "run_id": "99dd566e2a4f7372",
+  "run_id": "9fd82c58e51b8201",
   "id": 85,
   "segment": "DEV",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 35.30415008527572,
+   "book_type": "neutral",
    "boot_ci_hi": 0.41447580156292907,
    "boot_ci_lo": 0.07208898809526268,
    "boot_mean_r": 0.22204360765512657,
@@ -10864,7 +11033,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 0.9950000000000001,
    "spread_env_finite_bars": 2966,
-   "spread_env_range_bars": 12510,
+   "spread_env_range_bars": 2966,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -10877,13 +11046,14 @@
   "key": "85/DEV"
  },
  "85/OOS": {
-  "run_id": "a2c8b1bcd08e1254",
+  "run_id": "4a449a7d405fbfce",
   "id": 85,
   "segment": "OOS",
   "symbol": "HYPEUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 71.19449165468252,
+   "book_type": "neutral",
    "boot_ci_hi": 0.5628577698630298,
    "boot_ci_lo": 0.10742916418853767,
    "boot_mean_r": 0.30363938206540714,
@@ -10937,7 +11107,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 0.9950000000000001,
    "spread_env_finite_bars": 8800,
-   "spread_env_range_bars": 12510,
+   "spread_env_range_bars": 8800,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -10950,13 +11120,14 @@
   "key": "85/OOS"
  },
  "86/DEV": {
-  "run_id": "b584e3018e628540",
+  "run_id": "138634ea347404f9",
   "id": 86,
   "segment": "DEV",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": 137.31886696279037,
+   "book_type": "neutral",
    "boot_ci_hi": 0.004398297667896098,
    "boot_ci_lo": -0.01382216873529971,
    "boot_mean_r": -0.003547242524997282,
@@ -11010,7 +11181,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 6.285,
    "spread_env_finite_bars": 14598,
-   "spread_env_range_bars": 24053,
+   "spread_env_range_bars": 14598,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -11023,13 +11194,14 @@
   "key": "86/DEV"
  },
  "86/OOS": {
-  "run_id": "b7980ec0b58cff5a",
+  "run_id": "9cacc17b59037b7b",
   "id": 86,
   "segment": "OOS",
   "symbol": "SUIUSDT",
   "tf": "1h",
   "metrics": {
    "bh_return_pct": -61.92504625446409,
+   "book_type": "neutral",
    "boot_ci_hi": -0.0014609398119196143,
    "boot_ci_lo": -0.1431851857623179,
    "boot_mean_r": -0.04901481496145706,
@@ -11083,7 +11255,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 6.285,
    "spread_env_finite_bars": 8711,
-   "spread_env_range_bars": 24053,
+   "spread_env_range_bars": 8711,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -11096,13 +11268,14 @@
   "key": "86/OOS"
  },
  "87/DEV": {
-  "run_id": "00b73f3eb88ae16a",
+  "run_id": "79357ed0edebbfdc",
   "id": 87,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": -0.0021375174927350535,
    "boot_ci_lo": -0.01786998170429052,
    "boot_mean_r": -0.009025293488851649,
@@ -11164,13 +11337,14 @@
   "key": "87/DEV"
  },
  "87/OOS": {
-  "run_id": "0954f965f8a861f2",
+  "run_id": "33fc545969e480bd",
   "id": 87,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": 0.0005285510544139438,
    "boot_ci_lo": -0.025786229240165284,
    "boot_mean_r": -0.010155721285002193,
@@ -11232,13 +11406,14 @@
   "key": "87/OOS"
  },
  "89/DEV": {
-  "run_id": "29f449b9b0815494",
+  "run_id": "e08d9a41af3f4240",
   "id": 89,
   "segment": "DEV",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": 2737.5,
+   "book_type": "neutral",
    "boot_ci_hi": -1.0615395028118368,
    "boot_ci_lo": -1.901511515137418,
    "boot_mean_r": -1.4727814905681311,
@@ -11292,7 +11467,7 @@
    "segment": "DEV",
    "slippage_bps_per_side": 0.5,
    "spread_env_finite_bars": 204929,
-   "spread_env_range_bars": 244367,
+   "spread_env_range_bars": 204923,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -11305,13 +11480,14 @@
   "key": "89/DEV"
  },
  "89/OOS": {
-  "run_id": "41c073e692470169",
+  "run_id": "a427e48da9d9cdaa",
   "id": 89,
   "segment": "OOS",
   "symbol": "ETHUSDT",
   "tf": "15m",
   "metrics": {
    "bh_return_pct": -52.10222307367294,
+   "book_type": "neutral",
    "boot_ci_hi": -2.4034544238205275,
    "boot_ci_lo": -4.257287256863597,
    "boot_mean_r": -3.3074818602058795,
@@ -11365,7 +11541,7 @@
    "segment": "OOS",
    "slippage_bps_per_side": 0.5,
    "spread_env_finite_bars": 36468,
-   "spread_env_range_bars": 244367,
+   "spread_env_range_bars": 36468,
    "spread_envelope_built": true,
    "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
    "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
@@ -11378,13 +11554,14 @@
   "key": "89/OOS"
  },
  "90/DEV": {
-  "run_id": "360dedf97e6fa808",
+  "run_id": "190fd660905bc971",
   "id": 90,
   "segment": "DEV",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": 0.010722561045816455,
    "boot_ci_lo": -0.005428938909448042,
    "boot_mean_r": 0.0033273729599939852,
@@ -11446,13 +11623,14 @@
   "key": "90/DEV"
  },
  "90/OOS": {
-  "run_id": "6793e24459d2e192",
+  "run_id": "2cc13531b82770de",
   "id": 90,
   "segment": "OOS",
   "symbol": "BASKET6",
   "tf": "1h",
   "metrics": {
    "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
+   "book_type": "neutral",
    "boot_ci_hi": 0.012381106976255635,
    "boot_ci_lo": -0.002337220114200822,
    "boot_mean_r": 0.0033576685616479407,

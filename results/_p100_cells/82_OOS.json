@@ -1,11 +1,12 @@
 {
- "run_id": "0cb9667f8ed648be",
+ "run_id": "b37cd958d94adba5",
  "id": 82,
  "segment": "OOS",
  "symbol": "BTCUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": -29.09450631106654,
+  "book_type": "neutral",
   "boot_ci_hi": -1.0953650825222228,
   "boot_ci_lo": -3.5002130315277427,
   "boot_mean_r": -2.262730136132115,
@@ -59,7 +60,7 @@
   "segment": "OOS",
   "slippage_bps_per_side": 0.5,
   "spread_env_finite_bars": 8800,
-  "spread_env_range_bars": 60777,
+  "spread_env_range_bars": 8800,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

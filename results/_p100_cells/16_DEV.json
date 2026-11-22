@@ -1,11 +1,12 @@
 {
- "run_id": "77f48975ff52d415",
+ "run_id": "1aec8d2f9648b8b5",
  "id": 16,
  "segment": "DEV",
  "symbol": "HYPEUSDT",
  "tf": "5m",
  "metrics": {
   "bh_return_pct": 34.407323742717864,
+  "book_type": "directional",
   "boot_ci_hi": 0.025146795896650243,
   "boot_ci_lo": -0.21074281497327013,
   "boot_mean_r": -0.09223455029890562,

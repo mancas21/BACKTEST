@@ -855,17 +855,33 @@ def _calib_policy(P, reps):
 def null_calibration(df: pd.DataFrame, n_trades: int, hold_bars: Sequence[int],
                      ctx: GateContext, n_sims: int = 300, seed: int = 7,
                      side_mode: str = "both", rt_cost_bps: float = REPO_RT_BPS,
-                     policy: Dict[str, Any] = POLICY, reps: int = 400,
+                     policy: Dict[str, Any] = POLICY, reps: int = 2000,
                      edge_bps: float = 0.0, k_candidates: Optional[int] = None) -> Dict[str, Any]:
     """Pass-rate of the whole gate set on random-entry books. With edge_bps=0 this is
-    the empirical false-positive rate P0; with edge_bps>0 it is power at that edge."""
+    the empirical false-positive rate P0; with edge_bps>0 it is power at that edge.
+
+    E-fix (2026-11-22): the default reps was 400 -- BELOW the boot_reps_floor
+    of 500 -- so any caller using the default got G1 and G9 failing closed in
+    EVERY trial and a floor-suppressed joint that looked like a measurement.
+    The default is now 2000 and a call below the floor RAISES, exactly like
+    every other tail estimate in this module. `expectancy_bps` (the sims'
+    mean net per-trade return) is returned so a planted edge can be checked
+    against its own size (the d20-minus-d0 sanity check)."""
+    if reps < BOOT_REPS_FLOOR:
+        raise ValueError(
+            f"null_calibration reps {reps} < boot_reps_floor "
+            f"{BOOT_REPS_FLOOR} -- G1/G9 would fail closed in every trial "
+            "and the joint would be floor-suppressed, not measured "
+            "(raise the reps, do not lower the floor)")
     rng = np.random.default_rng(seed)
     pol = _calib_policy(policy, reps)
     names = ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G11"]   # F16: include G11
     per = {g: 0 for g in names}
     joint = joint_no_g7 = 0
+    all_net = []
     for _ in range(n_sims):
         tr = random_entry_trades(df, n_trades, hold_bars, rng, side_mode, rt_cost_bps, edge_bps=edge_bps)
+        all_net.append(float((tr["gross_ret"] - tr["cost_ret"] - tr["funding_ret"]).mean()))
         res = evaluate_gates_v2(tr, ctx, pol)["gates"]
         for g in names:
             per[g] += int(bool(res[g]["pass"]))
@@ -873,6 +889,7 @@ def null_calibration(df: pd.DataFrame, n_trades: int, hold_bars: Sequence[int],
         joint_no_g7 += int(all(res[g]["pass"] for g in names if g != "G7"))
     p0 = joint / n_sims
     out = {"n_sims": n_sims, "edge_bps": edge_bps, "pass_rate_joint": p0,
+           "expectancy_bps": float(np.mean(all_net) * 1e4),
            "pass_rate_joint_ex_G7": joint_no_g7 / n_sims,
            "pass_rate_by_gate": {g: per[g] / n_sims for g in names},
            "upper95_joint": _upper95_rate(joint, n_sims)}

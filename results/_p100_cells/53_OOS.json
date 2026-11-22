@@ -1,11 +1,12 @@
 {
- "run_id": "01f6b8749ed30c4f",
+ "run_id": "a53e5fd8df72a13d",
  "id": 53,
  "segment": "OOS",
  "symbol": "SOLUSDT",
  "tf": "5m",
  "metrics": {
   "bh_return_pct": -51.10435773593098,
+  "book_type": "directional",
   "boot_ci_hi": -0.10528591586038687,
   "boot_ci_lo": -0.6416314806308892,
   "boot_mean_r": -0.4100039739983677,

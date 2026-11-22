@@ -1,11 +1,12 @@
 {
- "run_id": "29f449b9b0815494",
+ "run_id": "e08d9a41af3f4240",
  "id": 89,
  "segment": "DEV",
  "symbol": "ETHUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": 2737.5,
+  "book_type": "neutral",
   "boot_ci_hi": -1.0615395028118368,
   "boot_ci_lo": -1.901511515137418,
   "boot_mean_r": -1.4727814905681311,
@@ -59,7 +60,7 @@
   "segment": "DEV",
   "slippage_bps_per_side": 0.5,
   "spread_env_finite_bars": 204929,
-  "spread_env_range_bars": 244367,
+  "spread_env_range_bars": 204923,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

@@ -1,11 +1,12 @@
 {
- "run_id": "dfbcb98d42714835",
+ "run_id": "dca37a942efb0e3f",
  "id": 79,
  "segment": "OOS",
  "symbol": "ETHUSDT",
  "tf": "5m",
  "metrics": {
   "bh_return_pct": -41.05816342658447,
+  "book_type": "directional",
   "boot_ci_hi": -0.8357492044355007,
   "boot_ci_lo": -1.3259283652352285,
   "boot_mean_r": -1.1072752478800345,

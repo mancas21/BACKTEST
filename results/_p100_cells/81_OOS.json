@@ -1,11 +1,12 @@
 {
- "run_id": "28d04c210974d3bf",
+ "run_id": "a5d8ada20f7595ba",
  "id": 81,
  "segment": "OOS",
  "symbol": "SOLUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": -49.554896142433236,
+  "book_type": "neutral",
   "boot_ci_hi": -0.027669930684196667,
   "boot_ci_lo": -0.3966603717434182,
   "boot_mean_r": -0.14908979520828,
@@ -59,7 +60,7 @@
   "segment": "OOS",
   "slippage_bps_per_side": 0.9950000000000001,
   "spread_env_finite_bars": 8800,
-  "spread_env_range_bars": 53769,
+  "spread_env_range_bars": 8800,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",

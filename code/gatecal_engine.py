@@ -232,21 +232,43 @@ def run_one(paths, params):
     # implementation) on the SAME real market, its own null generator. Its
     # rates are recorded side by side with this engine's so the two
     # implementations' agreement is a measurement, not an assertion.
-    xref = {"note": "reference layer _gates_v2.null_calibration, same real BTCUSDT 1h bars"}
+    # E-round (2026-11-22): the old cross-check ran at reps=400 -- BELOW the
+    # boot_reps_floor of 500 -- so G1 and G9 failed closed in EVERY trial
+    # and the published by-gate table was floor-suppressed, not measured
+    # (the artifact showed G1 0.0 / G9 0.0 even at edge 20 where G4 had
+    # 0.495). Now provisioned per the auditor's spec: reps=2000, n_sims=400,
+    # the FULL per-gate v2 table (G1..G9+G11) over n {30,100,300} x edges
+    # {0,20}, plus the expectancy sanity check (d20 minus d0 must be ~20
+    # bps -- a repeat of A2 inside the v2 path would show here).
+    xref = {"note": "reference layer _gates_v2.null_calibration, same real BTCUSDT 1h bars; "
+                    "reps=2000 (>= boot_reps_floor), n_sims=400 per cell",
+            "reps": 2000, "n_sims_per_cell": 400}
     try:
         import _gates_v2 as GV
         dfx = df.set_index("ts")
         ctxx = GV.GateContext(benchmark_close=dfx["close"], max_leverage=1.0, n_trials=1)
         holds = list(range(2, 25))
-        for edge in (0, 20):
-            rr = GV.null_calibration(dfx, 100, holds, ctxx, n_sims=200,
-                                     seed=seed0, reps=400, edge_bps=float(edge))
-            xref[f"edge{edge}"] = {
-                "joint": rr["pass_rate_joint"],
-                "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
-                "upper95": rr["upper95_joint"],
-                "by_gate": {k: round(v, 4) for k, v in rr["pass_rate_by_gate"].items()},
-            }
+        exp_by_edge = {}
+        cells = {}
+        for n_target in (30, 100, 300):
+            for edge in (0, 20):
+                rr = GV.null_calibration(dfx, n_target, holds, ctxx, n_sims=400,
+                                         seed=seed0, reps=2000, edge_bps=float(edge))
+                cells[f"n{n_target}_d{int(edge)}"] = {
+                    "joint": rr["pass_rate_joint"],
+                    "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
+                    "upper95": rr["upper95_joint"],
+                    "expectancy_bps": rr.get("expectancy_bps"),
+                    "by_gate": {k: round(v, 4) for k, v in rr["pass_rate_by_gate"].items()},
+                }
+                exp_by_edge[edge] = rr.get("expectancy_bps")
+        xref["cells"] = cells
+        if 0 in exp_by_edge and 20 in exp_by_edge:
+            xref["expectancy_sanity"] = {
+                "d0_bps": exp_by_edge[0], "d20_bps": exp_by_edge[20],
+                "delta_bps": exp_by_edge[20] - exp_by_edge[0],
+                "note": "d20 minus d0 must be ~20 bps: if it is not, the v2 "
+                        "path is scoring the wrong trades and the table is void"}
     except Exception as e:      # the cross-check must never kill the artifact
         xref["error"] = f"{type(e).__name__}: {e}"
 

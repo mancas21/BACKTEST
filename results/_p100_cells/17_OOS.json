@@ -1,11 +1,12 @@
 {
- "run_id": "e77fd92c7bd3cc9b",
+ "run_id": "e0a4ec926a73a1d2",
  "id": 17,
  "segment": "OOS",
  "symbol": "SUIUSDT",
  "tf": "5m",
  "metrics": {
   "bh_return_pct": -62.08371524595173,
+  "book_type": "directional",
   "boot_ci_hi": -0.12575555934555968,
   "boot_ci_lo": -0.552141315729277,
   "boot_mean_r": -0.3474134288600136,

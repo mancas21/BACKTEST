@@ -1,11 +1,12 @@
 {
- "run_id": "394a4410935b1f36",
+ "run_id": "4741d676c48139c6",
  "id": 2,
  "segment": "DEV",
  "symbol": "BTCUSDT",
  "tf": "15m",
  "metrics": {
   "bh_return_pct": 1039.888,
+  "book_type": "directional",
   "boot_ci_hi": -0.23643352905065648,
   "boot_ci_lo": -0.30430475028331927,
   "boot_mean_r": -0.2707238072850408,

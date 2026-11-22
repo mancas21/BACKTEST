@@ -1,11 +1,12 @@
 {
- "run_id": "1a2037bd346bb097",
+ "run_id": "34c24f1a3799d8ba",
  "id": 81,
  "segment": "DEV",
  "symbol": "SOLUSDT",
  "tf": "1h",
  "metrics": {
   "bh_return_pct": 6096.162300243569,
+  "book_type": "neutral",
   "boot_ci_hi": -0.07945925501334937,
   "boot_ci_lo": -0.22425510245267066,
   "boot_mean_r": -0.14312568373756476,
@@ -59,7 +60,7 @@
   "segment": "DEV",
   "slippage_bps_per_side": 0.9950000000000001,
   "spread_env_finite_bars": 44225,
-  "spread_env_range_bars": 53769,
+  "spread_env_range_bars": 44225,
   "spread_envelope_built": true,
   "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
