@@ -1127,6 +1127,26 @@ def run_scalpma20(paths, params):
     return metrics, prov, tables
 
 
+# The nineteen contracts case_studies/crypto_perps_funding/config/setup.yaml
+# declares. Both files of every contract are inputs of every ml4tfund
+# artifact: the book cannot price a name without klines and cannot charge it
+# without funding, so a change to either must change the run_id.
+ML4TFUND_UNIVERSE = [
+    "AAVEUSDT", "ADAUSDT", "APTUSDT", "ATOMUSDT", "AVAXUSDT", "BNBUSDT",
+    "BTCUSDT", "COMPUSDT", "DOGEUSDT", "DOTUSDT", "ETHUSDT", "INJUSDT",
+    "LINKUSDT", "MKRUSDT", "NEARUSDT", "SOLUSDT", "SUIUSDT", "UNIUSDT",
+    "XRPUSDT",
+]
+
+
+def _ml4tfund_inputs():
+    out = []
+    for s in ML4TFUND_UNIVERSE:
+        out.append(os.path.join(DATA, "binance_klines_1h", f"{s}_1h.csv"))
+        out.append(os.path.join(DATA, "binance_funding", f"{s}_funding.json"))
+    return out
+
+
 def _xsml_inputs(tf, sym, params):
     """The eight universe klines plus the prediction file the run asks for.
 
@@ -1217,6 +1237,27 @@ def run_prompts100(paths, params):
     """
     m = _load_module(os.path.join(CODE, "prompts100_engine.py"),
                      "prompts100_engine")
+    metrics, prov, tables = m.run_symbol(paths, dict(params))
+    return metrics, prov, tables
+
+
+def run_ml4tfund(paths, params):
+    """The ML4T crypto-perps-funding book (code/ml4tfund_engine.py).
+
+    Spec: results/ml4tfund_pre_registration.md, frozen before the first market
+    run (2026-11-22). Nineteen Binance USD-M perps, 8h funding-aligned,
+    cross-sectional long-short, equal weight within each side (gross 2.0),
+    funding charged at every real settlement inside the holding window, and
+    the case study's own two cost schedules. A zero-cost path is measured
+    inside every artifact.
+
+    Params: window in {val, holdout, ext}, k in {3,5}, cost in
+    {cs_engine, cs_tiered}, score in {level, z}. The engine runs its ten
+    hand-computed known answers before it will touch real data and refuses
+    otherwise -- so a run of this adapter cannot silently skip the audit.
+    """
+    m = _load_module(os.path.join(CODE, "ml4tfund_engine.py"),
+                     "ml4tfund_engine")
     metrics, prov, tables = m.run_symbol(paths, dict(params))
     return metrics, prov, tables
 
@@ -3407,6 +3448,18 @@ ADAPTERS = {
         "inputs": _xsml_inputs,
         "inputs_with_params": True,
         "run": run_xsml, "matrix": False, "needs_tf": False,
+    },
+    # The ML4T "Crypto Perpetuals Funding" book (`ml4tfund`): the nineteen
+    # Binance USD-M perps case_studies/crypto_perps_funding declares, traded
+    # 8h-funding-aligned, cross-sectional long-short. Spec frozen before the
+    # first market run in results/ml4tfund_pre_registration.md. Every one of
+    # the 19 klines AND its funding file is an input of the artifact: the
+    # book is unbuildable without either, so both are hashed into the run_id.
+    "ml4tfund": {
+        "sources": [os.path.join(CODE, "ml4tfund_engine.py")],
+        "version": "ml4tfund-1",
+        "inputs": lambda tf, sym: _ml4tfund_inputs(),
+        "run": run_ml4tfund, "matrix": False, "needs_tf": False,
     },
     # WAVE_1 scalp pack, ported from Downloads/scalp_wave1_v1.1.0. Judged on
     # its OWN artifacts (AGENTS.md REGLA 1): the kill list is history, never

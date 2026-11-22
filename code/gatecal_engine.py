@@ -254,11 +254,21 @@ def run_one(paths, params):
             for edge in (0, 20):
                 rr = GV.null_calibration(dfx, n_target, holds, ctxx, n_sims=400,
                                          seed=seed0, reps=2000, edge_bps=float(edge))
+                # A-fix: the LEVEL travels with the delta -- net expectancy,
+                # per-trade dispersion and the implied t. At d20 the NET edge
+                # is ~9 bps (20 gross - 11 RT): the level makes the
+                # interpretation honest.
+                net_mean = rr.get("expectancy_bps")
+                net_sd = rr.get("net_std_bps")
                 cells[f"n{n_target}_d{int(edge)}"] = {
                     "joint": rr["pass_rate_joint"],
                     "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
                     "upper95": rr["upper95_joint"],
-                    "expectancy_bps": rr.get("expectancy_bps"),
+                    "expectancy_net_bps": net_mean,
+                    "net_std_bps": net_sd,
+                    "implied_t": (round(net_mean / (net_sd / (n_target ** 0.5)), 2)
+                                  if net_sd and net_mean is not None else None),
+                    "edge_is": "GROSS bps/trade; net = gross - cost - funding",
                     "by_gate": {k: round(v, 4) for k, v in rr["pass_rate_by_gate"].items()},
                 }
                 exp_by_edge[edge] = rr.get("expectancy_bps")
@@ -272,6 +282,57 @@ def run_one(paths, params):
     except Exception as e:      # the cross-check must never kill the artifact
         xref["error"] = f"{type(e).__name__}: {e}"
 
+    # ── power in T-UNITS (sixth re-audit, 2026-11-22): the planted drift is
+    # GROSS (net = gross − cost − funding), so the old d20 cell was a NET
+    # edge of +9 bps/trade at n=300 -- a t of well under 1 on
+    # hundreds-of-bps dispersion, i.e. NOISE, and the low G6/G5/G7/G8 rates
+    # were the correct answer to it, not gate blindness. Power is now
+    # planted in t-units: net_required = t*sigma/sqrt(n); gross_drift =
+    # net_required + rt_cost. sigma_net comes from the d0 pilot of the same
+    # generator. G8's floor is declared: a gross drift below 2x the RT cost
+    # cannot pass the stress rung except by luck.
+    power_by_t = {"note": "power at detectable edges, planted in t-units; "
+                          "sigma_net from the d0 pilot of the same generator",
+                  "g8_min_gross_drift_bps": 2.0 * 11.0,
+                  "cells": {}}
+    try:
+        import _gates_v2 as GV
+        dfx2 = df.set_index("ts")
+        ctxx2 = GV.GateContext(benchmark_close=dfx2["close"], max_leverage=1.0,
+                               n_trials=1)
+        holds2 = list(range(2, 25))
+        rt_bps = 11.0
+        for n_target in (100, 300):
+            pilot = GV.null_calibration(dfx2, n_target, holds2, ctxx2,
+                                        n_sims=60, seed=seed0 + 1, reps=2000,
+                                        edge_bps=0.0)
+            sigma = float(pilot["net_std_bps"])
+            for t_target in (1.0, 2.0, 3.0, 5.0):
+                net_req = t_target * sigma / (n_target ** 0.5)
+                gross_drift = net_req + rt_bps
+                rr = GV.null_calibration(dfx2, n_target, holds2, ctxx2,
+                                         n_sims=400, seed=seed0 + 2,
+                                         reps=2000, edge_bps=gross_drift)
+                implied_t = (rr["expectancy_bps"] /
+                             (rr["net_std_bps"] / (n_target ** 0.5)))
+                cell = {
+                    "sigma_net_bps": round(sigma, 2),
+                    "net_required_bps": round(net_req, 2),
+                    "gross_drift_bps": round(gross_drift, 2),
+                    "net_expectancy_bps": round(rr["expectancy_bps"], 2),
+                    "implied_t": round(implied_t, 2),
+                    "joint": rr["pass_rate_joint"],
+                    "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
+                    "by_gate": {k: round(v, 4)
+                                for k, v in rr["pass_rate_by_gate"].items()},
+                }
+                mg = [v for k, v in cell["by_gate"].items()]
+                cell["joint_le_min_gate"] = bool(
+                    cell["joint"] <= min(mg) if mg else True)
+                power_by_t["cells"][f"n{n_target}_t{int(t_target)}"] = cell
+    except Exception as e:      # the power section must never kill the artifact
+        power_by_t["error"] = f"{type(e).__name__}: {e}"
+
     m = {
         "purpose": "empirical false-positive rate and power of the v1 (G1-G6) and v2 gate sets",
         "null": "random 50/50 entries on real BTCUSDT 1h bars, next-open fills, 2xATR stop, time stop, funding charged",
@@ -279,6 +340,7 @@ def run_one(paths, params):
         "cost_bps_per_side": 5.5,
         "policy_hash": G2.policy_hash(),
         "reference_layer_cross_check": xref,
+        "power_by_t": power_by_t,
         "seed": seed0,
         "n_trials_per_cell": n_trials,
         "n_targets": N_TARGETS,

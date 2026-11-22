@@ -378,6 +378,18 @@ def t_reps_floor():
                             reps=2000, seed=5)
     check("null_calibration at provisioned reps returns expectancy_bps",
           "expectancy_bps" in rr, str(sorted(rr.keys())))
+    check("null_calibration reports the LEVEL (net_std_bps + implied-t inputs)",
+          "net_std_bps" in rr and rr["net_std_bps"] > 0, str(rr.get("net_std_bps")))
+    # D-invariant: the joint can never exceed the weakest gate
+    by_gate = rr["pass_rate_by_gate"]
+    check("D-invariant joint <= min(per_gate) holds on a real run",
+          rr["pass_rate_joint"] <= min(by_gate.values()) + 1e-12,
+          f"joint={rr['pass_rate_joint']} min_gate={min(by_gate.values())}")
+    # the drift is GROSS (round-6 correction): at the repo RT the d0 net
+    # expectancy is ~-11 bps, not 0 -- the level is the honest reading
+    check("the d0 net expectancy sits near minus the RT cost (gross drift, "
+          "not net)", -30.0 < rr["expectancy_bps"] < 0.0,
+          f"got {rr['expectancy_bps']:.2f} bps")
 
 
 def t_r1_r2(monkeypatch_load_leg):
