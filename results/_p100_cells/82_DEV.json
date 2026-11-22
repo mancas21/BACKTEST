@@ -1,5 +1,5 @@
 {
- "run_id": "e3f2517cae691160",
+ "run_id": "8ef6a8ddc4cc19e5",
  "id": 82,
  "segment": "DEV",
  "symbol": "BTCUSDT",
@@ -58,8 +58,10 @@
   "return_pct": 2.4087454724320482e+58,
   "segment": "DEV",
   "slippage_bps_per_side": 0.5,
+  "spread_env_finite_bars": 51233,
   "spread_env_range_bars": 60777,
   "spread_envelope_built": true,
+  "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
   "strategy_id": 82,
   "symbol": "BTCUSDT",

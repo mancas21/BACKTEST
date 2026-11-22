@@ -1,5 +1,34 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-21 (ronda cuatro) - D2/D5/D6/D3/D4/D1/D7 + RETRACTACION del par ochenta y ocho
+
+La cuarta re-auditoria confirmo R1/R2/R3 y el bonus del benchmark, y pesco
+la regresion que la propia reescritura R1 introdujo: habia soltado el guard
+de finitud que la version anterior tenia. **Una barra NaN de una pierna
+apagaba el stop silenciosamente en ambas direcciones** (max/min de Python
+con NaN son dependientes del orden), y log(0)=-inf fabricaba uno. Ahora
+SpreadBook.run ASSERTA la finitud de las cuatro series de piernas sobre la
+ventana operada y REFUSA un sobre de rango cero — fail loud, nunca skip
+(D2). D6: `spread_envelope_built` es MEDICION (True solo tras el assert;
+`spread_env_finite_bars` viaja con el). D5: el benchmark de las cestas
+corre sobre la ventana alineada PROPIA de la cesta (antes cada pierna usaba
+su fecha de listado). D7: `spread_pnl_basis` declarado en el artefacto — el
+ledger sigue siendo la linearizacion re-cobrada por-barra mientras el stop
+referencia la cartera de beta de entrada; el ledger de piernas (R4) abre la
+campana trades_v2. D3/D4/D1 borrados; D8 declarado (cero celdas refusaron
+por funding; las dos refusas de la gen-5 son las del par ochenta y ocho).
+
+**RETRACTACION**: los numeros del par ochenta y ocho publicados por TODAS
+las generaciones del rescreen hasta la gen-3 salieron del modelo open-only
+degradado — RETIRADOS, no solo reemplazados (el engine estaba mal, no fue
+sustituido); registrado en `code/_engine_lock.json` y aqui.
+
+Gen-5: ciento setenta y ocho celdas + gatecal intacto, sweep todo OK. Diez
+celdas de pares publican barras finas/rango medidas (p.ej. par ochenta y
+cinco DEV `99dd566e2a4f7372`: finas 2966 / rango 12510) — el stop intrabar
+de pares es una MEDICION, no una declaracion.
+`results/auditfix4_report_2026-11-21.md` (guard OK strict), selftest 64/64.
+
 ## 2026-11-21 (ronda 3) - R1/R2/R3/R7 de la re-auditoria a fad193a + bonus del benchmark de cestas
 
 La tercera re-auditoria (pinnada al SHA) confirmo los seis fixes de ronda 2

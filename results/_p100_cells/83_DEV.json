@@ -1,12 +1,11 @@
 {
- "run_id": "67f08389b3e805e9",
+ "run_id": "d0de81e995439758",
  "id": 83,
  "segment": "DEV",
  "symbol": "BASKET6",
  "tf": "1h",
  "metrics": {
-  "bh_benchmark": "equal-weight buy & hold of the basket's own legs",
-  "bh_return_pct": 1668.2796026892327,
+  "bh_benchmark": "equal-weight buy & hold of the basket's own legs over the basket's aligned traded window",
   "boot_ci_hi": 0.009953070254730332,
   "boot_ci_lo": -0.004218847523153226,
   "boot_mean_r": 0.0020034784492750056,
@@ -25,7 +24,6 @@
    "SOLUSDT",
    "SUIUSDT"
   ],
-  "excess_pct": -1653.9123621235397,
   "fee_bps_per_side": 5.0,
   "fees_paid_usdt": 1867.6615982229391,
   "final_equity": 11436.7240565693,

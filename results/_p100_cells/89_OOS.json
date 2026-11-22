@@ -1,5 +1,5 @@
 {
- "run_id": "87dc0fe82393f371",
+ "run_id": "41c073e692470169",
  "id": 89,
  "segment": "OOS",
  "symbol": "ETHUSDT",
@@ -58,8 +58,10 @@
   "return_pct": 7831.0517168373935,
   "segment": "OOS",
   "slippage_bps_per_side": 0.5,
+  "spread_env_finite_bars": 36468,
   "spread_env_range_bars": 244367,
   "spread_envelope_built": true,
+  "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
   "strategy_id": 89,
   "symbol": "ETHUSDT",

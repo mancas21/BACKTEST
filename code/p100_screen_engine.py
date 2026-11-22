@@ -134,8 +134,12 @@ class SpreadBook:
             self.leg_a_log_lo = np.asarray(sig["leg_a_log_lo"], float)
             self.leg_b_log_hi = np.asarray(sig["leg_b_log_hi"], float)
             self.leg_b_log_lo = np.asarray(sig["leg_b_log_lo"], float)
-        # R1: the stop model travels with the artifact
-        self.envelope_built = not self.pack_conventions
+        # R1 + D6: the stop model travels with the artifact; envelope_built
+        # starts False and is set TRUE IN run() only after the finiteness
+        # assertion over the traded window passes -- a measurement, not a
+        # mode inference
+        self.envelope_built = False
+        self.env_finite_bars = 0
         self.env_range_bars = int(sig.get("env_range_bars", 0) or 0)
         self.side_target = np.asarray(sig["side"], float)
         self.stop_s = np.asarray(sig["stop_s"], float)
@@ -147,9 +151,11 @@ class SpreadBook:
         self.slip = slip
         self.risk_pct = risk_pct
         self.max_leverage = max_leverage
-        self.pack_conventions = pack_conventions
+        # D3 fix: the cast assignment earlier in __init__ is the only one --
+        # the raw overwrite that used to live here made the guard read the
+        # cast value and the rest of the class read the raw one
         self.pnl_includes_funding = False
-        self.charge_funding = charge_funding and not pack_conventions
+        self.charge_funding = charge_funding and not self.pack_conventions
         self.cash = init
         self.equity = init
         self.pos = None
@@ -220,6 +226,34 @@ class SpreadBook:
     def run(self, start_idx=0, end_idx=None, trade_from=None, trade_to=None):
         if end_idx is None:
             end_idx = self.n - 1
+        # D2 fix (fourth re-audit 2026-11-21): a NaN leg bar makes both
+        # envelope corners NaN (Python's order-dependent max/min), and
+        # NaN <= stop / NaN >= stop are both False -- a missing or
+        # misaligned bar SILENTLY DISABLED the stop in both directions;
+        # log(0) = -inf fabricates one. The previous version masked this
+        # with np.where(isfinite...); the R1 rewrite dropped the guard.
+        # Now the traded window must be finite and carry a real range --
+        # FAIL LOUD, never skip.
+        if not self.pack_conventions:
+            lo_w, hi_w = start_idx, end_idx
+            for k in ("leg_a_log_hi", "leg_a_log_lo",
+                      "leg_b_log_hi", "leg_b_log_lo"):
+                a = getattr(self, k)[lo_w:hi_w + 1]
+                n_bad = int((~np.isfinite(a)).sum())
+                if n_bad:
+                    raise ValueError(
+                        f"{k}: {n_bad} non-finite bars in the traded window "
+                        f"[{lo_w}, {hi_w}] -- a NaN leg silently disables "
+                        "the intrabar stop and -inf fabricates one; refuse, "
+                        "never skip (D2 fix)")
+            if self.env_range_bars <= 0:
+                raise ValueError(
+                    "spread envelope has zero range bars -- the loaders "
+                    "disagree or the data is degenerate; refuse (D2 fix)")
+            # D6 fix: the flag is a MEASUREMENT (finite bars over the traded
+            # window after the assertion above), not an inferred mode
+            self.env_finite_bars = hi_w - lo_w + 1
+            self.envelope_built = True
         for j in range(start_idx, end_idx + 1):
             tradable = True
             if trade_from is not None and j < trade_from:
@@ -377,11 +411,8 @@ def run_pair(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
     repo's two-leg book."""
     PS = _pairs_signals()
     sig = PS.pair_signal(sid)
-    df_rows = sig["s"]
-    ts = pd.to_datetime(pd.Series(sig["ts"]), utc=True)
-    df = pd.DataFrame({"timestamp": ts, "open": sig["s_open"],
-                       "high": sig["s_open"], "low": sig["s_open"],
-                       "close": sig["s"]})
+    # D4 fix: the dead zero-range DataFrame (open=high=low) is GONE -- it
+    # documented the open-only stop model R1 removed and was never consumed.
     # N5 FIX (2026-11-21) + R1/R3 (second re-audit): the spread's INTRABAR
     # envelope is built from the legs' own high/low and applied AT THE HELD
     # ENTRY BETA inside SpreadBook (the book does not hold the per-bar
@@ -393,14 +424,24 @@ def run_pair(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
     # A spread cell that cannot build an envelope is refused, not degraded.
     if not pack_conventions:
         for leg in sig["legs"]:
-            _p = os.path.join(ROOT, "data", TF_DIRS[tf], f"{leg}_{tf}.csv")
-            if not os.path.exists(_p):
+            _base = f"{leg}_{tf}.csv"
+            # D1 fix: the refusal is about DECLARED inputs, not about what
+            # happens to be on the live disk -- under strict serving the
+            # check consults the served map
+            if _SERVED_MODE:
+                _ok = _base in _SERVED_INPUTS
+                _where = "declared served input"
+            else:
+                _p = os.path.join(ROOT, "data", TF_DIRS[tf], _base)
+                _ok = os.path.exists(_p)
+                _where = f"file on disk ({_p})"
+            if not _ok:
                 raise ValueError(
-                    f"run_pair sid {sid}: leg {leg} has no kline file "
-                    f"({_p}; synthetic legs like ALT-BASKET have no intrabar "
-                    "range) -- the repo intrabar stop convention cannot be "
-                    "applied to this spread; the cell is refused (fail "
-                    "loud, R1 fix)")
+                    f"run_pair sid {sid}: leg {leg} has no kline {_where} "
+                    f"({_base}; synthetic legs like ALT-BASKET have no "
+                    "intrabar range) -- the repo intrabar stop convention "
+                    "cannot be applied to this spread; the cell is refused "
+                    "(fail loud, R1 fix)")
         ka = load_klines(sig["legs"][0], tf).set_index("timestamp")
         kb = load_klines(sig["legs"][1], tf).set_index("timestamp")
         ts_idx = pd.DatetimeIndex(pd.to_datetime(pd.Series(list(sig["ts"])), utc=True))
@@ -416,8 +457,6 @@ def run_pair(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
         sig["envelope_built"] = True
         # R1: how many bars carry a real intrabar range at all (data quality)
         sig["env_range_bars"] = int(((ha > la_) | (hb > lb_)).sum())
-        df["high"] = sig["s_open"]
-        df["low"] = sig["s_open"]
     book = SpreadBook(sig["legs"], sig, init=init, fee=fee, slip=slip,
                       charge_funding=charge_funding,
                       pack_conventions=pack_conventions)
@@ -583,17 +622,23 @@ def run_basket(sid, symbol, tf, segment, *, init=INIT, fee=FEE, slip=SLIP,
     b.n_settlements = 0
     b.n_signals = len(trades)
     b.skipped_gap_entries = 0
-    # R2-adjacent fix (2026-11-21, third re-audit round): the BASKET's
-    # benchmark is the EQUAL-WEIGHT buy & hold of its own legs -- the old
-    # code let run_symbol infer the symbol from the first served input
-    # (BTCUSDT) and benchmarked the basket against BTC's buy & hold
-    # (1039.888 on the full window), which is not the basket's passive
-    # alternative. The legs are all declared inputs, so this reads the
-    # served slice under strict mode.
-    b.bh_equal_weight = float(np.mean([
-        buy_and_hold_pct(load_klines(s, sig["tf"]), segment)
-        for s in symbols]))
-    b.bh_benchmark_note = "equal-weight buy & hold of the basket's own legs"
+    # R2-adjacent fix + D5 (2026-11-21): the BASKET's benchmark is the
+    # equal-weight buy & hold of its own legs over the BASKET'S OWN ALIGNED
+    # TRADED WINDOW [start, end] -- the old code let each leg compute its
+    # buy & hold over ITS OWN listing window (BTC lists 2019, SUI 2023,
+    # HYPE 2025) while the basket trades the aligned intersection: the book
+    # and its benchmark covered different spans. None (honest N-A) when the
+    # window is degenerate or a leg's close is missing at a boundary.
+    w0 = max(1, start)
+    if end > w0 and all(
+            np.isfinite(closes[s][w0]) and np.isfinite(closes[s][end])
+            for s in symbols):
+        b.bh_equal_weight = float(100.0 * np.mean(
+            [closes[s][end] / closes[s][w0] - 1.0 for s in symbols]))
+    else:
+        b.bh_equal_weight = None
+    b.bh_benchmark_note = ("equal-weight buy & hold of the basket's own legs "
+                           "over the basket's aligned traded window")
     return b, sig
 
 
@@ -1404,6 +1449,15 @@ def run_symbol(paths, params):
         metrics["spread_stop_model"] = (
             "intrabar_leg_envelope_at_entry_beta" if not pack_conventions
             else "pack_close_only")
+        # D7 declaration: the LEDGER is still the pack's linearised spread
+        # PnL re-hedged at the per-bar beta, while the stop (and the exit
+        # fee, and the notional) reference the ENTRY-beta portfolio. The
+        # leg-PnL ledger (R4) lands with the trades_v2 campaign; until then
+        # the mismatch is declared, not hidden.
+        metrics["spread_pnl_basis"] = (
+            "rehedged_per_bar_beta_linearisation" if not pack_conventions
+            else "pack_linearised_spread")
+        metrics["spread_env_finite_bars"] = int(getattr(book, "env_finite_bars", 0) or 0)
     # N9: the RESOLVED gate cost is measured inside the artifact (guard can
     # back it; the flat-11 constant is only a fallback)
     metrics["fee_bps_per_side"] = float(fee_bps)

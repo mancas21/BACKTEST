@@ -145,8 +145,9 @@ def _mk_spread_sig(n, *, s0=0.05, pierce_bar=None, pierce_to=0.02,
           for i in range(n)]
     la_h = np.full(n, math.log(100.0))
     la_l = np.full(n, math.log(100.0))
-    lb_h = np.full(n, math.log(100.0 * math.exp(-s0)))
     lb_l = np.full(n, math.log(100.0 * math.exp(-s0)))
+    lb_h = lb_l + 0.0005             # a small real range everywhere (D2:
+    lb_h = lb_h.copy()               # zero range bars are refused)
     s = np.full(n, s0)
     s_open = np.full(n, s0)
     if pierce_bar is not None:
@@ -169,7 +170,7 @@ def _mk_spread_sig(n, *, s0=0.05, pierce_bar=None, pierce_to=0.02,
                 legs=("AAAUSDT", "BBBUSDT"),
                 leg_a_log_hi=la_h, leg_a_log_lo=la_l,
                 leg_b_log_hi=lb_h, leg_b_log_lo=lb_l,
-                env_range_bars=(1 if pierce_bar is not None else 0))
+                env_range_bars=n)
 
 
 def t_n5(monkeypatch_load_leg):
@@ -190,9 +191,14 @@ def t_n5(monkeypatch_load_leg):
         tstop = next(t for t in book.trades if t["reason"] == "stop")
         check("N5 intrabar stop fills AT the stop level (0.03)",
               abs(tstop["exit_s"] - 0.03) < 1e-9, str(tstop["exit_s"]))
-    check("N5-R1 the stop model travels with the book",
-          book.envelope_built and book.env_range_bars == 1,
-          f"built={book.envelope_built} range_bars={book.env_range_bars}")
+    check("N5-R1 the stop model travels with the book (D6: a MEASUREMENT)",
+          book.envelope_built and book.env_finite_bars == n
+          and book.env_range_bars == n,
+          f"built={book.envelope_built} finite={book.env_finite_bars} "
+          f"range={book.env_range_bars}")
+    pre = E.SpreadBook(sig["legs"], sig, charge_funding=False)
+    check("D6 envelope_built is False BEFORE the finiteness assertion runs",
+          pre.envelope_built is False and pre.env_finite_bars == 0)
     # exit-fee beta: a book with a TIME-VARYING beta must produce trades
     # identical to a book whose beta is constant at the DECISION-bar value --
     # the exit fee bills the notional actually held (entry beta), never the
@@ -279,6 +285,35 @@ def t_n5_funding_order(monkeypatch_load_leg):
     check("N11 the charged funding is exactly the settlement amount",
           abs(book.funding_paid - expect) < 1e-9,
           f"got {book.funding_paid}, want {expect}")
+
+
+def t_d2(monkeypatch_load_leg):
+    """D2: a NaN leg bar, a -inf leg bar, and a zero-range envelope all
+    REFUSE -- the old code silently disabled the stop on NaN and fabricated
+    one on -inf."""
+    import p100_screen_engine as E
+    n = 12
+    zero = dict(bar_ms=np.zeros(1, "int64"), close=np.zeros(1),
+                rate=np.zeros(1), is_fund=np.zeros(1, bool), idx={})
+    monkeypatch_load_leg(lambda leg, tf: zero)
+    cases = {}
+    sig_nan = _mk_spread_sig(n, pierce_bar=3, pierce_to=0.02)
+    sig_nan["leg_a_log_hi"][5] = np.nan
+    cases["NaN leg bar"] = sig_nan
+    sig_inf = _mk_spread_sig(n, pierce_bar=3, pierce_to=0.02)
+    sig_inf["leg_b_log_lo"][6] = -np.inf          # log(0)
+    cases["-inf leg bar"] = sig_inf
+    sig_zr = _mk_spread_sig(n)
+    sig_zr["env_range_bars"] = 0
+    cases["zero range bars"] = sig_zr
+    for name, sg in cases.items():
+        book = E.SpreadBook(sg["legs"], sg, charge_funding=False)
+        try:
+            book.run(start_idx=0, end_idx=n - 1)
+            raised = False
+        except ValueError as e:
+            raised = ("non-finite" in str(e)) or ("zero range bars" in str(e))
+        check(f"D2 {name} refuses (fail loud, never skip)", raised)
 
 
 def t_r1_r2(monkeypatch_load_leg):
@@ -546,6 +581,7 @@ def main():
     t_r3_envelope_beta(patch)
     t_n5_gap(patch)
     t_n5_funding_order(patch)
+    t_d2(patch)
     t_r1_r2(patch)
     t_n7()
     t_n8()

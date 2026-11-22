@@ -1,5 +1,5 @@
 {
- "run_id": "0dfe18bd3555cd21",
+ "run_id": "a2c8b1bcd08e1254",
  "id": 85,
  "segment": "OOS",
  "symbol": "HYPEUSDT",
@@ -58,8 +58,10 @@
   "return_pct": 401.14893016495216,
   "segment": "OOS",
   "slippage_bps_per_side": 0.9950000000000001,
+  "spread_env_finite_bars": 8800,
   "spread_env_range_bars": 12510,
   "spread_envelope_built": true,
+  "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
   "strategy_id": 85,
   "symbol": "HYPEUSDT",

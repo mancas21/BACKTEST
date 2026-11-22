@@ -1,5 +1,5 @@
 {
- "run_id": "97fbf434d93d0cdf",
+ "run_id": "1a2037bd346bb097",
  "id": 81,
  "segment": "DEV",
  "symbol": "SOLUSDT",
@@ -58,8 +58,10 @@
   "return_pct": 6440.564270218053,
   "segment": "DEV",
   "slippage_bps_per_side": 0.9950000000000001,
+  "spread_env_finite_bars": 44225,
   "spread_env_range_bars": 53769,
   "spread_envelope_built": true,
+  "spread_pnl_basis": "rehedged_per_bar_beta_linearisation",
   "spread_stop_model": "intrabar_leg_envelope_at_entry_beta",
   "strategy_id": 81,
   "symbol": "SOLUSDT",
