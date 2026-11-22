@@ -1,6 +1,35 @@
 # Backtest System - Estado al 2026-09-26
 
-## 2026-11-21 (ronda cuatro) - D2/D5/D6/D3/D4/D1/D7 + RETRACTACION del par ochenta y ocho
+## 2026-11-22 - ML4T "Crypto Perpetuals Funding": libro de funding a ocho horas, veredicto MECHANISM WITHOUT EDGE
+
+El caso de ML4T supone un libro cross-sectional largo-corto sobre diecinueve
+perps de Binance, rebalanceado cada ocho horas en la financiación: largo los
+cinco de tasa más baja, corto los cinco de tasa más alta, igual peso por lado,
+coste cinco puntos por pata (motor) o dos para majors y cuatro para altos
+(narrativa). Se descargaron los ocho contratos que faltaban para cubrir el
+universo completo. Motor `code/ml4tfund_engine.py` (adapter `ml4tfund`,
+versión ml4tfund-1), especificación congelada en
+`results/ml4tfund_pre_registration.md` ANTES de la primera corrida; diez
+respuestas conocidas pasan de diez antes de tocar datos reales.
+
+Resultado: el mecanismo paga en bruto (precio y financiación positivos en
+validación, retenida y más allá de la historia publicada), pero el coste de
+rotación a ocho horas se lo come todo. Sharpe neta en retenida: -1.15
+(`b90f59d052a85790`), retorno -59.87%, máximo retroceso -62.14%. Sharpe sin
+coste: +1.52. Ninguna de las veinticuatro celdas (k=3/5, nivel/z, dos costes,
+tres ventanas) supera la retenida; las más cercanas siguen negativas (-0.34 a
+-2.53 de Sharpe).
+
+Puertas: G1 validación > 0.5 (falla: +0.39), G2 retenida > 0 (falla: -1.15),
+G3 retorno retenida > 0 (falla: -59.87%), G4 coste muerde (pasa), G5
+financiación positiva (pasa: +16.33%), G6 noventa y cinco por ciento de
+estampas operadas (pasa: cien por ciento), G7 identidad del libro dentro de
+cada artefacto (pasa: residual por debajo de una parte por millón). Veredicto:
+mecanismo sin filo, no operar al coste declarado.
+
+`results/ml4tfund_report.md` (guard OK strict), nueve artefactos verificados
+bit a bit.
+
 
 La cuarta re-auditoria confirmo R1/R2/R3 y el bonus del benchmark, y pesco
 la regresion que la propia reescritura R1 introdujo: habia soltado el guard

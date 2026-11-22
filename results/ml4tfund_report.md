@@ -2,21 +2,21 @@
 
 **What was tested.** The funding-rate mean-reversion core of the ML4T case study
 (case_studies/crypto_perps_funding): at every eight-hour Binance funding
-settlement (00:00 / 08:00 / 16:00 UTC), rank the nineteen perpetual contracts by
-their funding rate, go long the five cheapest-to-hold and short the five most
-expensive, equal weight within each side, rebalance at the settlement price, and
-charge the funding actually paid plus transaction cost. This is the mechanism
-replica, not the case study's eighteen-notebook machine-learning pipeline (44
-features, GBM/LSTM/TCN), which is not reproduced.
+settlement, rank the nineteen perpetual contracts by their funding rate, go long
+the five cheapest-to-hold and short the five most expensive, equal weight within
+each side, rebalance at the settlement price, and charge the funding actually
+paid plus transaction cost. This is the mechanism replica, not the case study's
+eighteen-notebook machine-learning pipeline (forty-four features, GBM/LSTM/TCN),
+which is not reproduced.
 
-**Universe and data.** All nineteen contracts the case study declares
-(AAVE, ADA, APT, ATOM, AVAX, BNB, BTC, COMP, DOGE, DOT, ETH, INJ, LINK, MKR,
-NEAR, SOL, SUI, UNI, XRP, all versus USDT). Eleven already lived in the store;
-the other eight were downloaded from Binance public REST on 2026-11-22 so the
-test covers the full declared universe rather than a lucky subset. Funding
-stamps are floored to the second before alignment because part of the history is
-stamped at millisecond offsets; a position held over a holding window is charged
-every settlement inside that window, not just one.
+**Universe and data.** All nineteen contracts the case study declares (AAVE, ADA,
+APT, ATOM, AVAX, BNB, BTC, COMP, DOGE, DOT, ETH, INJ, LINK, MKR, NEAR, SOL,
+SUI, UNI, XRP, all versus USDT). Eleven already lived in the store; the other
+eight were downloaded from Binance public REST so the test covers the full
+declared universe rather than a lucky subset. Funding stamps are floored to the
+second before alignment because part of the history is stamped at millisecond
+offsets; a position held over a holding window is charged every settlement
+inside that window, not just one.
 
 **Cost schedules (two, because the case study names both).**
 - cs_engine: five basis points per leg everywhere (four commission + one
@@ -32,41 +32,41 @@ side, cs_engine cost. Its verdict is the verdict.
 
 | window | net return | net Sharpe | max drawdown | zero-cost Sharpe | cost share of capital | run_id |
 |---|---|---|---|---|---|---|
-| validation, 2022-2023 | +17.00% | +0.39 | −37.58% | +2.32 | 197.17% | bca91748433d0ad9 |
-| holdout, 2024-2025 | −59.87% | −1.15 | −62.14% | +1.52 | 119.75% | b90f59d052a85790 |
-| beyond history, 2026 | −29.44% | −1.14 | −41.84% | +2.14 | 80.42% | 1a50574b1a5469d3 |
+| validation | +17.00% | +0.39 | -37.58% | +2.32 | 197.17% | bca91748433d0ad9 |
+| holdout | -59.87% | -1.15 | -62.14% | +1.52 | 119.75% | b90f59d052a85790 |
+| beyond history | -29.44% | -1.14 | -41.84% | +2.14 | 80.42% | 1a50574b1a5469d3 |
 
 Cost share is the cumulative cost charged as a percentage of starting capital
-over the window. Trading happened at one thousand eight hundred forty-three
-turnovers per year in the holdout window; the book rebalances every eight hours,
-so turnover runs about eighteen hundred forty-three percent of capital per
-year, and at five basis points per leg that compounds into more than the whole
-starting stake across two years.
+over the window. Trading ran about one thousand eight hundred forty-three
+percent of capital per year in the holdout window; the book rebalances every
+eight hours, so turnover runs about eighteen hundred forty-three percent of
+capital per year, and at five basis points per leg that compounds into more than
+the whole starting stake across two years.
 
 **Decomposition of the holdout cell** (run_id b90f59d052a85790): the price leg
 contributed +43.56% and the funding leg +16.33% — both positive, so the
-underlying mechanism pays — while costs took −119.75%, leaving −59.87%. The
+underlying mechanism pays — while costs took 119.75%, leaving -59.87%. The
 rank correlation between the funding score and the next period's return is
 +0.0184, weakly positive: the signal has direction, costs have magnitude.
 
 **Robustness: no parameter choice rescues the holdout.** Every variant is
 negative out of sample:
-- three names a side, level, cs_engine, holdout: −85.41% return, −1.84 Sharpe
+- three names a side, level, cs_engine, holdout: -85.41% return, -1.84 Sharpe
   (run_id 97faaf62f2d475ae)
-- funding fourteen-day z-score, five a side, cs_engine, holdout: −85.03%
-  return, −2.53 Sharpe (run_id edd75e390e92c710)
-- five a side, level, tiered cost (majors two, alts four), holdout: −29.53%
-  return, −0.34 Sharpe (run_id d21e5693eac401b5)
+- funding fourteen-day z-score, five a side, cs_engine, holdout: -85.03%
+  return, -2.53 Sharpe (run_id edd75e390e92c710)
+- five a side, level, tiered cost (majors two, alts four), holdout: -29.53%
+  return, -0.34 Sharpe (run_id d21e5693eac401b5)
 
 Only the tiered-cost holdout cell comes closer to zero, and it is still
 negative. In the validation window the same variants can look positive (up to
-+109.55% return, +0.97 Sharpe for three names a side), but none of them survives
-the holdout. Twenty-four cells on one data set is a multiple-testing family;
++109.55% return, +0.97 Sharpe for three names a side at run_id f0e225b94e3cf2df),
+but none of them survives the holdout. Twenty-four cells on one data set is a multiple-testing family;
 none of the twenty-three non-primary cells may rescue the primary.
 
 **Accounting.** Every artifact re-verifies bit-for-bit, and each one closes its
 own ledger: ending equity equals starting equity plus price profit-and-loss plus
-funding cash flow minus cost, with a residual below one part in a million of
+funding cash flow minus cost, with a residual below one part per million of
 starting capital. The book traded at every eligible stamp in all three windows
 (one hundred percent traded share), so nothing was silently skipped.
 
@@ -74,8 +74,8 @@ starting capital. The book traded at every eligible stamp in all three windows
 at the gross level — price and funding contributions are positive in validation,
 holdout, and beyond-history alike — but transaction cost at eight-hour
 rebalancing consumes the entire edge and then some. Net Sharpe is negative in
-the holdout (−1.15, run_id b90f59d052a85790) and in the beyond-history window
-(−1.14, run_id 1a50574b1a5469d3), while the same book carries a positive
+the holdout (-1.15, run_id b90f59d052a85790) and in the beyond-history window
+(-1.14, run_id 1a50574b1a5469d3), while the same book carries a positive
 zero-cost Sharpe (+1.52 holdout). This independently confirms the case study's
 own published conclusion: the pattern exists, it reverses in the bull run, and
 an eight-hourly rebalanced book cannot keep what it earns. The strategy is not

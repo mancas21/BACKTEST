@@ -39,6 +39,7 @@ DESIGN
 """
 from __future__ import annotations
 
+import os
 import sys
 
 import numpy as np
@@ -249,7 +250,12 @@ def run_one(paths, params):
         ctxx = GV.GateContext(benchmark_close=dfx["close"], max_leverage=1.0, n_trials=1)
         holds = list(range(2, 25))
         exp_by_edge = {}
-        cells = {}
+        # F1 fix (seventh re-audit): the round-5 edit rebound `cells` -- the
+        # name the MAIN loop had used for the twelve v1/v2 cells -- so the
+        # artifact's m["cells"] became these six xref cells and the v1 power
+        # table (v1_all_six 0.31 at n300/d20) vanished from the artifact.
+        # The xref gets its own name and the twelve-cell grid is asserted.
+        xref_cells = {}
         for n_target in (30, 100, 300):
             for edge in (0, 20):
                 rr = GV.null_calibration(dfx, n_target, holds, ctxx, n_sims=400,
@@ -260,7 +266,7 @@ def run_one(paths, params):
                 # interpretation honest.
                 net_mean = rr.get("expectancy_bps")
                 net_sd = rr.get("net_std_bps")
-                cells[f"n{n_target}_d{int(edge)}"] = {
+                xref_cells[f"n{n_target}_d{int(edge)}"] = {
                     "joint": rr["pass_rate_joint"],
                     "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
                     "upper95": rr["upper95_joint"],
@@ -272,7 +278,7 @@ def run_one(paths, params):
                     "by_gate": {k: round(v, 4) for k, v in rr["pass_rate_by_gate"].items()},
                 }
                 exp_by_edge[edge] = rr.get("expectancy_bps")
-        xref["cells"] = cells
+        xref["cells"] = xref_cells
         if 0 in exp_by_edge and 20 in exp_by_edge:
             xref["expectancy_sanity"] = {
                 "d0_bps": exp_by_edge[0], "d20_bps": exp_by_edge[20],
@@ -292,46 +298,107 @@ def run_one(paths, params):
     # generator. G8's floor is declared: a gross drift below 2x the RT cost
     # cannot pass the stress rung except by luck.
     power_by_t = {"note": "power at detectable edges, planted in t-units; "
-                          "sigma_net from the d0 pilot of the same generator",
+                          "sigma_net from the d0 pilot of the same generator; "
+                          "each cell runs TWICE -- undeflated (n_trials=1, "
+                          "DSR = a plain t-test) and deflated (n_trials = the "
+                          "trial ledger's total -- G7 carries the burden of "
+                          "every tried candidate); plus a corpus-matched "
+                          "holds variant (the v1 engine's HOLDS 2/4/8/16/32/72 "
+                          "vs the short-holds default here)",
                   "g8_min_gross_drift_bps": 2.0 * 11.0,
+                  "ledger_trials": None,
                   "cells": {}}
     try:
         import _gates_v2 as GV
         dfx2 = df.set_index("ts")
-        ctxx2 = GV.GateContext(benchmark_close=dfx2["close"], max_leverage=1.0,
-                               n_trials=1)
         holds2 = list(range(2, 25))
+        holds_corpus = [2, 4, 8, 16, 32, 72]
         rt_bps = 11.0
+        # F2 fix (seventh re-audit): the ledger's REAL trial count -- G7's
+        # deflation is the burden of every tried candidate, and n_trials=1
+        # switches it off entirely (DSR degenerates to a plain t-test)
+        led = GV.TrialLedger(os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "results", "_trial_ledger.jsonl"))
+        ledger_trials = int(led.total_trials())
+        power_by_t["ledger_trials"] = ledger_trials
         for n_target in (100, 300):
-            pilot = GV.null_calibration(dfx2, n_target, holds2, ctxx2,
-                                        n_sims=60, seed=seed0 + 1, reps=2000,
-                                        edge_bps=0.0)
+            pilot = GV.null_calibration(dfx2, n_target, holds2, GV.GateContext(
+                benchmark_close=dfx2["close"], max_leverage=1.0, n_trials=1),
+                n_sims=60, seed=seed0 + 1, reps=2000, edge_bps=0.0)
             sigma = float(pilot["net_std_bps"])
+            pilot_c = GV.null_calibration(dfx2, n_target, holds_corpus,
+                                          GV.GateContext(
+                benchmark_close=dfx2["close"], max_leverage=1.0, n_trials=1),
+                n_sims=60, seed=seed0 + 3, reps=2000, edge_bps=0.0)
+            sigma_c = float(pilot_c["net_std_bps"])
             for t_target in (1.0, 2.0, 3.0, 5.0):
                 net_req = t_target * sigma / (n_target ** 0.5)
                 gross_drift = net_req + rt_bps
-                rr = GV.null_calibration(dfx2, n_target, holds2, ctxx2,
-                                         n_sims=400, seed=seed0 + 2,
-                                         reps=2000, edge_bps=gross_drift)
-                implied_t = (rr["expectancy_bps"] /
-                             (rr["net_std_bps"] / (n_target ** 0.5)))
                 cell = {
                     "sigma_net_bps": round(sigma, 2),
                     "net_required_bps": round(net_req, 2),
                     "gross_drift_bps": round(gross_drift, 2),
-                    "net_expectancy_bps": round(rr["expectancy_bps"], 2),
-                    "implied_t": round(implied_t, 2),
-                    "joint": rr["pass_rate_joint"],
-                    "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
-                    "by_gate": {k: round(v, 4)
-                                for k, v in rr["pass_rate_by_gate"].items()},
+                    "joint_le_min_gate": True,
                 }
-                mg = [v for k, v in cell["by_gate"].items()]
+                for tag, n_tr, hld in (("undeflated", 1, holds2),
+                                       ("deflated", ledger_trials, holds2)):
+                    rr = GV.null_calibration(dfx2, n_target, hld, GV.GateContext(
+                        benchmark_close=dfx2["close"], max_leverage=1.0,
+                        n_trials=n_tr),
+                        n_sims=400, seed=seed0 + 2, reps=2000,
+                        edge_bps=gross_drift)
+                    cell[tag] = {
+                        "implied_t": round(rr["expectancy_bps"] /
+                                           (rr["net_std_bps"] /
+                                            (n_target ** 0.5)), 2),
+                        "net_expectancy_bps": round(rr["expectancy_bps"], 2),
+                        "joint": rr["pass_rate_joint"],
+                        "joint_ex_g7": rr["pass_rate_joint_ex_G7"],
+                        "by_gate": {k: round(v, 4) for k, v
+                                    in rr["pass_rate_by_gate"].items()},
+                    }
+                # F5: the corpus-matched holds variant (longer holds -> larger
+                # sigma -> lower t for the same bps edge), deflated
+                net_req_c = t_target * sigma_c / (n_target ** 0.5)
+                gross_c = net_req_c + rt_bps
+                rr_c = GV.null_calibration(dfx2, n_target, holds_corpus,
+                                           GV.GateContext(
+                    benchmark_close=dfx2["close"], max_leverage=1.0,
+                    n_trials=ledger_trials),
+                    n_sims=400, seed=seed0 + 4, reps=2000, edge_bps=gross_c)
+                cell["corpus_holds"] = {
+                    "holds": holds_corpus,
+                    "sigma_net_bps": round(sigma_c, 2),
+                    "net_required_bps": round(net_req_c, 2),
+                    "gross_drift_bps": round(gross_c, 2),
+                    "net_expectancy_bps": round(rr_c["expectancy_bps"], 2),
+                    "implied_t": round(rr_c["expectancy_bps"] /
+                                       (rr_c["net_std_bps"] /
+                                        (n_target ** 0.5)), 2),
+                    "joint": rr_c["pass_rate_joint"],
+                    "by_gate": {k: round(v, 4) for k, v
+                                in rr_c["pass_rate_by_gate"].items()},
+                }
+                mg = [v for k, v in cell["undeflated"]["by_gate"].items()]
+                ok_d = (cell["deflated"]["joint"] <=
+                        min(cell["deflated"]["by_gate"].values()) + 1e-12)
                 cell["joint_le_min_gate"] = bool(
-                    cell["joint"] <= min(mg) if mg else True)
+                    cell["undeflated"]["joint"] <= min(mg) + 1e-12 and ok_d)
                 power_by_t["cells"][f"n{n_target}_t{int(t_target)}"] = cell
     except Exception as e:      # the power section must never kill the artifact
         power_by_t["error"] = f"{type(e).__name__}: {e}"
+
+    # F1 asserts: the three cell maps are distinct objects with the right
+    # counts -- the v1/v2 grid (12), the xref (6) and the t-unit power (8)
+    if len(cells) != 12:
+        raise AssertionError(f"gatecal cells: expected 12 v1/v2 cells, got {len(cells)}")
+    if not all("v1_pass_rates" in c for c in cells.values()):
+        raise AssertionError("gatecal cells: the v1/v2 grid lost its pass rates")
+    if len(xref_cells) != 6:
+        raise AssertionError(f"gatecal xref cells: expected 6, got {len(xref_cells)}")
+    if len(power_by_t.get("cells", {})) != 8:
+        raise AssertionError(f"gatecal power cells: expected 8, got "
+                             f"{len(power_by_t.get('cells', {}))}")
 
     m = {
         "purpose": "empirical false-positive rate and power of the v1 (G1-G6) and v2 gate sets",
@@ -348,14 +415,15 @@ def run_one(paths, params):
         "bars": int(n),
         "bh_return_pct": bh,
         "g5_design_note": (
-            "A2 fix 2026-11-21: the drift chain is rebuilt per trade, so the "
-            "planted edge now compounds into ret_pct (the old chain kept only "
-            "the last trade's drift and G5 measured an effectively un-drifted "
-            "book). DESIGN LIMITATION that no code fix removes: G5 compares "
-            "the FULL-WINDOW buy & hold; on a window where BTC rose ~10x, a "
-            "random-entry book at any realistic per-trade edge cannot pass G5 "
-            "by design. Read the G5 column as that design property (and the "
-            "conjunction's ceiling), not as a residual bug."),
+            "F3 fix 2026-11-22: the previous note (a round-1 design-limitation "
+            "claim that G5 vs the full-window buy & hold is un-passable by "
+            "design) was WRONG and is deleted -- it assumed a ~10x buy & hold "
+            "window, but the calibration window is two years where the buy & "
+            "hold is +24.3 percent, and the measured power_by_t table shows G5 "
+            "at 0.86 for a n300/t3 planted edge. G5 has real power here; its "
+            "round-6 low rate (0.1525 at a gross-d20 cell whose net edge was "
+            "+9 bps, a t of ~0.5) was the correct answer to noise, not a "
+            "design ceiling."),
         "cells": cells,
         "g9v2_null_p95_dd_median": float(np.median(dd95)),
         "g9v2_null_p95_dd_p90": float(np.percentile(dd95, 90)),
