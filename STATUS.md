@@ -1,5 +1,44 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 51-60 del top-100 (experimento, sin veredicto)
+
+Sexta tanda del control: **filas 51 a 60 de
+`results/top100_2026-10-31.md`** (P08 ETH, QS-009 SUI, S10 SUI/HYPE, QS-006 ETH,
+S07 ETH, C44-1h ETH, ds3 SOL, QS-003 SOL, MP-V3-S10 PORTFOLIO). Diez libros,
+veinte artefactos BASE+ZERO, todos `verify` bit a bit
+(`_zerocost_rows51_60_verify.txt`). Reutilizados los dos artefactos `cbpackf`
+SUI de la tanda anterior (mismo adaptador, símbolo, params, engine y corte).
+
+- **Dos switches nuevos, aditivos, solo en `vrun.py`:** `costs`/`funding` para
+  `pack50d` (REPO y la tabla de costes del pack a cero por el objeto módulo,
+  `finally` restaura) y `funding_signal` para `cbpackf`. Este último era
+  necesario: **la señal de S07 lee la columna `funding_rate`**, así que retirar
+  el JSON eliminaba todos sus trades. Con `funding_signal=True` la columna
+  sigue ahí pero el engine recibe `charge_funding=False` y no hay calendario
+  de cobro; los 34 trades son idénticos en BASE y ZERO. Declarado en una
+  addenda fechada del pre-registro, antes de acuñar artefactos de mercado.
+  Los artefactos antiguos de `cbpackf` siguen regenerando bit a bit
+  (verificado en `3263ad328e60a1eb`).
+- **Deriva de engine declarada:** los artefactos de ranking de `pack50d`,
+  `pack100` y las tres filas `qs` son anteriores al audit-fix del 2026-11-21
+  y ahora fallan `verify` por hash de engine cambiado. No es manipulación:
+  los veinte artefactos de esta tanda se acuñaron con los bytes actuales y
+  verifican; cuando la cifra BASE coincide con la publicada, la auditoría
+  la llama reproducción exacta de la *cifra*, no artefacto bit-idéntico.
+- **ds3 es el único libro publicado con coste real (`repo6x5`)**: su BASE es
+  ese régimen y su ZERO el preset `author`; mismos 286 trades, el re-score
+  propio del engine clava el headline y las fees reales son cuantiosas.
+- **Auditoría `code/_zerocost_rows51_60_audit.py` 50/50** (las dos primeras
+  pasadas fallaron: S07 sin señal de funding y un signo invertido en
+  `cost_drag_pp` de mpv3; ambas corregidas antes de publicar).
+- **dos de las cinco celdas `qs` cambian el número de trades** con el régimen
+  (QS-009 SUI 363 → 364, QS-006 ETH 293 → 292): dispositivos de riesgo
+  dependientes del equity, declarados fila por fila en el informe.
+- Informe `results/zerocost_rows51_60_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows51_60_pre_registration.md` (con addenda); matriz
+  `results/zerocost_rows51_60_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 41-50 del top-100 (experimento, sin veredicto)
 
 Quinta tanda del mismo control: **filas 41 a 50 de

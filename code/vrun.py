@@ -866,6 +866,11 @@ def run_cbpackf(paths, params):
     wf_test = p.pop("test_bars", None)
     wf_min_trades = int(p.pop("min_trades", 20))
     wf_objective = str(p.pop("objective", "sharpe_annualised"))
+    # S07 reads the attached funding_rate column in its SIGNAL. At ZERO the
+    # cash flow must stop but the signal must still see that column: with
+    # funding_signal=True only the rate column is attached (no billing
+    # schedule) and the engine config is built with charge_funding=False.
+    signal_funding = bool(p.pop("funding_signal", False))
     if mode not in ("full", "wf"):
         raise ValueError(f"unknown cbpackf mode: {mode!r} (use 'full' or 'wf')")
     if mode == "wf" and not (wf_train and wf_test):
@@ -887,7 +892,7 @@ def run_cbpackf(paths, params):
         raise ValueError(f"only {len(df)} bars after slicing -- not enough to test")
 
     n_settlements = 0
-    if use_funding and funding_path:
+    if (use_funding or signal_funding) and funding_path:
         recs = json.load(open(funding_path, encoding="utf-8"))
         idx = pd.DatetimeIndex(pd.to_datetime([x["t"] for x in recs], unit="ms", utc=True))
         _unit = getattr(df.index + pd.Timedelta(seconds=60), "unit", None)
@@ -897,11 +902,15 @@ def run_cbpackf(paths, params):
         s = s[~s.index.duplicated(keep="last")].sort_index()
         # the pack's own carry-forward column (what S07's z-score reads) ...
         df = pack.attach_funding(df, s)
-        # ... PLUS the billing schedule: which bars actually carry a settlement
-        df = pack.attach_funding_events(df, s)
-        n_settlements = int((df["funding_event_rate"] != 0).sum())
+        # ... PLUS the billing schedule ONLY when funding is actually charged.
+        # With funding_signal=True the S07 signal keeps its column but the
+        # engine gets no funding_event_rate and charge_funding=False.
+        if use_funding:
+            df = pack.attach_funding_events(df, s)
+            n_settlements = int((df["funding_event_rate"] != 0).sum())
 
-    cfg = pack.BacktestConfig(fee_bps=fee, slippage_bps=slip)
+    cfg = pack.BacktestConfig(fee_bps=fee, slippage_bps=slip,
+                              charge_funding=use_funding)
 
     def _nat(v):
         if v is None:
@@ -1012,7 +1021,7 @@ def run_cbpackf(paths, params):
         "best_pf": float(best_pf), "best_pf_id": best_pf_id,
         "n_net_positive": sum(1 for r in ok if r["net_%"] > 0),
         "n_pf_gt_1p2_n30": sum(1 for r in ok if r["PF"] > 1.2 and r["trades"] >= 30),
-        "funding_attached": bool(use_funding and funding_path),
+        "funding_attached": bool((use_funding or signal_funding) and funding_path),
         # `funding` in params means the caller is choosing the regime explicitly
         # (the 2026-11-20 zero-cost control); without it the historical label
         # stays exactly as every stored artifact recorded it.
@@ -1025,6 +1034,10 @@ def run_cbpackf(paths, params):
                                  if r["net_%"] > 0 and r["PF"] > 1.2 and r["trades"] >= 30
                                  and r.get("conc_passes") is True),
     }
+    if signal_funding:
+        # declared only on runs that actually use the signal-only path, so
+        # every historical cbpackf artifact still regenerates identically
+        metrics["funding_signal"] = True
     prov = {"adapter": "cbpackf", "engine_version": "cbpack-funding-1", "mode": "full",
             "source_file": "Downloads/strategy_pack.py", "flow": "taker_buy_base",
             "funding_charged": True,
@@ -1593,11 +1606,45 @@ def run_pack50d(paths, params):
     (5.0 + 2.0 bps), repo gate cost / 2x / breakeven / zero-cost controls,
     funding at the settlement instants, v1 gates G1-G6 AND the v2 statistical
     layer inside each artifact. Two NVDA prompts are NO DATA. P23's BTC filter
-    leg and P17's pair legs are hashed into the artifact inputs."""
+    leg and P17's pair legs are hashed into the artifact inputs.
+
+    `costs` ("repo" | "zero") and `funding` (bool) are the control switches
+    added for the 2026-11-23 rows 51-60 zero-cost control, identical in shape
+    to the `pack50` switch: "zero" replaces the engine's module-level REPO
+    block AND its pack cost table (`SD.costs_for`) with zero Costs on the
+    module object, restored in a finally; `funding=False` withholds the
+    funding JSON, which flips the ENGINE'S OWN `funding_charged` flag.
+    Engine files are byte-untouched; absent the keys every call is identical
+    to before and every stored pack50d artifact re-verifies."""
     sys.path.insert(0, CODE)
     import importlib
+    p = dict(params)
+    costs = str(p.pop("costs", "repo")).lower()
+    use_funding = bool(p.pop("funding", True))
+    if costs not in ("repo", "zero"):
+        raise ValueError(f"pack50d costs: use 'repo' or 'zero', got {costs!r}")
     m = importlib.import_module("pack50d_engine")
-    return m.run_one(paths, dict(params))
+    if not use_funding:
+        paths = [x for x in paths if not x.endswith(".json")]
+    saved_repo = m.REPO
+    saved_costs_for = m.SD.costs_for
+    try:
+        if costs == "zero":
+            m.REPO = m.Costs(fee_bps=0.0, slip_bps=0.0)
+            m.SD.costs_for = lambda sym, tf: (0.0, 0.0)
+        metrics, prov, tables = m.run_one(paths, p)
+    finally:
+        m.REPO = saved_repo
+        m.SD.costs_for = saved_costs_for
+    if "costs" in params:
+        metrics = dict(metrics)
+        metrics["costs"] = costs
+        metrics["funding_charged"] = bool(use_funding)
+        if costs == "zero":
+            metrics["fee_bps_per_side"] = 0.0
+            metrics["slip_bps_per_side"] = 0.0
+            metrics["cost_bp_roundtrip"] = 0.0
+    return metrics, prov, tables
 
 
 def run_pack20(paths, params):
