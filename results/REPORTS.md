@@ -325,3 +325,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_rows81_90_report_2026-11-23.md` | las filas 81-90 de `top100_2026-10-31.md` (fingrad NEAR, G82-1h BTC, QS-001 ETH 5m, S02 SOL, ds3 BNB, S01 SUI, ds1 AVAX, ds3 DOGE, QS-009 ETH, ds3 ADA) re-corridas dos veces sobre el mismo corte congelado, sin aplicar gates; ds3 BNB/ADA se publicaron a `author` (BASE=ZERO, informativas COSTADAS) y ds1 AVAX/ds3 DOGE a `repo6x5`; el `cbpackf` SUI se reutiliza de tandas anteriores; veinte artefactos verify bit a bit; pre-registro `zerocost_rows81_90_pre_registration.md`, matriz `zerocost_rows81_90_matrix.json`, auditoría `code/_zerocost_rows81_90_audit.py` (38/38) | **OK (strict)** |
+
+## Control de coste cero sobre las filas 91-100 del top-100 (2026-11-23) — experimento, sin veredicto — CIERRE
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `zerocost_rows91_100_report_2026-11-23.md` | las filas 91-100 de `top100_2026-10-31.md` (S07/S09 SUI, ds7 DOGE/SOL/NEAR, QS-002 HYPE, ds1 NEAR/LINK/SUI, QS-044 SOL con adaptador `qsf`) re-corridas dos veces sobre el mismo corte congelado, sin aplicar gates; S07 conserva la columna de funding como señal pero no la cobra; diecinueve artefactos únicos verify bit a bit; pre-registro `zerocost_rows91_100_pre_registration.md`, matriz `zerocost_rows91_100_matrix.json`, auditoría `code/_zerocost_rows91_100_audit.py` (43/43) | **OK (strict)** |

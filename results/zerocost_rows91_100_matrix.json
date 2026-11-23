@@ -1,0 +1,601 @@
+{
+ "campaign": "zerocost-rows91-100-2026-11-23",
+ "cells": {
+  "cbpackf-SUI-1h-S07": {
+   "tag": "cbpackf-SUI-1h-S07",
+   "adapter": "cbpackf",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "4705d6f88c3d7b5f",
+    "params": {
+     "fee_bps": 5.0,
+     "slippage_bps": 0.5,
+     "funding": true
+    },
+    "artifact": "results/runs/4705d6f88c3d7b5f.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "595b81ffc1f6877c",
+    "params": {
+     "fee_bps": 0.0,
+     "slippage_bps": 0.0,
+     "funding": false,
+     "funding_signal": true
+    },
+    "artifact": "results/runs/595b81ffc1f6877c.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "cbpackf-SUI-1h-S09": {
+   "tag": "cbpackf-SUI-1h-S09",
+   "adapter": "cbpackf",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "4705d6f88c3d7b5f",
+    "params": {
+     "fee_bps": 5.0,
+     "slippage_bps": 0.5,
+     "funding": true
+    },
+    "artifact": "results/runs/4705d6f88c3d7b5f.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "5228fb785c9a334e",
+    "params": {
+     "fee_bps": 0.0,
+     "slippage_bps": 0.0,
+     "funding": false
+    },
+    "artifact": "results/runs/5228fb785c9a334e.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "dspack2-DOGE-1h-ds7": {
+   "tag": "dspack2-DOGE-1h-ds7",
+   "adapter": "dspack2",
+   "symbol": "DOGEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "27d84442b993842b",
+    "params": {
+     "strat": "ds7",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/27d84442b993842b.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "DOGEUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "66ce9aeb25348c43",
+    "params": {
+     "strat": "ds7",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/66ce9aeb25348c43.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "DOGEUSDT_1h.csv"
+    ]
+   }
+  },
+  "qs-HYPE-1h-QS002": {
+   "tag": "qs-HYPE-1h-QS002",
+   "adapter": "qs",
+   "symbol": "HYPEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "c80c391c0cacccb1",
+    "params": {
+     "strat": "QS-002",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/c80c391c0cacccb1.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "155a29cb11bf0336",
+    "params": {
+     "strat": "QS-002",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/155a29cb11bf0336.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "dspack-NEAR-1h-ds1": {
+   "tag": "dspack-NEAR-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "NEARUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "06bd4107e2284798",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/06bd4107e2284798.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "NEARUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "60563ed6cd83912f",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/60563ed6cd83912f.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "NEARUSDT_1h.csv"
+    ]
+   }
+  },
+  "qsf-SOL-1h-QS044": {
+   "tag": "qsf-SOL-1h-QS044",
+   "adapter": "qsf",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "ca49b0b4b0012a08",
+    "params": {
+     "strat": "QS-044",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/ca49b0b4b0012a08.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "9b05e75173045ed4",
+    "params": {
+     "strat": "QS-044",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/9b05e75173045ed4.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   }
+  },
+  "dspack-LINK-1h-ds1": {
+   "tag": "dspack-LINK-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "LINKUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "8bcce39c0bc7913b",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/8bcce39c0bc7913b.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "LINKUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "435ef5696202c77d",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/435ef5696202c77d.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "LINKUSDT_1h.csv"
+    ]
+   }
+  },
+  "dspack2-SOL-1h-ds7": {
+   "tag": "dspack2-SOL-1h-ds7",
+   "adapter": "dspack2",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "f83612b4ce125c43",
+    "params": {
+     "strat": "ds7",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/f83612b4ce125c43.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "1cefcebb085c9ff7",
+    "params": {
+     "strat": "ds7",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/1cefcebb085c9ff7.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv"
+    ]
+   }
+  },
+  "dspack2-NEAR-1h-ds7": {
+   "tag": "dspack2-NEAR-1h-ds7",
+   "adapter": "dspack2",
+   "symbol": "NEARUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "ed368f3995c636af",
+    "params": {
+     "strat": "ds7",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/ed368f3995c636af.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "NEARUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "13d765e0040aac5a",
+    "params": {
+     "strat": "ds7",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/13d765e0040aac5a.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "NEARUSDT_1h.csv"
+    ]
+   }
+  },
+  "dspack-SUI-1h-ds1": {
+   "tag": "dspack-SUI-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "0fe18404d88b7fd2",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/0fe18404d88b7fd2.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "c4102617ba6dd349",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/c4102617ba6dd349.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv"
+    ]
+   }
+  }
+ },
+ "books": [
+  {
+   "row": 91,
+   "book": "S07 Funding Extreme Fade",
+   "market": "SUIUSDT 1h",
+   "tag": "cbpackf-SUI-1h-S07",
+   "where": "S07",
+   "base": {
+    "run_id": "4705d6f88c3d7b5f",
+    "net_pct": 0.9913960780866704,
+    "pf": 1.035880364510498,
+    "n_trades": 40.0,
+    "max_dd_pct": -9.749532655653493,
+    "funding_paid": -0.024001213025544147,
+    "bh_pct": -59.81086430613591
+   },
+   "zero": {
+    "run_id": "595b81ffc1f6877c",
+    "net_pct": 2.2700695778604008,
+    "pf": 1.0846416133088026,
+    "n_trades": 40.0,
+    "max_dd_pct": -9.071793106293013,
+    "funding_paid": 0.0,
+    "bh_pct": -59.81086430613591
+   },
+   "delta_pct": 1.2786734997737303
+  },
+  {
+   "row": 92,
+   "book": "S09 Liquidity Sweep Reversal",
+   "market": "SUIUSDT 1h",
+   "tag": "cbpackf-SUI-1h-S09",
+   "where": "S09",
+   "base": {
+    "run_id": "4705d6f88c3d7b5f",
+    "net_pct": 3.699577099676543,
+    "pf": 1.028373549514699,
+    "n_trades": 210.0,
+    "max_dd_pct": -12.525064254680307,
+    "funding_paid": -0.16970984913331325,
+    "bh_pct": -59.81086430613591
+   },
+   "zero": {
+    "run_id": "5228fb785c9a334e",
+    "net_pct": 18.517436662561625,
+    "pf": 1.142941516957918,
+    "n_trades": 210.0,
+    "max_dd_pct": -9.907934554320219,
+    "funding_paid": 0.0,
+    "bh_pct": -59.81086430613591
+   },
+   "delta_pct": 14.817859562885083
+  },
+  {
+   "row": 93,
+   "book": "ds7",
+   "market": "DOGEUSDT 1h",
+   "tag": "dspack2-DOGE-1h-ds7",
+   "where": "metrics",
+   "base": {
+    "run_id": "27d84442b993842b",
+    "net_pct": 36.10677687118695,
+    "pf": 1.0253303017262705,
+    "n_trades": 892,
+    "max_dd_pct": -60.61603526822119,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "66ce9aeb25348c43",
+    "net_pct": 869.6350987784864,
+    "pf": 1.218086950278576,
+    "n_trades": 892,
+    "max_dd_pct": -38.87150535732208,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 833.5283219072994
+  },
+  {
+   "row": 94,
+   "book": "QS-002 EMA alignment with volatility confirmation",
+   "market": "HYPEUSDT 1h",
+   "tag": "qs-HYPE-1h-QS002",
+   "where": "metrics",
+   "base": {
+    "run_id": "c80c391c0cacccb1",
+    "net_pct": 1.4,
+    "pf": 1.0263864648646466,
+    "n_trades": 155,
+    "max_dd_pct": -15.88,
+    "funding_paid": 15.99,
+    "bh_pct": 90.85
+   },
+   "zero": {
+    "run_id": "155a29cb11bf0336",
+    "net_pct": 6.07,
+    "pf": 1.0992772237941886,
+    "n_trades": 155,
+    "max_dd_pct": -16.07,
+    "funding_paid": 0.0,
+    "bh_pct": 90.85
+   },
+   "delta_pct": 4.67
+  },
+  {
+   "row": 95,
+   "book": "ds1",
+   "market": "NEARUSDT 1h",
+   "tag": "dspack-NEAR-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "06bd4107e2284798",
+    "net_pct": 19.378984696280632,
+    "pf": 1.0283468870972996,
+    "n_trades": 1864,
+    "max_dd_pct": -27.022929339444712,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "60563ed6cd83912f",
+    "net_pct": 210.05974859928048,
+    "pf": 1.2334952148043423,
+    "n_trades": 1864,
+    "max_dd_pct": -15.56647234023073,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 190.68076390299984
+  },
+  {
+   "row": 96,
+   "book": "QS-044 Cumulative volume delta divergence",
+   "market": "SOLUSDT 1h",
+   "tag": "qsf-SOL-1h-QS044",
+   "where": "metrics",
+   "base": {
+    "run_id": "ca49b0b4b0012a08",
+    "net_pct": 1.6,
+    "pf": 1.02385429756742,
+    "n_trades": 247,
+    "max_dd_pct": -18.81,
+    "funding_paid": -8.16,
+    "bh_pct": -53.44
+   },
+   "zero": {
+    "run_id": "9b05e75173045ed4",
+    "net_pct": 21.87,
+    "pf": 1.3175863034957673,
+    "n_trades": 247,
+    "max_dd_pct": -16.6,
+    "funding_paid": 0.0,
+    "bh_pct": -53.44
+   },
+   "delta_pct": 20.27
+  },
+  {
+   "row": 97,
+   "book": "ds1",
+   "market": "LINKUSDT 1h",
+   "tag": "dspack-LINK-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "8bcce39c0bc7913b",
+    "net_pct": 17.681588507934308,
+    "pf": 1.026441636385145,
+    "n_trades": 2011,
+    "max_dd_pct": -35.19299369221499,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "435ef5696202c77d",
+    "net_pct": 289.50314916782804,
+    "pf": 1.2820287275032083,
+    "n_trades": 2011,
+    "max_dd_pct": -18.22237142197659,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 271.82156065989375
+  },
+  {
+   "row": 98,
+   "book": "ds7",
+   "market": "SOLUSDT 1h",
+   "tag": "dspack2-SOL-1h-ds7",
+   "where": "metrics",
+   "base": {
+    "run_id": "f83612b4ce125c43",
+    "net_pct": 36.01783191884371,
+    "pf": 1.0198257533369641,
+    "n_trades": 1111,
+    "max_dd_pct": -67.99544162418222,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "1cefcebb085c9ff7",
+    "net_pct": 1469.2158121191014,
+    "pf": 1.2319724223946276,
+    "n_trades": 1111,
+    "max_dd_pct": -33.00159489633173,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 1433.1979802002577
+  },
+  {
+   "row": 99,
+   "book": "ds7",
+   "market": "NEARUSDT 1h",
+   "tag": "dspack2-NEAR-1h-ds7",
+   "where": "metrics",
+   "base": {
+    "run_id": "ed368f3995c636af",
+    "net_pct": 28.411763213930485,
+    "pf": 1.0185651622789178,
+    "n_trades": 1024,
+    "max_dd_pct": -62.53664714831402,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "13d765e0040aac5a",
+    "net_pct": 1123.2688627651394,
+    "pf": 1.2132203611777084,
+    "n_trades": 1024,
+    "max_dd_pct": -42.584376208424544,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 1094.8570995512089
+  },
+  {
+   "row": 100,
+   "book": "ds1",
+   "market": "SUIUSDT 1h",
+   "tag": "dspack-SUI-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "0fe18404d88b7fd2",
+    "net_pct": 6.016627737810398,
+    "pf": 1.0104170016372833,
+    "n_trades": 1046,
+    "max_dd_pct": -24.93366984007911,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "c4102617ba6dd349",
+    "net_pct": 87.49496167960461,
+    "pf": 1.251857164872526,
+    "n_trades": 1046,
+    "max_dd_pct": -20.38960052009774,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 81.47833394179422
+  }
+ ],
+ "note": "control, not a verdict: no gate is evaluated and no row is evidence of alpha (results/zerocost_rows91_100_pre_registration.md)"
+}

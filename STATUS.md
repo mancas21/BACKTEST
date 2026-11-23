@@ -1,5 +1,29 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 91-100 del top-100 (experimento, sin veredicto) — CIERRE
+
+Décima y última tanda: **filas 91 a 100 de
+`results/top100_2026-10-31.md`** (S07/S09 SUI, ds7 DOGE/SOL/NEAR, QS-002 HYPE,
+ds1 NEAR/LINK/SUI, QS-044 SOL, QS-044 es `qsf`). Con esta tanda quedan
+completas las **noventa filas siguientes al top diez** que pidió el usuario.
+Diez libros, diecinueve artefactos únicos (un par BASE/ZERO comparte
+artefacto), todos `verify` bit a bit (`_zerocost_rows91_100_verify.txt`).
+
+- **Sin switches nuevos ni ediciones de engine.** La celda QS-044 se corrió
+  con el adaptador `qsf` (es lo que declara la proveniencia del artefacto de
+  ranking, aunque el engine escriba `strategy: qs`).
+- **S07 SUI vuelve a ser el caso especial:** su señal lee la columna de
+  funding, así que el ZERO conserva la columna sin cobrarla
+  (`funding_signal=True`, `charge_funding=False`) y mantiene idéntico el
+  número de trades.
+- **Auditoría `code/_zerocost_rows91_100_audit.py` 43/43**: recomputación
+  independiente por módulos frescos, referencias propias de los engines y
+  deriva de artefactos antiguos declarada.
+- Informe `results/zerocost_rows91_100_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows91_100_pre_registration.md`; matriz
+  `results/zerocost_rows91_100_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 81-90 del top-100 (experimento, sin veredicto)
 
 Novena tanda del control: **filas 81 a 90 de
