@@ -295,3 +295,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_rows31_40_report_2026-11-23.md` | las filas 31-40 de `top100_2026-10-31.md` (QS-009 JUP, S10 ETH, rsimr SOLUSDC, QS-004 SOL, QS-006 SUI/HYPE, fingrad ETH, ds1 BNB/DOGE, QS-005 ETH) re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; ds1 se publicó a coste cero (`costs=author`, sin funding), así que sus BASE y ZERO son el mismo artefacto y sus corridas informativas son las COSTADAS (`repo6x5`); veinte artefactos verify bit a bit; pre-registro `zerocost_rows31_40_pre_registration.md`, matriz `zerocost_rows31_40_matrix.json`, auditoría `code/_zerocost_rows31_40_audit.py` (47/47) | **OK (strict)** |
+
+## Control de coste cero sobre las filas 41-50 del top-100 (2026-11-23) — experimento, sin veredicto
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `zerocost_rows41_50_report_2026-11-23.md` | las filas 41-50 de `top100_2026-10-31.md` (S02 SUI, S03 XRP, QS-001 BTC 15m, fingrad SUI, ds1 HYPE, S02 ETH, QS-002 SOL, QS-007 SUI, QS-006 JUP, QS-003 SUI) re-corridas dos veces sobre el mismo corte congelado (BASE con su régimen publicado; ZERO con fees, slippage y funding a cero), sin aplicar gates; ds1 se publicó a coste cero (`costs=author`), así que su BASE y ZERO son el mismo artefacto y su corrida informativa es la COSTADA (`repo6x5`); los dos artefactos `cbpackf` ETH se reutilizan de la tanda 31-40; veinte artefactos verify bit a bit; pre-registro `zerocost_rows41_50_pre_registration.md`, matriz `zerocost_rows41_50_matrix.json`, auditoría `code/_zerocost_rows41_50_audit.py` (48/48) | **OK (strict)** |

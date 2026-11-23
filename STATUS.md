@@ -1,5 +1,38 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 41-50 del top-100 (experimento, sin veredicto)
+
+Quinta tanda del mismo control: **filas 41 a 50 de
+`results/top100_2026-10-31.md`** (S02 SUI, S03 XRP, QS-001 BTC 15m long-only,
+fingrad SUI, ds1 HYPE, S02 ETH, QS-002 SOL, QS-007 SUI, QS-006 JUP, QS-003 SUI).
+Diez libros, veinte artefactos BASE+ZERO, todos `verify` bit a bit
+(`_zerocost_rows41_50_verify.txt`). Los dos artefactos `cbpackf` ETH se
+reutilizan de la tanda 31-40 (mismo adaptador, símbolo, params, engine y corte)
+en lugar de acuñar bytes duplicados.
+
+- **Sin switches nuevos y sin tocar engines:** `qs`, `cbpackf`, `fingrad` y
+  `dspack` ya exponían sus switches desde tandas anteriores.
+- **ds1 HYPE es el caso espejo:** publicado a `costs=author` (sin costes, sin
+  funding), su BASE y su ZERO son el mismo artefacto; la corrida costada
+  (`repo6x5`) mantiene los 441 trades, paga 24027.45 USDT de fees y cae a
+  −10.15 % neto, con su `ret_zero_pct` clavando el headline del autor.
+- **Siete de las diez BASE reproducen la cifra publicada con precisión
+  completa**; las tres re-mediciones son fingrad SUI (klines crecieron), ds1
+  HYPE (klines) y QS-006 JUP (klines+funding).
+- **Auditoría `code/_zerocost_rows41_50_audit.py` 48/48** (la primera pasada
+  falló una comprobación de `drag_pp` por redondeo a cuatro decimales; la
+  tolerancia se fijó al límite exacto de redondeo antes de publicar).
+- **Cuatro de las cinco celdas `qs` cambian el número de trades con el
+  régimen** (QS-001 BTC 15m 191 → 252, QS-007 102 → 101, QS-006 JUP 284 → 283,
+  QS-003 312 → 311 en el par BASE→ZERO según artefactos): los dispositivos
+  de riesgo dependientes del equity son parte de la estrategia, no una
+  regla de screening, y reaccionan a la curva cambiada. Queda declarado
+  fila por fila en el informe.
+- Informe `results/zerocost_rows41_50_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows41_50_pre_registration.md`; matriz
+  `results/zerocost_rows41_50_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 31-40 del top-100 (experimento, sin veredicto)
 
 Cuarta tanda del mismo control (`results/zerocost_pre_registration.md` y las
