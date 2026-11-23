@@ -1,5 +1,33 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 81-90 del top-100 (experimento, sin veredicto)
+
+Novena tanda del control: **filas 81 a 90 de
+`results/top100_2026-10-31.md`** (fingrad NEAR, G82-1h BTC, QS-001 ETH 5m,
+S02 SOL, ds3 BNB, S01 SUI, ds1 AVAX, ds3 DOGE, QS-009 ETH, ds3 ADA). Diez
+libros, veinte artefactos (dos pares comparten artefacto por construcción, más
+dos re-corridas costadas), todos `verify` bit a bit
+(`_zerocost_rows81_90_verify.txt`). El `cbpackf` SUI se reutiliza de tandas
+anteriores (mismo adaptador, símbolo, params, engine y corte).
+
+- **Sin switches nuevos ni ediciones de engine.** Los cinco adaptadores ya
+  exponían sus controles; la celda QS-001 ETH 5m es la más rápida de toda la
+  campaña (su línea ZERO sube con fuerza, pero es una cota superior, no un
+  resultado negociable).
+- **Cuatro espejos/costados:** ds3 BNB y ADA se publicaron a `author` (sus
+  informativas son las COSTADAS); ds1 AVAX y ds3 DOGE se publicaron a
+  `repo6x5` y se multiplican al pasar a `author`.
+- **Auditoría `code/_zerocost_rows81_90_audit.py` 38/38**: recomputación
+  independiente por módulos frescos, referencias propias de los engines y
+  deriva de artefactos antiguos declarada.
+- **Dos celdas `qs` cambian el número de trades** (QS-001 ETH 5m 460 → 489,
+  QS-009 ETH 386 → 385): dispositivos de riesgo dependientes del equity,
+  declarados en el informe.
+- Informe `results/zerocost_rows81_90_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows81_90_pre_registration.md`; matriz
+  `results/zerocost_rows81_90_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 71-80 del top-100 (experimento, sin veredicto)
 
 Octava tanda del control: **filas 71 a 80 de
