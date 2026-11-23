@@ -1,0 +1,636 @@
+{
+ "campaign": "zerocost-rows71-80-2026-11-23",
+ "cells": {
+  "pack100-SPX-15m-A01": {
+   "tag": "pack100-SPX-15m-A01",
+   "adapter": "pack100",
+   "symbol": "SPXUSDT",
+   "tf": "15m",
+   "base": {
+    "run_id": "3647fed275a7b77c",
+    "params": {
+     "strat": "A01-15m",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/3647fed275a7b77c.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SPXUSDT_1m.csv",
+     "SPXUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "eb017a535c69cc11",
+    "params": {
+     "strat": "A01-15m",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/eb017a535c69cc11.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SPXUSDT_1m.csv",
+     "SPXUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-HYPE-15m-QS002-long": {
+   "tag": "qs-HYPE-15m-QS002-long",
+   "adapter": "qs",
+   "symbol": "HYPEUSDT",
+   "tf": "15m",
+   "base": {
+    "run_id": "c29fbb77372b8579",
+    "params": {
+     "strat": "QS-002",
+     "variant": "long-only",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/c29fbb77372b8579.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_15m.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "bc53ded2edf08db5",
+    "params": {
+     "strat": "QS-002",
+     "variant": "long-only",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/bc53ded2edf08db5.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_15m.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-BTC-1h-QS009": {
+   "tag": "qs-BTC-1h-QS009",
+   "adapter": "qs",
+   "symbol": "BTCUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "a9568897d5c08a80",
+    "params": {
+     "strat": "QS-009",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/a9568897d5c08a80.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "BTCUSDT_1h.csv",
+     "BTCUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "46611f80126dd193",
+    "params": {
+     "strat": "QS-009",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/46611f80126dd193.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "BTCUSDT_1h.csv",
+     "BTCUSDT_funding.json"
+    ]
+   }
+  },
+  "pack50-SUI-4h-S05": {
+   "tag": "pack50-SUI-4h-S05",
+   "adapter": "pack50",
+   "symbol": "SUIUSDT",
+   "tf": "4h",
+   "base": {
+    "run_id": "e8d437bacc785b9e",
+    "params": {
+     "strat": 5,
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/e8d437bacc785b9e.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "02795d4eab8bb655",
+    "params": {
+     "strat": 5,
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/02795d4eab8bb655.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-HYPE-1h-QS005": {
+   "tag": "qs-HYPE-1h-QS005",
+   "adapter": "qs",
+   "symbol": "HYPEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "b6dc98890bc4c662",
+    "params": {
+     "strat": "QS-005",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/b6dc98890bc4c662.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "643b25231b3f0256",
+    "params": {
+     "strat": "QS-005",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/643b25231b3f0256.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-ETH-1h-QS007": {
+   "tag": "qs-ETH-1h-QS007",
+   "adapter": "qs",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "21f34554458d08d5",
+    "params": {
+     "strat": "QS-007",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/21f34554458d08d5.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "2332b967e16116c5",
+    "params": {
+     "strat": "QS-007",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/2332b967e16116c5.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   }
+  },
+  "dspack-SOL-1h-ds1": {
+   "tag": "dspack-SOL-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "724fb33d063acf1e",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/724fb33d063acf1e.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "afeca0c9288350ff",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/afeca0c9288350ff.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv"
+    ]
+   }
+  },
+  "dspack-ETH-1h-ds3": {
+   "tag": "dspack-ETH-1h-ds3",
+   "adapter": "dspack",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "581a12987a05a8a0",
+    "params": {
+     "strat": "ds3",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/581a12987a05a8a0.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "581a12987a05a8a0",
+    "params": {
+     "strat": "ds3",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/581a12987a05a8a0.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv"
+    ]
+   },
+   "costed": {
+    "run_id": "ac7c189d26e96774",
+    "params": {
+     "strat": "ds3",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/ac7c189d26e96774.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv"
+    ]
+   }
+  },
+  "qs-HYPE-15m-QS001": {
+   "tag": "qs-HYPE-15m-QS001",
+   "adapter": "qs",
+   "symbol": "HYPEUSDT",
+   "tf": "15m",
+   "base": {
+    "run_id": "035d83e64f5a3a88",
+    "params": {
+     "strat": "QS-001",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/035d83e64f5a3a88.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_15m.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "5fcd43b88a1d6abf",
+    "params": {
+     "strat": "QS-001",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/5fcd43b88a1d6abf.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_15m.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "pack100-SOL-1h-B25": {
+   "tag": "pack100-SOL-1h-B25",
+   "adapter": "pack100",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "6190ac3ea54ffb86",
+    "params": {
+     "strat": "B25-1h",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/6190ac3ea54ffb86.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "244be1e23b4045a1",
+    "params": {
+     "strat": "B25-1h",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/244be1e23b4045a1.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   }
+  }
+ },
+ "books": [
+  {
+   "row": 71,
+   "book": "A01-15m RSI14 L/S mean-reversion",
+   "market": "SPXUSDT 15m",
+   "tag": "pack100-SPX-15m-A01",
+   "where": "metrics",
+   "base": {
+    "run_id": "3647fed275a7b77c",
+    "net_pct": 13.83221530379024,
+    "pf": 1.0833,
+    "n_trades": 237,
+    "max_dd_pct": 27.4,
+    "funding_paid": 3.4619145381987706,
+    "bh_pct": 18.894636536890808
+   },
+   "zero": {
+    "run_id": "eb017a535c69cc11",
+    "net_pct": 47.65819352720493,
+    "pf": 1.2129,
+    "n_trades": 237,
+    "max_dd_pct": 21.41,
+    "funding_paid": 0.0,
+    "bh_pct": 18.894636536890808
+   },
+   "delta_pct": 33.82597822341469
+  },
+  {
+   "row": 72,
+   "book": "QS-002 EMA alignment with volatility confirmation (long-only)",
+   "market": "HYPEUSDT 15m",
+   "tag": "qs-HYPE-15m-QS002-long",
+   "where": "metrics",
+   "base": {
+    "run_id": "c29fbb77372b8579",
+    "net_pct": 9.08,
+    "pf": 1.082145862372553,
+    "n_trades": 360,
+    "max_dd_pct": -24.02,
+    "funding_paid": 133.86,
+    "bh_pct": 94.44
+   },
+   "zero": {
+    "run_id": "bc53ded2edf08db5",
+    "net_pct": 39.34,
+    "pf": 1.2635822465683197,
+    "n_trades": 356,
+    "max_dd_pct": -19.35,
+    "funding_paid": 0.0,
+    "bh_pct": 94.44
+   },
+   "delta_pct": 30.260000000000005
+  },
+  {
+   "row": 73,
+   "book": "QS-009 Volatility-adjusted momentum",
+   "market": "BTCUSDT 1h",
+   "tag": "qs-BTC-1h-QS009",
+   "where": "metrics",
+   "base": {
+    "run_id": "a9568897d5c08a80",
+    "net_pct": 11.11,
+    "pf": 1.0807235101060106,
+    "n_trades": 381,
+    "max_dd_pct": -20.29,
+    "funding_paid": 11.56,
+    "bh_pct": -21.9
+   },
+   "zero": {
+    "run_id": "46611f80126dd193",
+    "net_pct": 59.84,
+    "pf": 1.3734645835941093,
+    "n_trades": 379,
+    "max_dd_pct": -17.24,
+    "funding_paid": 0.0,
+    "bh_pct": -21.9
+   },
+   "delta_pct": 48.730000000000004
+  },
+  {
+   "row": 74,
+   "book": "S5 Heikin-Ashi trend",
+   "market": "SUIUSDT 4h",
+   "tag": "pack50-SUI-4h-S05",
+   "where": "metrics",
+   "base": {
+    "run_id": "e8d437bacc785b9e",
+    "net_pct": 16.088759778498908,
+    "pf": 1.0772983473122852,
+    "n_trades": 110,
+    "max_dd_pct": 52.530903329135505,
+    "funding_paid": -180.9064659878185,
+    "bh_pct": -59.0819525302284
+   },
+   "zero": {
+    "run_id": "02795d4eab8bb655",
+    "net_pct": 46.7090231727203,
+    "pf": 1.218132504963455,
+    "n_trades": 110,
+    "max_dd_pct": 46.485204271011305,
+    "funding_paid": 0.0,
+    "bh_pct": -59.0819525302284
+   },
+   "delta_pct": 30.620263394221393
+  },
+  {
+   "row": 75,
+   "book": "QS-005 Time-series momentum",
+   "market": "HYPEUSDT 1h",
+   "tag": "qs-HYPE-1h-QS005",
+   "where": "metrics",
+   "base": {
+    "run_id": "b6dc98890bc4c662",
+    "net_pct": 3.76,
+    "pf": 1.0737402598108212,
+    "n_trades": 100,
+    "max_dd_pct": -16.53,
+    "funding_paid": 8.19,
+    "bh_pct": 90.85
+   },
+   "zero": {
+    "run_id": "643b25231b3f0256",
+    "net_pct": 8.38,
+    "pf": 1.1569945705315479,
+    "n_trades": 100,
+    "max_dd_pct": -16.2,
+    "funding_paid": 0.0,
+    "bh_pct": 90.85
+   },
+   "delta_pct": 4.620000000000001
+  },
+  {
+   "row": 76,
+   "book": "QS-007 Higher-timeframe trend, lower-timeframe entries",
+   "market": "ETHUSDT 1h",
+   "tag": "qs-ETH-1h-QS007",
+   "where": "metrics",
+   "base": {
+    "run_id": "21f34554458d08d5",
+    "net_pct": 3.64,
+    "pf": 1.0730768926254617,
+    "n_trades": 114,
+    "max_dd_pct": -15.46,
+    "funding_paid": 39.35,
+    "bh_pct": -38.74
+   },
+   "zero": {
+    "run_id": "2332b967e16116c5",
+    "net_pct": 13.57,
+    "pf": 1.23921340134827,
+    "n_trades": 114,
+    "max_dd_pct": -15.16,
+    "funding_paid": 0.0,
+    "bh_pct": -38.74
+   },
+   "delta_pct": 9.93
+  },
+  {
+   "row": 77,
+   "book": "ds1",
+   "market": "SOLUSDT 1h",
+   "tag": "dspack-SOL-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "724fb33d063acf1e",
+    "net_pct": 54.51210953984869,
+    "pf": 1.0669741198559572,
+    "n_trades": 1765,
+    "max_dd_pct": -31.580811013206787,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "afeca0c9288350ff",
+    "net_pct": 333.70461390901625,
+    "pf": 1.299823187224842,
+    "n_trades": 1765,
+    "max_dd_pct": -19.139927496631202,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 279.1925043691676
+  },
+  {
+   "row": 78,
+   "book": "ds3",
+   "market": "ETHUSDT 1h",
+   "tag": "dspack-ETH-1h-ds3",
+   "where": "metrics",
+   "base": {
+    "run_id": "581a12987a05a8a0",
+    "net_pct": 225.44945746861757,
+    "pf": 1.0666834925380533,
+    "n_trades": 320,
+    "max_dd_pct": -78.81546109713322,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "581a12987a05a8a0",
+    "net_pct": 225.44945746861757,
+    "pf": 1.0666834925380533,
+    "n_trades": 320,
+    "max_dd_pct": -78.81546109713322,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "costed": {
+    "run_id": "ac7c189d26e96774",
+    "net_pct": 60.66653885755897,
+    "pf": 1.02206131306093,
+    "n_trades": 320,
+    "max_dd_pct": -84.15978896379086,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 0.0
+  },
+  {
+   "row": 79,
+   "book": "QS-001 Moving-average trend continuation",
+   "market": "HYPEUSDT 15m",
+   "tag": "qs-HYPE-15m-QS001",
+   "where": "metrics",
+   "base": {
+    "run_id": "035d83e64f5a3a88",
+    "net_pct": 7.86,
+    "pf": 1.0629998984060915,
+    "n_trades": 314,
+    "max_dd_pct": -24.15,
+    "funding_paid": 29.71,
+    "bh_pct": 94.44
+   },
+   "zero": {
+    "run_id": "5fcd43b88a1d6abf",
+    "net_pct": 35.47,
+    "pf": 1.2518267775480436,
+    "n_trades": 313,
+    "max_dd_pct": -21.88,
+    "funding_paid": 0.0,
+    "bh_pct": 94.44
+   },
+   "delta_pct": 27.61
+  },
+  {
+   "row": 80,
+   "book": "B25-1h Keltner breakout (long)",
+   "market": "SOLUSDT 1h",
+   "tag": "pack100-SOL-1h-B25",
+   "where": "metrics",
+   "base": {
+    "run_id": "6190ac3ea54ffb86",
+    "net_pct": 1.9325483013339806,
+    "pf": 1.0604,
+    "n_trades": 183,
+    "max_dd_pct": 31.36,
+    "funding_paid": -265.4217933727503,
+    "bh_pct": -34.94989722507709
+   },
+   "zero": {
+    "run_id": "244be1e23b4045a1",
+    "net_pct": 27.862328143025962,
+    "pf": 1.1818,
+    "n_trades": 183,
+    "max_dd_pct": 26.8,
+    "funding_paid": 0.0,
+    "bh_pct": -34.94989722507709
+   },
+   "delta_pct": 25.929779841691982
+  }
+ ],
+ "note": "control, not a verdict: no gate is evaluated and no row is evidence of alpha (results/zerocost_rows71_80_pre_registration.md)"
+}

@@ -1,5 +1,31 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 71-80 del top-100 (experimento, sin veredicto)
+
+Octava tanda del control: **filas 71 a 80 de
+`results/top100_2026-10-31.md`** (A01-15m SPX, QS-002/001 HYPE 15m, QS-009 BTC,
+S5 SUI 4h, QS-005 HYPE, QS-007 ETH, ds1 SOL, ds3 ETH, B25-1h SOL). Diez libros,
+veinte artefactos BASE+ZERO (un par comparte artefacto, más una re-corrida
+costada), todos `verify` bit a bit (`_zerocost_rows71_80_verify.txt`).
+
+- **Sin switches nuevos ni ediciones de engine.** `pack100`, `qs`, `pack50` y
+  `dspack` ya exponían sus controles; el libro `pack50` S5 es el primero a 4h
+  de toda la campaña (tabla de costes propia del pack, 5+5 bps por lado).
+- **Los dos espejos:** ds1 se publicó a `repo6x5` y se multiplica al pasar a
+  `author`; ds3 se publicó a `author`, así que su BASE y ZERO son el mismo
+  artefacto y su corrida informativa es la COSTADA (mismos trades, fees reales,
+  `ret_zero_pct` clavando el headline).
+- **Auditoría `code/_zerocost_rows71_80_audit.py` 41/41**: recomputación
+  independiente por módulos frescos para todos los adaptadores, referencias
+  propias de los engines y deriva de artefactos antiguos declarada.
+- **Tres celdas `qs` cambian el número de trades** (QS-002 HYPE 15m 360 → 356,
+  QS-009 BTC 381 → 379, QS-001 HYPE 15m 314 → 313): dispositivos de riesgo
+  dependientes del equity, declarados fila por fila.
+- Informe `results/zerocost_rows71_80_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows71_80_pre_registration.md`; matriz
+  `results/zerocost_rows71_80_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 61-70 del top-100 (experimento, sin veredicto)
 
 Séptima tanda del control: **filas 61 a 70 de
