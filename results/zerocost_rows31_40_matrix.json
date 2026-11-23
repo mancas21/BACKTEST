@@ -1,0 +1,652 @@
+{
+ "campaign": "zerocost-rows31-40-2026-11-23",
+ "cells": {
+  "qs-JUP-1h-QS009": {
+   "tag": "qs-JUP-1h-QS009",
+   "adapter": "qs",
+   "symbol": "JUPUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "25401a76f62d4c70",
+    "params": {
+     "strat": "QS-009",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/25401a76f62d4c70.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "JUPUSDT_1h.csv",
+     "JUPUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "d40e7af48a7b2b7c",
+    "params": {
+     "strat": "QS-009",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/d40e7af48a7b2b7c.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "JUPUSDT_1h.csv",
+     "JUPUSDT_funding.json"
+    ]
+   }
+  },
+  "cbpackf-ETH-1h-S10": {
+   "tag": "cbpackf-ETH-1h-S10",
+   "adapter": "cbpackf",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "3263ad328e60a1eb",
+    "params": {
+     "fee_bps": 5.0,
+     "slippage_bps": 0.5,
+     "funding": true
+    },
+    "artifact": "results/runs/3263ad328e60a1eb.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "82e522ce0d3b6bfd",
+    "params": {
+     "fee_bps": 0.0,
+     "slippage_bps": 0.0,
+     "funding": false
+    },
+    "artifact": "results/runs/82e522ce0d3b6bfd.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   }
+  },
+  "rsimr-SOLUSDC-1h": {
+   "tag": "rsimr-SOLUSDC-1h",
+   "adapter": "rsimr",
+   "symbol": "SOLUSDC",
+   "tf": "1h",
+   "base": {
+    "run_id": "4f77139298564618",
+    "params": {
+     "costs": "repo"
+    },
+    "artifact": "results/runs/4f77139298564618.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDC_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "112aff3a78f78d28",
+    "params": {
+     "costs": "zero"
+    },
+    "artifact": "results/runs/112aff3a78f78d28.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDC_1h.csv"
+    ]
+   }
+  },
+  "qs-SOL-1h-QS004": {
+   "tag": "qs-SOL-1h-QS004",
+   "adapter": "qs",
+   "symbol": "SOLUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "cfa58e85c5e5720f",
+    "params": {
+     "strat": "QS-004",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/cfa58e85c5e5720f.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "314e1dad56a74613",
+    "params": {
+     "strat": "QS-004",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/314e1dad56a74613.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SOLUSDT_1h.csv",
+     "SOLUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-SUI-1h-QS006": {
+   "tag": "qs-SUI-1h-QS006",
+   "adapter": "qs",
+   "symbol": "SUIUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "129dcfd4cd09d10f",
+    "params": {
+     "strat": "QS-006",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/129dcfd4cd09d10f.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "b62406519f892a25",
+    "params": {
+     "strat": "QS-006",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/b62406519f892a25.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "SUIUSDT_1h.csv",
+     "SUIUSDT_funding.json"
+    ]
+   }
+  },
+  "fingrad-ETH-1h-day": {
+   "tag": "fingrad-ETH-1h-day",
+   "adapter": "fingrad",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "875f35f807e816bd",
+    "params": {
+     "funding": true,
+     "preset": "day",
+     "costs": "author"
+    },
+    "artifact": "results/runs/875f35f807e816bd.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "35be1d630baab789",
+    "params": {
+     "funding": false,
+     "preset": "day",
+     "costs": "zero"
+    },
+    "artifact": "results/runs/35be1d630baab789.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   }
+  },
+  "dspack-BNB-1h-ds1": {
+   "tag": "dspack-BNB-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "BNBUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "6b1cb73c9af1d390",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/6b1cb73c9af1d390.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "BNBUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "6b1cb73c9af1d390",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/6b1cb73c9af1d390.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "BNBUSDT_1h.csv"
+    ]
+   },
+   "costed": {
+    "run_id": "1a24031d08608979",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/1a24031d08608979.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "BNBUSDT_1h.csv"
+    ]
+   }
+  },
+  "dspack-DOGE-1h-ds1": {
+   "tag": "dspack-DOGE-1h-ds1",
+   "adapter": "dspack",
+   "symbol": "DOGEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "20f70bfad539bf29",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/20f70bfad539bf29.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "DOGEUSDT_1h.csv"
+    ]
+   },
+   "zero": {
+    "run_id": "20f70bfad539bf29",
+    "params": {
+     "strat": "ds1",
+     "costs": "author",
+     "window": "full"
+    },
+    "artifact": "results/runs/20f70bfad539bf29.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "DOGEUSDT_1h.csv"
+    ]
+   },
+   "costed": {
+    "run_id": "be7d55cccdcd8d72",
+    "params": {
+     "strat": "ds1",
+     "costs": "repo6x5",
+     "window": "full"
+    },
+    "artifact": "results/runs/be7d55cccdcd8d72.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "DOGEUSDT_1h.csv"
+    ]
+   }
+  },
+  "qs-HYPE-1h-QS006": {
+   "tag": "qs-HYPE-1h-QS006",
+   "adapter": "qs",
+   "symbol": "HYPEUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "87ddc432ee66e7cd",
+    "params": {
+     "strat": "QS-006",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/87ddc432ee66e7cd.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "4e4caba793b91376",
+    "params": {
+     "strat": "QS-006",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/4e4caba793b91376.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "HYPEUSDT_1h.csv",
+     "HYPEUSDT_funding.json"
+    ]
+   }
+  },
+  "qs-ETH-1h-QS005": {
+   "tag": "qs-ETH-1h-QS005",
+   "adapter": "qs",
+   "symbol": "ETHUSDT",
+   "tf": "1h",
+   "base": {
+    "run_id": "15f291a37172c589",
+    "params": {
+     "strat": "QS-005",
+     "variant": "two-sided",
+     "costs": "repo",
+     "funding": true
+    },
+    "artifact": "results/runs/15f291a37172c589.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   },
+   "zero": {
+    "run_id": "de05613646c7d9f6",
+    "params": {
+     "strat": "QS-005",
+     "variant": "two-sided",
+     "costs": "zero",
+     "funding": false
+    },
+    "artifact": "results/runs/de05613646c7d9f6.json",
+    "cut_ts": "2026-11-23T00:00:00+00:00",
+    "inputs": [
+     "ETHUSDT_1h.csv",
+     "ETHUSDT_funding.json"
+    ]
+   }
+  }
+ },
+ "books": [
+  {
+   "row": 31,
+   "book": "QS-009 Volatility-adjusted momentum",
+   "market": "JUPUSDT 1h",
+   "tag": "qs-JUP-1h-QS009",
+   "where": "metrics",
+   "base": {
+    "run_id": "25401a76f62d4c70",
+    "net_pct": 29.52,
+    "pf": 1.1982371649924852,
+    "n_trades": 372,
+    "max_dd_pct": -16.26,
+    "funding_paid": 72.04,
+    "bh_pct": -75.78
+   },
+   "zero": {
+    "run_id": "d40e7af48a7b2b7c",
+    "net_pct": 54.01,
+    "pf": 1.278568540426325,
+    "n_trades": 372,
+    "max_dd_pct": -16.45,
+    "funding_paid": 0.0,
+    "bh_pct": -75.78
+   },
+   "delta_pct": 24.49
+  },
+  {
+   "row": 32,
+   "book": "S10 Vol-Targeted Time-Series Momentum",
+   "market": "ETHUSDT 1h",
+   "tag": "cbpackf-ETH-1h-S10",
+   "where": "S10",
+   "base": {
+    "run_id": "3263ad328e60a1eb",
+    "net_pct": 26.1649160840151,
+    "pf": 1.2243803675009164,
+    "n_trades": 181.0,
+    "max_dd_pct": -15.73728461708429,
+    "funding_paid": 1.525184467574302,
+    "bh_pct": -8.675843898977465
+   },
+   "zero": {
+    "run_id": "82e522ce0d3b6bfd",
+    "net_pct": 38.20092065579801,
+    "pf": 1.3307321462185342,
+    "n_trades": 181.0,
+    "max_dd_pct": -13.981118548618287,
+    "funding_paid": 0.0,
+    "bh_pct": -8.675843898977465
+   },
+   "delta_pct": 12.036004571782907
+  },
+  {
+   "row": 33,
+   "book": "rsimr",
+   "market": "SOLUSDC 1h",
+   "tag": "rsimr-SOLUSDC-1h",
+   "where": "metrics",
+   "base": {
+    "run_id": "4f77139298564618",
+    "net_pct": 7.5615,
+    "pf": 1.2172,
+    "n_trades": 60,
+    "max_dd_pct": -14.8827,
+    "funding_paid": null,
+    "bh_pct": 15.2025
+   },
+   "zero": {
+    "run_id": "112aff3a78f78d28",
+    "net_pct": 11.4877,
+    "pf": 1.3241,
+    "n_trades": 60,
+    "max_dd_pct": -14.0301,
+    "funding_paid": null,
+    "bh_pct": 15.2025
+   },
+   "delta_pct": 3.9262000000000006
+  },
+  {
+   "row": 34,
+   "book": "QS-004 Donchian channel breakout",
+   "market": "SOLUSDT 1h",
+   "tag": "qs-SOL-1h-QS004",
+   "where": "metrics",
+   "base": {
+    "run_id": "cfa58e85c5e5720f",
+    "net_pct": 17.46,
+    "pf": 1.2167725982343143,
+    "n_trades": 228,
+    "max_dd_pct": -21.1,
+    "funding_paid": 113.81,
+    "bh_pct": -53.44
+   },
+   "zero": {
+    "run_id": "314e1dad56a74613",
+    "net_pct": 28.25,
+    "pf": 1.3153960710216188,
+    "n_trades": 228,
+    "max_dd_pct": -19.95,
+    "funding_paid": 0.0,
+    "bh_pct": -53.44
+   },
+   "delta_pct": 10.79
+  },
+  {
+   "row": 35,
+   "book": "QS-006 ADX-filtered directional continuation",
+   "market": "SUIUSDT 1h",
+   "tag": "qs-SUI-1h-QS006",
+   "where": "metrics",
+   "base": {
+    "run_id": "129dcfd4cd09d10f",
+    "net_pct": 22.79,
+    "pf": 1.2068191892818434,
+    "n_trades": 283,
+    "max_dd_pct": -18.11,
+    "funding_paid": 54.9,
+    "bh_pct": -80.7
+   },
+   "zero": {
+    "run_id": "b62406519f892a25",
+    "net_pct": 38.17,
+    "pf": 1.301167255362881,
+    "n_trades": 283,
+    "max_dd_pct": -16.11,
+    "funding_paid": 0.0,
+    "bh_pct": -80.7
+   },
+   "delta_pct": 15.380000000000003
+  },
+  {
+   "row": 36,
+   "book": "fingrad",
+   "market": "ETHUSDT 1h",
+   "tag": "fingrad-ETH-1h-day",
+   "where": "metrics",
+   "base": {
+    "run_id": "875f35f807e816bd",
+    "net_pct": 58.9933,
+    "pf": 1.2034,
+    "n_trades": 788,
+    "max_dd_pct": 19.0265,
+    "funding_paid": 29.06,
+    "bh_pct": 1456.3904
+   },
+   "zero": {
+    "run_id": "35be1d630baab789",
+    "net_pct": 151.2652,
+    "pf": 1.4452,
+    "n_trades": 788,
+    "max_dd_pct": 13.4178,
+    "funding_paid": null,
+    "bh_pct": 1456.3904
+   },
+   "delta_pct": 92.27189999999999
+  },
+  {
+   "row": 37,
+   "book": "ds1",
+   "market": "BNBUSDT 1h",
+   "tag": "dspack-BNB-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "6b1cb73c9af1d390",
+    "net_pct": 224.0445594204122,
+    "pf": 1.1902631595651445,
+    "n_trades": 2041,
+    "max_dd_pct": -20.882186197120767,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "6b1cb73c9af1d390",
+    "net_pct": 224.0445594204122,
+    "pf": 1.1902631595651445,
+    "n_trades": 2041,
+    "max_dd_pct": -20.882186197120767,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "costed": {
+    "run_id": "1a24031d08608979",
+    "net_pct": -54.785997524468485,
+    "pf": 0.9076609525101288,
+    "n_trades": 2041,
+    "max_dd_pct": -69.45116512308496,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 0.0
+  },
+  {
+   "row": 38,
+   "book": "ds1",
+   "market": "DOGEUSDT 1h",
+   "tag": "dspack-DOGE-1h-ds1",
+   "where": "metrics",
+   "base": {
+    "run_id": "20f70bfad539bf29",
+    "net_pct": 205.42166615163669,
+    "pf": 1.185930382937527,
+    "n_trades": 1995,
+    "max_dd_pct": -28.76009504613223,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "zero": {
+    "run_id": "20f70bfad539bf29",
+    "net_pct": 205.42166615163669,
+    "pf": 1.185930382937527,
+    "n_trades": 1995,
+    "max_dd_pct": -28.76009504613223,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "costed": {
+    "run_id": "be7d55cccdcd8d72",
+    "net_pct": -20.304779142680495,
+    "pf": 0.9691949342374062,
+    "n_trades": 1995,
+    "max_dd_pct": -51.735616646071314,
+    "funding_paid": null,
+    "bh_pct": null
+   },
+   "delta_pct": 0.0
+  },
+  {
+   "row": 39,
+   "book": "QS-006 ADX-filtered directional continuation",
+   "market": "HYPEUSDT 1h",
+   "tag": "qs-HYPE-1h-QS006",
+   "where": "metrics",
+   "base": {
+    "run_id": "87ddc432ee66e7cd",
+    "net_pct": 19.82,
+    "pf": 1.1958475830978974,
+    "n_trades": 194,
+    "max_dd_pct": -14.03,
+    "funding_paid": 24.09,
+    "bh_pct": 90.85
+   },
+   "zero": {
+    "run_id": "4e4caba793b91376",
+    "net_pct": 34.55,
+    "pf": 1.3242675432500204,
+    "n_trades": 194,
+    "max_dd_pct": -13.77,
+    "funding_paid": 0.0,
+    "bh_pct": 90.85
+   },
+   "delta_pct": 14.729999999999997
+  },
+  {
+   "row": 40,
+   "book": "QS-005 Time-series momentum",
+   "market": "ETHUSDT 1h",
+   "tag": "qs-ETH-1h-QS005",
+   "where": "metrics",
+   "base": {
+    "run_id": "15f291a37172c589",
+    "net_pct": 15.67,
+    "pf": 1.1945969018188858,
+    "n_trades": 141,
+    "max_dd_pct": -21.2,
+    "funding_paid": 85.06,
+    "bh_pct": -38.74
+   },
+   "zero": {
+    "run_id": "de05613646c7d9f6",
+    "net_pct": 29.49,
+    "pf": 1.3298500858771796,
+    "n_trades": 140,
+    "max_dd_pct": -20.1,
+    "funding_paid": 0.0,
+    "bh_pct": -38.74
+   },
+   "delta_pct": 13.819999999999999
+  }
+ ],
+ "note": "control, not a verdict: no gate is evaluated and no row is evidence of alpha (results/zerocost_rows31_40_pre_registration.md)"
+}

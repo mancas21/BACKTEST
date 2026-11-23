@@ -1,5 +1,47 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 31-40 del top-100 (experimento, sin veredicto)
+
+Cuarta tanda del mismo control (`results/zerocost_pre_registration.md` y las
+tandas de filas 11-20 y 21-30): las **filas 31 a 40 de
+`results/top100_2026-10-31.md`** (QS-009 JUP, S10 ETH, rsimr SOLUSDC, QS-004
+SOL, QS-006 SUI, fingrad ETH, ds1 BNB/DOGE, QS-006 HYPE, QS-005 ETH). Diez
+libros, veinte artefactos BASE+ZERO (dos pares comparten artefacto por
+construcción, más dos re-corridas costadas), todos `verify` bit a bit
+(`_zerocost_rows31_40_verify.txt`).
+
+- **No hizo falta tocar nada del harness ni de los engines.** Los cinco
+  adaptadores implicados ya exponían su switch de coste desde las tandas 1-3
+  (`qs`, `cbpackf`, `rsimr`, `fingrad`, `dspack`). Los ficheros de engine
+  siguen byte-idénticos y siguen hashes de cada `run_id`.
+- **Dos casos espejo (ds1 BNB y DOGE):** el pack DECLARA que no tiene costes
+  (`costs=author`, sin funding), así que sus números publicados se midieron a
+  coste cero desde el día uno — BASE y ZERO son el mismo artefacto. Las dos
+  corridas costadas (`repo6x5`) mantienen idénticas las señales y el número
+  de trades, pagan 179675.36 y 151400.12 USDT de fees respectivamente, y
+  caen a −54.79 % y −20.30 % neto; sus propios `ret_zero_pct` clavan el
+  headline del autor al dígito.
+- **Seis de las diez BASE reproducen la cifra publicada con precisión
+  completa** (S10 ETH, rsimr, QS-004 SOL, QS-006 SUI/HYPE, QS-005 ETH).
+  Las otras cuatro son re-mediciones sobre ficheros que crecieron: QS-009
+  JUP (klines+funding), fingrad ETH (klines+funding) y ds1 BNB/DOGE (klines).
+  La semántica quedó pre-registrada: igualdad = reproducción exacta;
+  desigualdad exige un fichero crecido.
+- **Auditoría `code/_zerocost_rows31_40_audit.py` 47/47**: cada adaptador
+  contra carga fresca del engine con constantes puestas a mano, referencias
+  propias de los engines (`ret_zero_pct`, `drag_pp`) y la comprobación de
+  reproducción declarada.
+- **Resultado del control (sin veredicto):** todas las líneas ZERO suben o
+  son idénticas por construcción. El arrastre más grande de la tanda es
+  `fingrad` (58.99 % → 151.27 %). QS-005 ETH es la única celda cuyo número
+  de trades cambia con el régimen (141 BASE vs 140 ZERO): los dispositivos
+  de riesgo dependientes del equity son parte de la estrategia, no una
+  regla de screening, y reaccionan a la curva cambiada.
+- Informe `results/zerocost_rows31_40_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows31_40_pre_registration.md`; matriz
+  `results/zerocost_rows31_40_matrix.json`.
+
 ## 2026-11-22 - ML4T "Crypto Perpetuals Funding": libro de funding a ocho horas, veredicto MECHANISM WITHOUT EDGE
 
 El caso de ML4T supone un libro cross-sectional largo-corto sobre diecinueve
