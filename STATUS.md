@@ -1,5 +1,32 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-23 - Control de coste cero, filas 61-70 del top-100 (experimento, sin veredicto)
+
+Séptima tanda del control: **filas 61 a 70 de
+`results/top100_2026-10-31.md`** (QS-003/002/001/004 JUP, S02 y S03 HYPE en
+un mismo artefacto, ds7 SPX, QS-001 SOL 15m, ds5 LINK, F75-15m SUI). Diez
+libros, dieciocho artefactos únicos (dos pares BASE/ZERO compartidos y
+reutilizados de la tanda anterior, más una re-corrida costada), todos
+`verify` bit a bit (`_zerocost_rows61_70_verify.txt`).
+
+- **Sin switches nuevos ni ediciones de engine.** `qs`, `cbpackf`, `pack100`,
+  `dspack` y `dspack2` ya exponían sus controles (este último reutiliza las
+  mismas `COST_PRESETS` que `dspack`).
+- **Dos espejos de la pregunta de coste:** ds5 se publicó a `costs=author`
+  (coste cero) y su re-corrida costada paga fees reales; ds7 se publicó a
+  `repo6x5` y casi cuadruplica su línea neta al pasar a `author`. Los pares de
+  run_ids están citados en el informe.
+- **Auditoría `code/_zerocost_rows61_70_audit.py` 45/45**: recomputación
+  independiente con módulos frescos para cada adaptador, referencias propias
+  de los engines y semántica de reproducción con deriva declarada.
+- **Tres celdas `qs` cambian el número de trades** (QS-002 JUP 242 → 241,
+  QS-001 SOL 15m 206 → 203, QS-004 JUP 216 → 215): dispositivos de riesgo
+  dependientes del equity, declarados fila por fila.
+- Informe `results/zerocost_rows61_70_report_2026-11-23.md`
+  (`guard --strict` OK); pre-registro
+  `results/zerocost_rows61_70_pre_registration.md`; matriz
+  `results/zerocost_rows61_70_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 51-60 del top-100 (experimento, sin veredicto)
 
 Sexta tanda del control: **filas 51 a 60 de

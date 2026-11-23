@@ -307,3 +307,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_rows51_60_report_2026-11-23.md` | las filas 51-60 de `top100_2026-10-31.md` (P08 ETH, QS-009 SUI, S10 SUI/HYPE, QS-006 ETH, S07 ETH, C44-1h ETH, ds3 SOL, QS-003 SOL, MP-V3-S10 PORTFOLIO) re-corridas dos veces sobre el mismo corte congelado, sin aplicar gates; ds3 se publicó con `repo6x5` (régimen costado), así que su ZERO usa el preset `author` del engine; switch aditivo nuevo en `vrun.py` para `pack50d` y opción `funding_signal` para `cbpackf` (la señal de S07 lee la columna de funding, que se conserva sin cobrar); deriva de engine de los artefactos de ranking anterior al audit-fix declarada; veinte artefactos verify bit a bit; pre-registro `zerocost_rows51_60_pre_registration.md` con addenda, matriz `zerocost_rows51_60_matrix.json`, auditoría `code/_zerocost_rows51_60_audit.py` (50/50) | **OK (strict)** |
+
+## Control de coste cero sobre las filas 61-70 del top-100 (2026-11-23) — experimento, sin veredicto
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `zerocost_rows61_70_report_2026-11-23.md` | las filas 61-70 de `top100_2026-10-31.md` (QS-003/002/001/004 JUP, S02 y S03 HYPE en un mismo artefacto `cbpackf`, ds7 SPX, QS-001 SOL 15m, ds5 LINK, F75-15m SUI) re-corridas dos veces sobre el mismo corte congelado, sin aplicar gates; ds5 se publicó a coste cero (`author`, su BASE y ZERO comparten artefacto y su corrida informativa es la COSTADA), ds7 se publicó a `repo6x5`; los artefactos HYPE se reutilizan de la tanda anterior; dieciocho artefactos únicos verify bit a bit; pre-registro `zerocost_rows61_70_pre_registration.md`, matriz `zerocost_rows61_70_matrix.json`, auditoría `code/_zerocost_rows61_70_audit.py` (45/45) | **OK (strict)** |
