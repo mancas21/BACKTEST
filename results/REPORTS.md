@@ -331,3 +331,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `zerocost_rows91_100_report_2026-11-23.md` | las filas 91-100 de `top100_2026-10-31.md` (S07/S09 SUI, ds7 DOGE/SOL/NEAR, QS-002 HYPE, ds1 NEAR/LINK/SUI, QS-044 SOL con adaptador `qsf`) re-corridas dos veces sobre el mismo corte congelado, sin aplicar gates; S07 conserva la columna de funding como señal pero no la cobra; diecinueve artefactos únicos verify bit a bit; pre-registro `zerocost_rows91_100_pre_registration.md`, matriz `zerocost_rows91_100_matrix.json`, auditoría `code/_zerocost_rows91_100_audit.py` (43/43) | **OK (strict)** |
+
+## EMA×VWAP 50-Strategy Suite (2026-11-25) — familia nueva, veredicto propio
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `emavwap50_report_2026-11-25.md` | suite adjunta de 50 variantes EMA×VWAP, portada a Python desde una especificación en lenguaje natural (sin código); un par por fila (BTCUSDT) por decisión del usuario; veintiséis filas ejecutables con artefacto verify bit a bit, el resto NO DATA declarado (TFs sin CSV, OI/basis/liquidaciones/BTC.D); costes repo 11 bps + funding real, controles autor y coste cero dentro de cada artefacto; cero pases, veintidós KILLED y cuatro NO VERDICT; pre-registro `emavwap50_pre_registration.md`, matriz `emavwap50_matrix.json`, auditoría `code/_emavwap50_audit.py` (21/21) | **OK (strict)** |

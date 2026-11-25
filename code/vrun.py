@@ -2806,6 +2806,34 @@ def run_top10(paths, params):
     return m.run(paths, dict(params))
 
 
+def run_emavwap50(paths, params):
+    """EMA×VWAP 50-Strategy Suite (attached natural-language spec), one
+    artifact per numbered row on BTCUSDT. Signal conventions, costs and
+    funding are declared in results/emavwap50_pre_registration.md; known
+    answers in code/_emavwap50_audit.py. Rows whose timeframe has no native
+    CSV or whose outside data is unavailable are refused as NO DATA."""
+    sys.path.insert(0, CODE)
+    import importlib
+    m = importlib.import_module("emavwap50_engine")
+    return m.run_one(paths, dict(params))
+
+
+def _emavwap50_inputs(tf, sym, params):
+    # full-history native dirs; the harness TF_DIR["5m"] is a 30-day stub,
+    # so the real 5m history lives in data/binance_klines_5m instead.
+    real_dir = {"1m": "binance_klines_1m", "5m": "binance_klines_5m",
+                "15m": "binance_klines_15m", "1h": "binance_klines_1h",
+                "1d": "binance_klines_1d"}[tf]
+    if int(params.get("id", 0)) in (31, 33):
+        # these two rows read taker flow, which only the taker CSV carries
+        real_dir += "_taker"
+    paths = [os.path.join(DATA, real_dir, f"{sym}_{tf}.csv")]
+    fp = os.path.join(DATA, "binance_funding", f"{sym}_funding.json")
+    if os.path.exists(fp):
+        paths.append(fp)
+    return paths
+
+
 def _top10_inputs(tf, sym):
     import glob
     d, suf = TF_DIR[tf]
@@ -3768,6 +3796,12 @@ ADAPTERS = {
         "version": "top10-1",
         "inputs": _top10_inputs,
         "run": run_top10, "matrix": False, "needs_tf": True,
+    },
+    "emavwap50": {
+        "sources": [os.path.join(CODE, "emavwap50_engine.py")],
+        "version": "emavwap50-1",
+        "inputs": _emavwap50_inputs, "inputs_with_params": True,
+        "run": run_emavwap50, "matrix": True, "needs_tf": True,
     },
     "cbot": {
         "sources": [os.path.join(CODE, "cbot", f) for f in

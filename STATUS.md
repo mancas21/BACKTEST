@@ -1,5 +1,32 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-25 - EMA×VWAP 50-Strategy Suite: KILLED en las filas ejecutables, sin pases
+
+Adjunto `Downloads/EMA×VWAP 50-Strategy Suite-claude.md` (50 variantes de un
+mismo esqueleto EMA×VWAP, sin código). Portado a
+`code/emavwap50_engine.py`, auditado `code/_emavwap50_audit.py` 21/21 ANTES
+de correr, y ejecutado con **un par por fila** (BTCUSDT, decisión del
+usuario): veintiséis artefactos, todos `verify` bit a bit
+(`_emavwap50_verify.txt`), informe
+`results/emavwap50_report_2026-11-25.md` (`guard --strict` OK).
+
+- **Veredicto:** cero pases. Veintidós filas KILLED y cuatro NO VERDICT por
+  muestra insuficiente. Trece de las kills pierden solo por coste (su columna
+  ZERO es positiva); las demás también pierden a coste cero, así que el coste
+  no era su problema.
+- **Mecanismo dominante: rotación.** Las celdas de 1m y 5m hacen miles de
+  trades y el RT de 11 bps se los come; el control del autor (0.04% + 1–2 bps
+  sin funding) también es negativo en casi todas, así que no es un artefacto
+  de la elección de costes del repo.
+- **NO DATA declarado:** los TFs sin CSV propio (3m, 30m, 2h, 4h, 6h, 12h) y
+  las filas que piden OI, basis, liquidaciones o BTC.D. Ninguna fue estimada
+  ni movida a otro TF.
+- **Switches/adaptador nuevos, aditivos en `vrun.py`:** `emavwap50`, con
+  resolución de inputs por params (los TFs con datos reales y los CSV taker
+  para las dos filas que leen flujo). Engines preexistentes byte-idénticos.
+- Pre-registro `results/emavwap50_pre_registration.md` y matriz
+  `results/emavwap50_matrix.json`.
+
 ## 2026-11-23 - Control de coste cero, filas 91-100 del top-100 (experimento, sin veredicto) — CIERRE
 
 Décima y última tanda: **filas 91 a 100 de
