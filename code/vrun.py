@@ -2806,6 +2806,23 @@ def run_top10(paths, params):
     return m.run(paths, dict(params))
 
 
+def run_trendmagic(paths, params):
+    """Trend Magic (Downloads/trend_magic.pine, ported to code/tm_core.py +
+    code/tm_backtest.py, byte-identical copies because Downloads/ is not
+    durable). Signal = trend_magic(mode="fixed"), execution = run_backtest
+    (next-open fill, stop-and-reverse, costs per side). See
+    code/trendmagic_engine.py for the declared conventions.
+
+    One artifact = one (symbol, timeframe, params) cell. `tf` is injected
+    into params by make_artifact but never reaches the engine.
+    """
+    import importlib
+
+    sys.path.insert(0, CODE)
+    m = importlib.import_module("trendmagic_engine")
+    return m.run_symbol(paths, dict(params))
+
+
 def run_emavwap50(paths, params):
     """EMA×VWAP 50-Strategy Suite (attached natural-language spec), one
     artifact per numbered row on BTCUSDT. Signal conventions, costs and
@@ -3796,6 +3813,25 @@ ADAPTERS = {
         "version": "top10-1",
         "inputs": _top10_inputs,
         "run": run_top10, "matrix": False, "needs_tf": True,
+    },
+    "trendmagic": {
+        # Trend Magic Enhanced (AlgoAlpha Pine v6), ported to code/tm_core.py +
+        # code/tm_backtest.py (byte-identical copies from Downloads/). mode="fixed"
+        # (audited engine; legacy reproduces the Pine v5 zero-seed bug).
+        # 11 bps RT repo costs (5 + 0.5 bps per side), next-open fill,
+        # stop-and-reverse, no funding (kline-only, declared limit).
+        # Inputs: one kline CSV per (symbol, tf); funding NOT an input.
+        "sources": [
+            os.path.join(CODE, "trendmagic_engine.py"),
+            os.path.join(CODE, "tm_core.py"),
+            os.path.join(CODE, "tm_backtest.py"),
+            os.path.join(CODE, "tm_data.py"),
+        ],
+        "version": "trendmagic-1",
+        "inputs": lambda tf, sym: [
+            os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"),
+        ],
+        "run": run_trendmagic, "matrix": True, "needs_tf": True,
     },
     "emavwap50": {
         "sources": [os.path.join(CODE, "emavwap50_engine.py")],
