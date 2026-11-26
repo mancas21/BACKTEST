@@ -2851,6 +2851,37 @@ def _emavwap50_inputs(tf, sym, params):
     return paths
 
 
+def run_nontrend50(paths, params):
+    """Non-Trend 50-Strategy Suite (#51–100): cross-sectional dollar-neutral
+    books on the declared U/T/F universes. Grid and gates are frozen in
+    results/nontrend50_pre_registration.md; audit code/_nontrend50_audit.py
+    must pass before any market number. `symbol` is a pseudo label."""
+    sys.path.insert(0, CODE)
+    import importlib
+    m = importlib.import_module("nontrend50_engine")
+    return m.run_one(paths, dict(params))
+
+
+def _nontrend50_inputs(tf, sym, params):
+    row = int(params.get("id", 0))
+    E = None
+    import importlib
+    E = importlib.import_module("nontrend50_engine")
+    universe = ("U" if (51 <= row <= 68 or 83 <= row <= 92) else
+                "T" if 69 <= row <= 76 else "F")
+    syms = (E.u_symbols() if universe == "U" else
+            E.T_SYMBOLS if universe == "T" else E.F_SYMBOLS)
+    sub = "binance_klines_5m_taker" if universe == "T" else "binance_klines_1h"
+    intv = "5m" if universe == "T" else "1h"
+    paths = [os.path.join(DATA, sub, f"{s}_{intv}.csv") for s in syms]
+    if universe in ("U", "F"):
+        paths += [os.path.join(DATA, "binance_funding", f"{s}_funding.json")
+                  for s in syms
+                  if os.path.exists(os.path.join(DATA, "binance_funding",
+                                                 f"{s}_funding.json"))]
+    return paths
+
+
 def _top10_inputs(tf, sym):
     import glob
     d, suf = TF_DIR[tf]
@@ -3832,6 +3863,12 @@ ADAPTERS = {
             os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"),
         ],
         "run": run_trendmagic, "matrix": True, "needs_tf": True,
+    },
+    "nontrend50": {
+        "sources": [os.path.join(CODE, "nontrend50_engine.py")],
+        "version": "nontrend50-1",
+        "inputs": _nontrend50_inputs, "inputs_with_params": True,
+        "run": run_nontrend50, "matrix": True, "needs_tf": True,
     },
     "emavwap50": {
         "sources": [os.path.join(CODE, "emavwap50_engine.py")],

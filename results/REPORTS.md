@@ -343,3 +343,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `emavwap50_top10_report_2026-11-25.md` | selección de diez entre las filas elegibles del suite, con criterio fijado antes de ordenar en `emavwap50_top10_criteria.md` (PF ex-cost, desempates de net %, PF test y bootstrap; ZERO mostrado pero no decisor); ninguna pasa el gate: siguen siendo KILLED y la selección no es evidencia ni resurrección; `emavwap50_top10_selection.json` | **OK (strict)** |
+
+## Non-Trend 50-Strategy Suite #51–100 (2026-11-26) — familia nueva, cero pases
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `nontrend50_report_2026-11-26.md` | suite cross-sectional de 50 filas portado desde una spec en lenguaje natural; universos U/T/F declarados, libros dollar-neutral con rank en cierre y fill en open siguiente, costes 11 bps y funding real, control #51 medido dentro de cada artefacto; treinta y nueve artefactos verify bit a bit, once NO DATA declarados (tres overlays no fieles y ocho compuestas sin sleeves que pasen); cero pases en siete gates; pre-registro `nontrend50_pre_registration.md` con addendum, matriz `nontrend50_matrix.json`, auditoría `code/_nontrend50_audit.py` (10/10) | **OK (strict)** |

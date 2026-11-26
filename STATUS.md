@@ -1,5 +1,31 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-26 - Non-Trend 50-Strategy Suite (#51–100): cero pases
+
+Adjunto `Downloads/Non-Trend 50-Strategy Suite (#51–100)-claude.md`, suite
+cross-sectional (libros dollar-neutral) con universos U/T/F. Pre-registro
+`results/nontrend50_pre_registration.md` con addendum, port a
+`code/nontrend50_engine.py`, auditoría
+`code/_nontrend50_audit.py` 10/10 ANTES de mercado, treinta y nueve
+artefactos verify bit a bit (`_nontrend50_verify.txt`) e informe
+`results/nontrend50_report_2026-11-26.md` (`guard --strict` OK).
+
+- **Cero pases** en la batería de siete gates. El mejor conteo fue tres de
+  siete; ningún PF supera de forma consistente el suelo con muestra y
+  estabilidad suficientes. #51 (control MP-18) tampoco pasa en esta ventana
+  y se reporta como referencia, no como estrategia validada.
+- **Once filas NO DATA declaradas**: tres overlays sin fidelidad suficiente
+  (65 beta-neutral, 66 stop por pierna, 68 liquidez) y las ocho compuestas
+  (#93–100), que el propio adjunto solo permite si sus sleeves pasan gates.
+- **Universos honestos:** el adjunto dice 17/7/8 símbolos; el repo tiene hoy
+  más perps 1h, se usan los reales y el número exacto queda dentro de cada
+  artefacto (`symbols`). El octeto de funding se fijó por escrito.
+- **Aproximaciones declaradas** en el informe para las filas 58, 59, 63, 64,
+  67, 72, 73, 75 y 76: sus cifras describen lo que realmente se ejecutó, no
+  una lectura literal de cada frase del adjunto.
+- Adapter aditivo `nontrend50` en `vrun.py`; engines preexistentes
+  byte-idénticos; matriz `results/nontrend50_matrix.json`.
+
 ## 2026-11-25 - EMA×VWAP Suite: las diez "mejores" filas son las menos malas
 
 Selección post-hoc pedida por el usuario sobre el suite recién backtesteado.
