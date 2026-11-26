@@ -1,0 +1,538 @@
+{
+ "campaign": "emavwapv2-2026-11-26",
+ "cells": {
+  "101": {
+   "run_id": "2d2d6143e37ac4e3",
+   "tf": "3m",
+   "artifact": "results/runs/2d2d6143e37ac4e3.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "102": {
+   "run_id": "c0cfe501bf0eefea",
+   "tf": "3m",
+   "artifact": "results/runs/c0cfe501bf0eefea.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "103": {
+   "run_id": "5e7e81d78bacc443",
+   "tf": "3m",
+   "artifact": "results/runs/5e7e81d78bacc443.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "104": {
+   "run_id": "13c6f88fdb4b350a",
+   "tf": "5m",
+   "artifact": "results/runs/13c6f88fdb4b350a.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "105": {
+   "run_id": "56e740c56377a260",
+   "tf": "5m",
+   "artifact": "results/runs/56e740c56377a260.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "106": {
+   "run_id": "a7fd349ba216d1a4",
+   "tf": "5m",
+   "artifact": "results/runs/a7fd349ba216d1a4.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "107": {
+   "run_id": "3c1dd0be8b9c2c89",
+   "tf": "15m",
+   "artifact": "results/runs/3c1dd0be8b9c2c89.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "108": {
+   "run_id": "392abe760e78bac7",
+   "tf": "15m",
+   "artifact": "results/runs/392abe760e78bac7.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "109": {
+   "run_id": "e917bae1687e836e",
+   "tf": "1h",
+   "artifact": "results/runs/e917bae1687e836e.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "110": {
+   "run_id": "9ca7890718cfab39",
+   "tf": "3m",
+   "artifact": "results/runs/9ca7890718cfab39.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "111": {
+   "run_id": "0157dd42eb435e07",
+   "tf": "3m",
+   "artifact": "results/runs/0157dd42eb435e07.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "112": {
+   "run_id": "f25ab3ab53b5ba43",
+   "tf": "3m",
+   "artifact": "results/runs/f25ab3ab53b5ba43.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "113": {
+   "run_id": "552b52b9fc06b753",
+   "tf": "5m",
+   "artifact": "results/runs/552b52b9fc06b753.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "114": {
+   "run_id": "7a0f7c193dcd8fa6",
+   "tf": "5m",
+   "artifact": "results/runs/7a0f7c193dcd8fa6.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "115": {
+   "run_id": "60a7762c3cea17b0",
+   "tf": "5m",
+   "artifact": "results/runs/60a7762c3cea17b0.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "116": {
+   "run_id": "1a49a68921a52d7c",
+   "tf": "15m",
+   "artifact": "results/runs/1a49a68921a52d7c.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "117": {
+   "run_id": "2b31baad1a4a2d9f",
+   "tf": "15m",
+   "artifact": "results/runs/2b31baad1a4a2d9f.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "118": {
+   "run_id": "b34c8f55452cc343",
+   "tf": "15m",
+   "artifact": "results/runs/b34c8f55452cc343.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "119": {
+   "run_id": "36903148ead60933",
+   "tf": "1h",
+   "artifact": "results/runs/36903148ead60933.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "120": {
+   "run_id": "da04af670a0a5baf",
+   "tf": "1h",
+   "artifact": "results/runs/da04af670a0a5baf.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "121": {
+   "run_id": "91584cee228201d5",
+   "tf": "3m",
+   "artifact": "results/runs/91584cee228201d5.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "122": {
+   "run_id": "5607148b6df22063",
+   "tf": "5m",
+   "artifact": "results/runs/5607148b6df22063.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "123": {
+   "run_id": "4a54d19e9b48366b",
+   "tf": "15m",
+   "artifact": "results/runs/4a54d19e9b48366b.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "124": {
+   "run_id": "4ee302b62b55c76d",
+   "tf": "1h",
+   "artifact": "results/runs/4ee302b62b55c76d.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "125": {
+   "run_id": "028c0106df9c1058",
+   "tf": "5m",
+   "artifact": "results/runs/028c0106df9c1058.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "126": {
+   "run_id": "ddf700986583685a",
+   "tf": "15m",
+   "artifact": "results/runs/ddf700986583685a.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "127": {
+   "run_id": "d33bbf47639d39a6",
+   "tf": "15m",
+   "artifact": "results/runs/d33bbf47639d39a6.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "128": {
+   "run_id": "55ea0e23b4d2e3d4",
+   "tf": "1h",
+   "artifact": "results/runs/55ea0e23b4d2e3d4.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "129": {
+   "run_id": "94293d80cc24d505",
+   "tf": "3m",
+   "artifact": "results/runs/94293d80cc24d505.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "130": {
+   "run_id": "f9aaae02313deccc",
+   "tf": "5m",
+   "artifact": "results/runs/f9aaae02313deccc.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "131": {
+   "run_id": "11e3aa61a4af4f72",
+   "tf": "5m",
+   "artifact": "results/runs/11e3aa61a4af4f72.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "132": {
+   "run_id": "e95307b58717cac8",
+   "tf": "15m",
+   "artifact": "results/runs/e95307b58717cac8.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "133": {
+   "run_id": "0428f97136646f38",
+   "tf": "15m",
+   "artifact": "results/runs/0428f97136646f38.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "134": {
+   "run_id": "a2c79c076a4bbcad",
+   "tf": "1h",
+   "artifact": "results/runs/a2c79c076a4bbcad.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "135": {
+   "run_id": "a3d4bedc5c4ff7d0",
+   "tf": "3m",
+   "artifact": "results/runs/a3d4bedc5c4ff7d0.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "136": {
+   "run_id": "f05866a1fa00347b",
+   "tf": "3m",
+   "artifact": "results/runs/f05866a1fa00347b.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "137": {
+   "run_id": "3c0b2713405f1f56",
+   "tf": "5m",
+   "artifact": "results/runs/3c0b2713405f1f56.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "138": {
+   "run_id": "fa2624f7f24b86dc",
+   "tf": "5m",
+   "artifact": "results/runs/fa2624f7f24b86dc.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "139": {
+   "run_id": "131800c7c007bb30",
+   "tf": "15m",
+   "artifact": "results/runs/131800c7c007bb30.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "140": {
+   "run_id": "9a9db28ca13b68b1",
+   "tf": "1h",
+   "artifact": "results/runs/9a9db28ca13b68b1.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "141": {
+   "run_id": "60df52cf1f901948",
+   "tf": "3m",
+   "artifact": "results/runs/60df52cf1f901948.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "142": {
+   "run_id": "38d7b9f824af91c9",
+   "tf": "3m",
+   "artifact": "results/runs/38d7b9f824af91c9.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "143": {
+   "run_id": "42e27ec09f2768c3",
+   "tf": "5m",
+   "artifact": "results/runs/42e27ec09f2768c3.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "144": {
+   "run_id": "3db7c853f55f2b21",
+   "tf": "5m",
+   "artifact": "results/runs/3db7c853f55f2b21.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "145": {
+   "run_id": "ef399e5e882989da",
+   "tf": "5m",
+   "artifact": "results/runs/ef399e5e882989da.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_5m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "146": {
+   "run_id": "deda6dc67d201f07",
+   "tf": "15m",
+   "artifact": "results/runs/deda6dc67d201f07.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": true
+  },
+  "147": {
+   "run_id": "984cad641e12e1a8",
+   "tf": "15m",
+   "artifact": "results/runs/984cad641e12e1a8.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_15m.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  },
+  "150": {
+   "run_id": "2b9f2c5a588f97b0",
+   "tf": "1h",
+   "artifact": "results/runs/2b9f2c5a588f97b0.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "BTCUSDT_1h.csv",
+    "BTCUSDT_funding.json"
+   ],
+   "gate_pass": false
+  }
+ },
+ "no_data": {
+  "148": "cross-sectional selector book not faithfully implemented",
+  "149": "cross-sectional selector book not faithfully implemented"
+ },
+ "note": "see results/emavwapv2_pre_registration.md"
+}

@@ -2851,6 +2851,27 @@ def _emavwap50_inputs(tf, sym, params):
     return paths
 
 
+def run_emavwapv2(paths, params):
+    """EMA×VWAP Suite 2 (#101–150), one BTCUSDT cell per row. 3m rows are
+    served the 1m file and resampled inside the declared engine. Grid and
+    control are in results/emavwapv2_pre_registration.md; audit
+    code/_emavwapv2_audit.py runs before any market number."""
+    sys.path.insert(0, CODE)
+    import importlib
+    m = importlib.import_module("emavwapv2_engine")
+    return m.run_one(paths, dict(params))
+
+
+def _emavwapv2_inputs(tf, sym):
+    real = "1m" if tf == "3m" else tf
+    d, suf = TF_DIR[real]
+    paths = [os.path.join(d, f"{sym}_{suf}.csv")]
+    fp = os.path.join(DATA, "binance_funding", f"{sym}_funding.json")
+    if os.path.exists(fp):
+        paths.append(fp)
+    return paths
+
+
 def run_nontrend50(paths, params):
     """Non-Trend 50-Strategy Suite (#51–100): cross-sectional dollar-neutral
     books on the declared U/T/F universes. Grid and gates are frozen in
@@ -3863,6 +3884,13 @@ ADAPTERS = {
             os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"),
         ],
         "run": run_trendmagic, "matrix": True, "needs_tf": True,
+    },
+    "emavwapv2": {
+        "sources": [os.path.join(CODE, "emavwapv2_engine.py"),
+                    os.path.join(CODE, "emavwap50_engine.py")],
+        "version": "emavwapv2-1",
+        "inputs": _emavwapv2_inputs,
+        "run": run_emavwapv2, "matrix": True, "needs_tf": True,
     },
     "nontrend50": {
         "sources": [os.path.join(CODE, "nontrend50_engine.py")],

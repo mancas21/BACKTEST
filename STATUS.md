@@ -1,5 +1,31 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-26 - EMA×VWAP Suite 2 (#101–150): cero pases válidos, una celda en cuarentena
+
+Adjunto `Downloads/EMA×VWAP Suite 2 (#101–150)-claude.md`, mismo esqueleto
+que la Suite 1 con 50 variantes nuevas. Un par por fila (BTCUSDT) por decisión
+del usuario; 3m derivado de 1m (declarado), 5m/15m/1h nativos. Pre-registro
+`results/emavwapv2_pre_registration.md` con addendum, engine
+`code/emavwapv2_engine.py` (reutiliza los primitivos auditados de la Suite 1),
+auditoría `code/_emavwapv2_audit.py` 8/8 antes de mercado, cuarenta y ocho
+artefactos verify bit a bit e informe
+`results/emavwapv2_report_2026-11-26.md` (`guard --strict` OK).
+
+- **Cero pases válidos:** cuarenta y cinco KILLED y dos NO VERDICT por no
+  tener trades. La celda 146 (long-only) tuvo los siete gates en verde y un
+  net astronómico, pero es aritmética de compounding a equity completa sobre
+  miles de trades: se pone en **CUARENTENA**, no se promociona sin re-correrla
+  con sizing de 1% de riesgo.
+- El control (esqueleto sin cambios, calculado dentro de cada artefacto) es
+  fuertemente negativo en las mismas ventanas, coherente con el 0/50 de la
+  Suite 1.
+- **Filas 148–149 NO DATA**: su libro selector cross-sectional no se
+  implementó con fidelidad; no se publica ningún número para ellas.
+- Los TFs 3m son barras derivadas de 1m, hashadas como el fichero servido;
+  las filas de inversión llevan stop ATR y time stop, y el control de fills
+  límite (#104) cuenta órdenes no ejecutadas dentro del artefacto.
+- N = 100 para el proxy DSR (50 trials de la Suite 1 + 50 de esta).
+
 ## 2026-11-26 - Non-Trend 50-Strategy Suite (#51–100): cero pases
 
 Adjunto `Downloads/Non-Trend 50-Strategy Suite (#51–100)-claude.md`, suite
