@@ -1,5 +1,23 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-25 - EMA×VWAP Suite: las diez "mejores" filas son las menos malas
+
+Selección post-hoc pedida por el usuario sobre el suite recién backtesteado.
+El criterio quedó fijo antes de ordenar en
+`results/emavwap50_top10_criteria.md`: elegibles con muestra suficiente y PF
+finito, orden por PF ex-cost y desempates de net %, PF test y bootstrap; la
+columna ZERO se muestra pero no decide. Resultado
+`results/emavwap50_top10_report_2026-11-25.md` (`guard --strict` OK) y
+`results/emavwap50_top10_selection.json`.
+
+- El primero es el row 10 (1h, PF 0.918, net −32.05 %, `a7bc50e86524c36c`);
+  ninguno supera el suelo de 1.2 y todos tienen red negativa.
+- **No es un cambio de veredicto:** las diez siguen siendo KILLED; elegir
+  entre las elegibles tras ver los resultados introduce multiplicidad y el
+  ranking no se presenta como evidencia.
+- Las dos últimas empatan en las cuatro claves; el orden de la matriz rompió
+  el empate, declarado en el informe.
+
 ## 2026-11-25 - EMA×VWAP 50-Strategy Suite: KILLED en las filas ejecutables, sin pases
 
 Adjunto `Downloads/EMA×VWAP 50-Strategy Suite-claude.md` (50 variantes de un

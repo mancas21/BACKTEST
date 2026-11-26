@@ -337,3 +337,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `emavwap50_report_2026-11-25.md` | suite adjunta de 50 variantes EMA×VWAP, portada a Python desde una especificación en lenguaje natural (sin código); un par por fila (BTCUSDT) por decisión del usuario; veintiséis filas ejecutables con artefacto verify bit a bit, el resto NO DATA declarado (TFs sin CSV, OI/basis/liquidaciones/BTC.D); costes repo 11 bps + funding real, controles autor y coste cero dentro de cada artefacto; cero pases, veintidós KILLED y cuatro NO VERDICT; pre-registro `emavwap50_pre_registration.md`, matriz `emavwap50_matrix.json`, auditoría `code/_emavwap50_audit.py` (21/21) | **OK (strict)** |
+
+## Diez mejores (menos malas) filas del EMA×VWAP Suite (2026-11-25) — selección post-hoc
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `emavwap50_top10_report_2026-11-25.md` | selección de diez entre las filas elegibles del suite, con criterio fijado antes de ordenar en `emavwap50_top10_criteria.md` (PF ex-cost, desempates de net %, PF test y bootstrap; ZERO mostrado pero no decisor); ninguna pasa el gate: siguen siendo KILLED y la selección no es evidencia ni resurrección; `emavwap50_top10_selection.json` | **OK (strict)** |

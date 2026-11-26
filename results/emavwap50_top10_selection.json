@@ -1,0 +1,57 @@
+{
+ "criteria": "results/emavwap50_top10_criteria.md",
+ "eligible_n": 22,
+ "top": [
+  {
+   "row": 10,
+   "tf": "1h",
+   "run_id": "a7bc50e86524c36c"
+  },
+  {
+   "row": 8,
+   "tf": "15m",
+   "run_id": "9a3a743c9df89999"
+  },
+  {
+   "row": 15,
+   "tf": "15m",
+   "run_id": "61b483ec285ed7d7"
+  },
+  {
+   "row": 42,
+   "tf": "5m",
+   "run_id": "502cfdf5f700e415"
+  },
+  {
+   "row": 7,
+   "tf": "15m",
+   "run_id": "65436d450ad2a5aa"
+  },
+  {
+   "row": 23,
+   "tf": "1h",
+   "run_id": "a72a9414e3e9f771"
+  },
+  {
+   "row": 21,
+   "tf": "15m",
+   "run_id": "6f3ffcb2e101ce47"
+  },
+  {
+   "row": 14,
+   "tf": "15m",
+   "run_id": "380c732ccc45420c"
+  },
+  {
+   "row": 6,
+   "tf": "15m",
+   "run_id": "5e8dad13b9025034"
+  },
+  {
+   "row": 20,
+   "tf": "15m",
+   "run_id": "e406ac71686b5ee1"
+  }
+ ],
+ "note": "post-hoc ranking of a killed family; least-bad, not validated and not alpha evidence"
+}
