@@ -1,0 +1,17 @@
+{
+ "campaign": "mtftopdown-2026-11-26",
+ "cells": [
+  {
+   "run_id": "787fb4b3c52450bf",
+   "params": {
+    "costs": "repo"
+   },
+   "artifact": "results/runs/787fb4b3c52450bf.json",
+   "cut_ts": "2026-11-26T00:00:00+00:00",
+   "inputs": [
+    "SOLUSDT_5m.csv",
+    "SOLUSDT_funding.json"
+   ]
+  }
+ ]
+}

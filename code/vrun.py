@@ -2851,6 +2851,22 @@ def _emavwap50_inputs(tf, sym, params):
     return paths
 
 
+def run_mtftopdown(paths, params):
+    """MTF top-down (attached Python source) on a 5m base. The signal is
+    imported by identity from the byte-identical source copy; this adapter
+    only declares repo costs/funding and binds the source hash. See
+    results/mtf_topdown_pre_registration.md and code/_mtf_topdown_audit.py."""
+    sys.path.insert(0, CODE)
+    import importlib
+    m = importlib.import_module("mtf_topdown_engine")
+    return m.run_one(paths, dict(params))
+
+
+def _mtftopdown_inputs(tf, sym):
+    return [os.path.join(DATA, "binance_klines_5m", f"{sym}_5m.csv"),
+            os.path.join(DATA, "binance_funding", f"{sym}_funding.json")]
+
+
 def run_emavwapv2(paths, params):
     """EMA×VWAP Suite 2 (#101–150), one BTCUSDT cell per row. 3m rows are
     served the 1m file and resampled inside the declared engine. Grid and
@@ -3884,6 +3900,13 @@ ADAPTERS = {
             os.path.join(TF_DIR[tf][0], f"{sym}_{TF_DIR[tf][1]}.csv"),
         ],
         "run": run_trendmagic, "matrix": True, "needs_tf": True,
+    },
+    "mtftopdown": {
+        "sources": [os.path.join(CODE, "mtf_topdown_engine.py"),
+                    os.path.join(CODE, "mtf_topdown_source.py")],
+        "version": "mtftopdown-1",
+        "inputs": _mtftopdown_inputs,
+        "run": run_mtftopdown, "matrix": False, "needs_tf": True,
     },
     "emavwapv2": {
         "sources": [os.path.join(CODE, "emavwapv2_engine.py"),

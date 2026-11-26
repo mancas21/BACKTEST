@@ -355,3 +355,9 @@ hayan crecido después del corte.
 | Informe | Qué | Guard hoy |
 |---|---|---|
 | `emavwapv2_report_2026-11-26.md` | 50 variantes nuevas del esqueleto EMA×VWAP, un par por fila (BTCUSDT), 3m resampleado de 1m y TFs nativos para el resto; control del esqueleto sin cambios medido dentro de cada artefacto; cuarenta y ocho artefactos verify bit a bit, filas 148–149 NO DATA; cuarenta y cinco KILLED, dos NO VERDICT y una celda (long-only) en CUARENTENA por compounding a equity completa con net astronómico; pre-registro `emavwapv2_pre_registration.md`, matriz `emavwapv2_matrix.json`, auditoría `code/_emavwapv2_audit.py` (8/8) | **OK (strict)** |
+
+## MTF top-down strategy (2026-11-26) — fuente Python, KILLED
+
+| Informe | Qué | Guard hoy |
+|---|---|---|
+| `mtf_topdown_report_2026-11-26.md` | strategy Python adjunta copiada byte-idéntica a `code/mtf_topdown_source.py`, señal importada por identidad y ejecución repo (11 bps + funding real); auditoría 9/9 con causalidad del propio source y paridad trade a trade; SOLUSDT 5m, un artefacto verify, net −38.52 %, ZERO −9.74 %, B&H +2626.59 %; KILLED; pre-registro `mtf_topdown_pre_registration.md`, matriz `mtf_topdown_matrix.json` | **OK (strict)** |

@@ -1,5 +1,24 @@
 # Backtest System - Estado al 2026-09-26
 
+## 2026-11-26 - MTF top-down (adjunto Python): KILLED en SOLUSDT 5m
+
+Adjunto `Downloads/mtf_topdown-strategy-claude.py`, motor Python completo.
+Copia byte-idéntica `code/mtf_topdown_source.py`
+(sha `833aedf770bad9c3f...`), importada por identidad; el harness solo
+añade costes repo y funding. Pre-registro
+`results/mtf_topdown_pre_registration.md`, auditoría
+`code/_mtf_topdown_audit.py` 9/9 antes de mercado: hash, causalidad propia
+del source, paridad trade a trade con el engine del source, ambos sentidos,
+signo de funding e identidad contable.
+
+- **Un artefacto** (`787fb4b3c52450bf`), verify OK; informe
+  `results/mtf_topdown_report_2026-11-26.md` (`guard --strict` OK).
+- Net −38.52 %, PF 0.818, 353 trades, control ZERO −9.74 % (sigue perdiendo),
+  author −38.11 %, B&H +2626.59 %: no es kill solo de costes; la señal no
+  supera al simply-hold.
+- Se corrió solo SOLUSDT por decisión del usuario, sin grid ni tuning; la
+  dirección larga/corta del source quedó intacta.
+
 ## 2026-11-26 - EMA×VWAP Suite 2 (#101–150): cero pases válidos, una celda en cuarentena
 
 Adjunto `Downloads/EMA×VWAP Suite 2 (#101–150)-claude.md`, mismo esqueleto
