@@ -76,11 +76,16 @@ art_none = {"metrics": {"profit_factor": 1.5, "n_trades": 200}, "tables": []}
 g_none = vrun.compute_gates_v2(art_none)
 check("F1 fail-closed when no v2 schema", g_none["pass"] is False and g_none["available"] is False,
       g_none.get("reason", ""))
-art_block = {"gates_v2": {"backtest_pass": True, "policy_hash": "x"}}
+import _gates_v2 as _GV2_for_test
+art_block = {"gates_v2": {"backtest_pass": True, "policy_hash": _GV2_for_test.policy_hash()}}
 g_block = vrun.compute_gates_v2(art_block)
 check("F1 honors gates_v2 block (pass)", g_block["pass"] is True and g_block["available"] is True)
 art_block_fail = {"gates_v2": {"backtest_pass": False}}
 check("F1 honors gates_v2 block (fail)", vrun.compute_gates_v2(art_block_fail)["pass"] is False)
+art_block_stale = {"gates_v2": {"backtest_pass": True, "policy_hash": "x"}}
+g_stale = vrun.compute_gates_v2(art_block_stale)
+check("N8 stale policy_hash refused", g_stale["pass"] is False and g_stale.get("stale_policy") is True,
+      g_stale.get("reason", ""))
 
 # ── F5: guard --strict binds numbers to the run_id cited ON THE LINE ──
 # Two synthetic artifacts, same symbol, different PF. A row citing A must not
